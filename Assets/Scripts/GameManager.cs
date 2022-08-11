@@ -7,6 +7,6 @@ public class GameManager : MonoBehaviour
     public BattleManager battleManager;
 
     void Start(){
-        battleManager.BattleStart();
+        battleManager.Battle();
     }
 }
