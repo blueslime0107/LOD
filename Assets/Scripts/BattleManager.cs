@@ -7,13 +7,22 @@ public class BattleManager : MonoBehaviour
     public GameManager gameManager;
     public UI ui;
     public List<Dice> dices = new List<Dice>();
-    public List<Dice_Indi> dice_char = new List<Dice_Indi>();
+    public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
+    public List<Player> players = new List<Player>();
 
     public bool battle_ready;
     public bool battle_start;
+    public bool battle_end = false;
 
     public void Battle(){
         StartCoroutine("BattleMain");
+    }
+
+    void Update(){
+        for(int i = 0;i <6;i++){
+            ui.hpText[i].text = players[i].health.ToString();
+        }
+        
     }
 
     IEnumerator BattleMain() {   
@@ -26,12 +35,23 @@ public class BattleManager : MonoBehaviour
                     break;
                 yield return null;
             }
-            while(true){
+            while(!battle_start){
                 DiceNumberCheck();
-                if(battle_start)
+                yield return null;
+            }
+            while(!battle_end){
+                BattleEndCheck();
+                if(battle_end)
                     break;
                 yield return null;
             }
+            //yield return new WaitForSeconds(1f);
+            for(int i = 0; i< dices.Count; i++)
+                dices[i].diceReroll();
+            for(int i = 0; i< dices.Count; i++)
+                dice_indis[i].isDiced = false;
+            battle_start = false;
+            battle_end = false;
             
         }             
     }
@@ -42,28 +62,23 @@ public class BattleManager : MonoBehaviour
     }
 
     void DiceNumberCheck(){
-        if(!battle_ready){
-            if(dice_char[0].dice_value > 0 && dice_char[1].dice_value > 0 && dice_char[2].dice_value > 0 &&
-            dice_char[3].dice_value > 0 && dice_char[4].dice_value > 0 && dice_char[5].dice_value > 0){
-                battle_ready =  true;
-            }
-            else{
-                battle_ready = false;
-            }
+        if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
+        players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+            battle_ready =  true;
         }
+        
         
     }
 
     void BattleEndCheck(){
-        if(!battle_ready){
-            if(dice_char[0].dice_value > 0 && dice_char[1].dice_value > 0 && dice_char[2].dice_value > 0 &&
-            dice_char[3].dice_value > 0 && dice_char[4].dice_value > 0 && dice_char[5].dice_value > 0){
-                battle_ready =  true;
-            }
-            else{
-                battle_ready = false;
-            }
+        if(!battle_end){
+            if(players[0].dice <= 0 && players[1].dice  <= 0 && players[2].dice <= 0 &&
+            players[3].dice <= 0 && players[4].dice <= 0 && players[5].dice <= 0){
+                battle_end =  true;
         }
+        }
+        
+        
         
     }
 

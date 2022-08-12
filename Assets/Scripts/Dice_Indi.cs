@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dice_Indi : MonoBehaviour
 {
+    public int dice_num;
+
     public BattleManager battleManager;
     public BattleCaculate battleCaculate;
     public Sprite[] dice_img;
@@ -11,16 +13,26 @@ public class Dice_Indi : MonoBehaviour
     public int dice_value;
     Vector3 saved_pos;
 
-    GameObject target;
+    int target;
+    bool targetSelected;
+
     SpriteRenderer render;
+    public Player player;
     public LineRenderer lineRender;
     void Awake() {
         render = GetComponent<SpriteRenderer>();
     }
 
-    public void setDice(int value){
+    public void putDice(int value){
+        player.dice = value;
         dice_value = value;
         isDiced = true;
+        render.sprite = dice_img[value];
+    }
+
+    public void setDice(int value){
+        player.dice = value;
+        dice_value = value;
         render.sprite = dice_img[value];
     }
 
@@ -45,16 +57,31 @@ public class Dice_Indi : MonoBehaviour
         transform.position = saved_pos;
         lineRender.SetPosition(1, Vector3.zero);
         lineRender.SetPosition(0, Vector3.zero); 
-        battleCaculate.BattleMatch(gameObject,target);      
+        if(targetSelected){
+            battleCaculate.BattleMatch(dice_num,target); 
+        }
+             
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(gameObject.tag == "Team1" && collider.gameObject.tag == "Team2"){
-            Debug.Log(collider.gameObject);
-            target = collider.gameObject;
+            target = int.Parse(collider.gameObject.name.Substring(0,1));  
+                      
+            targetSelected = true;
         }
         if(gameObject.tag == "Team2" && collider.gameObject.tag == "Team1"){
-            target = collider.gameObject;
+            target = int.Parse(collider.gameObject.name.Substring(0,1));          
+            targetSelected = true;
         }
     }
+
+    void OnTriggerExit2D(Collider2D collider) {
+        if(gameObject.tag == "Team1" && collider.gameObject.tag == "Team2"){
+            targetSelected = false;
+        }
+        if(gameObject.tag == "Team2" && collider.gameObject.tag == "Team1"){
+            targetSelected = false;
+        }
+    }
+
 }

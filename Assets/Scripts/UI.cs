@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public Button battleStartButton;
+    public Text[] hpText;
 
     void Awake(){
         Debug.Log(battleStartButton.enabled);

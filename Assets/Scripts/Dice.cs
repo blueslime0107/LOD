@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
-    public int dice_code = 0;
     public int dice_value;
 
-    bool chartouch;
+    public bool chartouch;
     GameObject charTarget;
 
     public Sprite[] dice_img;
@@ -34,7 +33,7 @@ public class Dice : MonoBehaviour
         if(chartouch){
             Dice_Indi dice_im = charTarget.GetComponent<Dice_Indi>();
             if(!dice_im.isDiced){
-                dice_im.setDice(dice_value);
+                dice_im.putDice(dice_value);
                 gameObject.SetActive(false);
             }
                 
@@ -54,4 +53,10 @@ public class Dice : MonoBehaviour
         if(other.gameObject.tag == gameObject.tag)
             chartouch = false;
     }
+
+    public void diceReroll(){
+        gameObject.SetActive(true);
+    }
+
+    
 }
