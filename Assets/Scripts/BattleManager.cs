@@ -10,9 +10,14 @@ public class BattleManager : MonoBehaviour
     public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
     public List<Player> players = new List<Player>();
 
+    public GameObject cardViewer;
+
     public bool battle_ready;
     public bool battle_start;
     public bool battle_end = false;
+
+    public int card_draw = 0;
+    public bool card_gived = false;
 
     public void Battle(){
         StartCoroutine("BattleMain");
@@ -26,60 +31,85 @@ public class BattleManager : MonoBehaviour
     }
 
     IEnumerator BattleMain() {   
-        while(true){
+        while(true){ // 계속반복
             yield return new WaitForSeconds(1f);
-            DiceRoll();
-            while(true){
-                DiceNumberCheck();
+            DiceRoll(); // 주사위를 굴린다
+            MakeADummy(true);
+            while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
+                if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
+                players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                    battle_ready =  true;
+                }
                 if(battle_start)
                     break;
                 yield return null;
             }
-            while(!battle_start){
-                DiceNumberCheck();
-                yield return null;
-            }
-            while(!battle_end){
-                BattleEndCheck();
+            MakeADummy(false);
+            while(!battle_end){ // 모든 캐릭터에게 주사위가 없으면 진행
+                if(!battle_end){
+                    if(players[0].dice <= 0 && players[1].dice  <= 0 && players[2].dice <= 0 &&
+                    players[3].dice <= 0 && players[4].dice <= 0 && players[5].dice <= 0){
+                        battle_end =  true;
+                    }
+                }
                 if(battle_end)
                     break;
                 yield return null;
             }
-            //yield return new WaitForSeconds(1f);
-            for(int i = 0; i< dices.Count; i++)
-                dices[i].diceReroll();
-            for(int i = 0; i< dices.Count; i++)
-                dice_indis[i].isDiced = false;
-            battle_start = false;
-            battle_end = false;
+            while(card_draw>0){
+                Card(Vector3.zero+Vector3.back,0);
+                Card(Vector3.right*5+Vector3.back,1);
+                Card(Vector3.left*5+Vector3.back,2);               
+                while(!card_gived){
+                    yield return null;
+                }
+                card_gived = false;
+            }
             
+            
+            BattlePreReset();
         }             
     }
 
+    // IEnumerator DrawCard() {
+        
+    //     Card(Vector3.zero+Vector3.back,0);
+    //     Card(Vector3.right*5+Vector3.back,1);
+    //     Card(Vector3.left*5+Vector3.back,2);
+
+
+    //     yield return null;
+    // }
+
     void DiceRoll(){
         for(int i = 0; i< dices.Count; i++)
-            dices[i].rolldice();
+            if(!players[i].died){
+                dices[i].rolldice();
+            }            
     }
 
-    void DiceNumberCheck(){
-        if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
-        players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
-            battle_ready =  true;
-        }
-        
-        
+    void MakeADummy(bool ver){
+        if(ver == true){
+            for(int i = 0; i< players.Count; i++)
+                if(players[i].died){
+                    players[i].SetDice(1);
+                }     
+        }      
+        if(ver == false){
+            for(int i = 0; i< players.Count; i++)
+                if(players[i].died){
+                    players[i].SetDice(0);
+                }     
+        }       
     }
 
-    void BattleEndCheck(){
-        if(!battle_end){
-            if(players[0].dice <= 0 && players[1].dice  <= 0 && players[2].dice <= 0 &&
-            players[3].dice <= 0 && players[4].dice <= 0 && players[5].dice <= 0){
-                battle_end =  true;
-        }
-        }
-        
-        
-        
+    void BattlePreReset(){
+        for(int i = 0; i< dices.Count; i++)
+            dices[i].diceReroll();
+        for(int i = 0; i< dices.Count; i++)
+            dice_indis[i].isDiced = false;
+        battle_start = false;
+        battle_end = false;
     }
 
     public void BattleStart(){
@@ -87,6 +117,14 @@ public class BattleManager : MonoBehaviour
             battle_start = true;
             battle_ready = false;
         }
-        
     }
+
+    void Card(Vector3 pos,int num){
+        GameObject card = Instantiate(cardViewer,pos,transform.rotation);
+        CardDraw draw = card.GetComponent<CardDraw>();
+        draw.SetImage(num);
+        draw.battleManager = this;
+    }
+
+
 }

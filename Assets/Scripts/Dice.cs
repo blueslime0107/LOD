@@ -41,7 +41,7 @@ public class Dice : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag == gameObject.tag){
             charTarget = other.gameObject; // 트리거로 받은 오브젝트는 other.gameObject
             chartouch = true;

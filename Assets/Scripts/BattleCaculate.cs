@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleCaculate : MonoBehaviour
 {
+    public BattleManager battleManager;
     public Player[] players;
     int damage;
 
@@ -16,8 +17,7 @@ public class BattleCaculate : MonoBehaviour
         
 
 
-        myChar.SetDice(0);
-        eneChar.SetDice(0);
+        
 
 
 
@@ -30,7 +30,7 @@ public class BattleCaculate : MonoBehaviour
 
 
 
-
+        MatchFin(myChar,eneChar);
 
     }
 
@@ -51,4 +51,33 @@ public class BattleCaculate : MonoBehaviour
             myChar.Damage(damage);
         }
     }
+    
+    void MatchFin(Player myChar, Player eneChar){
+        if(myChar.health <= 0){
+            myChar.YouAreDead();
+            battleManager.card_draw += 1;     // 오류의 흔적 001 : 카드가 안들어가는게 아닌 if문 1줄 생략의 오해로 인한
+            
+        }                                          //카드 추가 카운트 버그            
+        if(eneChar.health <= 0){
+            eneChar.YouAreDead();
+            battleManager.card_draw += 1;
+        }
+            
+
+
+        if(myChar.health <= 5  && myChar.card_geted){
+            Debug.Log("add");
+            battleManager.card_draw += 1;
+            myChar.card_geted = false;
+        }
+        if(eneChar.health <= 5  && eneChar.card_geted){
+            Debug.Log("add");
+            battleManager.card_draw += 1;
+            eneChar.card_geted = false;
+        }
+            
+        myChar.SetDice(0);
+        eneChar.SetDice(0);
+    }
+
 }

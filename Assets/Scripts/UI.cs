@@ -9,7 +9,7 @@ public class UI : MonoBehaviour
     public Text[] hpText;
 
     void Awake(){
-        Debug.Log(battleStartButton.enabled);
+        //Debug.Log(battleStartButton.enabled);
         
     }
 
