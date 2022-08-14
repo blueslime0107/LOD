@@ -7,8 +7,8 @@ public class CardDraw : MonoBehaviour
     [SerializeField]
     public BattleManager battleManager;
     SpriteRenderer render;
-    [SerializeField]
-    Sprite[] card_img; // 카드 이미지
+    // [SerializeField]
+    // Sprite[] card_img; // 카드 이미지
 
     Vector3 origin_size;
     Vector3 origin_position;
@@ -49,7 +49,7 @@ public class CardDraw : MonoBehaviour
     // 외부에서 실행 카드 이미지 바꾸기
     public void SetImage(int num){
         card_id = num;
-        render.sprite = card_img[num];
+        render.sprite = battleManager.cards[num].illust;
     }
 
     // 드래그 중 마우스 따라가기 크기 줄어들기
@@ -58,7 +58,7 @@ public class CardDraw : MonoBehaviour
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);  
         transform.position = objPosition;
-        transform.localScale = new Vector3(0.10f,0.10f,-1);
+        transform.localScale = new Vector3(0.05f,0.05f,0);
     }
 
     private void OnMouseExit() {

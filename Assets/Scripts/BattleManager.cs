@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     public List<Dice> dices = new List<Dice>();
     public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
     public List<Player> players = new List<Player>();
+    public List<CardAbility> cards = new List<CardAbility>();
 
     public GameObject cardViewer;
     public GameObject blackScreen;
@@ -81,8 +82,8 @@ public class BattleManager : MonoBehaviour
             }
             while(card_draw>0){
                 Card(Vector3.zero+Vector3.back,0);
-                Card(Vector3.right*5+Vector3.back,1);
-                Card(Vector3.left*5+Vector3.back,2);               
+                Card(Vector3.right*5+Vector3.back,0);
+                Card(Vector3.left*5+Vector3.back,0);               
                 while(!card_gived){
                     yield return null;
                 }
@@ -138,6 +139,11 @@ public class BattleManager : MonoBehaviour
     }
 
     public void BattleStart(){
+        for(int i = 0; i < players.Count; i++){
+            for(int j = 0; j < players[i].cards.Count; j++){
+                players[i].cards[j].MatchStarted(players[i],this);
+            }
+        }
         if(battle_ready){
             battle_start = true;
             battle_ready = false;
@@ -147,8 +153,9 @@ public class BattleManager : MonoBehaviour
     void Card(Vector3 pos,int num){
         GameObject card = Instantiate(cardViewer,pos,transform.rotation);
         CardDraw draw = card.GetComponent<CardDraw>();
-        draw.SetImage(num);
         draw.battleManager = this;
+        draw.SetImage(num);
+        
     }
 
 

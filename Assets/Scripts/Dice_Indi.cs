@@ -35,8 +35,11 @@ public class Dice_Indi : MonoBehaviour
         player.dice = value;
         player.ChangeCondition(1);
         dice_value = value;
-        isDiced = true;
+        isDiced = true;       
         render.sprite = dice_img[value];
+        for(int i = 0; i<player.cards.Count;i++){
+            player.cards[i].DiceApplyed(player);
+        }
     }
 
     public void setDice(int value){
@@ -79,26 +82,5 @@ public class Dice_Indi : MonoBehaviour
             
     }
 
-
-
-    // void OnTriggerEnter2D(Collider2D collider) {
-    //     if(gameObject.tag == "Team1" && collider.gameObject.tag == "Team2"){
-    //         target = int.Parse(collider.gameObject.name.Substring(0,1));                        
-    //         targetSelected = true;
-    //     }
-    //     if(gameObject.tag == "Team2" && collider.gameObject.tag == "Team1"){
-    //         target = int.Parse(collider.gameObject.name.Substring(0,1));          
-    //         targetSelected = true;
-    //     }
-    // }
-
-    // void OnTriggerExit2D(Collider2D collider) {
-    //     if(gameObject.tag == "Team1" && collider.gameObject.tag == "Team2"){
-    //         targetSelected = false;
-    //     }
-    //     if(gameObject.tag == "Team2" && collider.gameObject.tag == "Team1"){
-    //         targetSelected = false;
-    //     }
-    // }
 
 }

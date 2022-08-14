@@ -7,10 +7,13 @@ public class BattleCaculate : MonoBehaviour
     public GameManager gameManager;
     public BattleManager battleManager;
     public Player[] players;
-    int damage;
 
-    bool charMove = false;
-    bool cameraMove = false;
+    public List<CardAbility> my_ability = new List<CardAbility>();
+    public List<CardAbility> ene_ability = new List<CardAbility>();
+
+
+
+    public int damage;
 
     Player myChar;
     Player eneChar;
@@ -27,6 +30,9 @@ public class BattleCaculate : MonoBehaviour
         myChar = players[selfnum-1];
         eneChar = players[enenum-1];
         myOriginPos = players[myNum].transform.position;
+
+        my_ability = myChar.cards;
+        ene_ability = eneChar.cards;
 
         myChar.transform.position += Vector3.back;
         eneChar.transform.position += Vector3.back;
@@ -75,15 +81,25 @@ public class BattleCaculate : MonoBehaviour
     void BasicAttack(){
         damage = myChar.dice - eneChar.dice;
         if(damage>0){
+
+            for(int i = 0; i<my_ability.Count;i++){
+                my_ability[i].OnBattleWin(this);
+            }
+
+
+
             myChar.ChangeCondition(3);
             eneChar.ChangeCondition(4);
-            eneChar.Damage(damage);
+            Damage(myChar,eneChar);
         }
         if(damage<0){
-            myChar.ChangeCondition(4);
-            eneChar.ChangeCondition(3);
             damage = -damage;
-            myChar.Damage(damage);
+            for(int i = 0; i<ene_ability.Count;i++){
+                ene_ability[i].OnBattleWin(this);
+            }
+            myChar.ChangeCondition(4);
+            eneChar.ChangeCondition(3);            
+            Damage(eneChar,myChar);
         }
         if(damage == 0){
             myChar.ChangeCondition(3);
@@ -125,4 +141,13 @@ public class BattleCaculate : MonoBehaviour
         eneChar.transform.position += Vector3.forward;
     }
 
+    void Damage(Player attack, Player defender){
+        for(int i = 0; i<attack.cards.Count; i++){
+                attack.cards[i].OnDamageing(this,attack);
+            }
+        for(int i = 0; i<defender.cards.Count; i++){
+                defender.cards[i].OnDamaged(this,defender);
+            }
+        defender.Damage(damage);
+    }
 }

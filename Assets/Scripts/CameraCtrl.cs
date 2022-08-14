@@ -58,7 +58,7 @@ public class CameraCtrl : MonoBehaviour
                 camer.orthographicSize = 5f;
             }
             if(camer.orthographicSize < 5f){
-                camer.orthographicSize += 0.1f;
+                camer.orthographicSize += 0.05f;
             }
         }
     }

@@ -32,8 +32,9 @@ public class Dice : MonoBehaviour
             if(chartouch){
             Dice_Indi dice_im = charTarget.GetComponent<Dice_Indi>();
             if(!dice_im.isDiced){
-                dice_im.putDice(dice_value);
                 gameObject.SetActive(false);
+                dice_im.putDice(dice_value);
+                
             }
                 
         }

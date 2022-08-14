@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public bool card_geted = true;
     public int dice;
     public bool died;
-    public List<int> cards = new List<int>();
+    public List<CardAbility> cards = new List<CardAbility>();
     public Sprite[] poses;
     SpriteRenderer render;
 
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     }
 
     public void AddCard(int value){
-        cards.Add(value);
+        cards.Add(battleManager.cards[value]);
     }
 
     public void YouAreDead(){

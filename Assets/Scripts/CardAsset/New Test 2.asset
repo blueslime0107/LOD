@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9e5e07803113f45b4661db8d8a25af, type: 3}
+  m_Name: New Test 2
+  m_EditorClassIdentifier: 
+  name: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84"
+  message: 
+  ability_message: 
+  illust: {fileID: 21300000, guid: 46830f72a0c4c7b4db166109af49e39a, type: 3}
