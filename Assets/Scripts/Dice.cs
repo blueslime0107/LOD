@@ -21,16 +21,15 @@ public class Dice : MonoBehaviour
         render.sprite = dice_img[dice_value-1];
     }
 
-    float distance = 10f;
     void OnMouseDrag() { // 마우스 
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);        
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);        
         transform.position = objPosition;
     }
 
     void OnMouseUp() {
-        
-        if(chartouch){
+        try{
+            if(chartouch){
             Dice_Indi dice_im = charTarget.GetComponent<Dice_Indi>();
             if(!dice_im.isDiced){
                 dice_im.putDice(dice_value);
@@ -38,9 +37,15 @@ public class Dice : MonoBehaviour
             }
                 
         }
+        }
+        catch{
+
+        }
+        
         
     }
 
+    // 주사위가 주사위지정 칸에 닿았는가?
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag == gameObject.tag){
             charTarget = other.gameObject; // 트리거로 받은 오브젝트는 other.gameObject
@@ -54,6 +59,7 @@ public class Dice : MonoBehaviour
             chartouch = false;
     }
 
+    // 외부실행 주사위 다시 보이게함
     public void diceReroll(){
         gameObject.SetActive(true);
     }
