@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public BattleManager battleManager;
-    public Camera main_camera;
+    public CameraCtrl main_camera_ctrl;
 
     void Start(){
         battleManager.Battle();

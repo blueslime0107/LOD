@@ -37,6 +37,8 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BattleMatchcor(){
         myChar.ChangeCondition(2);      
+        myChar.SetPointMove(players[eneNum].movePoint.position, 15f);
+        gameManager.main_camera_ctrl.SetTargetMove(myNum,eneNum,17f);
         BasicDice();
         yield return new WaitForSeconds(1f);
         BasicAttack();
@@ -53,7 +55,8 @@ public class BattleCaculate : MonoBehaviour
 
 
 
-
+        myChar.SetPointMove(myOriginPos, 15f);
+        gameManager.main_camera_ctrl.SetZeroMove(17f);
         MatchFin();
 
         yield return null;
@@ -102,12 +105,10 @@ public class BattleCaculate : MonoBehaviour
 
 
         if(myChar.health <= 5  && myChar.card_geted){
-            Debug.Log("add");
             battleManager.card_draw += 1;
             myChar.card_geted = false;
         }
         if(eneChar.health <= 5  && eneChar.card_geted){
-            Debug.Log("add");
             battleManager.card_draw += 1;
             eneChar.card_geted = false;
         }

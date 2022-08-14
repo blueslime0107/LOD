@@ -20,6 +20,13 @@ public class Player : MonoBehaviour
     public Sprite[] poses;
     SpriteRenderer render;
 
+
+    bool isMoving;
+    Vector3 moveTarget;
+    float moveSpeed;
+
+
+
     void Start()
     {
         render = GetComponent<SpriteRenderer>();
@@ -29,7 +36,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //render.sprite = poses[condition];
+        if(isMoving){
+            transform.position = Vector3.MoveTowards(transform.position,moveTarget,moveSpeed * Time.deltaTime);
+            //transform.Translate(transform.position*Time.deltaTime);   // //////////002 목표로 이동하는것에는 속도에 델타타임을 곱해야 한다.//
+            if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
+                isMoving = false;
+            }
+        }
+    }
+
+    public void SetPointMove(Vector3 point, float spd){
+        moveTarget = point;
+        moveSpeed = spd;
+        isMoving = true;
     }
 
     public void SetDice(int value){

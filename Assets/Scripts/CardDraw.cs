@@ -71,7 +71,6 @@ public class CardDraw : MonoBehaviour
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         if(target>0 && mouseOn){
-            Debug.Log("didididi");
             battleManager.players[target-1].AddCard(card_id);
             battleManager.card_gived = true;
             battleManager.card_draw -= 1;
