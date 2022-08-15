@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
@@ -12,13 +13,27 @@ public class UI : MonoBehaviour
     public int showleftCardamount;
 
     public List<GameObject> leftCardIndi = new List<GameObject>();
-    public List<RectTransform> leftCard_pos = new List<RectTransform>();
+    List<RectTransform> leftCard_pos = new List<RectTransform>();
+    List<Image> leftCard_img = new List<Image>();
+    List<TextMeshProUGUI> leftCard_title = new List<TextMeshProUGUI>();
+    List<TextMeshProUGUI> leftCard_message = new List<TextMeshProUGUI>();
     public float cartSort_scale;
 
     void Awake(){
         
         for(int i = 0; i < leftCardIndi.Count; i++){
             leftCard_pos.Add(leftCardIndi[i].GetComponent<RectTransform>());        
+            }
+        for(int i = 0; i < leftCardIndi.Count; i++){
+            leftCard_img.Add(leftCardIndi[i].GetComponent<Image>());        
+            }
+        for(int i = 0; i < leftCardIndi.Count; i++){
+            card_text txt = leftCardIndi[i].GetComponent<card_text>();    
+            leftCard_title.Add(txt.name);                    
+            }
+        for(int i = 0; i < leftCardIndi.Count; i++){
+            card_text txt = leftCardIndi[i].GetComponent<card_text>();    
+            leftCard_message.Add(txt.message);                    
             }
         
     }
@@ -60,6 +75,15 @@ public class UI : MonoBehaviour
             showleftCard = false;
         }
     }
+
+    public void Leftcard_Update(List<CardAbility> cards){
+        for(int i =0; i<cards.Count;i++){
+            leftCard_img[i].sprite = cards[i].illust;
+            leftCard_title[i].text = cards[i].name;
+            leftCard_message[i].text = cards[i].message;
+        }
+    }
+
 
     // Start is called before the first frame update
 

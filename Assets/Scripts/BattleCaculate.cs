@@ -148,6 +148,6 @@ public class BattleCaculate : MonoBehaviour
         for(int i = 0; i<defender.cards.Count; i++){
                 defender.cards[i].OnDamaged(this,defender);
             }
-        defender.Damage(damage);
+        defender.Damage(damage,attack);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e546fa64f97d3434aaefa37ff4f615e7, type: 3}
   m_Name: New Test 10
   m_EditorClassIdentifier: 
-  name: 
+  name: D6
   message: 
   ability_message: 
-  illust: {fileID: 0}
+  illust: {fileID: 21300000, guid: 509bd99ef164cd447bf70ecac7889f14, type: 3}

@@ -1321,8 +1321,7 @@ MonoBehaviour:
   - {fileID: 820453096}
   - {fileID: 19507377}
   - {fileID: 1193400413}
-  leftCard_pos: []
-  cartSort_scale: 145
+  cartSort_scale: 300
 --- !u!1 &392065981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,8 +2942,7 @@ MonoBehaviour:
   card_geted: 0
   dice: 0
   died: 0
-  cards:
-  - {fileID: 11400000, guid: 454e33976e12f704abfe046025e12f06, type: 2}
+  cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
   - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
@@ -5662,9 +5660,9 @@ MonoBehaviour:
   - {fileID: 908135925}
   - {fileID: 715146560}
   cards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7b44c0851ec35ba498254cffa897362e, type: 2}
+  - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
+  - {fileID: 11400000, guid: d8085a4214963c24ca9d1a42e98604d4, type: 2}
   cardViewer: {fileID: 4014734665765158303, guid: 316452a3a04ed4349acc8f0ddd2fe78b, type: 3}
   blackScreen: {fileID: 207633588}
   battle_ready: 0

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Dice_Indi dice_Indi;
 
+
     public Transform movePoint;
     public int player_id = 0;
     public int condition = 0;
@@ -59,8 +60,18 @@ public class Player : MonoBehaviour
         dice_Indi.setDice(dice + value);
     }
 
-    public void Damage(int value){
+    public void Damage(int value, Player attacker){
+        if(value>0){
+            if(attacker.transform.position.x - transform.position.x <0){
+                transform.Translate(Vector3.right*value/2);
+            }
+            if(attacker.transform.position.x - transform.position.x > 0){
+                transform.Translate(Vector3.left*value/2);
+            }
+            
+        }
         health -= value;
+
     }
 
     public void AddCard(int value){
@@ -74,6 +85,15 @@ public class Player : MonoBehaviour
 
     public void ChangeCondition(int num){
         render.sprite = poses[num];
+    }
+
+    void OnMouseDown() {
+        if(gameObject.tag == "PlayerTeam1"){
+            battleManager.ui.showleftCardamount = cards.Count;
+            battleManager.ui.Leftcard_Update(cards);
+            battleManager.ui.showleftCard = true;
+        }
+        
     }
 
 }
