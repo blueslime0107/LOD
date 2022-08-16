@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Test1 : CardAbility
 {
-    public override void OnBattleWin(BattleCaculate battle)
+
+
+    public override void CardActivate(BattleManager match)
     {
-        battle.damage += 2;
+        Debug.Log("helloo?");
     }
+
 
 }
 

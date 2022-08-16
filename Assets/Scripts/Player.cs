@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Dice_Indi dice_Indi;
 
-
+    
     public Transform movePoint;
     public int player_id = 0;
     public int condition = 0;
@@ -26,10 +26,13 @@ public class Player : MonoBehaviour
     Vector3 moveTarget;
     float moveSpeed;
 
+    Vector3 origin_pos;
 
+    [HideInInspector] public bool goto_origin;
 
     void Start()
-    {
+    { 
+        origin_pos = transform.position;
         render = GetComponent<SpriteRenderer>();
         card_geted = true;
     }
@@ -43,6 +46,19 @@ public class Player : MonoBehaviour
             if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
                 isMoving = false;
             }
+        }
+        if(goto_origin){
+            if(transform.position == origin_pos){
+                goto_origin = false;
+            }
+            else{
+                transform.position = Vector3.MoveTowards(transform.position,origin_pos,14f * Time.deltaTime);
+                if(Vector3.Distance(transform.position,origin_pos) < 0.001f){
+                    goto_origin = false;
+                    transform.position = origin_pos;
+                }
+            }
+            
         }
     }
 
@@ -74,10 +90,6 @@ public class Player : MonoBehaviour
 
     }
 
-    public void AddCard(int value){
-        cards.Add(battleManager.cards[value]);
-    }
-
     public void YouAreDead(){
         died = true;
         gameObject.SetActive(false);
@@ -92,8 +104,15 @@ public class Player : MonoBehaviour
             battleManager.ui.showleftCardamount = cards.Count;
             battleManager.ui.Leftcard_Update(cards);
             battleManager.ui.showleftCard = true;
+            battleManager.cardViewChar_left = player_id-1;
         }
         
+        if(gameObject.tag == "PlayerTeam2"){
+            battleManager.ui.showrightCardamount = cards.Count;
+            battleManager.ui.Rightcard_Update(cards);
+            battleManager.ui.showrightCard = true;
+            battleManager.cardViewChar_right = player_id-1;
+        }
     }
 
 }

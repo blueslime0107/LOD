@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a80fd0d2db43134387e72c1b6b8fec0, type: 3}
   m_Name: New Test 1
   m_EditorClassIdentifier: 
+  card_id: 0
   name: "\uC758\uC2DD\uC2E4\uD328"
-  message: 
+  message: "\uC65C \uC548\uB3FC\uB0D0\uACE0 \uC65C! \n\uBB50\uAC00 \uBB38\uC81C\uAC00
+    \uB41C\uAC70\uC57C.."
   ability_message: 
   illust: {fileID: 21300000, guid: 7d9c15e43a1e5df41932df8b6dc5cea7, type: 3}

@@ -6,17 +6,27 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
-    public Button battleStartButton;
-    public Text[] hpText;
+    [HideInInspector]public Button battleStartButton;
+    [HideInInspector]public Text[] hpText;
 
-    public bool showleftCard;
-    public int showleftCardamount;
+    [HideInInspector]public bool showleftCard;
+    [HideInInspector]public int showleftCardamount;
 
     public List<GameObject> leftCardIndi = new List<GameObject>();
     List<RectTransform> leftCard_pos = new List<RectTransform>();
     List<Image> leftCard_img = new List<Image>();
     List<TextMeshProUGUI> leftCard_title = new List<TextMeshProUGUI>();
     List<TextMeshProUGUI> leftCard_message = new List<TextMeshProUGUI>();
+
+    [HideInInspector]
+    public bool showrightCard;
+    [HideInInspector]public int showrightCardamount;
+
+    public List<GameObject> rightCardIndi = new List<GameObject>();
+    List<RectTransform> rightCard_pos = new List<RectTransform>();
+    List<Image> rightCard_img = new List<Image>();
+    List<TextMeshProUGUI> rightCard_title = new List<TextMeshProUGUI>();
+    List<TextMeshProUGUI> rightCard_message = new List<TextMeshProUGUI>();
     public float cartSort_scale;
 
     void Awake(){
@@ -34,6 +44,20 @@ public class UI : MonoBehaviour
         for(int i = 0; i < leftCardIndi.Count; i++){
             card_text txt = leftCardIndi[i].GetComponent<card_text>();    
             leftCard_message.Add(txt.message);                    
+            }
+        for(int i = 0; i < rightCardIndi.Count; i++){
+            rightCard_pos.Add(rightCardIndi[i].GetComponent<RectTransform>());        
+            }
+        for(int i = 0; i < rightCardIndi.Count; i++){
+            rightCard_img.Add(rightCardIndi[i].GetComponent<Image>());        
+            }
+        for(int i = 0; i < rightCardIndi.Count; i++){
+            card_text txt = rightCardIndi[i].GetComponent<card_text>();    
+            rightCard_title.Add(txt.name);                    
+            }
+        for(int i = 0; i < rightCardIndi.Count; i++){
+            card_text txt = rightCardIndi[i].GetComponent<card_text>();    
+            rightCard_message.Add(txt.message);                    
             }
         
     }
@@ -74,6 +98,41 @@ public class UI : MonoBehaviour
 
             showleftCard = false;
         }
+        if(showrightCard){
+            for(int i = 0; i < rightCardIndi.Count; i++){
+                if(i<=showrightCardamount-1){
+                    rightCardIndi[i].SetActive(true); 
+                }                    
+                else{
+                    rightCardIndi[i].SetActive(false); 
+                }
+            }
+
+            float[] cardLerps = new float[showrightCardamount];
+
+            switch(showrightCardamount){
+                case 1: cardLerps = new float[] {0f}; break;
+                case 2: cardLerps = new float[] {-25f,25f}; break;
+                case 3: cardLerps = new float[] {-50f,0f,50f}; break;
+                default:
+                    float interval = cartSort_scale / (showrightCardamount-1);
+                    Debug.Log(interval);
+                    for(int i = 0; i < showrightCardamount;i++){
+                        cardLerps[i] = interval * i-cartSort_scale/2;
+                    } break;
+                    
+
+            }
+
+            for(int i = 0; i < rightCardIndi.Count; i++){
+                if(i<=showrightCardamount-1){
+                    rightCard_pos[i].anchoredPosition = Vector2.right*cardLerps[i]; 
+                } 
+            }
+
+
+            showrightCard = false;
+        }
     }
 
     public void Leftcard_Update(List<CardAbility> cards){
@@ -81,6 +140,14 @@ public class UI : MonoBehaviour
             leftCard_img[i].sprite = cards[i].illust;
             leftCard_title[i].text = cards[i].name;
             leftCard_message[i].text = cards[i].message;
+        }
+    }
+
+    public void Rightcard_Update(List<CardAbility> cards){
+        for(int i =0; i<cards.Count;i++){
+            rightCard_img[i].sprite = cards[i].illust;
+            rightCard_title[i].text = cards[i].name;
+            rightCard_message[i].text = cards[i].message;
         }
     }
 

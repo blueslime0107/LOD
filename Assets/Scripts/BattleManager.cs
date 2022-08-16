@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
     public List<Player> players = new List<Player>();
     public List<CardAbility> cards = new List<CardAbility>();
+    public List<CardAbility> game_cards = new List<CardAbility>();
 
     public GameObject cardViewer;
     public GameObject blackScreen;
@@ -22,10 +23,13 @@ public class BattleManager : MonoBehaviour
     public int card_draw = 0;
     public bool card_gived = false;
 
-    public int target1;
-    public int target2;
+    [HideInInspector]public int target1;
+    [HideInInspector]public int target2;
 
-    public bool battleing;
+    [HideInInspector]public bool battleing;
+
+    [HideInInspector]public int cardViewChar_left;
+    [HideInInspector]public int cardViewChar_right;
 
     public void Battle(){
         StartCoroutine("BattleMain");
@@ -41,7 +45,8 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator BattleMain() {   
         while(true){ // 계속반복
-            yield return new WaitForSeconds(1f);
+            if(game_cards.Count<1)
+                game_cards = CardSuffle();
             DiceRoll(); // 주사위를 굴린다
             MakeADummy(true);
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
@@ -80,10 +85,24 @@ public class BattleManager : MonoBehaviour
 
                 
             }
+
+
+            PlayerGoToOrigin();
             while(card_draw>0){
-                Card(Vector3.zero+Vector3.back,0);
-                Card(Vector3.right*5+Vector3.back,0);
-                Card(Vector3.left*5+Vector3.back,0);               
+                switch(game_cards.Count){
+                    case 1:
+                        Card(Vector3.zero+Vector3.back,game_cards[0]);break;
+                    case 2:
+                        Card(Vector3.right*2.5f+Vector3.back,game_cards[0]);
+                        Card(Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
+                    default:
+                        Card(Vector3.zero+Vector3.back,game_cards[0]);
+                        Card(Vector3.right*5+Vector3.back,game_cards[0]);
+                        Card(Vector3.left*5+Vector3.back,game_cards[0]);  break;
+                }
+
+                  
+                           
                 while(!card_gived){
                     yield return null;
                 }
@@ -95,15 +114,15 @@ public class BattleManager : MonoBehaviour
         }             
     }
 
-    // IEnumerator DrawCard() {
-        
-    //     Card(Vector3.zero+Vector3.back,0);
-    //     Card(Vector3.right*5+Vector3.back,1);
-    //     Card(Vector3.left*5+Vector3.back,2);
+    void PlayerGoToOrigin(){
+        players[0].goto_origin = true;
+        players[1].goto_origin = true;
+        players[2].goto_origin = true;
+        players[3].goto_origin = true;
+        players[4].goto_origin = true;
+        players[5].goto_origin = true;
 
-
-    //     yield return null;
-    // }
+    }
 
     void DiceRoll(){
         for(int i = 0; i< dices.Count; i++)
@@ -150,13 +169,27 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    void Card(Vector3 pos,int num){
+    void Card(Vector3 pos,CardAbility cardo){
+        game_cards.Remove(cardo);
         GameObject card = Instantiate(cardViewer,pos,transform.rotation);
         CardDraw draw = card.GetComponent<CardDraw>();
         draw.battleManager = this;
-        draw.SetImage(num);
+        draw.SetImage(cardo);
         
     }
 
+    List<CardAbility> CardSuffle(){
+        List<CardAbility> origin_cards = new List<CardAbility>(cards);
+        List<CardAbility> suffle_cards = new List<CardAbility>();
+        int origin_count = origin_cards.Count;
+        for(int i = 0; i<origin_count;i++){
+            int rand_card = Random.Range(0,origin_cards.Count);
+            suffle_cards.Add(origin_cards[rand_card]);
+            origin_cards.RemoveAt(rand_card);
+
+        }
+        return suffle_cards;
+
+    }
 
 }
