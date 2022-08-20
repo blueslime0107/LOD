@@ -8,6 +8,7 @@ public class Dice : MonoBehaviour
 
     public bool chartouch;
     GameObject charTarget;
+    [SerializeField] BattleManager battleManager;
 
     public int dice_num;
     public Transform[] move_point;
@@ -43,6 +44,12 @@ public class Dice : MonoBehaviour
     }
 
     void OnMouseDrag() { // 마우스 
+        if(battleManager.left_turn && gameObject.tag == "Team2"){
+            return;
+        }
+        if(battleManager.right_turn && gameObject.tag == "Team1"){
+            return;
+        }
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);        
         transform.position = objPosition;

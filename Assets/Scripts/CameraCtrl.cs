@@ -18,6 +18,10 @@ public class CameraCtrl : MonoBehaviour
     float maxCamsize = 5f;
     float minCamsize = 3f;
 
+    [SerializeField] [Range(0f, 10f)] private float speed = 1;
+    [SerializeField] [Range(0f, 10f)] private float radius = 1;
+    private float runningTime = 0;
+
     Camera camer;
 
 
@@ -41,19 +45,23 @@ public class CameraCtrl : MonoBehaviour
 
             
         }
-        if(isZeroMove){
+        else if(isZeroMove){
             if(Vector3.Distance(transform.position,Vector3.back*10) > 0.001f){
                 transform.position = Vector3.MoveTowards(transform.position,Vector3.back*10,moveSpeed*Time.deltaTime);
             }
             else{
                 transform.position = Vector3.back*10;
                 isZeroMove = false;
-                //camer.orthographicSize = 5f;
             }
-            // if(camer.orthographicSize < 5f){
-            //     camer.orthographicSize += 0.01f;
-            // }
         }
+        // else{
+        //    runningTime += Time.fixedDeltaTime * speed;
+        //     float x = radius * Mathf.Cos(runningTime);
+
+        //     transform.position = Vector3.Lerp(transform.position,Vector3.back*10 + Vector3.right*x,2f*Time.deltaTime);
+        //     //transform.position = Vector3.back*10 + Vector3.right*x;
+        // }
+
     }
 
     IEnumerator CameraZoom(){

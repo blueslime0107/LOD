@@ -32,7 +32,13 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      public void OnPointerEnter(PointerEventData eventData)
      {
         ability_img.SetActive(true);
-        ability_message.text = battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability_message;
+        if(isLeft){
+            ability_message.text = battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability_message;
+        }
+        else{
+            ability_message.text = battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability_message;
+        }
+        
         rect.anchoredPosition += Vector2.up*45;
         transform.SetAsLastSibling();
         

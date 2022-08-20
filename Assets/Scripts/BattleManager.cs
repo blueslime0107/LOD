@@ -20,7 +20,9 @@ public class BattleManager : MonoBehaviour
     public bool battle_start;
     public bool battle_end = false;
 
-    public int card_draw = 0;
+    public bool card_getting_team;
+    public int card_left_draw = 0;
+    public int card_right_draw = 0;
     public bool card_gived = false;
 
     [HideInInspector]public int target1;
@@ -30,6 +32,10 @@ public class BattleManager : MonoBehaviour
 
     [HideInInspector]public int cardViewChar_left;
     [HideInInspector]public int cardViewChar_right;
+
+    public bool first_turn;
+    public bool right_turn;
+    public bool left_turn;
 
     public void Battle(){
         StartCoroutine("BattleMain");
@@ -41,20 +47,46 @@ public class BattleManager : MonoBehaviour
     // }
 
     IEnumerator BattleMain() {   
+        FirstTeam();
         while(true){ // 계속반복
+            first_turn = !first_turn;
+            if(first_turn){
+                TurnTeam("Left");
+            }
+            else{
+                TurnTeam("Right");
+            }
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
             DiceRoll(); // 주사위를 굴린다
             MakeADummy(true);
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
+                if(left_turn){
+                    if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
+                            TurnTeam("Right");
+                        }
+                }
+                if(right_turn){
+                    if(players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                            TurnTeam("Left");
+                        }
+                }
                 if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
                 players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
-                    battle_ready =  true;
+                    right_turn = true;
+                    left_turn = true;
+                    battle_ready =  true;                    
                 }
                 if(battle_start)
                 {
                     target1 = 0;
                     target2 = 0;
+                    if(first_turn){
+                        TurnTeam("Left");
+                    }
+                    else{
+                        TurnTeam("Right");
+                    }
                     break;
                 }
                     
@@ -68,6 +100,7 @@ public class BattleManager : MonoBehaviour
                 }
 
                 if(!battle_end){
+
                     if(players[0].dice <= 0 && players[1].dice  <= 0 && players[2].dice <= 0 &&
                     players[3].dice <= 0 && players[4].dice <= 0 && players[5].dice <= 0){
                         battle_end =  true;
@@ -85,7 +118,12 @@ public class BattleManager : MonoBehaviour
 
 
             PlayerGoToOrigin();
-            while(card_draw>0){
+            while(card_left_draw>0 || card_right_draw>0){
+                card_getting_team = !first_turn;
+                if((card_getting_team && card_left_draw <= 0) || (!card_getting_team && card_right_draw <= 0)){
+                    card_getting_team = !card_getting_team;
+                }
+                
                 if(game_cards.Count<1)
                     game_cards = CardSuffle();
                 switch(game_cards.Count){
@@ -112,6 +150,29 @@ public class BattleManager : MonoBehaviour
             
             BattlePreReset();
         }             
+    }
+
+    void FirstTeam(){
+        int rand = (int)Random.Range(0f,2f);
+        if(rand == 0){
+            TurnTeam("Right");
+            first_turn = true;
+        }
+        else{
+            TurnTeam("Left");
+            first_turn = false;
+        }
+    }
+
+    public void TurnTeam(string team){
+        if(team == "Left"){
+            left_turn = true;
+            right_turn = false;
+        }
+        if(team == "Right"){
+            right_turn = true;
+            left_turn = false;
+        }
     }
 
     void PlayerGoToOrigin(){
@@ -166,6 +227,7 @@ public class BattleManager : MonoBehaviour
         if(battle_ready){
             battle_start = true;
             battle_ready = false;
+
         }
     }
 

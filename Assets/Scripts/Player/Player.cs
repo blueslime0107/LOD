@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public int max_health;
     public int health;
     public bool card_geted = true;
+    public bool died_card_geted = true;
     public int dice;
     public bool died;
     public List<CardAbility> cards = new List<CardAbility>();

@@ -116,28 +116,42 @@ public class BattleCaculate : MonoBehaviour
         }
     }
     
-    void MatchFin(){
-        if(myChar.health <= 0){
-            myChar.YouAreDead();
-            battleManager.card_draw += 1;     // 오류의 흔적 001 : 카드가 안들어가는게 아닌 if문 1줄 생략의 오해로 인한
-            
-        }                                          //카드 추가 카운트 버그            
-        if(eneChar.health <= 0){
-            eneChar.YouAreDead();
-            battleManager.card_draw += 1;
+    void MatchFin(){    
+        for(int i =0;i<battleManager.players.Count;i++){
+            if(battleManager.players[i].health <= 5 && battleManager.players[i].card_geted){
+                if(i<3){
+                    battleManager.card_left_draw += 1;
+                    battleManager.players[i].card_geted = false;
+                }
+                else{
+                    battleManager.card_right_draw += 1;
+                    battleManager.players[i].card_geted = false;
+                }
+            }
         }
-            
-
-
-        if(myChar.health <= 5  && myChar.card_geted){
-            battleManager.card_draw += 1;
-            myChar.card_geted = false;
+        for(int i =0;i<battleManager.players.Count;i++){ 
+            if(battleManager.players[i].health <= 0 && battleManager.players[i].died_card_geted){
+                if(i<3){
+                    battleManager.card_left_draw += 1;
+                    battleManager.players[i].died_card_geted = false;
+                    battleManager.players[i].YouAreDead();
+                }
+                else{
+                    battleManager.card_right_draw += 1;
+                    battleManager.players[i].died_card_geted = false;
+                    battleManager.players[i].YouAreDead();
+                }
+            }
         }
-        if(eneChar.health <= 5  && eneChar.card_geted){
-            battleManager.card_draw += 1;
-            eneChar.card_geted = false;
-        }
-        for(int i=0;i<6;i++){
+        // if(myChar.health <= 5  && myChar.card_geted){
+        //     battleManager.card_draw += 1;
+        //     myChar.card_geted = false;
+        // }
+        // if(eneChar.health <= 5  && eneChar.card_geted){
+        //     battleManager.card_draw += 1;
+        //     eneChar.card_geted = false;
+        // }
+        for(int i=0;i<battleManager.players.Count;i++){
             if(i != myNum || i != eneNum){
                 players[i].dice_Indi.render.color = new Color(255,255,255,255);
             }
@@ -153,6 +167,19 @@ public class BattleCaculate : MonoBehaviour
         battleManager.target2 = 0;
         myChar.transform.position += Vector3.forward;
         eneChar.transform.position += Vector3.forward;
+
+        if(battleManager.left_turn){
+            battleManager.TurnTeam("Right");
+            if(battleManager.players[3].dice + battleManager.players[4].dice + battleManager.players[5].dice == 0){
+                battleManager.TurnTeam("Left");
+            }
+        }
+        else if(battleManager.right_turn){
+            battleManager.TurnTeam("Left");
+            if(battleManager.players[0].dice + battleManager.players[1].dice + battleManager.players[2].dice == 0){
+                battleManager.TurnTeam("Right");
+            }
+        }
     }
 
     void Damage(Player attack, Player defender){

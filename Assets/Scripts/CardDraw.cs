@@ -6,6 +6,7 @@ using TMPro;
 
 public class CardDraw : MonoBehaviour
 {
+    Canvas canvas;
     CardAbility having_card;
     public UI ui;
     public new TextMeshProUGUI name;
@@ -30,9 +31,11 @@ public class CardDraw : MonoBehaviour
     // Start is called before the first frame update
     void Awake() // 생성되자마자 실행
     {
+        
         GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
         GameObject obj2 = obj1.transform.GetChild(0).gameObject;
 
+        canvas = obj1.GetComponent<Canvas>();
         render = obj2.GetComponent<Image>();
         GameObject name_obj = obj2.transform.GetChild(0).gameObject;
         name = name_obj.GetComponent<TextMeshProUGUI>();
@@ -53,7 +56,7 @@ public class CardDraw : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0)){
             if(!mouseOn){
-                transform.position += Vector3.forward*2; // 뒤로가서 안보이게
+                transform.position += Vector3.up*5;
             }            
         }
         if(battleManager.card_gived)   // 이미 카드를 줬을때 사라지기
@@ -95,10 +98,20 @@ public class CardDraw : MonoBehaviour
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         if(target>0 && mouseOn){
-            battleManager.players[target-1].cards.Add(having_card);
-            battleManager.card_gived = true;
-            battleManager.card_draw -= 1;
-            Destroy(gameObject);
+            if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target-1<3){
+                battleManager.players[target-1].cards.Add(having_card);
+                battleManager.card_gived = true;
+                battleManager.card_left_draw -= 1;
+                Destroy(gameObject);
+            }
+            if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target-1>2){
+                battleManager.players[target-1].cards.Add(having_card);
+                battleManager.card_gived = true;
+                battleManager.card_right_draw -= 1;
+                Destroy(gameObject);
+            }
+            
+            
         }
         else{
             ui.cardMessage.SetActive(true);
