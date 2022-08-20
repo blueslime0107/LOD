@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9e5e07803113f45b4661db8d8a25af, type: 3}
   m_Name: New Test 2
   m_EditorClassIdentifier: 
+  card_id: 0
   name: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84"
-  message: 
-  ability_message: 
+  message: "\uB204\uAD6C\uB3C4 \uC774\uAE38 \uC218 \uC5C6\uB2E4"
+  ability_message: "\uD569 \uC2B9\uB9AC\uC2DC \uD53C\uD574\uB7C9+2"
+  story_message: "\uC800 \uCE7C\uC740 \uB204\uAD70\uAC00\uAC00 \uC624\uAE30\uB97C
+    \uAE30\uB2E4\uB9AC\uACE0 \uC788\uB2E4. \uD558\uC9C0\uB9CC \uC774\uAC83\uB3C4
+    \uC601\uC6D0\uD558\uC9C0 \uC54A\uC558\uB2E4.\n\uB204\uAD70\uAC00 \uC120\uD0DD\uB41C
+    \uC790\uAC00 \uC5EC\uAE30\uC5D0 \uC654\uB098? \uC544\uB2C8\uB2E4.\n\uADF8\uC800
+    \uBC11\uC758 \uB3CC\uB9CC \uBD80\uC21C\uB2E4\uBA74 \uB204\uAD6C\uB098 \uC601\uC6C5\uC774
+    \uB420 \uC218 \uC788\uB2E4.\n\uADF8\uB807\uAE30\uC5D0 \uC601\uC6C5\uC774 \uB418\uB3C4
+    \uC544\uBB34\uB3C4 \uBCF8\uBC1B\uC9C0 \uC54A\uB294\uAC83\uC774\uC9C0."
   illust: {fileID: 21300000, guid: 46830f72a0c4c7b4db166109af49e39a, type: 3}

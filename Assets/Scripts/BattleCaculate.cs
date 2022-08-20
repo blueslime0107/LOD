@@ -23,7 +23,16 @@ public class BattleCaculate : MonoBehaviour
     int myNum;
     int eneNum;
 
+
     public void BattleMatch(int selfnum, int enenum){
+
+        for(int i=0;i<6;i++){
+            if(i != selfnum-1 && i != enenum-1){
+                players[i].dice_Indi.render.color = new Color(0,0,0,1);
+            }
+        }
+
+
         myNum = selfnum-1;
         eneNum = enenum-1;
         damage = 0;
@@ -127,6 +136,11 @@ public class BattleCaculate : MonoBehaviour
         if(eneChar.health <= 5  && eneChar.card_geted){
             battleManager.card_draw += 1;
             eneChar.card_geted = false;
+        }
+        for(int i=0;i<6;i++){
+            if(i != myNum || i != eneNum){
+                players[i].dice_Indi.render.color = new Color(255,255,255,255);
+            }
         }
             
         battleManager.blackScreen.SetActive(false);

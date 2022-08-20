@@ -7,7 +7,9 @@ using TMPro;
 public class UI : MonoBehaviour
 {
     [HideInInspector]public Button battleStartButton;
-    [HideInInspector]public Text[] hpText;
+    public GameObject cardMessage;
+    public TextMeshProUGUI cardAbility;
+    public TextMeshProUGUI cardStroy;
 
     [HideInInspector]public bool showleftCard;
     [HideInInspector]public int showleftCardamount;
@@ -151,6 +153,10 @@ public class UI : MonoBehaviour
         }
     }
 
+    public void CardMesage_Update(string ability,string story){
+        cardAbility.text = ability;
+        cardStroy.text = story;
+    }
 
     // Start is called before the first frame update
 

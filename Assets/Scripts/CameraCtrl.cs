@@ -16,7 +16,7 @@ public class CameraCtrl : MonoBehaviour
     float moveSpeed;
 
     float maxCamsize = 5f;
-    float minCamsize = 2f;
+    float minCamsize = 3f;
 
     Camera camer;
 
@@ -25,6 +25,7 @@ public class CameraCtrl : MonoBehaviour
     void Start()
     {
         camer = GetComponent<Camera>();
+        StartCoroutine("CameraZoom");
     }
 
     // Update is called once per frame
@@ -33,20 +34,12 @@ public class CameraCtrl : MonoBehaviour
         if(isTwoTargetMove){
             target1 = battleManager.players[ch1].transform.position;
             target2 = battleManager.players[ch2].transform.position;
-            Vector3 tr = (target1 + target2) * 0.5f + Vector3.back*10;
+            Vector3 tr = (target1 + target2) * 0.5f + Vector3.back*10 + Vector3.down*0.5f;
             if(Vector3.Distance(transform.position,tr) > 0.001f){
                 transform.position = Vector3.MoveTowards(transform.position,tr,moveSpeed*Time.deltaTime);
             }
 
-            float size = Vector3.Distance(target1,target2) / 14 * 5;
-            Debug.Log(size);
-            if(size > maxCamsize){
-                size = maxCamsize;
-            }
-            if(size < minCamsize){
-                size = minCamsize;
-            }
-            camer.orthographicSize = size;
+            
         }
         if(isZeroMove){
             if(Vector3.Distance(transform.position,Vector3.back*10) > 0.001f){
@@ -55,12 +48,37 @@ public class CameraCtrl : MonoBehaviour
             else{
                 transform.position = Vector3.back*10;
                 isZeroMove = false;
-                camer.orthographicSize = 5f;
+                //camer.orthographicSize = 5f;
             }
-            if(camer.orthographicSize < 5f){
-                camer.orthographicSize += 0.05f;
-            }
+            // if(camer.orthographicSize < 5f){
+            //     camer.orthographicSize += 0.01f;
+            // }
         }
+    }
+
+    IEnumerator CameraZoom(){
+        while(true){
+            if(isTwoTargetMove && target1 != null && target2 != null){
+            float size = Vector3.Distance(target1,target2) / 14 * 5;
+            if(size > maxCamsize){
+                size = maxCamsize;
+            }
+            if(size < minCamsize){
+                size = minCamsize;
+            }
+            camer.orthographicSize = size;
+            }
+            else{
+                if(camer.orthographicSize < 5f){
+                    camer.orthographicSize += 3f*Time.deltaTime;
+                }
+                else{
+                    camer.orthographicSize = 5f;
+                }
+            }
+        yield return null;
+        }
+        
     }
 
     public void SetTargetMove(int tar1, int tar2, float movSpd){

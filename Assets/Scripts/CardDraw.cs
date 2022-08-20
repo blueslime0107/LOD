@@ -7,6 +7,7 @@ using TMPro;
 public class CardDraw : MonoBehaviour
 {
     CardAbility having_card;
+    public UI ui;
     public new TextMeshProUGUI name;
     public TextMeshProUGUI message;
     public TextMeshProUGUI ability_message;
@@ -84,7 +85,12 @@ public class CardDraw : MonoBehaviour
     }
 
     void OnMouseEnter() {
+        ui.CardMesage_Update(having_card.ability_message,having_card.story_message);
         mouseOn = true;
+    }
+
+    void OnMouseDown(){
+        ui.cardMessage.SetActive(false);
     }
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
@@ -94,6 +100,10 @@ public class CardDraw : MonoBehaviour
             battleManager.card_draw -= 1;
             Destroy(gameObject);
         }
+        else{
+            ui.cardMessage.SetActive(true);
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision) {

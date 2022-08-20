@@ -35,13 +35,10 @@ public class BattleManager : MonoBehaviour
         StartCoroutine("BattleMain");
     }
 
-    void Update(){
-        for(int i = 0;i <6;i++){
-            ui.hpText[i].text = players[i].health.ToString();
-        }
+    // void Update(){
 
         
-    }
+    // }
 
     IEnumerator BattleMain() {   
         while(true){ // 계속반복
@@ -89,17 +86,20 @@ public class BattleManager : MonoBehaviour
 
             PlayerGoToOrigin();
             while(card_draw>0){
+                if(game_cards.Count<1)
+                    game_cards = CardSuffle();
                 switch(game_cards.Count){
                     case 1:
-                        Card(Vector3.zero+Vector3.back,game_cards[0]);break;
+                        Card(Vector3.up+Vector3.back,game_cards[0]);break;
                     case 2:
-                        Card(Vector3.right*2.5f+Vector3.back,game_cards[0]);
-                        Card(Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
+                        Card(Vector3.up+Vector3.right*2.5f+Vector3.back,game_cards[0]);
+                        Card(Vector3.up+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
                     default:
-                        Card(Vector3.zero+Vector3.back,game_cards[0]);
-                        Card(Vector3.right*5+Vector3.back,game_cards[0]);
-                        Card(Vector3.left*5+Vector3.back,game_cards[0]);  break;
+                        Card(Vector3.up+Vector3.back,game_cards[0]);
+                        Card(Vector3.up+Vector3.right*5+Vector3.back,game_cards[0]);
+                        Card(Vector3.up+Vector3.left*5+Vector3.back,game_cards[0]);  break;
                 }
+                ui.cardMessage.SetActive(true);
 
                   
                            
@@ -174,6 +174,7 @@ public class BattleManager : MonoBehaviour
         GameObject card = Instantiate(cardViewer,pos,transform.rotation);
         CardDraw draw = card.GetComponent<CardDraw>();
         draw.battleManager = this;
+        draw.ui = ui;
         draw.SetImage(cardo);
         
     }

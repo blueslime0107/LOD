@@ -13,34 +13,36 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public new TextMeshProUGUI name;
     public TextMeshProUGUI message;
+    public GameObject ability_img;
     public TextMeshProUGUI ability_message;
 
     void Awake() {
         rect = GetComponent<RectTransform>();
     }
 
-
-    private bool mouse_over = false;
-     void Update()
-     {
-        //  if (mouse_over)
-        //  {
-        //     rect.anchoredPosition = Vector2.up*15;
-        //  }
+    //  void Update()
+    //  {
+    //     //  if (mouse_over)
+    //     //  {
+    //     //     rect.anchoredPosition = Vector2.up*15;
+    //     //  }
             
-     }
+    //  }
  
      public void OnPointerEnter(PointerEventData eventData)
      {
-        rect.anchoredPosition += Vector2.up*15;
+        ability_img.SetActive(true);
+        ability_message.text = battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability_message;
+        rect.anchoredPosition += Vector2.up*45;
         transform.SetAsLastSibling();
-        mouse_over = true;
+        
      }
  
      public void OnPointerExit(PointerEventData eventData)
      {
-        rect.anchoredPosition += Vector2.down*15;
-         mouse_over = false;
+        ability_img.SetActive(false);
+        transform.SetSiblingIndex(card_num);
+        rect.anchoredPosition += Vector2.down*45;
      }
 
      public void OnClick(){
