@@ -109,20 +109,24 @@ public class Player : MonoBehaviour
         render.sprite = poses[num];
     }
 
-    void OnMouseDown() {
+    public void OnMouseDown() {
         if(gameObject.tag == "PlayerTeam1"){
-            battleManager.ui.showleftCardamount = cards.Count;
-            battleManager.ui.Leftcard_Update(cards);
+            
+            battleManager.ui.leftCard_card = cards;
+            
+            //battleManager.ui.showleftCardamount = cards.Count;
+            battleManager.ui.Leftcard_Update();
             battleManager.ui.showleftCard = true;
-            battleManager.cardViewChar_left = player_id-1;
+            //battleManager.cardViewChar_left = player_id-1;
         }
         
         if(gameObject.tag == "PlayerTeam2"){
-            battleManager.ui.showrightCardamount = cards.Count;
-            battleManager.ui.Rightcard_Update(cards);
+            battleManager.ui.rightCard_card = cards;
+            //battleManager.ui.showleftCardamount = cards.Count;
+            battleManager.ui.Rightcard_Update();
             battleManager.ui.showrightCard = true;
-            battleManager.cardViewChar_right = player_id-1;
         }
     }
+
 
 }

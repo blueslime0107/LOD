@@ -37,8 +37,17 @@ public class BattleManager : MonoBehaviour
     public bool right_turn;
     public bool left_turn;
 
+    float gague_time;
+    public float left_gague_max;
+    public float right_gague_max;
+    [SerializeField]float left_gague;
+    [SerializeField]float right_gague;
+
     public void Battle(){
+        left_gague = left_gague_max;
+        right_gague = right_gague_max;
         StartCoroutine("BattleMain");
+        StartCoroutine("TeamTimerGague");
     }
 
     // void Update(){
@@ -61,21 +70,23 @@ public class BattleManager : MonoBehaviour
             DiceRoll(); // 주사위를 굴린다
             MakeADummy(true);
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
-                if(left_turn){
-                    if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
-                            TurnTeam("Right");
-                        }
-                }
-                if(right_turn){
-                    if(players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
-                            TurnTeam("Left");
-                        }
-                }
-                if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
-                players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
-                    right_turn = true;
-                    left_turn = true;
-                    battle_ready =  true;                    
+                if(!left_turn || !right_turn){
+                    if(left_turn){
+                        if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
+                                TurnTeam("Right");
+                            }
+                    }
+                    if(right_turn){
+                        if(players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                                TurnTeam("Left");
+                            }
+                    }
+                    if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
+                    players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                        right_turn = true;
+                        left_turn = true;
+                        battle_ready =  true;                    
+                    }
                 }
                 if(battle_start)
                 {
@@ -152,6 +163,32 @@ public class BattleManager : MonoBehaviour
         }             
     }
 
+
+    IEnumerator TeamTimerGague(){
+        while(true){
+            if(!battleing){
+                if(left_turn){
+                left_gague -= 40f * Time.deltaTime;
+                if(left_gague<=0){
+                    TurnTeam("Right");
+                }
+                }
+                if(right_turn){
+                right_gague -= 40f * Time.deltaTime;
+                if(right_gague<=0){
+                    TurnTeam("Left");
+                }
+                }
+            }
+
+
+            ui.left_gague.value = left_gague/left_gague_max;
+            ui.right_gague.value = right_gague/right_gague_max;
+            yield return null;
+        }
+        
+    }
+
     void FirstTeam(){
         int rand = (int)Random.Range(0f,2f);
         if(rand == 0){
@@ -166,10 +203,12 @@ public class BattleManager : MonoBehaviour
 
     public void TurnTeam(string team){
         if(team == "Left"){
+            right_gague = (right_gague<right_gague_max) ? right_gague+100f : right_gague_max;
             left_turn = true;
             right_turn = false;
         }
         if(team == "Right"){
+            left_gague = (left_gague<left_gague_max) ? left_gague+100f : left_gague_max;
             right_turn = true;
             left_turn = false;
         }

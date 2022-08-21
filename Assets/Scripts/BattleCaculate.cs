@@ -23,6 +23,8 @@ public class BattleCaculate : MonoBehaviour
     int myNum;
     int eneNum;
 
+    public bool card_activated;
+
 
     public void BattleMatch(int selfnum, int enenum){
 
@@ -32,9 +34,45 @@ public class BattleCaculate : MonoBehaviour
             }
         }
 
-
         myNum = selfnum-1;
         eneNum = enenum-1;
+
+        players[myNum].OnMouseDown(); 
+        players[eneNum].OnMouseDown(); 
+            
+
+
+        // if(players[myNum].gameObject.tag == "PlayerTeam1"){
+        //     battleManager.ui.showleftCardamount = players[myNum].cards.Count;
+        //     battleManager.ui.Leftcard_Update(players[myNum].cards);
+        //     battleManager.ui.showleftCard = true;
+        //     battleManager.cardViewChar_left = myNum;
+        // }
+        
+        // if(players[myNum].gameObject.tag == "PlayerTeam2"){
+        //     battleManager.ui.showrightCardamount = players[myNum].cards.Count;
+        //     battleManager.ui.Rightcard_Update(players[myNum].cards);
+        //     battleManager.ui.showrightCard = true;
+        //     battleManager.cardViewChar_right = myNum;
+        // }
+
+        // if(players[eneNum].gameObject.tag == "PlayerTeam1"){
+        //     battleManager.ui.showleftCardamount = players[eneNum].cards.Count;
+        //     battleManager.ui.Leftcard_Update(players[eneNum].cards);
+        //     battleManager.ui.showleftCard = true;
+        //     battleManager.cardViewChar_left = eneNum;
+        // }
+        
+        // if(players[eneNum].gameObject.tag == "PlayerTeam2"){
+        //     battleManager.ui.showrightCardamount = players[eneNum].cards.Count;
+        //     battleManager.ui.Rightcard_Update(players[eneNum].cards);
+        //     battleManager.ui.showrightCard = true;
+        //     battleManager.cardViewChar_right = eneNum;
+        // }
+
+
+
+
         damage = 0;
         myChar = players[selfnum-1];
         eneChar = players[enenum-1];
@@ -56,7 +94,10 @@ public class BattleCaculate : MonoBehaviour
         gameManager.main_camera_ctrl.SetTargetMove(myNum,eneNum,17f);
         BasicDice();
         yield return new WaitForSeconds(1f);
-        BasicAttack();
+        StartCoroutine("BasicAttack");
+        while(card_activated){
+            yield return null;
+        }
         yield return new WaitForSeconds(1f);
         
 
@@ -77,6 +118,7 @@ public class BattleCaculate : MonoBehaviour
         yield return null;
     }
 
+
     void BasicDice(){
 
         if(myChar.dice == 1 && eneChar.dice >= 6){
@@ -87,12 +129,16 @@ public class BattleCaculate : MonoBehaviour
         }
     }
 
-    void BasicAttack(){
+    IEnumerator BasicAttack(){
         damage = myChar.dice - eneChar.dice;
         if(damage>0){
 
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].OnBattleWin(this);
+            }
+            if(card_activated){
+                yield return new WaitForSeconds(0.5f);
+                card_activated = false;
             }
 
 
@@ -105,6 +151,9 @@ public class BattleCaculate : MonoBehaviour
             damage = -damage;
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].OnBattleWin(this);
+            }
+            if(card_activated){
+                yield return new WaitForSeconds(0.5f);
             }
             myChar.ChangeCondition(4);
             eneChar.ChangeCondition(3);            
@@ -191,4 +240,10 @@ public class BattleCaculate : MonoBehaviour
             }
         defender.Damage(damage,attack);
     }
+
+    public void CardActiv(){
+        card_activated = true;
+
+    }
+
 }

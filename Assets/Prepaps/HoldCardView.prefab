@@ -229,10 +229,9 @@ MonoBehaviour:
   card_num: 0
   isLeft: 0
   battleManager: {fileID: 0}
-  name: {fileID: 8234821768719958322}
-  message: {fileID: 3730435412370477135}
+  illust: {fileID: 0}
+  card: {fileID: 0}
   ability_img: {fileID: 8003788133965301582}
-  ability_message: {fileID: 9036873372312799585}
 --- !u!1 &3794818365420757526
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00071335, y: 0.000090599}
-  m_SizeDelta: {x: 60.245, y: 91.552}
+  m_AnchoredPosition: {x: 0.000803, y: -53.0082}
+  m_SizeDelta: {x: 60.245, y: 197.5685}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &125974640210635290
 CanvasRenderer:

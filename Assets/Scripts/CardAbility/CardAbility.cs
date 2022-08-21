@@ -15,6 +15,8 @@ public class CardAbility : ScriptableObject
 
     public Sprite illust;
 
+    
+
 
     public virtual void CardActivate(BattleManager match){}
     public virtual void DiceApplyed(Player player){}

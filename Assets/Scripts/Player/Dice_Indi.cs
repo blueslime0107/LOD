@@ -50,7 +50,6 @@ public class Dice_Indi : MonoBehaviour
     }
 
     void OnMouseDown() {
-        Debug.Log("clicker");
         saved_pos = transform.position;
         battleManager.target1 = player.player_id;
     }
