@@ -229,9 +229,10 @@ MonoBehaviour:
   card_num: 0
   isLeft: 0
   battleManager: {fileID: 0}
-  illust: {fileID: 0}
   card: {fileID: 0}
   ability_img: {fileID: 8003788133965301582}
+  color_on: {r: 1, g: 1, b: 1, a: 1}
+  color_off: {r: 1, g: 1, b: 1, a: 0.57254905}
 --- !u!1 &3794818365420757526
 GameObject:
   m_ObjectHideFlags: 0

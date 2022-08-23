@@ -2768,7 +2768,6 @@ MonoBehaviour:
   cardAbility: {fileID: 279411427}
   cardStroy: {fileID: 713284156}
   showleftCard: 0
-  showleftCardamount: 0
   leftCardIndi:
   - {fileID: 918991034}
   - {fileID: 185684270}
@@ -2786,7 +2785,6 @@ MonoBehaviour:
   left_gague: {fileID: 1235668578}
   right_gague: {fileID: 349404315}
   showrightCard: 0
-  showrightCardamount: 0
   rightCardIndi:
   - {fileID: 198789798}
   - {fileID: 351139639}
@@ -6082,7 +6080,8 @@ MonoBehaviour:
   died_card_geted: 1
   dice: 0
   died: 0
-  cards: []
+  cards:
+  - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
   - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
@@ -6255,17 +6254,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1878367823639087089, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
   m_PrefabInstance: {fileID: 1371056338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &918991037 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
-  m_PrefabInstance: {fileID: 1371056338}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918991034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &926574699
 GameObject:
   m_ObjectHideFlags: 0
@@ -8590,7 +8578,7 @@ PrefabInstance:
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: illust
       value: 
-      objectReference: {fileID: 918991037}
+      objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: isLeft
       value: 1

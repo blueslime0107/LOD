@@ -20,11 +20,9 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public GameObject ability_img;
     TextMeshProUGUI ability_message;
 
-    // void OnEnable() {
-    //     Debug.Log("OnEnable");
-    //     rect = GetComponent<RectTransform>();
-    //     illust = this.GetComponent<Image>();
-    // }
+    public Color color_on;
+    public Color color_off;
+
     void Awake() {
         Debug.Log("Awake");
         GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
@@ -50,13 +48,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      public void OnPointerEnter(PointerEventData eventData)
      {
         ability_img.SetActive(true);
-        // if(isLeft){
-        //     ability_message.text = battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability_message;
-        // }
-        // else{
-        //     ability_message.text = battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability_message;
-        // }
-        
+
         rect.anchoredPosition += Vector2.up*45;
         transform.SetAsLastSibling();
         
@@ -79,25 +71,20 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         
      }
 
-    //  public void CardActivated(){
-    //     ability_img.SetActive(true);
-    //     if(isLeft){
-    //         ability_message.text = battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability_message;
-    //     }
-    //     else{
-    //         ability_message.text = battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability_message;
-    //     }
-        
-    //     rect.anchoredPosition += Vector2.up*45;
-    //     transform.SetAsLastSibling();
-    //  }
-
-    //  public void CardActiFin(){
-    //     ability_img.SetActive(false);
-    //     transform.SetSiblingIndex(card_num);
-    //     rect.anchoredPosition += Vector2.down*45;
-    //  }
-
-    
+     public IEnumerator CardActivated(){
+        bool colored = false;
+        for(int i = 0;i<5;i++){
+            if(colored){
+                illust.color = color_off;
+            }
+            else{
+                illust.color = color_on;
+            }
+            colored = !colored;
+            yield return new WaitForSeconds(0.1f);
+        }
+        illust.color = color_off;
+        battleManager.battleCaculate.card_activated = false;
+     }
 
 }

@@ -39,39 +39,6 @@ public class BattleCaculate : MonoBehaviour
 
         players[myNum].OnMouseDown(); 
         players[eneNum].OnMouseDown(); 
-            
-
-
-        // if(players[myNum].gameObject.tag == "PlayerTeam1"){
-        //     battleManager.ui.showleftCardamount = players[myNum].cards.Count;
-        //     battleManager.ui.Leftcard_Update(players[myNum].cards);
-        //     battleManager.ui.showleftCard = true;
-        //     battleManager.cardViewChar_left = myNum;
-        // }
-        
-        // if(players[myNum].gameObject.tag == "PlayerTeam2"){
-        //     battleManager.ui.showrightCardamount = players[myNum].cards.Count;
-        //     battleManager.ui.Rightcard_Update(players[myNum].cards);
-        //     battleManager.ui.showrightCard = true;
-        //     battleManager.cardViewChar_right = myNum;
-        // }
-
-        // if(players[eneNum].gameObject.tag == "PlayerTeam1"){
-        //     battleManager.ui.showleftCardamount = players[eneNum].cards.Count;
-        //     battleManager.ui.Leftcard_Update(players[eneNum].cards);
-        //     battleManager.ui.showleftCard = true;
-        //     battleManager.cardViewChar_left = eneNum;
-        // }
-        
-        // if(players[eneNum].gameObject.tag == "PlayerTeam2"){
-        //     battleManager.ui.showrightCardamount = players[eneNum].cards.Count;
-        //     battleManager.ui.Rightcard_Update(players[eneNum].cards);
-        //     battleManager.ui.showrightCard = true;
-        //     battleManager.cardViewChar_right = eneNum;
-        // }
-
-
-
 
         damage = 0;
         myChar = players[selfnum-1];
@@ -93,11 +60,11 @@ public class BattleCaculate : MonoBehaviour
         myChar.SetPointMove(players[eneNum].movePoint.position, 15f);
         gameManager.main_camera_ctrl.SetTargetMove(myNum,eneNum,17f);
         BasicDice();
-        yield return new WaitForSeconds(1f);
-        StartCoroutine("BasicAttack");
-        while(card_activated){
+        while(myChar.isMoving){
             yield return null;
         }
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine("BasicAttack");
         yield return new WaitForSeconds(1f);
         
 
@@ -136,12 +103,10 @@ public class BattleCaculate : MonoBehaviour
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].OnBattleWin(this);
             }
-            if(card_activated){
-                yield return new WaitForSeconds(0.5f);
-                card_activated = false;
+            myChar.UpdateActiveStat();
+            while(card_activated){
+                yield return null;
             }
-
-
 
             myChar.ChangeCondition(3);
             eneChar.ChangeCondition(4);
@@ -152,8 +117,9 @@ public class BattleCaculate : MonoBehaviour
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].OnBattleWin(this);
             }
-            if(card_activated){
-                yield return new WaitForSeconds(0.5f);
+            eneChar.UpdateActiveStat();
+            while(card_activated){
+                yield return null;
             }
             myChar.ChangeCondition(4);
             eneChar.ChangeCondition(3);            

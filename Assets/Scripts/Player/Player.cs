@@ -24,8 +24,9 @@ public class Player : MonoBehaviour
     public Sprite[] poses;
     SpriteRenderer render;
 
+    List<card_text> player_deck;
 
-    bool isMoving;
+    public bool isMoving;
     Vector3 moveTarget;
     float moveSpeed;
 
@@ -37,6 +38,12 @@ public class Player : MonoBehaviour
     { 
         origin_pos = transform.position;
         render = GetComponent<SpriteRenderer>();
+        if(gameObject.tag == "PlayerTeam1"){
+            player_deck = battleManager.ui.leftCardIndi_compo;
+        }
+        else if(gameObject.tag == "PlayerTeam2"){
+            player_deck = battleManager.ui.rightCardIndi_compo;
+        }
         card_geted = true;
         max_health = health;
         UpdateHp();
@@ -113,18 +120,24 @@ public class Player : MonoBehaviour
         if(gameObject.tag == "PlayerTeam1"){
             
             battleManager.ui.leftCard_card = cards;
-            
-            //battleManager.ui.showleftCardamount = cards.Count;
             battleManager.ui.Leftcard_Update();
             battleManager.ui.showleftCard = true;
-            //battleManager.cardViewChar_left = player_id-1;
+
         }
         
         if(gameObject.tag == "PlayerTeam2"){
             battleManager.ui.rightCard_card = cards;
-            //battleManager.ui.showleftCardamount = cards.Count;
             battleManager.ui.Rightcard_Update();
             battleManager.ui.showrightCard = true;
+        }
+    }
+
+    public void UpdateActiveStat(){
+        for(int i = 0;i<cards.Count;i++){
+            if(cards[i].card_active){
+                player_deck[i].StartCoroutine("CardActivated");
+                battleManager.battleCaculate.card_activated = true;
+            }
         }
     }
 

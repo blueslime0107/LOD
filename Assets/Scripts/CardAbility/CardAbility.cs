@@ -15,7 +15,8 @@ public class CardAbility : ScriptableObject
 
     public Sprite illust;
 
-    
+    public GameObject owner;
+    public bool card_active;
 
 
     public virtual void CardActivate(BattleManager match){}
