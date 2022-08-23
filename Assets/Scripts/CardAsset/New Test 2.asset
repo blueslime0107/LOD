@@ -24,3 +24,5 @@ MonoBehaviour:
     \uB420 \uC218 \uC788\uB2E4.\n\uADF8\uB807\uAE30\uC5D0 \uC601\uC6C5\uC774 \uB418\uB3C4
     \uC544\uBB34\uB3C4 \uBCF8\uBC1B\uC9C0 \uC54A\uB294\uAC83\uC774\uC9C0."
   illust: {fileID: 21300000, guid: 46830f72a0c4c7b4db166109af49e39a, type: 3}
+  owner: {fileID: 0}
+  card_active: 0

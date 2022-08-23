@@ -25,6 +25,7 @@ public class BattleCaculate : MonoBehaviour
 
     public bool card_activated;
 
+    bool corrLock = false;
 
     public void BattleMatch(int selfnum, int enenum){
 
@@ -66,7 +67,7 @@ public class BattleCaculate : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         StartCoroutine("BasicAttack");
         yield return new WaitForSeconds(1f);
-        
+        corrLock = false;
 
 
 
@@ -98,37 +99,40 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BasicAttack(){
         damage = myChar.dice - eneChar.dice;
-        if(damage>0){
+        if(!corrLock){
+            if(damage>0){
 
-            for(int i = 0; i<my_ability.Count;i++){
-                my_ability[i].OnBattleWin(this);
+                for(int i = 0; i<my_ability.Count;i++){
+                    my_ability[i].OnBattleWin(this);
+                }
+                myChar.UpdateActiveStat();
+                while(card_activated){
+                    yield return null;
+                }
+                corrLock = true;
+                StartCoroutine(Damage(myChar,eneChar));
+                // Damage(myChar,eneChar);
             }
-            myChar.UpdateActiveStat();
-            while(card_activated){
-                yield return null;
+            if(damage<0){
+                damage = -damage;
+                for(int i = 0; i<ene_ability.Count;i++){
+                    ene_ability[i].OnBattleWin(this);
+                }
+                eneChar.UpdateActiveStat();
+                while(card_activated){
+                    yield return null;
+                }
+                corrLock = true;
+                StartCoroutine(Damage(eneChar,myChar));          
+                // Damage(eneChar,myChar);
             }
+            if(damage == 0){
+                corrLock = true;
+                myChar.ChangeCondition(3);
+                eneChar.ChangeCondition(3);
+            }
+        }
 
-            myChar.ChangeCondition(3);
-            eneChar.ChangeCondition(4);
-            Damage(myChar,eneChar);
-        }
-        if(damage<0){
-            damage = -damage;
-            for(int i = 0; i<ene_ability.Count;i++){
-                ene_ability[i].OnBattleWin(this);
-            }
-            eneChar.UpdateActiveStat();
-            while(card_activated){
-                yield return null;
-            }
-            myChar.ChangeCondition(4);
-            eneChar.ChangeCondition(3);            
-            Damage(eneChar,myChar);
-        }
-        if(damage == 0){
-            myChar.ChangeCondition(3);
-            eneChar.ChangeCondition(3);
-        }
     }
     
     void MatchFin(){    
@@ -197,19 +201,20 @@ public class BattleCaculate : MonoBehaviour
         }
     }
 
-    void Damage(Player attack, Player defender){
+    IEnumerator Damage(Player attack, Player defender){
         for(int i = 0; i<attack.cards.Count; i++){
                 attack.cards[i].OnDamageing(this,attack);
             }
         for(int i = 0; i<defender.cards.Count; i++){
                 defender.cards[i].OnDamaged(this,defender);
             }
+        attack.UpdateActiveStat();
+        defender.UpdateActiveStat();
+        while(card_activated){
+            Debug.Log("Waiting");
+            yield return null;
+        }
+        Debug.Log("Attacking");
         defender.Damage(damage,attack);
     }
-
-    public void CardActiv(){
-        card_activated = true;
-
-    }
-
 }

@@ -83,7 +83,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             colored = !colored;
             yield return new WaitForSeconds(0.1f);
         }
-        illust.color = color_off;
+        illust.color = color_on;
         battleManager.battleCaculate.card_activated = false;
      }
 

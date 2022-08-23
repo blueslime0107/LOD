@@ -89,7 +89,10 @@ public class Player : MonoBehaviour
     }
 
     public void Damage(int value, Player attacker){
+        Debug.Log("Player_Attacking");
         if(value>0){
+            ChangeCondition(4);
+            attacker.ChangeCondition(3);
             if(attacker.transform.position.x - transform.position.x <0){
                 transform.Translate(Vector3.right*value/2);
             }
@@ -97,6 +100,10 @@ public class Player : MonoBehaviour
                 transform.Translate(Vector3.left*value/2);
             }
             
+        }
+        else if(value.Equals(0)){
+            ChangeCondition(3);
+            attacker.ChangeCondition(3);
         }
         health -= value;
         UpdateHp();
@@ -113,6 +120,7 @@ public class Player : MonoBehaviour
     }
 
     public void ChangeCondition(int num){
+        Debug.Log("ChangeCondition");
         render.sprite = poses[num];
     }
 
@@ -137,6 +145,7 @@ public class Player : MonoBehaviour
             if(cards[i].card_active){
                 player_deck[i].StartCoroutine("CardActivated");
                 battleManager.battleCaculate.card_activated = true;
+                cards[i].card_active = false;
             }
         }
     }

@@ -172,8 +172,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46786872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.05, y: 1.07, z: 0}
-  m_LocalScale: {x: -0.6059278, y: 0.6059278, z: 0.6059278}
+  m_LocalPosition: {x: -6.69, y: 1, z: 0}
+  m_LocalScale: {x: -0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 1770350769}
   - {fileID: 672600373}
@@ -212,6 +212,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
   - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  isMoving: 0
   goto_origin: 0
 --- !u!212 &46786875
 SpriteRenderer:
@@ -1217,7 +1218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151865770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.0699997}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429596275}
@@ -1534,7 +1535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186689030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10.37}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1553104838}
@@ -1709,6 +1710,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: card_num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
@@ -2763,6 +2792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd16ed4306832d4f90024bd30c6c76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bm: {fileID: 0}
   battleStartButton: {fileID: 963092750}
   cardMessage: {fileID: 1302332353}
   cardAbility: {fileID: 279411427}
@@ -3642,11 +3672,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511300753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.04}
+  m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1617189618}
   - {fileID: 1643436319}
+  - {fileID: 1276984842}
   m_Father: {fileID: 856405326}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4158,6 +4189,34 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 1916609188}
@@ -4534,6 +4593,34 @@ PrefabInstance:
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: card_num
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
@@ -5167,8 +5254,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715146558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.6, y: -0.43, z: 0}
-  m_LocalScale: {x: 0.6059278, y: 0.6059278, z: 0.6059278}
+  m_LocalPosition: {x: 5, y: -0.5, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 252735899}
   - {fileID: 953235499}
@@ -5207,6 +5294,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
   - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  isMoving: 0
   goto_origin: 0
 --- !u!212 &715146561
 SpriteRenderer:
@@ -5521,8 +5609,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845077958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.22, y: -0.45, z: 0}
-  m_LocalScale: {x: -0.6059278, y: 0.6059278, z: 0.6059278}
+  m_LocalPosition: {x: -4.69, y: -0.5, z: 0}
+  m_LocalScale: {x: -0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 96814421}
   - {fileID: 1299251818}
@@ -5561,6 +5649,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
   - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  isMoving: 0
   goto_origin: 0
 --- !u!212 &845077961
 SpriteRenderer:
@@ -5685,6 +5774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 856405326}
+  - component: {fileID: 856405327}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -5711,6 +5801,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856405327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856405325}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb11afcfa5c1914ebad11b9ce7ef53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackA: {fileID: 982597808}
+  BackB: {fileID: 186689030}
+  BackC: {fileID: 511300753}
+  BackD: {fileID: 151865770}
+  speed: 0.6
+  radius: 0.1
 --- !u!1001 &858860355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6047,8 +6155,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908135923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.53, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.6059278, y: 0.6059278, z: 0.6059278}
+  m_LocalPosition: {x: 2.5, y: 0.3, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 1733718183}
   - {fileID: 515098907}
@@ -6080,14 +6188,14 @@ MonoBehaviour:
   died_card_geted: 1
   dice: 0
   died: 0
-  cards:
-  - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
+  cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
   - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
   - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
   - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  isMoving: 0
   goto_origin: 0
 --- !u!212 &908135926
 SpriteRenderer:
@@ -6400,6 +6508,34 @@ PrefabInstance:
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: card_num
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
@@ -6853,7 +6989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982597808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10.95}
+  m_LocalPosition: {x: 0, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1874177031}
@@ -6929,8 +7065,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987136916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.59, y: 0.29000005, z: 0}
-  m_LocalScale: {x: -0.6059278, y: 0.6059278, z: 0.6059278}
+  m_LocalPosition: {x: -2.19, y: 0.3, z: 0}
+  m_LocalScale: {x: -0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 144594752}
   - {fileID: 2012106551}
@@ -6962,14 +7098,14 @@ MonoBehaviour:
   died_card_geted: 1
   dice: 0
   died: 0
-  cards:
-  - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
+  cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
   - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
   - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
   - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  isMoving: 0
   goto_origin: 0
 --- !u!212 &987136919
 SpriteRenderer:
@@ -8061,8 +8197,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276984841}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05, y: -1, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 46786873}
@@ -8071,8 +8207,8 @@ Transform:
   - {fileID: 1779726900}
   - {fileID: 908135924}
   - {fileID: 715146559}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 511300754}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1281007042 stripped
 Transform:
@@ -8341,6 +8477,34 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 1916609188}
@@ -8588,6 +8752,38 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 1916609188}
@@ -8599,6 +8795,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f8fa0fcf5fa0be1408af95773166b060, type: 2}
     - target: {fileID: 1878367823639087089, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9006,7 +9222,7 @@ Transform:
   - {fileID: 1924602017}
   - {fileID: 1418182089}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443983944
 GameObject:
@@ -10210,6 +10426,34 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 1916609188}
@@ -10662,6 +10906,34 @@ PrefabInstance:
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: card_num
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
@@ -11307,6 +11579,34 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 1916609188}
@@ -11708,8 +12008,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779726899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.87, y: 1.13, z: 0}
-  m_LocalScale: {x: 0.6059278, y: 0.6059278, z: 0.6059278}
+  m_LocalPosition: {x: 7, y: 1, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 598850813}
   - {fileID: 2007598460}
@@ -11748,6 +12048,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
   - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  isMoving: 0
   goto_origin: 0
 --- !u!212 &1779726902
 SpriteRenderer:
@@ -12222,6 +12523,34 @@ PrefabInstance:
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: card_num
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager
@@ -13992,6 +14321,34 @@ PrefabInstance:
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: card_num
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_on.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.a
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: color_off.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72627473725177134, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: battleManager

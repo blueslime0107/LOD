@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4cc756eca43e8499da12712e98f8f4, type: 3}
   m_Name: New Test 6
   m_EditorClassIdentifier: 
+  card_id: 0
   name: "\uC815\uC2E0\uC9C0\uBC30\uB4DC\uB860"
   message: 
   ability_message: 
+  story_message: 
   illust: {fileID: 21300000, guid: 6e4da387422d26746b5dc689c2125163, type: 3}
+  owner: {fileID: 0}
+  card_active: 0
