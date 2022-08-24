@@ -64,7 +64,7 @@ public class BattleCaculate : MonoBehaviour
         while(myChar.isMoving){
             yield return null;
         }
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine("BasicAttack");
         yield return new WaitForSeconds(1f);
         corrLock = false;

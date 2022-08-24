@@ -6,6 +6,8 @@ public class BattleManager : MonoBehaviour
 {
     public GameManager gameManager;
     public BattleCaculate battleCaculate;
+    public CameraCtrl camera;
+    public BackGround backGround;
     public UI ui;
     public List<Dice> dices = new List<Dice>();
     public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
@@ -85,6 +87,8 @@ public class BattleManager : MonoBehaviour
                     players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
                         right_turn = true;
                         left_turn = true;
+                        backGround.leftCircle.SetActive(true);
+                        backGround.rightCircle.SetActive(true);
                         battle_ready =  true;                    
                     }
                 }
@@ -129,10 +133,27 @@ public class BattleManager : MonoBehaviour
 
 
             PlayerGoToOrigin();
+            while(camera.isZeroMove){
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.2f);
             while(card_left_draw>0 || card_right_draw>0){
+                
                 card_getting_team = !first_turn;
+                if(card_getting_team){
+                    TurnTeam("Left");
+                }
+                else{
+                    TurnTeam("Right");
+                }
                 if((card_getting_team && card_left_draw <= 0) || (!card_getting_team && card_right_draw <= 0)){
                     card_getting_team = !card_getting_team;
+                    if(card_getting_team){
+                        TurnTeam("Left");
+                    }
+                    else{
+                        TurnTeam("Right");
+                    }
                 }
                 
                 if(game_cards.Count<1)
@@ -204,11 +225,13 @@ public class BattleManager : MonoBehaviour
     public void TurnTeam(string team){
         if(team == "Left"){
             right_gague = (right_gague<right_gague_max) ? right_gague+100f : right_gague_max;
+            backGround.TeamChanged("Left");
             left_turn = true;
             right_turn = false;
         }
         if(team == "Right"){
             left_gague = (left_gague<left_gague_max) ? left_gague+100f : left_gague_max;
+            backGround.TeamChanged("Right");
             right_turn = true;
             left_turn = false;
         }

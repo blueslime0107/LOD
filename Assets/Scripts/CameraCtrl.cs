@@ -8,7 +8,7 @@ public class CameraCtrl : MonoBehaviour
     public BattleManager battleManager;
 
     bool isTwoTargetMove = false;
-    bool isZeroMove = false;
+    public bool isZeroMove = false;
     int ch1;
     int ch2;
     Vector3 target1;

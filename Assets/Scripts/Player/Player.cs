@@ -150,5 +150,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if(!battleManager.battleing){
+            if(collider.gameObject.name.Equals("WallLeft") || collider.gameObject.name.Equals("WallRight")){
+                goto_origin = true;
+            }
+        }
+
+    }
 
 }
