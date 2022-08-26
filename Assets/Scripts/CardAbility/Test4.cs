@@ -8,7 +8,7 @@ public class Test4 : CardAbility
 {
     public override void DiceApplyed(Player player)
     {
-        player.SetDice(Mathf.Abs(player.dice-7));
+        player.SetDice(Mathf.Abs(dice.value-7));
     }
 
 }

@@ -6,14 +6,17 @@ public class BattleManager : MonoBehaviour
 {
     public GameManager gameManager;
     public BattleCaculate battleCaculate;
-    public CameraCtrl camera;
+    public new CameraCtrl camera;
     public BackGround backGround;
     public UI ui;
     public List<Dice> dices = new List<Dice>();
-    public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
+    
     public List<Player> players = new List<Player>();
     public List<CardAbility> cards = new List<CardAbility>();
     public List<CardAbility> game_cards = new List<CardAbility>();
+
+    public List<Dice_Indi> left_dice = new List<Dice_Indi>();
+    public List<Dice_Indi> right_dice = new List<Dice_Indi>();
 
     public GameObject cardViewer;
     public GameObject blackScreen;
@@ -27,8 +30,8 @@ public class BattleManager : MonoBehaviour
     public int card_right_draw = 0;
     public bool card_gived = false;
 
-    [HideInInspector]public int target1;
-    [HideInInspector]public int target2;
+    public Dice_Indi target1;
+    public Dice_Indi target2;
 
     [HideInInspector]public bool battleing;
 
@@ -44,6 +47,8 @@ public class BattleManager : MonoBehaviour
     public float right_gague_max;
     [SerializeField]float left_gague;
     [SerializeField]float right_gague;
+
+    public float diceSort_scale;
 
     public void Battle(){
         left_gague = left_gague_max;
@@ -70,21 +75,20 @@ public class BattleManager : MonoBehaviour
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
             DiceRoll(); // 주사위를 굴린다
-            MakeADummy(true);
+            //MakeADummy(true);
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
                 if(!left_turn || !right_turn){
                     if(left_turn){
-                        if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
+                        if(left_dice.TrueForAll(x => x.value > 0)){
                                 TurnTeam("Right");
                             }
                     }
                     if(right_turn){
-                        if(players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                        if(right_dice.TrueForAll(x => x.value > 0)){
                                 TurnTeam("Left");
                             }
                     }
-                    if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
-                    players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                    if(left_dice.TrueForAll(x => x.value > 0 && x.gameObject.activeSelf) && right_dice.TrueForAll(x => x.value > 0 && x.gameObject.activeSelf)){
                         right_turn = true;
                         left_turn = true;
                         backGround.leftCircle.SetActive(true);
@@ -94,8 +98,8 @@ public class BattleManager : MonoBehaviour
                 }
                 if(battle_start)
                 {
-                    target1 = 0;
-                    target2 = 0;
+                    target1 = null;
+                    target2 = null;
                     if(first_turn){
                         TurnTeam("Left");
                     }
@@ -107,7 +111,7 @@ public class BattleManager : MonoBehaviour
                     
                 yield return null;
             }
-            MakeADummy(false);
+            //MakeADummy(false);
             while(!battle_end){ // 모든 캐릭터에게 주사위가 없으면 진행
                 yield return null;
                 if(battleing){
@@ -116,13 +120,13 @@ public class BattleManager : MonoBehaviour
 
                 if(!battle_end){
 
-                    if(players[0].dice <= 0 && players[1].dice  <= 0 && players[2].dice <= 0 &&
-                    players[3].dice <= 0 && players[4].dice <= 0 && players[5].dice <= 0){
+                    if(left_dice.TrueForAll(x => x.value <= 0) &&
+                    right_dice.TrueForAll(x => x.value <= 0)){
                         battle_end =  true;
                         break;
                     }
                 }
-                if(target1 > 0 && target2 > 0 && target1 != target2){
+                if(target1 && target2 && target1 != target2){
                     battleing = true;
                     blackScreen.SetActive(true);
                     battleCaculate.BattleMatch(target1,target2);
@@ -248,36 +252,87 @@ public class BattleManager : MonoBehaviour
     }
 
     void DiceRoll(){
-        for(int i = 0; i< dices.Count; i++)
-            if(!players[i].died){
-                dices[i].rolldice();
-            }            
+        // for(int i = 0; i< dices.Count; i++)
+        //     if(!players[i].died){
+        //         dices[i].rolldice();
+        //     }     
+        foreach(Dice di in dices){
+            di.gameObject.SetActive(false);
+        }
+        List<Dice> dice_left = dices.FindAll(x => x.tag.Equals("Team1"));
+        List<Dice> dice_right = dices.FindAll(x => x.tag.Equals("Team2"));
+        List<Dice_Indi> dice_list_left = left_dice.FindAll(x => x.gameObject.activeSelf);
+        List<Dice_Indi> dice_list_right = right_dice.FindAll(x => x.gameObject.activeSelf);
+
+        Debug.Log(dice_list_left.Count);
+        Debug.Log(dice_list_right.Count);
+
+        float[] cardLerps = new float[dice_list_left.Count];
+        switch(dice_list_left.Count){ // 카드수에 맞게 위치 조정
+            case 1: cardLerps = new float[] {0f}; break;
+            case 2: cardLerps = new float[] {-1f,1f}; break;
+            case 3: cardLerps = new float[] {-2f,0f,2f}; break;
+            default:
+                float interval = diceSort_scale / (dice_list_left.Count-1);
+                for(int i = 0; i < dice_list_left.Count;i++){
+                    cardLerps[i] = interval * i-diceSort_scale/2;
+                } break;
+            }
+        for(int i = 0; i<dice_list_left.Count; i++){
+            dice_left[i].gameObject.SetActive(true);
+            dice_left[i].rolldice(cardLerps[i]-4f);
+        }
+              
+
+        cardLerps = new float[dice_list_right.Count];
+        switch(dice_list_right.Count){ // 카드수에 맞게 위치 조정
+            case 1: cardLerps = new float[] {0f}; break;
+            case 2: cardLerps = new float[] {-1f,1f}; break;
+            case 3: cardLerps = new float[] {-2f,0f,2f}; break;
+            default:
+                float interval = diceSort_scale / (dice_list_right.Count-1);
+                for(int i = 0; i < dice_list_right.Count;i++){
+                    cardLerps[i] = interval * i-diceSort_scale/2;
+                } break;
+            }
+
+
+        for(int i = 0; i<dice_list_right.Count; i++){
+            dice_right[i].gameObject.SetActive(true);
+            dice_right[i].rolldice(cardLerps[i]+4f);
+        }
+                   
     }
 
-    void MakeADummy(bool ver){
-        if(ver == true){
-            for(int i = 0; i< players.Count; i++)
-                if(players[i].died){
-                    players[i].SetDice(1);
-                }     
-        }      
-        if(ver == false){
-            for(int i = 0; i< players.Count; i++)
-                if(players[i].died){
-                    players[i].SetDice(0);
-                }     
-        }       
-    }
+    // void MakeADummy(bool ver){
+    //     if(ver == true){
+    //         for(int i = 0; i< players.Count; i++)
+    //             if(players[i].died){
+    //                 players[i].SetDice(1);
+    //             }     
+    //     }      
+    //     if(ver == false){
+    //         for(int i = 0; i< players.Count; i++)
+    //             if(players[i].died){
+    //                 players[i].SetDice(0);
+    //             }     
+    //     }       
+    // }
 
     void BattlePreReset(){
-        for(int i = 0; i< dices.Count; i++)
-            dices[i].diceReroll();
-        for(int i = 0; i< dices.Count; i++)
-            dice_indis[i].isDiced = false;
+        DiceRoll();
+        foreach(Dice_Indi dice in left_dice){
+            dice.isDiced = false;
+        }
+        foreach(Dice_Indi dice in right_dice){
+            dice.isDiced = false;
+        }
         battle_start = false;
         battle_end = false;
-        target1 = 0;
-        target2 = 0;
+        target1 = null;
+        target2 = null;
+        // target1 = 0;
+        // target2 = 0;
     }
 
     public void BattleStart(){

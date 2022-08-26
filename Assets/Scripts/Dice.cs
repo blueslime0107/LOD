@@ -10,27 +10,29 @@ public class Dice : MonoBehaviour
     GameObject charTarget;
     [SerializeField] BattleManager battleManager;
 
-    public int dice_num;
-    public Transform[] move_point;
-
     public Sprite[] dice_img;
     SpriteRenderer render;
 
     void Awake(){
         render = GetComponent<SpriteRenderer>();
+        battleManager.dices.Add(this);
     }
 
-    public void rolldice(){ // 1 부터 6 랜덤 주사위 굴리기
-        StartCoroutine("rollingDice");
+    void Start(){
+        
     }
 
-    IEnumerator rollingDice(){
+    public void rolldice(float x_pos){ // 1 부터 6 랜덤 주사위 굴리기
+        StartCoroutine(rollingDice(x_pos));
+    }
+
+    IEnumerator rollingDice(float x_pos){
         transform.position = Vector3.up*4.5f;
         yield return new WaitForSeconds(0.2f);
         float time = 0;
         Vector2 velo = Vector2.zero;
         while(time<1){
-            transform.position = Vector2.SmoothDamp(transform.position,move_point[dice_num].position,ref velo,5f*Time.deltaTime);
+            transform.position = Vector2.SmoothDamp(transform.position,Vector2.right*x_pos+Vector2.up*3,ref velo,5f*Time.deltaTime);
             dice_value = (int)Random.Range(1f,7f);
             render.sprite = dice_img[dice_value-1];
             transform.Rotate(Vector3.forward*30);
@@ -89,10 +91,9 @@ public class Dice : MonoBehaviour
     }
 
     // 외부실행 주사위 다시 보이게함
-    public void diceReroll(){
-        gameObject.SetActive(true);
-        rolldice();
-    }
+    // public void diceReroll(){
+    //     gameObject.SetActive(true);
+    // }
 
     
 }

@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     BattleManager battleManager;
-    public Dice_Indi dice_Indi;
+    public Dice_Indi dice;
+    public List<Dice_Indi> dice_s;
     [SerializeField]
     Hp_Indi hp_Indi;
 
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
     public int health;
     public bool card_geted = true;
     public bool died_card_geted = true;
-    public int dice;
+    //public int dice;
     public bool died;
     public List<CardAbility> cards = new List<CardAbility>();
     public Sprite[] poses;
@@ -81,11 +82,16 @@ public class Player : MonoBehaviour
     }
 
     public void SetDice(int value){
-        dice_Indi.setDice(value);
+        foreach(Dice_Indi die in dice_s){
+            die.setDice(value);
+        }
+        
     }
 
     public void AddDice(int value){
-        dice_Indi.setDice(dice + value);
+        foreach(Dice_Indi die in dice_s){
+            die.setDice(die.value + value);
+        }
     }
 
     public void Damage(int value, Player attacker){
@@ -116,6 +122,9 @@ public class Player : MonoBehaviour
 
     public void YouAreDead(){
         died = true;
+        foreach(Dice_Indi die in dice_s){
+            die.gameObject.SetActive(false);
+        }
         gameObject.SetActive(false);
     }
 
