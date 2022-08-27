@@ -54,13 +54,6 @@ public class CameraCtrl : MonoBehaviour
                 isZeroMove = false;
             }
         }
-        // else{
-        //    runningTime += Time.fixedDeltaTime * speed;
-        //     float x = radius * Mathf.Cos(runningTime);
-
-        //     transform.position = Vector3.Lerp(transform.position,Vector3.back*10 + Vector3.right*x,2f*Time.deltaTime);
-        //     //transform.position = Vector3.back*10 + Vector3.right*x;
-        // }
 
     }
 

@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public Dice_Indi dice_Indi;
     [SerializeField]
     Hp_Indi hp_Indi;
-
+    Material material;
+    float fade = 0.7f;
     
     public Transform movePoint;
     public int player_id = 0;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
 
     void Start()
     { 
+        material = GetComponent<SpriteRenderer>().material;
         origin_pos = transform.position;
         render = GetComponent<SpriteRenderer>();
         if(gameObject.tag == "PlayerTeam1"){
@@ -72,6 +74,17 @@ public class Player : MonoBehaviour
             }
             
         }
+        if(died){
+            fade -= Time.deltaTime/2;
+            if(fade <= 0f){
+                fade = 0f;
+                gameObject.SetActive(false);
+            }
+            material.SetFloat("_Fade",fade);
+            material.SetInt("_Noise",1);
+        }
+    
+    
     }
 
     public void SetPointMove(Vector3 point, float spd){
@@ -116,7 +129,7 @@ public class Player : MonoBehaviour
 
     public void YouAreDead(){
         died = true;
-        gameObject.SetActive(false);
+        
     }
 
     public void ChangeCondition(int num){

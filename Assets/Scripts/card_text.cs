@@ -20,9 +20,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public GameObject ability_img;
     TextMeshProUGUI ability_message;
 
-    public Color color_on;
-    public Color color_off;
-
     void Awake() {
         Debug.Log("Awake");
         GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
@@ -72,18 +69,17 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      }
 
      public IEnumerator CardActivated(){
-        bool colored = false;
+        bool colored = true;
         for(int i = 0;i<5;i++){
             if(colored){
-                illust.color = color_off;
+                rect.anchoredPosition += Vector2.up*45;
             }
             else{
-                illust.color = color_on;
+                rect.anchoredPosition += Vector2.down*45;
             }
             colored = !colored;
             yield return new WaitForSeconds(0.1f);
         }
-        illust.color = color_on;
         battleManager.battleCaculate.card_activated = false;
      }
 

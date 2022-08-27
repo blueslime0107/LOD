@@ -79,9 +79,8 @@ public class BattleCaculate : MonoBehaviour
 
 
 
-        myChar.SetPointMove(myOriginPos, 15f);
-        gameManager.main_camera_ctrl.SetZeroMove(17f);
-        MatchFin();
+
+        StartCoroutine(MatchFin());
 
         yield return null;
     }
@@ -135,7 +134,7 @@ public class BattleCaculate : MonoBehaviour
 
     }
     
-    void MatchFin(){    
+    IEnumerator MatchFin(){    
         for(int i =0;i<battleManager.players.Count;i++){
             if(battleManager.players[i].health <= 5 && battleManager.players[i].card_geted){
                 if(i<3){
@@ -154,11 +153,13 @@ public class BattleCaculate : MonoBehaviour
                     battleManager.card_left_draw += 1;
                     battleManager.players[i].died_card_geted = false;
                     battleManager.players[i].YouAreDead();
+                    yield return new WaitForSeconds(1.5f);
                 }
                 else{
                     battleManager.card_right_draw += 1;
                     battleManager.players[i].died_card_geted = false;
                     battleManager.players[i].YouAreDead();
+                    yield return new WaitForSeconds(1.5f);
                 }
             }
         }
@@ -175,6 +176,9 @@ public class BattleCaculate : MonoBehaviour
                 players[i].dice_Indi.render.color = new Color(255,255,255,255);
             }
         }
+
+        myChar.SetPointMove(myOriginPos, 15f);
+        gameManager.main_camera_ctrl.SetZeroMove(17f);
             
         battleManager.blackScreen.SetActive(false);
         myChar.SetDice(0);
@@ -199,6 +203,7 @@ public class BattleCaculate : MonoBehaviour
                 battleManager.TurnTeam("Right");
             }
         }
+        yield return null;
     }
 
     IEnumerator Damage(Player attack, Player defender){

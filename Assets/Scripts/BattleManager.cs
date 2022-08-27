@@ -6,7 +6,7 @@ public class BattleManager : MonoBehaviour
 {
     public GameManager gameManager;
     public BattleCaculate battleCaculate;
-    public CameraCtrl camera;
+    public new CameraCtrl camera;
     public BackGround backGround;
     public UI ui;
     public List<Dice> dices = new List<Dice>();
