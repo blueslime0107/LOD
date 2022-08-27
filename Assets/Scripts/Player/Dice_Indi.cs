@@ -34,7 +34,11 @@ public class Dice_Indi : MonoBehaviour
     void Update(){
         if(Input.GetMouseButtonUp(0)){
             if(targetSelected && battleManager.target1 && player.player_id != battleManager.target1.player.player_id){
-            battleManager.target2 = this;
+                battleManager.target2 = this;
+
+                if(battleManager.target2.value.Equals(0)){
+
+                }
             //battleCaculate.BattleMatch(dice_num,target); 
             }
         }
@@ -47,8 +51,9 @@ public class Dice_Indi : MonoBehaviour
         this.value = value;
         isDiced = true;       
         render.sprite = dice_img[value];
+        
         for(int i = 0; i<player.cards.Count;i++){
-            player.cards[i].DiceApplyed(this);
+            player.cards[i].DiceApplyed(player,this); //////////////////// DiceApplyed 이벤트
         }
     }
 

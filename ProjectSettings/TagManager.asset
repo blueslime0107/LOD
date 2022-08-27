@@ -8,6 +8,8 @@ TagManager:
   - Team2
   - PlayerTeam1
   - PlayerTeam2
+  - WallLeft
+  - WallRight
   layers:
   - Default
   - TransparentFX

@@ -9,17 +9,20 @@ public class Test3 : CardAbility
 
 
 
-    public override void MatchStarted(Dice_Indi dice, BattleManager match)
+    public override void MatchStartedForDice(Dice_Indi dice, BattleManager match)
     {
+        List<Dice_Indi> dice_list = match.all_dice;
+        dice_list.Remove(dice);
         int count = 0;
-        for(int i = 0;i<match.players.Count;i++){
-            if(match.players[i].dice.value == player.dice.value+count && i != player.player_id-1){
-                count += 1;
-                
+        for(int i = 0; i<6; i++){
+            foreach(Dice_Indi die in dice_list){
+                if(die.value.Equals(dice.value+count)){
+                    count++;
+                    break;
+                }
             }
-                
         }
-        player.SetDice(player.dice.value+count,player.);
+        dice.setDice(dice.value + count);
 
     }
 

@@ -17,6 +17,7 @@ public class BattleManager : MonoBehaviour
 
     public List<Dice_Indi> left_dice = new List<Dice_Indi>();
     public List<Dice_Indi> right_dice = new List<Dice_Indi>();
+    public List<Dice_Indi> all_dice = new List<Dice_Indi>();
 
     public GameObject cardViewer;
     public GameObject blackScreen;
@@ -50,6 +51,11 @@ public class BattleManager : MonoBehaviour
 
     public float diceSort_scale;
 
+    void Start(){
+        all_dice.AddRange(left_dice);
+        all_dice.AddRange(right_dice);
+    }
+
     public void Battle(){
         left_gague = left_gague_max;
         right_gague = right_gague_max;
@@ -75,7 +81,7 @@ public class BattleManager : MonoBehaviour
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
             DiceRoll(); // 주사위를 굴린다
-            //MakeADummy(true);
+            MakeADummy(true);
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
                 if(!left_turn || !right_turn){
                     if(left_turn){
@@ -88,7 +94,7 @@ public class BattleManager : MonoBehaviour
                                 TurnTeam("Left");
                             }
                     }
-                    if(left_dice.TrueForAll(x => x.value > 0 && x.gameObject.activeSelf) && right_dice.TrueForAll(x => x.value > 0 && x.gameObject.activeSelf)){
+                    if(left_dice.TrueForAll(x => x.value > 0) && right_dice.TrueForAll(x => x.value > 0)){
                         right_turn = true;
                         left_turn = true;
                         backGround.leftCircle.SetActive(true);
@@ -96,9 +102,24 @@ public class BattleManager : MonoBehaviour
                         battle_ready =  true;                    
                     }
                 }
-                if(battle_start)
-                {
-                    target1 = null;
+                if(battle_start)        // 전투시작 버튼이 눌렸을대 
+                {       
+                    for(int i = 0; i < all_dice.Count;i++){
+                        foreach(CardAbility card in all_dice[i].player.cards){
+                            card.MatchStartedForDice(all_dice[i],this);
+                        }
+                    }
+                    foreach(Player player in players){
+                        if(player.cards.Count.Equals(0))
+                            continue;
+                        foreach(CardAbility card in player.cards){
+                            card.MatchStartedForPlayer(player,this);
+                        }
+                    }
+                    foreach(Dice_Indi dice in right_dice){
+                        dice.isDiced = false;
+                    }
+                    target1 = null; // 타겟 초기화와 선 팀으로 바꾸기
                     target2 = null;
                     if(first_turn){
                         TurnTeam("Left");
@@ -111,14 +132,14 @@ public class BattleManager : MonoBehaviour
                     
                 yield return null;
             }
-            //MakeADummy(false);
+            MakeADummy(false);
             while(!battle_end){ // 모든 캐릭터에게 주사위가 없으면 진행
                 yield return null;
                 if(battleing){
                     continue;
                 }
 
-                if(!battle_end){
+                if(!battle_end){ // 모든 수가 0이하면 전투끝
 
                     if(left_dice.TrueForAll(x => x.value <= 0) &&
                     right_dice.TrueForAll(x => x.value <= 0)){
@@ -126,7 +147,8 @@ public class BattleManager : MonoBehaviour
                         break;
                     }
                 }
-                if(target1 && target2 && target1 != target2){
+                if(target1 && target2 && target1 != target2){ // 두 타켓이 있다면 전투시작~!
+                    
                     battleing = true;
                     blackScreen.SetActive(true);
                     battleCaculate.BattleMatch(target1,target2);
@@ -304,20 +326,20 @@ public class BattleManager : MonoBehaviour
                    
     }
 
-    // void MakeADummy(bool ver){
-    //     if(ver == true){
-    //         for(int i = 0; i< players.Count; i++)
-    //             if(players[i].died){
-    //                 players[i].SetDice(1);
-    //             }     
-    //     }      
-    //     if(ver == false){
-    //         for(int i = 0; i< players.Count; i++)
-    //             if(players[i].died){
-    //                 players[i].SetDice(0);
-    //             }     
-    //     }       
-    // }
+    void MakeADummy(bool ver){
+        if(ver == true){
+            for(int i = 0; i < all_dice.Count;i++){
+                if(all_dice[i].player.died)
+                    all_dice[i].value = 999;
+            }    
+        }      
+        if(ver == false){
+            for(int i = 0; i < all_dice.Count;i++){
+                if(all_dice[i].player.died)
+                    all_dice[i].value = 0;
+            }     
+        }       
+    }
 
     void BattlePreReset(){
         DiceRoll();
@@ -336,11 +358,12 @@ public class BattleManager : MonoBehaviour
     }
 
     public void BattleStart(){
-        for(int i = 0; i < players.Count; i++){
-            for(int j = 0; j < players[i].cards.Count; j++){
-                players[i].cards[j].MatchStarted(players[i],this);
-            }
-        }
+
+        // for(int i = 0; i < players.Count; i++){
+        //     for(int j = 0; j < players[i].cards.Count; j++){
+        //         players[i].cards[j].MatchStartedForDice(players[i],this);
+        //     }
+        // }
         if(battle_ready){
             battle_start = true;
             battle_ready = false;

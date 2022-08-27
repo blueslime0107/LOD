@@ -102,10 +102,10 @@ public class BattleCaculate : MonoBehaviour
 
     void BasicDice(){
         if(myChar.dice.value == 1 && eneChar.dice.value >= 6){
-            myChar.AddDice(6,myChar.dice);
+            myChar.AddDice(6, myChar.dice);
         }
         else if(eneChar.dice.value == 1 && myChar.dice.value >= 6){
-            eneChar.AddDice(6,eneChar.dice);
+            eneChar.AddDice(6, eneChar.dice);
         }
     }
 

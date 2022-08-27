@@ -81,17 +81,15 @@ public class Player : MonoBehaviour
         isMoving = true;
     }
 
-    public void SetDice(int value){
-        foreach(Dice_Indi die in dice_s){
-            die.setDice(value);
-        }
+    public void SetDice(int value, Dice_Indi die){
+        die.setDice(value);
+
         
     }
 
-    public void AddDice(int value){
-        foreach(Dice_Indi die in dice_s){
-            die.setDice(die.value + value);
-        }
+    public void AddDice(int value, Dice_Indi die){
+        die.setDice(die.value + value);
+
     }
 
     public void Damage(int value, Player attacker){
@@ -123,6 +121,7 @@ public class Player : MonoBehaviour
     public void YouAreDead(){
         died = true;
         foreach(Dice_Indi die in dice_s){
+            die.value = 0;
             die.gameObject.SetActive(false);
         }
         gameObject.SetActive(false);
@@ -160,8 +159,8 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(!battleManager.battleing){
-            if(collider.gameObject.name.Equals("WallLeft") || collider.gameObject.name.Equals("WallRight")){
+        if(!battleManager.battle_end){
+            if(collider.gameObject.tag.Equals("WallLeft") || collider.gameObject.tag.Equals("WallRight")){
                 goto_origin = true;
             }
         }
