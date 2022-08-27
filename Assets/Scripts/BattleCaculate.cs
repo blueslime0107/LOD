@@ -11,13 +11,12 @@ public class BattleCaculate : MonoBehaviour
     public List<CardAbility> my_ability = new List<CardAbility>();
     public List<CardAbility> ene_ability = new List<CardAbility>();
 
-    Color black = new Color(0,0,0,1);
-    Color white = new Color(255,255,255,255);
+
 
     public int damage;
 
-    [SerializeField] Player myChar;
-    [SerializeField] Player eneChar;
+    Player myChar;
+    Player eneChar;
 
     Vector3 myOriginPos;
 
@@ -28,35 +27,23 @@ public class BattleCaculate : MonoBehaviour
 
     bool corrLock = false;
 
-    public void BattleMatch(Dice_Indi self_dice, Dice_Indi ene_dice){
+    public void BattleMatch(int selfnum, int enenum){
 
-        foreach(Dice_Indi dice in battleManager.left_dice){
-            if(dice != self_dice && dice != ene_dice){
-                dice.render.color = black;
+        for(int i=0;i<6;i++){
+            if(i != selfnum-1 && i != enenum-1){
+                players[i].dice_Indi.render.color = new Color(0,0,0,1);
             }
         }
-        foreach(Dice_Indi dice in battleManager.right_dice){
-            if(dice != self_dice && dice != ene_dice){
-                dice.render.color = black;
-            }
-        }
-        // for(int i=0;i<battleManager.left_dice.Count+battleManager.right_dice.Count;i++){
-        //     if(i != selfnum-1 && i != enenum-1){
-        //         players[i].
-        //     }
-        // }
 
-        myNum = self_dice.player.player_id -1;
-        eneNum = ene_dice.player.player_id -1;
+        myNum = selfnum-1;
+        eneNum = enenum-1;
 
         players[myNum].OnMouseDown(); 
         players[eneNum].OnMouseDown(); 
 
         damage = 0;
-        myChar = self_dice.player;
-        eneChar = ene_dice.player;
-        myChar.dice = self_dice;
-        eneChar.dice = ene_dice;
+        myChar = players[selfnum-1];
+        eneChar = players[enenum-1];
         myOriginPos = players[myNum].transform.position;
 
         my_ability = myChar.cards;
@@ -101,16 +88,17 @@ public class BattleCaculate : MonoBehaviour
 
 
     void BasicDice(){
-        if(myChar.dice.value == 1 && eneChar.dice.value >= 6){
-            myChar.AddDice(6, myChar.dice);
+
+        if(myChar.dice == 1 && eneChar.dice >= 6){
+            myChar.AddDice(6);
         }
-        else if(eneChar.dice.value == 1 && myChar.dice.value >= 6){
-            eneChar.AddDice(6, eneChar.dice);
+        else if(eneChar.dice == 1 && myChar.dice >= 6){
+            eneChar.AddDice(6);
         }
     }
 
     IEnumerator BasicAttack(){
-        damage = myChar.dice.value - eneChar.dice.value;
+        damage = myChar.dice - eneChar.dice;
         if(!corrLock){
             if(damage>0){
 
@@ -182,38 +170,32 @@ public class BattleCaculate : MonoBehaviour
         //     battleManager.card_draw += 1;
         //     eneChar.card_geted = false;
         // }
-        // for(int i=0;i<battleManager.players.Count;i++){
-        //     if(i != myNum || i != eneNum){
-        //         players[i].dice.render.color = new Color(255,255,255,255);
-        //     }
-        // }
-        foreach(Dice_Indi dice in battleManager.left_dice){
-            dice.render.color =  white;
-        }
-        foreach(Dice_Indi dice in battleManager.right_dice){
-            dice.render.color =  white;
+        for(int i=0;i<battleManager.players.Count;i++){
+            if(i != myNum || i != eneNum){
+                players[i].dice_Indi.render.color = new Color(255,255,255,255);
+            }
         }
             
         battleManager.blackScreen.SetActive(false);
-        myChar.SetDice(0,myChar.dice);
+        myChar.SetDice(0);
         myChar.ChangeCondition(0);
-        eneChar.SetDice(0,eneChar.dice);
+        eneChar.SetDice(0);
         eneChar.ChangeCondition(0);
         battleManager.battleing = false;
-        battleManager.target1 = null;
-        battleManager.target2 = null;
+        battleManager.target1 = 0;
+        battleManager.target2 = 0;
         myChar.transform.position += Vector3.forward;
         eneChar.transform.position += Vector3.forward;
 
         if(battleManager.left_turn){
             battleManager.TurnTeam("Right");
-            if(battleManager.right_dice.TrueForAll(x => x.value == 0)){
+            if(battleManager.players[3].dice + battleManager.players[4].dice + battleManager.players[5].dice == 0){
                 battleManager.TurnTeam("Left");
             }
         }
         else if(battleManager.right_turn){
             battleManager.TurnTeam("Left");
-            if(battleManager.left_dice.TrueForAll(x => x.value == 0)){
+            if(battleManager.players[0].dice + battleManager.players[1].dice + battleManager.players[2].dice == 0){
                 battleManager.TurnTeam("Right");
             }
         }

@@ -6,8 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     BattleManager battleManager;
-    public Dice_Indi dice;
-    public List<Dice_Indi> dice_s;
+    public Dice_Indi dice_Indi;
     [SerializeField]
     Hp_Indi hp_Indi;
 
@@ -19,7 +18,7 @@ public class Player : MonoBehaviour
     public int health;
     public bool card_geted = true;
     public bool died_card_geted = true;
-    //public int dice;
+    public int dice;
     public bool died;
     public List<CardAbility> cards = new List<CardAbility>();
     public Sprite[] poses;
@@ -81,15 +80,12 @@ public class Player : MonoBehaviour
         isMoving = true;
     }
 
-    public void SetDice(int value, Dice_Indi die){
-        die.setDice(value);
-
-        
+    public void SetDice(int value){
+        dice_Indi.setDice(value);
     }
 
-    public void AddDice(int value, Dice_Indi die){
-        die.setDice(die.value + value);
-
+    public void AddDice(int value){
+        dice_Indi.setDice(dice + value);
     }
 
     public void Damage(int value, Player attacker){
@@ -120,10 +116,6 @@ public class Player : MonoBehaviour
 
     public void YouAreDead(){
         died = true;
-        foreach(Dice_Indi die in dice_s){
-            die.value = 0;
-            die.gameObject.SetActive(false);
-        }
         gameObject.SetActive(false);
     }
 
@@ -159,8 +151,8 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(!battleManager.battle_end){
-            if(collider.gameObject.tag.Equals("WallLeft") || collider.gameObject.tag.Equals("WallRight")){
+        if(!battleManager.battleing){
+            if(collider.gameObject.name.Equals("WallLeft") || collider.gameObject.name.Equals("WallRight")){
                 goto_origin = true;
             }
         }

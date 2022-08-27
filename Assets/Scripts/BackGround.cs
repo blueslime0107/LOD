@@ -24,10 +24,10 @@ public class BackGround : MonoBehaviour
     void Update()
     {
         if(bm.left_turn){
-            leftCircle.transform.Rotate(Vector3.forward * rotate_spd * Time.deltaTime);
+            leftCircle.transform.Rotate(Vector3.forward * rotate_spd);
         }
         if(bm.right_turn){
-            rightCircle.transform.Rotate(Vector3.forward * rotate_spd * Time.deltaTime);
+            rightCircle.transform.Rotate(Vector3.forward * rotate_spd);
         }
     }
 

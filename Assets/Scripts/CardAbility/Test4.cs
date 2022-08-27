@@ -6,9 +6,9 @@ using UnityEngine;
  
 public class Test4 : CardAbility
 {
-    public override void DiceApplyed(Player player, Dice_Indi dice)
+    public override void DiceApplyed(Player player)
     {
-        player.SetDice(Mathf.Abs(dice.value-7),dice);
+        player.SetDice(Mathf.Abs(player.dice-7));
     }
 
 }

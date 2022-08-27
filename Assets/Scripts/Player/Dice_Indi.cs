@@ -4,41 +4,28 @@ using UnityEngine;
 
 public class Dice_Indi : MonoBehaviour
 {
+    public int dice_num;
 
     public BattleManager battleManager;
     public BattleCaculate battleCaculate;
     public Sprite[] dice_img;
     public bool isDiced = false;
-    public int value;
+    public int dice_value;
     Vector3 saved_pos;
 
     public bool targetSelected;
 
-    [HideInInspector] public SpriteRenderer render;
+    public SpriteRenderer render;
     public Player player;
     public LineRenderer lineRender;
     void Awake() {
-        render = GetComponent<SpriteRenderer>();        
-        player = transform.GetComponentInParent<Player>();
-    }
-
-    void Start(){
-        if(gameObject.tag == "Team1")
-            battleManager.left_dice.Add(this);
-        if(gameObject.tag == "Team2")
-            battleManager.right_dice.Add(this);
-        player.dice = this;
-        player.dice_s.Add(this);
+        render = GetComponent<SpriteRenderer>();
     }
 
     void Update(){
         if(Input.GetMouseButtonUp(0)){
-            if(targetSelected && battleManager.target1 && player.player_id != battleManager.target1.player.player_id){
-                battleManager.target2 = this;
-
-                if(battleManager.target2.value.Equals(0)){
-
-                }
+            if(targetSelected && battleManager.target1 > 0 && player.player_id != battleManager.target1){
+            battleManager.target2 = player.player_id;
             //battleCaculate.BattleMatch(dice_num,target); 
             }
         }
@@ -46,26 +33,25 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void putDice(int value){
-        //player.dice = value;
+        player.dice = value;
         player.ChangeCondition(1);
-        this.value = value;
+        dice_value = value;
         isDiced = true;       
         render.sprite = dice_img[value];
-        
         for(int i = 0; i<player.cards.Count;i++){
-            player.cards[i].DiceApplyed(player,this); //////////////////// DiceApplyed 이벤트
+            player.cards[i].DiceApplyed(player);
         }
     }
 
     public void setDice(int value){
-        //player.dice = value;
-        this.value = value;
+        player.dice = value;
+        dice_value = value;
         render.sprite = dice_img[value];
     }
 
     void OnMouseDown() {
         saved_pos = transform.position;
-        battleManager.target1 = this;
+        battleManager.target1 = player.player_id;
     }
 
 
