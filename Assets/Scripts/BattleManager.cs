@@ -14,6 +14,7 @@ public class BattleManager : MonoBehaviour
     public List<Player> players = new List<Player>();
     public List<CardAbility> cards = new List<CardAbility>();
     public List<CardAbility> game_cards = new List<CardAbility>();
+    public List<GameObject> card_effect = new List<GameObject>();
 
     public GameObject cardViewer;
     public GameObject blackScreen;
@@ -44,6 +45,18 @@ public class BattleManager : MonoBehaviour
     public float right_gague_max;
     [SerializeField]float left_gague;
     [SerializeField]float right_gague;
+
+    // private void Awake() {
+    //     foreach(CardAbility card in cards){
+    //         if(card.effect != null){
+    //             GameObject game_effect = Instantiate(card.effect,transform.position,transform.rotation);
+    //             game_effect.SetActive(false);
+    //             card_effect.Add(game_effect);
+    //             card.inst_effect = game_effect;
+    //         }
+    //     }
+        
+    // }
 
     public void Battle(){
         left_gague = left_gague_max;

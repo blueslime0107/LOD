@@ -19,6 +19,7 @@ public class CardDraw : MonoBehaviour
     // [SerializeField]
     // Sprite[] card_img; // 카드 이미지
 
+
     Vector3 origin_size;
     Vector3 origin_position;
 
@@ -67,6 +68,7 @@ public class CardDraw : MonoBehaviour
     // 외부에서 실행 카드 이미지 바꾸기
     public void SetImage(CardAbility card){
         having_card = card;
+        //having_card.effect = card_effect
         card_id = having_card.card_id;
         render.sprite = having_card.illust;
         name.text = having_card.name;
@@ -99,7 +101,9 @@ public class CardDraw : MonoBehaviour
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         if(target>0 && mouseOn){
             if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target-1<3){
-                battleManager.players[target-1].cards.Add(having_card);
+                CardPack card = new CardPack();
+                card.ability = having_card;
+                battleManager.players[target-1].cards.Add(card);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
                 Destroy(gameObject);

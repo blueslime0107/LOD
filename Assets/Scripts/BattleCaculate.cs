@@ -126,6 +126,9 @@ public class BattleCaculate : MonoBehaviour
                 // Damage(eneChar,myChar);
             }
             if(damage == 0){
+                while(card_activated){
+                    yield return null;
+                }
                 corrLock = true;
                 myChar.ChangeCondition(3);
                 eneChar.ChangeCondition(3);
@@ -216,10 +219,11 @@ public class BattleCaculate : MonoBehaviour
         attack.UpdateActiveStat();
         defender.UpdateActiveStat();
         while(card_activated){
-            Debug.Log("Waiting");
             yield return null;
         }
-        Debug.Log("Attacking");
-        defender.Damage(damage,attack);
+        if(!card_activated){
+             defender.Damage(damage,attack);
+        }
+       
     }
 }

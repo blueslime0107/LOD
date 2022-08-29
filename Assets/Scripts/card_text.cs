@@ -21,7 +21,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     TextMeshProUGUI ability_message;
 
     void Awake() {
-        Debug.Log("Awake");
         GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
         GameObject obj2 = gameObject.transform.GetChild(1).gameObject;
         GameObject obj4_1 = gameObject.transform.GetChild(3).gameObject;
@@ -34,7 +33,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
 
     public void CardUpdate(){
-        Debug.Log(name.text);
         illust.sprite = card.illust;
         name.text = card.name;
         message.text = card.message;
@@ -70,7 +68,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
      public IEnumerator CardActivated(){
         bool colored = true;
-        for(int i = 0;i<5;i++){
+        for(int i = 0;i<6;i++){
             if(colored){
                 rect.anchoredPosition += Vector2.up*45;
             }
@@ -78,8 +76,9 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 rect.anchoredPosition += Vector2.down*45;
             }
             colored = !colored;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.07f);
         }
+
         battleManager.battleCaculate.card_activated = false;
      }
 

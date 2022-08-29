@@ -21,9 +21,11 @@ public class Player : MonoBehaviour
     public bool died_card_geted = true;
     public int dice;
     public bool died;
-    public List<CardAbility> cards = new List<CardAbility>();
+    public List<CardPack> cards = new List<CardPack>();
     public Sprite[] poses;
     SpriteRenderer render;
+
+    bool card_actived;
 
     List<card_text> player_deck;
 
@@ -102,10 +104,14 @@ public class Player : MonoBehaviour
     }
 
     public void Damage(int value, Player attacker){
-        Debug.Log("Player_Attacking");
         if(value>0){
             ChangeCondition(4);
             attacker.ChangeCondition(3);
+            // foreach(CardAbility card in attacker.cards){
+            //     if(card.card_triggerd){                   ///////// 카드 공격 효과
+            //         card.AttackEffect(transform);
+            //     }
+            // }
             if(attacker.transform.position.x - transform.position.x <0){
                 transform.Translate(Vector3.right*value/2);
             }
@@ -133,7 +139,6 @@ public class Player : MonoBehaviour
     }
 
     public void ChangeCondition(int num){
-        Debug.Log("ChangeCondition");
         render.sprite = poses[num];
     }
 
@@ -154,9 +159,15 @@ public class Player : MonoBehaviour
     }
 
     public void UpdateActiveStat(){
+        if(card_actived){
+
+        }
         for(int i = 0;i<cards.Count;i++){
             if(cards[i].card_active){
                 player_deck[i].StartCoroutine("CardActivated");
+                if(cards[i].card_triggerd){
+                    cards[i].ImmediEffect(transform);
+                }
                 battleManager.battleCaculate.card_activated = true;
                 cards[i].card_active = false;
             }
