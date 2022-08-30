@@ -5031,7 +5031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689697187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7267218, y: 1.4608791, z: -19.225359}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13346,12 +13346,10 @@ MonoBehaviour:
   - {fileID: 715146560}
   cards:
   - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
-  - {fileID: 11400000, guid: d8085a4214963c24ca9d1a42e98604d4, type: 2}
-  - {fileID: 11400000, guid: 12c42f51e481ce44086efbe980fa2c6f, type: 2}
-  - {fileID: 11400000, guid: e05273394c72e394db20a3ea7df72fa8, type: 2}
-  - {fileID: 11400000, guid: 454e33976e12f704abfe046025e12f06, type: 2}
+  - {fileID: 11400000, guid: 20431b9ef1384ae40909bf5489578ca9, type: 2}
+  - {fileID: 11400000, guid: ff931f1289ea777499df99716f560a8d, type: 2}
   game_cards: []
-  card_effect: []
+  on_battle_card_effect: []
   cardViewer: {fileID: 4014734665765158303, guid: 316452a3a04ed4349acc8f0ddd2fe78b, type: 3}
   blackScreen: {fileID: 207633588}
   battle_ready: 0

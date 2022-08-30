@@ -14,7 +14,7 @@ public class BattleManager : MonoBehaviour
     public List<Player> players = new List<Player>();
     public List<CardAbility> cards = new List<CardAbility>();
     public List<CardAbility> game_cards = new List<CardAbility>();
-    
+
     public List<CardEffect> on_battle_card_effect = new List<CardEffect>();
 
     //public List<CardEffect> card_effect = new List<CardEffect>();
@@ -299,7 +299,7 @@ public class BattleManager : MonoBehaviour
     public void BattleStart(){
         for(int i = 0; i < players.Count; i++){
             for(int j = 0; j < players[i].cards.Count; j++){
-                players[i].cards[j].ability.MatchStarted(players[i],this);
+                players[i].cards[j].ability.MatchStarted(players[i].cards[j],players[i],this);
             }
         }
         if(battle_ready){

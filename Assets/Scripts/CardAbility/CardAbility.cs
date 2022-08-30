@@ -22,8 +22,8 @@ public class CardAbility : ScriptableObject
 
 
     public virtual void CardActivate(BattleManager match){}
-    public virtual void DiceApplyed(Player player){}
-    public virtual void MatchStarted(Player player, BattleManager match){}
+    public virtual void DiceApplyed(CardPack card, Player player){}
+    public virtual void MatchStarted(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleWin(BattleCaculate battle){}
     public virtual void OnBattleLose(GameObject player){}
     public virtual void OnDamageing(BattleCaculate battle, Player attacker){}
@@ -33,6 +33,17 @@ public class CardAbility : ScriptableObject
 
     public virtual void AttackEffect(Transform transform){}
 
+
+    public void EffectPlayerSet(GameObject effect, Player player, Transform tran, float x,float y){
+        if(player.gameObject.tag == "PlayerTeam1"){
+            effect.transform.eulerAngles = Vector3.up*180;
+        }
+        else{
+            effect.transform.eulerAngles = Vector3.zero;
+        }
+        effect.transform.position = tran.position + Vector3.right*x*player.TeamVector() + Vector3.up*y;
+        //card.effect[0].transform.position = player.transform.position + Vector3.right*player.TeamVector();
+    }
     // public virtual void Actived(){
     //     card_active = true;
     //     card_triggerd = true;

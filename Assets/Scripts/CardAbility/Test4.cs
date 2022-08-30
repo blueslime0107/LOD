@@ -6,7 +6,7 @@ using UnityEngine;
  
 public class Test4 : CardAbility
 {
-    public override void DiceApplyed(Player player)
+    public override void DiceApplyed(CardPack card, Player player)
     {
         player.SetDice(Mathf.Abs(player.dice-7));
     }

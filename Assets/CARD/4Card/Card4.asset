@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e41a56733abf74e913c51778644529, type: 3}
+  m_Name: Card4
+  m_EditorClassIdentifier: 
+  card_id: 4
+  name: "\uD3C9\uD589\uC138\uACC4"
+  message: "\uC8FC\uC0AC\uC704\uC758 \uB2E4\uB978\uC138\uACC4.."
+  ability_message: "\uC8FC\uC0AC\uC704 \uC9C0\uC815\uC2DC 6\uC744 \uAE30\uC900\uC73C\uB85C
+    \uBC18\uC804\uB429\uB2C8\uB2E4"
+  story_message: 
+  illust: {fileID: 21300000, guid: 78e5aeb2d8666d844b793b05b47ca772, type: 3}
+  effect:
+  - {fileID: 4540444742068189109, guid: aeff6cc18b0aed349a5c41abfc9e90c3, type: 3}

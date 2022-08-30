@@ -9,7 +9,7 @@ public class Test3 : CardAbility
 
 
 
-    public override void MatchStarted(Player player, BattleManager match)
+    public override void MatchStarted(CardPack card, Player player, BattleManager match)
     {
         int count = 0;
         for(int i = 0;i<match.players.Count;i++){

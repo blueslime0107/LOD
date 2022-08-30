@@ -129,6 +129,17 @@ public class Player : MonoBehaviour
 
     }
 
+    public void AddHealth(int value){
+        health += value;
+        if(health > max_health){
+            health = max_health;
+        }
+        else if(health<=0){
+            YouAreDead();
+        }
+        UpdateHp();
+    }
+
     void UpdateHp(){
         hp_Indi.HpUpdate(health,max_health);
     }
@@ -177,5 +188,26 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public int TeamVector(bool reverse = false){
+        if(reverse){
+        if(gameObject.tag == "PlayerTeam2"){
+            return -1;
+        }
+        else{
+            return 1;
+        }            
+        }
+        else{
+        if(gameObject.tag == "PlayerTeam1"){
+            return -1;
+        }
+        else{
+            return 1;
+        }            
+        }
+
+    }
+
 
 }

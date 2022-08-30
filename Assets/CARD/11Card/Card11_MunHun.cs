@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card11_MunHun : MonoBehaviour
+[CreateAssetMenu(fileName = "Data", menuName = "Cards/11명현현상", order = 1)]
+public class Card11_MunHun : CardAbility
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public override void MatchStarted(CardPack card, Player player, BattleManager match)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player.AddHealth(1);
+        card.effect[0].SetActive(true);
+        EffectPlayerSet(card.effect[0],player,player.transform,1,-0.5f);
     }
 }
