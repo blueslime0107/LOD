@@ -39,7 +39,7 @@ public class Dice_Indi : MonoBehaviour
         isDiced = true;       
         render.sprite = dice_img[value];
         for(int i = 0; i<player.cards.Count;i++){
-            player.cards[i].DiceApplyed(player);
+            player.cards[i].ability.DiceApplyed(player);
         }
     }
 

@@ -6,18 +6,19 @@ using UnityEngine;
  
 public class Test6 : CardAbility
 {
-    public override void OnDamaged(BattleCaculate battle, Player defender)
+    public override void OnDamaged(CardPack card, BattleCaculate battle, Player defender)
     {
         if(battle.damage < 3){
-            //Actived();
-            //this.card_active = true;
+            card.card_active = true;
             battle.damage = 0;
         }
     }
 
-    public override void ImmediEffect(Transform transform)
+    public override void ImmediEffect(CardPack card, Transform transform)
     {
-        Instantiate(effect,transform.position+Vector3.up*2,transform.rotation);
+        card.effect[0].SetActive(true);
+        card.effect[0].transform.position = transform.position + Vector3.up;
+        // Instantiate(effect,transform.position+Vector3.up*2,transform.rotation);
         //DeActive();
     }
 

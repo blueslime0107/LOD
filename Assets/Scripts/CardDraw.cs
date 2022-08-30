@@ -7,7 +7,7 @@ using TMPro;
 public class CardDraw : MonoBehaviour
 {
     Canvas canvas;
-    CardAbility having_card;
+    [SerializeField]CardAbility having_card;
     public UI ui;
     public new TextMeshProUGUI name;
     public TextMeshProUGUI message;
@@ -101,15 +101,20 @@ public class CardDraw : MonoBehaviour
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         if(target>0 && mouseOn){
             if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target-1<3){
-                CardPack card = new CardPack();
+                CardPack card = gameObject.AddComponent<CardPack>();
                 card.ability = having_card;
+                card.battleManager = battleManager;
+                card.PreSetting();
                 battleManager.players[target-1].cards.Add(card);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
                 Destroy(gameObject);
             }
             if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target-1>2){
-                battleManager.players[target-1].cards.Add(having_card);
+                CardPack card = gameObject.AddComponent<CardPack>();
+                card.ability = having_card;
+                card.PreSetting();
+                battleManager.players[target-1].cards.Add(card);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
                 Destroy(gameObject);

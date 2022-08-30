@@ -58,10 +58,10 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
      public void OnClick(){
         if(isLeft){
-            battleManager.players[battleManager.cardViewChar_left].cards[card_num].CardActivate(battleManager);
+            battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability.CardActivate(battleManager);
         }
         else{
-            battleManager.players[battleManager.cardViewChar_right].cards[card_num].CardActivate(battleManager);
+            battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability.CardActivate(battleManager);
         }
         
      }

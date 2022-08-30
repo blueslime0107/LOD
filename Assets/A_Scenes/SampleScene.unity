@@ -7261,8 +7261,7 @@ MonoBehaviour:
   died_card_geted: 1
   dice: 0
   died: 0
-  cards:
-  - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
+  cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
   - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}

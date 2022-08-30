@@ -14,8 +14,7 @@ public class CardAbility : ScriptableObject
     public string story_message;
 
     public Sprite illust;
-    public GameObject effect;
-    public GameObject inst_effect;
+    public GameObject[] effect;
 
     //public GameObject owner;
     // [HideInInspector]public bool card_active;
@@ -28,9 +27,11 @@ public class CardAbility : ScriptableObject
     public virtual void OnBattleWin(BattleCaculate battle){}
     public virtual void OnBattleLose(GameObject player){}
     public virtual void OnDamageing(BattleCaculate battle, Player attacker){}
-    public virtual void OnDamaged(BattleCaculate battle, Player defender){}
+    public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
+    public virtual void ImmediEffect(CardPack card, Transform transform){}
+
+
     public virtual void AttackEffect(Transform transform){}
-    public virtual void ImmediEffect(Transform transform){}
 
     // public virtual void Actived(){
     //     card_active = true;

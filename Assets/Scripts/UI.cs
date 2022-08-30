@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
     public List<GameObject> leftCardIndi = new List<GameObject>();
     public List<card_text> leftCardIndi_compo = new List<card_text>();
     List<RectTransform> leftCard_pos = new List<RectTransform>();
-    public List<CardAbility> leftCard_card = new List<CardAbility>();
+    public List<CardPack> leftCard_card = new List<CardPack>();
 
     public Slider left_gague;
     public Slider right_gague;
@@ -29,7 +29,7 @@ public class UI : MonoBehaviour
     public List<GameObject> rightCardIndi = new List<GameObject>();
     List<RectTransform> rightCard_pos = new List<RectTransform>();
     public List<card_text> rightCardIndi_compo = new List<card_text>();
-    public List<CardAbility> rightCard_card = new List<CardAbility>();
+    public List<CardPack> rightCard_card = new List<CardPack>();
     public float cartSort_scale;
 
     void Awake(){
@@ -110,7 +110,7 @@ public class UI : MonoBehaviour
         }
         for(int i =0; i<leftCard_card.Count;i++){
             leftCardIndi[i].SetActive(true); 
-            leftCardIndi_compo[i].card = leftCard_card[i];            
+            leftCardIndi_compo[i].card = leftCard_card[i].ability;            
             leftCardIndi_compo[i].CardUpdate();
 
         }
@@ -122,7 +122,7 @@ public class UI : MonoBehaviour
         }
         for(int i =0; i<rightCard_card.Count;i++){
             rightCardIndi[i].SetActive(true);                 
-            rightCardIndi_compo[i].card = rightCard_card[i];
+            rightCardIndi_compo[i].card = rightCard_card[i].ability;
             rightCardIndi_compo[i].CardUpdate();
         }
     }

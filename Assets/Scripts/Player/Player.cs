@@ -159,15 +159,10 @@ public class Player : MonoBehaviour
     }
 
     public void UpdateActiveStat(){
-        if(card_actived){
-
-        }
         for(int i = 0;i<cards.Count;i++){
             if(cards[i].card_active){
                 player_deck[i].StartCoroutine("CardActivated");
-                if(cards[i].card_triggerd){
-                    cards[i].ImmediEffect(transform);
-                }
+                cards[i].ability.ImmediEffect(cards[i],transform);
                 battleManager.battleCaculate.card_activated = true;
                 cards[i].card_active = false;
             }

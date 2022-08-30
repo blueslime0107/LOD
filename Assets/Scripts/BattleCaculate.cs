@@ -8,8 +8,8 @@ public class BattleCaculate : MonoBehaviour
     public BattleManager battleManager;
     public Player[] players;
 
-    public List<CardAbility> my_ability = new List<CardAbility>();
-    public List<CardAbility> ene_ability = new List<CardAbility>();
+    public List<CardPack> my_ability = new List<CardPack>();
+    public List<CardPack> ene_ability = new List<CardPack>();
 
 
 
@@ -102,7 +102,7 @@ public class BattleCaculate : MonoBehaviour
             if(damage>0){
 
                 for(int i = 0; i<my_ability.Count;i++){
-                    my_ability[i].OnBattleWin(this);
+                    my_ability[i].ability.OnBattleWin(this);
                 }
                 myChar.UpdateActiveStat();
                 while(card_activated){
@@ -115,7 +115,7 @@ public class BattleCaculate : MonoBehaviour
             if(damage<0){
                 damage = -damage;
                 for(int i = 0; i<ene_ability.Count;i++){
-                    ene_ability[i].OnBattleWin(this);
+                    ene_ability[i].ability.OnBattleWin(this);
                 }
                 eneChar.UpdateActiveStat();
                 while(card_activated){
@@ -206,15 +206,20 @@ public class BattleCaculate : MonoBehaviour
                 battleManager.TurnTeam("Right");
             }
         }
+        
+        for(int i = 0; i<battleManager.on_battle_card_effect.Count;i++){
+            battleManager.on_battle_card_effect[i].gameObject.SetActive(false);
+            battleManager.on_battle_card_effect.Remove(battleManager.on_battle_card_effect[i]);
+        }
         yield return null;
     }
 
     IEnumerator Damage(Player attack, Player defender){
         for(int i = 0; i<attack.cards.Count; i++){
-                attack.cards[i].OnDamageing(this,attack);
+                attack.cards[i].ability.OnDamageing(this,attack);
             }
         for(int i = 0; i<defender.cards.Count; i++){
-                defender.cards[i].OnDamaged(this,defender);
+                defender.cards[i].ability.OnDamaged(defender.cards[i],this,defender);
             }
         attack.UpdateActiveStat();
         defender.UpdateActiveStat();
