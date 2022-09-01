@@ -106,7 +106,7 @@ public class UI : MonoBehaviour
     }
 
     public void Leftcard_Update(){
-        for(int i =0; i<leftCard_card.Count+1;i++){
+        for(int i =0; i<leftCardIndi.Count;i++){
             leftCardIndi[i].SetActive(false); 
         }
         for(int i =0; i<leftCard_card.Count;i++){
@@ -118,7 +118,7 @@ public class UI : MonoBehaviour
     }
 
     public void Rightcard_Update(){
-        for(int i =0; i<rightCard_card.Count+1;i++){
+        for(int i =0; i<rightCardIndi.Count;i++){
             rightCardIndi[i].SetActive(false); 
         }
         for(int i =0; i<rightCard_card.Count;i++){

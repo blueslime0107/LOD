@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OutLine
+  m_Name: FillLight
   m_Shader: {fileID: -6465566751694194690, guid: bf9176a62266f7f48978199ae555ccb7, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -38,4 +38,5 @@ Material:
     m_Floats: []
     m_Colors:
     - Color_3d38b8a1ce8a42ab94ead8de46944ee5: {r: 0, g: 14.92853, b: 0, a: 1}
+    - _Color: {r: 84.44851, g: 84.44851, b: 84.44851, a: 1}
   m_BuildTextureStacks: []

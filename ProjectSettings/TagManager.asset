@@ -15,11 +15,11 @@ TagManager:
   - 
   - Water
   - UI
-  - UI2
-  - 
-  - 
-  - 
-  - 
+  - BackGroundA
+  - BackGroundB
+  - BackGroundB2
+  - BackGroundC
+  - Player
   - 
   - 
   - 
@@ -42,8 +42,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGroundA
+    uniqueID: 2305217721
+    locked: 0
+  - name: BackGroundB
+    uniqueID: 2844036509
+    locked: 0
+  - name: BackGroundB2
+    uniqueID: 333495007
+    locked: 0
+  - name: BackGroundC
+    uniqueID: 1405349467
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 4011836445
     locked: 0
   - name: UI2
     uniqueID: 26548129
