@@ -5,12 +5,15 @@ using UnityEngine;
 public class CardEffect : MonoBehaviour
 {
     public BattleManager battleManager;
+    public bool onplayer;
+
     public bool onbattleEnd;
 
     public float aliveTime;
     float count;
 
     private void OnEnable() {
+        count = 0f;
         if(onbattleEnd){
             battleManager.on_battle_card_effect.Add(this);
         }

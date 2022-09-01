@@ -19,17 +19,24 @@ public class CardAbility : ScriptableObject
     //public GameObject owner;
     // [HideInInspector]public bool card_active;
     // public bool card_triggerd;
+    public virtual void BeforeCardDraw(CardPack card, BattleManager match, Player player){}
+    public virtual void AfterCardDraw(BattleManager match, Player player){}
+    public virtual void ImmediCardDraw(BattleManager match, Player player){}
+    public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
 
-
-    public virtual void CardActivate(BattleManager match){}
+    public virtual void CardActivate(CardPack card, BattleManager match){}
+    public virtual void CardSelected(CardPack card, BattleManager match){}
     public virtual void DiceApplyed(CardPack card, Player player){}
     public virtual void MatchStarted(CardPack card, Player player, BattleManager match){}
-    public virtual void OnBattleWin(BattleCaculate battle){}
-    public virtual void OnBattleLose(GameObject player){}
-    public virtual void OnDamageing(BattleCaculate battle, Player attacker){}
-    public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
+    public virtual void OnBattleStart(CardPack card, BattleCaculate battle){}
+    public virtual void OnBattleWin(CardPack card, BattleCaculate battle){}
+    public virtual void OnBattleLose(CardPack card,GameObject player){}
+    // public virtual void OnDamageing(CardPack card,BattleCaculate battle, Player attacker){}
+    // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
+    public virtual void OnDamage(CardPack card, Player attacker,    BattleManager match, int damage){}
+    public virtual void OnDamaging(CardPack card,  Player defender,   BattleManager match, int damage){}
     public virtual void ImmediEffect(CardPack card, Transform transform){}
-
+    
 
     public virtual void AttackEffect(Transform transform){}
 

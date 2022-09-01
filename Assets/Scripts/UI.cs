@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     public BattleManager bm;
     [HideInInspector]public Button battleStartButton;
+    public Button Dice6;
     public GameObject cardMessage;
     public TextMeshProUGUI cardAbility;
     public TextMeshProUGUI cardStroy;
@@ -110,7 +111,7 @@ public class UI : MonoBehaviour
         }
         for(int i =0; i<leftCard_card.Count;i++){
             leftCardIndi[i].SetActive(true); 
-            leftCardIndi_compo[i].card = leftCard_card[i].ability;            
+            leftCardIndi_compo[i].card = leftCard_card[i];   
             leftCardIndi_compo[i].CardUpdate();
 
         }
@@ -122,7 +123,7 @@ public class UI : MonoBehaviour
         }
         for(int i =0; i<rightCard_card.Count;i++){
             rightCardIndi[i].SetActive(true);                 
-            rightCardIndi_compo[i].card = rightCard_card[i].ability;
+            rightCardIndi_compo[i].card = rightCard_card[i];
             rightCardIndi_compo[i].CardUpdate();
         }
     }

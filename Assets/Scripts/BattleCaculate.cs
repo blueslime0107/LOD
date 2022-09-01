@@ -15,8 +15,8 @@ public class BattleCaculate : MonoBehaviour
 
     public int damage;
 
-    Player myChar;
-    Player eneChar;
+    public Player myChar;
+    public Player eneChar;
 
     Vector3 myOriginPos;
 
@@ -97,12 +97,18 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator BasicAttack(){
+        for(int i = 0; i<my_ability.Count;i++){
+                    my_ability[i].ability.OnBattleStart(my_ability[i],this);
+                }
+        for(int i = 0; i<ene_ability.Count;i++){
+                    ene_ability[i].ability.OnBattleStart(ene_ability[i],this);
+                }
         damage = myChar.dice - eneChar.dice;
         if(!corrLock){
             if(damage>0){
 
                 for(int i = 0; i<my_ability.Count;i++){
-                    my_ability[i].ability.OnBattleWin(this);
+                    my_ability[i].ability.OnBattleWin(my_ability[i],this);
                 }
                 myChar.UpdateActiveStat();
                 while(card_activated){
@@ -115,7 +121,7 @@ public class BattleCaculate : MonoBehaviour
             if(damage<0){
                 damage = -damage;
                 for(int i = 0; i<ene_ability.Count;i++){
-                    ene_ability[i].ability.OnBattleWin(this);
+                    ene_ability[i].ability.OnBattleWin(ene_ability[i],this);
                 }
                 eneChar.UpdateActiveStat();
                 while(card_activated){
@@ -215,12 +221,12 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator Damage(Player attack, Player defender){
-        for(int i = 0; i<attack.cards.Count; i++){
-                attack.cards[i].ability.OnDamageing(this,attack);
-            }
-        for(int i = 0; i<defender.cards.Count; i++){
-                defender.cards[i].ability.OnDamaged(defender.cards[i],this,defender);
-            }
+        // for(int i = 0; i<attack.cards.Count; i++){
+        //         attack.cards[i].ability.OnDamageing(attack.cards[i],this,attack);
+        //     }
+        // for(int i = 0; i<defender.cards.Count; i++){
+        //         defender.cards[i].ability.OnDamaged(defender.cards[i],this,defender);
+        //     }
         attack.UpdateActiveStat();
         defender.UpdateActiveStat();
         while(card_activated){

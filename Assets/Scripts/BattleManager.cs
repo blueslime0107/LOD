@@ -30,6 +30,12 @@ public class BattleManager : MonoBehaviour
     public int card_left_draw = 0;
     public int card_right_draw = 0;
     public bool card_gived = false;
+    public int card_give_count = 0;
+    public List<CardDraw> show_cards = new List<CardDraw>();
+
+    public CardPack card_selecting;
+    public bool card_select_trigger;
+    public CardPack card_selected;
 
     [HideInInspector]public int target1;
     [HideInInspector]public int target2;
@@ -49,17 +55,18 @@ public class BattleManager : MonoBehaviour
     [SerializeField]float left_gague;
     [SerializeField]float right_gague;
 
-    // private void Awake() {
-    //     foreach(CardAbility card in cards){
-    //         if(card.effect != null){
-    //             GameObject game_effect = Instantiate(card.effect,transform.position,transform.rotation);
-    //             game_effect.SetActive(false);
-    //             card_effect.Add(game_effect);
-    //             card.inst_effect = game_effect;
-    //         }
-    //     }
-        
-    // }
+    public List<Player> left_players = new List<Player>();
+    public List<Player> right_players = new List<Player>();
+
+    public bool left_d6 = false;
+    public bool right_d6 = false;
+    public int left_d6_Count;
+    public int right_d6_Count;
+
+    private void Awake() {
+        left_players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam1"));
+        right_players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam2"));        
+    }
 
     public void Battle(){
         left_gague = left_gague_max;
@@ -172,26 +179,92 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 
-                if(game_cards.Count<1)
+                if(game_cards.Count<1) // 카드가 없을때 새로 다시 섞기
                     game_cards = CardSuffle();
-                switch(game_cards.Count){
-                    case 1:
+
+                
+                switch(game_cards.Count){ // 기본 카드 3장 뽑기
+                    case 1: card_give_count = 1;break;
+                    case 2: card_give_count = 2;break;
+                    default: card_give_count = 3;break;
+                }
+
+                if(left_turn){ 
+                    foreach(Player player in left_players){
+                        for(int i = 0;i<player.cards.Count;i++){
+                            player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
+                        
+                        }
+                    }
+                    
+                }
+                else{
+                    foreach(Player player in right_players){
+                        for(int i = 0;i<player.cards.Count;i++){
+                            player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
+                        
+                        }
+                    }
+                }
+
+                switch(card_give_count){ 
+                    case 1:show_cards.Clear();
                         Card(Vector3.up+Vector3.back,game_cards[0]);break;
-                    case 2:
+                    case 2: show_cards.Clear();
                         Card(Vector3.up+Vector3.right*2.5f+Vector3.back,game_cards[0]);
                         Card(Vector3.up+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
-                    default:
+                    case 3:show_cards.Clear();
                         Card(Vector3.up+Vector3.back,game_cards[0]);
                         Card(Vector3.up+Vector3.right*5+Vector3.back,game_cards[0]);
                         Card(Vector3.up+Vector3.left*5+Vector3.back,game_cards[0]);  break;
+                    case 5:show_cards.Clear();
+                        Card(Vector3.up+Vector3.back,game_cards[0]);
+                        Card(Vector3.up+Vector3.right*3+Vector3.back,game_cards[0]);
+                        Card(Vector3.up+Vector3.left*3f+Vector3.back,game_cards[0]);  
+                        Card(Vector3.up+Vector3.right*6f+Vector3.back,game_cards[0]); 
+                        Card(Vector3.up+Vector3.left*6f+Vector3.back,game_cards[0]); break;
                 }
                 ui.cardMessage.SetActive(true);
-
+                if(left_turn){
+                    if(left_d6 && left_d6_Count>0){
+                    ui.Dice6.gameObject.SetActive(true);
+                    }
+                    else{
+                        ui.Dice6.gameObject.SetActive(false);
+                    }
+                }
+                else{
+                    if(right_d6 && right_d6_Count>0){
+                        ui.Dice6.gameObject.SetActive(true);
+                    }
+                    else{
+                        ui.Dice6.gameObject.SetActive(false);
+                    }
+                }
+                
                   
                            
                 while(!card_gived){
                     yield return null;
                 }
+                if(left_turn){
+                    foreach(Player player in left_players){
+                        for(int i = 0;i<player.cards.Count;i++){
+                            player.cards[i].ability.AfterCardDraw(this,player);
+                        
+                        }
+                    }
+                    
+                }
+                else{
+                    foreach(Player player in right_players){
+                        for(int i = 0;i<player.cards.Count;i++){
+                            player.cards[i].ability.AfterCardDraw(this,player);
+                        
+                        }
+                    }
+                }
+                ui.cardMessage.SetActive(false);
                 card_gived = false;
             }
             
@@ -199,7 +272,31 @@ public class BattleManager : MonoBehaviour
             BattlePreReset();
         }             
     }
-
+    public void ReRoll(){
+        for(int i =0; i<show_cards.Count;i++){
+            show_cards[i].DestroyTheCard();
+        }
+        show_cards.Clear();
+        if(game_cards.Count<1)
+            game_cards = CardSuffle();
+        switch(card_give_count){
+            case 1:
+                Card(Vector3.up+Vector3.back,game_cards[0]);break;
+            case 2: 
+                Card(Vector3.up+Vector3.right*2.5f+Vector3.back,game_cards[0]);
+                Card(Vector3.up+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
+            case 3:
+                Card(Vector3.up+Vector3.back,game_cards[0]);
+                Card(Vector3.up+Vector3.right*5+Vector3.back,game_cards[0]);
+                Card(Vector3.up+Vector3.left*5+Vector3.back,game_cards[0]);  break;
+            case 5:
+                Card(Vector3.up+Vector3.back,game_cards[0]);
+                Card(Vector3.up+Vector3.right*3+Vector3.back,game_cards[0]);
+                Card(Vector3.up+Vector3.left*3f+Vector3.back,game_cards[0]);  
+                Card(Vector3.up+Vector3.right*6f+Vector3.back,game_cards[0]); 
+                Card(Vector3.up+Vector3.left*6f+Vector3.back,game_cards[0]); break;
+        }
+    }
 
     IEnumerator TeamTimerGague(){
         while(true){
@@ -299,6 +396,7 @@ public class BattleManager : MonoBehaviour
     public void BattleStart(){
         for(int i = 0; i < players.Count; i++){
             for(int j = 0; j < players[i].cards.Count; j++){
+                if(!players[i].cards[j].card_enable){continue;}
                 players[i].cards[j].ability.MatchStarted(players[i].cards[j],players[i],this);
             }
         }
@@ -316,7 +414,22 @@ public class BattleManager : MonoBehaviour
         draw.battleManager = this;
         draw.ui = ui;
         draw.SetImage(cardo);
+        show_cards.Add(draw);
         
+    }
+
+    public void SelectingCard(CardPack card){
+        card_selecting = card;
+        card_select_trigger = true;
+    }
+
+    public void SelectiedCard(CardPack card){
+        card_selected = card;
+        card_selecting.selected_card = card_selected;
+        card_selecting.ability.CardSelected(card_selecting,this);
+        card_selected = null;
+        card_selecting = null;
+        card_select_trigger = false;
     }
 
     List<CardAbility> CardSuffle(){

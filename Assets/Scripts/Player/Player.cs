@@ -103,8 +103,24 @@ public class Player : MonoBehaviour
         dice_Indi.setDice(dice + value);
     }
 
+    public int getDamage;
     public void Damage(int value, Player attacker){
-        if(value>0){
+        getDamage = value;
+        for(int i = 0; i<attacker.cards.Count; i++){
+                attacker.cards[i].ability.OnDamaging(attacker.cards[i],this,  battleManager,getDamage);
+            }
+        for(int i = 0; i<cards.Count; i++){
+                cards[i].ability.OnDamage(cards[i],attacker,battleManager,getDamage);
+            }
+
+
+
+
+
+
+
+            
+        if(getDamage>0){
             ChangeCondition(4);
             attacker.ChangeCondition(3);
             // foreach(CardAbility card in attacker.cards){
@@ -113,18 +129,18 @@ public class Player : MonoBehaviour
             //     }
             // }
             if(attacker.transform.position.x - transform.position.x <0){
-                transform.Translate(Vector3.right*value/2);
+                transform.Translate(Vector3.right*getDamage/2);
             }
             if(attacker.transform.position.x - transform.position.x > 0){
-                transform.Translate(Vector3.left*value/2);
+                transform.Translate(Vector3.left*getDamage/2);
             }
             
         }
-        else if(value.Equals(0)){
+        else if(getDamage.Equals(0)){
             ChangeCondition(3);
             attacker.ChangeCondition(3);
         }
-        health -= value;
+        health -= getDamage;
         UpdateHp();
 
     }
@@ -155,7 +171,7 @@ public class Player : MonoBehaviour
 
     public void OnMouseDown() {
         if(gameObject.tag == "PlayerTeam1"){
-            
+            battleManager.cardViewChar_left = battleManager.players.IndexOf(this);
             battleManager.ui.leftCard_card = cards;
             battleManager.ui.Leftcard_Update();
             battleManager.ui.showleftCard = true;
@@ -163,6 +179,7 @@ public class Player : MonoBehaviour
         }
         
         if(gameObject.tag == "PlayerTeam2"){
+            battleManager.cardViewChar_right = battleManager.players.IndexOf(this);
             battleManager.ui.rightCard_card = cards;
             battleManager.ui.Rightcard_Update();
             battleManager.ui.showrightCard = true;

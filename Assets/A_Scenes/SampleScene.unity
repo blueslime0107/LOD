@@ -214,6 +214,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
   isMoving: 0
   goto_origin: 0
+  getDamage: 0
 --- !u!212 &46786875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -556,6 +557,8 @@ MonoBehaviour:
   my_ability: []
   ene_ability: []
   damage: 0
+  myChar: {fileID: 0}
+  eneChar: {fileID: 0}
   card_activated: 0
 --- !u!1001 &91093846
 PrefabInstance:
@@ -5377,6 +5380,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
   isMoving: 0
   goto_origin: 0
+  getDamage: 0
 --- !u!212 &715146561
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5732,6 +5736,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
   isMoving: 0
   goto_origin: 0
+  getDamage: 0
 --- !u!212 &845077961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6360,6 +6365,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
   isMoving: 0
   goto_origin: 0
+  getDamage: 0
 --- !u!212 &908135926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7270,6 +7276,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
   isMoving: 0
   goto_origin: 0
+  getDamage: 0
 --- !u!212 &987136919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8950,6 +8957,10 @@ PrefabInstance:
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 1916609188}
+    - target: {fileID: 338668246613984919, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1878367823639087086, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: m_Name
       value: HoldCardView
@@ -12213,6 +12224,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
   isMoving: 0
   goto_origin: 0
+  getDamage: 0
 --- !u!212 &1779726902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13345,9 +13357,9 @@ MonoBehaviour:
   - {fileID: 908135925}
   - {fileID: 715146560}
   cards:
-  - {fileID: 11400000, guid: f98b6f396e233c142856a642ad8f680a, type: 2}
-  - {fileID: 11400000, guid: 20431b9ef1384ae40909bf5489578ca9, type: 2}
-  - {fileID: 11400000, guid: ff931f1289ea777499df99716f560a8d, type: 2}
+  - {fileID: 11400000, guid: b94e652e6f4806546ab187e57f0a5e29, type: 2}
+  - {fileID: 11400000, guid: 294537a4241917441a80c3e1a9512099, type: 2}
+  - {fileID: 11400000, guid: 98e146694c07bbd4db28c501325e8ccd, type: 2}
   game_cards: []
   on_battle_card_effect: []
   cardViewer: {fileID: 4014734665765158303, guid: 316452a3a04ed4349acc8f0ddd2fe78b, type: 3}
@@ -13359,6 +13371,9 @@ MonoBehaviour:
   card_left_draw: 0
   card_right_draw: 0
   card_gived: 0
+  card_selecting: {fileID: 0}
+  card_select_trigger: 0
+  card_selected: {fileID: 0}
   target1: 0
   target2: 0
   battleing: 0
@@ -13371,6 +13386,8 @@ MonoBehaviour:
   right_gague_max: 1500
   left_gague: 0
   right_gague: 0
+  left_players: []
+  right_players: []
 --- !u!4 &1916609189
 Transform:
   m_ObjectHideFlags: 0
