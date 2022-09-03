@@ -7,7 +7,6 @@ public class Card8 : CardAbility
 {
     public override void BeforeCardDraw(CardPack card, BattleManager match, Player player)
     {
-        if(!card.card_enable){return;}
         for(int i = 0; i<2;i++){
             match.game_cards.Insert(0, card.card_reg[i]);
         }
@@ -27,7 +26,6 @@ public class Card8 : CardAbility
 
     public override void WhenCardDestroy(CardPack card, CardAbility card_abili)
     {
-        if(!card.card_enable){return;}
         card.card_reg.Add(card_abili);
     }
 }

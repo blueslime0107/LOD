@@ -37,6 +37,8 @@ public class BattleManager : MonoBehaviour
     public bool card_select_trigger;
     public CardPack card_selected;
 
+    public CardAbility null_card;
+
     [HideInInspector]public int target1;
     [HideInInspector]public int target2;
 
@@ -54,6 +56,8 @@ public class BattleManager : MonoBehaviour
     public float right_gague_max;
     [SerializeField]float left_gague;
     [SerializeField]float right_gague;
+    [SerializeField]float left_gague_spd;
+    [SerializeField]float right_gague_spd;
 
     public List<Player> left_players = new List<Player>();
     public List<Player> right_players = new List<Player>();
@@ -144,11 +148,6 @@ public class BattleManager : MonoBehaviour
                         battle_end =  true;
                         break;
                     }
-                }
-                if(target1 > 0 && target2 > 0 && target1 != target2){
-                    battleing = true;
-                    blackScreen.SetActive(true);
-                    battleCaculate.BattleMatch(target1,target2);
                 }
 
                 
@@ -272,6 +271,15 @@ public class BattleManager : MonoBehaviour
             BattlePreReset();
         }             
     }
+
+    public void BattleTargetReady(){
+        if(target1 > 0 && target2 > 0 && target1 != target2){
+            battleing = true;
+            blackScreen.SetActive(true);
+            battleCaculate.BattleMatch(target1,target2);
+        }
+    }
+
     public void ReRoll(){
         for(int i =0; i<show_cards.Count;i++){
             show_cards[i].DestroyTheCard();
@@ -302,13 +310,13 @@ public class BattleManager : MonoBehaviour
         while(true){
             if(!battleing){
                 if(left_turn){
-                left_gague -= 40f * Time.deltaTime;
+                left_gague -= left_gague_spd * Time.deltaTime;
                 if(left_gague<=0){
                     TurnTeam("Right");
                 }
                 }
                 if(right_turn){
-                right_gague -= 40f * Time.deltaTime;
+                right_gague -= right_gague_spd * Time.deltaTime;
                 if(right_gague<=0){
                     TurnTeam("Left");
                 }
@@ -396,7 +404,6 @@ public class BattleManager : MonoBehaviour
     public void BattleStart(){
         for(int i = 0; i < players.Count; i++){
             for(int j = 0; j < players[i].cards.Count; j++){
-                if(!players[i].cards[j].card_enable){continue;}
                 players[i].cards[j].ability.MatchStarted(players[i].cards[j],players[i],this);
             }
         }

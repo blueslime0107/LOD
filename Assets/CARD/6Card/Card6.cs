@@ -8,10 +8,11 @@ public class Card6 : CardAbility
 
     public override void OnDamage(CardPack card, Player attacker,  BattleManager match, int damage)
     {
-        if(!card.card_enable){return;}
+        
         if(damage <= 2){
+            Active(card);
             damage = 0;
-            card.player.getDamage = damage;
+            match.battleCaculate.damage = damage;
         }
     }
 }

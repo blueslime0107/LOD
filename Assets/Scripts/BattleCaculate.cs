@@ -7,6 +7,7 @@ public class BattleCaculate : MonoBehaviour
     public GameManager gameManager;
     public BattleManager battleManager;
     public Player[] players;
+    public BattleDice battleDice;
 
     public List<CardPack> my_ability = new List<CardPack>();
     public List<CardPack> ene_ability = new List<CardPack>();
@@ -14,6 +15,7 @@ public class BattleCaculate : MonoBehaviour
 
 
     public int damage;
+    public int damage_dice;
 
     public Player myChar;
     public Player eneChar;
@@ -28,7 +30,7 @@ public class BattleCaculate : MonoBehaviour
     bool corrLock = false;
 
     public void BattleMatch(int selfnum, int enenum){
-
+        
         for(int i=0;i<6;i++){
             if(i != selfnum-1 && i != enenum-1){
                 players[i].dice_Indi.render.color = new Color(0,0,0,1);
@@ -58,14 +60,17 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BattleMatchcor(){
         myChar.ChangeCondition(2);      
-        myChar.SetPointMove(players[eneNum].movePoint.position, 15f);
+        myChar.SetPointMove(players[eneNum].movePoint.position, 17f);
         gameManager.main_camera_ctrl.SetTargetMove(myNum,eneNum,17f);
-        BasicDice();
+        
         while(myChar.isMoving){
             yield return null;
         }
+        BasicDice();
         yield return new WaitForSeconds(0.5f);
         StartCoroutine("BasicAttack");
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine("MainAttack");
         yield return new WaitForSeconds(1f);
         corrLock = false;
 
@@ -87,7 +92,7 @@ public class BattleCaculate : MonoBehaviour
 
 
     void BasicDice(){
-
+        battleDice.gameObject.SetActive(true);
         if(myChar.dice == 1 && eneChar.dice >= 6){
             myChar.AddDice(6);
         }
@@ -104,44 +109,56 @@ public class BattleCaculate : MonoBehaviour
                     ene_ability[i].ability.OnBattleStart(ene_ability[i],this);
                 }
         damage = myChar.dice - eneChar.dice;
-        if(!corrLock){
-            if(damage>0){
+        yield return null;
+        }
+    IEnumerator MainAttack(){
+        //damage_dice = damage;
 
-                for(int i = 0; i<my_ability.Count;i++){
-                    my_ability[i].ability.OnBattleWin(my_ability[i],this);
+        if(damage == 0){
+            while(card_activated){
+                yield return null;
+            }
+            corrLock = true;
+            myChar.ChangeCondition(3);
+            eneChar.ChangeCondition(3);
+        }
+        if(damage>0){
+
+            for(int i = 0; i<my_ability.Count;i++){
+                my_ability[i].ability.OnBattleWin(my_ability[i],this);
+                if(my_ability[i].card_active){
+                    myChar.UpdateActiveStat();
                 }
-                myChar.UpdateActiveStat();
-                while(card_activated){
+                while(my_ability[i].card_active){
                     yield return null;
                 }
-                corrLock = true;
-                StartCoroutine(Damage(myChar,eneChar));
-                // Damage(myChar,eneChar);
             }
-            if(damage<0){
-                damage = -damage;
-                for(int i = 0; i<ene_ability.Count;i++){
-                    ene_ability[i].ability.OnBattleWin(ene_ability[i],this);
+            
+            StartCoroutine(Damage(myChar,eneChar));
+            StopCoroutine(MainAttack());
+            // Damage(myChar,eneChar);
+        }
+        if(damage<0){
+            damage = -damage;
+            for(int i = 0; i<ene_ability.Count;i++){
+                ene_ability[i].ability.OnBattleWin(ene_ability[i],this);
+                if(ene_ability[i].card_active){
+                    eneChar.UpdateActiveStat();
                 }
-                eneChar.UpdateActiveStat();
-                while(card_activated){
+                while(ene_ability[i].card_active){
                     yield return null;
                 }
-                corrLock = true;
-                StartCoroutine(Damage(eneChar,myChar));          
-                // Damage(eneChar,myChar);
             }
-            if(damage == 0){
-                while(card_activated){
-                    yield return null;
-                }
-                corrLock = true;
-                myChar.ChangeCondition(3);
-                eneChar.ChangeCondition(3);
-            }
+            corrLock = true;
+            StartCoroutine(Damage(eneChar,myChar));   
+            StopCoroutine(MainAttack());       
+            // Damage(eneChar,myChar);
         }
 
+        
     }
+
+    
     
     IEnumerator MatchFin(){    
         for(int i =0;i<battleManager.players.Count;i++){
@@ -199,6 +216,10 @@ public class BattleCaculate : MonoBehaviour
         battleManager.target2 = 0;
         myChar.transform.position += Vector3.forward;
         eneChar.transform.position += Vector3.forward;
+        myChar.Battle_End();
+        eneChar.Battle_End();
+
+        battleDice.gameObject.SetActive(false);
 
         if(battleManager.left_turn){
             battleManager.TurnTeam("Right");
@@ -220,21 +241,51 @@ public class BattleCaculate : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator Damage(Player attack, Player defender){
-        // for(int i = 0; i<attack.cards.Count; i++){
-        //         attack.cards[i].ability.OnDamageing(attack.cards[i],this,attack);
-        //     }
-        // for(int i = 0; i<defender.cards.Count; i++){
-        //         defender.cards[i].ability.OnDamaged(defender.cards[i],this,defender);
-        //     }
-        attack.UpdateActiveStat();
-        defender.UpdateActiveStat();
-        while(card_activated){
-            yield return null;
+    IEnumerator Damage(Player attacker, Player defender){
+
+        for(int i = 0; i<attacker.cards.Count; i++){
+                attacker.cards[i].ability.OnDamaging(attacker.cards[i],defender, battleManager,damage);
+                if(attacker.cards[i].card_active){
+                        attacker.UpdateActiveStat();
+                    }
+                    while(attacker.cards[i].card_active){
+                        yield return null;
+                    }
+            }
+        for(int i = 0; i<defender.cards.Count; i++){
+                defender.cards[i].ability.OnDamage(defender.cards[i],attacker,battleManager,damage);
+                if(defender.cards[i].card_active){
+                        defender.UpdateActiveStat();
+                    }
+                    while(defender.cards[i].card_active){
+                        yield return null;
+                    }
+            }
+         
+        if(damage>0){
+            defender.ChangeCondition(4);
+            attacker.ChangeCondition(3);
+            // foreach(CardAbility card in attacker.cards){
+            //     if(card.card_triggerd){                   ///////// 카드 공격 효과
+            //         card.AttackEffect(transform);
+            //     }
+            // }
+            if(attacker.transform.position.x - defender.transform.position.x <0){
+                defender.transform.Translate(Vector3.right*damage/2);
+            }
+            if(attacker.transform.position.x - defender.transform.position.x > 0){
+                defender.transform.Translate(Vector3.left*damage/2);
+            }
+            
         }
-        if(!card_activated){
-             defender.Damage(damage,attack);
+        else if(damage.Equals(0)){
+            defender.ChangeCondition(3);
+            attacker.ChangeCondition(3);
         }
-       
+
+        defender.health -= damage;
+        attacker.AttackEffect(defender);
+        defender.UpdateHp();
+       yield return null;
     }
 }

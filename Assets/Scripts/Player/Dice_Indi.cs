@@ -13,7 +13,7 @@ public class Dice_Indi : MonoBehaviour
     public int dice_value;
     Vector3 saved_pos;
 
-    public bool targetSelected;
+    bool targetSelected;
 
     public SpriteRenderer render;
     public Player player;
@@ -26,6 +26,7 @@ public class Dice_Indi : MonoBehaviour
         if(Input.GetMouseButtonUp(0)){
             if(targetSelected && battleManager.target1 > 0 && player.player_id != battleManager.target1){
             battleManager.target2 = player.player_id;
+            battleManager.BattleTargetReady();
             //battleCaculate.BattleMatch(dice_num,target); 
             }
         }
@@ -50,6 +51,12 @@ public class Dice_Indi : MonoBehaviour
     }
 
     void OnMouseDown() {
+        if(battleManager.left_turn && gameObject.tag == "Team2"){
+                return;
+            }
+            if(battleManager.right_turn && gameObject.tag == "Team1"){
+                return;
+            } 
         saved_pos = transform.position;
         battleManager.target1 = player.player_id;
     }
@@ -78,8 +85,10 @@ public class Dice_Indi : MonoBehaviour
         //transform.position = saved_pos;
         lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
         lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
+        
              
     }
+    
 
     void OnMouseEnter() {
         targetSelected = true;

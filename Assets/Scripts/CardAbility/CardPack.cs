@@ -8,8 +8,10 @@ public class CardPack : MonoBehaviour
     public Player player;
     public CardAbility ability;
     public bool card_active;
-    public bool card_enable = true;
     public CardPack selected_card;
+
+    public CardPack saved_card;
+    public CardAbility saved_ability;
 
     public List<CardAbility> card_reg = new List<CardAbility>();
 
@@ -18,8 +20,20 @@ public class CardPack : MonoBehaviour
 
     public List<GameObject> effect = new List<GameObject>();
 
+    public int card_id;
+    public new string name;
+    public string message;
+    public string ability_message;
+
+    public Sprite illust;
+
     public void PreSetting(Player play){
         player = play;
+        card_id = ability.card_id;
+        illust = ability.illust;
+        name = ability.name;
+        message = ability.message;
+        ability_message = ability.ability_message;
         foreach(GameObject effe in ability.effect){
             CardEffect card_effect = effe.GetComponent<CardEffect>();
             card_effect.battleManager = battleManager;
@@ -30,6 +44,8 @@ public class CardPack : MonoBehaviour
         }
         //gameObject.SetActive(false);
     }
+
+
     // Start is called before the first frame update
     // void Start()
     // {

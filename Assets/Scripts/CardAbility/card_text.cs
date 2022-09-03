@@ -12,8 +12,11 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public BattleManager battleManager;
     RectTransform rect;
     Image illust;
-
-
+    GameObject card_light;
+    GameObject block_img;
+    Material material;
+    //MaterialPropertyBlock material_block;
+    //Image card_image;
     public CardPack card;
     new TextMeshProUGUI name;
     TextMeshProUGUI message;
@@ -25,18 +28,35 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         GameObject obj2 = gameObject.transform.GetChild(1).gameObject;
         GameObject obj4_1 = gameObject.transform.GetChild(2).gameObject;
         GameObject obj4_2 = obj4_1.transform.GetChild(0).gameObject;
+        card_light = gameObject.transform.GetChild(3).gameObject;
+        block_img = gameObject.transform.GetChild(4).gameObject;
         rect = GetComponent<RectTransform>();
         name = obj1.GetComponent<TextMeshProUGUI>();
         message = obj2.GetComponent<TextMeshProUGUI>();
         illust = GetComponent<Image>();
         ability_message = obj4_2.GetComponent<TextMeshProUGUI>();
+
+
+
+
+
+        material = Instantiate(card_light.GetComponent<Image>().material);
+        card_light.GetComponent<Image>().material = material;
+        //card_light.GetComponent<Renderer>().material.CopyPropertiesFromMaterial(material);
+        //material_block = new MaterialPropertyBlock();
     }
 
     public void CardUpdate(){
-        illust.sprite = card.ability.illust;
-        name.text = card.ability.name;
-        message.text = card.ability.message;
-        ability_message.text = card.ability.ability_message;
+        illust.sprite = card.illust;
+        name.text = card.name;
+        message.text = card.message;
+        ability_message.text = card.ability_message;
+        if(card.ability.name.Equals("NULL")){
+            block_img.SetActive(true);
+        }
+        else{
+            block_img.SetActive(false);
+        }
 
     }
 
@@ -63,27 +83,40 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
         if(isLeft){
             battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability.CardActivate(battleManager.players[battleManager.cardViewChar_left].cards[card_num], battleManager);
+            if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
+                
+                material.SetInt("_Active",1);
+            }
+            else{
+                material.SetInt("_Active",0);
+            }
         }
         else{
             battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability.CardActivate(battleManager.players[battleManager.cardViewChar_right].cards[card_num], battleManager);
+            if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
+                material.SetInt("_Active",1);
+
+            }
+            else{
+                material.SetInt("_Active",0);
+            }
+        
+        
+        
         }
         
      }
 
      public IEnumerator CardActivated(){
-        bool colored = true;
+        rect.anchoredPosition += Vector2.up*45;
         for(int i = 0;i<6;i++){
-            if(colored){
-                rect.anchoredPosition += Vector2.up*45;
-            }
-            else{
-                rect.anchoredPosition += Vector2.down*45;
-            }
-            colored = !colored;
+            card_light.SetActive(!card_light.activeSelf);
             yield return new WaitForSeconds(0.07f);
         }
-
-        battleManager.battleCaculate.card_activated = false;
+        card_light.SetActive(true);
+        card.card_active = false;
+        rect.anchoredPosition -= Vector2.up*45;
+        //battleManager.battleCaculate.card_activated = false;
      }
 
 }

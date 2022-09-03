@@ -8,7 +8,6 @@ public class Card3 : CardAbility
 
     public override void MatchStarted(CardPack card, Player player, BattleManager match)
     {
-        if(!card.card_enable){return;} // 꼭 넣기
         int count = 0;
         for(int i = 0;i<match.players.Count;i++){
             for(int j= 0;j<match.players.Count;j++){

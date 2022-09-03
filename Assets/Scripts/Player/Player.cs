@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     float fade = 0.7f;
     
     public Transform movePoint;
+    public Transform attPoint;
     public int player_id = 0;
     public int condition = 0;
     public int max_health;
@@ -32,6 +33,9 @@ public class Player : MonoBehaviour
     public bool isMoving;
     Vector3 moveTarget;
     float moveSpeed;
+
+    public List<GameObject> card_effect = new List<GameObject>();
+    public List<GameObject> attack_effect = new List<GameObject>();
 
     Vector3 origin_pos;
 
@@ -104,22 +108,19 @@ public class Player : MonoBehaviour
     }
 
     public int getDamage;
+
+
     public void Damage(int value, Player attacker){
         getDamage = value;
+        battleManager.battleCaculate.damage = getDamage;
         for(int i = 0; i<attacker.cards.Count; i++){
                 attacker.cards[i].ability.OnDamaging(attacker.cards[i],this,  battleManager,getDamage);
             }
         for(int i = 0; i<cards.Count; i++){
                 cards[i].ability.OnDamage(cards[i],attacker,battleManager,getDamage);
             }
-
-
-
-
-
-
-
-            
+        battleManager.battleCaculate.damage = getDamage;
+         
         if(getDamage>0){
             ChangeCondition(4);
             attacker.ChangeCondition(3);
@@ -156,7 +157,7 @@ public class Player : MonoBehaviour
         UpdateHp();
     }
 
-    void UpdateHp(){
+    public void UpdateHp(){
         hp_Indi.HpUpdate(health,max_health);
     }
 
@@ -190,9 +191,11 @@ public class Player : MonoBehaviour
         for(int i = 0;i<cards.Count;i++){
             if(cards[i].card_active){
                 player_deck[i].StartCoroutine("CardActivated");
-                cards[i].ability.ImmediEffect(cards[i],transform);
-                battleManager.battleCaculate.card_activated = true;
-                cards[i].card_active = false;
+                break;
+                //cards[i].ability.ImmediEffect(cards[i],transform);
+
+                //battleManager.battleCaculate.card_activated = true;
+                //cards[i].card_active = false;
             }
         }
     }
@@ -226,5 +229,18 @@ public class Player : MonoBehaviour
 
     }
 
+    public void AttackEffect(Player defender){
+        foreach(GameObject effect in attack_effect){
+            effect.SetActive(true);
+            effect.transform.position = attPoint.position;
+        }
+
+    }
+
+    public void Battle_End(){
+        foreach(GameObject effect in attack_effect){
+            effect.SetActive(false);
+        }
+    }
 
 }

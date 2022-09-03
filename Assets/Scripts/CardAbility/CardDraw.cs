@@ -127,7 +127,6 @@ public class CardDraw : MonoBehaviour
         if(target>0 && mouseOn){
             if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target-1<3){
                 CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
-                Debug.Log(card);
                 card.ability = having_card;
                 card.battleManager = battleManager;
                 card.PreSetting(battleManager.players[target-1]);
@@ -139,7 +138,6 @@ public class CardDraw : MonoBehaviour
             }
             if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target-1>2){
                 CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
-                Debug.Log(card);
                 card.ability = having_card;
                 card.PreSetting(battleManager.players[target-1]);
                 battleManager.players[target-1].cards.Add(card);

@@ -8,7 +8,6 @@ public class Card4 : CardAbility
     
     public override void DiceApplyed(CardPack card, Player player)
     {
-        if(!card.card_enable){return;}
         player.SetDice(Mathf.Abs(player.dice-7));
         card.effect[0].SetActive(true);
         EffectPlayerSet(card.effect[0],player,player.dice_Indi.transform,0,0);

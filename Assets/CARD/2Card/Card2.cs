@@ -8,8 +8,8 @@ public class Card2 : CardAbility
 
     public override void OnBattleWin(CardPack card,BattleCaculate battle)
     {
-        if(!card.card_enable){return;}
         //Actived();
+        Active(card);
         battle.damage += 2;
     }
 

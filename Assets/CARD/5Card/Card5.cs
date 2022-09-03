@@ -13,7 +13,6 @@ public class Card5 : CardAbility
 
     public override void OnBattleStart(CardPack card, BattleCaculate battle)
     {
-        if(!card.card_enable){return;}
         if(card.card_activating){
             if(battle.myChar.Equals(card.player)){
             battle.myChar.SetDice(1);
