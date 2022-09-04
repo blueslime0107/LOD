@@ -102,13 +102,35 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator BasicAttack(){
+
         for(int i = 0; i<my_ability.Count;i++){
                     my_ability[i].ability.OnBattleStart(my_ability[i],this);
                 }
         for(int i = 0; i<ene_ability.Count;i++){
                     ene_ability[i].ability.OnBattleStart(ene_ability[i],this);
                 }
-        damage = myChar.dice - eneChar.dice;
+        SetDamage(myChar.dice - eneChar.dice);
+        if(damage>0){
+            if(myChar.gameObject.tag.Equals("PlayerTeam1")){
+                battleDice.right_break.Play();
+            }
+            else{
+                battleDice.left_break.Play();
+            }
+        }
+        else if(damage<0){
+            if(eneChar.gameObject.tag.Equals("PlayerTeam1")){
+                battleDice.right_break.Play();
+            }
+            else{
+                battleDice.left_break.Play();
+            }
+
+        }
+        else if(damage.Equals(0)){
+            battleDice.left_break.Play();
+            battleDice.right_break.Play();
+        }
         yield return null;
         }
     IEnumerator MainAttack(){
@@ -238,6 +260,9 @@ public class BattleCaculate : MonoBehaviour
             battleManager.on_battle_card_effect[i].gameObject.SetActive(false);
             battleManager.on_battle_card_effect.Remove(battleManager.on_battle_card_effect[i]);
         }
+        damage = 0;
+        battleDice.DamageUpdate();
+
         yield return null;
     }
 
@@ -288,4 +313,18 @@ public class BattleCaculate : MonoBehaviour
         defender.UpdateHp();
        yield return null;
     }
+
+    void SetDamage(int value){
+        damage = value;
+        battleDice.DamageUpdate();
+    }
+
+    void AddDamage(int value){
+        damage += value;
+        battleDice.DamageUpdate();
+    }
+
+
+
+
 }
