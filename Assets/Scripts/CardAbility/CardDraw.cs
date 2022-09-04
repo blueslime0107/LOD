@@ -126,24 +126,15 @@ public class CardDraw : MonoBehaviour
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         if(target>0 && mouseOn){
             if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target-1<3){
-                CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
-                card.ability = having_card;
-                card.battleManager = battleManager;
-                card.PreSetting(battleManager.players[target-1]);
-                battleManager.players[target-1].cards.Add(card);
+                battleManager.GiveCard(having_card,battleManager.players[target-1]);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
-                card.ability.ImmediCardDraw(battleManager,battleManager.players[target-1]);
                 Destroy(gameObject);
             }
             if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target-1>2){
-                CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
-                card.ability = having_card;
-                card.PreSetting(battleManager.players[target-1]);
-                battleManager.players[target-1].cards.Add(card);
+                battleManager.GiveCard(having_card,battleManager.players[target-1]);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
-                card.ability.ImmediCardDraw(battleManager,battleManager.players[target-1]);
                 Destroy(gameObject);
             }
             

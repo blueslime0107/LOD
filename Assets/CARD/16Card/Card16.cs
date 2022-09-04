@@ -5,11 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/16글록17", order = 16)]
 public class Card16 : CardAbility
 {
-    
+
+    public override void BattleEnded(CardPack card)
+    {
+        if(!card.card_activating){
+            card.player.SetDice(1);
+            card.card_activating = true;
+        }
+    }
+
     public override void MatchStarted(CardPack card, Player player, BattleManager match)
     {
-        player.AddHealth(1);
-        card.effect[0].SetActive(true);
-        //EffectPlayerSet(card.effect[0],player,player.transform,1,-0.5f);
+        card.card_activating = false;
     }
 }

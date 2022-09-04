@@ -246,6 +246,7 @@ public class BattleManager : MonoBehaviour
                 while(!card_gived){
                     yield return null;
                 }
+                //// 카드를 뽑은 뒤 이벤트
                 if(left_turn){
                     foreach(Player player in left_players){
                         for(int i = 0;i<player.cards.Count;i++){
@@ -266,6 +267,7 @@ public class BattleManager : MonoBehaviour
                 ui.cardMessage.SetActive(false);
                 card_gived = false;
             }
+            ui.Dice6.gameObject.SetActive(false);
             
             
             BattlePreReset();
@@ -437,6 +439,23 @@ public class BattleManager : MonoBehaviour
         card_selected = null;
         card_selecting = null;
         card_select_trigger = false;
+    }
+
+    public void GiveCard(CardAbility having_card, Player player){
+        GameObject game_card = new GameObject();
+        CardPack card = game_card.AddComponent<CardPack>() as CardPack;
+        card.ability = having_card;
+        card.battleManager = this;
+        card.PreSetting(player);
+        player.cards.Add(card);
+        card.ability.ImmediCardDraw(this,player);
+    }
+
+    public void GiveCardPack(CardPack card, Player player){
+        CardPack pre_card = card;
+        pre_card.PreSetting(player);
+        player.cards.Add(pre_card);
+        pre_card.ability.ImmediCardDraw(this,player);
     }
 
     List<CardAbility> CardSuffle(){

@@ -15,6 +15,7 @@ public class CardAbility : ScriptableObject
 
     public Sprite illust;
     public GameObject[] effect;
+    public CardAbility[] linked_card;
 
     //public GameObject owner;
     // [HideInInspector]public bool card_active;
@@ -37,6 +38,14 @@ public class CardAbility : ScriptableObject
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
     public virtual void OnDamage(CardPack card, Player attacker,    BattleManager match, int damage){}
     public virtual void OnDamaging(CardPack card,  Player defender,   BattleManager match, int damage){}
+    public virtual void WhoEverDamage(CardPack card, int damage){}
+
+    public virtual void OnDeath(CardPack card, BattleManager match){}
+    public virtual void OnDeathOurTeam(CardPack card){}
+    public virtual void OnDeathEneTeam(CardPack card){}
+
+    public virtual void BattleEnded(CardPack card){}
+
     public virtual void ImmediEffect(CardPack card, Transform transform){}
     
 

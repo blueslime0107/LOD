@@ -57,6 +57,27 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         else{
             block_img.SetActive(false);
         }
+        if(isLeft){
+            if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
+                
+                material.SetInt("_Active",1);
+            }
+            else{
+                material.SetInt("_Active",0);
+            }
+        }
+        else{
+            if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
+                material.SetInt("_Active",1);
+
+            }
+            else{
+                material.SetInt("_Active",0);
+            }
+        
+        
+        
+        }
 
     }
 
@@ -79,31 +100,33 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      public void OnPointerClick(PointerEventData eventData){
         if(battleManager.card_select_trigger){
             battleManager.SelectiedCard(card);
+            CardUpdate();
             return;
         }
         if(isLeft){
             battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability.CardActivate(battleManager.players[battleManager.cardViewChar_left].cards[card_num], battleManager);
-            if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
+            // if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
                 
-                material.SetInt("_Active",1);
-            }
-            else{
-                material.SetInt("_Active",0);
-            }
+            //     material.SetInt("_Active",1);
+            // }
+            // else{
+            //     material.SetInt("_Active",0);
+            // }
         }
         else{
             battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability.CardActivate(battleManager.players[battleManager.cardViewChar_right].cards[card_num], battleManager);
-            if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
-                material.SetInt("_Active",1);
+            // if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
+            //     material.SetInt("_Active",1);
 
-            }
-            else{
-                material.SetInt("_Active",0);
-            }
+            // }
+            // else{
+            //     material.SetInt("_Active",0);
+            // }
         
         
         
         }
+        CardUpdate();
         
      }
 

@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b6b6e6471ecd54dbef2a9e7b67b6a0, type: 3}
   m_Name: Card16
   m_EditorClassIdentifier: 
-  card_id: 0
-  name: 
-  message: 
-  ability_message: 
-  story_message: 
-  illust: {fileID: 0}
+  card_id: 16
+  name: "\uAE00\uB85D17"
+  message: "\uC774 \uB9C8\uC9C0\uB9C9 \uD55C\uBC1C.."
+  ability_message: "\uC8FC\uC0AC\uC704\uAC00 \uC5C6\uC744\uC2DC \uC8FC\uC0AC\uC704(1\uC704\uB825)
+    \uC744 \uCD94\uAC00 "
+  story_message: "\uC5B4\uC911\uAC04\uD55C \uC774\uB294 \uC804\uC7A5\uC5D0\uC11C\uB294
+    \uC0B4\uC544\uB0A8\uC9C0 \uBABB\uD55C\uB2E4.\r\n\uD0C4\uCC3D\uC5D0 \uB4E0 \uD0C4\uD658\uC774
+    15\uBC1C\uC774\uB0D0, 17\uBC1C\uC774\uB0D0\uAC00 \n\uC0DD\uC0AC\uB97C \uD310\uAC00\uB984\uD558\uB294
+    \uACBD\uC6B0\uB294 \uBD80\uC9C0\uAE30\uC218\uB2E4.\r\n\uADF8\uB807\uAE30\uC5D0,
+    \uC774 \uCD1D\uC774 \uC544\uC9C1\uAE4C\uC9C0\uB3C4 \uC4F0\uC774\uB294 \uAC83\uC774\uACA0\uC9C0."
+  illust: {fileID: 21300000, guid: 73de288f95d1016429574f39cd8d5887, type: 3}
   effect: []

@@ -162,8 +162,26 @@ public class Player : MonoBehaviour
     }
 
     public void YouAreDead(){
+        foreach(Player player in battleManager.players){
+            if(player.gameObject.tag.Equals(gameObject.tag) && !player.Equals(this)){
+                for(int i =0;i<player.cards.Count;i++){
+                    player.cards[i].ability.OnDeathOurTeam(player.cards[i]);
+                }
+            }
+            if(player.Equals(this)){
+                for(int i =0;i<player.cards.Count;i++){
+                    player.cards[i].ability.OnDeath(player.cards[i],battleManager);
+                }
+            }
+            if(!player.gameObject.tag.Equals(gameObject.tag) && !player.Equals(this)){
+                for(int i =0;i<player.cards.Count;i++){
+                    player.cards[i].ability.OnDeathEneTeam(player.cards[i]);
+                }
+            }
+        }
         died = true;
-        
+        dice = 0;
+        health = 0;
     }
 
     public void ChangeCondition(int num){

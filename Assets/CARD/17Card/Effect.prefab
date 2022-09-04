@@ -148,8 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
+  onplayer: 0
   onbattleEnd: 0
-  aliveTime: 1
+  aliveTime: 0
 --- !u!1 &6501873176765876507
 GameObject:
   m_ObjectHideFlags: 0

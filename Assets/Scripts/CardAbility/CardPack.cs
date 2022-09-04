@@ -7,16 +7,19 @@ public class CardPack : MonoBehaviour
     public BattleManager battleManager;
     public Player player;
     public CardAbility ability;
-    public bool card_active;
+    public bool card_active; // 카드 능력 발동
     public CardPack selected_card;
 
+    public Player saved_player;
+    public List<Player> saved_player_list = new List<Player>();
+    public int saved_int;
     public CardPack saved_card;
     public CardAbility saved_ability;
 
     public List<CardAbility> card_reg = new List<CardAbility>();
+    public List<CardPack> cardpack_reg = new List<CardPack>();
 
-
-    public bool card_activating = false;
+    public bool card_activating = false; // 액티브 사용중
 
     public List<GameObject> effect = new List<GameObject>();
 
@@ -44,6 +47,7 @@ public class CardPack : MonoBehaviour
         }
         //gameObject.SetActive(false);
     }
+
 
 
     // Start is called before the first frame update

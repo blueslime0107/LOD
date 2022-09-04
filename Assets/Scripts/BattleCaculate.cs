@@ -260,6 +260,14 @@ public class BattleCaculate : MonoBehaviour
             battleManager.on_battle_card_effect[i].gameObject.SetActive(false);
             battleManager.on_battle_card_effect.Remove(battleManager.on_battle_card_effect[i]);
         }
+
+        for(int i =0;i<myChar.cards.Count;i++){
+            myChar.cards[i].ability.BattleEnded(myChar.cards[i]);
+        }
+        for(int i =0;i<eneChar.cards.Count;i++){
+            eneChar.cards[i].ability.BattleEnded(eneChar.cards[i]);
+        }
+
         damage = 0;
         battleDice.DamageUpdate();
 
@@ -311,6 +319,11 @@ public class BattleCaculate : MonoBehaviour
         defender.health -= damage;
         attacker.AttackEffect(defender);
         defender.UpdateHp();
+        foreach(Player player in battleManager.players){
+            for(int i = 0;i<player.cards.Count;i++){
+                player.cards[i].ability.WhoEverDamage(player.cards[i],damage);
+            }
+        }
        yield return null;
     }
 

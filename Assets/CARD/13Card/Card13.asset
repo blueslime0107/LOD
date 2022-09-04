@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77762255f7d94da4fbbc0a576ecd923e, type: 3}
   m_Name: Card13
   m_EditorClassIdentifier: 
-  card_id: 0
-  name: 
-  message: 
-  ability_message: 
+  card_id: 13
+  name: "\uB208\uC54CCCTV"
+  message: "\uBB50\uB2C8\uD574\uB3C4 \uAC00\uC7A5 \uC7AC\uBC0C\uB294\uAC74\n\uC2F8\uC6C0\uAD6C\uACBD\uC774\uC9C0"
+  ability_message: "\uC544\uBB34 \uCE90\uB9AD\uD130\uAC00 3\uC774\uC0C1 \uD53C\uD574\uB97C
+    \uBC1B\uC744\uC2DC\n\uCCB4\uB825 +2 "
   story_message: 
-  illust: {fileID: 0}
+  illust: {fileID: 21300000, guid: 6c6ec5031feef4244a8c2f11c5545976, type: 3}
   effect: []
