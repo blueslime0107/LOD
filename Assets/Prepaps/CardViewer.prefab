@@ -165,7 +165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84"
+  m_text: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84\uBC84\uBC84\uBC84\uBC84\uBC84"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 137e5e952d51a9646911d868dc9b84ff, type: 2}
   m_sharedMaterial: {fileID: -5383193040083528029, guid: 137e5e952d51a9646911d868dc9b84ff, type: 2}
@@ -192,12 +192,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8.1
+  m_fontSize: 8
   m_fontSizeBase: 8.1
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 8
+  m_fontSizeMax: 8
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_charWidthMaxAdj: 50
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 2.1737683, y: 9.588543, z: -3.3666782, w: 11.409392}
+  m_margin: {x: 2.1737683, y: 9.588543, z: 1.0788609, w: 11.409392}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -358,7 +358,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 22.503965, y: 34.19}
+    oldSize: {x: 11.24, y: 17.08}
     newSize: {x: 22.503965, y: 34.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e510672319712c1478197a053be4ef2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  having_card: {fileID: 0}
   ui: {fileID: 0}
   name: {fileID: 2838013068198660515}
   message: {fileID: 1780543013542292649}
