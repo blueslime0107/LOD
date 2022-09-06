@@ -10,7 +10,8 @@ public class Card2 : CardAbility
     {
         //Actived();
         Active(card);
-        battle.damage += 2;
+        battle.AddDamage(2);
+        
     }
 
 }

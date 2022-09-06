@@ -23,4 +23,14 @@ public class Card17 : CardAbility
             }
         }   
     }
+
+    public override void ImmediCardDraw(BattleManager match, Player player)
+    {
+        if(player.gameObject.tag == "PlayerTeam1"){
+            match.card_left_draw += 1;
+        }
+        if(player.gameObject.tag == "PlayerTeam2"){
+            match.card_right_draw += 1;
+        }
+    }
 }

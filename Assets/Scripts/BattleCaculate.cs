@@ -22,31 +22,38 @@ public class BattleCaculate : MonoBehaviour
 
     Vector3 myOriginPos;
 
-    int myNum;
-    int eneNum;
+    // int myNum;
+    // int eneNum;
 
     public bool card_activated;
 
-    bool corrLock = false;
+    bool coroutine_lock1 = false;
 
-    public void BattleMatch(int selfnum, int enenum){
+    public void BattleMatch(Player selfnum, Player enenum){
         
-        for(int i=0;i<6;i++){
-            if(i != selfnum-1 && i != enenum-1){
-                players[i].dice_Indi.render.color = new Color(0,0,0,1);
+        foreach(Player player in players){
+            if(player != selfnum && player != enenum){
+                player.dice_Indi.render.color = new Color(0,0,0,1);
             }
         }
+        // for(int i=0;i<6;i++){
+        //     if(i != selfnum.player_id-1 && i != enenum.player_id-1){
+                
+        //     }
+        // }
 
-        myNum = selfnum-1;
-        eneNum = enenum-1;
+        // myNum = selfnum-1;
+        // eneNum = enenum-1;
 
-        players[myNum].OnMouseDown(); 
-        players[eneNum].OnMouseDown(); 
+        // players[myNum].OnMouseDown(); 
+        // players[eneNum].OnMouseDown(); 
+        selfnum.OnMouseDown(); 
+        enenum.OnMouseDown(); 
 
         damage = 0;
-        myChar = players[selfnum-1];
-        eneChar = players[enenum-1];
-        myOriginPos = players[myNum].transform.position;
+        myChar = selfnum;
+        eneChar =  enenum;
+        myOriginPos = myChar.transform.position;
 
         my_ability = myChar.cards;
         ene_ability = eneChar.cards;
@@ -60,8 +67,8 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BattleMatchcor(){
         myChar.ChangeCondition(2);      
-        myChar.SetPointMove(players[eneNum].movePoint.position, 17f);
-        gameManager.main_camera_ctrl.SetTargetMove(myNum,eneNum,17f);
+        myChar.SetPointMove(eneChar.movePoint.position, 17f);
+        gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,17f);
         
         while(myChar.isMoving){
             yield return null;
@@ -71,9 +78,11 @@ public class BattleCaculate : MonoBehaviour
         StartCoroutine("BasicAttack");
         yield return new WaitForSeconds(0.5f);
         StartCoroutine("MainAttack");
-        yield return new WaitForSeconds(1f);
-        corrLock = false;
 
+        while(coroutine_lock1){
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
 
 
 
@@ -134,15 +143,16 @@ public class BattleCaculate : MonoBehaviour
         yield return null;
         }
     IEnumerator MainAttack(){
+        coroutine_lock1= true;
         //damage_dice = damage;
 
         if(damage == 0){
             while(card_activated){
                 yield return null;
             }
-            corrLock = true;
             myChar.ChangeCondition(3);
             eneChar.ChangeCondition(3);
+            coroutine_lock1= false;
         }
         if(damage>0){
 
@@ -154,8 +164,8 @@ public class BattleCaculate : MonoBehaviour
                 while(my_ability[i].card_active){
                     yield return null;
                 }
+                
             }
-            
             StartCoroutine(Damage(myChar,eneChar));
             StopCoroutine(MainAttack());
             // Damage(myChar,eneChar);
@@ -166,12 +176,13 @@ public class BattleCaculate : MonoBehaviour
                 ene_ability[i].ability.OnBattleWin(ene_ability[i],this);
                 if(ene_ability[i].card_active){
                     eneChar.UpdateActiveStat();
+                    Debug.Log("Active");
                 }
                 while(ene_ability[i].card_active){
+                    Debug.Log("Waiting");
                     yield return null;
                 }
             }
-            corrLock = true;
             StartCoroutine(Damage(eneChar,myChar));   
             StopCoroutine(MainAttack());       
             // Damage(eneChar,myChar);
@@ -219,9 +230,9 @@ public class BattleCaculate : MonoBehaviour
         //     battleManager.card_draw += 1;
         //     eneChar.card_geted = false;
         // }
-        for(int i=0;i<battleManager.players.Count;i++){
-            if(i != myNum || i != eneNum){
-                players[i].dice_Indi.render.color = new Color(255,255,255,255);
+        foreach(Player player in battleManager.players){
+            if(player != myChar || player != eneChar){
+                player.dice_Indi.render.color = new Color(255,255,255,255);
             }
         }
 
@@ -234,8 +245,8 @@ public class BattleCaculate : MonoBehaviour
         eneChar.SetDice(0);
         eneChar.ChangeCondition(0);
         battleManager.battleing = false;
-        battleManager.target1 = 0;
-        battleManager.target2 = 0;
+        battleManager.target1 = null;
+        battleManager.target2 = null;
         myChar.transform.position += Vector3.forward;
         eneChar.transform.position += Vector3.forward;
         myChar.Battle_End();
@@ -324,15 +335,18 @@ public class BattleCaculate : MonoBehaviour
                 player.cards[i].ability.WhoEverDamage(player.cards[i],damage);
             }
         }
-       yield return null;
+
+        coroutine_lock1 = false;
+        Debug.Log(coroutine_lock1);
+        yield return null;
     }
 
-    void SetDamage(int value){
+    public void SetDamage(int value){
         damage = value;
         battleDice.DamageUpdate();
     }
 
-    void AddDamage(int value){
+    public void AddDamage(int value){
         damage += value;
         battleDice.DamageUpdate();
     }

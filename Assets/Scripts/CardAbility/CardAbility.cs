@@ -22,6 +22,9 @@ public class CardAbility : ScriptableObject
     // public bool card_triggerd;
     public void Active(CardPack card){card.card_active = true;}
 
+    public virtual void StartMatch(BattleManager match){}
+
+
     public virtual void BeforeCardDraw(CardPack card, BattleManager match, Player player){}
     public virtual void AfterCardDraw(BattleManager match, Player player){}
     public virtual void ImmediCardDraw(BattleManager match, Player player){}

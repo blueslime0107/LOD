@@ -7,6 +7,8 @@ public class Card8 : CardAbility
 {
     public override void BeforeCardDraw(CardPack card, BattleManager match, Player player)
     {
+        if(match.game_cards.Count<3) // 카드가 없을때 새로 다시 섞기
+            match.game_cards = match.CardSuffle();
         for(int i = 0; i<2;i++){
             match.game_cards.Insert(0, card.card_reg[i]);
         }

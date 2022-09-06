@@ -39,8 +39,8 @@ public class BattleManager : MonoBehaviour
 
     public CardAbility null_card;
 
-    [HideInInspector]public int target1;
-    [HideInInspector]public int target2;
+    public Player target1;
+    public Player target2;
 
     [HideInInspector]public bool battleing;
 
@@ -84,9 +84,12 @@ public class BattleManager : MonoBehaviour
         
     // }
 
+
     IEnumerator BattleMain() {   
         FirstTeam();
         while(true){ // 계속반복
+            # region 선두팀 바꾸기
+            
             first_turn = !first_turn;
             if(first_turn){
                 TurnTeam("Left");
@@ -96,22 +99,32 @@ public class BattleManager : MonoBehaviour
             }
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
-            DiceRoll(); // 주사위를 굴린다
-            MakeADummy(true);
+            # endregion
+            # region 주사위 굴리기
+            foreach(Player player in players){
+                for(int i =0; i<player.cards.Count;i++){
+                    player.cards[i].ability.StartMatch(this);
+                }
+            }
+            DiceRoll(); // 주사위를 
+            # endregion
+            # region 주사위 지정
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
                 if(!left_turn || !right_turn){
+                    // 팀이 주사위를 전부 얻으면 상대팀
                     if(left_turn){
-                        if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
+                        if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count)
+                            //(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
                                 TurnTeam("Right");
-                            }
+                            //}
                     }
                     if(right_turn){
-                        if(players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                        if(right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){
                                 TurnTeam("Left");
                             }
                     }
-                    if(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0 &&
-                    players[3].dice > 0 && players[4].dice > 0 && players[5].dice > 0){
+                    if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
+                    right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){
                         right_turn = true;
                         left_turn = true;
                         backGround.leftCircle.SetActive(true);
@@ -121,8 +134,8 @@ public class BattleManager : MonoBehaviour
                 }
                 if(battle_start)
                 {
-                    target1 = 0;
-                    target2 = 0;
+                    target1 = null;
+                    target2 = null;
                     if(first_turn){
                         TurnTeam("Left");
                     }
@@ -134,17 +147,39 @@ public class BattleManager : MonoBehaviour
                     
                 yield return null;
             }
-            MakeADummy(false);
+            # endregion
+            # region 전투시작
             while(!battle_end){ // 모든 캐릭터에게 주사위가 없으면 진행
                 yield return null;
+
                 if(battleing){
                     continue;
                 }
 
-                if(!battle_end){
+                if(Input.GetMouseButtonDown(0)){
+                    foreach(Dice_Indi dice in dice_indis){
+                        if(dice.onMouseDown){
+                            target1 = dice.player;
+                        }
+                    }
 
-                    if(players[0].dice <= 0 && players[1].dice  <= 0 && players[2].dice <= 0 &&
-                    players[3].dice <= 0 && players[4].dice <= 0 && players[5].dice <= 0){
+                }
+                if(Input.GetMouseButtonUp(0)){
+                    foreach(Dice_Indi dice in dice_indis){
+                        if(!dice.onMouseDown && dice.onMouseEnter){
+                            target2 = dice.player;
+                            BattleTargetReady();
+                        }
+                    }
+                    if(target2 == null){
+                        target1 = null;
+                    }
+
+                }
+
+                if(!battle_end){
+                    if(left_players.FindAll(x => x.dice<=0 || x.died).Count >= left_players.Count &&
+                    right_players.FindAll(x => x.dice<=0 || x.died).Count >= right_players.Count){
                         battle_end =  true;
                         break;
                     }
@@ -152,8 +187,8 @@ public class BattleManager : MonoBehaviour
 
                 
             }
-
-
+            # endregion
+            # region 전투끝
             PlayerGoToOrigin();
             while(camera.isZeroMove){
                 yield return null;
@@ -271,11 +306,13 @@ public class BattleManager : MonoBehaviour
             
             
             BattlePreReset();
+            # endregion
         }             
     }
 
+
     public void BattleTargetReady(){
-        if(target1 > 0 && target2 > 0 && target1 != target2){
+        if(target1 != target2){
             battleing = true;
             blackScreen.SetActive(true);
             battleCaculate.BattleMatch(target1,target2);
@@ -399,8 +436,8 @@ public class BattleManager : MonoBehaviour
             dice_indis[i].isDiced = false;
         battle_start = false;
         battle_end = false;
-        target1 = 0;
-        target2 = 0;
+        target1 = null;
+        target2 = null;
     }
 
     public void BattleStart(){
@@ -458,7 +495,7 @@ public class BattleManager : MonoBehaviour
         pre_card.ability.ImmediCardDraw(this,player);
     }
 
-    List<CardAbility> CardSuffle(){
+    public List<CardAbility> CardSuffle(){
         List<CardAbility> origin_cards = new List<CardAbility>(cards);
         List<CardAbility> suffle_cards = new List<CardAbility>();
         int origin_count = origin_cards.Count;

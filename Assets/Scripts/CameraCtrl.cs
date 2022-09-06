@@ -9,8 +9,8 @@ public class CameraCtrl : MonoBehaviour
 
     bool isTwoTargetMove = false;
     public bool isZeroMove = false;
-    int ch1;
-    int ch2;
+    Player ch1;
+    Player ch2;
     Vector3 target1;
     Vector3 target2;
     float moveSpeed;
@@ -36,8 +36,8 @@ public class CameraCtrl : MonoBehaviour
     void LateUpdate()
     {
         if(isTwoTargetMove){
-            target1 = battleManager.players[ch1].transform.position;
-            target2 = battleManager.players[ch2].transform.position;
+            target1 = ch1.transform.position;
+            target2 = ch2.transform.position;
             Vector3 tr = (target1 + target2) * 0.5f + Vector3.back*10 + Vector3.down*0.5f;
             if(Vector3.Distance(transform.position,tr) > 0.001f){
                 transform.position = Vector3.MoveTowards(transform.position,tr,moveSpeed*Time.deltaTime);
@@ -82,7 +82,7 @@ public class CameraCtrl : MonoBehaviour
         
     }
 
-    public void SetTargetMove(int tar1, int tar2, float movSpd){
+    public void SetTargetMove(Player tar1, Player tar2, float movSpd){
         ch1 = tar1;
         ch2 = tar2;
         moveSpeed = movSpd;

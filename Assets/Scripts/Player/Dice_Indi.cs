@@ -13,7 +13,8 @@ public class Dice_Indi : MonoBehaviour
     public int dice_value;
     Vector3 saved_pos;
 
-    bool targetSelected;
+    public bool onMouseDown;
+    public bool onMouseEnter;
 
     public SpriteRenderer render;
     public Player player;
@@ -22,16 +23,16 @@ public class Dice_Indi : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
     }
 
-    void Update(){
-        if(Input.GetMouseButtonUp(0)){
-            if(targetSelected && battleManager.target1 > 0 && player.player_id != battleManager.target1){
-            battleManager.target2 = player.player_id;
-            battleManager.BattleTargetReady();
-            //battleCaculate.BattleMatch(dice_num,target); 
-            }
-        }
+    // void Update(){
+    //     if(Input.GetMouseButtonUp(0)){
+    //         if(targetSelected && battleManager.target1 > 0 && player.player_id != battleManager.target1){
+    //         battleManager.target2 = player.player_id;
+    //         battleManager.BattleTargetReady();
+    //         //battleCaculate.BattleMatch(dice_num,target); 
+    //         }
+    //     }
         
-    }
+    // }
 
     public void putDice(int value){
         player.dice = value;
@@ -45,20 +46,29 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void setDice(int value){
+        if(player.died) {
+            player.dice = 0;
+            return;
+        }
+        
+
         player.dice = value;
         dice_value = value;
         render.sprite = dice_img[value];
     }
 
     void OnMouseDown() {
-        if(battleManager.left_turn && gameObject.tag == "Team2"){
-                return;
-            }
-            if(battleManager.right_turn && gameObject.tag == "Team1"){
-                return;
-            } 
+        onMouseDown = true;
+        // if(battleManager.battle_end)
+        //     return;
+        // if(battleManager.left_turn && gameObject.tag == "Team2"){
+        //         return;
+        //     }
+        //     if(battleManager.right_turn && gameObject.tag == "Team1"){
+        //         return;
+        //     } 
         saved_pos = transform.position;
-        battleManager.target1 = player.player_id;
+        //battleManager.target1 = player.player_id;
     }
 
 
@@ -81,7 +91,7 @@ public class Dice_Indi : MonoBehaviour
     }
 //render.color = new Color(0,0,0,206);
     void OnMouseUp() {
-        
+        onMouseDown = false;
         //transform.position = saved_pos;
         lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
         lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
@@ -91,11 +101,11 @@ public class Dice_Indi : MonoBehaviour
     
 
     void OnMouseEnter() {
-        targetSelected = true;
+        onMouseEnter = true;
     }
 
     void OnMouseExit() {
-        targetSelected = false;
+        onMouseEnter = false;
             
     }
 

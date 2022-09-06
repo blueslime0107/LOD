@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public CameraCtrl main_camera_ctrl;
 
     void Start(){
+        Application.targetFrameRate = 300;
         battleManager.Battle();
     }
 

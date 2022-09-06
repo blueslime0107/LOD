@@ -8,6 +8,8 @@ TagManager:
   - Team2
   - PlayerTeam1
   - PlayerTeam2
+  - LeftBorder
+  - RightBorder
   layers:
   - Default
   - TransparentFX

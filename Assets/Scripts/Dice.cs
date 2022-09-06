@@ -10,8 +10,8 @@ public class Dice : MonoBehaviour
     GameObject charTarget;
     [SerializeField] BattleManager battleManager;
 
-    public int dice_num;
-    public Transform[] move_point;
+    //public int dice_num;
+    public Transform move_point;
 
     public Sprite[] dice_img;
     SpriteRenderer render;
@@ -30,7 +30,7 @@ public class Dice : MonoBehaviour
         float time = 0;
         Vector2 velo = Vector2.zero;
         while(time<1){
-            transform.position = Vector2.SmoothDamp(transform.position,move_point[dice_num].position,ref velo,5f*Time.deltaTime);
+            transform.position = Vector2.SmoothDamp(transform.position,move_point.position,ref velo,5f*Time.deltaTime);
             dice_value = (int)Random.Range(1f,7f);
             render.sprite = dice_img[dice_value-1];
             transform.Rotate(Vector3.forward*30);

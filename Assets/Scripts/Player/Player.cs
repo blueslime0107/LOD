@@ -112,35 +112,35 @@ public class Player : MonoBehaviour
 
     public void Damage(int value, Player attacker){
         getDamage = value;
-        battleManager.battleCaculate.damage = getDamage;
-        for(int i = 0; i<attacker.cards.Count; i++){
-                attacker.cards[i].ability.OnDamaging(attacker.cards[i],this,  battleManager,getDamage);
-            }
-        for(int i = 0; i<cards.Count; i++){
-                cards[i].ability.OnDamage(cards[i],attacker,battleManager,getDamage);
-            }
-        battleManager.battleCaculate.damage = getDamage;
+        // battleManager.battleCaculate.damage = getDamage;
+        // for(int i = 0; i<attacker.cards.Count; i++){
+        //         attacker.cards[i].ability.OnDamaging(attacker.cards[i],this,  battleManager,getDamage);
+        //     }
+        // for(int i = 0; i<cards.Count; i++){
+        //         cards[i].ability.OnDamage(cards[i],attacker,battleManager,getDamage);
+        //     }
+        // battleManager.battleCaculate.damage = getDamage;
          
-        if(getDamage>0){
-            ChangeCondition(4);
-            attacker.ChangeCondition(3);
-            // foreach(CardAbility card in attacker.cards){
-            //     if(card.card_triggerd){                   ///////// 카드 공격 효과
-            //         card.AttackEffect(transform);
-            //     }
-            // }
-            if(attacker.transform.position.x - transform.position.x <0){
-                transform.Translate(Vector3.right*getDamage/2);
-            }
-            if(attacker.transform.position.x - transform.position.x > 0){
-                transform.Translate(Vector3.left*getDamage/2);
-            }
+        // if(getDamage>0){
+        //     ChangeCondition(4);
+        //     attacker.ChangeCondition(3);
+        //     // foreach(CardAbility card in attacker.cards){
+        //     //     if(card.card_triggerd){                   ///////// 카드 공격 효과
+        //     //         card.AttackEffect(transform);
+        //     //     }
+        //     // }
+        //     if(attacker.transform.position.x - transform.position.x <0){
+        //         transform.Translate(Vector3.right*getDamage/2);
+        //     }
+        //     if(attacker.transform.position.x - transform.position.x > 0){
+        //         transform.Translate(Vector3.left*getDamage/2);
+        //     }
             
-        }
-        else if(getDamage.Equals(0)){
-            ChangeCondition(3);
-            attacker.ChangeCondition(3);
-        }
+        // }
+        // else if(getDamage.Equals(0)){
+        //     ChangeCondition(3);
+        //     attacker.ChangeCondition(3);
+        // }
         health -= getDamage;
         UpdateHp();
 
@@ -180,8 +180,7 @@ public class Player : MonoBehaviour
             }
         }
         died = true;
-        dice = 0;
-        health = 0;
+        SetDice(0);
     }
 
     public void ChangeCondition(int num){
@@ -223,6 +222,12 @@ public class Player : MonoBehaviour
             if(collider.gameObject.name.Equals("WallLeft") || collider.gameObject.name.Equals("WallRight")){
                 goto_origin = true;
             }
+        }
+        if(collider.gameObject.tag.Equals("LeftBorder")){
+            SetPointMove(transform.position+Vector3.right,15f);
+        }
+        if(collider.gameObject.tag.Equals("RightBorder")){
+            SetPointMove(transform.position+Vector3.left,15f);
         }
 
     }
