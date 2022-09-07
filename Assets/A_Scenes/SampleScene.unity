@@ -18736,9 +18736,11 @@ MonoBehaviour:
   - {fileID: 908135925}
   - {fileID: 715146560}
   cards:
-  - {fileID: 11400000, guid: 0038543cba7e741479d1307c1f4d3df2, type: 2}
-  - {fileID: 11400000, guid: 0038543cba7e741479d1307c1f4d3df2, type: 2}
-  - {fileID: 11400000, guid: 0038543cba7e741479d1307c1f4d3df2, type: 2}
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: 98e146694c07bbd4db28c501325e8ccd, type: 2}
+  - {fileID: 11400000, guid: 20431b9ef1384ae40909bf5489578ca9, type: 2}
+  - {fileID: 11400000, guid: 991814cb8d9b8b947881320be473a1b3, type: 2}
   game_cards: []
   on_battle_card_effect: []
   cardViewer: {fileID: 4014734665765158303, guid: 316452a3a04ed4349acc8f0ddd2fe78b, type: 3}

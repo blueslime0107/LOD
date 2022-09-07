@@ -103,7 +103,7 @@ public class BattleManager : MonoBehaviour
             # region 주사위 굴리기
             foreach(Player player in players){
                 for(int i =0; i<player.cards.Count;i++){
-                    player.cards[i].ability.StartMatch(this);
+                    player.cards[i].ability.StartMatch(player.cards[i],this);
                 }
             }
             DiceRoll(); // 주사위를 
@@ -478,21 +478,22 @@ public class BattleManager : MonoBehaviour
         card_select_trigger = false;
     }
 
-    public void GiveCard(CardAbility having_card, Player player){
+    public CardPack GiveCard(CardAbility having_card, Player player){
         GameObject game_card = new GameObject();
         CardPack card = game_card.AddComponent<CardPack>() as CardPack;
         card.ability = having_card;
         card.battleManager = this;
         card.PreSetting(player);
         player.cards.Add(card);
-        card.ability.ImmediCardDraw(this,player);
+        card.ability.ImmediCardDraw(card,this,player);
+        return card;
     }
 
     public void GiveCardPack(CardPack card, Player player){
         CardPack pre_card = card;
         pre_card.PreSetting(player);
         player.cards.Add(pre_card);
-        pre_card.ability.ImmediCardDraw(this,player);
+        pre_card.ability.ImmediCardDraw(pre_card, this,player);
     }
 
     public List<CardAbility> CardSuffle(){

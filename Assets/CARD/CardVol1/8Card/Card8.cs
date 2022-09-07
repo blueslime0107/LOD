@@ -16,7 +16,7 @@ public class Card8 : CardAbility
         card.card_reg.Clear();
     }
 
-    public override void ImmediCardDraw(BattleManager match, Player player)
+    public override void ImmediCardDraw(CardPack card,BattleManager match, Player player)
     {
         if(player.gameObject.tag == "PlayerTeam1"){
             match.card_left_draw += 1;

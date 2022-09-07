@@ -337,7 +337,6 @@ public class BattleCaculate : MonoBehaviour
         }
 
         coroutine_lock1 = false;
-        Debug.Log(coroutine_lock1);
         yield return null;
     }
 

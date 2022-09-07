@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/10D6", order = 10)]
 public class Card10 : CardAbility
 {
-    public override void ImmediCardDraw(BattleManager match, Player player)
+    public override void ImmediCardDraw(CardPack card, BattleManager match, Player player)
     {
         if(match.left_turn){
             match.card_left_draw += 1;
