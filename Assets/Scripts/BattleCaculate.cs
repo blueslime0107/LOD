@@ -47,8 +47,8 @@ public class BattleCaculate : MonoBehaviour
 
         // players[myNum].OnMouseDown(); 
         // players[eneNum].OnMouseDown(); 
-        selfnum.OnMouseDown(); 
-        enenum.OnMouseDown(); 
+        selfnum.ShowCardDeck(false); 
+        enenum.ShowCardDeck(false); 
 
         damage = 0;
         myChar = selfnum;

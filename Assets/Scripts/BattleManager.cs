@@ -33,6 +33,9 @@ public class BattleManager : MonoBehaviour
     public int card_give_count = 0;
     public List<CardDraw> show_cards = new List<CardDraw>();
 
+    [HideInInspector]public bool left_cardLook_lock = false;
+    [HideInInspector]public bool right_cardLook_lock= false;
+
     public CardPack card_selecting;
     public bool card_select_trigger;
     public CardPack card_selected;
@@ -408,10 +411,12 @@ public class BattleManager : MonoBehaviour
     }
 
     void DiceRoll(){
-        for(int i = 0; i< dices.Count; i++)
+        for(int i = 0; i< dices.Count; i++){
             if(!players[i].died){
                 dices[i].rolldice();
-            }            
+            }  
+        }
+                      
     }
 
     void MakeADummy(bool ver){

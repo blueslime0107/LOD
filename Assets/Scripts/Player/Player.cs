@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Player : MonoBehaviour
     public List<CardPack> cards = new List<CardPack>();
     public Sprite[] poses;
     SpriteRenderer render;
+    public GameObject player_floor;
+    Material player_floor_render;
 
     bool card_actived;
 
@@ -43,6 +46,8 @@ public class Player : MonoBehaviour
 
     void Start()
     { 
+        player_floor = gameObject.transform.GetChild(4).gameObject;
+        player_floor_render = player_floor.GetComponent<SpriteRenderer>().material;
         material = GetComponent<SpriteRenderer>().material;
         origin_pos = transform.position;
         render = GetComponent<SpriteRenderer>();
@@ -188,19 +193,47 @@ public class Player : MonoBehaviour
     }
 
     public void OnMouseDown() {
+        if(gameObject.tag.Equals("PlayerTeam1")){
+            
+            battleManager.left_cardLook_lock = !battleManager.left_cardLook_lock;
+        }
+        if(gameObject.tag.Equals("PlayerTeam2")){
+            battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;
+        }
+        ShowCardDeck(true);
+        if(gameObject.tag.Equals("PlayerTeam1")){
+            if(!battleManager.left_cardLook_lock)
+            player_floor_render.SetInt("_Active",0);
+        }
+        if(gameObject.tag.Equals("PlayerTeam2")){
+            if(!battleManager.right_cardLook_lock)
+            player_floor_render.SetInt("_Active",0);
+        }
+    }
+
+    public void ShowCardDeck(bool effect){
         if(gameObject.tag == "PlayerTeam1"){
+            if(effect)
+            battleManager.players[battleManager.cardViewChar_left].player_floor_render.SetInt("_Active",0);
             battleManager.cardViewChar_left = battleManager.players.IndexOf(this);
             battleManager.ui.leftCard_card = cards;
             battleManager.ui.Leftcard_Update();
             battleManager.ui.showleftCard = true;
+            if(effect)
+            player_floor_render.SetInt("_Active",1);
+            //player_floor_render.sp
 
         }
         
         if(gameObject.tag == "PlayerTeam2"){
+            if(effect)
+            battleManager.players[battleManager.cardViewChar_right].player_floor_render.SetInt("_Active",0);
             battleManager.cardViewChar_right = battleManager.players.IndexOf(this);
             battleManager.ui.rightCard_card = cards;
             battleManager.ui.Rightcard_Update();
             battleManager.ui.showrightCard = true;
+            if(effect)
+            player_floor_render.SetInt("_Active",1);
         }
     }
 

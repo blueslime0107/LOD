@@ -8,6 +8,7 @@ public class Dice_Indi : MonoBehaviour
 
     public BattleManager battleManager;
     public BattleCaculate battleCaculate;
+    Material material;
     public Sprite[] dice_img;
     public bool isDiced = false;
     public int dice_value;
@@ -21,6 +22,7 @@ public class Dice_Indi : MonoBehaviour
     public LineRenderer lineRender;
     void Awake() {
         render = GetComponent<SpriteRenderer>();
+        material = GetComponent<SpriteRenderer>().material;
     }
 
     // void Update(){
@@ -101,7 +103,15 @@ public class Dice_Indi : MonoBehaviour
     
 
     void OnMouseEnter() {
+        
         onMouseEnter = true;
+        if(player.gameObject.tag.Equals("PlayerTeam1") && battleManager.left_cardLook_lock){
+            return;
+        }
+        if(player.gameObject.tag.Equals("PlayerTeam2") && battleManager.right_cardLook_lock){
+            return;
+        }
+        player.ShowCardDeck(false);
     }
 
     void OnMouseExit() {

@@ -55,10 +55,11 @@ public class Dice : MonoBehaviour
         transform.position = objPosition;
     }
 
+    Dice_Indi dice_im;
+
     void OnMouseUp() {
         try{
             if(chartouch){
-            Dice_Indi dice_im = charTarget.GetComponent<Dice_Indi>();
             if(!dice_im.isDiced){
                 gameObject.SetActive(false);
                 dice_im.putDice(dice_value);
@@ -75,9 +76,16 @@ public class Dice : MonoBehaviour
     }
 
     // 주사위가 주사위지정 칸에 닿았는가?
-    private void OnTriggerStay2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == gameObject.tag){
             charTarget = other.gameObject; // 트리거로 받은 오브젝트는 other.gameObject
+            try{
+                
+                dice_im = charTarget.GetComponent<Dice_Indi>();
+                dice_im.player.ShowCardDeck(false);
+                
+            }
+            catch{}
             chartouch = true;
         }
             
