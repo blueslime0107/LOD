@@ -104,18 +104,26 @@ public class Dice_Indi : MonoBehaviour
 
     void OnMouseEnter() {
         
+        
+        if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
+            player.ShowCardDeck(false);
+        }
+        if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
+            player.ShowCardDeck(false);
+        }
         onMouseEnter = true;
-        if(player.gameObject.tag.Equals("PlayerTeam1") && battleManager.left_cardLook_lock){
-            return;
-        }
-        if(player.gameObject.tag.Equals("PlayerTeam2") && battleManager.right_cardLook_lock){
-            return;
-        }
-        player.ShowCardDeck(false);
     }
 
     void OnMouseExit() {
         onMouseEnter = false;
+        if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
+            battleManager.ui.Leftcard_Update(true);
+        
+        }
+        if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
+            battleManager.ui.Rightcard_Update(true);
+        
+        }
             
     }
 

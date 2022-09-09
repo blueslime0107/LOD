@@ -22,14 +22,15 @@ public class Player : MonoBehaviour
     [HideInInspector]public bool card_geted = true;
     [HideInInspector]public bool died_card_geted = true;
     public int dice;
-    public Dice dice_obj;
+    public GameObject dice_obj;
+    Dice dice_com;
     public bool died;
     public GameObject player_floor;
     [HideInInspector] public List<CardPack> cards = new List<CardPack>();
     public Sprite[] poses;
     SpriteRenderer render;
     
-    Material player_floor_render;
+    public Material player_floor_render;
 
     bool card_actived;
 
@@ -46,8 +47,15 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public bool goto_origin;
 
-    void Start()
-    { 
+    void Awake()
+    {   
+        dice_obj = Instantiate(dice_obj);
+        dice_com = dice_obj.GetComponent<Dice>();
+        dice_obj.tag = gameObject.tag.Substring(6);
+        dice_com.battleManager = battleManager;
+        battleManager.players.Add(this);
+        battleManager.dice_indis.Add(gameObject.transform.GetComponentInChildren<Dice_Indi>());
+        battleManager.dices.Add(dice_com);
         player_floor = gameObject.transform.GetChild(4).gameObject;
         player_floor_render = player_floor.GetComponent<SpriteRenderer>().material;
         material = GetComponent<SpriteRenderer>().material;
@@ -61,7 +69,10 @@ public class Player : MonoBehaviour
         }
         card_geted = true;
         max_health = health;
-        UpdateHp();
+    }
+
+    void Start(){
+                UpdateHp();
     }
 
     // Update is called once per frame
@@ -184,7 +195,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        dice_obj.gameObject.SetActive(false);
+        dice_com.cannot_roll = true;
         died = true;
         SetDice(0);
     }
@@ -238,7 +249,6 @@ public class Player : MonoBehaviour
     }
 
     void OnMouseExit() {
-        Debug.Log("Debug"); 
         if(gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
             battleManager.ui.Leftcard_Update(true);
         
@@ -267,6 +277,7 @@ public class Player : MonoBehaviour
     
 
     public void ShowCardDeck(bool effect){
+
         if(gameObject.tag == "PlayerTeam1"){
             if(effect)
             battleManager.players[battleManager.cardViewChar_left].player_floor_render.SetInt("_Active",0);

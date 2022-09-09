@@ -51,6 +51,7 @@ public class UI : MonoBehaviour
     }
 
     void Update(){
+        # region 왼쪽카드보기
         if(showleftCard){
             float[] cardLerps = new float[leftCard_card.Count];
 
@@ -72,6 +73,8 @@ public class UI : MonoBehaviour
 
             showleftCard = false;
         }
+        # endregion
+        # region 오른쪽 카드보기
         if(showrightCard){
 
             float[] cardLerps = new float[rightCard_card.Count];
@@ -98,11 +101,8 @@ public class UI : MonoBehaviour
 
             showrightCard = false;
         }
-    
-    
-    
-    
-    
+        # endregion
+        
     }
 
     public void Leftcard_Update(bool fold = false){

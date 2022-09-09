@@ -5,32 +5,38 @@ using UnityEngine;
 public class Dice : MonoBehaviour
 {
     public int dice_value;
-
+    public Vector2 self_pos;
     public bool chartouch;
     GameObject charTarget;
-    [SerializeField] BattleManager battleManager;
+    [SerializeField] public BattleManager battleManager;
+    public bool cannot_roll = false;
 
     //public int dice_num;
-    public Transform move_point;
 
     public Sprite[] dice_img;
     SpriteRenderer render;
 
     void Awake(){
+        enabled = true;
+        gameObject.SetActive(true);
         render = GetComponent<SpriteRenderer>();
     }
 
-    public void rolldice(){ // 1 부터 6 랜덤 주사위 굴리기
-        StartCoroutine("rollingDice");
+    public void rolldice(Vector2 vector){ // 1 부터 6 랜덤 주사위 굴리기
+        if(cannot_roll)
+            return;
+        gameObject.SetActive(true);
+        StartCoroutine(rollingDice(vector));
     }
 
-    IEnumerator rollingDice(){
+    IEnumerator rollingDice(Vector2 vector){
+        self_pos = vector;
         transform.position = Vector3.up*4.5f;
         yield return new WaitForSeconds(0.2f);
         float time = 0;
         Vector2 velo = Vector2.zero;
         while(time<1){
-            transform.position = Vector2.SmoothDamp(transform.position,move_point.position,ref velo,5f*Time.deltaTime);
+            transform.position = Vector2.SmoothDamp(transform.position,vector,ref velo,5f*Time.deltaTime);
             dice_value = (int)Random.Range(1f,7f);
             render.sprite = dice_img[dice_value-1];
             transform.Rotate(Vector3.forward*30);
@@ -99,7 +105,7 @@ public class Dice : MonoBehaviour
     // 외부실행 주사위 다시 보이게함
     public void diceReroll(){
         gameObject.SetActive(true);
-        rolldice();
+        rolldice(self_pos);
     }
 
     

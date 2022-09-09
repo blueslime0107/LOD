@@ -9,9 +9,9 @@ public class BattleManager : MonoBehaviour
     public new CameraCtrl camera;
     public BackGround backGround;
     public UI ui;
-    public List<Dice> dices = new List<Dice>();
-    public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
-    public List<Player> players = new List<Player>();
+    [HideInInspector]public List<Dice> dices = new List<Dice>();
+    [HideInInspector]public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
+    [HideInInspector]public List<Player> players = new List<Player>();
     public List<CardAbility> cards = new List<CardAbility>();
     public List<CardAbility> game_cards = new List<CardAbility>();
 
@@ -33,8 +33,8 @@ public class BattleManager : MonoBehaviour
     public int card_give_count = 0;
     public List<CardDraw> show_cards = new List<CardDraw>();
 
-    [HideInInspector]public bool left_cardLook_lock = false;
-    [HideInInspector]public bool right_cardLook_lock= false;
+    public bool left_cardLook_lock = false;
+    public bool right_cardLook_lock= false;
 
     public CardPack card_selecting;
     public bool card_select_trigger;
@@ -50,9 +50,9 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public int cardViewChar_left;
     [HideInInspector]public int cardViewChar_right;
 
-    public bool first_turn;
-    public bool right_turn;
-    public bool left_turn;
+    [HideInInspector]public bool first_turn;
+    [HideInInspector]public bool right_turn;
+    [HideInInspector]public bool left_turn;
 
     float gague_time;
     public float left_gague_max;
@@ -65,12 +65,12 @@ public class BattleManager : MonoBehaviour
     public List<Player> left_players = new List<Player>();
     public List<Player> right_players = new List<Player>();
 
-    public bool left_d6 = false;
-    public bool right_d6 = false;
-    public int left_d6_Count;
-    public int right_d6_Count;
+    [HideInInspector]public bool left_d6 = false;
+    [HideInInspector]public bool right_d6 = false;
+    [HideInInspector]public int left_d6_Count;
+    [HideInInspector]public int right_d6_Count;
 
-    private void Awake() {
+    private void Start() {
         left_players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam1"));
         right_players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam2"));        
     }
@@ -82,17 +82,10 @@ public class BattleManager : MonoBehaviour
         StartCoroutine("TeamTimerGague");
     }
 
-    // void Update(){
-
-        
-    // }
-
-
     IEnumerator BattleMain() {   
         FirstTeam();
         while(true){ // 계속반복
-            # region 선두팀 바꾸기
-            
+            # region 선두팀 바꾸기            
             first_turn = !first_turn;
             if(first_turn){
                 TurnTeam("Left");
@@ -161,13 +154,19 @@ public class BattleManager : MonoBehaviour
 
                 if(Input.GetMouseButtonDown(0)){
                     foreach(Dice_Indi dice in dice_indis){
+                        
                         if(dice.onMouseDown){
-                            target1 = dice.player;
+                            if(dice.gameObject.tag.Equals("Team1") && left_turn){
+                                target1 = dice.player;
+                            }
+                            if(dice.gameObject.tag.Equals("Team2") && right_turn){
+                                target1 = dice.player;
+                            }
                         }
                     }
 
                 }
-                if(Input.GetMouseButtonUp(0)){
+                if(Input.GetMouseButtonUp(0) && target1 != null){
                     foreach(Dice_Indi dice in dice_indis){
                         if(!dice.onMouseDown && dice.onMouseEnter){
                             target2 = dice.player;
@@ -401,42 +400,55 @@ public class BattleManager : MonoBehaviour
     }
 
     void PlayerGoToOrigin(){
-        players[0].goto_origin = true;
-        players[1].goto_origin = true;
-        players[2].goto_origin = true;
-        players[3].goto_origin = true;
-        players[4].goto_origin = true;
-        players[5].goto_origin = true;
+        foreach(Player player in players){
+            player.goto_origin = true;
+        }
 
     }
 
     void DiceRoll(){
-        for(int i = 0; i< dices.Count; i++){
-            if(!players[i].died){
-                dices[i].rolldice();
-            }  
+        List<Dice> dice_lerp = new List<Dice>();
+        float Sort_scale = 5f;
+        dice_lerp = dices.FindAll(x => x.tag.Equals("Team1"));
+        foreach(Dice dice in dice_lerp){
+            float[] diceLerps = new float[dice_lerp.Count];
+            switch(dice_lerp.Count){ // 카드수에 맞게 위치 조정
+                case 1: diceLerps = new float[] {-2f}; break;
+                case 2: diceLerps = new float[] {-2f,0f}; break;
+                case 3: diceLerps = new float[] {-2f,0f,2f}; break;
+                default:float interval = Sort_scale / (dice_lerp.Count-1);
+                    for(int i = 0; i < dice_lerp.Count;i++){
+                        diceLerps[i] = interval * i-Sort_scale/2;
+                    } break;
+            }
+            for(int i = 0; i < dice_lerp.Count; i++){ 
+                dice_lerp[i].rolldice(Vector2.right*diceLerps[i]+Vector2.up*3+Vector2.left*4);
+            }
         }
+        dice_lerp = dices.FindAll(x => x.tag.Equals("Team2"));
+        foreach(Dice dice in dice_lerp){
+            float[] diceLerps = new float[dice_lerp.Count];
+            switch(dice_lerp.Count){ // 카드수에 맞게 위치 조정
+                case 1: diceLerps = new float[] {-2f}; break;
+                case 2: diceLerps = new float[] {-2f,0f}; break;
+                case 3: diceLerps = new float[] {-2f,0f,2f}; break;
+                default:float interval = Sort_scale / (dice_lerp.Count-1);
+                    for(int i = 0; i < dice_lerp.Count;i++){
+                        diceLerps[i] = interval * i-Sort_scale/2;
+                    } break;
+            }
+            for(int i = 0; i < dice_lerp.Count; i++){ 
+                dice_lerp[i].rolldice(Vector2.right*diceLerps[i]+Vector2.up*3+Vector2.right*4); 
+            }
+        }
+
+        
                       
     }
 
-    void MakeADummy(bool ver){
-        if(ver == true){
-            for(int i = 0; i< players.Count; i++)
-                if(players[i].died){
-                    players[i].SetDice(1);
-                }     
-        }      
-        if(ver == false){
-            for(int i = 0; i< players.Count; i++)
-                if(players[i].died){
-                    players[i].SetDice(0);
-                }     
-        }       
-    }
-
     void BattlePreReset(){
-        for(int i = 0; i< dices.Count; i++)
-            dices[i].diceReroll();
+        // for(int i = 0; i< dices.Count; i++)
+        //     dices[i].diceReroll();
         for(int i = 0; i< dices.Count; i++)
             dice_indis[i].isDiced = false;
         battle_start = false;

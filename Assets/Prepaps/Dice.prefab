@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3416837838974082285}
   m_Layer: 0
   m_Name: Dice
-  m_TagString: Team1
+  m_TagString: PlayerTeam2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dice_value: 0
+  self_pos: {x: 0, y: 0}
   chartouch: 0
   battleManager: {fileID: 0}
-  move_point: {fileID: 0}
   dice_img:
   - {fileID: -2205863333093305225, guid: 35db47cc42128df44877de2f9ceb3241, type: 3}
   - {fileID: -5420220854288092238, guid: 35db47cc42128df44877de2f9ceb3241, type: 3}

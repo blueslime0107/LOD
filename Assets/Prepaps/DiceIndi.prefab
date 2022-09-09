@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6823225385023782452}
   - component: {fileID: 6823225385023782440}
   m_Layer: 0
-  m_Name: 0_indi
+  m_Name: DiceIndi
   m_TagString: Team1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6823225385023782455}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -1}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -158,6 +158,8 @@ MonoBehaviour:
   - {fileID: 5807347303825497272, guid: 879231cff89508e46945b2ed8f625359, type: 3}
   isDiced: 0
   dice_value: 0
+  onMouseDown: 0
+  onMouseEnter: 0
   render: {fileID: 0}
   player: {fileID: 0}
   lineRender: {fileID: 0}

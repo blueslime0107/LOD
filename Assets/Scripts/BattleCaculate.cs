@@ -6,7 +6,7 @@ public class BattleCaculate : MonoBehaviour
 {
     public GameManager gameManager;
     public BattleManager battleManager;
-    public Player[] players;
+    public List<Player> players = new List<Player>();
     public BattleDice battleDice;
 
     public List<CardPack> my_ability = new List<CardPack>();
@@ -29,6 +29,10 @@ public class BattleCaculate : MonoBehaviour
 
     bool coroutine_lock1 = false;
 
+    void Start(){
+        players = battleManager.players;
+    }
+
     public void BattleMatch(Player selfnum, Player enenum){
         
         foreach(Player player in players){
@@ -49,6 +53,9 @@ public class BattleCaculate : MonoBehaviour
         // players[eneNum].OnMouseDown(); 
         selfnum.ShowCardDeck(false); 
         enenum.ShowCardDeck(false); 
+        
+        battleManager.left_cardLook_lock = true;
+        battleManager.right_cardLook_lock = true;
 
         damage = 0;
         myChar = selfnum;
@@ -60,6 +67,7 @@ public class BattleCaculate : MonoBehaviour
 
         myChar.transform.position += Vector3.back;
         eneChar.transform.position += Vector3.back;
+
         StartCoroutine(BattleMatchcor());
         
 
@@ -67,8 +75,8 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BattleMatchcor(){
         myChar.ChangeCondition(2);      
-        myChar.SetPointMove(eneChar.movePoint.position, 17f);
-        gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,17f);
+        myChar.SetPointMove(eneChar.movePoint.position, 22f);
+        gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
         
         while(myChar.isMoving){
             yield return null;
@@ -196,7 +204,7 @@ public class BattleCaculate : MonoBehaviour
     IEnumerator MatchFin(){    
         for(int i =0;i<battleManager.players.Count;i++){
             if(battleManager.players[i].health <= 5 && battleManager.players[i].card_geted){
-                if(i<3){
+                if(battleManager.players[i].gameObject.tag.Equals("PlayerTeam1")){
                     battleManager.card_left_draw += 1;
                     battleManager.players[i].card_geted = false;
                 }
@@ -208,7 +216,7 @@ public class BattleCaculate : MonoBehaviour
         }
         for(int i =0;i<battleManager.players.Count;i++){ 
             if(battleManager.players[i].health <= 0 && battleManager.players[i].died_card_geted){
-                if(i<3){
+                if(battleManager.players[i].gameObject.tag.Equals("PlayerTeam1")){
                     battleManager.card_left_draw += 1;
                     battleManager.players[i].died_card_geted = false;
                     battleManager.players[i].YouAreDead();
@@ -254,18 +262,6 @@ public class BattleCaculate : MonoBehaviour
 
         battleDice.gameObject.SetActive(false);
 
-        if(battleManager.left_turn){
-            battleManager.TurnTeam("Right");
-            if(battleManager.players[3].dice + battleManager.players[4].dice + battleManager.players[5].dice == 0){
-                battleManager.TurnTeam("Left");
-            }
-        }
-        else if(battleManager.right_turn){
-            battleManager.TurnTeam("Left");
-            if(battleManager.players[0].dice + battleManager.players[1].dice + battleManager.players[2].dice == 0){
-                battleManager.TurnTeam("Right");
-            }
-        }
         
         for(int i = 0; i<battleManager.on_battle_card_effect.Count;i++){
             battleManager.on_battle_card_effect[i].gameObject.SetActive(false);
@@ -281,6 +277,28 @@ public class BattleCaculate : MonoBehaviour
 
         damage = 0;
         battleDice.DamageUpdate();
+
+
+        if(battleManager.left_turn){
+            battleManager.TurnTeam("Right");
+            Debug.Log(battleManager.right_players.FindAll(x => x.dice <= 0).Count);
+            Debug.Log(battleManager.right_players.Count);
+            if(battleManager.right_players.FindAll(x => x.dice <= 0).Count >= battleManager.right_players.Count){
+                battleManager.TurnTeam("Left");
+            }
+        }
+        else if(battleManager.right_turn){
+            battleManager.TurnTeam("Left");
+            Debug.Log(battleManager.left_players.FindAll(x => x.dice <= 0).Count);
+            Debug.Log(battleManager.left_players.Count);
+            if(battleManager.left_players.FindAll(x => x.dice <= 0).Count >= battleManager.left_players.Count){
+                battleManager.TurnTeam("Right");
+            }
+        }
+        battleManager.left_cardLook_lock = false;
+        battleManager.right_cardLook_lock = false;
+        battleManager.ui.Leftcard_Update(true);
+        battleManager.ui.Rightcard_Update(true);
 
         yield return null;
     }
