@@ -105,10 +105,12 @@ public class UI : MonoBehaviour
     
     }
 
-    public void Leftcard_Update(){
+    public void Leftcard_Update(bool fold = false){
         for(int i =0; i<leftCardIndi.Count;i++){
             leftCardIndi[i].SetActive(false); 
         }
+        if(fold)
+            return;
         for(int i =0; i<leftCard_card.Count;i++){
             leftCardIndi[i].SetActive(true); 
             leftCardIndi_compo[i].card = leftCard_card[i];   
@@ -117,16 +119,19 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void Rightcard_Update(){
+    public void Rightcard_Update(bool fold = false){
         for(int i =0; i<rightCardIndi.Count;i++){
             rightCardIndi[i].SetActive(false); 
         }
+        if(fold)
+            return;
         for(int i =0; i<rightCard_card.Count;i++){
             rightCardIndi[i].SetActive(true);                 
             rightCardIndi_compo[i].card = rightCard_card[i];
             rightCardIndi_compo[i].CardUpdate();
         }
     }
+
 
     public void CardMesage_Update(string ability,string story){
         cardAbility.text = ability;

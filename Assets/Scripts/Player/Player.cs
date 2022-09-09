@@ -16,28 +16,30 @@ public class Player : MonoBehaviour
     public Transform movePoint;
     public Transform attPoint;
     public int player_id = 0;
-    public int condition = 0;
+    [HideInInspector]public int condition = 0;
     public int max_health;
     public int health;
-    public bool card_geted = true;
-    public bool died_card_geted = true;
+    [HideInInspector]public bool card_geted = true;
+    [HideInInspector]public bool died_card_geted = true;
     public int dice;
+    public Dice dice_obj;
     public bool died;
-    public List<CardPack> cards = new List<CardPack>();
+    public GameObject player_floor;
+    [HideInInspector] public List<CardPack> cards = new List<CardPack>();
     public Sprite[] poses;
     SpriteRenderer render;
-    public GameObject player_floor;
+    
     Material player_floor_render;
 
     bool card_actived;
 
     List<card_text> player_deck;
 
-    public bool isMoving;
+    [HideInInspector] public bool isMoving;
     Vector3 moveTarget;
     float moveSpeed;
 
-    public List<GameObject> card_effect = new List<GameObject>();
+    [HideInInspector] public List<GameObject> card_effect = new List<GameObject>();
     public List<GameObject> attack_effect = new List<GameObject>();
 
     Vector3 origin_pos;
@@ -112,11 +114,9 @@ public class Player : MonoBehaviour
         dice_Indi.setDice(dice + value);
     }
 
-    public int getDamage;
-
 
     public void Damage(int value, Player attacker){
-        getDamage = value;
+        //getDamage = value;
         // battleManager.battleCaculate.damage = getDamage;
         // for(int i = 0; i<attacker.cards.Count; i++){
         //         attacker.cards[i].ability.OnDamaging(attacker.cards[i],this,  battleManager,getDamage);
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
         //     ChangeCondition(3);
         //     attacker.ChangeCondition(3);
         // }
-        health -= getDamage;
+        //health -= getDamage;
         UpdateHp();
 
     }
@@ -184,6 +184,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        dice_obj.gameObject.SetActive(false);
         died = true;
         SetDice(0);
     }
@@ -192,24 +193,78 @@ public class Player : MonoBehaviour
         render.sprite = poses[num];
     }
 
+    void OnMouseEnter() {
+
+            if(gameObject.tag.Equals("PlayerTeam1") && battleManager.left_cardLook_lock){
+                return;
+            }
+            if(gameObject.tag.Equals("PlayerTeam2") && battleManager.right_cardLook_lock){
+                return;
+            }
+            ShowCardDeck(false);
+        }
+
     public void OnMouseDown() {
-        if(gameObject.tag.Equals("PlayerTeam1")){
+        int save_cardview = 0;
+
+        if(gameObject.tag.Equals("PlayerTeam1")){    
+            save_cardview = battleManager.cardViewChar_left;        
             
-            battleManager.left_cardLook_lock = !battleManager.left_cardLook_lock;
+            ShowCardDeck(true);
+            if(save_cardview.Equals(battleManager.cardViewChar_left) && battleManager.left_cardLook_lock){
+               
+                battleManager.cardViewChar_left = 0;
+                player_floor_render.SetInt("_Active",0);        
+            }
+            battleManager.left_cardLook_lock = true;
+            if(battleManager.cardViewChar_left.Equals(0)){
+                battleManager.left_cardLook_lock = false;   
+            }
         }
-        if(gameObject.tag.Equals("PlayerTeam2")){
-            battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;
-        }
-        ShowCardDeck(true);
-        if(gameObject.tag.Equals("PlayerTeam1")){
-            if(!battleManager.left_cardLook_lock)
-            player_floor_render.SetInt("_Active",0);
-        }
-        if(gameObject.tag.Equals("PlayerTeam2")){
-            if(!battleManager.right_cardLook_lock)
-            player_floor_render.SetInt("_Active",0);
+        if(gameObject.tag.Equals("PlayerTeam2")){    
+            save_cardview = battleManager.cardViewChar_right;        
+            
+            ShowCardDeck(true);
+            if(save_cardview.Equals(battleManager.cardViewChar_right) && battleManager.right_cardLook_lock){
+      
+                battleManager.cardViewChar_right = 0;
+                player_floor_render.SetInt("_Active",0);        
+            }
+            battleManager.right_cardLook_lock = true;
+            if(battleManager.cardViewChar_right.Equals(0)){
+                battleManager.right_cardLook_lock = false;   
+            }
         }
     }
+
+    void OnMouseExit() {
+        Debug.Log("Debug"); 
+        if(gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
+            battleManager.ui.Leftcard_Update(true);
+        
+        }
+        if(gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
+            battleManager.ui.Rightcard_Update(true);
+        
+        }
+
+    }
+
+
+
+        // if(gameObject.tag.Equals("PlayerTeam2")){
+        //     battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;d
+        // }
+        // ShowCardDeck(true);
+        // if(gameObject.tag.Equals("PlayerTeam1")){
+        //     if(!battleManager.left_cardLook_lock)
+        //     player_floor_render.SetInt("_Active",0);
+        // }
+        // if(gameObject.tag.Equals("PlayerTeam2")){
+        //     if(!battleManager.right_cardLook_lock)
+        //     player_floor_render.SetInt("_Active",0);
+        // }
+    
 
     public void ShowCardDeck(bool effect){
         if(gameObject.tag == "PlayerTeam1"){

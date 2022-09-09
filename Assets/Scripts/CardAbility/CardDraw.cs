@@ -26,7 +26,7 @@ public class CardDraw : MonoBehaviour
     bool mouseOn = false;
     bool mouseDrag = false;
     [SerializeField]
-    int target;
+    Player target;
     int card_id;
 
     // Start is called before the first frame update
@@ -124,15 +124,15 @@ public class CardDraw : MonoBehaviour
     }
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
-        if(target>0 && mouseOn){
-            if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target-1<3){
-                battleManager.GiveCard(having_card,battleManager.players[target-1]);
+        if(target != null && mouseOn){
+            if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target.gameObject.tag.Equals("PlayerTeam1")){
+                battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
                 Destroy(gameObject);
             }
-            if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target-1>2){
-                battleManager.GiveCard(having_card,battleManager.players[target-1]);
+            if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target.gameObject.tag.Equals("PlayerTeam2")){
+                battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
                 Destroy(gameObject);
@@ -148,24 +148,11 @@ public class CardDraw : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) {
         if(mouseDrag){
-            if(collision.gameObject.name == "LPlayer1"){
-                target = 1;
-            }                
-            else if(collision.gameObject.name == "LPlayer2"){
-                target = 2;
-            }                
-            else if(collision.gameObject.name == "LPlayer3"){
-                target = 3;
-            }                
-            else if(collision.gameObject.name == "RPlayer4"){
-                target = 4;
-            }                
-            else if(collision.gameObject.name == "RPlayer5"){
-                target = 5;
-            }                
-            else if(collision.gameObject.name == "RPlayer6"){
-                target = 6;
+            if(collision.gameObject.tag.Contains("PlayerTeam")){
+                target = collision.gameObject.GetComponent<Player>();
+                target.ShowCardDeck(false);
             }
+           
         }
         
 
@@ -198,24 +185,16 @@ public class CardDraw : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision) {
         if(mouseDrag){
-            if(collision.gameObject.name == "LPlayer1"){
-                target = 0;
-            }                
-            else if(collision.gameObject.name == "LPlayer2"){
-                target = 0;
-            }                
-            else if(collision.gameObject.name == "LPlayer3"){
-                target = 0;
-            }                
-            else if(collision.gameObject.name == "RPlayer4"){
-                target = 0;
-            }                
-            else if(collision.gameObject.name == "RPlayer5"){
-                target = 0;
-            }                
-            else if(collision.gameObject.name == "RPlayer6"){
-                target = 0;
+            if(collision.gameObject.tag.Contains("PlayerTeam")){
+                if(collision.gameObject.tag.Equals("PlayerTeam1")){
+                    battleManager.ui.Leftcard_Update(true);
+                }
+                else{
+                    battleManager.ui.Rightcard_Update(true);
+                }
+                target = null;
             }
+
         }
         
 
