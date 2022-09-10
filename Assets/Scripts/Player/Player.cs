@@ -194,7 +194,10 @@ public class Player : MonoBehaviour
                     player.cards[i].ability.OnDeathEneTeam(player.cards[i]);
                 }
             }
+        
+        
         }
+
         dice_com.cannot_roll = true;
         died = true;
         SetDice(0);

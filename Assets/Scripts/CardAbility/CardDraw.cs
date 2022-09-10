@@ -125,13 +125,13 @@ public class CardDraw : MonoBehaviour
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         if(target != null && mouseOn){
-            if(battleManager.card_getting_team && battleManager.card_left_draw > 0 && target.gameObject.tag.Equals("PlayerTeam1")){
+            if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && target.gameObject.tag.Equals("PlayerTeam1")){
                 battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
                 Destroy(gameObject);
             }
-            if(!battleManager.card_getting_team && battleManager.card_right_draw > 0 && target.gameObject.tag.Equals("PlayerTeam2")){
+            if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && target.gameObject.tag.Equals("PlayerTeam2")){
                 battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
@@ -157,31 +157,6 @@ public class CardDraw : MonoBehaviour
         
 
     }
-
-    // void OnTriggerStay2D(Collider2D collision) {
-    //     if(mouseDrag){
-    //         if(collision.gameObject.name == "LPlayer1"){
-    //             target = 1;
-    //         }                
-    //         else if(collision.gameObject.name == "LPlayer2"){
-    //             target = 2;
-    //         }                
-    //         else if(collision.gameObject.name == "LPlayer3"){
-    //             target = 3;
-    //         }                
-    //         else if(collision.gameObject.name == "RPlayer4"){
-    //             target = 4;
-    //         }                
-    //         else if(collision.gameObject.name == "RPlayer5"){
-    //             target = 5;
-    //         }                
-    //         else if(collision.gameObject.name == "RPlayer6"){
-    //             target = 6;
-    //         }
-    //     }
-        
-
-    //}
 
     void OnTriggerExit2D(Collider2D collision) {
         if(mouseDrag){

@@ -81,6 +81,7 @@ public class BattleCaculate : MonoBehaviour
         while(myChar.isMoving){
             yield return null;
         }
+
         BasicDice();
         yield return new WaitForSeconds(0.5f);
         StartCoroutine("BasicAttack");
@@ -110,6 +111,7 @@ public class BattleCaculate : MonoBehaviour
 
     void BasicDice(){
         battleDice.gameObject.SetActive(true);
+        battleDice.SetPlayerPosition(myChar,eneChar);
         if(myChar.dice == 1 && eneChar.dice >= 6){
             myChar.AddDice(6);
         }
