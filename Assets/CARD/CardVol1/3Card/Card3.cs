@@ -10,13 +10,13 @@ public class Card3 : CardAbility
     {
         int count = 0;
         for(int i = 0;i<match.players.Count;i++){
-            for(int j= 0;j<match.players.Count;j++){
-            if(match.players[j].dice == player.dice+count && j != player.player_id-1){
-                count += 1;
-                
+            foreach(Player players in match.players){
+                if(players.dice.Equals(player.dice+count) && players != player){
+                    count += 1;
+                }
+
             }
-                
-        }
+
                 
         }
         player.SetDice(player.dice+count);

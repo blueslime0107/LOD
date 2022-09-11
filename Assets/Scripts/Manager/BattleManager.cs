@@ -43,6 +43,7 @@ public class BattleManager : MonoBehaviour
     public CardPack card_selected;
 
     public CardAbility null_card;
+    public CardAbility speed_card;
 
     public Player target1;
     public Player target2;
@@ -230,7 +231,8 @@ public class BattleManager : MonoBehaviour
                 }
             }
             DiceRoll(); // 주사위를 
-            yield return new WaitForSeconds(0.5f);
+            Right_battleAI.did = false;
+            yield return new WaitForSeconds(1f);
             # endregion
             # region 주사위 지정
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
@@ -286,6 +288,16 @@ public class BattleManager : MonoBehaviour
                     continue;
                 }
 
+                if(!battle_end){
+                    if(left_players.FindAll(x => x.dice<=0 || x.died).Count >= left_players.Count &&
+                    right_players.FindAll(x => x.dice<=0 || x.died).Count >= right_players.Count){
+                        battle_end =  true;
+                        break;
+                    }
+                    else{
+                        
+                    }
+                }
                 //Left_battleAI.isBattleing();
                 Right_battleAI.isBattleing();
 
@@ -316,16 +328,7 @@ public class BattleManager : MonoBehaviour
 
                 }
 
-                if(!battle_end){
-                    if(left_players.FindAll(x => x.dice<=0 || x.died).Count >= left_players.Count &&
-                    right_players.FindAll(x => x.dice<=0 || x.died).Count >= right_players.Count){
-                        battle_end =  true;
-                        break;
-                    }
-                    else{
-                        
-                    }
-                }
+                
 
                 
             }
@@ -521,6 +524,7 @@ public class BattleManager : MonoBehaviour
         GameObject game_card = new GameObject();
         CardPack card = game_card.AddComponent<CardPack>() as CardPack;
         card.ability = having_card;
+        card.max_gague = having_card.gague;
         card.battleManager = this;
         card.PreSetting(player);
         player.cards.Add(card);

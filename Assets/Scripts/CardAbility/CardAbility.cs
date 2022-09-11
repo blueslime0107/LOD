@@ -13,6 +13,8 @@ public class CardAbility : ScriptableObject
     [TextArea]
     public string story_message;
 
+    public int gague;
+
     public Sprite illust;
     public GameObject[] effect;
     public CardAbility[] linked_card;

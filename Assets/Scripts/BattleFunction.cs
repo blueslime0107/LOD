@@ -33,4 +33,6 @@ public class BattleFunction : MonoBehaviour
         Debug.Log("Error");
         return " ";
     }
+
+    
 }

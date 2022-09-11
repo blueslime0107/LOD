@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     
     public Transform movePoint;
     public Transform attPoint;
-    public int player_id = 0;
     [HideInInspector]public int condition = 0;
     public int max_health;
     public int health;
@@ -71,8 +70,12 @@ public class Player : MonoBehaviour
         max_health = health;
     }
 
+    public int speed;
+
     void Start(){
-                UpdateHp();
+        if(speed > 0)
+        battleManager.GiveCard(battleManager.speed_card,this);
+        UpdateHp();
     }
 
     // Update is called once per frame

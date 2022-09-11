@@ -30,6 +30,10 @@ public class CardPack : MonoBehaviour
 
     public Sprite illust;
 
+    public int gague;
+    public int max_gague;
+    
+
     public void PreSetting(Player play){
         player = play;
         card_id = ability.card_id;

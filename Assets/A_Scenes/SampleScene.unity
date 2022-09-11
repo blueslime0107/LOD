@@ -200,7 +200,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 147289052}
   movePoint: {fileID: 672600373}
   attPoint: {fileID: 2104873296}
-  player_id: 1
   condition: 0
   max_health: 0
   health: 10
@@ -223,6 +222,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!212 &46786875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8949,9 +8949,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2577b58d2375b3498d35a2b89d25a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  did: 0
   bm: {fileID: 1916609188}
   bf: {fileID: 449571249}
   my_team: 
+  diceSelect_type: []
+  battle_type: []
+  diceSelect: Safe
+  battleType: Match
   my_players: []
   ene_players: []
   my_dice: []
@@ -10837,7 +10842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &715146559
 Transform:
   m_ObjectHideFlags: 0
@@ -10846,7 +10851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715146558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.36, y: -0.48, z: 0}
+  m_LocalPosition: {x: 4.54, y: -0.39, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 1131285060}
@@ -10874,7 +10879,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 1066316892}
   movePoint: {fileID: 953235499}
   attPoint: {fileID: 256564546}
-  player_id: 6
   condition: 0
   max_health: 0
   health: 10
@@ -10897,6 +10901,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!212 &715146561
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11208,9 +11213,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2577b58d2375b3498d35a2b89d25a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  did: 0
   bm: {fileID: 1916609188}
   bf: {fileID: 449571249}
   my_team: 
+  diceSelect_type: []
+  battle_type: []
+  diceSelect: 
+  battleType: 
   my_players: []
   ene_players: []
   my_dice: []
@@ -11476,7 +11486,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 280277890}
   movePoint: {fileID: 1299251818}
   attPoint: {fileID: 2113433249}
-  player_id: 3
   condition: 0
   max_health: 0
   health: 10
@@ -11499,6 +11508,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!212 &845077961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12334,7 +12344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908135923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.89, y: 0.3, z: 0}
+  m_LocalPosition: {x: 4.56, y: 0.3, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 1128327864}
@@ -12362,10 +12372,9 @@ MonoBehaviour:
   hp_Indi: {fileID: 1035617888}
   movePoint: {fileID: 515098907}
   attPoint: {fileID: 886272856}
-  player_id: 5
   condition: 0
   max_health: 0
-  health: 10
+  health: 30
   card_geted: 0
   died_card_geted: 1
   dice: 0
@@ -12374,17 +12383,18 @@ MonoBehaviour:
   player_floor: {fileID: 0}
   cards: []
   poses:
-  - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
-  - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
-  - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
-  - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
-  - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
+  - {fileID: 21300000, guid: c8be71f06da47bd49b588714f07df90e, type: 3}
+  - {fileID: 21300000, guid: 25ac78f6ca9ca344c91c0f356f4d61d4, type: 3}
+  - {fileID: 21300000, guid: 841812bfd68fcd644a3b397a5397b70c, type: 3}
+  - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
   player_floor_render: {fileID: 0}
   isMoving: 0
   card_effect: []
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 1
 --- !u!212 &908135926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12425,7 +12435,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13320,7 +13330,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 697157428}
   movePoint: {fileID: 2012106551}
   attPoint: {fileID: 1724814658}
-  player_id: 2
   condition: 0
   max_health: 0
   health: 10
@@ -13343,6 +13352,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!212 &987136919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17841,7 +17851,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 147745538}
   movePoint: {fileID: 649153249}
   attPoint: {fileID: 200216903}
-  player_id: 7
   condition: 0
   max_health: 0
   health: 10
@@ -17864,6 +17873,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!50 &1643892736
 Rigidbody2D:
   serializedVersion: 4
@@ -19063,7 +19073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779726900
 Transform:
   m_ObjectHideFlags: 0
@@ -19072,7 +19082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779726899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 1, z: 0}
+  m_LocalPosition: {x: 6.29, y: 0.99, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 1448811995}
@@ -19100,7 +19110,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 800289376}
   movePoint: {fileID: 2007598460}
   attPoint: {fileID: 1774478643}
-  player_id: 4
   condition: 0
   max_health: 0
   health: 10
@@ -19123,6 +19132,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!212 &1779726902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20590,6 +20600,7 @@ MonoBehaviour:
   card_select_trigger: 0
   card_selected: {fileID: 0}
   null_card: {fileID: 11400000, guid: 641a8011e9522494ebde962d5f774ca8, type: 2}
+  speed_card: {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   target1: {fileID: 0}
   target2: {fileID: 0}
   battleing: 0
@@ -26564,7 +26575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2089797371
 Transform:
   m_ObjectHideFlags: 0
@@ -26601,7 +26612,6 @@ MonoBehaviour:
   hp_Indi: {fileID: 1180522190}
   movePoint: {fileID: 1829146200}
   attPoint: {fileID: 637388680}
-  player_id: 5
   condition: 0
   max_health: 0
   health: 10
@@ -26624,6 +26634,7 @@ MonoBehaviour:
   attack_effect:
   - {fileID: 100938693}
   goto_origin: 0
+  speed: 0
 --- !u!50 &2089797373
 Rigidbody2D:
   serializedVersion: 4
