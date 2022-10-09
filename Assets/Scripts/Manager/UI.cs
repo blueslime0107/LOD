@@ -13,6 +13,13 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI cardAbility;
     public TextMeshProUGUI cardStroy;
 
+    public GameObject panorama_up;
+    public GameObject panorama_down;
+    public RectTransform rect_panorama_up;
+    public RectTransform rect_panorama_down;
+    [SerializeField] float panora_spd;
+    
+
     [HideInInspector]public bool showleftCard;
 
     public List<GameObject> leftCardIndi = new List<GameObject>();
@@ -34,7 +41,8 @@ public class UI : MonoBehaviour
     public float cartSort_scale;
 
     void Awake(){
-        
+        rect_panorama_up = panorama_up.GetComponent<RectTransform>();
+        rect_panorama_down = panorama_down.GetComponent<RectTransform>();
         for(int i = 0; i < leftCardIndi.Count; i++){
             leftCard_pos.Add(leftCardIndi[i].GetComponent<RectTransform>());        
             }
@@ -136,6 +144,38 @@ public class UI : MonoBehaviour
     public void CardMesage_Update(string ability,string story){
         cardAbility.text = ability;
         cardStroy.text = story;
+    }
+
+    IEnumerator PanoraOn(){
+        Debug.Log("debug");
+        
+        StopCoroutine("PanoraOff");
+        // rect_panorama_up.anchoredPosition = Vector2.zero;
+        // rect_panorama_down.anchoredPosition = Vector2.zero;
+        while (true){
+        rect_panorama_up.anchoredPosition = Vector2.MoveTowards(rect_panorama_up.anchoredPosition,Vector2.zero,panora_spd*Time.deltaTime);
+        rect_panorama_down.anchoredPosition = Vector2.MoveTowards(rect_panorama_down.anchoredPosition,Vector2.zero,panora_spd*Time.deltaTime);
+        if(rect_panorama_up.anchoredPosition == Vector2.zero && rect_panorama_down.anchoredPosition == Vector2.zero){
+            break;
+        }
+        yield return null;
+        }
+        yield return null;
+    }
+
+    IEnumerator PanoraOff(){
+        StopCoroutine("PanoraOn");
+        // panorama_up.transform.position = panora_vec_up;
+        // panorama_down.transform.position = panora_vec_down;
+        while(true){
+        rect_panorama_up.anchoredPosition = Vector2.MoveTowards(rect_panorama_up.anchoredPosition,Vector2.up*120,panora_spd*Time.deltaTime);
+        rect_panorama_down.anchoredPosition = Vector2.MoveTowards(rect_panorama_down.anchoredPosition,Vector2.down*120,panora_spd*Time.deltaTime);
+        if(rect_panorama_up.anchoredPosition == Vector2.up*120 && rect_panorama_down.anchoredPosition == Vector2.down*120){
+            break;
+        }
+        yield return null;
+        }
+        yield return null;
     }
 
     // Start is called before the first frame update

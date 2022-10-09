@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     BattleManager battleManager;
     public Dice_Indi dice_Indi;
     [SerializeField]
-    Hp_Indi hp_Indi;
+    public Hp_Indi hp_Indi;
     Material material;
     float fade = 0.7f;
     
@@ -130,37 +130,6 @@ public class Player : MonoBehaviour
 
 
     public void Damage(int value, Player attacker){
-        //getDamage = value;
-        // battleManager.battleCaculate.damage = getDamage;
-        // for(int i = 0; i<attacker.cards.Count; i++){
-        //         attacker.cards[i].ability.OnDamaging(attacker.cards[i],this,  battleManager,getDamage);
-        //     }
-        // for(int i = 0; i<cards.Count; i++){
-        //         cards[i].ability.OnDamage(cards[i],attacker,battleManager,getDamage);
-        //     }
-        // battleManager.battleCaculate.damage = getDamage;
-         
-        // if(getDamage>0){
-        //     ChangeCondition(4);
-        //     attacker.ChangeCondition(3);
-        //     // foreach(CardAbility card in attacker.cards){
-        //     //     if(card.card_triggerd){                   ///////// 카드 공격 효과
-        //     //         card.AttackEffect(transform);
-        //     //     }
-        //     // }
-        //     if(attacker.transform.position.x - transform.position.x <0){
-        //         transform.Translate(Vector3.right*getDamage/2);
-        //     }
-        //     if(attacker.transform.position.x - transform.position.x > 0){
-        //         transform.Translate(Vector3.left*getDamage/2);
-        //     }
-            
-        // }
-        // else if(getDamage.Equals(0)){
-        //     ChangeCondition(3);
-        //     attacker.ChangeCondition(3);
-        // }
-        //health -= getDamage;
         UpdateHp();
 
     }
@@ -210,66 +179,13 @@ public class Player : MonoBehaviour
         render.sprite = poses[num];
     }
 
-    void OnMouseEnter() {
 
-            if(gameObject.tag.Equals("PlayerTeam1") && battleManager.left_cardLook_lock){
-                return;
-            }
-            if(gameObject.tag.Equals("PlayerTeam2") && battleManager.right_cardLook_lock){
-                return;
-            }
-            ShowCardDeck(false);
-        }
 
-    public void OnMouseDown() {
-        int save_cardview = 0;
-
-        if(gameObject.tag.Equals("PlayerTeam1")){    
-            save_cardview = battleManager.cardViewChar_left;        
-            
-            ShowCardDeck(true);
-            if(save_cardview.Equals(battleManager.cardViewChar_left) && battleManager.left_cardLook_lock){
-               
-                battleManager.cardViewChar_left = 0;
-                player_floor_render.SetInt("_Active",0);        
-            }
-            battleManager.left_cardLook_lock = true;
-            if(battleManager.cardViewChar_left.Equals(0)){
-                battleManager.left_cardLook_lock = false;   
-            }
-        }
-        if(gameObject.tag.Equals("PlayerTeam2")){    
-            save_cardview = battleManager.cardViewChar_right;        
-            
-            ShowCardDeck(true);
-            if(save_cardview.Equals(battleManager.cardViewChar_right) && battleManager.right_cardLook_lock){
-      
-                battleManager.cardViewChar_right = 0;
-                player_floor_render.SetInt("_Active",0);        
-            }
-            battleManager.right_cardLook_lock = true;
-            if(battleManager.cardViewChar_right.Equals(0)){
-                battleManager.right_cardLook_lock = false;   
-            }
-        }
-    }
-
-    void OnMouseExit() {
-        if(gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
-            battleManager.ui.Leftcard_Update(true);
-        
-        }
-        if(gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
-            battleManager.ui.Rightcard_Update(true);
-        
-        }
-
-    }
 
 
 
         // if(gameObject.tag.Equals("PlayerTeam2")){
-        //     battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;d
+        //     battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;
         // }
         // ShowCardDeck(true);
         // if(gameObject.tag.Equals("PlayerTeam1")){
@@ -282,30 +198,32 @@ public class Player : MonoBehaviour
         // }
     
 
-    public void ShowCardDeck(bool effect){
+    public void ShowCardDeck(bool cardshow){
 
         if(gameObject.tag == "PlayerTeam1"){
-            if(effect)
-            battleManager.players[battleManager.cardViewChar_left].player_floor_render.SetInt("_Active",0);
-            battleManager.cardViewChar_left = battleManager.players.IndexOf(this);
+            if(battleManager.left_cardLook_lock)
+                {Debug.Log("help");
+                return;}
+            if (cardshow ){ battleManager.cardViewChar_left = this;}
+            battleManager.render_cardViewChar_left = this;
             battleManager.ui.leftCard_card = cards;
             battleManager.ui.Leftcard_Update();
             battleManager.ui.showleftCard = true;
-            if(effect)
-            player_floor_render.SetInt("_Active",1);
             //player_floor_render.sp
 
         }
         
         if(gameObject.tag == "PlayerTeam2"){
-            if(effect)
-            battleManager.players[battleManager.cardViewChar_right].player_floor_render.SetInt("_Active",0);
-            battleManager.cardViewChar_right = battleManager.players.IndexOf(this);
+            
+            if(battleManager.right_cardLook_lock)
+                {Debug.Log("me");
+                return;}
+            if (cardshow ){ battleManager.cardViewChar_right = this;}
+            battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;
+            Debug.Log(battleManager.ui.rightCard_card );
             battleManager.ui.Rightcard_Update();
             battleManager.ui.showrightCard = true;
-            if(effect)
-            player_floor_render.SetInt("_Active",1);
         }
     }
 

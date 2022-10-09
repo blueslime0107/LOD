@@ -17,9 +17,11 @@ public class BackGround : MonoBehaviour
     public BattleManager bm;
     public GameObject leftCircle;
     public GameObject rightCircle;
-    // void Start(){
-    //     self_Z = transform.position.z;
-    // }
+
+
+
+
+
 
     void Update()
     {
@@ -41,4 +43,7 @@ public class BackGround : MonoBehaviour
             rightCircle.SetActive(true);
         }
     }
+
+    
+
 }

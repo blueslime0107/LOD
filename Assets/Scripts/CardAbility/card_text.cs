@@ -58,21 +58,23 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             block_img.SetActive(false);
         }
         if(isLeft){
-            if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
-                
-                material.SetInt("_Active",1);
-            }
-            else{
-                material.SetInt("_Active",0);
-            }
+            try
+            {if(battleManager.cardViewChar_left.cards[card_num].card_activating){material.SetInt("_Active",1);}
+            else{material.SetInt("_Active",0);}}
+            catch
+            {if(battleManager.render_cardViewChar_left.cards[card_num].card_activating){material.SetInt("_Active",1);}
+            else{material.SetInt("_Active",0);}}
         }
-        else{
-            if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
-                material.SetInt("_Active",1);
-
+        else{  
+            try
+            {
+                if(battleManager.cardViewChar_right.cards[card_num].card_activating){material.SetInt("_Active",1);}
+                else{material.SetInt("_Active",0);}
             }
-            else{
-                material.SetInt("_Active",0);
+            catch
+            {
+                if(battleManager.render_cardViewChar_right.cards[card_num].card_activating){material.SetInt("_Active",1);}
+                else{material.SetInt("_Active",0);}
             }
         
         
@@ -104,7 +106,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             return;
         }
         if(isLeft){
-            battleManager.players[battleManager.cardViewChar_left].cards[card_num].ability.CardActivate(battleManager.players[battleManager.cardViewChar_left].cards[card_num], battleManager);
+            battleManager.cardViewChar_left.cards[card_num].ability.CardActivate(battleManager.cardViewChar_left.cards[card_num], battleManager);
             // if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
                 
             //     material.SetInt("_Active",1);
@@ -114,7 +116,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             // }
         }
         else{
-            battleManager.players[battleManager.cardViewChar_right].cards[card_num].ability.CardActivate(battleManager.players[battleManager.cardViewChar_right].cards[card_num], battleManager);
+            battleManager.cardViewChar_right.cards[card_num].ability.CardActivate(battleManager.cardViewChar_right.cards[card_num], battleManager);
             // if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
             //     material.SetInt("_Active",1);
 

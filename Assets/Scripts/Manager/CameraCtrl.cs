@@ -18,10 +18,6 @@ public class CameraCtrl : MonoBehaviour
     float maxCamsize = 5f;
     float minCamsize = 3f;
 
-    [SerializeField] [Range(0f, 10f)] private float speed = 1;
-    [SerializeField] [Range(0f, 10f)] private float radius = 1;
-    private float runningTime = 0;
-
     Camera camer;
 
 
@@ -35,6 +31,8 @@ public class CameraCtrl : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        
+
         if(isTwoTargetMove){
             target1 = ch1.transform.position;
             target2 = ch2.transform.position;
@@ -70,11 +68,11 @@ public class CameraCtrl : MonoBehaviour
             camer.orthographicSize = size;
             }
             else{
-                if(camer.orthographicSize < 5f){
+                if(camer.orthographicSize < maxCamsize){
                     camer.orthographicSize += 3f*Time.deltaTime;
                 }
                 else{
-                    camer.orthographicSize = 5f;
+                    camer.orthographicSize = maxCamsize;
                 }
             }
         yield return null;

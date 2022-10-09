@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleCaculate : MonoBehaviour
 {
     public GameManager gameManager;
-    public BattleManager battleManager;
+    public BattleManager bm;
     public List<Player> players = new List<Player>();
     public BattleDice battleDice;
 
@@ -22,40 +22,30 @@ public class BattleCaculate : MonoBehaviour
 
     Vector3 myOriginPos;
 
-    // int myNum;
-    // int eneNum;
 
     public bool card_activated;
 
     bool coroutine_lock1 = false;
 
     void Start(){
-        players = battleManager.players;
+        players = bm.players;
     }
 
     public void BattleMatch(Player selfnum, Player enenum){
         
         foreach(Player player in players){
             if(player != selfnum && player != enenum){
-                player.dice_Indi.render.color = new Color(0,0,0,1);
+                player.dice_Indi.gameObject.SetActive(false);
+                player.hp_Indi.gameObject.SetActive(false);
             }
         }
-        // for(int i=0;i<6;i++){
-        //     if(i != selfnum.player_id-1 && i != enenum.player_id-1){
-                
-        //     }
-        // }
+        bm.ui.StartCoroutine("PanoraOn");
 
-        // myNum = selfnum-1;
-        // eneNum = enenum-1;
-
-        // players[myNum].OnMouseDown(); 
-        // players[eneNum].OnMouseDown(); 
         selfnum.ShowCardDeck(false); 
         enenum.ShowCardDeck(false); 
         
-        battleManager.left_cardLook_lock = true;
-        battleManager.right_cardLook_lock = true;
+        bm.left_cardLook_lock = true;
+        bm.right_cardLook_lock = true;
 
         damage = 0;
         myChar = selfnum;
@@ -204,30 +194,30 @@ public class BattleCaculate : MonoBehaviour
     
     
     IEnumerator MatchFin(){    
-        for(int i =0;i<battleManager.players.Count;i++){
-            if(battleManager.players[i].health <= 5 && battleManager.players[i].card_geted){
-                if(battleManager.players[i].gameObject.tag.Equals("PlayerTeam1")){
-                    battleManager.card_left_draw += 1;
-                    battleManager.players[i].card_geted = false;
+        for(int i =0;i<bm.players.Count;i++){
+            if(bm.players[i].health <= 5 && bm.players[i].card_geted){
+                if(bm.players[i].gameObject.tag.Equals("PlayerTeam1")){
+                    bm.card_left_draw += 1;
+                    bm.players[i].card_geted = false;
                 }
                 else{
-                    battleManager.card_right_draw += 1;
-                    battleManager.players[i].card_geted = false;
+                    bm.card_right_draw += 1;
+                    bm.players[i].card_geted = false;
                 }
             }
         }
-        for(int i =0;i<battleManager.players.Count;i++){ 
-            if(battleManager.players[i].health <= 0 && battleManager.players[i].died_card_geted){
-                if(battleManager.players[i].gameObject.tag.Equals("PlayerTeam1")){
-                    battleManager.card_left_draw += 1;
-                    battleManager.players[i].died_card_geted = false;
-                    battleManager.players[i].YouAreDead();
+        for(int i =0;i<bm.players.Count;i++){ 
+            if(bm.players[i].health <= 0 && bm.players[i].died_card_geted){
+                if(bm.players[i].gameObject.tag.Equals("PlayerTeam1")){
+                    bm.card_left_draw += 1;
+                    bm.players[i].died_card_geted = false;
+                    bm.players[i].YouAreDead();
                     yield return new WaitForSeconds(1.5f);
                 }
                 else{
-                    battleManager.card_right_draw += 1;
-                    battleManager.players[i].died_card_geted = false;
-                    battleManager.players[i].YouAreDead();
+                    bm.card_right_draw += 1;
+                    bm.players[i].died_card_geted = false;
+                    bm.players[i].YouAreDead();
                     yield return new WaitForSeconds(1.5f);
                 }
             }
@@ -240,23 +230,31 @@ public class BattleCaculate : MonoBehaviour
         //     battleManager.card_draw += 1;
         //     eneChar.card_geted = false;
         // }
-        foreach(Player player in battleManager.players){
+        foreach(Player player in bm.players){
             if(player != myChar || player != eneChar){
-                player.dice_Indi.render.color = new Color(255,255,255,255);
+                player.dice_Indi.gameObject.SetActive(true);
+                player.hp_Indi.gameObject.SetActive(true);
             }
         }
+        bm.ui.StartCoroutine("PanoraOff");
 
         myChar.SetPointMove(myOriginPos, 15f);
         gameManager.main_camera_ctrl.SetZeroMove(17f);
             
-        battleManager.blackScreen.SetActive(false);
+
+        bm.left_cardLook_lock = false;
+        bm.right_cardLook_lock = false;
+        bm.ui.Leftcard_Update(true);
+        bm.ui.Rightcard_Update(true);
+
+        bm.blackScreen.SetActive(false);
         myChar.SetDice(0);
         myChar.ChangeCondition(0);
         eneChar.SetDice(0);
         eneChar.ChangeCondition(0);
-        battleManager.battleing = false;
-        battleManager.target1 = null;
-        battleManager.target2 = null;
+        bm.battleing = false;
+        bm.target1 = null;
+        bm.target2 = null;
         myChar.transform.position += Vector3.forward;
         eneChar.transform.position += Vector3.forward;
         myChar.Battle_End();
@@ -265,9 +263,9 @@ public class BattleCaculate : MonoBehaviour
         battleDice.gameObject.SetActive(false);
 
         
-        for(int i = 0; i<battleManager.on_battle_card_effect.Count;i++){
-            battleManager.on_battle_card_effect[i].gameObject.SetActive(false);
-            battleManager.on_battle_card_effect.Remove(battleManager.on_battle_card_effect[i]);
+        for(int i = 0; i<bm.on_battle_card_effect.Count;i++){
+            bm.on_battle_card_effect[i].gameObject.SetActive(false);
+            bm.on_battle_card_effect.Remove(bm.on_battle_card_effect[i]);
         }
 
         for(int i =0;i<myChar.cards.Count;i++){
@@ -277,30 +275,38 @@ public class BattleCaculate : MonoBehaviour
             eneChar.cards[i].ability.BattleEnded(eneChar.cards[i]);
         }
 
+        if(bm.cardViewChar_left != null){
+            bm.cardViewChar_left.player_floor_render.SetInt("_Active",1); 
+            bm.cardViewChar_left.ShowCardDeck(true);
+            bm.left_cardLook_lock = true;
+        }
+        if(bm.cardViewChar_right != null){
+            bm.cardViewChar_right.player_floor_render.SetInt("_Active",1); 
+            bm.cardViewChar_right.ShowCardDeck(true);
+            bm.left_cardLook_lock = true;
+        }
+
         damage = 0;
         battleDice.DamageUpdate();
 
 
-        if(battleManager.left_turn){
-            battleManager.TurnTeam("Right");
-            Debug.Log(battleManager.right_players.FindAll(x => x.dice <= 0).Count);
-            Debug.Log(battleManager.right_players.Count);
-            if(battleManager.right_players.FindAll(x => x.dice <= 0).Count >= battleManager.right_players.Count){
-                battleManager.TurnTeam("Left");
+        if(bm.left_turn){
+            bm.TurnTeam("Right");
+            Debug.Log(bm.right_players.FindAll(x => x.dice <= 0).Count);
+            Debug.Log(bm.right_players.Count);
+            if(bm.right_players.FindAll(x => x.dice <= 0).Count >= bm.right_players.Count){
+                bm.TurnTeam("Left");
             }
         }
-        else if(battleManager.right_turn){
-            battleManager.TurnTeam("Left");
-            Debug.Log(battleManager.left_players.FindAll(x => x.dice <= 0).Count);
-            Debug.Log(battleManager.left_players.Count);
-            if(battleManager.left_players.FindAll(x => x.dice <= 0).Count >= battleManager.left_players.Count){
-                battleManager.TurnTeam("Right");
+        else if(bm.right_turn){
+            bm.TurnTeam("Left");
+            Debug.Log(bm.left_players.FindAll(x => x.dice <= 0).Count);
+            Debug.Log(bm.left_players.Count);
+            if(bm.left_players.FindAll(x => x.dice <= 0).Count >= bm.left_players.Count){
+                bm.TurnTeam("Right");
             }
         }
-        battleManager.left_cardLook_lock = false;
-        battleManager.right_cardLook_lock = false;
-        battleManager.ui.Leftcard_Update(true);
-        battleManager.ui.Rightcard_Update(true);
+
 
         yield return null;
     }
@@ -308,7 +314,7 @@ public class BattleCaculate : MonoBehaviour
     IEnumerator Damage(Player attacker, Player defender){
 
         for(int i = 0; i<attacker.cards.Count; i++){
-                attacker.cards[i].ability.OnDamaging(attacker.cards[i],defender, battleManager,damage);
+                attacker.cards[i].ability.OnDamaging(attacker.cards[i],defender, bm,damage);
                 if(attacker.cards[i].card_active){
                         attacker.UpdateActiveStat();
                     }
@@ -317,7 +323,7 @@ public class BattleCaculate : MonoBehaviour
                     }
             }
         for(int i = 0; i<defender.cards.Count; i++){
-                defender.cards[i].ability.OnDamage(defender.cards[i],attacker,battleManager,damage);
+                defender.cards[i].ability.OnDamage(defender.cards[i],attacker,bm,damage);
                 if(defender.cards[i].card_active){
                         defender.UpdateActiveStat();
                     }
@@ -350,7 +356,7 @@ public class BattleCaculate : MonoBehaviour
         defender.health -= damage;
         attacker.AttackEffect(defender);
         defender.UpdateHp();
-        foreach(Player player in battleManager.players){
+        foreach(Player player in bm.players){
             for(int i = 0;i<player.cards.Count;i++){
                 player.cards[i].ability.WhoEverDamage(player.cards[i],damage);
             }

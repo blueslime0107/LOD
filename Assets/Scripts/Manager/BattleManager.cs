@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     //public BattleAI Left_battleAI;
     public new CameraCtrl camera;
     public BackGround backGround;
+    public LineRenderer lineRender;
     public UI ui;
     [HideInInspector]public List<Dice> dices = new List<Dice>();
     [HideInInspector]public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
@@ -47,11 +48,14 @@ public class BattleManager : MonoBehaviour
 
     public Player target1;
     public Player target2;
+    public Player mouseTouchingTarget;
 
     [HideInInspector]public bool battleing;
 
-    [HideInInspector]public int cardViewChar_left;
-    [HideInInspector]public int cardViewChar_right;
+    public Player cardViewChar_left;
+    public Player cardViewChar_right;
+    public Player render_cardViewChar_left;
+    public Player render_cardViewChar_right;
 
     public string first_turn;
     [HideInInspector]public bool right_turn;
@@ -317,14 +321,17 @@ public class BattleManager : MonoBehaviour
                 }
                 if(Input.GetMouseButtonUp(0) && target1 != null){
                     foreach(Dice_Indi dice in dice_indis){
-                        if(!dice.onMouseDown && dice.onMouseEnter){
+                        if(!dice.onMouseDown && dice.onMouseEnter && dice != target1.dice_Indi){
                             target2 = dice.player;
                             BattleTargetReady();
                         }
+                        
                     }
                     if(target2 == null){
                         target1 = null;
                     }
+                    lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
+                    lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
 
                 }
 
@@ -342,6 +349,7 @@ public class BattleManager : MonoBehaviour
         if(target1 != target2){
             battleing = true;
             blackScreen.SetActive(true);
+
             battleCaculate.BattleMatch(target1,target2);
         }
     }

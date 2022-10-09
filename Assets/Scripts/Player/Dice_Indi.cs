@@ -61,18 +61,50 @@ public class Dice_Indi : MonoBehaviour
 
     void OnMouseDown() {
         onMouseDown = true;
-        // if(battleManager.battle_end)
-        //     return;
-        // if(battleManager.left_turn && gameObject.tag == "Team2"){
-        //         return;
-        //     }
-        //     if(battleManager.right_turn && gameObject.tag == "Team1"){
-        //         return;
-        //     } 
+        try
+        {if(gameObject.tag.Equals("Team1")){    
+            battleManager.cardViewChar_left.player_floor_render.SetInt("_Active",0);   
+            if(battleManager.cardViewChar_left.Equals(player)){
+                player.ShowCardDeck(false);
+                battleManager.cardViewChar_left = null;
+                battleManager.left_cardLook_lock = false;
+            }   
+            else{
+                battleManager.cardViewChar_left = player;
+                battleManager.cardViewChar_left.player_floor_render.SetInt("_Active",1);                
+                player.ShowCardDeck(true);
+                battleManager.left_cardLook_lock = true;
+            }
+        }
+        if(gameObject.tag.Equals("Team2")){    
+            battleManager.cardViewChar_right.player_floor_render.SetInt("_Active",0);   
+            if(battleManager.cardViewChar_right.Equals(player)){
+                player.ShowCardDeck(false);
+                battleManager.cardViewChar_right = null;
+                battleManager.right_cardLook_lock = false;
+            }   
+            else{
+                battleManager.cardViewChar_right = player;
+                battleManager.cardViewChar_right.player_floor_render.SetInt("_Active",1);                
+                player.ShowCardDeck(true);
+                battleManager.right_cardLook_lock = true;
+            }
+        }}
+        catch{
+            if(gameObject.tag.Equals("Team1")){
+                battleManager.cardViewChar_left = player;
+                battleManager.cardViewChar_left.player_floor_render.SetInt("_Active",1); 
+                battleManager.left_cardLook_lock = true;
+                }
+            if(gameObject.tag.Equals("Team2")){battleManager.cardViewChar_right = player;
+            battleManager.cardViewChar_right.player_floor_render.SetInt("_Active",1); 
+            battleManager.right_cardLook_lock = true;}
+            player.ShowCardDeck(true);
+            
+        }
         saved_pos = transform.position;
         //battleManager.target1 = player.player_id;
     }
-
 
     void OnMouseDrag() { // 마우스 
         if(battleManager.battle_start){       
@@ -85,7 +117,6 @@ public class Dice_Indi : MonoBehaviour
             lineRender.SetPosition(1, saved_pos+Vector3.forward);
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);  
-            //transform.position = objPosition;
             objPosition += Vector3.forward;  
             lineRender.SetPosition(0, objPosition+Vector3.forward);  
         }
@@ -94,7 +125,7 @@ public class Dice_Indi : MonoBehaviour
 //render.color = new Color(0,0,0,206);
     void OnMouseUp() {
         onMouseDown = false;
-        //transform.position = saved_pos;
+        Debug.Log(("why"));
         lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
         lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
         
@@ -103,12 +134,13 @@ public class Dice_Indi : MonoBehaviour
     
 
     void OnMouseEnter() {
-        
-        
+        if(!battleManager.battleing)
+            battleManager.mouseTouchingTarget = player;
+
         if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
             player.ShowCardDeck(false);
         }
-        if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
+        if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.left_cardLook_lock){
             player.ShowCardDeck(false);
         }
         onMouseEnter = true;
@@ -126,6 +158,14 @@ public class Dice_Indi : MonoBehaviour
         }
             
     }
+
+    void OnMouseOver() {
+        if(battleManager.target1 != null && !battleManager.battleing){
+            lineRender.SetPosition(0, battleManager.mouseTouchingTarget.dice_Indi.transform.position+Vector3.forward); 
+        }
+
+    }
+
 
 
 }

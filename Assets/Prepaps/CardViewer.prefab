@@ -385,7 +385,7 @@ MonoBehaviour:
   message: {fileID: 1780543013542292649}
   ability_message: {fileID: 0}
   battleManager: {fileID: 0}
-  target: 0
+  target: {fileID: 0}
 --- !u!1 &4761557273894561531
 GameObject:
   m_ObjectHideFlags: 0
