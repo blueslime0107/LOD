@@ -44,7 +44,6 @@ public class BattleManager : MonoBehaviour
     public CardPack card_selected;
 
     public CardAbility null_card;
-    public CardAbility speed_card;
 
     public Player target1;
     public Player target2;

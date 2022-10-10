@@ -71,8 +71,8 @@ public class Dice_Indi : MonoBehaviour
             }   
             else{
                 battleManager.cardViewChar_left = player;
-                battleManager.cardViewChar_left.player_floor_render.SetInt("_Active",1);                
-                player.ShowCardDeck(true);
+                battleManager.cardViewChar_left.player_floor_render.SetInt("_Active",1);            
+                player.ShowCardDeck(true,true);
                 battleManager.left_cardLook_lock = true;
             }
         }
@@ -85,8 +85,8 @@ public class Dice_Indi : MonoBehaviour
             }   
             else{
                 battleManager.cardViewChar_right = player;
-                battleManager.cardViewChar_right.player_floor_render.SetInt("_Active",1);                
-                player.ShowCardDeck(true);
+                battleManager.cardViewChar_right.player_floor_render.SetInt("_Active",1);                        
+                player.ShowCardDeck(true,true);
                 battleManager.right_cardLook_lock = true;
             }
         }}
@@ -140,7 +140,7 @@ public class Dice_Indi : MonoBehaviour
         if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
             player.ShowCardDeck(false);
         }
-        if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.left_cardLook_lock){
+        if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
             player.ShowCardDeck(false);
         }
         onMouseEnter = true;

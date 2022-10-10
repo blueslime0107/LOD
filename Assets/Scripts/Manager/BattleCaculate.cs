@@ -41,8 +41,8 @@ public class BattleCaculate : MonoBehaviour
         }
         bm.ui.StartCoroutine("PanoraOn");
 
-        selfnum.ShowCardDeck(false); 
-        enenum.ShowCardDeck(false); 
+        selfnum.ShowCardDeck(false,true); 
+        enenum.ShowCardDeck(false,true); 
         
         bm.left_cardLook_lock = true;
         bm.right_cardLook_lock = true;
@@ -277,12 +277,12 @@ public class BattleCaculate : MonoBehaviour
 
         if(bm.cardViewChar_left != null){
             bm.cardViewChar_left.player_floor_render.SetInt("_Active",1); 
-            bm.cardViewChar_left.ShowCardDeck(true);
+            bm.cardViewChar_left.ShowCardDeck(true,true);
             bm.left_cardLook_lock = true;
         }
         if(bm.cardViewChar_right != null){
             bm.cardViewChar_right.player_floor_render.SetInt("_Active",1); 
-            bm.cardViewChar_right.ShowCardDeck(true);
+            bm.cardViewChar_right.ShowCardDeck(true,true);
             bm.left_cardLook_lock = true;
         }
 

@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     Dice dice_com;
     public bool died;
     public GameObject player_floor;
-    [HideInInspector] public List<CardPack> cards = new List<CardPack>();
+    public List<CardAbility> pre_cards = new List<CardAbility>();
+    public List<CardPack> cards = new List<CardPack>();
     public Sprite[] poses;
     SpriteRenderer render;
     
@@ -73,8 +74,11 @@ public class Player : MonoBehaviour
     public int speed;
 
     void Start(){
-        if(speed > 0)
-        battleManager.GiveCard(battleManager.speed_card,this);
+        if(pre_cards.Count > 0){
+            foreach(CardAbility card in pre_cards){
+                battleManager.GiveCard(card,this);
+            }
+        }
         UpdateHp();
     }
 
@@ -198,10 +202,10 @@ public class Player : MonoBehaviour
         // }
     
 
-    public void ShowCardDeck(bool cardshow){
+    public void ShowCardDeck(bool cardshow,bool nah=false){
 
         if(gameObject.tag == "PlayerTeam1"){
-            if(battleManager.left_cardLook_lock)
+            if(battleManager.left_cardLook_lock && !nah)
                 {Debug.Log("help");
                 return;}
             if (cardshow ){ battleManager.cardViewChar_left = this;}
@@ -215,7 +219,7 @@ public class Player : MonoBehaviour
         
         if(gameObject.tag == "PlayerTeam2"){
             
-            if(battleManager.right_cardLook_lock)
+            if(battleManager.right_cardLook_lock && !nah)
                 {Debug.Log("me");
                 return;}
             if (cardshow ){ battleManager.cardViewChar_right = this;}

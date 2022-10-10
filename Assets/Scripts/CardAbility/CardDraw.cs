@@ -124,7 +124,7 @@ public class CardDraw : MonoBehaviour
     }
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
-        if(target != null && mouseOn){
+        if(target != null){
             if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && target.gameObject.tag.Equals("PlayerTeam1")){
                 battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
@@ -147,10 +147,11 @@ public class CardDraw : MonoBehaviour
         }
 
     void OnTriggerEnter2D(Collider2D collision) {
+        
         if(mouseDrag){
             if(collision.gameObject.tag.Contains("PlayerTeam")){
                 target = collision.gameObject.GetComponent<Player>();
-                target.ShowCardDeck(false);
+                target.ShowCardDeck(false,true);
             }
            
         }

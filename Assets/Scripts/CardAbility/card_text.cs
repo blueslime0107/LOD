@@ -12,8 +12,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public BattleManager battleManager;
     RectTransform rect;
     Image illust;
-    GameObject card_light;
-    GameObject block_img;
+    
     Material material;
     //MaterialPropertyBlock material_block;
     //Image card_image;
@@ -21,21 +20,29 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     new TextMeshProUGUI name;
     TextMeshProUGUI message;
     public GameObject ability_img;
+    public GameObject ability_img2;
     TextMeshProUGUI ability_message;
+    TextMeshProUGUI ability_message2;
+    [SerializeField]GameObject card_light;
+    [SerializeField]GameObject block_img;
+
+    Vector2 target_pos;
+    float target_spd;
 
     void Awake() {
+        
         GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
         GameObject obj2 = gameObject.transform.GetChild(1).gameObject;
         GameObject obj4_1 = gameObject.transform.GetChild(2).gameObject;
         GameObject obj4_2 = obj4_1.transform.GetChild(0).gameObject;
-        card_light = gameObject.transform.GetChild(3).gameObject;
-        block_img = gameObject.transform.GetChild(4).gameObject;
+        GameObject obj5_1 = gameObject.transform.GetChild(3).gameObject;
+        GameObject obj5_2 = obj5_1.transform.GetChild(0).gameObject;
         rect = GetComponent<RectTransform>();
         name = obj1.GetComponent<TextMeshProUGUI>();
         message = obj2.GetComponent<TextMeshProUGUI>();
         illust = GetComponent<Image>();
         ability_message = obj4_2.GetComponent<TextMeshProUGUI>();
-
+        ability_message2 = obj5_2.GetComponent<TextMeshProUGUI>();
 
 
 
@@ -51,6 +58,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         name.text = card.name;
         message.text = card.message;
         ability_message.text = card.ability_message;
+        ability_message2.text = card.ability_message;
         if(card.ability.name.Equals("NULL")){
             block_img.SetActive(true);
         }
@@ -85,18 +93,38 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
      public void OnPointerEnter(PointerEventData eventData)
      {
-        ability_img.SetActive(true);
+        if(isLeft) {ability_img.SetActive(true);}
+        else {ability_img2.SetActive(true);}
+        target_pos = new Vector2(rect.anchoredPosition.x,45);
+        
+        target_spd = 100;
+        StartCoroutine("lerpMove");
 
-        rect.anchoredPosition += Vector2.up*45;
+        
         transform.SetAsLastSibling();
         
      }
+
+     IEnumerator lerpMove(){
+        while (true)
+        {rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition,target_pos,target_spd*Time.deltaTime);
+        if(Vector2.Distance(rect.anchoredPosition,target_pos) <= 0.5f){
+            rect.anchoredPosition=target_pos;
+            StopCoroutine("lerpMove");
+        }
+        yield return null;
+        }
+     }
  
-     public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)
      {
-        ability_img.SetActive(false);
+        if(isLeft) {ability_img.SetActive(false);}
+        else {ability_img2.SetActive(false);}
         transform.SetSiblingIndex(card_num);
-        rect.anchoredPosition += Vector2.down*45;
+
+        target_pos = new Vector2(rect.anchoredPosition.x,0);
+        target_spd = 100;
+        StartCoroutine("lerpMove");
      }
 
      public void OnPointerClick(PointerEventData eventData){
