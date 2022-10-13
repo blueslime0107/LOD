@@ -18,6 +18,7 @@ public class CardAbility : ScriptableObject
     public Sprite illust;
     public GameObject[] effect;
     public CardAbility[] linked_card;
+    public Dice dice;
 
     //public GameObject owner;
     // [HideInInspector]public bool card_active;

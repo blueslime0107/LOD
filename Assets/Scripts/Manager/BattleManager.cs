@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
 
     //public List<CardEffect> card_effect = new List<CardEffect>();
 
-    public GameObject cardViewer;
+    public Cards cardViewer;
     public GameObject blackScreen;
 
     public bool battle_ready;
@@ -152,20 +152,20 @@ public class BattleManager : MonoBehaviour
 
                 switch(card_give_count){ 
                     case 1:show_cards.Clear();
-                        Card(Vector3.up+Vector3.back,game_cards[0]);break;
+                        Card(Vector3.up*9+Vector3.back,game_cards[0]);break;
                     case 2: show_cards.Clear();
-                        Card(Vector3.up+Vector3.right*2.5f+Vector3.back,game_cards[0]);
-                        Card(Vector3.up+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
+                        Card(Vector3.up*9+Vector3.right*2.5f+Vector3.back,game_cards[0]);
+                        Card(Vector3.up*9+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
                     case 3:show_cards.Clear();
-                        Card(Vector3.up+Vector3.back,game_cards[0]);
-                        Card(Vector3.up+Vector3.right*5+Vector3.back,game_cards[0]);
-                        Card(Vector3.up+Vector3.left*5+Vector3.back,game_cards[0]);  break;
+                        Card(Vector3.up*9+Vector3.back,game_cards[0]);
+                        Card(Vector3.up*9+Vector3.right*5+Vector3.back,game_cards[0]);
+                        Card(Vector3.up*9+Vector3.left*5+Vector3.back,game_cards[0]);  break;
                     case 5:show_cards.Clear();
-                        Card(Vector3.up+Vector3.back,game_cards[0]);
-                        Card(Vector3.up+Vector3.right*3+Vector3.back,game_cards[0]);
-                        Card(Vector3.up+Vector3.left*3f+Vector3.back,game_cards[0]);  
-                        Card(Vector3.up+Vector3.right*6f+Vector3.back,game_cards[0]); 
-                        Card(Vector3.up+Vector3.left*6f+Vector3.back,game_cards[0]); break;
+                        Card(Vector3.up*9+Vector3.back,game_cards[0]);
+                        Card(Vector3.up*9+Vector3.right*3+Vector3.back,game_cards[0]);
+                        Card(Vector3.up*9+Vector3.left*3f+Vector3.back,game_cards[0]);  
+                        Card(Vector3.up*9+Vector3.right*6f+Vector3.back,game_cards[0]); 
+                        Card(Vector3.up*9+Vector3.left*6f+Vector3.back,game_cards[0]); break;
                 }
                 ui.cardMessage.SetActive(true);
                 if(left_turn){
@@ -504,10 +504,8 @@ public class BattleManager : MonoBehaviour
 
     void Card(Vector3 pos,CardAbility cardo){
         game_cards.Remove(cardo);
-        GameObject card = Instantiate(cardViewer,pos,transform.rotation);
-        CardDraw draw = card.GetComponent<CardDraw>();
-        draw.battleManager = this;
-        draw.ui = ui;
+        CardDraw draw = cardViewer.MakeCard();
+        draw.gameObject.transform.position = pos;
         draw.SetImage(cardo);
         show_cards.Add(draw);
         

@@ -68,7 +68,7 @@ public class Dice : MonoBehaviour
             if(chartouch){
             if(!dice_im.isDiced){
                 gameObject.SetActive(false);
-                dice_im.putDice(dice_value);
+                dice_im.putDice(this);
                 
             }
                 

@@ -209,6 +209,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -14625,6 +14626,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6950076906465531570, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
 --- !u!1001 &595619111
@@ -15878,6 +15883,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -16485,6 +16491,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -17365,6 +17372,9 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards:
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
+  - {fileID: 11400000, guid: 43013457e7223ba4d93c757f9ac3923f, type: 2}
   cards: []
   poses:
   - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
@@ -17653,6 +17663,10 @@ PrefabInstance:
       propertyPath: battleCaculate
       value: 
       objectReference: {fileID: 88400456}
+    - target: {fileID: 6823225385023782442, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17671,15 +17685,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_LocalRotation.z
@@ -17691,7 +17705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782443, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -18398,6 +18412,8 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards:
+  - {fileID: 11400000, guid: af0ce919ef417944e9fe0e0812d9556c, type: 2}
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -20982,7 +20998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1878367823639087086, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: m_Color.a
@@ -23200,6 +23216,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -24687,6 +24704,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -26233,7 +26251,7 @@ MonoBehaviour:
   battle_start: 0
   battle_end: 0
   card_getting_team: 
-  card_left_draw: 0
+  card_left_draw: 1
   card_right_draw: 0
   card_gived: 0
   card_give_count: 0
@@ -26244,7 +26262,6 @@ MonoBehaviour:
   card_select_trigger: 0
   card_selected: {fileID: 0}
   null_card: {fileID: 11400000, guid: 641a8011e9522494ebde962d5f774ca8, type: 2}
-  speed_card: {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   target1: {fileID: 0}
   target2: {fileID: 0}
   mouseTouchingTarget: {fileID: 0}
@@ -32272,6 +32289,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -32761,6 +32779,10 @@ PrefabInstance:
     - target: {fileID: 5274090475088657342, guid: 6db216b5a5d036148acb18132e5a33d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834047325496408010, guid: 6db216b5a5d036148acb18132e5a33d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6031053368109749669, guid: 6db216b5a5d036148acb18132e5a33d3, type: 3}
       propertyPath: m_Name

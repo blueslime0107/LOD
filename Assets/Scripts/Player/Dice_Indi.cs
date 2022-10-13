@@ -8,7 +8,6 @@ public class Dice_Indi : MonoBehaviour
 
     public BattleManager battleManager;
     public BattleCaculate battleCaculate;
-    Material material;
     public Sprite[] dice_img;
     public bool isDiced = false;
     public int dice_value;
@@ -18,11 +17,14 @@ public class Dice_Indi : MonoBehaviour
     public bool onMouseEnter;
 
     public SpriteRenderer render;
+    public SpriteRenderer sub_render;
     public Player player;
     public LineRenderer lineRender;
+    public GameObject sub_dice;
+    public List<Dice> dice_list= new List<Dice>();
     void Awake() {
         render = GetComponent<SpriteRenderer>();
-        material = GetComponent<SpriteRenderer>().material;
+        sub_render = sub_dice.GetComponent<SpriteRenderer>();
     }
 
     // void Update(){
@@ -36,15 +38,47 @@ public class Dice_Indi : MonoBehaviour
         
     // }
 
-    public void putDice(int value){
-        player.dice = value;
+    public void putDice(Dice dice){
+        Debug.Log("what");
+        dice_list.Add(dice);
+        player.dice = dice.dice_value;
         player.ChangeCondition(1);
-        dice_value = value;
+        dice_value = dice.dice_value;
         isDiced = true;       
-        render.sprite = dice_img[value];
+        render.sprite = dice_img[dice.dice_value];
         for(int i = 0; i<player.cards.Count;i++){
             player.cards[i].ability.DiceApplyed(player.cards[i], player);
         }
+    }
+
+    public void NextDice(){
+        if(dice_value != 0){
+            return;
+        }
+        dice_list.RemoveAt(0);
+
+        player.dice = dice_list[0].dice_value;
+        player.ChangeCondition(1);
+        dice_value = dice_list[0].dice_value;
+        isDiced = true;       
+        render.sprite = dice_img[dice_list[0].dice_value];
+        for(int i = 0; i<player.cards.Count;i++){
+            player.cards[i].ability.DiceApplyed(player.cards[i], player);
+        }
+
+        
+
+        if(dice_list.Count < 2){
+            sub_dice.SetActive(false);
+        }
+    }
+
+    public void put_subDice(Dice dice){
+        if(!sub_dice.activeSelf){
+            sub_dice.SetActive(true);
+        }
+        dice_list.Add(dice);    
+        sub_render.sprite = dice_img[dice.dice_value];
     }
 
     public void setDice(int value){

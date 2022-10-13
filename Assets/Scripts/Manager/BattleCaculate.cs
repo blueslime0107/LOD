@@ -275,6 +275,8 @@ public class BattleCaculate : MonoBehaviour
             eneChar.cards[i].ability.BattleEnded(eneChar.cards[i]);
         }
 
+
+
         if(bm.cardViewChar_left != null){
             bm.cardViewChar_left.player_floor_render.SetInt("_Active",1); 
             bm.cardViewChar_left.ShowCardDeck(true,true);
@@ -307,6 +309,8 @@ public class BattleCaculate : MonoBehaviour
             }
         }
 
+        myChar.dice_Indi.NextDice();
+        eneChar.dice_Indi.NextDice();
 
         yield return null;
     }

@@ -16,6 +16,7 @@ public class CardDraw : MonoBehaviour
     [SerializeField]
     public BattleManager battleManager;
     Image render;
+
     // [SerializeField]
     // Sprite[] card_img; // 카드 이미지
 
@@ -43,10 +44,31 @@ public class CardDraw : MonoBehaviour
         GameObject message_obj = obj2.transform.GetChild(1).gameObject;
         message = message_obj.GetComponent<TextMeshProUGUI>();
 
+        
 
 
+    }
+
+    private void OnEnable() {
         origin_position = transform.position;
         origin_size = transform.localScale;
+        StartCoroutine("MoveDown");
+    }
+
+    IEnumerator MoveDown(){
+        while(true)
+        { 
+            transform.position = Vector3.MoveTowards(transform.position,origin_position+Vector3.up,500*Time.deltaTime);
+            if(transform.position == origin_position+Vector3.up){
+                break;
+                
+            }
+            yield return null;
+            
+            
+
+            }
+        yield return null;
     }
 
     void Update(){
@@ -79,7 +101,7 @@ public class CardDraw : MonoBehaviour
                     }
                 }
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             }
             
         
@@ -87,7 +109,7 @@ public class CardDraw : MonoBehaviour
     }
 
     public void DestroyTheCard(){
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     // 외부에서 실행 카드 이미지 바꾸기
@@ -129,13 +151,13 @@ public class CardDraw : MonoBehaviour
                 battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && target.gameObject.tag.Equals("PlayerTeam2")){
                 battleManager.GiveCard(having_card,target);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             
             

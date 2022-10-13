@@ -8,7 +8,7 @@ public class BattleFunction : MonoBehaviour
 
     public void DiceToPlayer(Dice dice, Dice_Indi d_indi){
         dice.gameObject.SetActive(false);
-        d_indi.putDice(dice.dice_value);
+        d_indi.putDice(dice);
     }
 
     public void TargetPlayer(Player atk, Player def){
