@@ -20,11 +20,10 @@ public class BattleCaculate : MonoBehaviour
     public Player myChar;
     public Player eneChar;
 
-    Vector3 myOriginPos;
-
 
     public bool card_activated;
 
+    bool coroutine_lock = false;
     bool coroutine_lock1 = false;
 
     void Start(){
@@ -50,7 +49,6 @@ public class BattleCaculate : MonoBehaviour
         damage = 0;
         myChar = selfnum;
         eneChar =  enenum;
-        myOriginPos = myChar.transform.position;
 
         my_ability = myChar.cards;
         ene_ability = eneChar.cards;
@@ -64,18 +62,16 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator BattleMatchcor(){
-        myChar.ChangeCondition(2);      
-        myChar.SetPointMove(eneChar.movePoint.position, 22f);
-        gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
         
-        while(myChar.isMoving){
-            yield return null;
-        }
+        myChar.ChangeCondition(2);    
+        eneChar.ChangeCondition(2);   
 
         BasicDice();
-        yield return new WaitForSeconds(0.5f);
         StartCoroutine("BasicAttack");
-        yield return new WaitForSeconds(0.5f);
+        if(!coroutine_lock){
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f); // 빠른 진행 조절 초
         StartCoroutine("MainAttack");
 
         while(coroutine_lock1){
@@ -99,9 +95,7 @@ public class BattleCaculate : MonoBehaviour
     }
 
 
-    void BasicDice(){
-        battleDice.gameObject.SetActive(true);
-        battleDice.SetPlayerPosition(myChar,eneChar);
+    void BasicDice(){        
         if(myChar.dice == 1 && eneChar.dice >= 6){
             myChar.AddDice(6);
         }
@@ -111,6 +105,33 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator BasicAttack(){
+        bool farAtking = false;
+        try{
+        farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt || eneChar.farAtt || eneChar.dice_Indi.dice_list[0].farAtt;
+        
+        Debug.Log("Debuging");
+        Debug.Log(myChar.farAtt);
+        Debug.Log(myChar.dice_Indi.dice_list[0].farAtt);
+        Debug.Log(eneChar.farAtt);
+        Debug.Log(eneChar.dice_Indi.dice_list[0].farAtt);}
+        catch{
+            farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt;
+        }
+        
+
+        if(!farAtking)
+        {myChar.SetPointMove(eneChar.movePoint.position, 22f);
+        gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
+        
+        while(myChar.isMoving){
+            yield return null;
+        }
+        
+        }
+
+        battleDice.gameObject.SetActive(true);
+        battleDice.SetPlayerPosition(myChar,eneChar);
+        yield return new WaitForSeconds(0.5f);
 
         for(int i = 0; i<my_ability.Count;i++){
                     my_ability[i].ability.OnBattleStart(my_ability[i],this);
@@ -140,7 +161,38 @@ public class BattleCaculate : MonoBehaviour
             battleDice.left_break.Play();
             battleDice.right_break.Play();
         }
+        
+        Debug.Log(damage);
+        Debug.Log("Debuging_END");
+        if(damage>0 && (!myChar.farAtt && !myChar.dice_Indi.dice_list[0].farAtt)){
+            myChar.SetPointMove(eneChar.movePoint.position, 22f);
+            gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
+            
+            while(myChar.isMoving){
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        if(damage<0 && eneChar.dice_Indi.dice_list.Count > 0){
+            if(!eneChar.farAtt && !eneChar.dice_Indi.dice_list[0].farAtt){
+                eneChar.SetPointMove(myChar.movePoint.position, 22f);
+                gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
+                
+                while(eneChar.isMoving){
+                    yield return null;
+                }
+                yield return new WaitForSeconds(0.5f);}
+        }
+        
+        yield return new WaitForSeconds(1f);
+        
+        
+        
+        
         yield return null;
+
+        coroutine_lock = true;
         }
     IEnumerator MainAttack(){
         coroutine_lock1= true;
@@ -176,10 +228,8 @@ public class BattleCaculate : MonoBehaviour
                 ene_ability[i].ability.OnBattleWin(ene_ability[i],this);
                 if(ene_ability[i].card_active){
                     eneChar.UpdateActiveStat();
-                    Debug.Log("Active");
                 }
                 while(ene_ability[i].card_active){
-                    Debug.Log("Waiting");
                     yield return null;
                 }
             }
@@ -238,7 +288,7 @@ public class BattleCaculate : MonoBehaviour
         }
         bm.ui.StartCoroutine("PanoraOff");
 
-        myChar.SetPointMove(myOriginPos, 15f);
+        myChar.SetPointMove(myChar.originPoint, 15f);
         gameManager.main_camera_ctrl.SetZeroMove(17f);
             
 
@@ -294,16 +344,12 @@ public class BattleCaculate : MonoBehaviour
 
         if(bm.left_turn){
             bm.TurnTeam("Right");
-            Debug.Log(bm.right_players.FindAll(x => x.dice <= 0).Count);
-            Debug.Log(bm.right_players.Count);
             if(bm.right_players.FindAll(x => x.dice <= 0).Count >= bm.right_players.Count){
                 bm.TurnTeam("Left");
             }
         }
         else if(bm.right_turn){
             bm.TurnTeam("Left");
-            Debug.Log(bm.left_players.FindAll(x => x.dice <= 0).Count);
-            Debug.Log(bm.left_players.Count);
             if(bm.left_players.FindAll(x => x.dice <= 0).Count >= bm.left_players.Count){
                 bm.TurnTeam("Right");
             }

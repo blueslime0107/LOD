@@ -22,7 +22,7 @@ public class CardDraw : MonoBehaviour
 
 
     Vector3 origin_size;
-    Vector3 origin_position;
+    public Vector3 origin_position;
 
     bool mouseOn = false;
     bool mouseDrag = false;
@@ -50,16 +50,16 @@ public class CardDraw : MonoBehaviour
     }
 
     private void OnEnable() {
-        origin_position = transform.position;
-        origin_size = transform.localScale;
-        StartCoroutine("MoveDown");
+        origin_size = transform.localScale;        
     }
 
     IEnumerator MoveDown(){
+        StopCoroutine("MoveUp");
+        Vector3 target = origin_position+Vector3.down*8.5f+Vector3.up;
         while(true)
         { 
-            transform.position = Vector3.MoveTowards(transform.position,origin_position+Vector3.up,500*Time.deltaTime);
-            if(transform.position == origin_position+Vector3.up){
+            transform.position = Vector3.MoveTowards(transform.position,target,100*Time.deltaTime);
+            if(transform.position == target){
                 break;
                 
             }
@@ -71,16 +71,45 @@ public class CardDraw : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator MoveUp(){
+        StopCoroutine("MoveDown");
+        Vector3 target = origin_position;
+        while(true)
+        { 
+            transform.position = Vector3.MoveTowards(transform.position,target,100*Time.deltaTime);
+            if(transform.position == target){
+                break;
+                
+            }
+            yield return null;
+            
+            
+
+            }
+        yield return null;
+    }
+
+    IEnumerator MoveSelect(){
+        Vector3 target = Vector3.right*5+Vector3.up;
+        while(true)
+        { 
+            transform.position = Vector3.MoveTowards(transform.position,target,100*Time.deltaTime);
+            yield return null;
+        }
+        yield return null;
+    }
+
     void Update(){
 
         if(Input.GetMouseButtonUp(0)){
-            transform.position = origin_position;
+            StopCoroutine("MoveSelect");
+            StartCoroutine("MoveDown");
             transform.localScale = origin_size; 
             battleManager.ui.cardMessage.SetActive(true);
         }
         if(Input.GetMouseButtonDown(0)){
             if(!mouseOn){
-                transform.position += Vector3.up*5;
+                StartCoroutine("MoveUp");
             }            
         }
         if(battleManager.card_gived) {  // 이미 카드를 줬을때 사라지기
@@ -128,8 +157,10 @@ public class CardDraw : MonoBehaviour
         mouseDrag = true;
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);  
-        transform.position = objPosition;
-        transform.localScale = new Vector3(0.02f,0.02f,0);
+        battleManager.lineRender.SetPosition(1, transform.position);
+        battleManager.lineRender.SetPosition(0, objPosition);
+        // transform.position = objPosition;
+        // transform.localScale = new Vector3(0.02f,0.02f,0);
     }
 
     private void OnMouseExit() {
@@ -142,19 +173,22 @@ public class CardDraw : MonoBehaviour
     }
 
     void OnMouseDown(){
+        StartCoroutine("MoveSelect");
         ui.cardMessage.SetActive(false);
     }
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
-        if(target != null){
-            if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && target.gameObject.tag.Equals("PlayerTeam1")){
-                battleManager.GiveCard(having_card,target);
+        battleManager.lineRender.SetPosition(1, Vector3.zero);
+        battleManager.lineRender.SetPosition(0, Vector3.zero);
+        if(battleManager.mouseTouchingTarget != null){
+            if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && battleManager.mouseTouchingTarget.gameObject.tag.Equals("PlayerTeam1")){
+                battleManager.GiveCard(having_card,battleManager.mouseTouchingTarget);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
                 gameObject.SetActive(false);
             }
-            if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && target.gameObject.tag.Equals("PlayerTeam2")){
-                battleManager.GiveCard(having_card,target);
+            if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && battleManager.mouseTouchingTarget.gameObject.tag.Equals("PlayerTeam2")){
+                battleManager.GiveCard(having_card,battleManager.mouseTouchingTarget);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
                 gameObject.SetActive(false);

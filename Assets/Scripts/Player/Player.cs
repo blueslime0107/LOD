@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     
     public Transform movePoint;
     public Transform attPoint;
+    public Vector3 originPoint;
     [HideInInspector]public int condition = 0;
     public int max_health;
     public int health;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     public List<CardAbility> pre_cards = new List<CardAbility>();
     public List<CardPack> cards = new List<CardPack>();
     public Sprite[] poses;
+    public bool farAtt;
     SpriteRenderer render;
     
     public Material player_floor_render;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         }
         card_geted = true;
         max_health = health;
+        originPoint = transform.position;
     }
 
     public int speed;

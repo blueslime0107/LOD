@@ -56,6 +56,10 @@ public class Dice_Indi : MonoBehaviour
             return;
         }
         dice_list.RemoveAt(0);
+        if(dice_list.Count <= 0){
+            player.ChangeCondition(0);
+            return;
+        }
 
         player.dice = dice_list[0].dice_value;
         player.ChangeCondition(1);
@@ -182,6 +186,7 @@ public class Dice_Indi : MonoBehaviour
 
     void OnMouseExit() {
         onMouseEnter = false;
+        battleManager.mouseTouchingTarget = null;
         if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
             battleManager.ui.Leftcard_Update(true);
         

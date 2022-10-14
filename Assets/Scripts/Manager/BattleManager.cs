@@ -505,7 +505,9 @@ public class BattleManager : MonoBehaviour
     void Card(Vector3 pos,CardAbility cardo){
         game_cards.Remove(cardo);
         CardDraw draw = cardViewer.MakeCard();
-        draw.gameObject.transform.position = pos;
+        draw.gameObject.transform.position = pos + Vector3.up*2;
+        draw.origin_position = pos;
+        draw.StartCoroutine("MoveDown");
         draw.SetImage(cardo);
         show_cards.Add(draw);
         

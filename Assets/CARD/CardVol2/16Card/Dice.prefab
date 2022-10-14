@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 728560d2b99cef04ebcdacd1a71e2a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice_value: 0
+  dice_value: 1
   self_pos: {x: 0, y: 0}
   chartouch: 0
   battleManager: {fileID: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   - {fileID: -4369623747137673458, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
   - {fileID: 1100262140694979769, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
   - {fileID: -7921930585825272172, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
+  farAtt: 1
 --- !u!50 &6830166584258689300
 Rigidbody2D:
   serializedVersion: 4

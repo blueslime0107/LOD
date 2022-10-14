@@ -14,6 +14,7 @@ public class Dice : MonoBehaviour
     //public int dice_num;
 
     public Sprite[] dice_img;
+    public bool farAtt = false;
     SpriteRenderer render;
 
     void Awake(){
