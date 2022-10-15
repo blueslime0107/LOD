@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class AttEffect : MonoBehaviour
 {
+    public Vector3 pre_set;
+    public bool player_set;
+    public bool farAtk;
     float time;
-    public float wait_time;
     public float fade_time;
     SpriteRenderer render;
 
@@ -15,6 +17,7 @@ public class AttEffect : MonoBehaviour
 
     void OnEnable(){
         render.color = Color.white;
+        transform.Translate(pre_set);
         StartCoroutine(FadeOut());
     }
 

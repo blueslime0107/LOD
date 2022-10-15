@@ -320,9 +320,11 @@ public class BattleCaculate : MonoBehaviour
 
         for(int i =0;i<myChar.cards.Count;i++){
             myChar.cards[i].ability.BattleEnded(myChar.cards[i]);
+            myChar.cards[i].card_lateActive = false;
         }
         for(int i =0;i<eneChar.cards.Count;i++){
             eneChar.cards[i].ability.BattleEnded(eneChar.cards[i]);
+            eneChar.cards[i].card_lateActive = false;
         }
 
 

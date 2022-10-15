@@ -414,6 +414,8 @@ public class BattleManager : MonoBehaviour
             TurnTeam("Left");
             first_turn = "Left";
         }
+        TurnTeam("Right");
+        first_turn = "Right";
     }
 
     public void TurnTeam(string team){

@@ -18,12 +18,16 @@ public class CardAbility : ScriptableObject
     public Sprite illust;
     public GameObject[] effect;
     public CardAbility[] linked_card;
+    public GameObject diceLink;
     public Dice dice;
 
     //public GameObject owner;
     // [HideInInspector]public bool card_active;
     // public bool card_triggerd;
-    public void Active(CardPack card){card.card_active = true;}
+    public void Active(CardPack card){
+        card.card_active = true;
+        card.card_lateActive = true;
+        }
 
     public virtual void StartMatch(CardPack card, BattleManager match){}
 
@@ -55,7 +59,7 @@ public class CardAbility : ScriptableObject
     public virtual void ImmediEffect(CardPack card, Transform transform){}
     
 
-    public virtual void AttackEffect(Transform transform){}
+    public virtual void AttackEffect(CardPack card,Player defender){}
 
 
     public void EffectPlayerSet(GameObject effect, Player player, Transform tran, float x,float y){

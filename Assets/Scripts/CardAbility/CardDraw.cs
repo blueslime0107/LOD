@@ -96,7 +96,6 @@ public class CardDraw : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,target,100*Time.deltaTime);
             yield return null;
         }
-        yield return null;
     }
 
     void Update(){

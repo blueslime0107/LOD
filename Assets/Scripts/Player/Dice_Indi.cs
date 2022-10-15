@@ -176,9 +176,11 @@ public class Dice_Indi : MonoBehaviour
             battleManager.mouseTouchingTarget = player;
 
         if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
+            player.player_floor_render.SetInt("_Active",1);
             player.ShowCardDeck(false);
         }
         if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
+            player.player_floor_render.SetInt("_Active",1); 
             player.ShowCardDeck(false);
         }
         onMouseEnter = true;
@@ -188,10 +190,12 @@ public class Dice_Indi : MonoBehaviour
         onMouseEnter = false;
         battleManager.mouseTouchingTarget = null;
         if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
+            player.player_floor_render.SetInt("_Active",0);
             battleManager.ui.Leftcard_Update(true);
         
         }
         if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
+            player.player_floor_render.SetInt("_Active",0);
             battleManager.ui.Rightcard_Update(true);
         
         }

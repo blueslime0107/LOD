@@ -8,13 +8,16 @@ public class CardPack : MonoBehaviour
     public Player player;
     public CardAbility ability;
     public bool card_active; // 카드 능력 발동
+    public bool card_lateActive;
     public CardPack selected_card;
+    public LineRenderer diceLink;
 
     public Player saved_player;
     public List<Player> saved_player_list = new List<Player>();
     public int saved_int;
     public CardPack saved_card;
     public CardAbility saved_ability;
+    public Dice dice;
 
     public List<CardAbility> card_reg = new List<CardAbility>();
     public List<CardPack> cardpack_reg = new List<CardPack>();
@@ -46,8 +49,18 @@ public class CardPack : MonoBehaviour
             card_effect.battleManager = battleManager;
             effe.SetActive(false);
             GameObject card = Instantiate(effe);
+            
             card.transform.SetParent(player.gameObject.transform, !card_effect.onplayer);
+            if(player.gameObject.tag == "PlayerTeam2"){ 
+                card.transform.eulerAngles += Vector3.up*180f;  
+            }
             effect.Add(card);
+
+        }
+        if(ability.diceLink != null){
+            GameObject card = Instantiate(ability.diceLink);
+            card.transform.SetParent(player.gameObject.transform, false);
+            diceLink = card.GetComponent<LineRenderer>();
         }
         //gameObject.SetActive(false);
     }

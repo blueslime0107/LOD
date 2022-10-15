@@ -14,4 +14,10 @@ public class Card2 : CardAbility
         
     }
 
+    public override void AttackEffect(CardPack card,Player defender)
+    {
+        card.effect[0].transform.position = defender.gameObject.transform.position;
+        card.effect[0].SetActive(true); 
+    }
+
 }

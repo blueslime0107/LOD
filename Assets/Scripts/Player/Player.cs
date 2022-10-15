@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     float moveSpeed;
 
     [HideInInspector] public List<GameObject> card_effect = new List<GameObject>();
-    public List<GameObject> attack_effect = new List<GameObject>();
+    public List<AttEffect> attack_effect = new List<AttEffect>();
 
     Vector3 origin_pos;
 
@@ -205,13 +205,13 @@ public class Player : MonoBehaviour
         // }
     
 
-    public void ShowCardDeck(bool cardshow,bool nah=false){
+    public void ShowCardDeck(bool update,bool nah=false){
 
         if(gameObject.tag == "PlayerTeam1"){
             if(battleManager.left_cardLook_lock && !nah)
                 {Debug.Log("help");
                 return;}
-            if (cardshow ){ battleManager.cardViewChar_left = this;}
+            if (update ){ battleManager.cardViewChar_left = this;}
             battleManager.render_cardViewChar_left = this;
             battleManager.ui.leftCard_card = cards;
             battleManager.ui.Leftcard_Update();
@@ -225,7 +225,7 @@ public class Player : MonoBehaviour
             if(battleManager.right_cardLook_lock && !nah)
                 {Debug.Log("me");
                 return;}
-            if (cardshow ){ battleManager.cardViewChar_right = this;}
+            if (update ){ battleManager.cardViewChar_right = this;}
             battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;
             Debug.Log(battleManager.ui.rightCard_card );
@@ -283,16 +283,27 @@ public class Player : MonoBehaviour
     }
 
     public void AttackEffect(Player defender){
-        foreach(GameObject effect in attack_effect){
-            effect.SetActive(true);
-            effect.transform.position = attPoint.position;
+        foreach(CardPack card in cards){
+            card.ability.AttackEffect(card,defender);
+        }
+        foreach(AttEffect effect in attack_effect){
+            if(effect.player_set){
+                effect.gameObject.transform.position = transform.position;
+            }
+            else{
+                effect.gameObject.transform.position = defender.gameObject.transform.position;
+            }
+            effect.gameObject.SetActive(true);
+            
+            
+
         }
 
     }
 
     public void Battle_End(){
-        foreach(GameObject effect in attack_effect){
-            effect.SetActive(false);
+        foreach(AttEffect effect in attack_effect){
+            effect.gameObject.SetActive(false);
         }
     }
 

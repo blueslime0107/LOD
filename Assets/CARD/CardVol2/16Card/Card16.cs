@@ -10,11 +10,21 @@ public class Card16 : CardAbility
         Dice copyDice = dice;
         copyDice.dice_value = 1;
         card.player.dice_Indi.put_subDice(copyDice);
+        card.dice = copyDice;
     }
     
 
     public override void StartMatch(CardPack card, BattleManager match)
     {
         card.card_activating = false;
+    }
+
+    public override void AttackEffect(CardPack card,Player defender)
+    {
+        if(card.player.dice_Indi.dice_list[0].Equals(card.dice)){
+            if(!card.player.farAtt)
+                card.effect[0].SetActive(true);
+        }
+        
     }
 }

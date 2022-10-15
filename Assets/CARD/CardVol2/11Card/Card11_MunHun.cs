@@ -10,6 +10,5 @@ public class Card11_MunHun : CardAbility
     {
         player.AddHealth(1);
         card.effect[0].SetActive(true);
-        //EffectPlayerSet(card.effect[0],player,player.transform,1,-0.5f);
     }
 }

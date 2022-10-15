@@ -24,6 +24,7 @@ MonoBehaviour:
     \uC774 \uCD1D\uC774 \uC544\uC9C1\uAE4C\uC9C0\uB3C4 \uC4F0\uC774\uB294 \uAC83\uC774\uACA0\uC9C0."
   gague: 0
   illust: {fileID: 21300000, guid: 73de288f95d1016429574f39cd8d5887, type: 3}
-  effect: []
+  effect:
+  - {fileID: 6814567075868808654, guid: f916df2808f442242b01c47bf8b64521, type: 3}
   linked_card: []
   dice: {fileID: 3114845061643615084, guid: a005f325032aa15468cb11b0133d13fd, type: 3}
