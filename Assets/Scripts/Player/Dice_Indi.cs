@@ -55,6 +55,10 @@ public class Dice_Indi : MonoBehaviour
         if(dice_value != 0){
             return;
         }
+        if(dice_list.Count <= 0){
+            player.ChangeCondition(0);
+            return;
+        }
         dice_list.RemoveAt(0);
         if(dice_list.Count <= 0){
             player.ChangeCondition(0);

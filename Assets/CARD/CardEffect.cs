@@ -10,6 +10,7 @@ public class CardEffect : MonoBehaviour
     public bool onbattleEnd;
     public bool fadeOut;
     float time;
+    public float moveFront=0;
     public float aliveTime;
     public float fade_time;
 
@@ -55,6 +56,7 @@ public class CardEffect : MonoBehaviour
             if(time > aliveTime){
                 gameObject.SetActive(false);
             }
+            transform.Translate(Vector3.right*moveFront*Time.deltaTime);
             }
             yield return null;
         }

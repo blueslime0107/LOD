@@ -31,23 +31,26 @@ public class Dice : MonoBehaviour
     }
 
     IEnumerator rollingDice(Vector2 vector){
+      
         self_pos = vector;
         transform.position = Vector3.up*4.5f;
         yield return new WaitForSeconds(0.2f);
-        float time = 0;
         Vector2 velo = Vector2.zero;
-        while(time<1){
+        while(true){
             transform.position = Vector2.SmoothDamp(transform.position,vector,ref velo,5f*Time.deltaTime);
             dice_value = (int)Random.Range(1f,7f);
             render.sprite = dice_img[dice_value-1];
             transform.Rotate(Vector3.forward*30);
-            time += Time.deltaTime;
             yield return null;
         }
+    
+    }
+
+    public void StopRollingDice(){
+        StopAllCoroutines();
         transform.localEulerAngles = Vector3.zero;
         dice_value = (int)Random.Range(1f,7f);
         render.sprite = dice_img[dice_value-1];
-        yield return null;
     }
 
     void OnMouseDrag() { // 마우스 

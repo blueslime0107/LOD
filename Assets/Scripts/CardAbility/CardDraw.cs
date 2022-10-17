@@ -90,7 +90,7 @@ public class CardDraw : MonoBehaviour
     }
 
     IEnumerator MoveSelect(){
-        Vector3 target = Vector3.right*5+Vector3.up;
+        Vector3 target = (battleManager.right_turn) ? Vector3.left*5+Vector3.up : Vector3.right*5+Vector3.up;
         while(true)
         { 
             transform.position = Vector3.MoveTowards(transform.position,target,100*Time.deltaTime);
@@ -204,9 +204,12 @@ public class CardDraw : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         
         if(mouseDrag){
-            if(collision.gameObject.tag.Contains("PlayerTeam")){
+            try{if(collision.gameObject.tag.Contains("PlayerTeam")){
                 target = collision.gameObject.GetComponent<Player>();
                 target.ShowCardDeck(false,true);
+            }}
+            catch{
+                return;
             }
            
         }

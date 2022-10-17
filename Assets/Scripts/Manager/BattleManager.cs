@@ -94,6 +94,8 @@ public class BattleManager : MonoBehaviour
         while(true){ // 계속반복
             # region 전투끝/카드뽑기
             PlayerGoToOrigin();
+            left_cardLook_lock = false;
+            right_cardLook_lock = false;
             while(camera.isZeroMove){
                 yield return null;
             }
@@ -226,6 +228,7 @@ public class BattleManager : MonoBehaviour
             TurnTeam(first_turn);
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
+            
             # endregion
             # region 주사위 굴리기
             foreach(Player player in players){
@@ -233,9 +236,13 @@ public class BattleManager : MonoBehaviour
                     player.cards[i].ability.StartMatch(player.cards[i],this);
                 }
             }
-            DiceRoll(); // 주사위를 
-            Right_battleAI.did = false;
+            DiceRoll(); // 주사위를                                                 
             yield return new WaitForSeconds(1f);
+            Right_battleAI.did = false;
+            foreach(Dice die in dices){
+                die.StopRollingDice();
+            }
+
             # endregion
             # region 주사위 지정
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
@@ -414,8 +421,8 @@ public class BattleManager : MonoBehaviour
             TurnTeam("Left");
             first_turn = "Left";
         }
-        TurnTeam("Right");
-        first_turn = "Right";
+            TurnTeam("Left");
+            first_turn = "Left";
     }
 
     public void TurnTeam(string team){

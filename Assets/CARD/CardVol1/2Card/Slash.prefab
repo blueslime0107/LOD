@@ -100,7 +100,11 @@ MonoBehaviour:
   onplayer: 0
   OnAttack: 0
   onbattleEnd: 0
+  fadeOut: 0
+  moveFront: 0.5
   aliveTime: 1
+  fade_time: 0
+  imLineRenderer: 0
 --- !u!114 &8818911310401213917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,5 +120,4 @@ MonoBehaviour:
   pre_set: {x: -1, y: 0, z: 0}
   player_set: 0
   farAtk: 0
-  wait_time: 0
   fade_time: 1

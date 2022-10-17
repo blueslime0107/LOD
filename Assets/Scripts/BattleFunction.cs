@@ -6,9 +6,10 @@ public class BattleFunction : MonoBehaviour
 {
     public BattleManager bm;
 
-    public void DiceToPlayer(Dice dice, Dice_Indi d_indi){
+    public void DiceToPlayer(Dice dice, Player player){
         dice.gameObject.SetActive(false);
-        d_indi.putDice(dice);
+
+        player.dice_Indi.putDice(dice);
     }
 
     public void TargetPlayer(Player atk, Player def){
