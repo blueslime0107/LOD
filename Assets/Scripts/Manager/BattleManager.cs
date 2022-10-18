@@ -29,24 +29,24 @@ public class BattleManager : MonoBehaviour
     public bool battle_start;
     public bool battle_end = false;
 
-    public string card_getting_team;
+    [HideInInspector]public string card_getting_team;
     public int card_left_draw = 0;
     public int card_right_draw = 0;
-    public bool card_gived = false;
-    public int card_give_count = 0;
+    [HideInInspector]public bool card_gived = false;
+    [HideInInspector]public int card_give_count = 0;
     public List<CardDraw> show_cards = new List<CardDraw>();
 
     public bool left_cardLook_lock = false;
     public bool right_cardLook_lock= false;
+    [HideInInspector]public bool cardTouching = false;
 
     public CardPack card_selecting;
     public bool card_select_trigger;
-    public CardPack card_selected;
 
     public CardAbility null_card;
 
-    public Player target1;
-    public Player target2;
+    [HideInInspector]public Player target1;
+    [HideInInspector]public Player target2;
     public Player mouseTouchingTarget;
 
     [HideInInspector]public bool battleing;
@@ -68,8 +68,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField]float left_gague_spd;
     [SerializeField]float right_gague_spd;
 
-    public List<Player> left_players = new List<Player>();
-    public List<Player> right_players = new List<Player>();
+    [HideInInspector]public List<Player> left_players = new List<Player>();
+    [HideInInspector]public List<Player> right_players = new List<Player>();
 
     [HideInInspector]public bool left_d6 = false;
     [HideInInspector]public bool right_d6 = false;
@@ -108,8 +108,6 @@ public class BattleManager : MonoBehaviour
                         card_getting_team = "Left";
                     }
                 //card_getting_team = (first_turn.Equals("Left")) ? "Left" : "Right";
-                // Debug.Log(card_getting_team);
-                // TurnTeam(card_getting_team);
 
                 if((card_getting_team.Equals("Left") && card_left_draw <= 0) || (card_getting_team.Equals("Right") && card_right_draw <= 0)){
                     if(card_getting_team.Equals("Left")){
@@ -441,8 +439,10 @@ public class BattleManager : MonoBehaviour
     }
 
     void PlayerGoToOrigin(){
+
         foreach(Player player in players){
             player.goto_origin = true;
+            player.player_floor_render.SetInt("_Active",0);
         }
 
     }
@@ -528,10 +528,7 @@ public class BattleManager : MonoBehaviour
     }
 
     public void SelectiedCard(CardPack card){
-        card_selected = card;
-        card_selecting.selected_card = card_selected;
-        card_selecting.ability.CardSelected(card_selecting,this);
-        card_selected = null;
+        card_selecting.ability.CardSelected(card_selecting,card,this);
         card_selecting = null;
         card_select_trigger = false;
     }

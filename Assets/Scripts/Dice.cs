@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
+    public Player player;
     public int dice_value;
     public Vector2 self_pos;
     public bool chartouch;

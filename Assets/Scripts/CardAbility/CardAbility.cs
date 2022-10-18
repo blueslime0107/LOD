@@ -13,9 +13,12 @@ public class CardAbility : ScriptableObject
     [TextArea]
     public string story_message;
 
+    public bool tained;
+
     public int gague;
 
     public Sprite illust;
+    public Sprite overCard;
     public GameObject[] effect;
     public CardAbility[] linked_card;
     public GameObject diceLink;
@@ -38,7 +41,7 @@ public class CardAbility : ScriptableObject
     public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
 
     public virtual void CardActivate(CardPack card, BattleManager match){}
-    public virtual void CardSelected(CardPack card, BattleManager match){}
+    public virtual void CardSelected(CardPack card, CardPack selected_card,BattleManager match){}
     public virtual void DiceApplyed(CardPack card, Player player){}
     public virtual void MatchStarted(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleStart(CardPack card, BattleCaculate battle){}

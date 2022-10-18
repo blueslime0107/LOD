@@ -9,7 +9,6 @@ public class CardPack : MonoBehaviour
     public CardAbility ability;
     public bool card_active; // 카드 능력 발동
     public bool card_lateActive;
-    public CardPack selected_card;
     public LineRenderer diceLink;
 
     public Player saved_player;
@@ -30,11 +29,14 @@ public class CardPack : MonoBehaviour
     public new string name;
     public string message;
     public string ability_message;
+    public Sprite overCard;
 
     public Sprite illust;
 
     public int gague;
     public int max_gague;
+
+
     
 
     public void PreSetting(Player play){

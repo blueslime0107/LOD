@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
         dice_com = dice_obj.GetComponent<Dice>();
         dice_obj.tag = gameObject.tag.Substring(6);
         dice_com.battleManager = battleManager;
+        dice_com.player = this;
         battleManager.players.Add(this);
         battleManager.dice_indis.Add(gameObject.transform.GetComponentInChildren<Dice_Indi>());
         battleManager.dices.Add(dice_com);
@@ -176,7 +177,6 @@ public class Player : MonoBehaviour
         
         
         }
-
         dice_com.cannot_roll = true;
         died = true;
         SetDice(0);
@@ -209,8 +209,8 @@ public class Player : MonoBehaviour
 
         if(gameObject.tag == "PlayerTeam1"){
             if(battleManager.left_cardLook_lock && !nah)
-                {Debug.Log("help");
-                return;}
+                return;
+                
             if (update ){ battleManager.cardViewChar_left = this;}
             battleManager.render_cardViewChar_left = this;
             battleManager.ui.leftCard_card = cards;
@@ -223,8 +223,8 @@ public class Player : MonoBehaviour
         if(gameObject.tag == "PlayerTeam2"){
             
             if(battleManager.right_cardLook_lock && !nah)
-                {Debug.Log("me");
-                return;}
+                return;
+            
             if (update ){ battleManager.cardViewChar_right = this;}
             battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;

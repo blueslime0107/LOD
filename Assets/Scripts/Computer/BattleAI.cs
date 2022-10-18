@@ -63,21 +63,26 @@ public class BattleAI : MonoBehaviour
         did = true;
 
         List<Dice> dice = new List<Dice>(my_dice);
+        dice = dice.FindAll(x => x.player.health >0);
         if(diceSelect[0] > 0)
             dice.Sort(SortDice);
         if(diceSelect[0].Equals(2))
             dice.Reverse();
 
         List<Player> player = new List<Player>(my_players);
+        player = player.FindAll(x => x.health >0);
         if(diceSelect[1] > 0)
             player.Sort(SortHealth);
         if(diceSelect[1].Equals(2))
             player.Reverse();
         if(diceSelect[1].Equals(0))
             GetShuffleList(player);
-
-        for(int i=0;i<dice.Count;i++){
+        try
+        {for(int i=0;i<dice.Count;i++){
             bf.DiceToPlayer(dice[i],player[i]);
+        }}
+        catch{
+
         }
 
     }
@@ -87,6 +92,7 @@ public class BattleAI : MonoBehaviour
 
 
         List<Player> myplayer = new List<Player>(my_players);
+        myplayer = myplayer.FindAll(x => x.health >0);
 
         if(battleWho[0] > 0)
             myplayer.Sort(SortPlayerDice);
@@ -105,6 +111,7 @@ public class BattleAI : MonoBehaviour
         }
 
         List<Player> eneplayer = new List<Player>(ene_players);
+        eneplayer = eneplayer.FindAll(x => x.health >0);
         if(myplayer[0].dice.Equals(6)){
             foreach(Player pla in eneplayer){
                 if(pla.dice.Equals(1)){
@@ -139,18 +146,6 @@ public class BattleAI : MonoBehaviour
 
 ///////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
-#region 전투지정명령
-    void BattleMatch(){
-        List<Player> my_players_dice = my_players.FindAll(x => x.dice >0);
-        List<Player> ene_players_dice = ene_players.FindAll(x => x.dice >0);
-        if(ene_players_dice.Count >0){
-            bf.TargetPlayer(my_players_dice[0],ene_players_dice[0]);
-        }
-        else{
-            bf.TargetPlayer(my_players_dice[0],ene_players[(int)Random.Range(0,ene_players.Count)]);
-        }
-    }
-#endregion
     private int SortPlayerDice(Player pl1, Player pl2){
         if(pl1.dice < pl2.dice){
             return 1;

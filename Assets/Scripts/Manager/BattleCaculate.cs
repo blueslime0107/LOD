@@ -107,15 +107,12 @@ public class BattleCaculate : MonoBehaviour
     IEnumerator BasicAttack(){
         bool farAtking = false;
         try{
-        farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt || eneChar.farAtt || eneChar.dice_Indi.dice_list[0].farAtt;
-        
-        Debug.Log("Debuging");
-        Debug.Log(myChar.farAtt);
-        Debug.Log(myChar.dice_Indi.dice_list[0].farAtt);
-        Debug.Log(eneChar.farAtt);
-        Debug.Log(eneChar.dice_Indi.dice_list[0].farAtt);}
+        farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt || eneChar.farAtt || eneChar.dice_Indi.dice_list[0].farAtt;}
         catch{
-            farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt;
+            if(myChar.dice_Indi.dice_list.Count > 0)
+                farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt;
+            else
+                farAtking = myChar.farAtt;
         }
         
 
@@ -161,9 +158,7 @@ public class BattleCaculate : MonoBehaviour
             battleDice.left_break.Play();
             battleDice.right_break.Play();
         }
-        
-        Debug.Log(damage);
-        Debug.Log("Debuging_END");
+
         if(damage>0 && (!myChar.farAtt && !myChar.dice_Indi.dice_list[0].farAtt)){
             myChar.SetPointMove(eneChar.movePoint.position, 22f);
             gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);

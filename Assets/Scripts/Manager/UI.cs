@@ -147,7 +147,6 @@ public class UI : MonoBehaviour
     }
 
     IEnumerator PanoraOn(){
-        Debug.Log("debug");
         
         StopCoroutine("PanoraOff");
         // rect_panorama_up.anchoredPosition = Vector2.zero;

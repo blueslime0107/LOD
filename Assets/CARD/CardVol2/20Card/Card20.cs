@@ -15,14 +15,14 @@ public class Card20 : CardAbility
         match.SelectingCard(card);
     }
 
-    public override void CardSelected(CardPack card, BattleManager match)
+    public override void CardSelected(CardPack card, CardPack selected_card,BattleManager match)
     {
 
-        card.saved_card.ability = card.selected_card.ability;
-        card.saved_card.illust = card.selected_card.illust;
-        card.saved_card.name = card.selected_card.name;
-        card.saved_card.ability_message = card.selected_card.ability_message;
-        card.saved_card.message = card.selected_card.message;
+        card.saved_card.ability = selected_card.ability;
+        card.saved_card.illust = selected_card.illust;
+        card.saved_card.name = selected_card.name;
+        card.saved_card.ability_message = selected_card.ability_message;
+        card.saved_card.message = selected_card.message;
 
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     public int card_num;
     public bool isLeft;
@@ -21,28 +21,31 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     TextMeshProUGUI message;
     public GameObject ability_img;
     public GameObject ability_img2;
+
     TextMeshProUGUI ability_message;
     TextMeshProUGUI ability_message2;
+    Image card_overImg;
     [SerializeField]GameObject card_light;
     [SerializeField]GameObject block_img;
+    [SerializeField]GameObject tain_img;
+    [SerializeField]GameObject card_overImg_obj;
+    [SerializeField]GameObject obj1;
+    [SerializeField]GameObject obj2;
 
     Vector2 target_pos;
     float target_spd;
 
     void Awake() {
-        
-        GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
-        GameObject obj2 = gameObject.transform.GetChild(1).gameObject;
-        GameObject obj4_1 = gameObject.transform.GetChild(2).gameObject;
-        GameObject obj4_2 = obj4_1.transform.GetChild(0).gameObject;
-        GameObject obj5_1 = gameObject.transform.GetChild(3).gameObject;
-        GameObject obj5_2 = obj5_1.transform.GetChild(0).gameObject;
+
+        GameObject obj4_2 = ability_img.transform.GetChild(0).gameObject;
+        GameObject obj5_2 = ability_img2.transform.GetChild(0).gameObject;
         rect = GetComponent<RectTransform>();
         name = obj1.GetComponent<TextMeshProUGUI>();
         message = obj2.GetComponent<TextMeshProUGUI>();
         illust = GetComponent<Image>();
         ability_message = obj4_2.GetComponent<TextMeshProUGUI>();
         ability_message2 = obj5_2.GetComponent<TextMeshProUGUI>();
+        card_overImg = card_overImg_obj.GetComponent<Image>();
 
 
 
@@ -72,6 +75,20 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             catch
             {if(battleManager.render_cardViewChar_left.cards[card_num].card_activating){material.SetInt("_Active",1);}
             else{material.SetInt("_Active",0);}}
+            if(card.ability.tained){
+                tain_img.SetActive(true);
+            }
+            else{
+                tain_img.SetActive(false);
+            }
+            if(card.overCard != null){
+                card_overImg.gameObject.SetActive(true);
+                card_overImg.sprite = card.overCard;
+            }
+            else{
+                card_overImg.gameObject.SetActive(false);
+            }
+            
         }
         else{  
             try
@@ -84,6 +101,19 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 if(battleManager.render_cardViewChar_right.cards[card_num].card_activating){material.SetInt("_Active",1);}
                 else{material.SetInt("_Active",0);}
             }
+            if(card.ability.tained){
+                tain_img.SetActive(true);
+            }
+            else{
+                tain_img.SetActive(false);
+            }
+            if(card.overCard != null){
+                card_overImg.gameObject.SetActive(true);
+                card_overImg.sprite = card.overCard;
+            }
+            else{
+                card_overImg.gameObject.SetActive(false);
+            }
         
         
         
@@ -91,19 +121,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     }
 
-     public void OnPointerEnter(PointerEventData eventData)
-     {
-        if(isLeft) {ability_img.SetActive(true);}
-        else {ability_img2.SetActive(true);}
-        target_pos = new Vector2(rect.anchoredPosition.x,45);
-        
-        target_spd = 100;
-        StartCoroutine("lerpMove");
-
-        
-        transform.SetAsLastSibling();
-        
-     }
+     
 
      IEnumerator lerpMove(){
         while (true)
@@ -115,9 +133,28 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         yield return null;
         }
      }
+
+     public void OnPointerEnter(PointerEventData eventData)
+     {
+        battleManager.cardTouching = true;
+        if(battleManager.card_select_trigger) {StartCoroutine("ImSelectedCard");}
+        if(isLeft) {ability_img.SetActive(true);}
+        else {ability_img2.SetActive(true);}
+        target_pos = new Vector2(rect.anchoredPosition.x,45);
+        
+        target_spd = 100;
+        StartCoroutine("lerpMove");
+
+        
+        transform.SetAsLastSibling();
+        CardUpdate();
+        
+     }
  
     public void OnPointerExit(PointerEventData eventData)
      {
+        battleManager.cardTouching = false;
+        StopCoroutine("ImSelectedCard");
         if(isLeft) {ability_img.SetActive(false);}
         else {ability_img2.SetActive(false);}
         transform.SetSiblingIndex(card_num);
@@ -125,39 +162,24 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         target_pos = new Vector2(rect.anchoredPosition.x,0);
         target_spd = 100;
         StartCoroutine("lerpMove");
+        CardUpdate();
      }
 
-     public void OnPointerClick(PointerEventData eventData){
-        if(battleManager.card_select_trigger){
-            battleManager.SelectiedCard(card);
-            CardUpdate();
-            return;
-        }
+     public void OnPointerDown(PointerEventData eventData){
         if(isLeft){
             battleManager.cardViewChar_left.cards[card_num].ability.CardActivate(battleManager.cardViewChar_left.cards[card_num], battleManager);
-            // if(battleManager.players[battleManager.cardViewChar_left].cards[card_num].card_activating){
-                
-            //     material.SetInt("_Active",1);
-            // }
-            // else{
-            //     material.SetInt("_Active",0);
-            // }
         }
         else{
             battleManager.cardViewChar_right.cards[card_num].ability.CardActivate(battleManager.cardViewChar_right.cards[card_num], battleManager);
-            // if(battleManager.players[battleManager.cardViewChar_right].cards[card_num].card_activating){
-            //     material.SetInt("_Active",1);
-
-            // }
-            // else{
-            //     material.SetInt("_Active",0);
-            // }
-        
-        
-        
         }
         CardUpdate();
-        
+     }
+
+     public void OnPointerUp(PointerEventData eventData){
+        if(!battleManager.cardTouching)
+            battleManager.card_select_trigger = false;
+        Debug.Log("de select");
+        CardUpdate();
      }
 
      public IEnumerator CardActivated(){
@@ -171,5 +193,20 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         rect.anchoredPosition -= Vector2.up*45;
         //battleManager.battleCaculate.card_activated = false;
      }
+
+    public IEnumerator ImSelectedCard(){
+        while(true)
+        {if(Input.GetMouseButtonUp(0)){
+            Debug.Log("GetMouseButtonUp");
+            if(battleManager.card_select_trigger){
+            battleManager.SelectiedCard(card);
+            CardUpdate();
+            StopCoroutine("ImSelectedCard");
+            }
+            battleManager.card_select_trigger = false;
+        }
+        
+        yield return null;}
+    }
 
 }

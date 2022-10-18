@@ -39,7 +39,6 @@ public class Dice_Indi : MonoBehaviour
     // }
 
     public void putDice(Dice dice){
-        Debug.Log("what");
         dice_list.Add(dice);
         player.dice = dice.dice_value;
         player.ChangeCondition(1);
@@ -167,10 +166,8 @@ public class Dice_Indi : MonoBehaviour
 //render.color = new Color(0,0,0,206);
     void OnMouseUp() {
         onMouseDown = false;
-        Debug.Log(("why"));
         lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
         lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
-        
              
     }
     
