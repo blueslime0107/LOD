@@ -204,6 +204,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             StopCoroutine("ImSelectedCard");
             }
             battleManager.card_select_trigger = false;
+            battleManager.cardlineRender.gameObject.SetActive(false);
         }
         
         yield return null;}

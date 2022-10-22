@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     public new CameraCtrl camera;
     public BackGround backGround;
     public LineRenderer lineRender;
+    public LineRenderer cardlineRender;
     public UI ui;
     [HideInInspector]public List<Dice> dices = new List<Dice>();
     [HideInInspector]public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
@@ -92,6 +93,14 @@ public class BattleManager : MonoBehaviour
         //Left_battleAI.AIPreSet();
 
         while(true){ // 계속반복
+            if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count)){
+                Debug.Log("You Lose!");
+                break;
+            }
+            if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+                Debug.Log("You Win!");
+                break;
+            }
             # region 전투끝/카드뽑기
             PlayerGoToOrigin();
             left_cardLook_lock = false;
@@ -345,7 +354,9 @@ public class BattleManager : MonoBehaviour
             }
             # endregion
 
-        }             
+        }   
+        yield return new WaitForSeconds(1f);
+        gameManager.sceneMove.MoveStory();         
     }
 
 
@@ -525,6 +536,7 @@ public class BattleManager : MonoBehaviour
     public void SelectingCard(CardPack card){
         card_selecting = card;
         card_select_trigger = true;
+        cardlineRender.gameObject.SetActive(true);
     }
 
     public void SelectiedCard(CardPack card){

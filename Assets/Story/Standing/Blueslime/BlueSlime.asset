@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad0d5d37cf578c4f873013833b73615, type: 3}
+  m_Name: BlueSlime
+  m_EditorClassIdentifier: 
+  character:
+  - {fileID: 21300000, guid: 4402b3f7c36b3074f9ebb894f35dbff9, type: 3}
+  - {fileID: 21300000, guid: 631de3989fb5c4743a7c501c1cf83647, type: 3}
+  - {fileID: 21300000, guid: 5d1ebc13144267b4e84d3c6f19f6c5a6, type: 3}
+  - {fileID: 21300000, guid: c7781c5baf057c34aa8359ac2462154f, type: 3}
+  - {fileID: 21300000, guid: 9415ece4a007daf47a0a182563ac348d, type: 3}

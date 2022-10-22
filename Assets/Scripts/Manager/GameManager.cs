@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public BattleManager battleManager;
+    public SceneMove sceneMove;
     public CameraCtrl main_camera_ctrl;
 
     void Start(){
