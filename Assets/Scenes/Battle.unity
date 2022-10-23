@@ -195,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &46786873
 Transform:
   m_ObjectHideFlags: 0
@@ -242,8 +242,7 @@ MonoBehaviour:
   dice_obj: {fileID: 3416837838974082284, guid: fdbf4c3ca62c4f443a6f8ab06d3f304a, type: 3}
   died: 0
   player_floor: {fileID: 0}
-  pre_cards:
-  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  pre_cards: []
   cards: []
   poses:
   - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
@@ -16177,7 +16176,7 @@ PrefabInstance:
     - target: {fileID: 1878367823639087088, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: f8fa0fcf5fa0be1408af95773166b060, type: 2}
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1878367823639087089, guid: 672ee0eee4e39814d965bcecdba53f36, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19472,7 +19471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779726900
 Transform:
   m_ObjectHideFlags: 0
@@ -19697,6 +19696,19 @@ MonoBehaviour:
   battleManager: {fileID: 1916609188}
   sceneMove: {fileID: 1610819874}
   main_camera_ctrl: {fileID: 519420030}
+  sm: {fileID: 0}
+  leftPlayers:
+  - {fileID: 46786874}
+  - {fileID: 987136918}
+  - {fileID: 845077960}
+  - {fileID: 1643892735}
+  - {fileID: 1643892735}
+  rightPlayers:
+  - {fileID: 1779726901}
+  - {fileID: 908135925}
+  - {fileID: 715146560}
+  - {fileID: 2089797372}
+  - {fileID: 2089797372}
 --- !u!4 &1792211219
 Transform:
   m_ObjectHideFlags: 0

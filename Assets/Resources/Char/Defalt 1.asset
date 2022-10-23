@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
+  m_Name: Defalt 1
+  m_EditorClassIdentifier: 
+  char_name: "\uBE14\uB8E8\uC2AC\uB77C\uC784"
+  health: 10
+  breaks: 05000000
+  char_sprites:
+  - {fileID: 21300000, guid: f81486f31958e474686c751c813739e9, type: 3}
+  - {fileID: 21300000, guid: 6307221e52bbb8d41ab2355084d2aa51, type: 3}
+  - {fileID: 21300000, guid: 13bd5a7a6375d814b84a9a6751f4bbe0, type: 3}
+  - {fileID: 21300000, guid: d1004f640ea6eeb4ab8c3a028c25ce93, type: 3}
+  - {fileID: 21300000, guid: 42c583a1376221249aef4f051f1ae549, type: 3}
+  char_preCards:
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

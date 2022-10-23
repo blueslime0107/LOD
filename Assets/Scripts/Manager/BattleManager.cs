@@ -99,6 +99,7 @@ public class BattleManager : MonoBehaviour
             }
             if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
                 Debug.Log("You Win!");
+                gameManager.sm.stage.victoryed = true;
                 break;
             }
             # region 전투끝/카드뽑기
@@ -356,7 +357,13 @@ public class BattleManager : MonoBehaviour
 
         }   
         yield return new WaitForSeconds(1f);
-        gameManager.sceneMove.MoveStory();         
+        if(gameManager.sm.stage.afterStory != null){
+            gameManager.sceneMove.MoveStory();
+        }
+        else{
+            gameManager.sceneMove.MoveLobby();
+        }
+                 
     }
 
 

@@ -7,6 +7,8 @@ using TMPro;
 
 public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
+
+
     public int card_num;
     public bool isLeft;
     public BattleManager battleManager;
@@ -28,7 +30,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField]GameObject card_light;
     [SerializeField]GameObject block_img;
     [SerializeField]GameObject tain_img;
-    [SerializeField]GameObject card_overImg_obj;
+    //[SerializeField]GameObject card_overImg_obj;
     [SerializeField]GameObject obj1;
     [SerializeField]GameObject obj2;
 
@@ -45,7 +47,7 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         illust = GetComponent<Image>();
         ability_message = obj4_2.GetComponent<TextMeshProUGUI>();
         ability_message2 = obj5_2.GetComponent<TextMeshProUGUI>();
-        card_overImg = card_overImg_obj.GetComponent<Image>();
+        //card_overImg = card_overImg_obj.GetComponent<Image>();
 
 
 
@@ -81,13 +83,13 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             else{
                 tain_img.SetActive(false);
             }
-            if(card.overCard != null){
-                card_overImg.gameObject.SetActive(true);
-                card_overImg.sprite = card.overCard;
-            }
-            else{
-                card_overImg.gameObject.SetActive(false);
-            }
+            // if(card.overCard != null){
+            //     card_overImg.gameObject.SetActive(true);
+            //     card_overImg.sprite = card.overCard;
+            // }
+            // else{
+            //     card_overImg.gameObject.SetActive(false);
+            // }
             
         }
         else{  
@@ -107,13 +109,13 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             else{
                 tain_img.SetActive(false);
             }
-            if(card.overCard != null){
-                card_overImg.gameObject.SetActive(true);
-                card_overImg.sprite = card.overCard;
-            }
-            else{
-                card_overImg.gameObject.SetActive(false);
-            }
+            // if(card.overCard != null){
+            //     card_overImg.gameObject.SetActive(true);
+            //     card_overImg.sprite = card.overCard;
+            // }
+            // else{
+            //     card_overImg.gameObject.SetActive(false);
+            // }
         
         
         

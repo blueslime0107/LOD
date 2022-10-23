@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     public int speed;
 
     void Start(){
+        render.sprite = poses[0];
         if(pre_cards.Count > 0){
             foreach(CardAbility card in pre_cards){
                 battleManager.GiveCard(card,this);

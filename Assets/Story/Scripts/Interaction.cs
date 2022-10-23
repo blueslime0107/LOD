@@ -6,7 +6,7 @@ using TMPro;
 
 public class Interaction : MonoBehaviour
 {
-    public DataBaseManager dataBase;
+    public DTManager dataBase;
     public SceneMove sceneMove;
     [SerializeField] GameObject parentStanding;
     [SerializeField] GameObject standing;
@@ -102,14 +102,25 @@ public class Interaction : MonoBehaviour
         
         textadd = "";
         foreach(string text in dataBase.dialogDic[index].context){
-            textadd += text;
+            textadd += text.Replace('/',',');
             textadd += "<br>";
         }
+        Debug.Log(dataBase.stageManager.stage.victoryed);
 
         StartCoroutine(typing(textadd));}
         catch{
+            SkipText();
+        }
+    }
+
+    public void SkipText(){
+        if(dataBase.stageManager.stage.victoryed){
+            sceneMove.MoveLobby();
+        }
+        else{
             sceneMove.MoveBattle();
         }
+        
     }
 
 }
