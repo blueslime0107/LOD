@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     void Awake(){
         sm = FindObjectOfType<StageManager>();
 
-        for(int i=0;i<sm.playerStage.characters.Length;i++){
+        if(sm != null)
+        {for(int i=0;i<sm.playerStage.characters.Length;i++){
             if(sm.playerStage.characters[i] != null)
             {
                 leftPlayers[i].gameObject.SetActive(true);
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
                     rightPlayers[i].pre_cards.Add(ability);
                 }
             }
-        }
+        }}
 
     }
 

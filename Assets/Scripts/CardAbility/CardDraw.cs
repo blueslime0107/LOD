@@ -221,10 +221,10 @@ public class CardDraw : MonoBehaviour
         if(mouseDrag){
             if(collision.gameObject.tag.Contains("PlayerTeam")){
                 if(collision.gameObject.tag.Equals("PlayerTeam1")){
-                    battleManager.ui.Leftcard_Update(true);
+                    battleManager.ui.CardUIUpdate("Left",true);
                 }
                 else{
-                    battleManager.ui.Rightcard_Update(true);
+                    battleManager.ui.CardUIUpdate("Right",true);
                 }
                 target = null;
             }

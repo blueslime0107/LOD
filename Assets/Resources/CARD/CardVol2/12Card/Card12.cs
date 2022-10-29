@@ -11,7 +11,7 @@ public class Card12 : CardAbility
         card.card_activating = true;
     }
 
-    public override void MatchStarted(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         if(card.card_activating){
             card.saved_int = (int)Random.Range(1f,7f);

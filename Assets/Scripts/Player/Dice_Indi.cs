@@ -192,12 +192,12 @@ public class Dice_Indi : MonoBehaviour
         battleManager.mouseTouchingTarget = null;
         if(player.gameObject.tag.Equals("PlayerTeam1") && !battleManager.left_cardLook_lock){
             player.player_floor_render.SetInt("_Active",0);
-            battleManager.ui.Leftcard_Update(true);
+            battleManager.ui.CardUIUpdate("Left",true);
         
         }
         if(player.gameObject.tag.Equals("PlayerTeam2") && !battleManager.right_cardLook_lock){
             player.player_floor_render.SetInt("_Active",0);
-            battleManager.ui.Rightcard_Update(true);
+            battleManager.ui.CardUIUpdate("Right",true);
         
         }
             

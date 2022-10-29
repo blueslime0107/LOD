@@ -3,53 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
 public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
-
+    public CardPrefap cardPrefap;
 
     public int card_num;
     public bool isLeft;
     public BattleManager battleManager;
     RectTransform rect;
-    Image illust;
     
     Material material;
     //MaterialPropertyBlock material_block;
     //Image card_image;
     public CardPack card;
-    new TextMeshProUGUI name;
-    TextMeshProUGUI message;
-    public GameObject ability_img;
-    public GameObject ability_img2;
 
-    TextMeshProUGUI ability_message;
-    TextMeshProUGUI ability_message2;
     Image card_overImg;
     [SerializeField]GameObject card_light;
     [SerializeField]GameObject block_img;
-    [SerializeField]GameObject tain_img;
-    //[SerializeField]GameObject card_overImg_obj;
-    [SerializeField]GameObject obj1;
-    [SerializeField]GameObject obj2;
 
     Vector2 target_pos;
     float target_spd;
 
     void Awake() {
 
-        GameObject obj4_2 = ability_img.transform.GetChild(0).gameObject;
-        GameObject obj5_2 = ability_img2.transform.GetChild(0).gameObject;
         rect = GetComponent<RectTransform>();
-        name = obj1.GetComponent<TextMeshProUGUI>();
-        message = obj2.GetComponent<TextMeshProUGUI>();
-        illust = GetComponent<Image>();
-        ability_message = obj4_2.GetComponent<TextMeshProUGUI>();
-        ability_message2 = obj5_2.GetComponent<TextMeshProUGUI>();
-        //card_overImg = card_overImg_obj.GetComponent<Image>();
-
-
 
 
         material = Instantiate(card_light.GetComponent<Image>().material);
@@ -59,11 +37,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
 
     public void CardUpdate(){
-        illust.sprite = card.illust;
-        name.text = card.name;
-        message.text = card.message;
-        ability_message.text = card.ability_message;
-        ability_message2.text = card.ability_message;
         if(card.ability.name.Equals("NULL")){
             block_img.SetActive(true);
         }
@@ -77,12 +50,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             catch
             {if(battleManager.render_cardViewChar_left.cards[card_num].card_activating){material.SetInt("_Active",1);}
             else{material.SetInt("_Active",0);}}
-            if(card.ability.tained){
-                tain_img.SetActive(true);
-            }
-            else{
-                tain_img.SetActive(false);
-            }
             // if(card.overCard != null){
             //     card_overImg.gameObject.SetActive(true);
             //     card_overImg.sprite = card.overCard;
@@ -102,12 +69,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             {
                 if(battleManager.render_cardViewChar_right.cards[card_num].card_activating){material.SetInt("_Active",1);}
                 else{material.SetInt("_Active",0);}
-            }
-            if(card.ability.tained){
-                tain_img.SetActive(true);
-            }
-            else{
-                tain_img.SetActive(false);
             }
             // if(card.overCard != null){
             //     card_overImg.gameObject.SetActive(true);
@@ -140,8 +101,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      {
         battleManager.cardTouching = true;
         if(battleManager.card_select_trigger) {StartCoroutine("ImSelectedCard");}
-        if(isLeft) {ability_img.SetActive(true);}
-        else {ability_img2.SetActive(true);}
         target_pos = new Vector2(rect.anchoredPosition.x,45);
         
         target_spd = 100;
@@ -157,8 +116,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      {
         battleManager.cardTouching = false;
         StopCoroutine("ImSelectedCard");
-        if(isLeft) {ability_img.SetActive(false);}
-        else {ability_img2.SetActive(false);}
         transform.SetSiblingIndex(card_num);
 
         target_pos = new Vector2(rect.anchoredPosition.x,0);

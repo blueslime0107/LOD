@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/16글록17", order = 16)]
 public class Card16 : CardAbility
 {
-    public override void MatchStarted(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         Dice copyDice = dice;
         copyDice.dice_value = 1;

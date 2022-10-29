@@ -26,8 +26,7 @@ public class BattleManager : MonoBehaviour
     public Cards cardViewer;
     public GameObject blackScreen;
 
-    public bool battle_ready;
-    public bool battle_start;
+    public bool battle_start; // 버튼을 눌러 전투 시작인지
     public bool battle_end = false;
 
     [HideInInspector]public string card_getting_team;
@@ -57,7 +56,7 @@ public class BattleManager : MonoBehaviour
     public Player render_cardViewChar_left;
     public Player render_cardViewChar_right;
 
-    public string first_turn;
+    public string first_turn; // 전투시작시 처음 주사위,전투를 할지 결정
     [HideInInspector]public bool right_turn;
     [HideInInspector]public bool left_turn;
 
@@ -93,15 +92,15 @@ public class BattleManager : MonoBehaviour
         //Left_battleAI.AIPreSet();
 
         while(true){ // 계속반복
-            if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count)){
-                Debug.Log("You Lose!");
-                break;
-            }
-            if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
-                Debug.Log("You Win!");
-                gameManager.sm.stage.victoryed = true;
-                break;
-            }
+            // if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count)){
+            //     Debug.Log("You Lose!");
+            //     break;
+            // }
+            // if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+            //     Debug.Log("You Win!");
+            //     gameManager.sm.stage.victoryed = true;
+            //     break;
+            // }
             # region 전투끝/카드뽑기
             PlayerGoToOrigin();
             left_cardLook_lock = false;
@@ -258,45 +257,45 @@ public class BattleManager : MonoBehaviour
                     // 팀이 주사위를 전부 얻으면 상대팀
                     if(left_turn){
                         if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count)
-                            //(players[0].dice > 0 && players[1].dice > 0 && players[2].dice > 0){
-                                TurnTeam("Right");
-                            //}
+                            TurnTeam("Right");
                     }
                     if(right_turn){
-                        if(right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){
-                                TurnTeam("Left");
-                            }
+                        if(right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count)
+                            TurnTeam("Left");
                     }
                     
                     //Left_battleAI.isDiceSelect();
                     Right_battleAI.isDiceSelect();
-                    
-                    // 양팀 주사위 넣음
+                
 
+                    // 주사위를 다 넣었으면(죽으면 넣은걸로 인정)
                     if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
                     right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){
-                        right_turn = true;
-                        left_turn = true;
                         backGround.leftCircle.SetActive(true);
                         backGround.rightCircle.SetActive(true);
-                        battle_ready =  true;                    
+                        // 주사위를 다 넣었을때 효과 발동
+                        for(int i = 0; i < players.Count; i++){
+                            for(int j = 0; j < players[i].cards.Count; j++){
+                                players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
+                            }
+                        }                  
+                        while(!battle_start){
+                            yield return null; 
+                        }
                     }
                 }
                 if(battle_start)
                 {
                     target1 = null;
                     target2 = null;
-                    if(first_turn.Equals("Left")){
-                        TurnTeam("Left");
-                    }
-                    else{
-                        TurnTeam("Right");
-                    }
+                    if(first_turn.Equals("Left")) TurnTeam("Left");
+                    else TurnTeam("Right");
                     break;
                 }
                     
                 yield return null;
             }
+            
             # endregion
             # region 전투시작
             while(!battle_end){ // 모든 캐릭터에게 주사위가 없으면 진행
@@ -356,13 +355,13 @@ public class BattleManager : MonoBehaviour
             # endregion
 
         }   
-        yield return new WaitForSeconds(1f);
-        if(gameManager.sm.stage.afterStory != null){
-            gameManager.sceneMove.MoveStory();
-        }
-        else{
-            gameManager.sceneMove.MoveLobby();
-        }
+        //yield return new WaitForSeconds(1f);
+        // if(gameManager.sm.stage.afterStory != null){
+        //     gameManager.sceneMove.MoveStory();
+        // }
+        // else{
+        //     gameManager.sceneMove.MoveLobby();
+        // }
                  
     }
 
@@ -428,21 +427,20 @@ public class BattleManager : MonoBehaviour
     }
 
     void FirstTeam(){
-        int rand = (int)Random.Range(0f,2f);
-        if(rand == 0){
-            TurnTeam("Right");
+        if((int)Random.Range(0f,2f) == 0){
             first_turn = "Right";
         }
         else{
-            TurnTeam("Left");
             first_turn = "Left";
         }
-            TurnTeam("Left");
-            first_turn = "Left";
+        first_turn = "Left";
+        TurnTeam(first_turn);
+        
     }
 
-    public void TurnTeam(string team){
-        if(team.Equals("Left")){
+    public void TurnTeam(string team = ""){
+        // 팀을 바꾸면 게이지를 약간 채우고 배경을 그 팀 전용으로 맞춤한다.
+        if(team.Equals("Left")){ 
             right_gague = (right_gague<right_gague_max) ? right_gague+100f : right_gague_max;
             backGround.TeamChanged("Left");
             left_turn = true;
@@ -454,10 +452,20 @@ public class BattleManager : MonoBehaviour
             right_turn = true;
             left_turn = false;
         }
+        // 적지 않았을때 팀을 넘김
+        if(team.Equals("")){
+            if(left_turn){
+                TurnTeam("Right");
+            }
+            if(right_turn){
+                TurnTeam("Left");
+            }
+
+        }
     }
 
     void PlayerGoToOrigin(){
-
+        // 플레이어가 모두 돌아가는걸 허락함, 바닥 활성화를 끔
         foreach(Player player in players){
             player.goto_origin = true;
             player.player_floor_render.SetInt("_Active",0);
@@ -516,16 +524,11 @@ public class BattleManager : MonoBehaviour
         target2 = null;
     }
 
+    // 버튼 외부 발동
     public void BattleStart(){
-        for(int i = 0; i < players.Count; i++){
-            for(int j = 0; j < players[i].cards.Count; j++){
-                players[i].cards[j].ability.MatchStarted(players[i].cards[j],players[i],this);
-            }
-        }
-        if(battle_ready){
+        if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
+            right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){ // 주사위를 
             battle_start = true;
-            battle_ready = false;
-
         }
     }
 
@@ -555,6 +558,7 @@ public class BattleManager : MonoBehaviour
     public CardPack GiveCard(CardAbility having_card, Player player){
         GameObject game_card = new GameObject();
         CardPack card = game_card.AddComponent<CardPack>() as CardPack;
+        //CardPack card = new CardPack();
         card.ability = having_card;
         card.max_gague = having_card.gague;
         card.battleManager = this;

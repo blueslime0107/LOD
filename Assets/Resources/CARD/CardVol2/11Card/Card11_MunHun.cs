@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card11_MunHun : CardAbility
 {
     
-    public override void MatchStarted(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         player.AddHealth(1);
         card.effect[0].SetActive(true);

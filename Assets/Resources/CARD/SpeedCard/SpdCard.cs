@@ -14,7 +14,7 @@ public class SpdCard : CardAbility
         }
     }
 
-    public override void MatchStarted(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         card.gague = card.max_gague;
     }

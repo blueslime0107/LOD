@@ -18,11 +18,6 @@ public class BackGround : MonoBehaviour
     public GameObject leftCircle;
     public GameObject rightCircle;
 
-
-
-
-
-
     void Update()
     {
         if(bm.left_turn){

@@ -289,8 +289,8 @@ public class BattleCaculate : MonoBehaviour
 
         bm.left_cardLook_lock = false;
         bm.right_cardLook_lock = false;
-        bm.ui.Leftcard_Update(true);
-        bm.ui.Rightcard_Update(true);
+        bm.ui.CardUIUpdate("Left",true);
+        bm.ui.CardUIUpdate("Right",true);
 
         bm.blackScreen.SetActive(false);
         myChar.SetDice(0);

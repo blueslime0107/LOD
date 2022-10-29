@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     bool card_actived;
 
-    List<card_text> player_deck;
+    //List<card_text> player_deck;
 
     [HideInInspector] public bool isMoving;
     Vector3 moveTarget;
@@ -64,12 +64,12 @@ public class Player : MonoBehaviour
         material = GetComponent<SpriteRenderer>().material;
         origin_pos = transform.position;
         render = GetComponent<SpriteRenderer>();
-        if(gameObject.tag == "PlayerTeam1"){
-            player_deck = battleManager.ui.leftCardIndi_compo;
-        }
-        else if(gameObject.tag == "PlayerTeam2"){
-            player_deck = battleManager.ui.rightCardIndi_compo;
-        }
+        // if(gameObject.tag == "PlayerTeam1"){
+        //     player_deck = battleManager.ui.leftCardIndi_compo;
+        // }
+        // else if(gameObject.tag == "PlayerTeam2"){
+        //     player_deck = battleManager.ui.rightCardIndi_compo;
+        // }
         card_geted = true;
         max_health = health;
         originPoint = transform.position;
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     public int speed;
 
     void Start(){
+        // 자세를 기본자세로 하고 초기카드가 있으면 카드들을 주고 시작
         render.sprite = poses[0];
         if(pre_cards.Count > 0){
             foreach(CardAbility card in pre_cards){
@@ -215,7 +216,7 @@ public class Player : MonoBehaviour
             if (update ){ battleManager.cardViewChar_left = this;}
             battleManager.render_cardViewChar_left = this;
             battleManager.ui.leftCard_card = cards;
-            battleManager.ui.Leftcard_Update();
+            battleManager.ui.CardUIUpdate("Left");
             battleManager.ui.showleftCard = true;
             //player_floor_render.sp
 
@@ -230,7 +231,7 @@ public class Player : MonoBehaviour
             battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;
             Debug.Log(battleManager.ui.rightCard_card );
-            battleManager.ui.Rightcard_Update();
+            battleManager.ui.CardUIUpdate("Right");
             battleManager.ui.showrightCard = true;
         }
     }
@@ -238,12 +239,9 @@ public class Player : MonoBehaviour
     public void UpdateActiveStat(){
         for(int i = 0;i<cards.Count;i++){
             if(cards[i].card_active){
-                player_deck[i].StartCoroutine("CardActivated");
+                List<card_text> cardList = (gameObject.tag.Equals("PlayerTeam1")) ? battleManager.ui.leftCardIndi : battleManager.ui.rightCardIndi;
+                cardList[i].StartCoroutine("CardActivated");
                 break;
-                //cards[i].ability.ImmediEffect(cards[i],transform);
-
-                //battleManager.battleCaculate.card_activated = true;
-                //cards[i].card_active = false;
             }
         }
     }
