@@ -18,6 +18,7 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public List<Player> players = new List<Player>();
     public List<CardAbility> cards = new List<CardAbility>();
     public List<CardAbility> game_cards = new List<CardAbility>();
+    public List<CardAbility> cur_game_cards = new List<CardAbility>();
 
     public List<CardEffect> on_battle_card_effect = new List<CardEffect>();
 
@@ -38,7 +39,7 @@ public class BattleManager : MonoBehaviour
 
     public bool left_cardLook_lock = false;
     public bool right_cardLook_lock= false;
-    [HideInInspector]public bool cardTouching = false;
+    [HideInInspector]public Card_text cardTouching;
 
     public CardPack card_selecting;
     public bool card_select_trigger;
@@ -125,11 +126,9 @@ public class BattleManager : MonoBehaviour
                     else{
                         card_getting_team = "Left";
                     }
-                    //card_getting_team = (card_getting_team.Equals("Left")) ? "Left" : "Right";
-                    
                 }
-                Debug.Log(card_getting_team);
-                    TurnTeam(card_getting_team);
+
+                TurnTeam(card_getting_team);
                 
                 if(game_cards.Count<1) // 카드가 없을때 새로 다시 섞기
                     game_cards = CardSuffle();
@@ -140,58 +139,51 @@ public class BattleManager : MonoBehaviour
                     case 2: card_give_count = 2;break;
                     default: card_give_count = 3;break;
                 }
+                cur_game_cards.Clear();
+                for(int i=0;i<card_give_count;i++){
+                    cur_game_cards.Add(game_cards[0]);
+                    game_cards.RemoveAt(0);
+                }
 
-                if(left_turn){ 
-                    foreach(Player player in left_players){
-                        for(int i = 0;i<player.cards.Count;i++){
-                            player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
-                        
-                        }
-                    }
+                foreach(Player player in (left_turn) ? left_players : right_players){
+                    for(int i = 0;i<player.cards.Count;i++){
+                        player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
                     
+                    }
+                }
+
+
+                if((right_turn) && Right_battleAI.active){
+                    Right_battleAI.isGettingCard(cur_game_cards);
+                    card_gived = true;
+                    card_right_draw -= 1;
                 }
                 else{
-                    foreach(Player player in right_players){
-                        for(int i = 0;i<player.cards.Count;i++){
-                            player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
-                        
-                        }
+                    switch(card_give_count){ 
+                    case 1:show_cards.Clear();
+                        Card(Vector3.up*9+Vector3.back,cur_game_cards[0]);break;
+                    case 2: show_cards.Clear();
+                        Card(Vector3.up*9+Vector3.right*2.5f+Vector3.back,cur_game_cards[0]);
+                        Card(Vector3.up*9+Vector3.left*2.5f+Vector3.back,cur_game_cards[1]);break;
+                    case 3:show_cards.Clear();
+                        Card(Vector3.up*9+Vector3.back,cur_game_cards[0]);
+                        Card(Vector3.up*9+Vector3.right*5+Vector3.back,cur_game_cards[1]);
+                        Card(Vector3.up*9+Vector3.left*5+Vector3.back,cur_game_cards[2]);  break;
+                    case 5:show_cards.Clear();
+                        Card(Vector3.up*9+Vector3.back,cur_game_cards[0]);
+                        Card(Vector3.up*9+Vector3.right*3+Vector3.back,cur_game_cards[1]);
+                        Card(Vector3.up*9+Vector3.left*3f+Vector3.back,cur_game_cards[2]);  
+                        Card(Vector3.up*9+Vector3.right*6f+Vector3.back,cur_game_cards[3]); 
+                        Card(Vector3.up*9+Vector3.left*6f+Vector3.back,cur_game_cards[4]); break;
                     }
                 }
-
-                switch(card_give_count){ 
-                    case 1:show_cards.Clear();
-                        Card(Vector3.up*9+Vector3.back,game_cards[0]);break;
-                    case 2: show_cards.Clear();
-                        Card(Vector3.up*9+Vector3.right*2.5f+Vector3.back,game_cards[0]);
-                        Card(Vector3.up*9+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
-                    case 3:show_cards.Clear();
-                        Card(Vector3.up*9+Vector3.back,game_cards[0]);
-                        Card(Vector3.up*9+Vector3.right*5+Vector3.back,game_cards[0]);
-                        Card(Vector3.up*9+Vector3.left*5+Vector3.back,game_cards[0]);  break;
-                    case 5:show_cards.Clear();
-                        Card(Vector3.up*9+Vector3.back,game_cards[0]);
-                        Card(Vector3.up*9+Vector3.right*3+Vector3.back,game_cards[0]);
-                        Card(Vector3.up*9+Vector3.left*3f+Vector3.back,game_cards[0]);  
-                        Card(Vector3.up*9+Vector3.right*6f+Vector3.back,game_cards[0]); 
-                        Card(Vector3.up*9+Vector3.left*6f+Vector3.back,game_cards[0]); break;
-                }
+                
                 ui.cardMessage.SetActive(true);
                 if(left_turn){
-                    if(left_d6 && left_d6_Count>0){
-                    ui.Dice6.gameObject.SetActive(true);
-                    }
-                    else{
-                        ui.Dice6.gameObject.SetActive(false);
-                    }
+                    ui.Dice6.gameObject.SetActive(left_d6 && left_d6_Count>0);
                 }
                 else{
-                    if(right_d6 && right_d6_Count>0){
-                        ui.Dice6.gameObject.SetActive(true);
-                    }
-                    else{
-                        ui.Dice6.gameObject.SetActive(false);
-                    }
+                    ui.Dice6.gameObject.SetActive(right_d6 && right_d6_Count>0);
                 }
                 
                   
@@ -200,21 +192,9 @@ public class BattleManager : MonoBehaviour
                     yield return null;
                 }
                 //// 카드를 뽑은 뒤 이벤트
-                if(left_turn){
-                    foreach(Player player in left_players){
-                        for(int i = 0;i<player.cards.Count;i++){
-                            player.cards[i].ability.AfterCardDraw(this,player);
-                        
-                        }
-                    }
-                    
-                }
-                else{
-                    foreach(Player player in right_players){
-                        for(int i = 0;i<player.cards.Count;i++){
-                            player.cards[i].ability.AfterCardDraw(this,player);
-                        
-                        }
+                foreach(Player player in (left_turn) ? left_players : right_players){
+                    for(int i = 0;i<player.cards.Count;i++){
+                        player.cards[i].ability.AfterCardDraw(this,player);
                     }
                 }
                 ui.cardMessage.SetActive(false);
@@ -379,26 +359,7 @@ public class BattleManager : MonoBehaviour
         for(int i =0; i<show_cards.Count;i++){
             show_cards[i].DestroyTheCard();
         }
-        show_cards.Clear();
-        if(game_cards.Count<1)
-            game_cards = CardSuffle();
-        switch(card_give_count){
-            case 1:
-                Card(Vector3.up+Vector3.back,game_cards[0]);break;
-            case 2: 
-                Card(Vector3.up+Vector3.right*2.5f+Vector3.back,game_cards[0]);
-                Card(Vector3.up+Vector3.left*2.5f+Vector3.back,game_cards[0]);break;
-            case 3:
-                Card(Vector3.up+Vector3.back,game_cards[0]);
-                Card(Vector3.up+Vector3.right*5+Vector3.back,game_cards[0]);
-                Card(Vector3.up+Vector3.left*5+Vector3.back,game_cards[0]);  break;
-            case 5:
-                Card(Vector3.up+Vector3.back,game_cards[0]);
-                Card(Vector3.up+Vector3.right*3+Vector3.back,game_cards[0]);
-                Card(Vector3.up+Vector3.left*3f+Vector3.back,game_cards[0]);  
-                Card(Vector3.up+Vector3.right*6f+Vector3.back,game_cards[0]); 
-                Card(Vector3.up+Vector3.left*6f+Vector3.back,game_cards[0]); break;
-        }
+        card_gived = true;
     }
 
     IEnumerator TeamTimerGague(){
@@ -433,7 +394,7 @@ public class BattleManager : MonoBehaviour
         else{
             first_turn = "Left";
         }
-        first_turn = "Left";
+        first_turn = "Right";
         TurnTeam(first_turn);
         
     }
@@ -533,7 +494,6 @@ public class BattleManager : MonoBehaviour
     }
 
     void Card(Vector3 pos,CardAbility cardo){
-        game_cards.Remove(cardo);
         CardDraw draw = cardViewer.MakeCard();
         draw.gameObject.transform.position = pos + Vector3.up*2;
         draw.origin_position = pos;
@@ -546,6 +506,7 @@ public class BattleManager : MonoBehaviour
     public void SelectingCard(CardPack card){
         card_selecting = card;
         card_select_trigger = true;
+        cardlineRender.SetPosition(0, camera.camer.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward);
         cardlineRender.gameObject.SetActive(true);
     }
 
@@ -553,6 +514,7 @@ public class BattleManager : MonoBehaviour
         card_selecting.ability.CardSelected(card_selecting,card,this);
         card_selecting = null;
         card_select_trigger = false;
+        cardlineRender.gameObject.SetActive(false);
     }
 
     public CardPack GiveCard(CardAbility having_card, Player player){
@@ -564,6 +526,8 @@ public class BattleManager : MonoBehaviour
         card.battleManager = this;
         card.PreSetting(player);
         player.cards.Add(card);
+        player.cardGet.SetActive(false);
+        player.cardGet.SetActive(true);
         card.ability.ImmediCardDraw(card,this,player);
         return card;
     }

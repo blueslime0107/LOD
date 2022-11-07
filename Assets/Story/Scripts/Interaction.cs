@@ -105,7 +105,7 @@ public class Interaction : MonoBehaviour
             textadd += text.Replace('/',',');
             textadd += "<br>";
         }
-        Debug.Log(dataBase.stageManager.stage.victoryed);
+        Debug.Log(dataBase.stageManager.play_stage.victoryed);
 
         StartCoroutine(typing(textadd));}
         catch{
@@ -114,7 +114,7 @@ public class Interaction : MonoBehaviour
     }
 
     public void SkipText(){
-        if(dataBase.stageManager.stage.victoryed){
+        if(dataBase.stageManager.play_stage.victoryed){
             sceneMove.MoveLobby();
         }
         else{

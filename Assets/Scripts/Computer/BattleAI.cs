@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BattleAI : MonoBehaviour
 {
+    public bool active;
 
     public List<T> GetShuffleList<T>(List<T> _list){
 
@@ -23,14 +24,12 @@ public class BattleAI : MonoBehaviour
     public List<int> diceSelect = new List<int>() {0,0,0};
     public List<int> battleWho = new List<int>() {0,0,0};
     public List<int> battleTarget = new List<int>() {0,0,0,0,0,0};
-    
 
-
-
-    public bool did = false;
+    public bool did = false; // 연산을 하면 다시 안하기
     public BattleManager bm;
     public BattleFunction bf;
     public string my_team;
+    public string my_dicetag;
     
     public string[] battle_type;
 
@@ -44,32 +43,35 @@ public class BattleAI : MonoBehaviour
     Battlgolithm onBattleing;
 
     public void AIPreSet(){
+        my_team = (gameObject.tag.Equals("PlayerTeam1")) ? "Left" : "Right";
+        my_dicetag = (gameObject.tag.Equals("PlayerTeam1")) ? "Team1" : "Team2";
+
         if(gameObject.tag.Equals("PlayerTeam1")){
-            my_team = "Left";
             my_players = bm.left_players;
             ene_players = bm.right_players;
-            my_dice = bm.dices.FindAll(x => x.tag.Equals("Team1"));
         }
         else{
-            my_team = "Right";
             my_players = bm.right_players;
             ene_players = bm.left_players;
-            my_dice = bm.dices.FindAll(x => x.tag.Equals("Team2"));
+            
         }
+
+        my_dice = bm.dices.FindAll(x => x.tag.Equals(my_dicetag));
     }
 
     public void isDiceSelect(){
         if(!bf.TeamBool2Str().Equals(my_team) || did){return;}
-        did = true;
+        did = true; // 이 계산을 한번만 하겠다
 
-        List<Dice> dice = new List<Dice>(my_dice);
+        List<Dice> dice = bm.dices.FindAll(x => x.tag.Equals(my_dicetag)); // 자신팀 주사위 가져오기
         dice = dice.FindAll(x => x.player.health >0);
+
         if(diceSelect[0] > 0)
             dice.Sort(SortDice);
         if(diceSelect[0].Equals(2))
             dice.Reverse();
 
-        List<Player> player = new List<Player>(my_players);
+        List<Player> player = my_players.FindAll(x => !x.died);
         player = player.FindAll(x => x.health >0);
         if(diceSelect[1] > 0)
             player.Sort(SortHealth);
@@ -91,17 +93,15 @@ public class BattleAI : MonoBehaviour
         if(!bf.TeamBool2Str().Equals(my_team)){return;}
 
 
-        List<Player> myplayer = new List<Player>(my_players);
-        myplayer = myplayer.FindAll(x => x.health >0);
-
+        List<Player> myplayer = my_players.FindAll(x => !x.died && x.dice > 0);
         if(battleWho[0] > 0)
             myplayer.Sort(SortPlayerDice);
         if(battleWho[0].Equals(2))
             myplayer.Reverse();
 
-        if(diceSelect[1] > 0)
+        if(battleWho[1] > 0)
             myplayer.Sort(SortHealth);
-        if(diceSelect[1].Equals(2))
+        if(battleWho[1].Equals(2))
             myplayer.Reverse();
 
         myplayer.Sort(SortPlayerHavDice);
@@ -110,8 +110,8 @@ public class BattleAI : MonoBehaviour
             Debug.Log(pla.gameObject.name);
         }
 
-        List<Player> eneplayer = new List<Player>(ene_players);
-        eneplayer = eneplayer.FindAll(x => x.health >0);
+        List<Player> eneplayer = ene_players.FindAll(x => !x.died);
+
         if(myplayer[0].dice.Equals(6)){
             foreach(Player pla in eneplayer){
                 if(pla.dice.Equals(1)){
@@ -142,6 +142,14 @@ public class BattleAI : MonoBehaviour
         // List<Player> ene_players_dice = ene_players.FindAll(x => x.dice >0);
         // if(my_players_dice.Count <= 0){return;}
         // bf.TargetPlayer(my_players_dice[0],ene_players_dice[0]);
+    }
+
+    public void isGettingCard(List<CardAbility> cardlist){
+        if(!bf.TeamBool2Str().Equals(my_team) || did){return;}
+
+        List<Player> myplayer = my_players.FindAll(x => !x.died);
+        bm.GiveCard(cardlist[0],myplayer[0]);
+
     }
 
 ///////////////////////////////////////////////////////////////

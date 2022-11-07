@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SubBattleItem : MonoBehaviour
+public class BattleItem : MonoBehaviour
 {
     public Lobby lobby;
     public Stage stage;
@@ -19,8 +19,8 @@ public class SubBattleItem : MonoBehaviour
 
     public void Clicked(){
         lobby.stage = stage;
-        lobby.stageManager.stage = stage;
-        lobby.stageManager.playerStage = lobby.player;
+        lobby.stageManager.play_stage = stage;
+        lobby.stageManager.player_card = lobby.player;
         lobby.OpenBattleCard();
         
     }

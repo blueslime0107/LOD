@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
-public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     public CardPrefap cardPrefap;
 
@@ -26,23 +27,13 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     float target_spd;
 
     void Awake() {
-
         rect = GetComponent<RectTransform>();
-
-
         material = Instantiate(card_light.GetComponent<Image>().material);
         card_light.GetComponent<Image>().material = material;
-        //card_light.GetComponent<Renderer>().material.CopyPropertiesFromMaterial(material);
-        //material_block = new MaterialPropertyBlock();
     }
 
     public void CardUpdate(){
-        if(card.ability.name.Equals("NULL")){
-            block_img.SetActive(true);
-        }
-        else{
-            block_img.SetActive(false);
-        }
+        block_img.SetActive((card.ability.name.Equals("NULL")) ? true: false);
         if(isLeft){
             try
             {if(battleManager.cardViewChar_left.cards[card_num].card_activating){material.SetInt("_Active",1);}
@@ -50,14 +41,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             catch
             {if(battleManager.render_cardViewChar_left.cards[card_num].card_activating){material.SetInt("_Active",1);}
             else{material.SetInt("_Active",0);}}
-            // if(card.overCard != null){
-            //     card_overImg.gameObject.SetActive(true);
-            //     card_overImg.sprite = card.overCard;
-            // }
-            // else{
-            //     card_overImg.gameObject.SetActive(false);
-            // }
-            
         }
         else{  
             try
@@ -70,16 +53,6 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 if(battleManager.render_cardViewChar_right.cards[card_num].card_activating){material.SetInt("_Active",1);}
                 else{material.SetInt("_Active",0);}
             }
-            // if(card.overCard != null){
-            //     card_overImg.gameObject.SetActive(true);
-            //     card_overImg.sprite = card.overCard;
-            // }
-            // else{
-            //     card_overImg.gameObject.SetActive(false);
-            // }
-        
-        
-        
         }
 
     }
@@ -88,9 +61,9 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
      IEnumerator lerpMove(){
         while (true)
-        {rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition,target_pos,target_spd*Time.deltaTime);
-        if(Vector2.Distance(rect.anchoredPosition,target_pos) <= 0.5f){
-            rect.anchoredPosition=target_pos;
+        {rect.pivot = Vector2.Lerp(rect.pivot,target_pos,target_spd*Time.deltaTime);
+        if(Vector2.Distance(rect.pivot,target_pos) <= 0.1f){
+            rect.pivot=target_pos;
             StopCoroutine("lerpMove");
         }
         yield return null;
@@ -99,46 +72,46 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
      public void OnPointerEnter(PointerEventData eventData)
      {
-        battleManager.cardTouching = true;
+        battleManager.cardTouching = this;
         if(battleManager.card_select_trigger) {StartCoroutine("ImSelectedCard");}
-        target_pos = new Vector2(rect.anchoredPosition.x,45);
-        
+        target_pos = new Vector2(0.5f,0.1f);        
         target_spd = 100;
-        StartCoroutine("lerpMove");
-
-        
-        transform.SetAsLastSibling();
-        CardUpdate();
+        StopCoroutine("lerpMove");
+        StartCoroutine("lerpMove");  
+        CardExplain obj = (isLeft) ? battleManager.ui.leftCardEx : battleManager.ui.rightCardEx; 
+        obj.updateCard(card.ability);    
+        obj.gameObject.SetActive(true);
         
      }
  
     public void OnPointerExit(PointerEventData eventData)
      {
-        battleManager.cardTouching = false;
+        battleManager.cardTouching = null;
         StopCoroutine("ImSelectedCard");
-        transform.SetSiblingIndex(card_num);
+        StopCoroutine("lerpMove");
 
-        target_pos = new Vector2(rect.anchoredPosition.x,0);
+        target_pos = new Vector2(0.5f,0.5f);  
         target_spd = 100;
         StartCoroutine("lerpMove");
-        CardUpdate();
+        battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
+        CardExplain obj = (isLeft) ? battleManager.ui.leftCardEx : battleManager.ui.rightCardEx;   
+        obj.gameObject.SetActive(false);
      }
 
      public void OnPointerDown(PointerEventData eventData){
-        if(isLeft){
+        if(isLeft)
             battleManager.cardViewChar_left.cards[card_num].ability.CardActivate(battleManager.cardViewChar_left.cards[card_num], battleManager);
-        }
-        else{
+        else
             battleManager.cardViewChar_right.cards[card_num].ability.CardActivate(battleManager.cardViewChar_right.cards[card_num], battleManager);
-        }
-        CardUpdate();
+        battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
      }
 
      public void OnPointerUp(PointerEventData eventData){
-        if(!battleManager.cardTouching)
+        if(!battleManager.cardTouching || battleManager.cardTouching.Equals(this)){
             battleManager.card_select_trigger = false;
-        Debug.Log("de select");
-        CardUpdate();
+            battleManager.cardlineRender.gameObject.SetActive(false);
+        }
+        battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
      }
 
      public IEnumerator CardActivated(){
@@ -150,20 +123,19 @@ public class card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         card_light.SetActive(true);
         card.card_active = false;
         rect.anchoredPosition -= Vector2.up*45;
-        //battleManager.battleCaculate.card_activated = false;
      }
 
     public IEnumerator ImSelectedCard(){
         while(true)
         {if(Input.GetMouseButtonUp(0)){
-            Debug.Log("GetMouseButtonUp");
+            Debug.Log("what");
             if(battleManager.card_select_trigger){
             battleManager.SelectiedCard(card);
             CardUpdate();
             StopCoroutine("ImSelectedCard");
             }
             battleManager.card_select_trigger = false;
-            battleManager.cardlineRender.gameObject.SetActive(false);
+            battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
         }
         
         yield return null;}

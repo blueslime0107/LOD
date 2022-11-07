@@ -34,11 +34,13 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject leftPanel;
     [SerializeField] GameObject rightPanel;
 
-    public List<card_text> leftCardIndi = new List<card_text>();
+    public List<Card_text> leftCardIndi = new List<Card_text>();
     public List<CardPack> leftCard_card = new List<CardPack>();
+    public CardExplain leftCardEx;
     
-    public List<card_text> rightCardIndi = new List<card_text>();
+    public List<Card_text> rightCardIndi = new List<Card_text>();
     public List<CardPack> rightCard_card = new List<CardPack>();
+    public CardExplain rightCardEx;
 
     void Awake(){
         rect_panorama_up = panorama_up.GetComponent<RectTransform>();
@@ -59,7 +61,7 @@ public class UI : MonoBehaviour
     }
 
     public void CardUIUpdate(string team, bool fold = false){
-        List<card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
+        List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
         List<CardPack> card = (team.Equals("Left")) ? leftCard_card : rightCard_card;
         
 
@@ -70,10 +72,11 @@ public class UI : MonoBehaviour
             return;
         for(int i =0; i<card.Count;i++){
             if(i.Equals(indi.Count)){
-                card_text obj = Instantiate(cardObject).GetComponent<card_text>();
+                Card_text obj = Instantiate(cardObject).GetComponent<Card_text>();
                 obj.transform.SetParent((team.Equals("Left")) ? leftPanel.transform : rightPanel.transform,false);   
                 obj.battleManager = bm;  
-                obj.card_num = i;    
+                obj.card_num = i;   
+                obj.isLeft = (team.Equals("Left")) ? true : false;
                 indi.Add(obj);
             }
 

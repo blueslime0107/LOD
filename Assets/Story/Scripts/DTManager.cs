@@ -13,7 +13,7 @@ public class DTManager : MonoBehaviour
     private void Awake() {
         stageManager = FindObjectOfType<StageManager>();
 
-        story = (!stageManager.stage.victoryed) ? stageManager.stage.beforeStory : stageManager.stage.afterStory;
+        story = (!stageManager.play_stage.victoryed) ? stageManager.play_stage.beforeStory : stageManager.play_stage.afterStory;
         
         DialogParse thrParser = GetComponent<DialogParse>();
         Dialog[] dialoges = thrParser.Parse(story.scriptName);

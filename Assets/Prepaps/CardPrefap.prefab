@@ -82,7 +82,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5928014237812246859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,8 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6847842909860883776}
   - component: {fileID: 4014734665765158299}
-  - component: {fileID: 4014734665765158298}
-  - component: {fileID: 4014734665765158301}
   - component: {fileID: -980519691057065613}
   m_Layer: 0
   m_Name: CardPrefap
@@ -400,53 +398,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4014734665765158298
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014734665765158303}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &4014734665765158301
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014734665765158303}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000019073486, y: 0.043815613}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.24, y: 17.08}
-    newSize: {x: 22.503965, y: 34.19}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 59.59271, y: 91.53139}
-  m_EdgeRadius: 0
 --- !u!114 &-980519691057065613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1725248311268193087}
   tain: {fileID: 3992798085048580234}
-  name: {fileID: 2838013068198660515}
+  name_: {fileID: 2838013068198660515}
   message: {fileID: 1780543013542292649}
 --- !u!1 &4761557273894561531
 GameObject:

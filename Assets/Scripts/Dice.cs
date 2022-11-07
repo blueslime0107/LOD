@@ -11,12 +11,14 @@ public class Dice : MonoBehaviour
     GameObject charTarget;
     [SerializeField] public BattleManager battleManager;
     public bool cannot_roll = false;
+    [HideInInspector]public bool rolled;
 
     //public int dice_num;
 
     public Sprite[] dice_img;
     public bool farAtt = false;
     SpriteRenderer render;
+    [HideInInspector]public List<int> diceLock = new List<int>();
 
     void Awake(){
         enabled = true;
@@ -32,7 +34,7 @@ public class Dice : MonoBehaviour
     }
 
     IEnumerator rollingDice(Vector2 vector){
-      
+        rolled = false;
         self_pos = vector;
         transform.position = Vector3.up*4.5f;
         yield return new WaitForSeconds(0.2f);
@@ -49,8 +51,18 @@ public class Dice : MonoBehaviour
 
     public void StopRollingDice(){
         StopAllCoroutines();
+        rolled = true;
         transform.localEulerAngles = Vector3.zero;
         dice_value = (int)Random.Range(1f,7f);
+        render.sprite = dice_img[dice_value-1];
+        if(diceLock.Count>0){
+            setDice(diceLock[0]);
+            diceLock.RemoveAt(0);
+        }
+    }
+
+    public void setDice(int value){
+        dice_value = value;
         render.sprite = dice_img[dice_value-1];
     }
 
@@ -72,6 +84,7 @@ public class Dice : MonoBehaviour
         try{
             if(chartouch){
             if(!dice_im.isDiced){
+                rolled = false;
                 gameObject.SetActive(false);
                 dice_im.putDice(this);
                 

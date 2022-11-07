@@ -18,7 +18,7 @@ public class CameraCtrl : MonoBehaviour
     float maxCamsize = 5f;
     float minCamsize = 3f;
 
-    Camera camer;
+    public Camera camer;
 
 
     // Start is called before the first frame update

@@ -355,9 +355,10 @@ GameObject:
   - component: {fileID: 64241146475736222}
   - component: {fileID: 64241146475736217}
   - component: {fileID: 64241146475736216}
-  - component: {fileID: 5335577906684194846}
+  - component: {fileID: 1930062025014695435}
+  - component: {fileID: 6619667837513133043}
   m_Layer: 5
-  m_Name: SubBattleItem
+  m_Name: BattleSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,8 +467,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5335577906684194846}
-        m_TargetAssemblyTypeName: SubBattleItem, Assembly-CSharp
+      - m_Target: {fileID: 6619667837513133043}
+        m_TargetAssemblyTypeName: BattleItem, Assembly-CSharp
         m_MethodName: Clicked
         m_Mode: 1
         m_Arguments:
@@ -478,7 +479,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5335577906684194846
+--- !u!114 &1930062025014695435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64241146475736218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751e7b21e87258548b5b2060a134a195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_pos: {x: 0, y: 0}
+  speed: 0
+--- !u!114 &6619667837513133043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -491,7 +506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lobby: {fileID: 0}
-  button: {fileID: 64241146475736216}
   stage: {fileID: 0}
   rank_img: {fileID: 64241145899143349}
   rank_sprite:
@@ -501,6 +515,7 @@ MonoBehaviour:
   - {fileID: -3624493972382909525, guid: 879231cff89508e46945b2ed8f625359, type: 3}
   - {fileID: 507550691161019053, guid: 879231cff89508e46945b2ed8f625359, type: 3}
   - {fileID: 5807347303825497272, guid: 879231cff89508e46945b2ed8f625359, type: 3}
+  - {fileID: -6107637972847802863, guid: 879231cff89508e46945b2ed8f625359, type: 3}
   battle_title: {fileID: 64241145632908280}
 --- !u!1 &64241146482049532
 GameObject:

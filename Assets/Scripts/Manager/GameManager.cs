@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
         sm = FindObjectOfType<StageManager>();
 
         if(sm != null)
-        {for(int i=0;i<sm.playerStage.characters.Length;i++){
-            if(sm.playerStage.characters[i] != null)
+        {for(int i=0;i<sm.player_card.characters.Length;i++){
+            if(sm.player_card.characters[i] != null)
             {
                 leftPlayers[i].gameObject.SetActive(true);
-                Character chars = sm.playerStage.characters[i];
+                Character chars = sm.player_card.characters[i];
                 leftPlayers[i].health = chars.health;
                 leftPlayers[i].max_health = chars.health;
                 leftPlayers[i].poses = chars.char_sprites;
@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        for(int i=0;i<sm.stage.characters.Length;i++){
-            if(sm.stage.characters[i] != null)
+        for(int i=0;i<sm.play_stage.characters.Length;i++){
+            if(sm.play_stage.characters[i] != null)
             {
                 rightPlayers[i].gameObject.SetActive(true);
-                Character chars = sm.stage.characters[i];
+                Character chars = sm.play_stage.characters[i];
                 rightPlayers[i].health = chars.health;
                 rightPlayers[i].max_health = chars.health;
                 rightPlayers[i].poses = chars.char_sprites;

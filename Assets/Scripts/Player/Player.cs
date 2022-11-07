@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Transform movePoint;
     public Transform attPoint;
     public Vector3 originPoint;
+    public GameObject cardGet;
     [HideInInspector]public int condition = 0;
     public int max_health;
     public int health;
@@ -239,7 +240,7 @@ public class Player : MonoBehaviour
     public void UpdateActiveStat(){
         for(int i = 0;i<cards.Count;i++){
             if(cards[i].card_active){
-                List<card_text> cardList = (gameObject.tag.Equals("PlayerTeam1")) ? battleManager.ui.leftCardIndi : battleManager.ui.rightCardIndi;
+                List<Card_text> cardList = (gameObject.tag.Equals("PlayerTeam1")) ? battleManager.ui.leftCardIndi : battleManager.ui.rightCardIndi;
                 cardList[i].StartCoroutine("CardActivated");
                 break;
             }

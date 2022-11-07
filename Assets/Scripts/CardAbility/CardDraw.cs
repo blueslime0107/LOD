@@ -6,20 +6,15 @@ using TMPro;
 
 public class CardDraw : MonoBehaviour
 {
-    Canvas canvas;
+    [SerializeField]Canvas canvas;
+    [SerializeField]CardPrefap cardPrefap;
     [SerializeField]CardAbility having_card;
     public UI ui;
-    public new TextMeshProUGUI name;
-    public TextMeshProUGUI message;
     public TextMeshProUGUI ability_message;
 
     [SerializeField]
     public BattleManager battleManager;
     Image render;
-
-    // [SerializeField]
-    // Sprite[] card_img; // 카드 이미지
-
 
     Vector3 origin_size;
     public Vector3 origin_position;
@@ -29,25 +24,6 @@ public class CardDraw : MonoBehaviour
     [SerializeField]
     Player target;
     int card_id;
-
-    // Start is called before the first frame update
-    void Awake() // 생성되자마자 실행
-    {
-        
-        GameObject obj1 = gameObject.transform.GetChild(0).gameObject;
-        GameObject obj2 = obj1.transform.GetChild(0).gameObject;
-
-        canvas = obj1.GetComponent<Canvas>();
-        render = obj2.GetComponent<Image>();
-        GameObject name_obj = obj2.transform.GetChild(0).gameObject;
-        name = name_obj.GetComponent<TextMeshProUGUI>();
-        GameObject message_obj = obj2.transform.GetChild(1).gameObject;
-        message = message_obj.GetComponent<TextMeshProUGUI>();
-
-        
-
-
-    }
 
     private void OnEnable() {
         origin_size = transform.localScale;        
@@ -142,13 +118,9 @@ public class CardDraw : MonoBehaviour
 
     // 외부에서 실행 카드 이미지 바꾸기
     public void SetImage(CardAbility card){
+        cardPrefap.cardUpdate(card);
         having_card = card;
-        //having_card.effect = card_effect
         card_id = having_card.card_id;
-        render.sprite = having_card.illust;
-        name.text = having_card.name;
-        message.text = having_card.message;
-        //ability_message.text = having_card.ability_message;
     }
 
     // 드래그 중 마우스 따라가기 크기 줄어들기

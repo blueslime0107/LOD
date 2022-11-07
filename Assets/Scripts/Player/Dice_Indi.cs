@@ -6,6 +6,7 @@ public class Dice_Indi : MonoBehaviour
 {
     public int dice_num;
 
+    [SerializeField] ParticleSystem particle;
     public BattleManager battleManager;
     public BattleCaculate battleCaculate;
     public Sprite[] dice_img;
@@ -27,6 +28,10 @@ public class Dice_Indi : MonoBehaviour
         sub_render = sub_dice.GetComponent<SpriteRenderer>();
     }
 
+    void OnEnable(){
+        particle.Stop();
+    }
+
     // void Update(){
     //     if(Input.GetMouseButtonUp(0)){
     //         if(targetSelected && battleManager.target1 > 0 && player.player_id != battleManager.target1){
@@ -39,6 +44,7 @@ public class Dice_Indi : MonoBehaviour
     // }
 
     public void putDice(Dice dice){
+        particle.Play();
         dice_list.Add(dice);
         player.dice = dice.dice_value;
         player.ChangeCondition(1);
@@ -48,6 +54,8 @@ public class Dice_Indi : MonoBehaviour
         for(int i = 0; i<player.cards.Count;i++){
             player.cards[i].ability.DiceApplyed(player.cards[i], player);
         }
+        
+        
     }
 
     public void NextDice(){

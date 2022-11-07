@@ -10,20 +10,25 @@ public class Lobby : MonoBehaviour
 
     [SerializeField] SceneMove sceneM;
     [SerializeField] GameObject darScreen;
+    [SerializeField] MenuItem battle_table;
     [SerializeField] MenuItem sub_table;
+    [SerializeField] MenuItem main_table;
+
+
+
+
+
     [SerializeField] MenuItem enemyCard;
     [SerializeField] MenuItem playerCard;
     [SerializeField] MenuItem BattleButton;
 
     [Tooltip("서브 스테이지 보드")]
-    [SerializeField] GameObject subStage_board;
+    public GameObject stage_board;
     [Tooltip("서브 스테이지 아이템")]
-    [SerializeField] GameObject subStage;
+    public GameObject stage_slot;
+    public List<BattleItem> stageItem = new List<BattleItem>();
 
-    public Stage[] subStages;
-    List<SubBattleItem> subStageItem = new List<SubBattleItem>();
-
-    string curMenu = "lobby";
+    public string curMenu = "lobby";
 
     
 
@@ -45,8 +50,20 @@ public class Lobby : MonoBehaviour
             }
             if(curMenu.Equals("surMenu")){
                 sub_table.ActiveOpenClose();
+                battle_table.ActiveOpenClose();
                 darScreen.SetActive(false);        
                 curMenu = "lobby";
+                return;
+            }
+            if(curMenu.Equals("mainMenu")){
+                main_table.ActiveOpenClose();
+                darScreen.SetActive(false);        
+                curMenu = "lobby";
+                return;
+            }
+            if(curMenu.Equals("mainMenuStage")){
+                battle_table.ActiveOpenClose();      
+                curMenu = "mainMenu";
                 return;
             }
         }
@@ -57,23 +74,29 @@ public class Lobby : MonoBehaviour
             return;
         }
         sub_table.ActiveOpenClose();
+        battle_table.ActiveOpenClose();
         darScreen.SetActive(true);
-        RenderSubMenu();
         curMenu = "surMenu";
     }
-    public void RenderSubMenu(){
-        for(int i=0;i<subStages.Length;i++){
-            if(subStageItem.Count <= i){
-                SubBattleItem obj = Instantiate(subStage).GetComponent<SubBattleItem>();
-                obj.transform.SetParent(subStage_board.transform,false);   
-                obj.lobby = this;      
-                subStageItem.Add(obj);
-            }
-            subStageItem[i].stage = subStages[i];
-            subStageItem[i].UpdateStat();
 
+    public void OpenMainMenu(){
+        if(curMenu.Equals("mainMenu")){
+            return;
         }
+        main_table.ActiveOpenClose();
+        darScreen.SetActive(true);
+        curMenu = "mainMenu";
     }
+
+    public void OpenMainStageMenu(){
+        if(curMenu.Equals("mainMenuStage")){
+            return;
+        }
+        battle_table.ActiveOpenClose();
+        curMenu = "mainMenuStage";
+    }
+    
+    
 
 
     public void OpenBattleCard(){
