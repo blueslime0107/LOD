@@ -35,8 +35,6 @@ public class CardUI : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
         illust = GetComponent<Image>();
 
 
-
-
         material = Instantiate(card_light.GetComponent<Image>().material);
         card_light.GetComponent<Image>().material = material;
         //card_light.GetComponent<Renderer>().material.CopyPropertiesFromMaterial(material);
@@ -56,27 +54,4 @@ public class CardUI : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
         }
 
     }
-
-
-    //  public void OnPointerEnter(PointerEventData eventData)
-    //  {    
-    //     transform.SetAsLastSibling();
-    //     CardUpdate();        
-    //  }
- 
-    // public void OnPointerExit(PointerEventData eventData)
-    //  {
-    //     CardUpdate();
-    //  }
-
-    //  public void OnPointerDown(PointerEventData eventData){
-    //     CardUpdate();
-    //  }
-
-    //  public void OnPointerUp(PointerEventData eventData){
-    //     Debug.Log("de select");
-    //     CardUpdate();
-    //  }
-
-
 }
