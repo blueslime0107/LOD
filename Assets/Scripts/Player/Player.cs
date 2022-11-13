@@ -231,7 +231,6 @@ public class Player : MonoBehaviour
             if (update ){ battleManager.cardViewChar_right = this;}
             battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;
-            Debug.Log(battleManager.ui.rightCard_card );
             battleManager.ui.CardUIUpdate("Right");
             battleManager.ui.showrightCard = true;
         }

@@ -155,6 +155,7 @@ public class BattleManager : MonoBehaviour
 
                 if((right_turn) && Right_battleAI.active){
                     Right_battleAI.isGettingCard(cur_game_cards);
+
                     card_gived = true;
                     card_right_draw -= 1;
                 }
@@ -179,12 +180,14 @@ public class BattleManager : MonoBehaviour
                 }
                 
                 ui.cardMessage.SetActive(true);
+                # region 팀 주사위6 활성화 됨?
                 if(left_turn){
                     ui.Dice6.gameObject.SetActive(left_d6 && left_d6_Count>0);
                 }
                 else{
                     ui.Dice6.gameObject.SetActive(right_d6 && right_d6_Count>0);
                 }
+                # endregion
                 
                   
                            

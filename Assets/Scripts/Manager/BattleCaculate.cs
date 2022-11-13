@@ -24,7 +24,6 @@ public class BattleCaculate : MonoBehaviour
     public bool card_activated;
 
     bool coroutine_lock = false;
-    bool coroutine_lock1 = false;
 
     void Start(){
         players = bm.players;
@@ -179,7 +178,9 @@ public class BattleCaculate : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.5f);}
         }
-        
+
+        Debug.Log(damage);
+
         yield return new WaitForSeconds(1f);
         
         
@@ -191,6 +192,9 @@ public class BattleCaculate : MonoBehaviour
         }
     IEnumerator MainAttack(){
         coroutine_lock1= true;
+        
+
+        Debug.Log(damage);
         //damage_dice = damage;
 
         if(damage == 0){
@@ -202,7 +206,6 @@ public class BattleCaculate : MonoBehaviour
             coroutine_lock1= false;
         }
         if(damage>0){
-
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnBattleWin(my_ability[i],this);
                 if(my_ability[i].card_active){
@@ -267,14 +270,6 @@ public class BattleCaculate : MonoBehaviour
                 }
             }
         }
-        // if(myChar.health <= 5  && myChar.card_geted){
-        //     battleManager.card_draw += 1;
-        //     myChar.card_geted = false;
-        // }
-        // if(eneChar.health <= 5  && eneChar.card_geted){
-        //     battleManager.card_draw += 1;
-        //     eneChar.card_geted = false;
-        // }
         foreach(Player player in bm.players){
             if(player != myChar || player != eneChar){
                 player.dice_Indi.gameObject.SetActive(true);
