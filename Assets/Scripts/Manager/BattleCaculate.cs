@@ -23,10 +23,11 @@ public class BattleCaculate : MonoBehaviour
 
     public bool card_activated;
 
-    bool coroutine_lock = false;
+    bool coroutine_lock = true;
 
     void Start(){
         players = bm.players;
+        coroutine_lock = true;
     }
 
     public void BattleMatch(Player selfnum, Player enenum){
@@ -61,22 +62,19 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator BattleMatchcor(){
-        
+        coroutine_lock = true;
         myChar.ChangeCondition(2);    
         eneChar.ChangeCondition(2);   
 
         BasicDice();
         StartCoroutine("BasicAttack");
-        if(!coroutine_lock){
-            yield return null;
-        }
-        yield return new WaitForSeconds(1f); // 빠른 진행 조절 초
+        while(coroutine_lock){yield return null;}
+        coroutine_lock = true;
+        //yield return new WaitForSeconds(1f); // 빠른 진행 조절 초
+        Debug.Log("passed");
         StartCoroutine("MainAttack");
-
-        while(coroutine_lock1){
-            yield return null;
-        }
-        yield return new WaitForSeconds(1f);
+        while(coroutine_lock){ yield return null;}
+        yield return new WaitForSeconds(1f); // 합이 끝나고 난 뒤의 딜레이
 
 
 
@@ -105,7 +103,7 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BasicAttack(){
         bool farAtking = false;
-        try{
+        try{ // 캐릭터가 원거리? 아님 주사위 속성이 원거리
         farAtking = myChar.farAtt || myChar.dice_Indi.dice_list[0].farAtt || eneChar.farAtt || eneChar.dice_Indi.dice_list[0].farAtt;}
         catch{
             if(myChar.dice_Indi.dice_list.Count > 0)
@@ -127,37 +125,36 @@ public class BattleCaculate : MonoBehaviour
 
         battleDice.gameObject.SetActive(true);
         battleDice.SetPlayerPosition(myChar,eneChar);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f); // 캐릭터들이 제자리에 온후 약간의 딜레이
 
-        for(int i = 0; i<my_ability.Count;i++){
+        for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
                     my_ability[i].ability.OnBattleStart(my_ability[i],this);
                 }
         for(int i = 0; i<ene_ability.Count;i++){
                     ene_ability[i].ability.OnBattleStart(ene_ability[i],this);
                 }
+        # region 데미지 결정됨
         SetDamage(myChar.dice - eneChar.dice);
-        if(damage>0){
-            if(myChar.gameObject.tag.Equals("PlayerTeam1")){
-                battleDice.right_break.Play();
-            }
-            else{
-                battleDice.left_break.Play();
-            }
+        if(damage>0){    // 데미지 결정
+            ParticleSystem particle = (myChar.gameObject.tag.Equals("PlayerTeam1")) ? battleDice.right_break : battleDice.left_break;
+            particle.Play();
+            Debug.Log("waiting...");
         }
         else if(damage<0){
-            if(eneChar.gameObject.tag.Equals("PlayerTeam1")){
-                battleDice.right_break.Play();
-            }
-            else{
-                battleDice.left_break.Play();
-            }
+            ParticleSystem particle = (eneChar.gameObject.tag.Equals("PlayerTeam1")) ? battleDice.right_break : battleDice.left_break;
+            particle.Play();
+            Debug.Log("waiting...");
 
         }
-        else if(damage.Equals(0)){
+        else if(damage.Equals(0)){ // 같으면 둘다 터짐
             battleDice.left_break.Play();
             battleDice.right_break.Play();
+            Debug.Log("waiting...");
         }
-
+        # endregion 
+        
+        if(farAtking){
+        # region 자신이 합을이기고 원거리 공격이 아니면 다아가기
         if(damage>0 && (!myChar.farAtt && !myChar.dice_Indi.dice_list[0].farAtt)){
             myChar.SetPointMove(eneChar.movePoint.position, 22f);
             gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
@@ -167,7 +164,8 @@ public class BattleCaculate : MonoBehaviour
             }
             yield return new WaitForSeconds(0.5f);
         }
-
+        # endregion
+        # region 상대가 합을 이기고 원거리 공격을 가진게 아니면 자신에게 다아가기
         if(damage<0 && eneChar.dice_Indi.dice_list.Count > 0){
             if(!eneChar.farAtt && !eneChar.dice_Indi.dice_list[0].farAtt){
                 eneChar.SetPointMove(myChar.movePoint.position, 22f);
@@ -176,51 +174,56 @@ public class BattleCaculate : MonoBehaviour
                 while(eneChar.isMoving){
                     yield return null;
                 }
-                yield return new WaitForSeconds(0.5f);}
+                yield return new WaitForSeconds(0.5f);
+                }
         }
-
+        # endregion
+        }
+        else{yield return new WaitForSeconds(0.5f);}
+        
+        
         Debug.Log(damage);
 
-        yield return new WaitForSeconds(1f);
-        
-        
-        
-        
+        // yield return new WaitForSeconds(1f);
+        coroutine_lock = false;
+        Debug.Log("waited");
         yield return null;
-
-        coroutine_lock = true;
+        
         }
     IEnumerator MainAttack(){
-        coroutine_lock1= true;
         
-
         Debug.Log(damage);
         //damage_dice = damage;
 
-        if(damage == 0){
+        if(damage == 0){ // 무승부
             while(card_activated){
                 yield return null;
             }
             myChar.ChangeCondition(3);
             eneChar.ChangeCondition(3);
-            coroutine_lock1= false;
+            coroutine_lock = false;
+            yield return null;
         }
-        if(damage>0){
+        if(damage>0){ // 승리
+            Debug.Log("win");
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnBattleWin(my_ability[i],this);
                 if(my_ability[i].card_active){
                     myChar.UpdateActiveStat();
                 }
                 while(my_ability[i].card_active){
+                    Debug.Log("waiting...");
                     yield return null;
+                    
                 }
                 
             }
             StartCoroutine(Damage(myChar,eneChar));
-            StopCoroutine(MainAttack());
+            yield return null;
             // Damage(myChar,eneChar);
         }
-        if(damage<0){
+        if(damage<0){ // 패배
+            Debug.Log("lose");
             damage = -damage;
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnBattleWin(ene_ability[i],this);
@@ -228,13 +231,16 @@ public class BattleCaculate : MonoBehaviour
                     eneChar.UpdateActiveStat();
                 }
                 while(ene_ability[i].card_active){
+                    Debug.Log("waiting...");
                     yield return null;
                 }
             }
             StartCoroutine(Damage(eneChar,myChar));   
-            StopCoroutine(MainAttack());       
+            yield return null;       
             // Damage(eneChar,myChar);
         }
+
+
 
         
     }
@@ -247,10 +253,12 @@ public class BattleCaculate : MonoBehaviour
                 if(bm.players[i].gameObject.tag.Equals("PlayerTeam1")){
                     bm.card_left_draw += 1;
                     bm.players[i].card_geted = false;
+                    Debug.Log("GetCard");
                 }
                 else{
                     bm.card_right_draw += 1;
                     bm.players[i].card_geted = false;
+                    Debug.Log("GetCard");
                 }
             }
         }
@@ -260,7 +268,7 @@ public class BattleCaculate : MonoBehaviour
                     bm.card_left_draw += 1;
                     bm.players[i].died_card_geted = false;
                     bm.players[i].YouAreDead();
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(1.5f); // 사망후 딜레이
                 }
                 else{
                     bm.card_right_draw += 1;
@@ -279,9 +287,10 @@ public class BattleCaculate : MonoBehaviour
         bm.ui.StartCoroutine("PanoraOff");
 
         myChar.SetPointMove(myChar.originPoint, 15f);
+        eneChar.SetPointMove(eneChar.originPoint, 12f);
         gameManager.main_camera_ctrl.SetZeroMove(17f);
             
-
+        # region battleVarReset
         bm.left_cardLook_lock = false;
         bm.right_cardLook_lock = false;
         bm.ui.CardUIUpdate("Left",true);
@@ -301,13 +310,14 @@ public class BattleCaculate : MonoBehaviour
         eneChar.Battle_End();
 
         battleDice.gameObject.SetActive(false);
+        # endregion
 
         
         for(int i = 0; i<bm.on_battle_card_effect.Count;i++){
             bm.on_battle_card_effect[i].gameObject.SetActive(false);
             bm.on_battle_card_effect.Remove(bm.on_battle_card_effect[i]);
         }
-
+        # region BattleEnded
         for(int i =0;i<myChar.cards.Count;i++){
             myChar.cards[i].ability.BattleEnded(myChar.cards[i]);
             myChar.cards[i].card_lateActive = false;
@@ -316,9 +326,10 @@ public class BattleCaculate : MonoBehaviour
             eneChar.cards[i].ability.BattleEnded(eneChar.cards[i]);
             eneChar.cards[i].card_lateActive = false;
         }
+        #endregion
 
 
-
+        
         if(bm.cardViewChar_left != null){
             bm.cardViewChar_left.player_floor_render.SetInt("_Active",1); 
             bm.cardViewChar_left.ShowCardDeck(true,true);
@@ -361,6 +372,7 @@ public class BattleCaculate : MonoBehaviour
                         attacker.UpdateActiveStat();
                     }
                     while(attacker.cards[i].card_active){
+                        Debug.Log("waiting...");
                         yield return null;
                     }
             }
@@ -370,6 +382,7 @@ public class BattleCaculate : MonoBehaviour
                         defender.UpdateActiveStat();
                     }
                     while(defender.cards[i].card_active){
+                        Debug.Log("waiting...");
                         yield return null;
                     }
             }
@@ -382,7 +395,7 @@ public class BattleCaculate : MonoBehaviour
             //         card.AttackEffect(transform);
             //     }
             // }
-            if(attacker.transform.position.x - defender.transform.position.x <0){
+            if(attacker.transform.position.x - defender.transform.position.x <0){ // 넉백 효과
                 defender.transform.Translate(Vector3.right*damage/2);
             }
             if(attacker.transform.position.x - defender.transform.position.x > 0){
@@ -398,13 +411,15 @@ public class BattleCaculate : MonoBehaviour
         defender.health -= damage;
         attacker.AttackEffect(defender);
         defender.UpdateHp();
+        # region WhoEverDamage
         foreach(Player player in bm.players){
             for(int i = 0;i<player.cards.Count;i++){
                 player.cards[i].ability.WhoEverDamage(player.cards[i],damage);
             }
         }
+        # endregion
 
-        coroutine_lock1 = false;
+        coroutine_lock = false;
         yield return null;
     }
 

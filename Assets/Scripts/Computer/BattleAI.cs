@@ -145,8 +145,6 @@ public class BattleAI : MonoBehaviour
     }
 
     public void isGettingCard(List<CardAbility> cardlist){
-        if(!bf.TeamBool2Str().Equals(my_team) || did){return;}
-
         List<Player> myplayer = my_players.FindAll(x => !x.died);
         bm.GiveCard(cardlist[0],myplayer[0]);
         cardlist.Remove(cardlist[0]);
