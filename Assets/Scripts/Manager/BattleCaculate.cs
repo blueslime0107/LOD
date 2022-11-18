@@ -53,8 +53,10 @@ public class BattleCaculate : MonoBehaviour
         my_ability = myChar.cards;
         ene_ability = eneChar.cards;
 
-        myChar.transform.position += Vector3.back;
-        eneChar.transform.position += Vector3.back;
+        myChar.StopAllCoroutines();
+        myChar.transform.position = bm.gameManager.SetVector3z(myChar.transform.position,-1); 
+        eneChar.StopAllCoroutines();
+        eneChar.transform.position = bm.gameManager.SetVector3z(eneChar.transform.position,-1); 
 
         StartCoroutine(BattleMatchcor());
         
@@ -75,16 +77,6 @@ public class BattleCaculate : MonoBehaviour
         StartCoroutine("MainAttack");
         while(coroutine_lock){ yield return null;}
         yield return new WaitForSeconds(1f); // 합이 끝나고 난 뒤의 딜레이
-
-
-
-
-
-
-
-
-
-
 
         StartCoroutine(MatchFin());
 
@@ -248,36 +240,18 @@ public class BattleCaculate : MonoBehaviour
     
     
     IEnumerator MatchFin(){    
-        for(int i =0;i<bm.players.Count;i++){
-            if(bm.players[i].health <= 5 && bm.players[i].card_geted){
-                if(bm.players[i].gameObject.tag.Equals("PlayerTeam1")){
-                    bm.card_left_draw += 1;
-                    bm.players[i].card_geted = false;
-                    Debug.Log("GetCard");
-                }
-                else{
-                    bm.card_right_draw += 1;
-                    bm.players[i].card_geted = false;
-                    Debug.Log("GetCard");
-                }
-            }
+        if(myChar.health <= 0){
+            myChar.YouAreDead();
+            yield return new WaitForSeconds(1.5f);
         }
-        for(int i =0;i<bm.players.Count;i++){ 
-            if(bm.players[i].health <= 0 && bm.players[i].died_card_geted){
-                if(bm.players[i].gameObject.tag.Equals("PlayerTeam1")){
-                    bm.card_left_draw += 1;
-                    bm.players[i].died_card_geted = false;
-                    bm.players[i].YouAreDead();
-                    yield return new WaitForSeconds(1.5f); // 사망후 딜레이
-                }
-                else{
-                    bm.card_right_draw += 1;
-                    bm.players[i].died_card_geted = false;
-                    bm.players[i].YouAreDead();
-                    yield return new WaitForSeconds(1.5f);
-                }
-            }
+        if(eneChar.health <= 0){
+            eneChar.YouAreDead();
+            yield return new WaitForSeconds(1.5f);
         }
+
+
+
+
         foreach(Player player in bm.players){
             if(player != myChar || player != eneChar){
                 player.dice_Indi.gameObject.SetActive(true);
@@ -304,8 +278,8 @@ public class BattleCaculate : MonoBehaviour
         bm.battleing = false;
         bm.target1 = null;
         bm.target2 = null;
-        myChar.transform.position += Vector3.forward;
-        eneChar.transform.position += Vector3.forward;
+        myChar.transform.position = bm.gameManager.SetVector3z(myChar.transform.position,0);
+        eneChar.transform.position = bm.gameManager.SetVector3z(eneChar.transform.position,0);
         myChar.Battle_End();
         eneChar.Battle_End();
 
@@ -372,7 +346,6 @@ public class BattleCaculate : MonoBehaviour
                         attacker.UpdateActiveStat();
                     }
                     while(attacker.cards[i].card_active){
-                        Debug.Log("waiting...");
                         yield return null;
                     }
             }
@@ -382,7 +355,6 @@ public class BattleCaculate : MonoBehaviour
                         defender.UpdateActiveStat();
                     }
                     while(defender.cards[i].card_active){
-                        Debug.Log("waiting...");
                         yield return null;
                     }
             }

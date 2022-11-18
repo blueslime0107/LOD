@@ -20,8 +20,7 @@ public class Player : MonoBehaviour
     [HideInInspector]public int condition = 0;
     public int max_health;
     public int health;
-    [HideInInspector]public bool card_geted = true;
-    [HideInInspector]public bool died_card_geted = true;
+    public List<int> breakCount = new List<int>();
     public int dice;
     public GameObject dice_obj;
     Dice dice_com;
@@ -48,8 +47,6 @@ public class Player : MonoBehaviour
 
     Vector3 origin_pos;
 
-    [HideInInspector] public bool goto_origin;
-
     void Awake()
     {   
         dice_obj = Instantiate(dice_obj);
@@ -65,13 +62,6 @@ public class Player : MonoBehaviour
         material = GetComponent<SpriteRenderer>().material;
         origin_pos = transform.position;
         render = GetComponent<SpriteRenderer>();
-        // if(gameObject.tag == "PlayerTeam1"){
-        //     player_deck = battleManager.ui.leftCardIndi_compo;
-        // }
-        // else if(gameObject.tag == "PlayerTeam2"){
-        //     player_deck = battleManager.ui.rightCardIndi_compo;
-        // }
-        card_geted = true;
         max_health = health;
         originPoint = transform.position;
     }
@@ -82,7 +72,7 @@ public class Player : MonoBehaviour
         // 자세를 기본자세로 하고 초기카드가 있으면 카드들을 주고 시작
         render.sprite = poses[0];
         if(pre_cards.Count > 0){
-            foreach(CardAbility card in pre_cards){
+            foreach(CardAbility card in pre_cards.FindAll(x => x != null)){
                 battleManager.GiveCard(card,this);
             }
         }
@@ -92,26 +82,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isMoving){
-            transform.position = Vector3.MoveTowards(transform.position,moveTarget,moveSpeed * Time.deltaTime);
-            //transform.Translate(transform.position*Time.deltaTime);   // //////////002 목표로 이동하는것에는 속도에 델타타임을 곱해야 한다.//
-            if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
-                isMoving = false;
-            }
-        }
-        if(goto_origin){
-            if(transform.position == origin_pos){
-                goto_origin = false;
-            }
-            else{
-                transform.position = Vector3.MoveTowards(transform.position,origin_pos,14f * Time.deltaTime);
-                if(Vector3.Distance(transform.position,origin_pos) < 0.001f){
-                    goto_origin = false;
-                    transform.position = origin_pos;
-                }
-            }
-            
-        }
         if(died){
             fade -= Time.deltaTime/2;
             if(fade <= 0f){
@@ -122,14 +92,41 @@ public class Player : MonoBehaviour
             material.SetInt("_Noise",1);
         }
     
-    
     }
 
+    public IEnumerator GotoOrigin(){
+        while(true)
+        {if(transform.position == origin_pos){
+            break;
+        }
+        else{
+            transform.position = Vector3.MoveTowards(transform.position,origin_pos,14f * Time.deltaTime);
+            if(Vector3.Distance(transform.position,origin_pos) < 0.001f){
+                transform.position = origin_pos;
+                break;
+            }
+        }
+        yield return null;
+        }
+    }
+    public IEnumerator GotoPoint(){
+        while(true){
+            transform.position = Vector3.MoveTowards(transform.position,moveTarget,moveSpeed * Time.deltaTime);
+            //transform.Translate(transform.position*Time.deltaTime);   // //////////002 목표로 이동하는것에는 속도에 델타타임을 곱해야 한다.//
+            if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
+                isMoving = false;
+                break;
+            }
+        yield return null;
+        }
+    }
     public void SetPointMove(Vector3 point, float spd){
         moveTarget = point;
         moveSpeed = spd;
         isMoving = true;
+        StartCoroutine("GotoPoint");
     }
+
 
     public void SetDice(int value){
         dice_Indi.setDice(value);
@@ -157,10 +154,20 @@ public class Player : MonoBehaviour
     }
 
     public void UpdateHp(){
-        hp_Indi.HpUpdate(health,max_health);
+        hp_Indi.HpUpdate(this);
+        if(breakCount.Count <= 0){return;}
+        for(int i = 0;i<breakCount.Count;i++){
+            if(health <= breakCount[0]){
+                if(gameObject.tag.Equals("PlayerTeam1")){battleManager.card_left_draw += 1;}
+                else{battleManager.card_right_draw += 1;}
+                breakCount.RemoveAt(0);
+            }
+        }
+        hp_Indi.HpUpdate(this);
     }
 
     public void YouAreDead(){
+        UpdateHp();
         foreach(Player player in battleManager.players){
             if(player.gameObject.tag.Equals(gameObject.tag) && !player.Equals(this)){
                 for(int i =0;i<player.cards.Count;i++){
@@ -249,7 +256,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if(!battleManager.battleing){
             if(collider.gameObject.name.Equals("WallLeft") || collider.gameObject.name.Equals("WallRight")){
-                goto_origin = true;
+                StartCoroutine("GotoOrigin");
             }
         }
         if(collider.gameObject.tag.Equals("LeftBorder")){

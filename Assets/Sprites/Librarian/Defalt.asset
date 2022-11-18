@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Defalt
+  m_EditorClassIdentifier: 
+  name: 
+  poses:
+  - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
+  - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
+  - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
+  - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
+  - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  farAtk: 0

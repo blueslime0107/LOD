@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Defalt 1
   m_EditorClassIdentifier: 
-  char_name: "\uBE14\uB8E8\uC2AC\uB77C\uC784"
   health: 10
-  breaks: 05000000
-  char_sprites:
-  - {fileID: 21300000, guid: f81486f31958e474686c751c813739e9, type: 3}
-  - {fileID: 21300000, guid: 6307221e52bbb8d41ab2355084d2aa51, type: 3}
-  - {fileID: 21300000, guid: 13bd5a7a6375d814b84a9a6751f4bbe0, type: 3}
-  - {fileID: 21300000, guid: d1004f640ea6eeb4ab8c3a028c25ce93, type: 3}
-  - {fileID: 21300000, guid: 42c583a1376221249aef4f051f1ae549, type: 3}
+  breaks: 0500000000000000
+  char_sprites: {fileID: 11400000, guid: aa40b127a98584f42bf7c5c4ecdecd76, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
   - {fileID: 0}

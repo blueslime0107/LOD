@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Tori
+  m_EditorClassIdentifier: 
+  name: Tori
+  poses:
+  - {fileID: 21300000, guid: 65129c9477b748345af1a7b8192b1abd, type: 3}
+  - {fileID: 21300000, guid: dcc92d094d0e20d459c5a081037e033e, type: 3}
+  - {fileID: 21300000, guid: 9229a5aaa4210c84ab8c7fe2e43a1116, type: 3}
+  - {fileID: 21300000, guid: 7987c6d7818394a409a5d8b56d87aac3, type: 3}
+  - {fileID: 21300000, guid: 87f74a2c03a8547468a9fc7f1ae5d009, type: 3}
+  farAtk: 0

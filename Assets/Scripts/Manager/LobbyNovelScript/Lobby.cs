@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Lobby : MonoBehaviour
 {
-
+    public int floorNum = 1;
     public StageManager stageManager;
 
     [SerializeField] SceneMove sceneM;
@@ -28,7 +28,7 @@ public class Lobby : MonoBehaviour
     public GameObject stage_slot;
     public List<BattleItem> stageItem = new List<BattleItem>();
 
-    public string curMenu = "lobby";
+    public List<string> curMenu = new List<string>();
 
     
 
@@ -38,33 +38,44 @@ public class Lobby : MonoBehaviour
     public Stage stage;
     public Stage player;
 
+    void Awake(){
+        stageManager = FindObjectOfType<StageManager>();
+        curMenu.Add("lobby");
+    }
+
+    public void Start(){
+        switch(floorNum){
+            case 1:
+                player = stageManager.FloorOfBattle.PlayerStage; break;
+            case 2:
+                player = stageManager.FloorOfResource.PlayerStage; break;
+            case 3:
+                player = stageManager.FloorOfSocial.PlayerStage; break;
+        }
+    }
 
     public void Update(){
         if(Input.GetMouseButtonDown(1)){
-            if(curMenu.Equals("battle")){
-                enemyCard.ActiveOpenClose();
-                playerCard.ActiveOpenClose();
-                BattleButton.ActiveOpenClose();
-                curMenu = "surMenu";
-                return;
-            }
-            if(curMenu.Equals("surMenu")){
-                sub_table.ActiveOpenClose();
-                battle_table.ActiveOpenClose();
-                darScreen.SetActive(false);        
-                curMenu = "lobby";
-                return;
-            }
-            if(curMenu.Equals("mainMenu")){
-                main_table.ActiveOpenClose();
-                darScreen.SetActive(false);        
-                curMenu = "lobby";
-                return;
-            }
-            if(curMenu.Equals("mainMenuStage")){
-                battle_table.ActiveOpenClose();      
-                curMenu = "mainMenu";
-                return;
+            Debug.Log(curMenu);
+            switch(curMenu[curMenu.Count-1]){
+                case "surMenu":
+                    sub_table.ActiveOpenClose();
+                    battle_table.ActiveOpenClose();
+                    darScreen.SetActive(false);        
+                    curMenu.Remove("surMenu"); break;
+                case "mainMenu":
+                    main_table.ActiveOpenClose();
+                    darScreen.SetActive(false);        
+                    curMenu.Remove("mainMenu"); break;
+                case "mainMenuStage":
+                    battle_table.ActiveOpenClose();      
+                    curMenu.Remove("mainMenuStage"); break;
+                case "battle":
+                    enemyCard.ActiveOpenClose();
+                    playerCard.ActiveOpenClose();
+                    BattleButton.ActiveOpenClose();
+                    curMenu.Remove("battle"); break;
+
             }
         }
     }
@@ -76,7 +87,7 @@ public class Lobby : MonoBehaviour
         sub_table.ActiveOpenClose();
         battle_table.ActiveOpenClose();
         darScreen.SetActive(true);
-        curMenu = "surMenu";
+        curMenu.Add("surMenu");
     }
 
     public void OpenMainMenu(){
@@ -85,7 +96,7 @@ public class Lobby : MonoBehaviour
         }
         main_table.ActiveOpenClose();
         darScreen.SetActive(true);
-        curMenu = "mainMenu";
+        curMenu.Add("mainMenu");
     }
 
     public void OpenMainStageMenu(){
@@ -93,7 +104,7 @@ public class Lobby : MonoBehaviour
             return;
         }
         battle_table.ActiveOpenClose();
-        curMenu = "mainMenuStage";
+        curMenu.Add("mainMenuStage");
     }
     
     
@@ -103,16 +114,17 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("battle")){
             return;
         }
+        
         playerBattleCard.UpdateStat();
         enemyBattleCard.UpdateStat();
         enemyCard.ActiveOpenClose();
         playerCard.ActiveOpenClose();
         BattleButton.ActiveOpenClose();
-        curMenu = "battle";
+        curMenu.Add("battle");
     }
 
     public void GetStory(){
-        if(stage.beforeStory != null)
+        if(stageManager.play_stage.beforeStory != null)
         {sceneM.MoveStory();}
         else{
             sceneM.MoveBattle();

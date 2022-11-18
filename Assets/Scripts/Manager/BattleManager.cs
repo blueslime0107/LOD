@@ -93,15 +93,15 @@ public class BattleManager : MonoBehaviour
         //Left_battleAI.AIPreSet();
 
         while(true){ // 계속반복
-            // if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count)){
-            //     Debug.Log("You Lose!");
-            //     break;
-            // }
-            // if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
-            //     Debug.Log("You Win!");
-            //     gameManager.sm.stage.victoryed = true;
-            //     break;
-            // }
+            if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count)){
+                Debug.Log("You Lose!");
+                break;
+            }
+            if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+                Debug.Log("You Win!");
+                gameManager.sm.play_stage.victoryed = true;
+                break;
+            }
             # region 전투끝/카드뽑기
             PlayerGoToOrigin();
             left_cardLook_lock = false;
@@ -338,13 +338,17 @@ public class BattleManager : MonoBehaviour
             # endregion
 
         }   
-        //yield return new WaitForSeconds(1f);
-        // if(gameManager.sm.stage.afterStory != null){
-        //     gameManager.sceneMove.MoveStory();
-        // }
-        // else{
-        //     gameManager.sceneMove.MoveLobby();
-        // }
+        yield return new WaitForSeconds(1f);
+        if(gameManager.sm.play_stage.priceStage.Count > 0){
+            Debug.Log("have Stage");
+            gameManager.sm.AddStageFun(gameManager.sm.play_stage.priceStage);
+        }
+        if(gameManager.sm.play_stage.afterStory != null){
+            gameManager.sceneMove.MoveStory();
+        }
+        else{
+            gameManager.sceneMove.MoveLobby();
+        }
                  
     }
 
@@ -431,7 +435,7 @@ public class BattleManager : MonoBehaviour
     void PlayerGoToOrigin(){
         // 플레이어가 모두 돌아가는걸 허락함, 바닥 활성화를 끔
         foreach(Player player in players){
-            player.goto_origin = true;
+            player.StartCoroutine("GotoOrigin");
             player.player_floor_render.SetInt("_Active",0);
         }
 
@@ -524,6 +528,7 @@ public class BattleManager : MonoBehaviour
         GameObject game_card = new GameObject();
         CardPack card = game_card.AddComponent<CardPack>() as CardPack;
         //CardPack card = new CardPack();
+        Debug.Log(having_card);
         card.ability = having_card;
         card.max_gague = having_card.gague;
         card.battleManager = this;

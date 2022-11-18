@@ -13,6 +13,8 @@ public class BattleItem : MonoBehaviour
     public TextMeshProUGUI battle_title;
 
     public void UpdateStat(){
+        Debug.Log(stage.rank);
+        Debug.Log(rank_sprite);
         rank_img.sprite = rank_sprite[stage.rank-1];
         battle_title.text = stage.title;
     }

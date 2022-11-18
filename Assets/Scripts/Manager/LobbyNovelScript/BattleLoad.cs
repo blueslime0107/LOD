@@ -6,49 +6,52 @@ using UnityEngine.UI;
 
 public class BattleLoad : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField]bool isSub;
+    [SerializeField]bool debug;
     [SerializeField]Lobby lobby;
-    [SerializeField]StageManager stageManager;
-    [SerializeField]string mainStageName;
+    StageManager sm;
+    [SerializeField]int panel;
+
     public List<Stage> stages = new List<Stage>();
 
-    void Awake(){
-        switch(mainStageName){
-            case "Floor1SubStage":
-                stages = stageManager.Floor1SubStage; break;
-            case "Floor1Stage1":
-                stages = stageManager.Floor1Stage1; break;
-            case "Floor2SubStage":
-                stages = stageManager.Floor2SubStage; break;
-            case "Floor2Stage1":
-                stages = stageManager.Floor2Stage1; break;
-            case "Floor3SubStage":
-                stages = stageManager.Floor3SubStage; break;
-            case "Floor3Stage1":
-                stages = stageManager.Floor3Stage1; break;
-            case "Floor1Stage2":
-                stages = stageManager.Floor1Stage2; break;
-            case "Floor2Stage2":
-                stages = stageManager.Floor2Stage2; break;
-            case "Floor3Stage2":
-                stages = stageManager.Floor3Stage2; break;
-                
+    private void Awake() {
+        sm = FindObjectOfType<StageManager>();
+    }
+
+    void Start(){
+        Floor floor = new Floor();
+        switch(lobby.floorNum){
+            case 1:floor = sm.FloorOfBattle; break;
+            case 2:floor = sm.FloorOfResource; break;
+            case 3:floor = sm.FloorOfSocial; break;
+        }
+        switch(panel){
+            case 1: stages = floor.Stage1; break;     
+            case 2: stages = floor.Stage2; break;    
+            case 3: stages = floor.SubStage; break;    
+        }
+        if(debug){
+            Debug.Log(lobby.floorNum);
+            Debug.Log(panel);
+            Debug.Log(floor.SubStage.Count);
+            Debug.Log(stages.Count);
         }
     }
 
     public void OnPointerDown(PointerEventData eventData){
-        if(isSub){
+        if(Input.GetMouseButtonDown(1)){return;}
+        if(panel.Equals(3)){
             lobby.OpenSubMenu();
         }
         else{
             lobby.OpenMainStageMenu();
         }
+        sm.floor = lobby.floorNum;
+        sm.panel = panel;
         RenderStage();
     }
 
     public void RenderStage(){
         Debug.Log(stages);
-        Debug.Log(mainStageName);
         foreach(BattleItem item in lobby.stageItem){
             item.gameObject.SetActive(false);
         }

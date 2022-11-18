@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Defalt
   m_EditorClassIdentifier: 
-  char_name: JoRen2
   health: 5
   breaks: 05000000
-  char_sprites:
-  - {fileID: 21300000, guid: faa5501a4cd7a1940bf3dc8be83801a1, type: 3}
-  - {fileID: 21300000, guid: 53a12dffc1b05f9449ce4a0afdacd43b, type: 3}
-  - {fileID: 21300000, guid: 2ae730b7aa8da5844902d39cb31378ed, type: 3}
-  - {fileID: 21300000, guid: 0f04974f9dc0f6c4abeb34c003e9b07f, type: 3}
-  - {fileID: 21300000, guid: 21f977c9112bbfc44954e20b73e846c5, type: 3}
+  char_sprites: {fileID: 11400000, guid: ba1f1ef221ea2bc40b02e7c1a2a9749f, type: 2}
   char_preCards:
   - {fileID: 0}
   - {fileID: 0}

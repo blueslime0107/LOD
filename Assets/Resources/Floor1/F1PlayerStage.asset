@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: F1PlayerStage
+  m_EditorClassIdentifier: 
+  title: "\uC751\uC560 \uC2E0\uC785"
+  sub_text: "\uC5ED\uC2DC \uD504\uB85C\uD1A0\uD0C0\uC785\uC774\uC57C"
+  rank: 1
+  values: "\uAD1C\uCC2E\uC740 \uB4EF?"
+  characters:
+  - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  priceStage: []
+  priceCard: {fileID: 0}
+  victoryed: 0

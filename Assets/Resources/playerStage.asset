@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "\uD50C\uB808\uC774\uC5B4 \uCE74\uB4DC"
   sub_text: "\uC544\uC9C1 \uBD80\uC871\uD55C\uAC8C \uB9CE\uC740\uB4EF"
-  rank: 0
+  rank: 1
   values: "\uBA40\uCA61\uD55C \uD3B8"
   characters:
   - {fileID: 11400000, guid: 52443b4d9847c0c449f2ddc11df19e53, type: 2}
@@ -24,5 +24,6 @@ MonoBehaviour:
   - {fileID: 0}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
-  price: 0
+  priceStage: []
+  priceCard: {fileID: 0}
   victoryed: 0

@@ -10,7 +10,7 @@ public class CharItem : MonoBehaviour
     public TextMeshProUGUI breaks;
 
     public int health_value;
-    public int[] breaks_value;
+    public List<int> breaks_value = new List<int>();
 
     public TextMeshProUGUI char_name;
     public Image character; 
@@ -20,8 +20,8 @@ public class CharItem : MonoBehaviour
     public void UpdateStat(Character chars){
         health_value = chars.health;
         breaks_value = chars.breaks;
-        char_name.text = chars.char_name;
-        character.sprite = chars.char_sprites[0];
+        char_name.text = chars.char_sprites.name;
+        character.sprite = chars.char_sprites.poses[0];
 
         health.text = health_value.ToString();
         breaks.text = "";

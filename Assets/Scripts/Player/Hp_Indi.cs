@@ -9,16 +9,18 @@ public class Hp_Indi : MonoBehaviour
     public TextMeshProUGUI HPText; 
     public TextMeshProUGUI BreakText; 
 
-    public void HpUpdate(int hp, int max_hp){
-        HPText.text = hp.ToString();
+    public void HpUpdate(Player player){
+        HPText.text = player.health.ToString();
+        BreakText.text = (player.breakCount.Count <= 0) ? "-" : player.breakCount[0].ToString();
+        int max_hp = player.max_health;
         for(int i = 0; i<10; i++){
             if(max_hp<i+1)
                 hp_list[i].changeCondi(0);
-            if(hp<=i)
+            if(player.health<=i)
                 hp_list[i].changeCondi(1);
-            if(hp>i)
+            if(player.health>i)
                 hp_list[i].changeCondi(2);
-            if(hp>i+10)
+            if(player.health>i+10)
                 hp_list[i].changeCondi(3);
             }
     }

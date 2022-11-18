@@ -36,7 +36,8 @@ public class CameraCtrl : MonoBehaviour
         if(isTwoTargetMove){
             target1 = ch1.transform.position;
             target2 = ch2.transform.position;
-            Vector3 tr = (target1 + target2) * 0.5f + Vector3.back*10 + Vector3.down*0.5f;
+            Vector3 tr = (target1 + target2) * 0.5f + Vector3.down*0.5f;
+            tr = battleManager.gameManager.SetVector3z(tr,-5f);
             if(Vector3.Distance(transform.position,tr) > 0.001f){
                 transform.position = Vector3.MoveTowards(transform.position,tr,moveSpeed*Time.deltaTime);
             }

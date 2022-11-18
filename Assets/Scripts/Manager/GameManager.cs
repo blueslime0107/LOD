@@ -10,11 +10,23 @@ public class GameManager : MonoBehaviour
 
     public StageManager sm;
 
+    public Stage debugPlayerStage;
+    public Stage debugStage;
+
     public Player[] leftPlayers;
     public Player[] rightPlayers;
 
     void Awake(){
         sm = FindObjectOfType<StageManager>();
+
+        if(sm == null){
+            Debug.Log("not Find");
+            GameObject smObj = new GameObject();
+            sm = smObj.AddComponent<StageManager>() as StageManager;
+
+            sm.play_stage = debugStage;
+            sm.player_card = debugPlayerStage;
+        }
 
         if(sm != null)
         {for(int i=0;i<sm.player_card.characters.Length;i++){
@@ -24,7 +36,9 @@ public class GameManager : MonoBehaviour
                 Character chars = sm.player_card.characters[i];
                 leftPlayers[i].health = chars.health;
                 leftPlayers[i].max_health = chars.health;
-                leftPlayers[i].poses = chars.char_sprites;
+                leftPlayers[i].breakCount = new List<int>(chars.breaks);
+                leftPlayers[i].poses = chars.char_sprites.poses;
+                leftPlayers[i].farAtt = chars.char_sprites.farAtk;
                 leftPlayers[i].UpdateHp();
                 foreach(CardAbility ability in chars.char_preCards)
                 {
@@ -40,7 +54,9 @@ public class GameManager : MonoBehaviour
                 Character chars = sm.play_stage.characters[i];
                 rightPlayers[i].health = chars.health;
                 rightPlayers[i].max_health = chars.health;
-                rightPlayers[i].poses = chars.char_sprites;
+                rightPlayers[i].breakCount = new List<int>(chars.breaks);
+                rightPlayers[i].poses = chars.char_sprites.poses;
+                rightPlayers[i].farAtt = chars.char_sprites.farAtk;
                 rightPlayers[i].UpdateHp();
                 foreach(CardAbility ability in chars.char_preCards)
                 {
