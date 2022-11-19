@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using TMPro;
 
 public class BattleLoad : MonoBehaviour, IPointerDownHandler
 {
@@ -13,27 +13,32 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
 
     public List<Stage> stages = new List<Stage>();
 
+    public TextMeshProUGUI title;
+    public DiceIcon diceIcon;
+
     private void Awake() {
         sm = FindObjectOfType<StageManager>();
     }
 
-    void Start(){
+    public void Start(){
         Floor floor = new Floor();
+        Debug.Log(lobby.floorNum);
         switch(lobby.floorNum){
             case 1:floor = sm.FloorOfBattle; break;
             case 2:floor = sm.FloorOfResource; break;
             case 3:floor = sm.FloorOfSocial; break;
         }
         switch(panel){
-            case 1: stages = floor.Stage1; break;     
-            case 2: stages = floor.Stage2; break;    
-            case 3: stages = floor.SubStage; break;    
-        }
-        if(debug){
-            Debug.Log(lobby.floorNum);
-            Debug.Log(panel);
-            Debug.Log(floor.SubStage.Count);
-            Debug.Log(stages.Count);
+            case 1: stages = floor.Stage1; 
+            title.text = floor.title1;
+            diceIcon.SetRank(floor.rank1);
+            break;     
+            case 2: stages = floor.Stage2;
+            title.text = floor.title2;
+            diceIcon.SetRank(floor.rank2); 
+            break;    
+            case 3: stages = floor.SubStage; 
+            break;    
         }
     }
 

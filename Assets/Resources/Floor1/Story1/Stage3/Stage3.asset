@@ -29,4 +29,6 @@ MonoBehaviour:
     panel: 3
     stage: {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
   priceCard: {fileID: 0}
-  victoryed: 1
+  victoryed: 0
+  playerStageLock: {fileID: 0}
+  tutorialLine: 2

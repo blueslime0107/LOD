@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Lobby : MonoBehaviour
 {
-    public int floorNum = 1;
+    public int floorNum;
     public StageManager stageManager;
 
     [SerializeField] SceneMove sceneM;

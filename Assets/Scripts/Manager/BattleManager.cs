@@ -339,9 +339,15 @@ public class BattleManager : MonoBehaviour
 
         }   
         yield return new WaitForSeconds(1f);
-        if(gameManager.sm.play_stage.priceStage.Count > 0){
-            Debug.Log("have Stage");
+        if(gameManager.sm.play_stage.victoryed && !gameManager.sm.play_stage.noPrice)
+        {
+            if(gameManager.sm.play_stage.priceStage.Count > 0){
             gameManager.sm.AddStageFun(gameManager.sm.play_stage.priceStage);
+            }
+            if(gameManager.sm.play_stage.priceChars.Count > 0){
+                gameManager.sm.AddPlayerCardChar(gameManager.sm.play_stage.priceChars);
+            }
+            gameManager.sm.play_stage.noPrice = true;
         }
         if(gameManager.sm.play_stage.afterStory != null){
             gameManager.sceneMove.MoveStory();

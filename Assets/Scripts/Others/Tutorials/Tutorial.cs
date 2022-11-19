@@ -7,12 +7,20 @@ public class Tutorial : MonoBehaviour
     [SerializeField]GameObject sprite_mask;
     [SerializeField]GameObject[] scenes;
     [SerializeField]BattleManager bm;
-    [SerializeField] bool tutorial_start;
 
     void Start(){
-        if(tutorial_start) return;
-        
-        StartCoroutine("tutorial1");
+        if(bm.gameManager.sm.play_stage.tutorialLine > 0){
+            if(bm.gameManager.sm.play_stage.tutorialLine.Equals(1)){
+                StartCoroutine("tutorial1");
+            }
+            if(bm.gameManager.sm.play_stage.tutorialLine.Equals(2)){
+                sprite_mask.SetActive(false);
+                StartCoroutine("tutorial2");
+            }
+        }
+        else{
+            gameObject.SetActive(false);
+        }
     }
 
     IEnumerator tutorial1(){
@@ -83,7 +91,16 @@ public class Tutorial : MonoBehaviour
         hole_hide(true);
         scenes[5].SetActive(false);
         
+        
+
+
+
+
+        yield return null;
+    }
+    IEnumerator tutorial2(){
         while(bm.card_left_draw <= 0){yield return null;}
+        sprite_mask.SetActive(true);
 
         while(bm.card_left_draw > 0){
             scenes[6].SetActive(Input.GetMouseButton(0));
@@ -104,9 +121,6 @@ public class Tutorial : MonoBehaviour
         yield return null;
         hole_hide(true);
         scenes[8].SetActive(false);
-
-
-
 
         yield return null;
     }

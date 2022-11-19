@@ -70,6 +70,11 @@ public class Player : MonoBehaviour
 
     void Start(){
         // 자세를 기본자세로 하고 초기카드가 있으면 카드들을 주고 시작
+        if(gameObject.tag.Equals("PlayerTeam2")){
+            hp_Indi.HPObj.transform.Translate(Vector3.right*1.2f);
+            hp_Indi.BreakObj.transform.Translate(Vector3.right*1.2f);
+        }
+        hp_Indi.BreakObj.SetActive(!battleManager.gameManager.sm.play_stage.noBreakCards);
         render.sprite = poses[0];
         if(pre_cards.Count > 0){
             foreach(CardAbility card in pre_cards.FindAll(x => x != null)){
@@ -155,7 +160,7 @@ public class Player : MonoBehaviour
 
     public void UpdateHp(){
         hp_Indi.HpUpdate(this);
-        if(breakCount.Count <= 0){return;}
+        if(breakCount.Count <= 0 || battleManager.gameManager.sm.play_stage.noBreakCards){return;}
         for(int i = 0;i<breakCount.Count;i++){
             if(health <= breakCount[0]){
                 if(gameObject.tag.Equals("PlayerTeam1")){battleManager.card_left_draw += 1;}

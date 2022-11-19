@@ -6,6 +6,8 @@ using TMPro;
 public class Hp_Indi : MonoBehaviour
 {
     public Hp[] hp_list;
+    public GameObject HPObj;
+    public GameObject BreakObj;
     public TextMeshProUGUI HPText; 
     public TextMeshProUGUI BreakText; 
 

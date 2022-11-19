@@ -8,21 +8,23 @@ public class BattleItem : MonoBehaviour
 {
     public Lobby lobby;
     public Stage stage;
-    public Image rank_img;
-    public Sprite[] rank_sprite;
+    public DiceIcon diceIcon;
     public TextMeshProUGUI battle_title;
+    public GameObject cleared;
 
     public void UpdateStat(){
-        Debug.Log(stage.rank);
-        Debug.Log(rank_sprite);
-        rank_img.sprite = rank_sprite[stage.rank-1];
+        diceIcon.SetRank(stage.rank);
         battle_title.text = stage.title;
+        cleared.SetActive(stage.victoryed);
     }
 
     public void Clicked(){
         lobby.stage = stage;
         lobby.stageManager.play_stage = stage;
         lobby.stageManager.player_card = lobby.player;
+        if(stage.playerStageLock != null){
+            lobby.stageManager.player_card = stage.playerStageLock;
+        }
         lobby.OpenBattleCard();
         
     }

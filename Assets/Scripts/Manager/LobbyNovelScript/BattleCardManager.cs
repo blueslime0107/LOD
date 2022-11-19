@@ -16,7 +16,7 @@ public class BattleCardManager : MonoBehaviour
 
     public void UpdateStat(){
 
-        stage = (!playerCard) ? lobby.stage : lobby.player;
+        stage = (!playerCard) ? lobby.stage : lobby.stageManager.player_card;
 
         title.text = stage.title;
         sub_text.text = stage.sub_text;
@@ -25,7 +25,6 @@ public class BattleCardManager : MonoBehaviour
             if(stage.characters[i] != null){
                 characters[i].gameObject.SetActive(true);
                 characters[i].UpdateStat(stage.characters[i]);
-                
             }
             else{
                 characters[i].gameObject.SetActive(false);

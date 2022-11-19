@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Tub
   m_EditorClassIdentifier: 
-  health: 5
-  breaks: 
+  health: 10
+  breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 83a4d27aee78b9d43a381f75b097b9be, type: 2}
   char_preCards:
   - {fileID: 0}

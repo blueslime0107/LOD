@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
     public Stage debugPlayerStage;
     public Stage debugStage;
 
-    public Player[] leftPlayers;
-    public Player[] rightPlayers;
+    [SerializeField] Player[] leftPlayers;
+    [SerializeField] Player[] rightPlayers;
 
+    [SerializeField] GameObject[] backGrounds;
+    
     void Awake(){
+
         sm = FindObjectOfType<StageManager>();
 
         if(sm == null){
@@ -29,7 +32,8 @@ public class GameManager : MonoBehaviour
         }
 
         if(sm != null)
-        {for(int i=0;i<sm.player_card.characters.Length;i++){
+        {
+            for(int i=0;i<sm.player_card.characters.Length;i++){
             if(sm.player_card.characters[i] != null)
             {
                 leftPlayers[i].gameObject.SetActive(true);
@@ -65,9 +69,17 @@ public class GameManager : MonoBehaviour
             }
         }}
 
+        switch(sm.floor){
+            case 1: backGrounds[1].SetActive(true); break;
+            case 2: backGrounds[0].SetActive(true); break;
+            case 3: backGrounds[2].SetActive(true); break;
+        }
+
+
     }
 
     void Start(){
+        Awake();
         battleManager.Battle();
     }
 
