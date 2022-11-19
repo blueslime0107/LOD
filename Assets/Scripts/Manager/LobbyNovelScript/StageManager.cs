@@ -50,7 +50,7 @@ public class StageManager : MonoBehaviour
     public void AddStageFun(List<AddStage> stages){
         foreach(AddStage stage in stages){
             Floor floor_ = FloorOfBattle;
-            switch(floor){
+            switch(stage.floor){
                 case 1:floor_ = FloorOfBattle; break;
                 case 2:floor_ = FloorOfResource; break;
                 case 3:floor_ = FloorOfSocial; break;

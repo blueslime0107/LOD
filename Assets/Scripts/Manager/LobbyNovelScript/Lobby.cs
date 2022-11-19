@@ -131,4 +131,13 @@ public class Lobby : MonoBehaviour
         }
     }
 
+    public int SnumToIndex(int num){
+        switch(num){
+            case 1: return 1;
+            case 2: return 0;
+            case 3: return 2;
+            default: return 1;
+        }
+    }
+
 }

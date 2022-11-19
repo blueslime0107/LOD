@@ -24,6 +24,11 @@ public class BattleItem : MonoBehaviour
         lobby.stageManager.player_card = lobby.player;
         if(stage.playerStageLock != null){
             lobby.stageManager.player_card = stage.playerStageLock;
+            if(lobby.stageManager.player_card.title.Equals("")){
+                lobby.stageManager.player_card.title = lobby.player.title;
+                lobby.stageManager.player_card.sub_text = lobby.player.sub_text;
+                lobby.stageManager.player_card.values = lobby.player.values;
+            }
         }
         lobby.OpenBattleCard();
         

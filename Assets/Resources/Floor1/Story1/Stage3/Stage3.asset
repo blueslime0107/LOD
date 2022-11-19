@@ -18,17 +18,20 @@ MonoBehaviour:
   values: "\uAE30\uBCF8\uC801\uC784"
   characters:
   - {fileID: 11400000, guid: c7de5e058689caf45bcdac32eb3eb0f0, type: 2}
-  - {fileID: 11400000, guid: 95f2c279993f08948af230f8675aa78d, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 1
-    panel: 3
-    stage: {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
+  - floor: 2
+    panel: 1
+    stage: {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
   priceCard: {fileID: 0}
   victoryed: 0
-  playerStageLock: {fileID: 0}
+  playerStageLock: {fileID: 11400000, guid: 0dc528e91fe686041b6452018c3bf9e9, type: 2}
+  priceChars: []
   tutorialLine: 2
+  noBreakCards: 0
+  noPrice: 0

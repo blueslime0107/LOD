@@ -15,12 +15,12 @@ public class FloorScript : MonoBehaviour
     List<GameObject> floorBgObj = new List<GameObject>();
     [SerializeField] int[] floorNum;
     public int curFloor;
-    [SerializeField] int prefloorNum;
     [SerializeField] Lobby lobby;
     [SerializeField] int fl;
 
     void Awake(){
-        curFloor = prefloorNum;
+        StageManager sm = FindObjectOfType<StageManager>();
+        curFloor = lobby.SnumToIndex(sm.floor);
         lobby.floorNum = floorNum[curFloor];
         foreach(GameObject bg in floorBg){
             GameObject bgobj = Instantiate(bg);
@@ -70,6 +70,7 @@ public class FloorScript : MonoBehaviour
         transform.position = Vector3.zero;
         yield return null;
     }
+
 
 
 

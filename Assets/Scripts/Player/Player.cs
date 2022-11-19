@@ -165,6 +165,7 @@ public class Player : MonoBehaviour
             if(health <= breakCount[0]){
                 if(gameObject.tag.Equals("PlayerTeam1")){battleManager.card_left_draw += 1;}
                 else{battleManager.card_right_draw += 1;}
+                hp_Indi.ActiveEff();
                 breakCount.RemoveAt(0);
             }
         }

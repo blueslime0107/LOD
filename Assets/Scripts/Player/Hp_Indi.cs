@@ -8,6 +8,7 @@ public class Hp_Indi : MonoBehaviour
     public Hp[] hp_list;
     public GameObject HPObj;
     public GameObject BreakObj;
+    public GameObject BreakEfk;
     public TextMeshProUGUI HPText; 
     public TextMeshProUGUI BreakText; 
 
@@ -25,6 +26,16 @@ public class Hp_Indi : MonoBehaviour
             if(player.health>i+10)
                 hp_list[i].changeCondi(3);
             }
+    }
+
+    private void OnEnable() {
+        BreakEfk.SetActive(false);
+    }
+
+    public void ActiveEff(){
+        BreakEfk.SetActive(false);
+        BreakEfk.SetActive(true);
+
     }
 }
 

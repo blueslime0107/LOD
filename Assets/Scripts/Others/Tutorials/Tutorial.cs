@@ -99,8 +99,15 @@ public class Tutorial : MonoBehaviour
         yield return null;
     }
     IEnumerator tutorial2(){
+        bm.dices[0].diceLock.Add(1);
+        bm.dices[1].diceLock.Add(5);
+        bm.dices[0].diceLock.Add(6);
+        bm.dices[1].diceLock.Add(3);
+        bm.dices[0].diceLock.Add(6);
+        bm.dices[1].diceLock.Add(2);
+        bm.dices[0].diceLock.Add(5);
+        bm.dices[1].diceLock.Add(2);
         while(bm.card_left_draw <= 0){yield return null;}
-        sprite_mask.SetActive(true);
 
         while(bm.card_left_draw > 0){
             scenes[6].SetActive(Input.GetMouseButton(0));

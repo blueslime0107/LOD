@@ -1776,7 +1776,6 @@ MonoBehaviour:
   - {fileID: 3740758451269080225, guid: 32e523654d979914b94095f3f1384f71, type: 3}
   floorNum: 020000000100000003000000
   curFloor: 0
-  prefloorNum: 1
   lobby: {fileID: 283564455}
   fl: 11
 --- !u!1 &539264556
@@ -7510,7 +7509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53087b29db693c3479f2ec1caeb742ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floor: 0
+  floor: 1
   panel: 0
   play_stage: {fileID: 0}
   player_card: {fileID: 0}
