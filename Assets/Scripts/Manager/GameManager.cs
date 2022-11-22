@@ -18,12 +18,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject[] backGrounds;
     
-    void Awake(){
+    void Reseting(){
 
         sm = FindObjectOfType<StageManager>();
 
         if(sm == null){
-            Debug.Log("not Find");
             GameObject smObj = new GameObject();
             sm = smObj.AddComponent<StageManager>() as StageManager;
 
@@ -36,6 +35,10 @@ public class GameManager : MonoBehaviour
             for(int i=0;i<sm.player_card.characters.Length;i++){
             if(sm.player_card.characters[i] != null)
             {
+                leftPlayers[i].battleManager = battleManager;
+                leftPlayers[i].dice_Indi.battleManager = battleManager;
+                leftPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
+                leftPlayers[i].dice_Indi.lineRender = battleManager.lineRender;
                 leftPlayers[i].gameObject.SetActive(true);
                 Character chars = sm.player_card.characters[i];
                 leftPlayers[i].health = chars.health;
@@ -54,6 +57,11 @@ public class GameManager : MonoBehaviour
         for(int i=0;i<sm.play_stage.characters.Length;i++){
             if(sm.play_stage.characters[i] != null)
             {
+                rightPlayers[i].battleManager = battleManager;
+                rightPlayers[i].dice_Indi.battleManager = battleManager;
+                rightPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
+                rightPlayers[i].dice_Indi.lineRender = battleManager.lineRender;
+
                 rightPlayers[i].gameObject.SetActive(true);
                 Character chars = sm.play_stage.characters[i];
                 rightPlayers[i].health = chars.health;
@@ -62,10 +70,8 @@ public class GameManager : MonoBehaviour
                 rightPlayers[i].poses = chars.char_sprites.poses;
                 rightPlayers[i].farAtt = chars.char_sprites.farAtk;
                 rightPlayers[i].UpdateHp();
-                foreach(CardAbility ability in chars.char_preCards)
-                {
-                    rightPlayers[i].pre_cards.Add(ability);
-                }
+                rightPlayers[i].pre_cards.AddRange(chars.char_preCards);
+                
             }
         }}
 
@@ -79,7 +85,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Start(){
-        Awake();
+        Reseting();
         battleManager.Battle();
     }
 

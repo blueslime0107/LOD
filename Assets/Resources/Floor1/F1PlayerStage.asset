@@ -18,8 +18,8 @@ MonoBehaviour:
   values: "\uAD1C\uCC2E\uC740 \uB4EF?"
   characters:
   - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 275988e822d15494aac4c6cd48551660, type: 2}
+  - {fileID: 11400000, guid: fb0e83ed54f3b8948a0dbf7746d4025b, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   beforeStory: {fileID: 0}

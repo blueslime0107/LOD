@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card20 : CardAbility
 {
 
-    public override void ImmediCardDraw(CardPack card,BattleManager match, Player player)
+    public override void WhenCardGet(CardPack card,BattleManager match, Player player)
     {
         card.saved_card = match.GiveCard(linked_card[0],player);
     }

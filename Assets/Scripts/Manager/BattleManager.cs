@@ -27,9 +27,11 @@ public class BattleManager : MonoBehaviour
     public Cards cardViewer;
     public GameObject blackScreen;
 
+    [HideInInspector]public bool cardActiveAble = false;
     public bool battle_start; // 버튼을 눌러 전투 시작인지
     public bool battle_end = false;
 
+    [Space(10f), Header("CardGet")]
     [HideInInspector]public string card_getting_team;
     public int card_left_draw = 0;
     public int card_right_draw = 0;
@@ -37,26 +39,29 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public int card_give_count = 0;
     public List<CardDraw> show_cards = new List<CardDraw>();
 
+    [Space(10f), Header("CardLock")]
     public bool left_cardLook_lock = false;
     public bool right_cardLook_lock= false;
     [HideInInspector]public Card_text cardTouching;
-
     public CardPack card_selecting;
     public bool card_select_trigger;
 
     public CardAbility null_card;
 
+    [Space(10f), Header("Target")]
     [HideInInspector]public Player target1;
     [HideInInspector]public Player target2;
-    public Player mouseTouchingTarget;
+    public Player mouseTouchingPlayer;
 
     [HideInInspector]public bool battleing;
 
+    [Space(10f), Header("CardView")]
     public Player cardViewChar_left;
     public Player cardViewChar_right;
     public Player render_cardViewChar_left;
     public Player render_cardViewChar_right;
 
+    [Space(10f), Header("Turn")]
     public string first_turn; // 전투시작시 처음 주사위,전투를 할지 결정
     [HideInInspector]public bool right_turn;
     [HideInInspector]public bool left_turn;
@@ -89,7 +94,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator BattleMain() {   
         FirstTeam();
 
-        Right_battleAI.AIPreSet();
+        if(Right_battleAI.active){Right_battleAI.AIPreSet();}
         //Left_battleAI.AIPreSet();
 
         while(true){ // 계속반복
@@ -103,6 +108,7 @@ public class BattleManager : MonoBehaviour
                 break;
             }
             # region 전투끝/카드뽑기
+            cardActiveAble = false;
             PlayerGoToOrigin();
             left_cardLook_lock = false;
             right_cardLook_lock = false;
@@ -228,7 +234,7 @@ public class BattleManager : MonoBehaviour
             }
             DiceRoll(); // 주사위를                                                 
             yield return new WaitForSeconds(1f);
-            Right_battleAI.did = false;
+            if(Right_battleAI.active){Right_battleAI.did = false;}
             foreach(Dice die in dices){
                 die.StopRollingDice();
             }
@@ -248,18 +254,19 @@ public class BattleManager : MonoBehaviour
                     }
                     
                     //Left_battleAI.isDiceSelect();
-                    Right_battleAI.isDiceSelect();
+                    if(Right_battleAI.active){Right_battleAI.isDiceSelect();}
                 
 
                     // 주사위를 다 넣었으면(죽으면 넣은걸로 인정)
                     if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
                     right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){
+                        cardActiveAble = true;
                         backGround.leftCircle.SetActive(true);
                         backGround.rightCircle.SetActive(true);
                         // 주사위를 다 넣었을때 효과 발동
                         for(int i = 0; i < players.Count; i++){
                             for(int j = 0; j < players[i].cards.Count; j++){
-                                players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
+                                players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
                             }
                         }                  
                         while(!battle_start){
@@ -269,6 +276,11 @@ public class BattleManager : MonoBehaviour
                 }
                 if(battle_start)
                 {
+                    for(int i = 0; i < players.Count; i++){
+                            for(int j = 0; j < players[i].cards.Count; j++){
+                                players[i].cards[j].ability.OnBattleThro(players[i].cards[j],players[i],this);
+                            }
+                        }
                     target1 = null;
                     target2 = null;
                     if(first_turn.Equals("Left")) TurnTeam("Left");
@@ -299,7 +311,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
                 //Left_battleAI.isBattleing();
-                Right_battleAI.isBattleing();
+                if(Right_battleAI.active){Right_battleAI.isBattleing();}
 
                 if(Input.GetMouseButtonDown(0)){
                     foreach(Dice_Indi dice in dice_indis){
@@ -517,10 +529,32 @@ public class BattleManager : MonoBehaviour
     }
 
     public void SelectingCard(CardPack card){
+        if(!cardActiveAble){return;}
         card_selecting = card;
         card_select_trigger = true;
         cardlineRender.SetPosition(0, camera.camer.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward);
         cardlineRender.gameObject.SetActive(true);
+    }
+
+    public void SelectingPlayer(CardPack card){
+        if(!cardActiveAble){return;}
+        card_selecting = card;
+        cardlineRender.SetPosition(0, camera.camer.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward);
+        cardlineRender.gameObject.SetActive(true);
+        StartCoroutine("selectingplayer");
+    }
+
+    IEnumerator selectingplayer(){
+        while(!Input.GetMouseButtonUp(0)){yield return null;}
+        try
+        {card_selecting.ability.PlayerSelected(card_selecting,mouseTouchingPlayer,this);
+        card_selecting = null;
+        cardlineRender.gameObject.SetActive(false);
+        }
+        catch{
+
+        }
+        yield return null;
     }
 
     public void SelectiedCard(CardPack card){
@@ -534,15 +568,19 @@ public class BattleManager : MonoBehaviour
         GameObject game_card = new GameObject();
         CardPack card = game_card.AddComponent<CardPack>() as CardPack;
         //CardPack card = new CardPack();
-        Debug.Log(having_card);
         card.ability = having_card;
-        card.max_gague = having_card.gague;
+        card.price = having_card.price;
         card.battleManager = this;
         card.PreSetting(player);
         player.cards.Add(card);
         player.cardGet.SetActive(false);
         player.cardGet.SetActive(true);
-        card.ability.ImmediCardDraw(card,this,player);
+        foreach(Player playe in players){
+                for(int i =0; i<playe.cards.Count;i++){
+                    playe.cards[i].ability.WhenCardGet(card,this,player);
+                }
+            }
+        card.ability.WhenCardGet(card,this,player);
         return card;
     }
 
@@ -550,7 +588,7 @@ public class BattleManager : MonoBehaviour
         CardPack pre_card = card;
         pre_card.PreSetting(player);
         player.cards.Add(pre_card);
-        pre_card.ability.ImmediCardDraw(pre_card, this,player);
+        pre_card.ability.WhenCardGet(pre_card, this,player);
     }
 
     public List<CardAbility> CardSuffle(){
@@ -565,6 +603,15 @@ public class BattleManager : MonoBehaviour
         }
         return suffle_cards;
 
+    }
+
+    public void AddCardPoint(string team){
+        if(team.Equals("PlayerTeam1")){
+            card_left_draw += 1;
+        }
+        if(team.Equals("PlayerTeam2")){
+            card_right_draw += 1;
+        }
     }
 
 }

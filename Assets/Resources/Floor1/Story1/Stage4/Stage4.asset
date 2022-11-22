@@ -17,7 +17,7 @@ MonoBehaviour:
   rank: 3
   values: "\uADF8\uB798\uB3C4 \uAC00\uB974\uCE68\uC740 \uB0A8\uC558\uB2E4"
   characters:
-  - {fileID: 11400000, guid: c7de5e058689caf45bcdac32eb3eb0f0, type: 2}
+  - {fileID: 11400000, guid: f4007d7182a5a6945b5bf67689fc639b, type: 2}
   - {fileID: 11400000, guid: b1b05ddadbb63e34c98455f509041395, type: 2}
   - {fileID: 11400000, guid: f0bb553f2bcbaa74d8b4657acf8fc486, type: 2}
   - {fileID: 0}

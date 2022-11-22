@@ -6,12 +6,10 @@ using UnityEngine;
 public class Card2 : CardAbility
 {
 
-    public override void OnBattleWin(CardPack card,BattleCaculate battle)
+    public override void OnClashWin(CardPack card,BattleCaculate battle)
     {
-        //Actived();
         Active(card);
         battle.AddDamage(2);
-        
     }
 
     public override void AttackEffect(CardPack card,Player defender)

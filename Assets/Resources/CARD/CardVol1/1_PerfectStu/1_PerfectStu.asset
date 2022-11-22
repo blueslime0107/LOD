@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4712fa4b82d1543932a636fbe408c6, type: 3}
+  m_Name: 1_PerfectStu
+  m_EditorClassIdentifier: 
+  card_id: 3
+  name: "\uC644\uBCBD\uD560 \uBAA8\uBC94\uC0DD"
+  message: "\uADF8\uC800 \uB0A8\uB4E4\uBCF4\uACE0\n\uB530\uB77C\uD588\uC744 \uBFD0\uC778\uAC78\uC694"
+  ability_message: "[\uC804\uD22C \uC2DC\uC791] \uC790\uC2E0\uC758 \uC704\uB825\uACFC
+    \uAC19\uC740 \uCE90\uB9AD\uD130\uAC00 \uC788\uC744\uB54C \uB9C8\uB2E4 \n\uC704\uB825
+    + 1 \uC774 \uACC4\uC18D\uC624\uB978\uB2E4"
+  story_message: 
+  tained: 0
+  gague: 0
+  illust: {fileID: 21300000, guid: db1f3349f9d2cd745aa7bc1b43e285ca, type: 3}
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 4540444742068189109, guid: 04b63afe70ea2ca4788ea9ea1ecb1638, type: 3}
+  dice: {fileID: 0}

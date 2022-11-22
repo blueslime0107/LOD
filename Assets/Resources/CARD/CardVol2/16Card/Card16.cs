@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/16글록17", order = 16)]
 public class Card16 : CardAbility
 {
-    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
+    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
     {
         Dice copyDice = dice;
         copyDice.dice_value = 1;
@@ -16,7 +16,7 @@ public class Card16 : CardAbility
 
     public override void StartMatch(CardPack card, BattleManager match)
     {
-        card.card_activating = false;
+        card.active = false;
     }
 
     public override void AttackEffect(CardPack card,Player defender)

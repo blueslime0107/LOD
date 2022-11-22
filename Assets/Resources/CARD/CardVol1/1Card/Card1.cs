@@ -13,20 +13,14 @@ public class Card1 : CardAbility
 
     public override void CardSelected(CardPack card, CardPack selected_card,BattleManager match)
     {
-        Debug.Log(card.saved_card);
         try{
             card.saved_card.ability = card.saved_ability; // 봉인했던 카드 능력을 복구 시킴
             card.saved_card.overCard = null;
-            Debug.Log("released!");
-            Debug.Log(card.saved_card.ability.name);
         }
         catch{
-            Debug.Log("Error!");
         }
             
         
-        Debug.Log("card_selected!");
-        Debug.Log(selected_card.ability.name);
         if(selected_card.ability.Equals(this)){ // 만약 선택한 카드가 의식실패 일때
             return; // 지나가기
         }

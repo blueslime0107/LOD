@@ -133,10 +133,6 @@ public class BattleAI : MonoBehaviour
         if(battleTarget[3].Equals(0))
             eneplayer.Sort(SortPlayerHavDice);
 
-        foreach(Player pla in eneplayer){
-            Debug.Log(pla.gameObject.name);
-        }
-
         bf.TargetPlayer(myplayer[0],eneplayer[0]);
         // List<Player> my_players_dice = my_players.FindAll(x => x.dice >0);
         // List<Player> ene_players_dice = ene_players.FindAll(x => x.dice >0);

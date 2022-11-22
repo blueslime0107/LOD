@@ -20,7 +20,7 @@ public class CharItem : MonoBehaviour
     public void UpdateStat(Character chars){
         health_value = chars.health;
         breaks_value = chars.breaks;
-        char_name.text = chars.char_sprites.name;
+        char_name.text = chars.char_sprites.name_;
         character.sprite = chars.char_sprites.poses[0];
 
         health.text = health_value.ToString();

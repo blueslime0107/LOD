@@ -8,10 +8,12 @@ public class CardEffect : MonoBehaviour
     public bool onplayer;
     public bool OnAttack;
     public bool onbattleEnd;
-    public bool fadeOut;
+    
     float time;
     public float moveFront=0;
     public float aliveTime;
+
+    public bool fadeOut;
     public float fade_time;
 
     public bool imLineRenderer;

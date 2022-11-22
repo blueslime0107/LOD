@@ -17,13 +17,13 @@ public class Card7 : CardAbility
         
     }
 
-    public override void AttackEffect(CardPack card, Player defender)
-    {
-        if(!card.card_lateActive){
-            return;
-        }
-        card.effect[0].transform.position = defender.gameObject.transform.position;
-        card.effect[0].SetActive(true);
-        card.card_lateActive = false;
-    }
+    // public override void AttackEffect(CardPack card, Player defender)
+    // {
+    //     if(!card.card_lateActive){
+    //         return;
+    //     }
+    //     card.effect[0].transform.position = defender.gameObject.transform.position;
+    //     card.effect[0].SetActive(true);
+    //     card.card_lateActive = false;
+    // }
 }

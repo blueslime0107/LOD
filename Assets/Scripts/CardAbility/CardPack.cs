@@ -7,22 +7,19 @@ public class CardPack : MonoBehaviour
     public BattleManager battleManager;
     public Player player;
     public CardAbility ability;
-    public bool card_active; // 카드 능력 발동
-    public bool card_lateActive;
+    public bool active; // 카드 능력 발동
+    public bool card_battleActive;
     public LineRenderer diceLink;
 
-    public Player saved_player;
-    public List<Player> saved_player_list = new List<Player>();
-    public int saved_int;
-    public CardPack saved_card;
+    public Player saved_player; // 캐릭터 저장
+    public List<Player> saved_player_list = new List<Player>(); // 캐릭터 저장 리스트
+    public int saved_int; // 변수 저장
+    public CardPack saved_card; // 카드저장
     public CardAbility saved_ability;
     public Dice dice;
 
     public List<CardAbility> card_reg = new List<CardAbility>();
     public List<CardPack> cardpack_reg = new List<CardPack>();
-
-    public bool card_activating = false; // 액티브 사용중
-
     public List<GameObject> effect = new List<GameObject>();
 
     public int card_id;
@@ -33,8 +30,8 @@ public class CardPack : MonoBehaviour
 
     public Sprite illust;
 
-    public int gague;
-    public int max_gague;
+    public int count;
+    public int price;
 
 
     
@@ -51,11 +48,20 @@ public class CardPack : MonoBehaviour
             CardEffect card_effect = effe.GetComponent<CardEffect>();
             card_effect.battleManager = battleManager;
             effe.SetActive(false);
+            Vector3 copyVec = effe.transform.position;
+            Vector3 copyScale = effe.transform.localScale;
             GameObject card = Instantiate(effe); 
-            card.transform.SetParent(player.gameObject.transform, !card_effect.onplayer);
+            card.transform.SetParent(player.gameObject.transform);
+            card.transform.localPosition = copyVec;
+            card.transform.localScale = copyScale;
             // 오른쪽 팀이면 좌우반전
             if(player.gameObject.tag == "PlayerTeam2"){ 
                 card.transform.eulerAngles += Vector3.up*180f;  
+                if(card_effect.onplayer){
+                    Vector3 pre = card.transform.localPosition;
+                    pre.x *= -1; 
+                    card.transform.localPosition = pre;
+                }
             }
             effect.Add(card);
 

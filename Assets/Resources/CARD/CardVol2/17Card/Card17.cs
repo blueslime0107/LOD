@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card17 : CardAbility
 {
 
-    public override void OnDeath(CardPack card,BattleManager match)
+    public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
         if(card.player.gameObject.tag.Equals("PlayerTeam1")){
             foreach(Player player in match.left_players){
@@ -24,7 +24,7 @@ public class Card17 : CardAbility
         }   
     }
 
-    public override void ImmediCardDraw(CardPack card, BattleManager match, Player player)
+    public override void WhenCardGet(CardPack card, BattleManager match, Player player)
     {
         if(player.gameObject.tag == "PlayerTeam1"){
             match.card_left_draw += 1;

@@ -15,9 +15,13 @@ public class CardAbility : ScriptableObject
 
     public bool tained;
 
-    public int gague;
+    public int price;
 
     public Sprite illust;
+
+    public bool usingCount;
+
+    [Space(15f),Header ("Ability Sprite")]
     public Sprite overCard;
     public GameObject[] effect;
     public CardAbility[] linked_card;
@@ -28,8 +32,7 @@ public class CardAbility : ScriptableObject
     // [HideInInspector]public bool card_active;
     // public bool card_triggerd;
     public void Active(CardPack card){
-        card.card_active = true;
-        card.card_lateActive = true;
+        card.card_battleActive = true;
         }
 
     public virtual void StartMatch(CardPack card, BattleManager match){}
@@ -37,27 +40,30 @@ public class CardAbility : ScriptableObject
 
     public virtual void BeforeCardDraw(CardPack card, BattleManager match, Player player){}
     public virtual void AfterCardDraw(BattleManager match, Player player){}
-    public virtual void ImmediCardDraw(CardPack card, BattleManager match, Player player){}
+    public virtual void WhenCardGet(CardPack card, BattleManager match, Player player){}
     public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
 
     public virtual void CardActivate(CardPack card, BattleManager match){}
     public virtual void CardSelected(CardPack card, CardPack selected_card,BattleManager match){}
+    public virtual void PlayerSelected(CardPack card, Player selected_player, BattleManager match){}
     public virtual void DiceApplyed(CardPack card, Player player){}
-    public virtual void OnBattleReady(CardPack card, Player player, BattleManager match){}
-    public virtual void OnBattleStart(CardPack card, BattleCaculate battle){}
-    public virtual void OnBattleWin(CardPack card, BattleCaculate battle){}
-    public virtual void OnBattleLose(CardPack card,GameObject player){}
+
+
+    public virtual void OnBattleStart(CardPack card, Player player, BattleManager match){}
+    public virtual void OnBattleThro(CardPack card, Player player, BattleManager match){}
+
+    public virtual void OnClashStart(CardPack card, BattleCaculate battle){}
+    public virtual void OnClashWin(CardPack card, BattleCaculate battle){}
+    public virtual void OnClashLose(CardPack card,GameObject player){}
     // public virtual void OnDamageing(CardPack card,BattleCaculate battle, Player attacker){}
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
     public virtual void OnDamage(CardPack card, Player attacker,    BattleManager match, int damage){}
     public virtual void OnDamaging(CardPack card,  Player defender,   BattleManager match, int damage){}
     public virtual void WhoEverDamage(CardPack card, int damage){}
 
-    public virtual void OnDeath(CardPack card, BattleManager match){}
-    public virtual void OnDeathOurTeam(CardPack card){}
-    public virtual void OnDeathEneTeam(CardPack card){}
+    public virtual void OnDeath(CardPack card, Player dead_player, BattleManager match){}
 
-    public virtual void BattleEnded(CardPack card){}
+    public virtual void ClashEnded(CardPack card){}
 
     public virtual void ImmediEffect(CardPack card, Transform transform){}
     

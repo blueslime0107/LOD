@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    BattleManager battleManager;
+    public BattleManager battleManager;
     public Dice_Indi dice_Indi;
     [SerializeField]
     public Hp_Indi hp_Indi;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [HideInInspector]public int condition = 0;
     public int max_health;
     public int health;
+    public Player lastHit;
     public List<int> breakCount = new List<int>();
     public int dice;
     public GameObject dice_obj;
@@ -57,7 +58,6 @@ public class Player : MonoBehaviour
         battleManager.players.Add(this);
         battleManager.dice_indis.Add(gameObject.transform.GetComponentInChildren<Dice_Indi>());
         battleManager.dices.Add(dice_com);
-        player_floor = gameObject.transform.GetChild(4).gameObject;
         player_floor_render = player_floor.GetComponent<SpriteRenderer>().material;
         material = GetComponent<SpriteRenderer>().material;
         origin_pos = transform.position;
@@ -147,6 +147,18 @@ public class Player : MonoBehaviour
 
     }
 
+    public void DamagedBy(int damage, Player player){
+        health -= damage;
+        lastHit = player;
+        if(health > max_health){
+            health = max_health;
+        }
+        else if(health<=0){
+            YouAreDead();
+        }
+        UpdateHp();
+    }
+
     public void AddHealth(int value){
         health += value;
         if(health > max_health){
@@ -173,27 +185,19 @@ public class Player : MonoBehaviour
     }
 
     public void YouAreDead(){
+        if(died){return;}
         UpdateHp();
         foreach(Player player in battleManager.players){
-            if(player.gameObject.tag.Equals(gameObject.tag) && !player.Equals(this)){
-                for(int i =0;i<player.cards.Count;i++){
-                    player.cards[i].ability.OnDeathOurTeam(player.cards[i]);
+            for(int i =0;i<player.cards.Count;i++){
+                    player.cards[i].ability.OnDeath(player.cards[i],this,battleManager);
                 }
-            }
-            if(player.Equals(this)){
-                for(int i =0;i<player.cards.Count;i++){
-                    player.cards[i].ability.OnDeath(player.cards[i],battleManager);
-                }
-            }
-            if(!player.gameObject.tag.Equals(gameObject.tag) && !player.Equals(this)){
-                for(int i =0;i<player.cards.Count;i++){
-                    player.cards[i].ability.OnDeathEneTeam(player.cards[i]);
-                }
-            }
-        
-        
+        }
+        if(health > 0){
+            UpdateHp();
+            return;
         }
         dice_com.cannot_roll = true;
+        Debug.Log("youardead");
         died = true;
         SetDice(0);
     }
@@ -201,10 +205,6 @@ public class Player : MonoBehaviour
     public void ChangeCondition(int num){
         render.sprite = poses[num];
     }
-
-
-
-
 
 
         // if(gameObject.tag.Equals("PlayerTeam2")){
@@ -230,7 +230,7 @@ public class Player : MonoBehaviour
             if (update ){ battleManager.cardViewChar_left = this;}
             battleManager.render_cardViewChar_left = this;
             battleManager.ui.leftCard_card = cards;
-            battleManager.ui.CardUIUpdate("Left");
+            battleManager.ui.CardFold("Left");
             battleManager.ui.showleftCard = true;
             //player_floor_render.sp
 
@@ -244,14 +244,14 @@ public class Player : MonoBehaviour
             if (update ){ battleManager.cardViewChar_right = this;}
             battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;
-            battleManager.ui.CardUIUpdate("Right");
+            battleManager.ui.CardFold("Right");
             battleManager.ui.showrightCard = true;
         }
     }
 
     public void UpdateActiveStat(){
         for(int i = 0;i<cards.Count;i++){
-            if(cards[i].card_active){
+            if(cards[i].card_battleActive){
                 List<Card_text> cardList = (gameObject.tag.Equals("PlayerTeam1")) ? battleManager.ui.leftCardIndi : battleManager.ui.rightCardIndi;
                 cardList[i].StartCoroutine("CardActivated");
                 break;

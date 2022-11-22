@@ -151,15 +151,15 @@ public class CardDraw : MonoBehaviour
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
         battleManager.lineRender.SetPosition(1, Vector3.zero);
         battleManager.lineRender.SetPosition(0, Vector3.zero);
-        if(battleManager.mouseTouchingTarget != null){
-            if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && battleManager.mouseTouchingTarget.gameObject.tag.Equals("PlayerTeam1")){
-                battleManager.GiveCard(having_card,battleManager.mouseTouchingTarget);
+        if(battleManager.mouseTouchingPlayer != null){
+            if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && battleManager.mouseTouchingPlayer.gameObject.tag.Equals("PlayerTeam1")){
+                battleManager.GiveCard(having_card,battleManager.mouseTouchingPlayer);
                 battleManager.card_gived = true;
                 battleManager.card_left_draw -= 1;
                 gameObject.SetActive(false);
             }
-            if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && battleManager.mouseTouchingTarget.gameObject.tag.Equals("PlayerTeam2")){
-                battleManager.GiveCard(having_card,battleManager.mouseTouchingTarget);
+            if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && battleManager.mouseTouchingPlayer.gameObject.tag.Equals("PlayerTeam2")){
+                battleManager.GiveCard(having_card,battleManager.mouseTouchingPlayer);
                 battleManager.card_gived = true;
                 battleManager.card_right_draw -= 1;
                 gameObject.SetActive(false);
@@ -193,10 +193,10 @@ public class CardDraw : MonoBehaviour
         if(mouseDrag){
             if(collision.gameObject.tag.Contains("PlayerTeam")){
                 if(collision.gameObject.tag.Equals("PlayerTeam1")){
-                    battleManager.ui.CardUIUpdate("Left",true);
+                    battleManager.ui.CardFold("Left",true);
                 }
                 else{
-                    battleManager.ui.CardUIUpdate("Right",true);
+                    battleManager.ui.CardFold("Right",true);
                 }
                 target = null;
             }

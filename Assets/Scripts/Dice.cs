@@ -43,7 +43,7 @@ public class Dice : MonoBehaviour
             transform.position = Vector2.SmoothDamp(transform.position,vector,ref velo,5f*Time.deltaTime);
             dice_value = (int)Random.Range(1f,7f);
             render.sprite = dice_img[dice_value-1];
-            transform.Rotate(Vector3.forward*30);
+            transform.Rotate(Time.deltaTime*Vector3.forward*360f);
             yield return null;
         }
     

@@ -45,30 +45,31 @@ public class UI : MonoBehaviour
     void Awake(){
         rect_panorama_up = panorama_up.GetComponent<RectTransform>();
         rect_panorama_down = panorama_down.GetComponent<RectTransform>();
-        // for(int i = 0; i < leftCardIndi.Count; i++){
-        //     leftCard_pos.Add(leftCardIndi[i].GetComponent<RectTransform>());        
-        //     }
-        // for(int i = 0; i < leftCardIndi.Count; i++){
-        //     leftCardIndi_compo.Add(leftCardIndi[i].GetComponent<card_text>());        
-        //     }
-        // for(int i = 0; i < rightCardIndi.Count; i++){
-        //     rightCard_pos.Add(rightCardIndi[i].GetComponent<RectTransform>());        
-        //     }
-        // for(int i = 0; i < rightCardIndi.Count; i++){
-        //     rightCardIndi_compo.Add(rightCardIndi[i].GetComponent<card_text>());        
-        //     }
         
     }
 
-    public void CardUIUpdate(string team, bool fold = false){
+    void Start(){
+        CardUIUpdate("Left");
+            CardUIUpdate("Right");
+        StartCoroutine("UpdateCards");
+    }
+
+    IEnumerator UpdateCards(){
+        while(true){
+            CardUIUpdate("Left");
+            CardUIUpdate("Right");
+            yield return null;
+        }
+    }
+
+    public void CardUIUpdate(string team){
         List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
         List<CardPack> card = (team.Equals("Left")) ? leftCard_card : rightCard_card;
-        
 
-        for(int i =0; i<indi.Count;i++){
-            indi[i].gameObject.SetActive(false); 
-        }
-        if(fold || card.Count <= 0)
+        // for(int i =0; i<indi.Count;i++){
+        //     indi[i].gameObject.SetActive(false); 
+        // }
+        if(card.Count <= 0)
             return;
         for(int i =0; i<card.Count;i++){
             if(i.Equals(indi.Count)){
@@ -80,10 +81,26 @@ public class UI : MonoBehaviour
                 indi.Add(obj);
             }
 
-            indi[i].gameObject.SetActive(true); 
+            //indi[i].gameObject.SetActive(true); 
             indi[i].card = card[i];   
             indi[i].cardPrefap.cardUpdate(indi[i].card.ability);
             indi[i].CardUpdate();
+        }
+    }
+
+    public void CardFold(string team,bool fold = false){
+        List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
+        List<CardPack> card = (team.Equals("Left")) ? leftCard_card : rightCard_card;
+
+        for(int i =0; i<indi.Count;i++){
+            indi[i].gameObject.SetActive(false); 
+        }
+        if(card.Count <= 0 || fold)
+            return;
+        if(indi.Count <= 0)
+            return;
+        for(int i =0; i<card.Count;i++){
+            indi[i].gameObject.SetActive(true); 
         }
     }
 

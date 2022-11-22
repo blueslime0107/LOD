@@ -11,6 +11,7 @@ public class CardPrefap : MonoBehaviour, IPointerEnterHandler
     [SerializeField]GameObject tain;
     [SerializeField]TextMeshProUGUI name_;
     [SerializeField]TextMeshProUGUI message;
+    
 
     public void cardUpdate(CardAbility card){
         image.sprite = card.illust;
@@ -20,7 +21,6 @@ public class CardPrefap : MonoBehaviour, IPointerEnterHandler
     }
 
     public void OnPointerEnter(PointerEventData eventData){
-        Debug.Log("Card_Touched");
     }
 
 }
