@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Tori
   m_EditorClassIdentifier: 
-  health: 8
+  health: 10
   breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 0a27a2cd9d94a91478e72bbdcef29dc5, type: 2}
   char_preCards:

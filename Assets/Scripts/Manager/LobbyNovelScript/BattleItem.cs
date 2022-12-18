@@ -21,13 +21,13 @@ public class BattleItem : MonoBehaviour
     public void Clicked(){
         lobby.stage = stage;
         lobby.stageManager.play_stage = stage;
-        lobby.stageManager.player_card = lobby.player;
+        lobby.stageManager.player_battleCard = lobby.player;
         if(stage.playerStageLock != null){
-            lobby.stageManager.player_card = stage.playerStageLock;
-            if(lobby.stageManager.player_card.title.Equals("")){
-                lobby.stageManager.player_card.title = lobby.player.title;
-                lobby.stageManager.player_card.sub_text = lobby.player.sub_text;
-                lobby.stageManager.player_card.values = lobby.player.values;
+            lobby.stageManager.player_battleCard = stage.playerStageLock;
+            if(lobby.stageManager.player_battleCard.title.Equals("")){
+                lobby.stageManager.player_battleCard.title = lobby.player.title;
+                lobby.stageManager.player_battleCard.sub_text = lobby.player.sub_text;
+                lobby.stageManager.player_battleCard.values = lobby.player.values;
             }
         }
         lobby.OpenBattleCard();

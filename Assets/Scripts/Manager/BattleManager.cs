@@ -82,6 +82,8 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public int left_d6_Count;
     [HideInInspector]public int right_d6_Count;
 
+    public GameObject tutorial;
+
     public void Battle(){
         left_gague = left_gague_max;
         right_gague = right_gague_max;

@@ -29,7 +29,8 @@ public class StageManager : MonoBehaviour
     public int panel;
 
     public Stage play_stage; // 플레이 할 스테이지
-    public Stage player_card; // 플레이어 카드
+    public Stage player_battleCard; // 플레이어 카드
+    public List<CardAbility> player_cardDic;
 
     public Floor FloorOfBattle;
     public Floor FloorOfResource;

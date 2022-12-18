@@ -18,7 +18,13 @@ MonoBehaviour:
   ability_message: "\uC8FC\uC0AC\uC704\uAC00 \uC5C6\uC744\uC2DC \uC8FC\uC0AC\uC704
     \uCD94\uAC00 (\uCD5C\uB300 3\uBC88)"
   story_message: 
-  gague: 3
+  tained: 0
+  price: 0
   illust: {fileID: 21300000, guid: 9168e1d1fcc682145bea6c3ba13bc272, type: 3}
+  usingCount: 0
+  pre_count: 3
+  overCard: {fileID: 0}
   effect: []
   linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

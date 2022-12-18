@@ -17532,7 +17532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -209.99994, y: -175.99994}
+  m_AnchoredPosition: {x: -209.99994, y: -176}
   m_SizeDelta: {x: -420, y: -352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864106021
@@ -18780,7 +18780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 210, y: -175.99994}
+  m_AnchoredPosition: {x: 210, y: -176}
   m_SizeDelta: {x: -420, y: -352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004126945
@@ -30854,11 +30854,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 20431b9ef1384ae40909bf5489578ca9, type: 2}
   - {fileID: 11400000, guid: 2799311f1bfdf4644a1a509598605a7e, type: 2}
   - {fileID: 11400000, guid: 6082acc409714ba49906cf3bf8c13307, type: 2}
-  - {fileID: 11400000, guid: 9c4ae117bba6f7642b23f5e7f0598510, type: 2}
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
   - {fileID: 11400000, guid: 53a5e7f65ca3ca54987b1ff4069d470a, type: 2}
   - {fileID: 11400000, guid: d57c3bbc0a314044ab337d7b408c79b5, type: 2}
   - {fileID: 11400000, guid: f3d25ab986313894cab1fa37914d011a, type: 2}
-  - {fileID: 11400000, guid: 4f84e0eb975588c44bccfc462461cb3f, type: 2}
+  - {fileID: 11400000, guid: b94e652e6f4806546ab187e57f0a5e29, type: 2}
+  - {fileID: 11400000, guid: ff931f1289ea777499df99716f560a8d, type: 2}
+  - {fileID: 11400000, guid: 6bcf1d65cc5ebc2438bec1edbb8ca949, type: 2}
+  - {fileID: 11400000, guid: a21f1569feb6d9e48966feff29f83c60, type: 2}
   game_cards: []
   cur_game_cards: []
   on_battle_card_effect: []
@@ -30902,6 +30905,7 @@ MonoBehaviour:
   right_d6: 0
   left_d6_Count: 0
   right_d6_Count: 0
+  tutorial: {fileID: 217353949}
 --- !u!4 &1916609189
 Transform:
   m_ObjectHideFlags: 0
@@ -35920,7 +35924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 201.20001, y: 115.79999}
+  m_AnchoredPosition: {x: 201.20007, y: 115.79999}
   m_SizeDelta: {x: -404.18, y: -347.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934276601

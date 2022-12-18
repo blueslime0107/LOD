@@ -20,6 +20,7 @@ public class CardAbility : ScriptableObject
     public Sprite illust;
 
     public bool usingCount;
+    public int pre_count;
 
     [Space(15f),Header ("Ability Sprite")]
     public Sprite overCard;

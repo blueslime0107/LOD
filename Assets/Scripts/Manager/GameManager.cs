@@ -27,20 +27,22 @@ public class GameManager : MonoBehaviour
             sm = smObj.AddComponent<StageManager>() as StageManager;
 
             sm.play_stage = debugStage;
-            sm.player_card = debugPlayerStage;
+            sm.player_battleCard = debugPlayerStage;
         }
+
+        
 
         if(sm != null)
         {
-            for(int i=0;i<sm.player_card.characters.Length;i++){
-            if(sm.player_card.characters[i] != null)
+            for(int i=0;i<sm.player_battleCard.characters.Length;i++){
+            if(sm.player_battleCard.characters[i] != null)
             {
                 leftPlayers[i].battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
                 leftPlayers[i].dice_Indi.lineRender = battleManager.lineRender;
                 leftPlayers[i].gameObject.SetActive(true);
-                Character chars = sm.player_card.characters[i];
+                Character chars = sm.player_battleCard.characters[i];
                 leftPlayers[i].health = chars.health;
                 leftPlayers[i].max_health = chars.health;
                 leftPlayers[i].breakCount = new List<int>(chars.breaks);
@@ -73,7 +75,15 @@ public class GameManager : MonoBehaviour
                 rightPlayers[i].pre_cards.AddRange(chars.char_preCards);
                 
             }
-        }}
+        }
+
+        battleManager.cards = sm.player_cardDic;
+
+        if(sm.play_stage.tutorialLine > 0){
+            battleManager.tutorial.SetActive(true);
+        }
+        
+        }
 
         switch(sm.floor){
             case 1: backGrounds[1].SetActive(true); break;

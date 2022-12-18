@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
-  m_Name: Piping
+  m_Name: Hero
   m_EditorClassIdentifier: 
-  health: 10
-  breaks: 0500000000000000
-  char_sprites: {fileID: 11400000, guid: 99f1cbf5100b3b54ca0764323c13e0fb, type: 2}
+  health: 30
+  breaks: 19000000140000000a0000000500000000000000
+  char_sprites: {fileID: 11400000, guid: acaf43ee30ef044479d8c94e84168a76, type: 2}
   char_preCards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

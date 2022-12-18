@@ -43,6 +43,7 @@ public class CardPack : MonoBehaviour
         name = ability.name;
         message = ability.message;
         ability_message = ability.ability_message;
+        count = ability.pre_count;
         // 이펙트를 현재 플레이어에 복사해둠
         foreach(GameObject effe in ability.effect){
             CardEffect card_effect = effe.GetComponent<CardEffect>();

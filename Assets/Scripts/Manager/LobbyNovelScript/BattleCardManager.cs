@@ -16,7 +16,7 @@ public class BattleCardManager : MonoBehaviour
 
     public void UpdateStat(){
 
-        stage = (!playerCard) ? lobby.stage : lobby.stageManager.player_card;
+        stage = (!playerCard) ? lobby.stage : lobby.stageManager.player_battleCard;
 
         title.text = stage.title;
         sub_text.text = stage.sub_text;

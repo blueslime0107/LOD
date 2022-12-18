@@ -13,6 +13,7 @@ public class Lobby : MonoBehaviour
     [SerializeField] MenuItem battle_table;
     [SerializeField] MenuItem sub_table;
     [SerializeField] MenuItem main_table;
+    [SerializeField] MenuItem card_table;
 
 
 
@@ -26,6 +27,8 @@ public class Lobby : MonoBehaviour
     public GameObject stage_board;
     [Tooltip("서브 스테이지 아이템")]
     public GameObject stage_slot;
+    [Tooltip("카드 보드")]
+    public GameObject card_board;
     public List<BattleItem> stageItem = new List<BattleItem>();
 
     public List<string> curMenu = new List<string>();
@@ -56,7 +59,6 @@ public class Lobby : MonoBehaviour
 
     public void Update(){
         if(Input.GetMouseButtonDown(1)){
-            Debug.Log(curMenu);
             switch(curMenu[curMenu.Count-1]){
                 case "surMenu":
                     sub_table.ActiveOpenClose();
@@ -76,6 +78,10 @@ public class Lobby : MonoBehaviour
                     BattleButton.ActiveOpenClose();
                     curMenu.Remove("battle"); break;
 
+                case "cardMenu":
+                    darScreen.SetActive(false);        
+                    card_table.ActiveOpenClose();
+                    curMenu.Remove("cardMenu"); break;
             }
         }
     }
@@ -107,7 +113,14 @@ public class Lobby : MonoBehaviour
         curMenu.Add("mainMenuStage");
     }
     
-    
+    public void OpenCardMenu(){
+        if(curMenu.Equals("cardMenu")){
+            return;
+        }
+        card_table.ActiveOpenClose();
+        darScreen.SetActive(true);
+        curMenu.Add("cardMenu");
+    }
 
 
     public void OpenBattleCard(){

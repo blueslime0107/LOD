@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
-  m_Name: F1PlayerStage
+  m_Name: Excall
   m_EditorClassIdentifier: 
-  title: "\uC751\uC560 \uC2E0\uC785"
-  sub_text: "\uC5ED\uC2DC \uD504\uB85C\uD1A0\uD0C0\uC785\uC774\uC57C"
-  rank: 1
-  values: "\uAD1C\uCC2E\uC740 \uB4EF?"
+  title: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84!"
+  sub_text: "\uC8FD\uC5B4\uB77C"
+  rank: 4
+  values: 
   characters:
-  - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
-  - {fileID: 11400000, guid: 275988e822d15494aac4c6cd48551660, type: 2}
-  - {fileID: 11400000, guid: fb0e83ed54f3b8948a0dbf7746d4025b, type: 2}
+  - {fileID: 11400000, guid: 27f2b9827d2aefd4caba013a63c7abaa, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   beforeStory: {fileID: 0}

@@ -89,11 +89,12 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void put_subDice(Dice dice){
+        Debug.Log("put_dice");
         if(!sub_dice.activeSelf){
             sub_dice.SetActive(true);
         }
         dice_list.Add(dice);    
-        sub_render.sprite = dice_img[dice.dice_value];
+        sub_render.sprite = dice_img[dice_list[0].dice_value];
     }
 
     public void setDice(int value){
