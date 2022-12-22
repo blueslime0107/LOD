@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
-public class CardPrefap : MonoBehaviour, IPointerEnterHandler
+public class CardPrefap : MonoBehaviour
 {
     [SerializeField]Image image;
     [SerializeField]GameObject tain;
@@ -18,9 +17,6 @@ public class CardPrefap : MonoBehaviour, IPointerEnterHandler
         name_.text = card.name;
         message.text = card.message;
         tain.SetActive(card.tained);
-    }
-
-    public void OnPointerEnter(PointerEventData eventData){
     }
 
 }

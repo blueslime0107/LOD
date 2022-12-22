@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe5da6d416dfe14e8122a10647f023d, type: 3}
   m_Name: 34_IGis
   m_EditorClassIdentifier: 
-  card_id: 0
-  name: 
+  card_id: 34
+  name: "\uC544\uC774\uAE30\uC2A4-I"
   message: 
-  ability_message: 
+  ability_message: "[\uD53C\uD574\uBC1B\uC74C][\uBB34\uBC29\uBE44] \uD53C\uD574 3
+    \uAC10\uC18C"
   story_message: 
   tained: 0
   price: 0
-  illust: {fileID: 0}
+  illust: {fileID: 21300000, guid: 5acd773e285925b4baf1296bcd1c538c, type: 3}
   usingCount: 0
   pre_count: 0
   overCard: {fileID: 0}

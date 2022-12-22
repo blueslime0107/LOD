@@ -15,7 +15,8 @@ MonoBehaviour:
   card_id: 44
   name: "\uCE58\uACE0\uBE60\uC9C0\uAE30"
   message: 
-  ability_message: 
+  ability_message: "[\uD569 \uD328\uBC30][\uACF5\uACA9] \uD53C\uD574\uB97C 0\uC73C\uB85C
+    \uD55C\uB2E4"
   story_message: 
   tained: 0
   price: 0

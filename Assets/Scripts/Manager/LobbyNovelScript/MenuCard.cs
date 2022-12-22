@@ -13,6 +13,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
     [SerializeField]GameObject cardPrefap;
     public List<CardAbility> cards = new List<CardAbility>();
     [SerializeField]List<CardPanelCard> objList = new List<CardPanelCard>();
+    [SerializeField]CardExplain cardExplain;
 
     private void Awake() {
         sm = FindObjectOfType<StageManager>();
@@ -40,11 +41,13 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
         for(int i=0;i<cards.Count;i++){
             if(objList.Count <= i){
                 CardPanelCard obj = Instantiate(cardPrefap).GetComponent<CardPanelCard>();
-                obj.transform.SetParent(lobby.card_board.transform,false);        
+                obj.transform.SetParent(lobby.card_board.transform,false);    
+                obj.cardExplain = cardExplain;    
                 objList.Add(obj);
             }
             objList[i].gameObject.SetActive(true);
-            objList[i].cardPrefap.cardUpdate(cards[i]);
+            objList[i].cardAbility = cards[i];
+            objList[i].cardPrefap.cardUpdate(objList[i].cardAbility);
 
         }
     }
