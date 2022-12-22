@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27336284153a0a4f8343ad7a933fcd3, type: 3}
+  m_Name: 26_CardFail
+  m_EditorClassIdentifier: 
+  card_id: 26
+  name: "\uC758\uC2DD\uC2E4\uD328"
+  message: 
+  ability_message: "[\uCE74\uB4DC\uC9C0\uC815] \uC9C0\uC815\uD55C \uCE74\uB4DC\uC758
+    \uD6A8\uACFC\uBC1C\uB3D9\uC744 \uB9C9\uB294\uB2E4"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: e95c4e9938ccb754a97c52b5ba808c37, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

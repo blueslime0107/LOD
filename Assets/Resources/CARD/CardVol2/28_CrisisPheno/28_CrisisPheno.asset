@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257b98539a6cfbc4891dfa58aad5e816, type: 3}
+  m_Name: 28_CrisisPheno
+  m_EditorClassIdentifier: 
+  card_id: 28
+  name: "\uBA85\uD604\uD604"
+  message: 
+  ability_message: "[\uC804\uD22C\uC2DC\uC791] \uCCB4\uB825 1~2 \uD68C\uBCF5, \uCD5C\uB300\uCCB4\uB825\uC744
+    \uB118\uC744\uACBD\uC6B0\n\uB118\uC740\uB9CC\uD07C \uCE74\uC6B4\uD2B8\uAC00 \uC0C1\uC2B9\uD55C\uB2E4,
+    \uCE74\uC6B4\uD2B8\uAC00 3 \uC774\uC0C1\uC77C\uC2DC \uC0AC\uB9DD\uD55C\uB2E4"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: 723d27edee52cf14eac0c3effba10a20, type: 3}
+  usingCount: 1
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect:
+  - {fileID: 1546967367116476333, guid: af2cde1860916154f977d1bc3b6a3282, type: 3}
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

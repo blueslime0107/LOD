@@ -42,6 +42,7 @@ public class CardAbility : ScriptableObject
     public virtual void BeforeCardDraw(CardPack card, BattleManager match, Player player){}
     public virtual void AfterCardDraw(BattleManager match, Player player){}
     public virtual void WhenCardGet(CardPack card, BattleManager match, Player player){}
+    public virtual void WhenCardGetImmedi(CardPack card, BattleManager match){}
     public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
 
     public virtual void CardActivate(CardPack card, BattleManager match){}
@@ -55,18 +56,18 @@ public class CardAbility : ScriptableObject
 
     public virtual void OnClashStart(CardPack card, BattleCaculate battle){}
     public virtual void OnClashWin(CardPack card, BattleCaculate battle){}
-    public virtual void OnClashLose(CardPack card,GameObject player){}
+    public virtual void OnClashLose(CardPack card,BattleCaculate battle){}
     // public virtual void OnDamageing(CardPack card,BattleCaculate battle, Player attacker){}
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
-    public virtual void OnDamage(CardPack card, Player attacker,    BattleManager match, int damage){}
-    public virtual void OnDamaging(CardPack card,  Player defender,   BattleManager match, int damage){}
-    public virtual void WhoEverDamage(CardPack card, int damage){}
+    public virtual void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match){}
+    public virtual void OnDamaging(CardPack card,  Player defender, Damage damage, BattleManager match){}
+    public virtual void WhoEverDamage(CardPack card, Damage damage){}
 
     public virtual void OnDeath(CardPack card, Player dead_player, BattleManager match){}
 
     public virtual void ClashEnded(CardPack card){}
 
-    public virtual void ImmediEffect(CardPack card, Transform transform){}
+    
     
 
     public virtual void AttackEffect(CardPack card,Player defender){}

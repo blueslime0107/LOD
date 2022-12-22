@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215674d4fd4d21a44ab75c008cc78f34, type: 3}
+  m_Name: 12_TainedClover
+  m_EditorClassIdentifier: 
+  card_id: 12
+  name: "\uC2DC\uB4E4\uC5B4\uC9C4 \uB124\uC78E\uD074\uB85C"
+  message: 
+  ability_message: "[\uBC1C\uB3D9] \uC790\uC2E0\uC704\uB825\uC774 2 \uC774\uD558\uC77C\uB54C\n5\uC704\uB825
+    \uC774\uC0C1\uC758 \uBAA8\uB4E0 \uCE90\uB9AD\uD130\uB4E4\uC758 \uC8FC\uC0AC\uC704\uB97C
+    \uD30C\uAD34\uD55C\uB2E4"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: f41e6e6f31b06e54ebd434e943d217b6, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

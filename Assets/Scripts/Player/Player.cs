@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
         }
     }
     public void SetPointMove(Vector3 point, float spd){
+        if(!gameObject.activeSelf){return;}
         moveTarget = point;
         moveSpeed = spd;
         isMoving = true;
@@ -134,22 +135,37 @@ public class Player : MonoBehaviour
 
 
     public void SetDice(int value){
+
         dice_Indi.setDice(value);
     }
 
     public void AddDice(int value){
-        dice_Indi.setDice(dice + value);
+        int diceValue = 0;
+        diceValue = dice + value;
+        if(diceValue < 0){
+            diceValue = 0;
+        }
+        dice_Indi.setDice(diceValue);
     }
 
-
-    public void Damage(int value, Player attacker){
-        UpdateHp();
-
-    }
-
-    public void DamagedBy(int damage, Player player){
-        health -= damage;
+    public void DamagedBy(Damage damage, Player player){
+        health -= damage.value;
         lastHit = player;
+        
+
+        
+        for(int i = 0;i<cards.Count;i++){
+                cards[i].ability.OnDamage(cards[i],lastHit,damage,battleManager);
+            }
+        for(int i = 0;i<lastHit.cards.Count;i++){
+                lastHit.cards[i].ability.OnDamaging(lastHit.cards[i],this,damage,battleManager);
+            }
+        foreach(Player play in battleManager.players){
+            for(int i = 0;i<play.cards.Count;i++){
+                play.cards[i].ability.WhoEverDamage(play.cards[i],damage);
+            }
+        }
+
         if(health > max_health){
             health = max_health;
         }
@@ -157,6 +173,13 @@ public class Player : MonoBehaviour
             YouAreDead();
         }
         UpdateHp();
+    }
+
+    public void DamagedByInt(int damage, Player player){
+        Damage newdamage = new Damage();
+        newdamage.value = damage;
+        DamagedBy(newdamage,player);
+
     }
 
     public void AddHealth(int value){

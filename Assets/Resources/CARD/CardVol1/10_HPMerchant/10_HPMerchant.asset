@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1272216fc6cd05348b6967f3a9ecb76c, type: 3}
+  m_Script: {fileID: 11500000, guid: b92a8dcaaf306c144b0a970c5953fa24, type: 3}
   m_Name: 10_HPMerchant
   m_EditorClassIdentifier: 
-  card_id: 100
-  name: "\uD574\uACB0\uC0AC \uC0C1"
+  card_id: 10
+  name: "\uD574\uACB0\uC0AC \uC0C1\uC778"
   message: 
   ability_message: "[\uD68D\uB4DD]\uCCB4\uB825 + 7\n[\uC804\uD22C\uC2DC\uC791] 4\uD134\uB9C8\uB2E4
     4 \uD53C\uD574\uB97C \uBC1B\uB294\uB2E4 "
@@ -21,7 +21,8 @@ MonoBehaviour:
   tained: 0
   price: 0
   illust: {fileID: 21300000, guid: 49ebfab72820f3143ae22027d2c1c6f9, type: 3}
-  usingCount: 1
+  usingCount: 0
+  pre_count: 0
   overCard: {fileID: 0}
   effect: []
   linked_card: []

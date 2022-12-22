@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Damage{
+    public int value;
+
+    public void setDamage(int damage){
+        value = damage;
+    }
+}
+
 public class GameManager : MonoBehaviour
 {
     public BattleManager battleManager;

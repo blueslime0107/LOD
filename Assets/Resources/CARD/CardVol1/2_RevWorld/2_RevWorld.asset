@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94e41a56733abf74e913c51778644529, type: 3}
+  m_Script: {fileID: 11500000, guid: 3263436e43848b34195c1c64b5cfdbf8, type: 3}
   m_Name: 2_RevWorld
   m_EditorClassIdentifier: 
-  card_id: 20
-  name: "\uD3C9\uD589\uC138\uACC4"
-  message: "\uC8FC\uC0AC\uC704\uC758 \uB2E4\uB978\uC138\uACC4.."
+  card_id: 2
+  name: "\uD3C9\uD589\uC138\uACC4 "
+  message: 
   ability_message: "[\uCE90\uB9AD\uD130 \uC9C0\uC815] \uC804\uD22C\uB2F9 \uD55C\uBC88,
     \uCE90\uB9AD\uD130\uC758 \uC704\uB825\uC744 \uC704\uB825-7 \uC758 \uC808\uB313\uAC12\uC73C\uB85C
     \uBC14\uAFBC\uB2E4\n[\uC804\uD22C\uC804\uAC1C] \uCE90\uB9AD\uD130 \uC9C0\uC815\uC744
@@ -22,8 +22,10 @@ MonoBehaviour:
     \uC9C0\uC815\uC774 \uBC1C\uB3D9\uB41C\uB2E4"
   story_message: 
   tained: 0
-  gague: 0
-  illust: {fileID: 21300000, guid: 78e5aeb2d8666d844b793b05b47ca772, type: 3}
+  price: 0
+  illust: {fileID: 21300000, guid: dadfe44d6d76ba24a98f1b6c47e28a19, type: 3}
+  usingCount: 0
+  pre_count: 0
   overCard: {fileID: 0}
   effect:
   - {fileID: 4540444742068189109, guid: aeff6cc18b0aed349a5c41abfc9e90c3, type: 3}

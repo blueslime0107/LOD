@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 567a747fd4435374c91ad0e72eb7d166, type: 3}
+  m_Script: {fileID: 11500000, guid: bd2644505d707e346b2d6ff644c825f3, type: 3}
   m_Name: 7_GraveGet
   m_EditorClassIdentifier: 
-  card_id: 12
+  card_id: 7
   name: "\uB3C4\uAD74\uAFBC"
-  message: "\uB10C \uD56D\uC0C1 \uC88B\uC740 \uCE5C\uAD6C\uC600\uC9C0.."
+  message: 
   ability_message: "[\uC790\uC2E0\uD300][\uC0AC\uB9DD] 2~6 \uC704\uB825 \uC5EC\uBD84
     \uC8FC\uC0AC\uC704\uB97C \uC5BB\uB294\uB2E4\n[\uC0C1\uB300\uD300 \uC0AC\uB9DD]
     \uCE74\uB4DC \uD68D\uB4DD"
   story_message: 
   tained: 0
   price: 0
-  illust: {fileID: 21300000, guid: 225c1f86f00922847823a41aab5f9776, type: 3}
-  usingCount: 1
+  illust: {fileID: 21300000, guid: ff1a50a890747f64488eb64a51b17e6d, type: 3}
+  usingCount: 0
+  pre_count: 0
   overCard: {fileID: 0}
   effect: []
   linked_card: []

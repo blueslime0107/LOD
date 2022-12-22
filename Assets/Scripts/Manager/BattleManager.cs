@@ -579,10 +579,10 @@ public class BattleManager : MonoBehaviour
         player.cardGet.SetActive(true);
         foreach(Player playe in players){
                 for(int i =0; i<playe.cards.Count;i++){
-                    playe.cards[i].ability.WhenCardGet(card,this,player);
+                    playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player);
                 }
             }
-        card.ability.WhenCardGet(card,this,player);
+        card.ability.WhenCardGetImmedi(card,this);
         return card;
     }
 

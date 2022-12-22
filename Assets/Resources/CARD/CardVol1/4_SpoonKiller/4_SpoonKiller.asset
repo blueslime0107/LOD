@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728c8dc5600b14d438185270ee183de1, type: 3}
+  m_Script: {fileID: 11500000, guid: b9b6d9c10c2e4ff4db4a84987305229d, type: 3}
   m_Name: 4_SpoonKiller
   m_EditorClassIdentifier: 
-  card_id: 5
+  card_id: 4
   name: "\uC21F\uAC00\uB77D \uC0B4\uC778\uB9C8"
-  message: "\uD55C\uB300.. \uD55C\uB300.. 10\uBC88\uB9CC \uBC18\uBCF5\uD574\uB3C4.."
+  message: 
   ability_message: "[\uBC1C\uB3D9\uC911][\uD569 \uC2DC\uC791] \uACF5\uACA9\uC77C\uB54C
-    \uC0C1\uB300 \uC8FC\uC0AC\uC704\uB97C \uD30C\uAD34\uD558\uACE0\n\uC790\uC2E0\uC704\uB825\uC774
-    1\uC774 \uB41C\uB2E4"
+    \uC0C1\uB300 \uC8FC\uC0AC\uC704 \uD30C\uAD34, \uC704\uB825\uC774 1\uC774 \uB41C\uB2E4"
   story_message: 
   tained: 0
-  gague: 0
-  illust: {fileID: 21300000, guid: d4c7dcdebc9e1e24f85fa8f92f9ecb3f, type: 3}
+  price: 0
+  illust: {fileID: 21300000, guid: 5ad59b83852de5843bbfd08ad7cef0a1, type: 3}
+  usingCount: 0
+  pre_count: 0
   overCard: {fileID: 0}
   effect: []
   linked_card: []

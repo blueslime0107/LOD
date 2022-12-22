@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30dda0ce7f0e8941a570ca9f13762c7, type: 3}
+  m_Name: 33_Excalliver
+  m_EditorClassIdentifier: 
+  card_id: 33
+  name: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84-X"
+  message: 
+  ability_message: "[\uD569 \uC2B9\uB9AC] \uC704\uB825 2 \uC0C1\uC2B9"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: 21627dfc845c69b49b21437297dca466, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect:
+  - {fileID: 7614962679487314681, guid: 1cf441901a56a7c4d858ce9658e72ebe, type: 3}
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3b905898c6fe541877ef9e30c9e2c2, type: 3}
+  m_Name: 21_IlligalCopy
+  m_EditorClassIdentifier: 
+  card_id: 21
+  name: "\uD504\uB85C\uBD88\uD38C\uB7EC"
+  message: 
+  ability_message: "[\uD569 \uC131\uACF5] \uC0C1\uB300\uC5D0\uAC8C '\uD574\uD0B9\uB2F9\uD568'\uCE74\uB4DC\uB97C
+    \uC900\uB2E4\n[\uCE74\uB4DC\uC9C0\uC815] \uCE90\uB9AD\uD130\uAC00 '\uD574\uD0B9\uB2F9\uD568'
+    \uCE74\uB4DC\uB97C \uC18C\uC9C0\uD558\uACE0 \uC788\uC73C\uBA74\n\uADF8 \uCE90\uB9AD\uD130\uAC00
+    \uAC00\uC9C4 \uCE74\uB4DC \uC911 \uD558\uB098\uB97C \uACE8\uB77C, \uD6A8\uACFC\uB97C
+    \uC5BB\uB294\uB2E4"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: 549d9316c3d99434e8dfa6dad335dc3d, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

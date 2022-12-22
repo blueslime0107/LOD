@@ -1102,7 +1102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3740758451269080225, guid: 32e523654d979914b94095f3f1384f71, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3740758451269080226, guid: 32e523654d979914b94095f3f1384f71, type: 3}
       propertyPath: m_RootOrder
@@ -1291,7 +1291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &417672465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3606,7 +3606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 589, y: 127}
+  m_AnchoredPosition: {x: 344, y: 127}
   m_SizeDelta: {x: 320, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079158826
@@ -6150,7 +6150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -570, y: 127}
+  m_AnchoredPosition: {x: -354, y: 127}
   m_SizeDelta: {x: 320, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681289186
@@ -8322,28 +8322,29 @@ MonoBehaviour:
   play_stage: {fileID: 0}
   player_battleCard: {fileID: 0}
   player_cardDic:
-  - {fileID: 11400000, guid: 98e146694c07bbd4db28c501325e8ccd, type: 2}
-  - {fileID: 11400000, guid: 20431b9ef1384ae40909bf5489578ca9, type: 2}
-  - {fileID: 11400000, guid: 2799311f1bfdf4644a1a509598605a7e, type: 2}
-  - {fileID: 11400000, guid: 6082acc409714ba49906cf3bf8c13307, type: 2}
-  - {fileID: 11400000, guid: 9c4ae117bba6f7642b23f5e7f0598510, type: 2}
+  - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
+  - {fileID: 11400000, guid: 8377e780e3b4e164caea4eafc37ee622, type: 2}
+  - {fileID: 11400000, guid: 5b4b582976f22b4498ef9edbf9a7ac0a, type: 2}
+  - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
+  - {fileID: 11400000, guid: 28dfdd22dc8cc4b40b5ba4d969dda37f, type: 2}
   - {fileID: 11400000, guid: 53a5e7f65ca3ca54987b1ff4069d470a, type: 2}
-  - {fileID: 11400000, guid: d57c3bbc0a314044ab337d7b408c79b5, type: 2}
-  - {fileID: 11400000, guid: f3d25ab986313894cab1fa37914d011a, type: 2}
-  - {fileID: 11400000, guid: 4f84e0eb975588c44bccfc462461cb3f, type: 2}
-  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  - {fileID: 11400000, guid: 5c27455602b27424ea45b6fa9d219e7b, type: 2}
+  - {fileID: 11400000, guid: 3ca4077ba9f799e489ec785ec9227955, type: 2}
+  - {fileID: 11400000, guid: 5cab51ff28633de48aaa3b1d2e870a12, type: 2}
+  - {fileID: 11400000, guid: 917e82c58848d4d46bce43bd1b7483df, type: 2}
   FloorOfBattle:
     PlayerStage: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
     rank1: 1
     title1: 
     Stage1:
     - {fileID: 11400000, guid: c621d23c27757c0429de305c3f2e34f2, type: 2}
+    - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     rank2: 2
     title2: 
     Stage2: []
     SubStage:
     - {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
-    - {fileID: 11400000, guid: 6d54739e637a92b408795dc61270d611, type: 2}
+    - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
   FloorOfResource:
     PlayerStage: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
     rank1: 3

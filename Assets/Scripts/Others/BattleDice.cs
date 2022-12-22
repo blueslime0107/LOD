@@ -50,6 +50,6 @@ public class BattleDice : MonoBehaviour
             transform.localEulerAngles = Vector3.zero;
              spinging = false;
         }
-        render.sprite = dice_img[Mathf.Abs(battleManager.battleCaculate.damage)];
+        render.sprite = dice_img[Mathf.Abs(battleManager.battleCaculate.damage.value)];
     }
 }
