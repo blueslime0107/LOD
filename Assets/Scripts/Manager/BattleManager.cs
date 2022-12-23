@@ -81,6 +81,7 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public bool right_d6 = false;
     [HideInInspector]public int left_d6_Count;
     [HideInInspector]public int right_d6_Count;
+    public BackColorEff backColorEff;
 
     public GameObject tutorial;
 
@@ -319,6 +320,7 @@ public class BattleManager : MonoBehaviour
                     foreach(Dice_Indi dice in dice_indis){
                         
                         if(dice.onMouseDown){
+                            if(dice.player.dice <= 0){continue;}
                             if(dice.gameObject.tag.Equals("Team1") && left_turn){
                                 target1 = dice.player;
                             }
@@ -455,6 +457,7 @@ public class BattleManager : MonoBehaviour
     void PlayerGoToOrigin(){
         // 플레이어가 모두 돌아가는걸 허락함, 바닥 활성화를 끔
         foreach(Player player in players){
+            if(!player.gameObject.activeSelf){continue;}
             player.StartCoroutine("GotoOrigin");
             player.player_floor_render.SetInt("_Active",0);
         }
@@ -514,10 +517,10 @@ public class BattleManager : MonoBehaviour
 
     // 버튼 외부 발동
     public void BattleStart(){
-        if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
-            right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){ // 주사위를 
+        // if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
+        //     right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){ // 주사위를 
             battle_start = true;
-        }
+        // }
     }
 
     void Card(Vector3 pos,CardAbility cardo){

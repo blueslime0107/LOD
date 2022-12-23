@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1969946528367366626
 Transform:
   m_ObjectHideFlags: 0
@@ -156,9 +156,9 @@ MonoBehaviour:
   onplayer: 1
   OnAttack: 0
   onbattleEnd: 0
-  fadeOut: 0
   moveFront: 0
   aliveTime: 1
+  fadeOut: 0
   fade_time: 0
   imLineRenderer: 0
 --- !u!212 &4018065999108550304

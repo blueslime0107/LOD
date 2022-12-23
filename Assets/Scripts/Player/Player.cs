@@ -149,9 +149,8 @@ public class Player : MonoBehaviour
     }
 
     public void DamagedBy(Damage damage, Player player){
-        health -= damage.value;
-        lastHit = player;
         
+        lastHit = player;
 
         
         for(int i = 0;i<cards.Count;i++){
@@ -165,6 +164,9 @@ public class Player : MonoBehaviour
                 play.cards[i].ability.WhoEverDamage(play.cards[i],damage);
             }
         }
+
+        health -= damage.value;
+        
 
         if(health > max_health){
             health = max_health;

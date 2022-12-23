@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84\uBC84\uBC84\uBC84\uBC84\uBC84"
+  m_text: "\uC2DC\uB4E4\uC5B4\uC9C4 \uB124\uC78E\uD074\uB85C\uBC84"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 137e5e952d51a9646911d868dc9b84ff, type: 2}
   m_sharedMaterial: {fileID: -5383193040083528029, guid: 137e5e952d51a9646911d868dc9b84ff, type: 2}
@@ -419,8 +419,6 @@ MonoBehaviour:
   tain: {fileID: 3992798085048580234}
   name_: {fileID: 2838013068198660515}
   message: {fileID: 1780543013542292649}
-  countObj: {fileID: 0}
-  countText: {fileID: 0}
 --- !u!1 &4761557273894561531
 GameObject:
   m_ObjectHideFlags: 0

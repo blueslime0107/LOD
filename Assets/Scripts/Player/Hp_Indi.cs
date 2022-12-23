@@ -13,6 +13,10 @@ public class Hp_Indi : MonoBehaviour
     public TextMeshProUGUI BreakText; 
 
     public void HpUpdate(Player player){
+        if(player.health <= 0){
+            player.health = 0;
+            Debug.Log("health_overFlow!");
+            }
         HPText.text = player.health.ToString();
         BreakText.text = (player.breakCount.Count <= 0) ? "-" : player.breakCount[0].ToString();
         int max_hp = player.max_health;

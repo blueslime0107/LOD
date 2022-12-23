@@ -124,7 +124,6 @@ public class BattleCaculate : MonoBehaviour
 
         battleDice.gameObject.SetActive(true);
         battleDice.SetPlayerPosition(myChar,eneChar);
-        yield return new WaitForSeconds(diceRollTime); // 캐릭터들이 제자리에 온후 약간의 딜레이
 
         for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
                     my_ability[i].ability.OnClashStart(my_ability[i],this);
@@ -132,6 +131,9 @@ public class BattleCaculate : MonoBehaviour
         for(int i = 0; i<ene_ability.Count;i++){
                     ene_ability[i].ability.OnClashStart(ene_ability[i],this);
                 }
+        yield return new WaitForSeconds(diceRollTime); // 캐릭터들이 제자리에 온후 약간의 딜레이
+
+        
         # region 데미지 결정됨
         SetDamage(myChar.dice - eneChar.dice);
         if(damage.value>0){    // 데미지 결정
@@ -197,6 +199,9 @@ public class BattleCaculate : MonoBehaviour
             yield return null;
         }
         if(damage.value>0){ // 승리
+            for(int i = 0; i<ene_ability.Count;i++){
+                ene_ability[i].ability.OnClashLose(ene_ability[i],this);
+            }
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashWin(my_ability[i],this);
                 if(my_ability[i].card_battleActive){
@@ -214,6 +219,9 @@ public class BattleCaculate : MonoBehaviour
         }
         if(damage.value<0){ // 패배
             damage.value = -damage.value;
+            for(int i = 0; i<my_ability.Count;i++){
+                my_ability[i].ability.OnClashLose(my_ability[i],this);
+            }
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnClashWin(ene_ability[i],this);
                 if(ene_ability[i].card_battleActive){

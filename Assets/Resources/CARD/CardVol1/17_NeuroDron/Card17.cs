@@ -10,8 +10,8 @@ public class Card17 : CardAbility
     {
         
         if(damage.value <= 2){
-            Active(card);
             damage.value = 0;
+            match.backColorEff.changeColor(0, 200, 255,200);
         }
     }
 }

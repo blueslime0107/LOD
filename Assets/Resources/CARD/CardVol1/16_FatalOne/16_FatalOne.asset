@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cacdd960872c41d4ca0ed71b802aefcf, type: 3}
   m_Name: 16_FatalOne
   m_EditorClassIdentifier: 
-  card_id: 0
-  name: 
+  card_id: 16
+  name: "\uCE58\uBA85\uC801\uC778 \uC77C\uACA9"
   message: 
   ability_message: "[\uD53C\uD574\uC90C] \uD53C\uD574 2 \uC774\uD558\uC77C\uC2DC
     \uB450 \uBC30\uAC00 \uB41C\uB2E4"
@@ -24,7 +24,8 @@ MonoBehaviour:
   usingCount: 0
   pre_count: 0
   overCard: {fileID: 0}
-  effect: []
+  effect:
+  - {fileID: 7883862230350723607, guid: 6649cd0623963094abe53ff7e26368aa, type: 3}
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}

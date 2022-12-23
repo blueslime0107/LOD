@@ -8,8 +8,13 @@ public class Card14 : CardAbility
 
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
+        card.diceLink.positionCount = 0;
         foreach(Player player in (attacker.tag.Equals("PlayerTeam1")) ? match.left_players : match.right_players){
             player.DamagedByInt(1, card.player);
+            card.diceLink.positionCount += 2;
+            card.diceLink.SetPosition(card.diceLink.positionCount-2,player.dice_Indi.gameObject.transform.position);
+            card.diceLink.SetPosition(card.diceLink.positionCount-1,card.player.dice_Indi.gameObject.transform.position);
         }
+        card.diceLink.gameObject.SetActive(true);
     }
 }

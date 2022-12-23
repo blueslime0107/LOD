@@ -14,11 +14,12 @@ public class Card22 : CardAbility
             card.active = false;
             return;
         }
-        foreach(Player play in (player.tag.Equals("PlayerTeam1")) ? match.left_players : match.right_players){
-            if(play.health > bigNum){
+        foreach(Player play in (player.tag.Equals("PlayerTeam1")) ? match.right_players : match.left_players){
+            if(play.dice > bigNum){
                 bigNum = play.dice;
             }
         }
+        Debug.Log(bigNum);
         card.player.SetDice(bigNum);
         if(bigNum >= 5){
             card.active = true;

@@ -9,5 +9,6 @@ public class Card15 : CardAbility
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
         attacker.DamagedByInt((int)Mathf.Ceil(damage.value*0.5f),card.player);
+        match.backColorEff.changeColor(255,0,0,255);
     }
 }

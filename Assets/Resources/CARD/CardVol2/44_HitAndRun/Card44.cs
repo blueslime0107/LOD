@@ -6,9 +6,10 @@ using UnityEngine;
 public class Card44 : CardAbility
 {
 
-    public override void OnClashStart(CardPack card, BattleCaculate battle)
+    public override void OnClashLose(CardPack card, BattleCaculate battle)
     {
         if(!battle.myChar.Equals(card.player)){return;}
         battle.damage.value = 0;
     }
+
 }

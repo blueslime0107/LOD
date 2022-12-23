@@ -94,7 +94,7 @@ public class Dice_Indi : MonoBehaviour
             sub_dice.SetActive(true);
         }
         dice_list.Add(dice);    
-        sub_render.sprite = dice_img[dice_list[0].dice_value];
+        sub_render.sprite = dice_img[dice.dice_value];
     }
 
     public void setDice(int value){
@@ -103,10 +103,13 @@ public class Dice_Indi : MonoBehaviour
             return;
         }
         
-
+        particle.Play();
         player.dice = value;
         dice_value = value;
-        render.sprite = dice_img[value];
+        try
+        {render.sprite = dice_img[value];}
+        catch
+        {render.sprite = dice_img[7];}
     }
 
     void OnMouseDown() {

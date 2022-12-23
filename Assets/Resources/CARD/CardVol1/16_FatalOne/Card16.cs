@@ -16,6 +16,13 @@ public class Card16 : CardAbility
         
     }
 
+    public override void AttackEffect(CardPack card,Player defender)
+    {
+        if(!card.card_battleActive){return;}
+        card.effect[0].transform.position = defender.gameObject.transform.position;
+        card.effect[0].SetActive(true); 
+    }
+
     // public override void AttackEffect(CardPack card, Player defender)
     // {
     //     if(!card.card_lateActive){

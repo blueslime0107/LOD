@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
             sm.play_stage = debugStage;
             sm.player_battleCard = debugPlayerStage;
+            sm.player_cardDic = battleManager.cards;
         }
 
         

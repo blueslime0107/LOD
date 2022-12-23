@@ -17,8 +17,11 @@ public class Card18 : CardAbility
         allHealth = (int)allHealth/match.players.Count;
         foreach(Player player in match.players){
             player.health = allHealth;
+            player.UpdateHp();
             
         }
+        match.backColorEff.gameObject.SetActive(true);
+        match.backColorEff.changeColor(255,0,0,230);
         card.active = true;
     }
 }
