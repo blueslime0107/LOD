@@ -126,10 +126,10 @@ public class BattleCaculate : MonoBehaviour
         battleDice.SetPlayerPosition(myChar,eneChar);
 
         for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
-                    my_ability[i].ability.OnClashStart(my_ability[i],this);
+                    my_ability[i].ability.OnClashStart(my_ability[i],this,eneChar);
                 }
         for(int i = 0; i<ene_ability.Count;i++){
-                    ene_ability[i].ability.OnClashStart(ene_ability[i],this);
+                    ene_ability[i].ability.OnClashStart(ene_ability[i],this,myChar);
                 }
         yield return new WaitForSeconds(diceRollTime); // 캐릭터들이 제자리에 온후 약간의 딜레이
 
@@ -190,12 +190,16 @@ public class BattleCaculate : MonoBehaviour
         //damage_dice = damage;
 
         if(damage.value == 0){ // 무승부
-            while(card_activated){
-                yield return null;
+            // while(card_activated){
+            //     yield return null;
+            // }
+            for(int i = 0; i<my_ability.Count;i++){
+                my_ability[i].ability.OnClashDraw(my_ability[i],this,eneChar);
             }
-            myChar.ChangeCondition(3);
-            eneChar.ChangeCondition(3);
-            coroutine_lock = false;
+            for(int i = 0; i<ene_ability.Count;i++){
+                ene_ability[i].ability.OnClashDraw(ene_ability[i],this,myChar);
+            }
+            StartCoroutine(Damage(myChar,eneChar));
             yield return null;
         }
         if(damage.value>0){ // 승리
@@ -361,7 +365,6 @@ public class BattleCaculate : MonoBehaviour
         //                 yield return null;
         //             }
         //     }
-         
         if(damage.value>0){
             defender.ChangeCondition(4);
             attacker.ChangeCondition(3);
@@ -370,20 +373,26 @@ public class BattleCaculate : MonoBehaviour
             //         card.AttackEffect(transform);
             //     }
             // }
-            if(attacker.transform.position.x - defender.transform.position.x <0){ // 넉백 효과
-                defender.transform.Translate(Vector3.right*damage.value/2);
-            }
-            if(attacker.transform.position.x - defender.transform.position.x > 0){
-                defender.transform.Translate(Vector3.left*damage.value/2);
-            }
+            if(attacker.transform.position.x - defender.transform.position.x <0){defender.transform.Translate(Vector3.right*damage.value/2);}
+            if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*damage.value/2);}
+
+            defender.DamagedBy(damage,attacker);
             
         }
-        else if(damage.Equals(0)){
+        if(damage.value.Equals(0)){
+            Debug.Log("안감?");
             defender.ChangeCondition(3);
             attacker.ChangeCondition(3);
+
+            if(attacker.transform.position.x - defender.transform.position.x <0){defender.transform.Translate(Vector3.right*0.4f);}
+            if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*0.4f);}
+            if(defender.transform.position.x - attacker.transform.position.x <0){attacker.transform.Translate(Vector3.right*0.4f);}
+            if(defender.transform.position.x - attacker.transform.position.x > 0){attacker.transform.Translate(Vector3.left*0.4f);}
+
+            defender.AttackEffect(attacker);
         }
 
-        defender.DamagedBy(damage,attacker);
+        
         attacker.AttackEffect(defender);
         coroutine_lock = false;
         yield return null;

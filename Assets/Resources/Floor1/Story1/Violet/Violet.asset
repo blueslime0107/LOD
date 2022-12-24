@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
+  m_Name: Violet
+  m_EditorClassIdentifier: 
+  health: 25
+  breaks: 140000000f0000000a0000000500000000000000
+  char_sprites: {fileID: 11400000, guid: 8a826d943818d6942bde77713031aa47, type: 2}
+  char_preCards:
+  - {fileID: 11400000, guid: c1e702011e0c03a45a34e87bcaac7581, type: 2}
+  - {fileID: 11400000, guid: 5c27455602b27424ea45b6fa9d219e7b, type: 2}
+  - {fileID: 11400000, guid: 2967a30e65a63fa4fad428c25e16cb0d, type: 2}
+  - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}

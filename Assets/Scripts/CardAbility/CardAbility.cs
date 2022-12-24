@@ -44,6 +44,7 @@ public class CardAbility : ScriptableObject
     public virtual void WhenCardGet(CardPack card, BattleManager match, Player player){}
     public virtual void WhenCardGetImmedi(CardPack card, BattleManager match){}
     public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
+    public virtual void WhenCardDisabled(CardPack card, BattleManager match){}
 
     public virtual void CardActivate(CardPack card, BattleManager match){}
     public virtual void CardSelected(CardPack card, CardPack selected_card,BattleManager match){}
@@ -54,9 +55,10 @@ public class CardAbility : ScriptableObject
     public virtual void OnBattleStart(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleThro(CardPack card, Player player, BattleManager match){}
 
-    public virtual void OnClashStart(CardPack card, BattleCaculate battle){}
+    public virtual void OnClashStart(CardPack card, BattleCaculate battle,Player enemy){}
     public virtual void OnClashWin(CardPack card, BattleCaculate battle){}
     public virtual void OnClashLose(CardPack card,BattleCaculate battle){}
+    public virtual void OnClashDraw(CardPack card,BattleCaculate battle,Player enemy){}
     // public virtual void OnDamageing(CardPack card,BattleCaculate battle, Player attacker){}
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
     public virtual void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match){}

@@ -177,9 +177,10 @@ public class Player : MonoBehaviour
         UpdateHp();
     }
 
-    public void DamagedByInt(int damage, Player player){
+    public void DamagedByInt(int damage, Player player,bool counter = false){
         Damage newdamage = new Damage();
         newdamage.value = damage;
+        newdamage.nocounter = counter;
         DamagedBy(newdamage,player);
 
     }

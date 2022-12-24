@@ -112,6 +112,7 @@ public class BattleManager : MonoBehaviour
             }
             # region 전투끝/카드뽑기
             cardActiveAble = false;
+            StartCoroutine("selectingCard");
             PlayerGoToOrigin();
             left_cardLook_lock = false;
             right_cardLook_lock = false;
@@ -214,16 +215,13 @@ public class BattleManager : MonoBehaviour
             }
             ui.Dice6.gameObject.SetActive(false);
             
-            
+            StopCoroutine("selectingCard");
+            ui.VisualCardPanel(true);
             BattlePreReset();
             # endregion
             # region 선두팀 바꾸기   
-            if(first_turn.Equals("Left")){
-                first_turn = "Right"; 
-            }
-            else{
-                first_turn = "Left"; 
-            }
+            first_turn = (first_turn.Equals("Left")) ? "Right" : "Left"; 
+            ui.battleStartButton.updateYeamColor(first_turn);
             TurnTeam(first_turn);
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
@@ -271,7 +269,8 @@ public class BattleManager : MonoBehaviour
                             for(int j = 0; j < players[i].cards.Count; j++){
                                 players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
                             }
-                        }                  
+                        }     
+                        ui.battleStartButton.StartCoroutine("startBlink");             
                         while(!battle_start){
                             yield return null; 
                         }
@@ -424,6 +423,7 @@ public class BattleManager : MonoBehaviour
             first_turn = "Left";
         }
         first_turn = "Right";
+        ui.battleStartButton.updateYeamColor(first_turn);
         TurnTeam(first_turn);
         
     }
@@ -520,6 +520,8 @@ public class BattleManager : MonoBehaviour
         // if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
         //     right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){ // 주사위를 
             battle_start = true;
+            ui.battleStartButton.StopAllCoroutines();
+            ui.battleStartButton.updateYeamColor(first_turn);
         // }
     }
 
@@ -562,6 +564,20 @@ public class BattleManager : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator selectingCard(){
+        ui.VisualCardPanel(false);
+        while(true){
+            if(Input.GetMouseButtonDown(0)){
+                ui.VisualCardPanel(true);
+            }
+            if(Input.GetMouseButtonUp(0)){
+                ui.VisualCardPanel(false);
+
+            }
+            yield return null;
+        }
+    }
+
     public void SelectiedCard(CardPack card){
         card_selecting.ability.CardSelected(card_selecting,card,this);
         card_selecting = null;
@@ -589,11 +605,17 @@ public class BattleManager : MonoBehaviour
         return card;
     }
 
-    public void GiveCardPack(CardPack card, Player player){
-        CardPack pre_card = card;
-        pre_card.PreSetting(player);
-        player.cards.Add(pre_card);
-        pre_card.ability.WhenCardGet(pre_card, this,player);
+    public CardPack GiveCardPack(CardPack card, Player player){
+        card.ability.WhenCardDisabled(card,this);
+        card.player.cards.Remove(card);
+        card.PreSetting(player);
+        player.cards.Add(card);
+        card.ability.WhenCardGetImmedi(card,this);
+        return card;
+        // CardPack pre_card = card;
+        // pre_card.PreSetting(player);
+        // player.cards.Add(pre_card);
+        // pre_card.ability.WhenCardGet(pre_card, this,player);
     }
 
     public List<CardAbility> CardSuffle(){

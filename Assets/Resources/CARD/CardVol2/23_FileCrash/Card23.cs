@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/19File_crashed", order = 23)]
 public class Card23 : CardAbility
 {
-
-    public override void WhenCardGet(CardPack card,BattleManager match, Player player)
+    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
     {
-        card.saved_card = match.GiveCard(linked_card[0],player);
-    }
-
-    public override void StartMatch(CardPack card, BattleManager match)
-    {
+        if(card.active){return;}
+        if(card.saved_card != null){
+            card.player.cards.Remove(card.saved_card);
+            card.saved_card = null;
+        }
         List<CardAbility> random_caard = match.cards;
-        random_caard.RemoveAll(x => x.card_id.Equals(19));
-        card.saved_card.ability = random_caard[(int)Random.Range(0f,(float)random_caard.Count)];
-        Debug.Log(card.saved_card.ability.name + "발동!");
+        random_caard.RemoveAll(x => x.card_id.Equals(23));
+        card.saved_card = match.GiveCard(random_caard[(int)Random.Range(0f,(float)random_caard.Count)],card.player);
+        card.saved_card.overCard = card.ability.overCard;
     }
+
 }

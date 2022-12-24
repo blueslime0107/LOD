@@ -18,10 +18,11 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     //MaterialPropertyBlock material_block;
     //Image card_image;
     public CardPack card;
+    public Image card_overImg;
 
-    Image card_overImg;
     [SerializeField]GameObject card_light;
-    [SerializeField]GameObject block_img;
+    [SerializeField]GameObject block_obj;
+    Image block_img;
     [SerializeField]GameObject countObj;
     [SerializeField]TextMeshProUGUI countText;
 
@@ -33,12 +34,19 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         rect = GetComponent<RectTransform>();
         material = Instantiate(card_light.GetComponent<Image>().material);
         card_light.GetComponent<Image>().material = material;
+        block_img = block_obj.GetComponent<Image>();
     }
 
     public void CardUpdate(){
         countObj.SetActive(card.ability.usingCount);
         countText.text = card.count.ToString();
-        block_img.SetActive((card.ability.name.Equals("NULL")) ? true: false);
+        //block_img.((card.ability.name.Equals("NULL")) ? true: false);
+        Debug.Log("CardUpdate");
+        if(card.overCard != null){
+            Debug.Log("card.overCard");
+            block_obj.SetActive(true); 
+            block_img.sprite = card.overCard;
+            }
         if(isLeft){
             try
             {if(battleManager.cardViewChar_left.cards[card_num].active){material.SetInt("_Active",1);}

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Damage{
     public int value;
+    public bool nocounter = false;
 
     public void setDamage(int damage){
         value = damage;
+        
     }
 }
 

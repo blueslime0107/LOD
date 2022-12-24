@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94963d16e6d1ec741ada496d096cd872, type: 3}
+  m_Name: 5_InstinctDag
+  m_EditorClassIdentifier: 
+  card_id: 5
+  name: "\uBCF8\uB2A5\uC758 \uB2E8\uAC80"
+  message: 
+  ability_message: "[\uD53C\uD574\uBC1B\uC74C]\uD53C\uD574\uB97C 1 \uC904\uC774\uACE0,
+    \uC0C1\uB300\uC5D0\uAC8C 1 \uD53C\uD574\uB97C \uC900\uB2E4\n\uBB34\uBC29\uBE44\uC2DC
+    \uD53C\uD574\uB97C \uC808\uBC18 \uC904\uC774\uACE0, \uC904\uC778\uB9CC\uD07C
+    \uC0C1\uB300\uC5D0\uAC8C \uD53C\uD574\uB97C \uC900\uB2E4"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: 9168e1d1fcc682145bea6c3ba13bc272, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

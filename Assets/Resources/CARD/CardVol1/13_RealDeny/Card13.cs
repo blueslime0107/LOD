@@ -10,7 +10,7 @@ public class Card13 : CardAbility
         card.active = false;
     }
 
-    public override void OnClashStart(CardPack card, BattleCaculate battle)
+    public override void OnClashStart(CardPack card, BattleCaculate battle,Player enemy)
     {
         if(card.player.dice < battle.eneChar.dice){
             card.player.SetDice((int)Random.Range(1,7));

@@ -7,7 +7,7 @@ using TMPro;
 public class UI : MonoBehaviour
 {
     public BattleManager bm;
-    [HideInInspector]public Button battleStartButton;
+    public StartButton battleStartButton;
     public Button Dice6;
     public GameObject cardMessage;
     public TextMeshProUGUI cardAbility;
@@ -102,6 +102,11 @@ public class UI : MonoBehaviour
         for(int i =0; i<card.Count;i++){
             indi[i].gameObject.SetActive(true); 
         }
+    }
+
+    public void VisualCardPanel(bool active){
+        leftPanel.SetActive(active);
+        rightPanel.SetActive(active);
     }
 
 

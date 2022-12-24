@@ -6,8 +6,9 @@ using UnityEngine;
 public class Card35 : CardAbility
 {
 
-    public override void OnClashStart(CardPack card, BattleCaculate battle)
+    public override void OnClashStart(CardPack card, BattleCaculate battle, Player enemy)
     {
+        if(battle.myChar != card.player){return;}
         battle.eneChar.AddDice(-2);
     }
 }

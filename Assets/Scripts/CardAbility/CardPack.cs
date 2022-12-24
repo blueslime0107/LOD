@@ -11,6 +11,8 @@ public class CardPack : MonoBehaviour
     public bool card_battleActive;
     public LineRenderer diceLink;
 
+
+
     public Player saved_player; // 캐릭터 저장
     public List<Player> saved_player_list = new List<Player>(); // 캐릭터 저장 리스트
     public int saved_int; // 변수 저장
@@ -26,6 +28,7 @@ public class CardPack : MonoBehaviour
     public new string name;
     public string message;
     public string ability_message;
+    public bool tained;
     public Sprite overCard;
 
     public Sprite illust;
@@ -33,6 +36,10 @@ public class CardPack : MonoBehaviour
     public int count;
     public int price;
 
+    private void Start() {
+        count = ability.pre_count;
+        tained = ability.tained;
+    }
 
     
 
@@ -43,7 +50,6 @@ public class CardPack : MonoBehaviour
         name = ability.name;
         message = ability.message;
         ability_message = ability.ability_message;
-        count = ability.pre_count;
         // 이펙트를 현재 플레이어에 복사해둠
         foreach(GameObject effe in ability.effect){
             CardEffect card_effect = effe.GetComponent<CardEffect>();
@@ -76,7 +82,7 @@ public class CardPack : MonoBehaviour
         //gameObject.SetActive(false);
     }
 
-
+    
 
     // Start is called before the first frame update
     // void Start()
