@@ -48,6 +48,18 @@ public class GameManager : MonoBehaviour
             for(int i=0;i<sm.player_battleCard.characters.Length;i++){
             if(sm.player_battleCard.characters[i] != null)
             {
+                try
+                {
+                    if(leftPlayers[i].Equals(null)){continue;}
+                }
+                catch
+                {
+                    continue;
+                }
+                
+                Debug.Log(leftPlayers[i]);
+                //Debug.Log(leftPlayers[i].battleManager);
+                Debug.Log(battleManager);
                 leftPlayers[i].battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;

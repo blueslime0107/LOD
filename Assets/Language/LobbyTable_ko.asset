@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LobbyTable_ko
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ko
+  m_SharedData: {fileID: 11400000, guid: b326e1c703b69d840aac3108f2071560, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 6994989056
+    m_Localized: "\uB0A0 \uB20C\uB7EC\uC918\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37521133568
+    m_Localized: "\uD29C\uD1A0\uB9AC\uC5BC\uC774\uB2F9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60472365056
+    m_Localized: "\uC2A4\uD14C\uC774\uC9C0\uB4E4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95205396480
+    m_Localized: "\uCE74\uB4DC\uBCF4\uB294 \uACF3"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

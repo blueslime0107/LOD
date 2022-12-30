@@ -8,7 +8,7 @@ public class DebugButton : MonoBehaviour
 
     public void WintheGame(){
         foreach(Player player in bm.right_players){
-            player.YouAreDead();
+            player.AddHealth(-999);
         }
         bm.battle_start = true;
         bm.battle_end = true;

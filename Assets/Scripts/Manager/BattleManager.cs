@@ -375,7 +375,12 @@ public class BattleManager : MonoBehaviour
 
 
     public void BattleTargetReady(){
+        if(target1.died || !target1.gameObject.activeSelf || target2.died || !target2.gameObject.activeSelf){
+            target2 = null;
+            return;
+        }
         if(target1 != target2){
+
             battleing = true;
             blackScreen.SetActive(true);
 

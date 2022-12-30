@@ -16167,7 +16167,7 @@ PrefabInstance:
     - target: {fileID: 6788184327005626392, guid: 2d0694edf71c39f40b98b4c12556e34d, type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916609188}
     - target: {fileID: 6788184327005626392, guid: 2d0694edf71c39f40b98b4c12556e34d, type: 3}
       propertyPath: attack_effect.Array.data[0]
       value: 
@@ -17152,7 +17152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -33.600006}
+  m_AnchoredPosition: {x: 0, y: -33.600037}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805264709
@@ -17565,7 +17565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -209.99994, y: -176.82}
+  m_AnchoredPosition: {x: -210, y: -176.82}
   m_SizeDelta: {x: -420, y: -350.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864106021
@@ -18886,7 +18886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 210, y: -176}
+  m_AnchoredPosition: {x: 210, y: -175.99994}
   m_SizeDelta: {x: -420, y: -352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004126945
@@ -19015,7 +19015,7 @@ PrefabInstance:
     - target: {fileID: 4336479990067078978, guid: 3681863fdfc93ef48ac4f9c16ed1a223, type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916609188}
     - target: {fileID: 4336479990067078978, guid: 3681863fdfc93ef48ac4f9c16ed1a223, type: 3}
       propertyPath: attack_effect.Array.data[0]
       value: 
@@ -22075,7 +22075,7 @@ PrefabInstance:
     - target: {fileID: 6788184327005626392, guid: 2d0694edf71c39f40b98b4c12556e34d, type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916609188}
     - target: {fileID: 6788184327005626392, guid: 2d0694edf71c39f40b98b4c12556e34d, type: 3}
       propertyPath: attack_effect.Array.data[0]
       value: 
@@ -24417,7 +24417,7 @@ PrefabInstance:
     - target: {fileID: 4336479990067078978, guid: 3681863fdfc93ef48ac4f9c16ed1a223, type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916609188}
     - target: {fileID: 4336479990067078978, guid: 3681863fdfc93ef48ac4f9c16ed1a223, type: 3}
       propertyPath: attack_effect.Array.data[0]
       value: 
@@ -36000,7 +36000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -202.09003, y: 115.79999}
+  m_AnchoredPosition: {x: -202.09009, y: 115.79999}
   m_SizeDelta: {x: -404.18, y: -347.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938545048
@@ -36613,7 +36613,7 @@ PrefabInstance:
     - target: {fileID: 4336479990067078978, guid: 3681863fdfc93ef48ac4f9c16ed1a223, type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916609188}
     - target: {fileID: 4336479990067078978, guid: 3681863fdfc93ef48ac4f9c16ed1a223, type: 3}
       propertyPath: attack_effect.Array.data[0]
       value: 
@@ -37064,7 +37064,7 @@ PrefabInstance:
     - target: {fileID: 6788184327005626392, guid: 2d0694edf71c39f40b98b4c12556e34d, type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1916609188}
     - target: {fileID: 6788184327005626392, guid: 2d0694edf71c39f40b98b4c12556e34d, type: 3}
       propertyPath: attack_effect.Array.data[0]
       value: 

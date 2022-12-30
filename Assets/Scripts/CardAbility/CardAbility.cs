@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
 
 public class CardAbility : ScriptableObject
 {
     public int card_id;
+    public string[] xmlFile_path = new string[2];
+
     public new string name;
     [TextArea]
     public string message;
@@ -31,7 +34,8 @@ public class CardAbility : ScriptableObject
 
     //public GameObject owner;
     // [HideInInspector]public bool card_active;
-    // public bool card_triggerd;
+    // public bool card_triggerd
+
     public void Active(CardPack card){
         card.card_battleActive = true;
         }

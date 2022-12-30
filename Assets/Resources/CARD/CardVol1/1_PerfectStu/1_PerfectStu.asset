@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: 1_PerfectStu
   m_EditorClassIdentifier: 
   card_id: 1
-  name: "\uC644\uBCBD\uD55C \uBAA8\uBC94\uC0DD"
-  message: 
-  ability_message: "[\uC804\uD22C \uC2DC\uC791] \uC790\uC2E0\uC758 \uC704\uB825\uACFC
-    \uAC19\uC740 \uCE90\uB9AD\uD130\uAC00 \uC788\uC744\uB54C \uB9C8\uB2E4 \uC704\uB825
-    + 1 \uC774 \uACC4\uC18D\uC624\uB978\uB2E4"
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
+  name: Perfect Student
+  message: should be perfect..
+  ability_message: "[Battle Start] \uC790\uC2E0\uC758 \uC704\uB825\uACFC \uAC19\uC740
+    \uCE90\uB9AD\uD130\uAC00 \uC788\uC744\uB54C \uB9C8\uB2E4 \uC704\uB825 + 100 \uC774
+    \uACC4\uC18D\uC624\uB978\uB2E4"
   story_message: 
   tained: 0
   price: 0

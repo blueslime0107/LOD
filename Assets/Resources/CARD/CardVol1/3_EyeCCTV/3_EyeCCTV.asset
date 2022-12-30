@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 3_EyeCCTV
   m_EditorClassIdentifier: 
   card_id: 3
-  name: "\uB208\uC54CCCTV"
-  message: 
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
+  name: EYE CCTV
+  message: "\uBA40\uB9AC\uC11C \uAD00\uC804\uD558\uB294\uAC8C \uC5BC\uB9C8\uB098
+    \uC7AC\uBC0C\uB294\uB370"
   ability_message: "[\uD53C\uD574\uBC1C\uC0DD] 3 \uD53C\uD574 \uC774\uC0C1\uC77C\uC2DC
     \uCCB4\uB825 2 \uD68C\uBCF5"
   story_message: 

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MainTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: MainTable
+  m_TableCollectionNameGuidString: b55ded4f8c3e83043b41b7a31494977a
+  m_Entries:
+  - m_Id: 34329268224
+    m_Key: main_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5164176969728
+    m_Key: start_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5221882204160
+    m_Key: youtube_button
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8286871332208246808
+  references:
+    version: 2
+    RefIds:
+    - rid: 8286871332208246808
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1672161136513

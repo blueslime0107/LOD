@@ -14,7 +14,7 @@ public class Card28 : CardAbility
         }
         card.effect[0].SetActive(true);
         if(card.count >= 3){
-            player.YouAreDead();
+            player.AddHealth(-999);
         }
     }
 }
