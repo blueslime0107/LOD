@@ -22,6 +22,123 @@ MonoBehaviour:
     m_Localized: Battle Start
     m_Metadata:
       m_Items: []
+  - m_Id: 1170251649024
+    m_Localized: This is the dice for your team.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1286274486272
+    m_Localized: 'This is the characters of your team.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1343921000448
+    m_Localized: Drag and drop the dice on the character to give their own weapons
+      to use.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445288939520
+    m_Localized: Press this button to start the battle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1594299977728
+    m_Localized: Drag your character to the opponent's one to start the Clash.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699698642944
+    m_Localized: The victory of the Clash depends on the power of each characters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1962027192320
+    m_Localized: If you get a Clash between 4 and 2, there would be 2 damage to the
+      character who had the dice-2.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2125936398336
+    m_Localized: 'The character with the stronger dice, gets ''on clash win'' to
+      get damage the opponent, while the character with the weaker one gets ''on
+      clash defeat'' to get damaged.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2287446462464
+    m_Localized: "3 damage\r                  dice-5 > dice-2\nThe character from
+      the left side gets the chance to give damage\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2330689736704
+    m_Localized: Who made the preemptive strike., doesn't affect any occurance of
+      damage. Lower one gets 'on clash defeat'.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2381793136640
+    m_Localized: "3 damage\r                 dice-3 < dice-6.\r\nThe character from
+      the right side gets the chance to give damage."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2427964035072
+    m_Localized: 'Only in the case of the clash between the dice-1 and the dice-6
+      or over 6
+
+      the former gains 6 for its power, the Rebellion of the weakest. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506242330624
+    m_Localized: '5 damage
+
+      Maybe you guys think that the character from the
+      right side would get the chance....
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526379184128
+    m_Localized: "1 damage\r\nWell, surprise! Never say never. The dice-1 gains 6
+      for its power,\nand the left side beat the dice-6 up with its dice-7!\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2569328857088
+    m_Localized: 'The Rebellion system, gets triggered prior to any other power change
+      systems.
+
+      Thus, you can get a chance to turn the table, even if the
+      situation is unfavorable.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2589432156160
+    m_Localized: Drag and drop the card on your characters to give them the special
+      effect.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654590668800
+    m_Localized: The cards are given under these conditions.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2976176345088
+    m_Localized: If a HP of any character falls below the BREAK level, their team
+      gets a card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2997785399296
+    m_Localized: Health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3115427237888
+    m_Localized: The card viewer get fixed by clicking the character who holds the
+      card.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3188106137600
+    m_Localized: Check the card's effect by fixing the card viewer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3075027701760
+    m_Localized: BREAK level
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

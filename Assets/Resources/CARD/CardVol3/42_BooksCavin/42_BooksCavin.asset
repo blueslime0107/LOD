@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: 42_BooksCavin
   m_EditorClassIdentifier: 
   card_id: 42
+  xmlFile_path:
+  - CARD/CardVol3/CardVol3_en.xml
+  - CARD/CardVol3/CardVol3_kr.xml
   name: "\uBD81\uC2A4\uCE90\uBE48\uC800"
-  message: 
+  message: "\uC5EC\uAE30 \uCC45\uB4E4\uC740 \uBAA8\uB450 \uD558\uB098\uC529\r\n           
+    \uC8FC\uC778\uC774 \uC788\uC5C8\uC8E0"
   ability_message: "[\uC544\uBB34 \uCE90\uB9AD\uD130 \uC0AC\uB9DD] \uC0AC\uB9DD\uD55C
-    \uCE90\uB9AD\uD130\uC758 \uCE74\uB4DC\uC911\n\uC81C\uC77C \uCC98\uC74C\uC5D0
+    \uCE90\uB9AD\uD130\uC758 \uCE74\uB4DC\uC911\r\n            \uC81C\uC77C \uCC98\uC74C\uC5D0
     \uC5BB\uC740 \uCE74\uB4DC\uB97C \uAC00\uC838\uAC04\uB2E4"
   story_message: 
   tained: 0

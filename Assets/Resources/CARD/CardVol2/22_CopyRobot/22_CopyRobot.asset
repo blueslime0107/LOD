@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 22_CopyRobot
   m_EditorClassIdentifier: 
   card_id: 22
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uD589\uB3D9\uBCF5\uC0AC\uB85C\uBD07"
   message: 
   ability_message: "[\uC804\uD22C\uC2DC\uC791] \uC0C1\uB300\uD300 \uCE90\uB9AD\uD130\uB4E4\uC911

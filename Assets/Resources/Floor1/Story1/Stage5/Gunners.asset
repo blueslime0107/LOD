@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
   m_Name: Gunners
   m_EditorClassIdentifier: 
+  id: 1
+  xmlFile_path:
+  - Floor1/Story1/Story1_en.xml
+  - Floor1/Story1/Story1_kr.xml
   title: "\uCD1D\uACFC \uC0B4\uC778\uB9C8"
   sub_text: "\uC5ED\uC2DC \uC0B4\uC544\uB0A8\uC744\uB824\uBA74 \uBB34\uAE30\uAC00.."
   rank: 4

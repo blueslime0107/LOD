@@ -56,7 +56,6 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
     }
 
     public void RenderStage(){
-        Debug.Log(stages);
         foreach(BattleItem item in lobby.stageItem){
             item.gameObject.SetActive(false);
         }

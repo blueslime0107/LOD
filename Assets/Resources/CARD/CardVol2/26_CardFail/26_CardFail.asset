@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 26_CardFail
   m_EditorClassIdentifier: 
   card_id: 26
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC758\uC2DD\uC2E4\uD328"
   message: 
   ability_message: "[\uCE74\uB4DC\uC9C0\uC815] \uC9C0\uC815\uD55C \uCE74\uB4DC\uC758

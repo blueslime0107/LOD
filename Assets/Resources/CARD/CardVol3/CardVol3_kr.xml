@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Card Code="41">
+        <name>완벽한 모범생</name>
+        <text>완벽해야 되요</text>
+        <ability>[전투 시작] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+        <story></story>
+    </Card>
+    <Card Code="42">
+        <name>북스캐빈저</name>
+        <text>여기 책들은 모두 하나씩
+            주인이 있었죠</text>
+        <ability>[아무 캐릭터 사망] 사망한 캐릭터의 카드중
+            제일 처음에 얻은 카드를 가져간다</ability>
+        <story></story>
+    </Card>
+    <Card Code="43">
+        <name>경비용CCTV</name>
+        <text>카드? 전투에 무슨 짓거리죠?
+           이런전투 가민있을순 없어요</text>
+        <ability>팀 상관없이 카드획득시 체력 - 2</ability>
+        <story></story>
+    </Card>
+    <Card Code="44">
+        <name>치고빠지기</name>
+        <text>그 무기 치우시지?</text>
+        <ability>[합 패배][공격] 피해를 0으로 한다</ability>
+        <story></story>
+    </Card>
+    <Card Code="45">
+        <name>고기방패</name>
+        <text>살 수 있다면야.. 이거나 먹어!</text>
+        <ability>[발동]체력 2 깎는다
+            [발동중][피해받음] 피해를 0으로 한다, 그리고 발동상태를 끈다</ability>
+        <story></story>
+    </Card>
+    <Card Code="46">
+        <name>소스피란도</name>
+        <text>아주 슬프게...</text>
+        <ability>[공격받음] 자신제외 모든 자신팀들의 체력을 피해의 반만큼(올림) 회복
+            [사망] 자신팀들의 체력 - 4</ability>
+        <story></story>
+    </Card>
+    <Card Code="49">
+        <name>페로체</name>
+        <text>거칠게...</text>
+        <ability>[전투시작] 모든 자신팀들의 위력 1 상승
+            [합 패배] 다음1턴 효과가 ([전투시작] 위력 1 고정)으로 바뀐다</ability>
+        <story></story>
+    </Card>
+    
+</CardVol>

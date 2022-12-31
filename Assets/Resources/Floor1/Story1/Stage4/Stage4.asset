@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
   m_Name: Stage4
   m_EditorClassIdentifier: 
+  id: 4
+  xmlFile_path:
+  - Floor1/Story1/Story1_en.xml
+  - Floor1/Story1/Story1_kr.xml
   title: "\uC9C4\uC2EC\uC73C\uB85C \uC2F8\uC6B0\uC790!"
-  sub_text: "\uC774\uC81C\uBD80\uD130 \uC2E4\uC804"
+  sub_text: "\uC774\uC81C\uBD80\uD134 \uC2E4\uC804\uC774\uC57C"
   rank: 3
-  values: "\uADF8\uB798\uB3C4 \uAC00\uB974\uCE68\uC740 \uB0A8\uC558\uB2E4"
+  values: "\uD589\uC6B4\uC744 \uBE4C\uC5B4!"
   characters:
   - {fileID: 11400000, guid: f4007d7182a5a6945b5bf67689fc639b, type: 2}
   - {fileID: 11400000, guid: b1b05ddadbb63e34c98455f509041395, type: 2}

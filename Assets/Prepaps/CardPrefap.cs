@@ -21,19 +21,13 @@ public class CardPrefap : MonoBehaviour
 
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){ReadXML(card.xmlFile_path[0]);}
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(card.xmlFile_path[1]);}
-
-        
-
         name_.text = ability.name;
         message.text = ability.message;
-        
         tain.SetActive(ability.tained);
     }
 
     private void ReadXML(string filename){
         XmlDocument xmlDocument = new XmlDocument();
-        Debug.Log(filename);
-        Debug.Log(Resources.Load(filename));
         TextAsset textAsset = (TextAsset) Resources.Load(filename.Split(".")[0]);  
         xmlDocument.LoadXml(textAsset.text);
 

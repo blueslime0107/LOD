@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: 49_Feroce
   m_EditorClassIdentifier: 
   card_id: 49
+  xmlFile_path:
+  - CARD/CardVol3/CardVol3_en.xml
+  - CARD/CardVol3/CardVol3_kr.xml
   name: "\uD398\uB85C\uCCB4"
-  message: 
+  message: "\uAC70\uCE60\uAC8C..."
   ability_message: "[\uC804\uD22C\uC2DC\uC791] \uBAA8\uB4E0 \uC790\uC2E0\uD300\uB4E4\uC758
-    \uC704\uB825 1 \uC0C1\uC2B9\n[\uD569 \uD328\uBC30] \uB2E4\uC74C1\uD134 \uD6A8\uACFC\uAC00
-    ([\uC804\uD22C\uC2DC\uC791] \uC704\uB825 1 \uACE0\uC815)\uC73C\uB85C \uBC14\uB010\uB2E4\n"
+    \uC704\uB825 1 \uC0C1\uC2B9\r\n            [\uD569 \uD328\uBC30] \uB2E4\uC74C1\uD134
+    \uD6A8\uACFC\uAC00 ([\uC804\uD22C\uC2DC\uC791] \uC704\uB825 1 \uACE0\uC815)\uC73C\uB85C
+    \uBC14\uB010\uB2E4"
   story_message: 
   tained: 0
   price: 0

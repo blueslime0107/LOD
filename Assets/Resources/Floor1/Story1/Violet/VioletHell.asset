@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
   m_Name: VioletHell
   m_EditorClassIdentifier: 
+  id: 10
+  xmlFile_path:
+  - Floor1/Story1/Story1_en.xml
+  - Floor1/Story1/Story1_kr.xml
   title: "\uADF8\uB140"
   sub_text: "\uAC00\uB2A5\uD558\uB2E4 \uC0DD\uAC01\uD558"
   rank: 6

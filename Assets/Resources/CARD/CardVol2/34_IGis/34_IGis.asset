@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 34_IGis
   m_EditorClassIdentifier: 
   card_id: 34
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC544\uC774\uAE30\uC2A4-I"
   message: 
   ability_message: "[\uD53C\uD574\uBC1B\uC74C][\uBB34\uBC29\uBE44] \uD53C\uD574 3

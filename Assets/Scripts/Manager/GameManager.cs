@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Player[] rightPlayers;
 
     [SerializeField] GameObject[] backGrounds;
+
+    public Tutorial tutorial;
     
     void Reseting(){
 
@@ -57,9 +59,6 @@ public class GameManager : MonoBehaviour
                     continue;
                 }
                 
-                Debug.Log(leftPlayers[i]);
-                //Debug.Log(leftPlayers[i].battleManager);
-                Debug.Log(battleManager);
                 leftPlayers[i].battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
@@ -119,6 +118,7 @@ public class GameManager : MonoBehaviour
 
     void Start(){
         Reseting();
+        tutorial.TutorialStart();
         battleManager.Battle();
     }
 

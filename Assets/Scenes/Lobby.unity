@@ -10199,6 +10199,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
   - {fileID: 11400000, guid: 17b7ed7f5abe838459ccfd62f1800a3d, type: 2}
   - {fileID: 11400000, guid: df13fbe9b7edfc64e8da766c8d177144, type: 2}
+  - {fileID: 11400000, guid: 6daedea6c0b9c804e8753fad42bf2975, type: 2}
+  - {fileID: 11400000, guid: 7b124d01946e0884eb6940471d8d49c2, type: 2}
+  - {fileID: 11400000, guid: a21f1569feb6d9e48966feff29f83c60, type: 2}
+  - {fileID: 11400000, guid: eb5228ace9796934e84a334f4825ab84, type: 2}
+  - {fileID: 11400000, guid: 562e0865bdd5ac440bbaeed7def4f001, type: 2}
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  - {fileID: 11400000, guid: 0ad540cf4148c9545ba0eb5d35fef923, type: 2}
+  - {fileID: 11400000, guid: 83c0a9897e524c346a0cc83c5c90b334, type: 2}
+  - {fileID: 11400000, guid: 13c10371e29b09d42ae52c726f52d445, type: 2}
+  - {fileID: 11400000, guid: a5da873af6ce9af4da64cd826ea9f5a3, type: 2}
+  - {fileID: 11400000, guid: 61cee207561b3d949bc811193e2006e9, type: 2}
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: ef7efd7aec6df8742a984d6c8a996c3f, type: 2}
+  - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
+  - {fileID: 11400000, guid: bb4bf4620e9e30f40a7ee50ca7017b4b, type: 2}
+  - {fileID: 11400000, guid: 16b5d4da762553848af21023049de00f, type: 2}
+  - {fileID: 11400000, guid: bb90cf131995f164f8d30f6e1a7e5c19, type: 2}
+  - {fileID: 11400000, guid: c49182a4022c7034db45a2aea1a2991e, type: 2}
+  - {fileID: 11400000, guid: 8b70d90f80a75db4294fb906ce48bee7, type: 2}
+  - {fileID: 11400000, guid: a9ed88f516ff9b242920ca1e9996a06a, type: 2}
+  - {fileID: 11400000, guid: 31e73c3383bb0da4b98c122916bb3b1d, type: 2}
+  - {fileID: 11400000, guid: b35935364a1e01d44aa6a7507d401677, type: 2}
   FloorOfBattle:
     PlayerStage: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
     rank1: 1

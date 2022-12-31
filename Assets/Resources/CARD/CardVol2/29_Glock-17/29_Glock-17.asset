@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 29_Glock-17
   m_EditorClassIdentifier: 
   card_id: 29
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: Glock-17
   message: 
   ability_message: "[\uC804\uD22C\uC2DC\uC791] 1\uC704\uB825 \uC5EC\uBD84\uC8FC\uC0AC\uC704\uB97C

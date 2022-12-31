@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 43_SecurityCCTV
   m_EditorClassIdentifier: 
   card_id: 43
+  xmlFile_path:
+  - CARD/CardVol3/CardVol3_en.xml
+  - CARD/CardVol3/CardVol3_kr.xml
   name: "\uACBD\uBE44\uC6A9CCTV"
-  message: 
+  message: "\uCE74\uB4DC? \uC804\uD22C\uC5D0 \uBB34\uC2A8 \uC9D3\uAC70\uB9AC\uC8E0?\r\n          
+    \uC774\uB7F0\uC804\uD22C \uAC00\uBBFC\uC788\uC744\uC21C \uC5C6\uC5B4\uC694"
   ability_message: "\uD300 \uC0C1\uAD00\uC5C6\uC774 \uCE74\uB4DC\uD68D\uB4DD\uC2DC
     \uCCB4\uB825 - 2"
   story_message: 

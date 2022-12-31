@@ -10,7 +10,12 @@ public class Card37 : CardAbility
     {
         if(card.player.dice >= 1){
             card.player.AddDice(-1);
-            card.player.AddHealth(1);
+            
+            int rand = (int)Random.Range(0f,101f);
+            if(rand <= card.count){
+                card.player.AddHealth(1);
+                card.count -= 5;
+            }
         }
         
     }

@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
   m_Name: Stage2
   m_EditorClassIdentifier: 
+  id: 2
+  xmlFile_path:
+  - Floor1/Story1/Story1_en.xml
+  - Floor1/Story1/Story1_kr.xml
   title: "\uB450\uBA85\uACFC \uD568\uAED8"
   sub_text: "\uAE30\uBCF8\uBD80\uD130"
   rank: 1

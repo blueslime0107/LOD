@@ -11614,8 +11614,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1 \uD53C\uD574\n7 > 6 \uC73C\uB85C \uC67C\uCABD\uC774 \uC2B9\uB9AC\uD574
-    \uACF5\uACA9\uD569\uB2C8\uB2E4!"
+  m_text: '1 damage
+
+    Well, surprise! Never say never. The dice-1 gains 6 for
+    its power,
+
+    and the left side beat the dice-6 up with its dice-7!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -11642,12 +11648,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.56
+  m_fontSize: 42.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 57.56
+  m_fontSizeMax: 42.1
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -12750,8 +12756,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "5\uD53C\uD574\n1<6 \uC73C\uB85C \uC624\uB978\uCABD\uC774 \uC2B9\uB9AC\uD574
-    \uACF5\uACA9\uC744 \uD558\uACA0\uC9C0\uB9CC..."
+  m_text: '5 damage
+
+    Maybe you guys think that the character from the right
+    side would get the chance....
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -13153,10 +13163,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774 \uC704\uB825\uBCC0\uD654\uB294 \uADF8 \uC5B4\uB5A4\uAC83\uBCF4\uB2E4
-    \uAC00\uC7A5\uBA3C\uC800 \uBC1C\uB3D9\uB429\uB2C8\uB2E4!\n\uC774\uB97C \uC774\uC6A9\uD574
-    \uC0C1\uD669\uC774 \uBD88\uB9AC\uD574\uB3C4 \uC5ED\uC804\uC758 \uAE30\uD68C\uB97C
-    \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4"
+  m_text: 'The Rebellion system, gets triggered prior to any other power change systems.
+
+    Thus,
+    you can get a chance to turn the table, even if the situation is unfavorable.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -16390,8 +16402,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "3 \uD53C\uD574\n3 < 6 \uC73C\uB85C \uC624\uB978\uCABD\uC774 \uC2B9\uB9AC\uD574
-    \uACF5\uACA9\uD569\uB2C8\uB2E4"
+  m_text: "3 damage\r                 dice-3 < dice-6.\r\nThe character from the
+    right side gets the chance to give damage."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -16659,7 +16671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 434, y: -87}
+  m_AnchoredPosition: {x: 487, y: -87}
   m_SizeDelta: {x: 905.67, y: 186.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752837413
@@ -16682,7 +16694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774\uAC74 \uB2F9\uC2E0\uD300\uC758 \uCE90\uB9AD\uD130\uB4E4 \uC785\uB2C8\uB2E4"
+  m_text: This is the characters of your team.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -16709,7 +16721,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 58.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16775,7 +16787,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:84e5f8f1f81897848a877138aa7c9f42
     m_TableEntryReference:
-      m_KeyId: 1343921000448
+      m_KeyId: 1286274486272
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -17213,8 +17225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB2F9\uC2E0\uD300 \uCE90\uB799\uD130\uB97C \uC801\uD300 \uCE90\uB9AD\uD130\uC5D0\uAC8C
-    \uB4DC\uB798\uADF8\uD574 '\uD569'\uC744 \uC2DC\uC791\uD558\uC138\uC694"
+  m_text: Drag your character to the opponent's one to start the Clash.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -17241,7 +17252,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 71.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21647,7 +21658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 434, y: 315}
+  m_AnchoredPosition: {x: 487, y: 315}
   m_SizeDelta: {x: 905.67, y: 186.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338460712
@@ -21670,7 +21681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774\uAC74 \uB2F9\uC2E0\uD300\uC758 \uC8FC\uC0AC\uC704 \uC785\uB2C8\uB2E4"
+  m_text: This is the dice for your team.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -21697,7 +21708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 69.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23472,9 +23483,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC704\uB825\uC774 \uD070\uCABD\uC740 '\uD569 \uC2B9\uB9AC'\uB97C \uD574\uC11C
-    \uD53C\uD574\uB97C \uC8FC\uACE0\n\uC704\uB825\uC774 \uB0AE\uC740\uCABD\uC740
-    '\uD569 \uD328\uBC30'\uB85C \uD53C\uD574\uB97C \uBC1B\uC2B5\uB2C8\uB2E4"
+  m_text: 'The character with the stronger dice, gets ''on clash win'' to get damage
+    the opponent, while the character with the weaker one gets ''on clash defeat''
+    to get damaged.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -23501,7 +23514,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 60.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23703,7 +23716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210.22, y: -402}
+  m_AnchoredPosition: {x: -180, y: -402}
   m_SizeDelta: {x: 1208.96, y: 186.28}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1637431491
@@ -23726,8 +23739,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC8FC\uC0AC\uC704\uB97C \uCE90\uB9AD\uD130\uC5D0\uAC8C \uB4DC\uB798\uADF8\uD574
-    \uBB34\uAE30\uB97C \uC8FC\uC138\uC694"
+  m_text: 'Drag and drop the dice on the character to give their own weapons to use.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -23820,7 +23834,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:84e5f8f1f81897848a877138aa7c9f42
     m_TableEntryReference:
-      m_KeyId: 1286274486272
+      m_KeyId: 1343921000448
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -24393,9 +24407,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC704\uB8251\uC774 \uC704\uB8256 \uC774\uC0C1\uC778 \uCE90\uB9AD\uD130\uC640
-    \uD569\uC744 \uD558\uBA74\n\uC704\uB825 6\uC744 \uC5BB\uB294 '1\uC758\uBC18\uB780'\uC774
-    \uBC1C\uB3D9\uB429\uB2C8\uB2E4"
+  m_text: 'Only in the case of the clash between the dice-1 and the dice-6 or over
+    6
+
+    the former gains 6 for its power, the Rebellion of the weakest. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -24422,12 +24437,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 69.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 69.75
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -25120,6 +25135,7 @@ MonoBehaviour:
   - {fileID: 8353654266670711049}
   - {fileID: 301594261}
   - {fileID: 301594261}
+  tutorial: {fileID: 217353954}
 --- !u!4 &1792211219
 Transform:
   m_ObjectHideFlags: 0
@@ -30639,7 +30655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.27, y: 42}
+  m_AnchoredPosition: {x: -1.27, y: 50}
   m_SizeDelta: {x: 1919.88, y: 186.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888549419
@@ -30662,7 +30678,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "3 \uD53C\uD574\n5 > 2\uB85C \uC708\uCABD\uC774 \uC2B9\uB9AC\uD574 \uACF5\uACA9\uD569\uB2C8\uB2E4"
+  m_text: "3 damage\r                  dice-5 > dice-2\nThe character from the left
+    side gets the chance to give damage\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -36410,8 +36427,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC989 \uBA3C\uC800 \uD569\uC744 \uAC78\uC5C8\uC5B4\uB3C4 \uC704\uB825\uC774
-    \uB0AE\uC73C\uBA74\n'\uD569 \uD328\uBC30'\uB97C \uD574 \uD53C\uD574\uB97C \uBC1B\uC2B5\uB2C8\uB2E4"
+  m_text: Who made the preemptive strike., doesn't affect any occurance of damage.
+    Lower one gets 'on clash defeat'.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
@@ -36587,7 +36604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC900\uBE44\uAC00 \uB418\uC5C8\uB2E4\uBA74\n\uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694"
+  m_text: Press this button to start the battle.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: 6c66c2a1aa0920b49a1decd9dd746003, type: 2}

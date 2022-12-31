@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 40_SAFood
   m_EditorClassIdentifier: 
   card_id: 40
-  name: "SA\uBE44\uC0C1\uC2DD"
-  message: 
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
+  name: "SA\uBE44\uC0C1\uC2DD\uB7C9"
+  message: "\uC774 \uAC04\uC2DD\uC774 \uCC38 \uB9DB\uC788\uB2E8\uB9D0\uC774\uC57C\r\n           
+    \uC591\uB3C4 \uB109\uB109\uD558\uACE0.. \uACE0\uAE09\uC7AC\uB8CC\uB97C \uC37C\uC5B4"
   ability_message: "[\uD68D\uB4DD] \uCD5C\uB300\uCCB4\uB825 5 \uC99D\uAC00"
   story_message: 
   tained: 0

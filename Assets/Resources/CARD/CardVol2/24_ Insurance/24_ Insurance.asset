@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 24_ Insurance
   m_EditorClassIdentifier: 
   card_id: 24
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uBCF4\uD5D8"
   message: 
   ability_message: "[\uD68D\uB4DD] \uCCB4\uB825 4 \uD68C\uBCF5, \uC774\uD6C4 \uC790\uC2E0\uD300\uC758

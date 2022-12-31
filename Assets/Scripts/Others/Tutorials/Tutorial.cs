@@ -8,14 +8,16 @@ public class Tutorial : MonoBehaviour
     [SerializeField]GameObject[] scenes;
     [SerializeField]BattleManager bm;
 
-    public void Start(){
+    public void TutorialStart(){
+        Debug.Log(bm.gameManager.sm);
         if(bm.gameManager.sm.play_stage.tutorialLine.Equals(1)){
             StartCoroutine("tutorial1");
         }
-        if(bm.gameManager.sm.play_stage.tutorialLine.Equals(2)){
+        else if(bm.gameManager.sm.play_stage.tutorialLine.Equals(2)){
             sprite_mask.SetActive(false);
             StartCoroutine("tutorial2");
         }
+        else{gameObject.SetActive(false);}
         
     }
 

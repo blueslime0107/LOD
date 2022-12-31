@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 28_CrisisPheno
   m_EditorClassIdentifier: 
   card_id: 28
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uBA85\uD604\uD604\uC0C1"
   message: 
   ability_message: "[\uC804\uD22C\uC2DC\uC791] \uCCB4\uB825 1~2 \uD68C\uBCF5, \uCD5C\uB300\uCCB4\uB825\uC744

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 21_IlligalCopy
   m_EditorClassIdentifier: 
   card_id: 21
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uD504\uB85C\uBD88\uD38C\uB7EC"
   message: 
   ability_message: "[\uD569 \uC131\uACF5] \uC0C1\uB300\uC5D0\uAC8C '\uD574\uD0B9\uB2F9\uD568'\uCE74\uB4DC\uB97C

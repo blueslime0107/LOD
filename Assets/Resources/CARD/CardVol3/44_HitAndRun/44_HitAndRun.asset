@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: 44_HitAndRun
   m_EditorClassIdentifier: 
   card_id: 44
+  xmlFile_path:
+  - CARD/CardVol3/CardVol3_en.xml
+  - CARD/CardVol3/CardVol3_kr.xml
   name: "\uCE58\uACE0\uBE60\uC9C0\uAE30"
-  message: 
+  message: "\uADF8 \uBB34\uAE30 \uCE58\uC6B0\uC2DC\uC9C0?"
   ability_message: "[\uD569 \uD328\uBC30][\uACF5\uACA9] \uD53C\uD574\uB97C 0\uC73C\uB85C
     \uD55C\uB2E4"
   story_message: 

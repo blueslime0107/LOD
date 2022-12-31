@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 32_Bat
   m_EditorClassIdentifier: 
   card_id: 32
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC57C\uAD6C\uBE60\uB530"
   message: 
   ability_message: "[\uD569 \uC2DC\uC791] \uC790\uC2E0\uC704\uB825\uC774 \uC0C1\uB300\uC704\uB825\uACFC

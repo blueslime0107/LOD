@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 30_Shotgun1987
   m_EditorClassIdentifier: 
   card_id: 30
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: Shotgun-1987.Ger
   message: 
   ability_message: "[\uC804\uD22C\uC2DC\uC791]  2~6\uB9CC\uD07C \uC704\uB825\uC774

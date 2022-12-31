@@ -4,7 +4,10 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "StageTool/Stage", order = 0)]
 public class Stage: ScriptableObject, IResetOnExitPlay
-{
+{  
+   public int id;
+   public string[] xmlFile_path = new string[2];
+
     public string title;
     public string sub_text;
     public int rank;

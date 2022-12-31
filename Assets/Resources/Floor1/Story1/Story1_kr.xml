@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Stage id="0">
+        <title>플레이어 카드</title>
+        <sub_text>그렇다 나다!</sub_text>
+        <sub_text2>이겨버려!</sub_text2>
+    </Stage>
+    <Stage id="1">
+        <title>어서와라 신입이여</title>
+        <sub_text>가르침을 주도록 하지</sub_text>
+        <sub_text2>어 혼자왔어</sub_text2>
+    </Stage>
+    <Stage id="2">
+        <title></title>
+        <sub_text></sub_text>
+        <sub_text2></sub_text2>
+    </Stage>
+    <Stage id="4">
+        <title>진심으로 싸우자!</title>
+        <sub_text>이제부턴 실전이야</sub_text>
+        <sub_text2>행운을 빌어!</sub_text2>
+    </Stage>
+    <Stage id="10">
+        <title>그녀다</title>
+        <sub_text>감정을 끝까지 밀어붙이면..</sub_text>
+        <sub_text2>가능하다 생각하니?</sub_text2>
+    </Stage>
+    
+</CardVol>

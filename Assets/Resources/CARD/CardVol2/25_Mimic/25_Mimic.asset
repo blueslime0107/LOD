@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 25_Mimic
   m_EditorClassIdentifier: 
   card_id: 25
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uBBF8\uBBF9"
   message: 
   ability_message: "$$ \uC0C1\uB300\uAC00 \uCE74\uB4DC\uBF51\uAE30\uC5D0\uC11C \uCE74\uB4DC\uB97C

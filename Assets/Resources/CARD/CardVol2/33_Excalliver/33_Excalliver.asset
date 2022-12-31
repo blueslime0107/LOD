@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 33_Excalliver
   m_EditorClassIdentifier: 
   card_id: 33
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC5D1\uC2A4\uCE7C\uB9AC\uBC84-X"
   message: 
   ability_message: "[\uD569 \uC2B9\uB9AC] \uC704\uB825 2 \uC0C1\uC2B9"

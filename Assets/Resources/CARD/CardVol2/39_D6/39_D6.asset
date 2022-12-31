@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 39_D6
   m_EditorClassIdentifier: 
   card_id: 0
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: 
   message: 
   ability_message: 

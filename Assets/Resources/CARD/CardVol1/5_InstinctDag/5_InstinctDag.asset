@@ -25,7 +25,7 @@ MonoBehaviour:
   story_message: 
   tained: 0
   price: 0
-  illust: {fileID: 21300000, guid: 9168e1d1fcc682145bea6c3ba13bc272, type: 3}
+  illust: {fileID: 21300000, guid: 124484b0c90a30642a35073b80c77644, type: 3}
   usingCount: 0
   pre_count: 0
   overCard: {fileID: 0}

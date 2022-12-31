@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Stage id="0">
+        <title>PlayerCard</title>
+        <sub_text>Yeah It's me!</sub_text>
+        <sub_text2>Win this game</sub_text2>
+    </Stage>
+    <Stage id="1">
+        <title>Welcome Newbie</title>
+        <sub_text>I'll give u power</sub_text>
+        <sub_text2>Yeah I'm alone</sub_text2>
+    </Stage>
+    <Stage id="2">
+        <title></title>
+        <sub_text></sub_text>
+        <sub_text2></sub_text2>
+    </Stage>
+    <Stage id="4">
+        <title>Let's fight sincerely!</title>
+        <sub_text>Now the real battle begin</sub_text>
+        <sub_text2>Good Luck!</sub_text2>
+    </Stage>
+    <Stage id="10">
+        <title>It's her</title>
+        <sub_text>The Super Ego</sub_text>
+        <sub_text2>Is it posible?</sub_text2>
+    </Stage>
+    
+</CardVol>

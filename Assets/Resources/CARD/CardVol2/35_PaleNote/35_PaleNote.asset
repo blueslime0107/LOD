@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 35_PaleNote
   m_EditorClassIdentifier: 
   card_id: 35
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uD398\uC77C\uB178\uD2B8-F"
   message: 
   ability_message: "[\uD569 \uC2DC\uC791][\uACF5\uACA9] \uC0C1\uB300\uC704\uB825
