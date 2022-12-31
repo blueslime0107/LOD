@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/19File_crashed", order = 23)]
 public class Card23 : CardAbility
 {
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         if(card.active){return;}
         if(card.saved_card != null){

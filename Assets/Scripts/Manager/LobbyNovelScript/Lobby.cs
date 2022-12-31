@@ -15,6 +15,7 @@ public class Lobby : MonoBehaviour
     [SerializeField] MenuItem main_table;
     [SerializeField] MenuItem card_table;
 
+    public  MenuCard menuCard;
 
 
 
@@ -82,6 +83,17 @@ public class Lobby : MonoBehaviour
                     darScreen.SetActive(false);        
                     card_table.ActiveOpenClose();
                     curMenu.Remove("cardMenu"); break;
+
+                case "cardSelectMenu":
+                    enemyCard.ActiveOpenClose();
+                    playerCard.ActiveOpenClose();  
+                    BattleButton.ActiveOpenClose();   
+                    card_table.ActiveOpenClose();
+                    menuCard.cardSelecting = false;
+                    playerBattleCard.UpdateStat();
+                    enemyBattleCard.UpdateStat();
+                    curMenu.Remove("cardSelectMenu"); break;
+                    
             }
         }
     }
@@ -120,6 +132,19 @@ public class Lobby : MonoBehaviour
         card_table.ActiveOpenClose();
         darScreen.SetActive(true);
         curMenu.Add("cardMenu");
+    }
+
+    public void OpenCardSelectMenu(){
+        if(curMenu.Equals("cardSelectMenu")){
+            return;
+        }
+        enemyCard.ActiveOpenClose();
+        playerCard.ActiveOpenClose();  
+        BattleButton.ActiveOpenClose();   
+        card_table.ActiveOpenClose();
+        curMenu.Add("cardSelectMenu");
+        menuCard.cardSelecting = true;
+        menuCard.RenderCard();
     }
 
 

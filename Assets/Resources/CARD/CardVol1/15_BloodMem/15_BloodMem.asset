@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 15_BloodMem
   m_EditorClassIdentifier: 
   card_id: 15
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uD54F\uBE5B\uAE30\uC5B5"
-  message: "\t\t\t"
+  message: "\uADF8\uB54C\uC758 \uAE30\uC5B5\uC740 \uB2E4\uC2DC \uB5A0\uC62C\uB9AC\uACE0
+    \uC2F6\uC9C0 \uC54A\uC558\uB294\uB370"
   ability_message: "[\uACF5\uACA9\uBC1B\uC74C] \uC0C1\uB300\uC5D0\uAC8C \uD53C\uD574\uC758
     \uC808\uBC18(\uC62C\uB9BC)\uC744 \uC900\uB2E4"
   story_message: 

@@ -267,7 +267,7 @@ public class BattleManager : MonoBehaviour
                         // 주사위를 다 넣었을때 효과 발동
                         for(int i = 0; i < players.Count; i++){
                             for(int j = 0; j < players[i].cards.Count; j++){
-                                players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
+                                players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
                             }
                         }     
                         ui.battleStartButton.StartCoroutine("startBlink");             
@@ -280,7 +280,7 @@ public class BattleManager : MonoBehaviour
                 {
                     for(int i = 0; i < players.Count; i++){
                             for(int j = 0; j < players[i].cards.Count; j++){
-                                players[i].cards[j].ability.OnBattleThro(players[i].cards[j],players[i],this);
+                                players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
                             }
                         }
                     target1 = null;

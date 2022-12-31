@@ -9,5 +9,4 @@ public class Character: ScriptableObject
     public List<int> breaks = new List<int>();
     public CharPack char_sprites;
     public CardAbility[] char_preCards = new CardAbility[7];
-
 }

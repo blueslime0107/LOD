@@ -56,8 +56,8 @@ public class CardAbility : ScriptableObject
     public virtual void DiceApplyed(CardPack card, Player player){}
 
 
+    public virtual void OnBattleReady(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleStart(CardPack card, Player player, BattleManager match){}
-    public virtual void OnBattleThro(CardPack card, Player player, BattleManager match){}
 
     public virtual void OnClashStart(CardPack card, BattleCaculate battle,Player enemy){}
     public virtual void OnClashWin(CardPack card, BattleCaculate battle){}

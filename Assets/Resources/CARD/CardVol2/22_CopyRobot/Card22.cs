@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card22 : CardAbility
 {
 
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         
         int bigNum = 0;

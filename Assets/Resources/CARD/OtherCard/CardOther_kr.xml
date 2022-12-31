@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Card Code="0">
+        <name>Perfect Student</name>
+        <text>should be perfect..</text>
+        <ability>[Battle Start] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+        <story></story>
+    </Card>
+    <Card Code="369">
+        <name>속도 2</name>
+        <text>빨라질 시간이야!</text>
+        <ability>[캐릭터 지정] 전투당 한번, 캐릭터의 위력을 위력-7 의 절댓값으로 바꾼다
+            [전투전개] 캐릭터 지정을 안했다면 자신을 대상으로 캐릭터 지정이 발동된다</ability>
+        <story></story>
+    </Card>
+ 
+    
+</CardVol>

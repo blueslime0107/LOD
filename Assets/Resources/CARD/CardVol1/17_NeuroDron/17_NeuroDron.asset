@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: 17_NeuroDron
   m_EditorClassIdentifier: 
   card_id: 17
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uC2E0\uACBD\uC9C0\uBC30\uB4DC\uB860"
-  message: 
+  message: "/\uD3ED\uB825\uD589\uC704 \uBC1C\uACAC /\uD68C\uD53C\uAE30\uB3D9 \uBC1C\uB3D9"
   ability_message: "[\uD53C\uD574\uBC1B\uC74C] \uD53C\uD574 2 \uC774\uD558\uC77C\uC2DC
     \uD68C\uD53C\uD55C\uB2E4"
   story_message: 

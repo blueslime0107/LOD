@@ -18,9 +18,7 @@ public class CardPrefap : MonoBehaviour
     public void cardUpdate(CardAbility card){
         ability = card;
         image.sprite = ability.illust;
-        Debug.Log(LocalizationSettings.SelectedLocale);
-        Debug.Log(LocalizationSettings.AvailableLocales.Locales[0]);
-        Debug.Log(LocalizationSettings.AvailableLocales.Locales[1]);
+
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){ReadXML(card.xmlFile_path[0]);}
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(card.xmlFile_path[1]);}
 
@@ -34,13 +32,14 @@ public class CardPrefap : MonoBehaviour
 
     private void ReadXML(string filename){
         XmlDocument xmlDocument = new XmlDocument();
-        xmlDocument.Load(Application.dataPath + "\\Resources\\" + filename);
+        Debug.Log(filename);
+        Debug.Log(Resources.Load(filename));
+        TextAsset textAsset = (TextAsset) Resources.Load(filename.Split(".")[0]);  
+        xmlDocument.LoadXml(textAsset.text);
 
-        Debug.Log(xmlDocument);
 
         XmlNodeList thisCardXML = xmlDocument.GetElementsByTagName("Card");
         foreach(XmlNode node in thisCardXML){
-            Debug.Log(node.Attributes[0].Value);
             if(node.Attributes[0].Value.Equals(ability.card_id.ToString())){
                 XmlNodeList cardXML = node.ChildNodes;
                 ability.name = cardXML[0].InnerText;

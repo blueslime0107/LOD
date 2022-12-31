@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: 18_FairBloodM
   m_EditorClassIdentifier: 
   card_id: 18
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uACF5\uC815\uD55C \uD5CC\uD608\uAE30"
-  message: 
+  message: "\uC774\uAC70 \uC9C4\uC9DC \uACF5\uD3C9\uD55C\uAC70 \uB9DE\uB294\uAC70\uC9C0?"
   ability_message: "[\uBC1C\uB3D9][\uC77C\uD68C\uC131] \uC0DD\uC874\uD55C \uBAA8\uB4E0
     \uCE90\uB9AD\uD130\uC758 \uCCB4\uB825\uC744 \uD3C9\uADE0\uCE58\uB85C \uC870\uC815\uD55C\uB2E4(\uC62C\uB9BC)"
   story_message: 

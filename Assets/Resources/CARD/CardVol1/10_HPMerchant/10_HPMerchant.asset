@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: 10_HPMerchant
   m_EditorClassIdentifier: 
   card_id: 10
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uD574\uACB0\uC0AC \uC0C1\uC778"
-  message: 
-  ability_message: "[\uD68D\uB4DD]\uCCB4\uB825 + 7\n[\uC804\uD22C\uC2DC\uC791] 4\uD134\uB9C8\uB2E4
-    4 \uD53C\uD574\uB97C \uBC1B\uB294\uB2E4 "
+  message: "\uC790 \uC5EC\uAE30 \uCE58\uB8CC\uC81C\uC5D0\uC694!\r\n            \uB4A4\uC5D0\uC694?
+    \uC2E0\uACBD\uC4F0\uC9C0\uB9C8\uC138\uC694!\r\n        "
+  ability_message: "[\uD68D\uB4DD]\uCCB4\uB825 + 7\r\n            [\uC804\uD22C\uC2DC\uC791]
+    4\uD134\uB9C8\uB2E4 4 \uD53C\uD574\uB97C \uBC1B\uB294\uB2E4 "
   story_message: 
   tained: 0
   price: 0

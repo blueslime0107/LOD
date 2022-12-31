@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card28 : CardAbility
 {
     
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         player.AddHealth((int)Random.Range(1,3));
         if(player.max_health.Equals(player.health)){

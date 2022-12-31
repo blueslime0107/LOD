@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
 
 public class CharItem : MonoBehaviour
 {
+    public Lobby lobby;
+    public Character cur_char;
+
     public TextMeshProUGUI health;
     public TextMeshProUGUI breaks;
 
@@ -18,7 +20,15 @@ public class CharItem : MonoBehaviour
 
     public CardUI[] cards = new CardUI[7];
 
+    public void OpenCardSelectMenu(){
+        Debug.Log(cur_char.name);
+        Debug.Log(cur_char.char_preCards);
+        lobby.menuCard.selectingChar = cur_char;
+        lobby.OpenCardSelectMenu();
+    }
+
     public void UpdateStat(Character chars){
+        cur_char = chars;
         health_value = chars.health;
         breaks_value = chars.breaks;
         char_name.text = chars.char_sprites.name_;
@@ -43,4 +53,5 @@ public class CharItem : MonoBehaviour
         }
 
     }
+
 }

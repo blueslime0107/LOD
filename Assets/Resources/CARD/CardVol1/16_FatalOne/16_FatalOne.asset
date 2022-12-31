@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: 16_FatalOne
   m_EditorClassIdentifier: 
   card_id: 16
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uCE58\uBA85\uC801\uC778 \uC77C\uACA9"
-  message: 
+  message: "\uBC29\uC2EC\uD558\uB294 \uC21C\uAC04 \uADF8 \uB4A4\uB294 \uBB34\uC2DC\uD560
+    \uC218 \uC5C6\uC5B4"
   ability_message: "[\uD53C\uD574\uC90C] \uD53C\uD574 2 \uC774\uD558\uC77C\uC2DC
     \uB450 \uBC30\uAC00 \uB41C\uB2E4"
   story_message: 

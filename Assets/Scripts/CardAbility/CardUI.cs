@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class CardUI : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
+public class CardUI : MonoBehaviour, IPointerDownHandler
 {
     
     RectTransform rect;
@@ -26,6 +26,9 @@ public class CardUI : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 
     Vector2 target_pos;
     float target_spd;
+
+    public bool cardSelecting;
+    public MenuCard menuCard;
 
     void Awake() {
 
@@ -53,5 +56,29 @@ public class CardUI : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
             block_img.SetActive(false);
         }
 
+    }
+
+    public void OnPointerDown(PointerEventData eventData){
+        if(!cardSelecting){return;}
+        bool triggered = false;
+        for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
+            Debug.Log(i);
+            if(triggered){
+                menuCard.selectingChar.char_preCards[i-1] = menuCard.selectingChar.char_preCards[i]; 
+            }
+            try
+            {if(menuCard.selectingChar.char_preCards[i].Equals(card)){
+                triggered = true;
+                menuCard.selectingChar.char_preCards[i] = null;
+            }}
+            catch{
+                triggered = true;
+                menuCard.selectingChar.char_preCards[i] = null;
+            }
+            
+            
+            
+        }
+        menuCard.RenderSelectCard();
     }
 }

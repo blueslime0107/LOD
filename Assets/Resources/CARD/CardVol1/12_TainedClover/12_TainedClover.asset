@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: 12_TainedClover
   m_EditorClassIdentifier: 
   card_id: 12
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uC2DC\uB4E4\uC5B4\uC9C4 \uB124\uC78E\uD074\uB85C\uBC84"
-  message: 
-  ability_message: "[\uBC1C\uB3D9] \uC790\uC2E0\uC704\uB825\uC774 2 \uC774\uD558\uC77C\uB54C\n5\uC704\uB825
-    \uC774\uC0C1\uC758 \uBAA8\uB4E0 \uCE90\uB9AD\uD130\uB4E4\uC758 \uC8FC\uC0AC\uC704\uB97C
-    \uD30C\uAD34\uD55C\uB2E4"
+  message: "\uC774\uACF3\uC758 \uC6B4\uC740 \uC774\uBBF8 \uC8FD\uC740\uC9C0 \uC624\uB798\uC5D0\uC694"
+  ability_message: "[\uBC1C\uB3D9] \uC790\uC2E0\uC704\uB825\uC774 2 \uC774\uD558\uC77C\uB54C\r\n           
+    5\uC704\uB825 \uC774\uC0C1\uC758 \uBAA8\uB4E0 \uCE90\uB9AD\uD130\uB4E4\uC758
+    \uC8FC\uC0AC\uC704\uB97C \uD30C\uAD34\uD55C\uB2E4"
   story_message: 
   tained: 0
   price: 0

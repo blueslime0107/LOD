@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Battle Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Battle
+  m_TableCollectionNameGuidString: 84e5f8f1f81897848a877138aa7c9f42
+  m_Entries:
+  - m_Id: 5942218752
+    m_Key: batle_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1170251649024
+    m_Key: tutorial_1_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1286274486272
+    m_Key: tutorial_1_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1343921000448
+    m_Key: tutorial_1_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445288939520
+    m_Key: tutorial_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1594299977728
+    m_Key: tutorial_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699698642944
+    m_Key: tutorial_4_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1962027192320
+    m_Key: tutorial_4_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2125936398336
+    m_Key: tutorial_5_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2287446462464
+    m_Key: tutorial_5_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2330689736704
+    m_Key: tutorial_5_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2381793136640
+    m_Key: tutorial_5_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2427964035072
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506242330624
+    m_Key: New Entry 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526379184128
+    m_Key: New Entry 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2569328857088
+    m_Key: New Entry 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2589432156160
+    m_Key: New Entry 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654590668800
+    m_Key: New Entry 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2976176345088
+    m_Key: New Entry 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2997785399296
+    m_Key: New Entry 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3075027701760
+    m_Key: New Entry 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3115427237888
+    m_Key: New Entry 9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3188106137600
+    m_Key: New Entry 10
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8286871415366090754
+  references:
+    version: 2
+    RefIds:
+    - rid: 8286871415366090754
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1672478857062

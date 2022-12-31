@@ -26,7 +26,7 @@ public class Card2 : CardAbility
         card.active = true;
     }
 
-    public override void OnBattleThro(CardPack card, Player player, BattleManager match)
+    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
     {
         if(card.active){return;}
         PlayerSelected(card,card.player,match);

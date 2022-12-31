@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: 11_WorldBestMer
   m_EditorClassIdentifier: 
   card_id: 11
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uC774\uC138\uC0C1 \uCD5C\uACE0\uC758 \uC5F0\uAE08\uC220"
-  message: 
+  message: "\uB108\uD76C\uB4E4\uC758 \uACE0\uD1B5\uC744 \uB2F4\uC544.."
   ability_message: "[\uD53C\uD574\uBC1C\uC0DD] \uD53C\uD574\uB9CC\uD07C \uCE74\uC6B4\uD2B8
-    \uC0C1\uC2B9\n[\uBC1C\uB3D9] \uCE74\uC6B4\uD2B8\uAC00 15 \uC18C\uBE44\uD558\uACE0
+    \uC0C1\uC2B9\r\n            [\uBC1C\uB3D9] \uCE74\uC6B4\uD2B8\uAC00 15 \uC18C\uBE44\uD558\uACE0
     \uCE74\uB4DC \uD68D\uB4DD"
   story_message: 
   tained: 0

@@ -19,6 +19,124 @@
         <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
         <story></story>
     </Card>
+    <Card Code="4">
+        <name>숟가락 살인마</name>
+        <text>한 대.. 그리고 한 대</text>
+        <ability>[발동중][합 시작] 공격일때 상대 주사위 파괴, 위력이 1이 된다</ability>
+        <story></story>
+    </Card>
+    <Card Code="5">
+        <name>본능의 단검</name>
+        <text>단검이 의지를 가진듯</text>
+        <ability>[피해받음]피해를 1 줄이고, 상대에게 1 피해를 준다
+            무방비시 피해를 절반 줄이고, 줄인만큼 상대에게 피해를 준다</ability>
+        <story></story>
+    </Card>
+    <Card Code="6">
+        <name>지박령</name>
+        <text>너가 감히 나를?</text>
+        <ability>[사망] 사망 직전 마지막으로 공격한 캐릭터에게 
+            원한([전투시작]2 카운트 상승, 카운트 만큼 피해받음)을 준다</ability>
+        <story></story>
+    </Card>
+    <Card Code="165">
+        <name>원한</name>
+        <text>죽일거야...</text>
+        <ability>[전투시작]2 카운트 상승, 카운트 만큼 피해받음</ability>
+        <story></story>
+    </Card>
+    <Card Code="7">
+        <name>도굴꾼</name>
+        <text>미안하지만 니껄 쫌 써야겠다</text>
+        <ability>[자신팀][사망] 2~6 위력 여분 주사위를 얻는다
+            [상대팀 사망] 카드 획득</ability>
+        <story></story>
+    </Card>
+    <Card Code="8">
+        <name>살고자 하는 열망</name>
+        <text>마지막 남은 힘까지</text>
+        <ability>[사망] 체력 1로 살아남고 1턴 동안 위력 + 4, 피해를 받지 않음</ability>
+        <story></story>
+    </Card>
+    <Card Code="9">
+        <name>인신매매</name>
+        <text>자 여기.. 이걸 받으세요</text>
+        <ability>[발동]체력을 0~1 깎고, 위력을 1 올린다</ability>
+        <story></story>
+    </Card>
+    <Card Code="10">
+        <name>해결사 상인</name>
+        <text>자 여기 치료제에요!
+            뒤에요? 신경쓰지마세요!
+        </text>
+        <ability>[획득]체력 + 7
+            [전투시작] 4턴마다 4 피해를 받는다 </ability>
+        <story></story>
+    </Card>
+    <Card Code="11">
+        <name>이세상 최고의 연금술</name>
+        <text>너희들의 고통을 담아..</text>
+        <ability>[피해발생] 피해만큼 카운트 상승
+            [발동] 카운트가 15 소비하고 카드 획득</ability>
+        <story></story>
+    </Card>
+    <Card Code="12">
+        <name>시들어진 네잎클로버</name>
+        <text>이곳의 운은 이미 죽은지 오래에요</text>
+        <ability>[발동] 자신위력이 2 이하일때
+            5위력 이상의 모든 캐릭터들의 주사위를 파괴한다</ability>
+        <story></story>
+    </Card>
+    <Card Code="13">
+        <name>현실부정</name>
+        <text>아니 그럴리 없어 한번만 다시 기회를..</text>
+        <ability>[합 시작] 자신위력이 상대위력보다 낮으면 주사위를 다시 굴린다
+            이후 [합 승리]시 피해만큼 체력회복</ability>
+        <story></story>
+    </Card>
+    <Card Code="14">
+        <name>상호확증파괴</name>
+        <text>니가 죽나 내가 죽나 함 보자고</text>
+        <ability>[합 패배] 모든 상대팀 캐릭터에게 1 피해를 준다</ability>
+        <story></story>
+    </Card>
+    <Card Code="15">
+        <name>핏빛기억</name>
+        <text>그때의 기억은 다시 떠올리고 싶지 않았는데</text>
+        <ability>[공격받음] 상대에게 피해의 절반(올림)을 준다</ability>
+        <story></story>
+    </Card>
+    <Card Code="16">
+        <name>치명적인 일격</name>
+        <text>방심하는 순간 그 뒤는 무시할 수 없어</text>
+        <ability>[피해줌] 피해 2 이하일시 두 배가 된다</ability>
+        <story></story>
+    </Card>
+    <Card Code="17">
+        <name>신경지배드론</name>
+        <text>/폭력행위 발견 /회피기동 발동</text>
+        <ability>[피해받음] 피해 2 이하일시 회피한다</ability>
+        <story></story>
+    </Card>
+    <Card Code="18">
+        <name>공정한 헌혈기</name>
+        <text>이거 진짜 공평한거 맞는거지?</text>
+        <ability>[발동][일회성] 생존한 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
+        <story></story>
+    </Card>
+    <Card Code="19">
+        <name>눈알CCTV</name>
+        <text>멀리서 관전하는게 얼마나 재밌는데</text>
+        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
+        <story></story>
+    </Card>
+    <Card Code="20">
+        <name>책장정리</name>
+        <text>이 책들 어지렆히면 안되죠</text>
+        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
+        <story></story>
+    </Card>
+
 
     
 </CardVol>

@@ -17,8 +17,6 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public bool victoryed = false;
 
 
-
-
     [Header("Advanced"), Space(15f)]
     public Stage playerStageLock;
     public List<Character> priceChars;
@@ -31,5 +29,6 @@ public class Stage: ScriptableObject, IResetOnExitPlay
      {
         victoryed = false;
         noPrice = false;
+
      } 
 }

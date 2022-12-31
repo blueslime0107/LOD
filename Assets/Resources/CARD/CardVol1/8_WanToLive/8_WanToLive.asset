@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: 8_WanToLive
   m_EditorClassIdentifier: 
   card_id: 8
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uC0B4\uACE0\uC790 \uD558\uB294 \uC5F4\uB9DD"
-  message: 
+  message: "\uB9C8\uC9C0\uB9C9 \uB0A8\uC740 \uD798\uAE4C\uC9C0"
   ability_message: "[\uC0AC\uB9DD] \uCCB4\uB825 1\uB85C \uC0B4\uC544\uB0A8\uACE0
     1\uD134 \uB3D9\uC548 \uC704\uB825 + 4, \uD53C\uD574\uB97C \uBC1B\uC9C0 \uC54A\uC74C"
   story_message: 

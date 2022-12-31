@@ -24,7 +24,7 @@ public class Card12 : CardAbility
         card.count -= 1;
     }
 
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         card.active = false;
     }

@@ -14,7 +14,7 @@ public class Card8 : CardAbility
         
     }
 
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         if(!card.active){return;}
         player.SetDice(player.dice + 4);

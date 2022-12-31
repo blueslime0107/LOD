@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card30 : CardAbility
 {
 
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         if(card.active){
             card.active = false;

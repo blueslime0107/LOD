@@ -12,7 +12,7 @@ public class Card10 : CardAbility
         card.count = 4;
     }
 
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         card.count -= 1;
         if(card.count <= 0){

@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ko
     - Preload
+  - m_GUID: 31caedc7e1de0c9478f398b3505efc17
+    m_Address: Battle_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 10e580d2145fa7a4e99d393e8b3a7058, type: 2}
   m_SchemaSet:

@@ -14,6 +14,12 @@ public class BattleCardManager : MonoBehaviour
     public TextMeshProUGUI values;
     public CharItem[] characters = new CharItem[5];
 
+    void Start(){
+        foreach(CharItem chars in characters){
+            chars.lobby = lobby;
+        }
+    }
+
     public void UpdateStat(){
 
         stage = (!playerCard) ? lobby.stage : lobby.stageManager.player_battleCard;

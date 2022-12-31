@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5928014237812246859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,8 +533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.6}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00007534, y: -26.801}
-  m_SizeDelta: {x: 60.247, y: 37.949}
+  m_AnchoredPosition: {x: -0.89, y: -26.801}
+  m_SizeDelta: {x: 58.66, y: 37.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6603350771084894513
 CanvasRenderer:
@@ -564,8 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774\uAC83\uBCF4\uB2E4 \uB354 \uAC15\uD55C \uCE7C\uC740 \n\uC774\uC81C
-    \uC874\uC7AC\uD558\uC9C0 \uC54A\uACA0\uC9C0"
+  m_text: "\uBA40\uB9AC\uC11C \uAD00\uC804\uD558\uB294\uAC8C \uC5BC\uB9C8\uB098 \uC7AC\uBC0C\uB294\uB370"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d987255658f9722448060088bba404d8, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: d987255658f9722448060088bba404d8, type: 2}

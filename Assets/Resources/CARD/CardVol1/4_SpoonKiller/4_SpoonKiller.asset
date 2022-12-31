@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: 4_SpoonKiller
   m_EditorClassIdentifier: 
   card_id: 4
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uC21F\uAC00\uB77D \uC0B4\uC778\uB9C8"
-  message: 
+  message: "\uD55C \uB300.. \uADF8\uB9AC\uACE0 \uD55C \uB300"
   ability_message: "[\uBC1C\uB3D9\uC911][\uD569 \uC2DC\uC791] \uACF5\uACA9\uC77C\uB54C
     \uC0C1\uB300 \uC8FC\uC0AC\uC704 \uD30C\uAD34, \uC704\uB825\uC774 1\uC774 \uB41C\uB2E4"
   story_message: 

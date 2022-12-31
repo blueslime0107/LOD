@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card1 : CardAbility
 {
 
-    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         int count = 0;
         card.diceLink.positionCount = 0;
