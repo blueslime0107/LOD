@@ -8,14 +8,13 @@
     </Card>
     <Card Code="2">
         <name>평행세계</name>
-        <text>이 뒷편의 세계.. 궁금하지 않나요?</text>
-        <ability>[캐릭터 지정] 전투당 한번, 캐릭터의 위력을 위력-7 의 절댓값으로 바꾼다
-            [전투전개] 캐릭터 지정을 안했다면 자신을 대상으로 캐릭터 지정이 발동된다</ability>
+        <text>이 뒷편의 세계.. &#10;궁금하지 않나요?</text>
+        <ability>[캐릭터 지정] 전투당 한번, 캐릭터의 위력을 위력-7 의 절댓값으로 바꾼다&#10;[전투전개] 캐릭터 지정을 안했다면 자신을 대상으로 캐릭터 지정이 발동된다</ability>
         <story></story>
     </Card>
     <Card Code="3">
-        <name>눈알CCTV</name>
-        <text>멀리서 관전하는게 얼마나 재밌는데</text>
+        <name>눈알CCTV</name> 
+        <text>멀리서 관전하는게 &#10;얼마나 재밌는데</text>
         <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
         <story></story>
     </Card>
@@ -28,15 +27,13 @@
     <Card Code="5">
         <name>본능의 단검</name>
         <text>단검이 의지를 가진듯</text>
-        <ability>[피해받음]피해를 1 줄이고, 상대에게 1 피해를 준다
-            무방비시 피해를 절반 줄이고, 줄인만큼 상대에게 피해를 준다</ability>
+        <ability>[피해받음]피해를 1 줄이고, 상대에게 1 피해를 준다&#10;무방비시 피해를 절반 줄이고, 줄인만큼 상대에게 피해를 준다</ability>
         <story></story>
     </Card>
     <Card Code="6">
         <name>지박령</name>
         <text>너가 감히 나를?</text>
-        <ability>[사망] 사망 직전 마지막으로 공격한 캐릭터에게 
-            원한([전투시작]2 카운트 상승, 카운트 만큼 피해받음)을 준다</ability>
+        <ability>[사망] 사망 직전 마지막으로 공격한 캐릭터에게&#10;원한([전투시작]2 카운트 상승, 카운트 만큼 피해받음)을 준다</ability>
         <story></story>
     </Card>
     <Card Code="165">
@@ -48,8 +45,7 @@
     <Card Code="7">
         <name>도굴꾼</name>
         <text>미안하지만 니껄 쫌 써야겠다</text>
-        <ability>[자신팀][사망] 2~6 위력 여분 주사위를 얻는다
-            [상대팀 사망] 카드 획득</ability>
+        <ability>[자신팀][사망] 2~6 위력 여분 주사위를 얻는다&#10;[상대팀 사망] 카드 획득</ability>
         <story></story>
     </Card>
     <Card Code="8">
@@ -66,18 +62,14 @@
     </Card>
     <Card Code="10">
         <name>해결사 상인</name>
-        <text>자 여기 치료제에요!
-            뒤에요? 신경쓰지마세요!
-        </text>
-        <ability>[획득]체력 + 7
-            [전투시작] 4턴마다 4 피해를 받는다 </ability>
+        <text>자 여기 치료제에요!&#10;뒤에요? 신경쓰지마세요!</text>
+        <ability>[획득]체력 + 7&#10;[전투시작] 4턴마다 4 피해를 받는다 </ability>
         <story></story>
     </Card>
     <Card Code="11">
         <name>이세상 최고의 연금술</name>
         <text>너희들의 고통을 담아..</text>
-        <ability>[피해발생] 피해만큼 카운트 상승
-            [발동] 카운트가 15 소비하고 카드 획득</ability>
+        <ability>[피해발생] 피해만큼 카운트 상승&#10;[발동] 카운트가 15 소비하고 카드 획득</ability>
         <story></story>
     </Card>
     <Card Code="12">

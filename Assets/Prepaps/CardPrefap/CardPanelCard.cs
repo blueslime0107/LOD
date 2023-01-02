@@ -24,6 +24,7 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
 
     public void OnPointerDown(PointerEventData eventData){
+        if(Input.GetMouseButtonDown(1)){return;}
         if(!cardSelecting){return;}
         for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
             Debug.Log(i);

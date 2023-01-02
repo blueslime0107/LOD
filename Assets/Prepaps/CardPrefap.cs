@@ -13,9 +13,11 @@ public class CardPrefap : MonoBehaviour
     [SerializeField]GameObject tain;
     [SerializeField]TextMeshProUGUI name_;
     [SerializeField]TextMeshProUGUI message;
+    public bool loaded = false;
     
 
     public void cardUpdate(CardAbility card){
+        if(loaded){return;}
         ability = card;
         image.sprite = ability.illust;
 
@@ -24,6 +26,7 @@ public class CardPrefap : MonoBehaviour
         name_.text = ability.name;
         message.text = ability.message;
         tain.SetActive(ability.tained);
+        loaded = true;
     }
 
     private void ReadXML(string filename){

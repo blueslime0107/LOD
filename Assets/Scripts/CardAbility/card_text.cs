@@ -18,7 +18,7 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     //MaterialPropertyBlock material_block;
     //Image card_image;
     public CardPack card;
-    public Image card_overImg;
+    Sprite card_originOverImg;
 
     [SerializeField]GameObject card_light;
     [SerializeField]GameObject block_obj;
@@ -41,11 +41,19 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         countObj.SetActive(card.ability.usingCount);
         countText.text = card.count.ToString();
         //block_img.((card.ability.name.Equals("NULL")) ? true: false);
-        Debug.Log("CardUpdate");
-        if(card.overCard != null){
+        if(card.overCard != card_originOverImg){
             Debug.Log("card.overCard");
-            block_obj.SetActive(true); 
-            block_img.sprite = card.overCard;
+            if(card.overCard == null){
+                block_obj.SetActive(false); 
+                block_img.sprite = null;
+                card_originOverImg = null;
+            }
+            else{
+                block_obj.SetActive(true); 
+                block_img.sprite = card.overCard;
+                card_originOverImg = block_img.sprite;
+
+            }
             }
         if(isLeft){
             try

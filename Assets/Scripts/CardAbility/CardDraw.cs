@@ -26,7 +26,8 @@ public class CardDraw : MonoBehaviour
     int card_id;
 
     private void OnEnable() {
-        origin_size = transform.localScale;        
+        origin_size = transform.localScale; 
+
     }
 
     IEnumerator MoveDown(){
@@ -118,6 +119,7 @@ public class CardDraw : MonoBehaviour
 
     // 외부에서 실행 카드 이미지 바꾸기
     public void SetImage(CardAbility card){
+        cardPrefap.loaded = false;
         cardPrefap.cardUpdate(card);
         having_card = card;
         card_id = having_card.card_id;

@@ -89,7 +89,6 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void put_subDice(Dice dice){
-        Debug.Log("put_dice");
         if(!sub_dice.activeSelf){
             sub_dice.SetActive(true);
         }

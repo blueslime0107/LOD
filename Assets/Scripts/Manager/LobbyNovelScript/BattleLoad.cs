@@ -22,7 +22,6 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
 
     public void Start(){
         Floor floor = new Floor();
-        Debug.Log(lobby.floorNum);
         switch(lobby.floorNum){
             case 1:floor = sm.FloorOfBattle; break;
             case 2:floor = sm.FloorOfResource; break;
@@ -62,8 +61,6 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         for(int i=0;i<stages.Count;i++){
             if(lobby.stageItem.Count <= i){
                 BattleItem obj = Instantiate(lobby.stage_slot).GetComponent<BattleItem>();
-                Debug.Log(obj);
-                Debug.Log(lobby.stage_board);
                 obj.transform.SetParent(lobby.stage_board.transform,false);   
                 obj.lobby = lobby;      
                 lobby.stageItem.Add(obj);

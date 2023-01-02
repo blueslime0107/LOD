@@ -17,7 +17,7 @@
     <Card Code="43">
         <name>경비용CCTV</name>
         <text>카드? 전투에 무슨 짓거리죠?
-           이런전투 가민있을순 없어요</text>
+           이런전투 가만있을순 없어요</text>
         <ability>팀 상관없이 카드획득시 체력 - 2</ability>
         <story></story>
     </Card>

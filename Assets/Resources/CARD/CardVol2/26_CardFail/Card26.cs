@@ -13,6 +13,7 @@ public class Card26 : CardAbility
 
     public override void CardSelected(CardPack card, CardPack selected_card,BattleManager match)
     {
+        if(selected_card.tained){return;}
         try{
             card.saved_card.ability = card.saved_ability; // 봉인했던 카드 능력을 복구 시킴
             card.saved_card.overCard = null;

@@ -97,4 +97,11 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             playerCardPanel.SetActive(false);
         }
     }
+
+    public void ReloadCards(){
+        for(int i=0;i<cards.Count;i++){
+            objList[i].cardPrefap.loaded = false;
+            objList[i].cardPrefap.cardUpdate(objList[i].cardAbility);
+        }
+    }
 }

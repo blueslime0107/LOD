@@ -254,6 +254,7 @@ public class Player : MonoBehaviour
                 return;
                 
             if (update ){ battleManager.cardViewChar_left = this;}
+            battleManager.ui.CardReload("Left");
             battleManager.render_cardViewChar_left = this;
             battleManager.ui.leftCard_card = cards;
             battleManager.ui.CardFold("Left");
@@ -268,6 +269,7 @@ public class Player : MonoBehaviour
                 return;
             
             if (update ){ battleManager.cardViewChar_right = this;}
+            battleManager.ui.CardReload("Right");
             battleManager.render_cardViewChar_right = this;
             battleManager.ui.rightCard_card = cards;
             battleManager.ui.CardFold("Right");

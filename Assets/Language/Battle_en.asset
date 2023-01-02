@@ -118,8 +118,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2976176345088
-    m_Localized: If a HP of any character falls below the BREAK level, their team
-      gets a card.
+    m_Localized: 'If a HP of any character falls below the BREAK level
+
+      their
+      team gets a card.'
     m_Metadata:
       m_Items: []
   - m_Id: 2997785399296

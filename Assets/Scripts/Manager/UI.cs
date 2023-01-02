@@ -36,12 +36,10 @@ public class UI : MonoBehaviour
 
     public List<Card_text> leftCardIndi = new List<Card_text>();
     public List<CardPack> leftCard_card = new List<CardPack>();
-    List<CardPack> origin_leftCard_card = new List<CardPack>();
     public CardExplain leftCardEx;
     
     public List<Card_text> rightCardIndi = new List<Card_text>();
     public List<CardPack> rightCard_card = new List<CardPack>();
-    List<CardPack> origin_rightCard_card = new List<CardPack>();
     public CardExplain rightCardEx;
 
     void Awake(){
@@ -66,9 +64,6 @@ public class UI : MonoBehaviour
 
     public void CardUIUpdate(string team){
 
-        if(team.Equals("Left")){if(origin_leftCard_card.Equals(leftCard_card)){return;}}
-        else{if(origin_rightCard_card.Equals(rightCard_card)){return;}}
-
         List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
         List<CardPack> card = (team.Equals("Left")) ? leftCard_card : rightCard_card;
 
@@ -92,9 +87,6 @@ public class UI : MonoBehaviour
             indi[i].cardPrefap.cardUpdate(indi[i].card.ability);
             indi[i].CardUpdate();
         }
-        if(team.Equals("Left")){origin_leftCard_card = leftCard_card;}
-        else{origin_rightCard_card = rightCard_card;}
-        
     }
 
     public void CardFold(string team,bool fold = false){
@@ -116,6 +108,13 @@ public class UI : MonoBehaviour
     public void VisualCardPanel(bool active){
         leftPanel.SetActive(active);
         rightPanel.SetActive(active);
+    }
+
+    public void CardReload(string team){
+        List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
+        foreach(Card_text card in indi){
+            card.cardPrefap.loaded = false;
+        }
     }
 
 
