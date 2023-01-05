@@ -16,7 +16,7 @@ public class Card27 : CardAbility
         card.card_reg.Clear();
     }
 
-    public override void WhenCardGet(CardPack card,BattleManager match, Player player)
+    public override void WhenCardGet(CardPack card,BattleManager match, Player player, CardPack getCard)
     {
         if(player.gameObject.tag == "PlayerTeam1"){
             match.card_left_draw += 1;

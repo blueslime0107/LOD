@@ -21,7 +21,7 @@ public class Card46 : CardAbility
         if(dead_player != card.player){return;}
         foreach(Player player in (dead_player.tag.Equals("PlayerTeam1")) ?  match.right_players : match.left_players){
             if(player.Equals(card.player)){continue;}
-            player.DamagedByInt(4,card.player);
+            player.NewDamagedByInt(4,card.player);
         }
     }
 }

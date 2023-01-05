@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Damage{
     public int value;
-    public bool nocounter = false;
-
+    public CardPack origin;
     public void setDamage(int damage){
-        value = damage;
-        
+        value = damage; 
     }
 }
 
 public class GameManager : MonoBehaviour
 {
+    public SoundManager soundManager;
     public BattleManager battleManager;
     public SceneMove sceneMove;
     public CameraCtrl main_camera_ctrl;
@@ -43,6 +42,8 @@ public class GameManager : MonoBehaviour
             sm.player_cardDic = battleManager.cards;
         }
 
+        soundManager = FindObjectOfType<SoundManager>();
+        battleManager.sdm = soundManager;
         
 
         if(sm != null)
@@ -58,13 +59,13 @@ public class GameManager : MonoBehaviour
                 {
                     continue;
                 }
-                
                 leftPlayers[i].battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleManager = battleManager;
                 leftPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
                 leftPlayers[i].dice_Indi.lineRender = battleManager.lineRender;
                 leftPlayers[i].gameObject.SetActive(true);
                 Character chars = sm.player_battleCard.characters[i];
+                leftPlayers[i].character = chars;
                 leftPlayers[i].health = chars.health;
                 leftPlayers[i].max_health = chars.health;
                 leftPlayers[i].breakCount = new List<int>(chars.breaks);
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
 
                 rightPlayers[i].gameObject.SetActive(true);
                 Character chars = sm.play_stage.characters[i];
+                rightPlayers[i].character = chars;
                 rightPlayers[i].health = chars.health;
                 rightPlayers[i].max_health = chars.health;
                 rightPlayers[i].breakCount = new List<int>(chars.breaks);

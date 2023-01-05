@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    public SoundManager sdm;
     public GameManager gameManager;
     public BattleCaculate battleCaculate;
     public BattleAI Right_battleAI;
@@ -269,7 +270,8 @@ public class BattleManager : MonoBehaviour
                             for(int j = 0; j < players[i].cards.Count; j++){
                                 players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
                             }
-                        }     
+                        }   
+                        sdm.Play("BattleReady");
                         ui.battleStartButton.StartCoroutine("startBlink");             
                         while(!battle_start){
                             yield return null; 
@@ -308,9 +310,6 @@ public class BattleManager : MonoBehaviour
                         battle_end =  true;
                         break;
                     }
-                    else{
-                        
-                    }
                 }
                 //Left_battleAI.isBattleing();
                 if(Right_battleAI.active){Right_battleAI.isBattleing();}
@@ -326,6 +325,7 @@ public class BattleManager : MonoBehaviour
                             if(dice.gameObject.tag.Equals("Team2") && right_turn){
                                 target1 = dice.player;
                             }
+                            sdm.Play("Select1");
                         }
                     }
 
@@ -373,6 +373,25 @@ public class BattleManager : MonoBehaviour
                  
     }
 
+    public void CheckNextTeam(){
+        if(left_turn){
+            if(right_players.FindAll(x => x.dice <= 0 || x.died).Count >= right_players.Count){
+                TurnTeam("Left");
+            }
+            else{
+                TurnTeam("Right");
+
+            }
+        }
+        else if(right_turn){
+            if(left_players.FindAll(x => x.dice <= 0 || x.died).Count >= left_players.Count){
+                TurnTeam("Right");
+            }else{
+
+            TurnTeam("Left");
+            }
+        }
+    }
 
     public void BattleTargetReady(){
         if(target1.died || !target1.gameObject.activeSelf || target2.died || !target2.gameObject.activeSelf){
@@ -522,12 +541,11 @@ public class BattleManager : MonoBehaviour
 
     // 버튼 외부 발동
     public void BattleStart(){
-        // if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
-        //     right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){ // 주사위를 
-            battle_start = true;
-            ui.battleStartButton.StopAllCoroutines();
-            ui.battleStartButton.updateYeamColor(first_turn);
-        // }
+        if(!cardActiveAble){return;}
+        sdm.Play("Snap");
+        battle_start = true;
+        ui.battleStartButton.StopAllCoroutines();
+        ui.battleStartButton.updateYeamColor(first_turn);
     }
 
     void Card(Vector3 pos,CardAbility cardo){
@@ -603,7 +621,7 @@ public class BattleManager : MonoBehaviour
         player.cardGet.SetActive(true);
         foreach(Player playe in players){
                 for(int i =0; i<playe.cards.Count;i++){
-                    playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player);
+                    playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player,card);
                 }
             }
         card.ability.WhenCardGetImmedi(card,this);
@@ -622,6 +640,7 @@ public class BattleManager : MonoBehaviour
         // player.cards.Add(pre_card);
         // pre_card.ability.WhenCardGet(pre_card, this,player);
     }
+
 
     public List<CardAbility> CardSuffle(){
         List<CardAbility> origin_cards = new List<CardAbility>(cards);

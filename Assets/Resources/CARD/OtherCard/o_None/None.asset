@@ -13,9 +13,20 @@ MonoBehaviour:
   m_Name: None
   m_EditorClassIdentifier: 
   card_id: 0
+  xmlFile_path:
+  - CARD/OtherCard/CardOther_en.xml
+  - CARD/OtherCard/CardOther_kr.xml
   name: NULL
   message: 
   ability_message: 
   story_message: 
+  tained: 0
+  price: 0
   illust: {fileID: 0}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
   effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

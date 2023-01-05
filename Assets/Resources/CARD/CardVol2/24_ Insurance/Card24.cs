@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card24 : CardAbility
 {
 
-    public override void WhenCardGet(CardPack card, BattleManager match, Player player)
+    public override void WhenCardGet(CardPack card, BattleManager match, Player player, CardPack getCard)
     {
         Debug.Log("보험");
         if(!card.player.tag.Equals(player.tag)){return;}

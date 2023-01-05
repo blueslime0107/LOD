@@ -54,6 +54,7 @@ public class Dice_Indi : MonoBehaviour
         for(int i = 0; i<player.cards.Count;i++){
             player.cards[i].ability.DiceApplyed(player.cards[i], player);
         }
+        battleManager.sdm.Play("Paper1");
         
         
     }
@@ -184,6 +185,7 @@ public class Dice_Indi : MonoBehaviour
     
 
     void OnMouseEnter() {
+        if(battleManager.target1 != null && !battleManager.battleing){battleManager.sdm.Play("Aim");}
         if(!battleManager.battleing)
             battleManager.mouseTouchingPlayer = player;
 
@@ -215,10 +217,7 @@ public class Dice_Indi : MonoBehaviour
     }
 
     void OnMouseOver() {
-        if(battleManager.target1 != null && !battleManager.battleing){
-            lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward); 
-        }
-
+        if(battleManager.target1 != null && !battleManager.battleing){lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward);}
     }
 
 

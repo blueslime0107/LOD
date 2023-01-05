@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/10D6", order = 39)]
 public class Card39 : CardAbility
 {
-    public override void WhenCardGet(CardPack card, BattleManager match, Player player)
+    public override void WhenCardGet(CardPack card, BattleManager match, Player player, CardPack getCard)
     {
         if(match.left_turn){
             match.card_left_draw += 1;

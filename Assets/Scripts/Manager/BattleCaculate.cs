@@ -41,7 +41,7 @@ public class BattleCaculate : MonoBehaviour
     }
 
     public void BattleMatch(Player selfnum, Player enenum){
-        
+        bm.sdm.Play("Fire1");
         foreach(Player player in players){
             if(player != selfnum && player != enenum){
                 player.dice_Indi.gameObject.SetActive(false);
@@ -326,18 +326,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.DamageUpdate();
 
 
-        if(bm.left_turn){
-            bm.TurnTeam("Right");
-            if(bm.right_players.FindAll(x => x.dice <= 0).Count >= bm.right_players.Count){
-                bm.TurnTeam("Left");
-            }
-        }
-        else if(bm.right_turn){
-            bm.TurnTeam("Left");
-            if(bm.left_players.FindAll(x => x.dice <= 0).Count >= bm.left_players.Count){
-                bm.TurnTeam("Right");
-            }
-        }
+        bm.CheckNextTeam();
 
         myChar.dice_Indi.NextDice();
         eneChar.dice_Indi.NextDice();
@@ -376,11 +365,10 @@ public class BattleCaculate : MonoBehaviour
             if(attacker.transform.position.x - defender.transform.position.x <0){defender.transform.Translate(Vector3.right*damage.value/2);}
             if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*damage.value/2);}
 
-            defender.DamagedBy(damage,attacker);
+            defender.DamagedBy(damage,attacker,attacker.character.atk_sound);
             
         }
         if(damage.value.Equals(0)){
-            Debug.Log("안감?");
             defender.ChangeCondition(3);
             attacker.ChangeCondition(3);
 
@@ -388,8 +376,7 @@ public class BattleCaculate : MonoBehaviour
             if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*0.4f);}
             if(defender.transform.position.x - attacker.transform.position.x <0){attacker.transform.Translate(Vector3.right*0.4f);}
             if(defender.transform.position.x - attacker.transform.position.x > 0){attacker.transform.Translate(Vector3.left*0.4f);}
-
-            defender.AttackEffect(attacker);
+            bm.sdm.Play("Pery");
         }
 
         

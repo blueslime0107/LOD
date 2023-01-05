@@ -31,6 +31,7 @@ public class Dice : MonoBehaviour
             return;
         gameObject.SetActive(true);
         StartCoroutine(rollingDice(vector));
+        StartCoroutine(rollingDiceSound());
     }
 
     IEnumerator rollingDice(Vector2 vector){
@@ -48,6 +49,14 @@ public class Dice : MonoBehaviour
         }
     
     }
+    IEnumerator rollingDiceSound(){
+        while(true){
+            battleManager.sdm.Play("RollDice");
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    
 
     public void StopRollingDice(){
         StopAllCoroutines();
@@ -55,6 +64,7 @@ public class Dice : MonoBehaviour
         transform.localEulerAngles = Vector3.zero;
         dice_value = (int)Random.Range(1f,7f);
         render.sprite = dice_img[dice_value-1];
+        battleManager.sdm.Play("HitTable");
         if(diceLock.Count>0){
             setDice(diceLock[0]);
             diceLock.RemoveAt(0);
@@ -64,6 +74,10 @@ public class Dice : MonoBehaviour
     public void setDice(int value){
         dice_value = value;
         render.sprite = dice_img[dice_value-1];
+    }
+
+    private void OnMouseDown() {
+        battleManager.sdm.Play("DiceGrab");
     }
 
     void OnMouseDrag() { // 마우스 

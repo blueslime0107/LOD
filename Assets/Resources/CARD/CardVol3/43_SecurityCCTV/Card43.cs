@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/43경비용CCTV", order = 43)]
 public class Card43 : CardAbility
 {
-    public override void WhenCardGet(CardPack card, BattleManager match, Player player)
+    public override void WhenCardGet(CardPack card, BattleManager match, Player player, CardPack getCard)
     {
         player.AddHealth(-2);
     }

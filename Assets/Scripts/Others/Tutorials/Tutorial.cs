@@ -9,7 +9,6 @@ public class Tutorial : MonoBehaviour
     [SerializeField]BattleManager bm;
 
     public void TutorialStart(){
-        Debug.Log(bm.gameManager.sm);
         if(bm.gameManager.sm.play_stage.tutorialLine.Equals(1)){
             StartCoroutine("tutorial1");
         }

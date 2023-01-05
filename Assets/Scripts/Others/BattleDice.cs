@@ -26,6 +26,7 @@ public class BattleDice : MonoBehaviour
         transform.position = new Vector3(battleManager.camera.transform.position.x,battleManager.camera.transform.position.y+1.5f,-2);
         spinging = true;
         StartCoroutine("Spining");
+        StartCoroutine("SpiningSound");
         
     }
 
@@ -39,6 +40,12 @@ public class BattleDice : MonoBehaviour
             yield return null;
         }
     }
+    IEnumerator SpiningSound(){
+        while(true){
+            battleManager.sdm.Play("RollDice");
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
     public void DamageReset(){
         render.sprite = dice_img[0];
@@ -46,9 +53,10 @@ public class BattleDice : MonoBehaviour
 
     public void DamageUpdate(){
         if(spinging){
-            StopCoroutine("Spining");          
+            battleManager.sdm.Play("Snap");
+            StopAllCoroutines();          
             transform.localEulerAngles = Vector3.zero;
-             spinging = false;
+            spinging = false;
         }
         render.sprite = dice_img[Mathf.Abs(battleManager.battleCaculate.damage.value)];
     }

@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
+    public Character character;
     [SerializeField]
     public BattleManager battleManager;
     public Dice_Indi dice_Indi;
@@ -148,9 +149,11 @@ public class Player : MonoBehaviour
         dice_Indi.setDice(diceValue);
     }
 
-    public void DamagedBy(Damage damage, Player player){
+    public void DamagedBy(Damage damage, Player player,string atk_sound=""){
         
         lastHit = player;
+
+        battleManager.sdm.Play((!atk_sound.Equals("")) ? atk_sound:"Slash1");
 
         
         for(int i = 0;i<cards.Count;i++){
@@ -177,11 +180,18 @@ public class Player : MonoBehaviour
         UpdateHp();
     }
 
-    public void DamagedByInt(int damage, Player player,bool counter = false){
+    public void NewDamagedByInt(int damage, Player player,string atk_sound=""){
         Damage newdamage = new Damage();
         newdamage.value = damage;
-        newdamage.nocounter = counter;
-        DamagedBy(newdamage,player);
+        DamagedBy(newdamage,player,atk_sound);
+
+    }
+
+    public void DamagedByInt(int damage, Player player,Damage origin_dmg, CardPack cardAbility,string atk_sound=""){
+        Damage newdamage = new Damage();
+        newdamage.value = damage;
+        newdamage.origin = (origin_dmg.origin == null) ? cardAbility:origin_dmg.origin;
+        DamagedBy(newdamage,player,atk_sound);
 
     }
 
@@ -203,6 +213,7 @@ public class Player : MonoBehaviour
             if(health <= breakCount[0]){
                 if(gameObject.tag.Equals("PlayerTeam1")){battleManager.card_left_draw += 1;}
                 else{battleManager.card_right_draw += 1;}
+                battleManager.sdm.Play("BreakCardGet");
                 hp_Indi.ActiveEff();
                 breakCount.RemoveAt(0);
             }
