@@ -14,7 +14,6 @@ public class CardPrefap : MonoBehaviour
     [SerializeField]TextMeshProUGUI name_;
     [SerializeField]TextMeshProUGUI message;
     public bool loaded = false;
-    
 
     public void cardUpdate(CardAbility card){
         if(loaded){return;}

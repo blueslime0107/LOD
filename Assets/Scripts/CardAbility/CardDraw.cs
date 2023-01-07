@@ -129,9 +129,15 @@ public class CardDraw : MonoBehaviour
     void OnMouseDrag(){
         mouseDrag = true;
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
-        Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);  
+        Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition); 
+        if(battleManager.mouseTouchingPlayer){
+            battleManager.lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward);
+        } 
+        else{
         battleManager.lineRender.SetPosition(1, transform.position);
         battleManager.lineRender.SetPosition(0, objPosition);
+
+        }
         // transform.position = objPosition;
         // transform.localScale = new Vector3(0.02f,0.02f,0);
     }
@@ -141,11 +147,13 @@ public class CardDraw : MonoBehaviour
     }
 
     void OnMouseEnter() {
+        battleManager.sdm.Play("Paper2");
         ui.CardMesage_Update(having_card.ability_message,having_card.story_message);
         mouseOn = true;
     }
 
     void OnMouseDown(){
+        battleManager.sdm.Play("Paper1");
         StartCoroutine("MoveSelect");
         ui.cardMessage.SetActive(false);
     }

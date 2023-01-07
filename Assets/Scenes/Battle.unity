@@ -19018,7 +19018,7 @@ MonoBehaviour:
     reverb: {fileID: 0}
   - name: Aim
     clip: {fileID: 8300000, guid: d3433da6fe342f740905f10906fac95f, type: 3}
-    volume: 1
+    volume: 0.775
     pitch: 1
     source: {fileID: 0}
     reverb: {fileID: 0}
@@ -19042,6 +19042,36 @@ MonoBehaviour:
     reverb: {fileID: 0}
   - name: BreakCardGet
     clip: {fileID: 8300000, guid: 9f96db4130c0cf74bab73ad7afa425af, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Paper2
+    clip: {fileID: 8300000, guid: 4a18507027047a64da897ab6daa1936f, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Paper3
+    clip: {fileID: 8300000, guid: d0bb80c4b1dd2094387b3c9c7eb4ca0d, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: GetCard
+    clip: {fileID: 8300000, guid: a7eb7fae68f770349a7a711a0934946b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: LowBack
+    clip: {fileID: 8300000, guid: 2ed24568b3cd17c4294643681408913c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: CharDie
+    clip: {fileID: 8300000, guid: 4c1b0341455c71443bdf5727accdaf97, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

@@ -114,7 +114,9 @@ public class BattleManager : MonoBehaviour
             # region 전투끝/카드뽑기
             cardActiveAble = false;
             StartCoroutine("selectingCard");
+            sdm.Play("LowBack");
             PlayerGoToOrigin();
+            
             left_cardLook_lock = false;
             right_cardLook_lock = false;
             while(camera.isZeroMove){
@@ -171,6 +173,7 @@ public class BattleManager : MonoBehaviour
                     card_right_draw -= 1;
                 }
                 else{
+                    sdm.Play("Paper3");
                     switch(card_give_count){ 
                     case 1:show_cards.Clear();
                         Card(Vector3.up*9+Vector3.back,cur_game_cards[0]);break;
@@ -625,6 +628,7 @@ public class BattleManager : MonoBehaviour
                 }
             }
         card.ability.WhenCardGetImmedi(card,this);
+        sdm.Play("GetCard");
         return card;
     }
 

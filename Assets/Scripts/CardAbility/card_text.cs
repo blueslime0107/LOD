@@ -93,6 +93,7 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
      public void OnPointerEnter(PointerEventData eventData)
      {
+        battleManager.sdm.Play("Paper2");
         battleManager.cardTouching = this;
         if(battleManager.card_select_trigger) {StartCoroutine("ImSelectedCard");}
         target_pos = new Vector2(0.5f,0.1f);        

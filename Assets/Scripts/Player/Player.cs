@@ -224,6 +224,7 @@ public class Player : MonoBehaviour
     public void YouAreDead(){
         if(died){return;}
         UpdateHp();
+        battleManager.sdm.Play("CharDie");
         foreach(Player player in battleManager.players){
             for(int i =0;i<player.cards.Count;i++){
                     player.cards[i].ability.OnDeath(player.cards[i],this,battleManager);
