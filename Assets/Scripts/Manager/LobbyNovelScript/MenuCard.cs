@@ -10,7 +10,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
     StageManager sm;
     [SerializeField]int panel;
 
-    [SerializeField]Lobby lobby;
+    [SerializeField]public Lobby lobby;
     [SerializeField]GameObject cardPrefap;
     public List<CardAbility> cards = new List<CardAbility>();
     [SerializeField]List<CardPanelCard> objList = new List<CardPanelCard>();

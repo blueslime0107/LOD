@@ -283,7 +283,7 @@ public class BattleCaculate : MonoBehaviour
         myChar.ChangeCondition(0);
         eneChar.SetDice(0);
         eneChar.ChangeCondition(0);
-        bm.battleing = false;
+        
         bm.target1 = null;
         bm.target2 = null;
         myChar.transform.position = bm.gameManager.SetVector3z(myChar.transform.position,0);
@@ -325,12 +325,12 @@ public class BattleCaculate : MonoBehaviour
 
         battleDice.DamageUpdate();
 
-
         bm.CheckNextTeam();
 
         myChar.dice_Indi.NextDice();
         eneChar.dice_Indi.NextDice();
 
+        bm.battleing = false;
         yield return null;
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Lobby : MonoBehaviour
 {
+    public SoundManager sdm;
     public int floorNum;
     public StageManager stageManager;
 
@@ -62,29 +63,35 @@ public class Lobby : MonoBehaviour
         if(Input.GetMouseButtonDown(1)){
             switch(curMenu[curMenu.Count-1]){
                 case "surMenu":
+                sdm.Play("Close");
                     sub_table.ActiveOpenClose();
                     battle_table.ActiveOpenClose();
                     darScreen.SetActive(false);        
                     curMenu.Remove("surMenu"); break;
                 case "mainMenu":
+                sdm.Play("Close");
                     main_table.ActiveOpenClose();
                     darScreen.SetActive(false);        
                     curMenu.Remove("mainMenu"); break;
                 case "mainMenuStage":
+                sdm.Play("Close");
                     battle_table.ActiveOpenClose();      
                     curMenu.Remove("mainMenuStage"); break;
                 case "battle":
+                sdm.Play("Close");
                     enemyCard.ActiveOpenClose();
                     playerCard.ActiveOpenClose();
                     BattleButton.ActiveOpenClose();
                     curMenu.Remove("battle"); break;
 
                 case "cardMenu":
+                sdm.Play("Close");
                     darScreen.SetActive(false);        
                     card_table.ActiveOpenClose();
                     curMenu.Remove("cardMenu"); break;
 
                 case "cardSelectMenu":
+                    sdm.Play("Close");
                     enemyCard.ActiveOpenClose();
                     playerCard.ActiveOpenClose();  
                     BattleButton.ActiveOpenClose();   
@@ -102,6 +109,7 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("surMenu")){
             return;
         }
+        sdm.Play("Open");
         sub_table.ActiveOpenClose();
         battle_table.ActiveOpenClose();
         darScreen.SetActive(true);
@@ -112,6 +120,7 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("mainMenu")){
             return;
         }
+        sdm.Play("Open");
         main_table.ActiveOpenClose();
         darScreen.SetActive(true);
         curMenu.Add("mainMenu");
@@ -121,6 +130,7 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("mainMenuStage")){
             return;
         }
+        sdm.Play("Open");
         battle_table.ActiveOpenClose();
         curMenu.Add("mainMenuStage");
     }
@@ -129,6 +139,7 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("cardMenu")){
             return;
         }
+        sdm.Play("CardDrawOpen");
         card_table.ActiveOpenClose();
         darScreen.SetActive(true);
         curMenu.Add("cardMenu");
@@ -138,6 +149,7 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("cardSelectMenu")){
             return;
         }
+        sdm.Play("CardDrawOpen");
         enemyCard.ActiveOpenClose();
         playerCard.ActiveOpenClose();  
         BattleButton.ActiveOpenClose();   
@@ -152,7 +164,7 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("battle")){
             return;
         }
-        
+        sdm.Play("Paper3");
         playerBattleCard.UpdateStat();
         enemyBattleCard.UpdateStat();
         enemyCard.ActiveOpenClose();
@@ -162,6 +174,7 @@ public class Lobby : MonoBehaviour
     }
 
     public void GetStory(){
+        sdm.Play("Snap");
         if(stageManager.play_stage.beforeStory != null)
         {sceneM.MoveStory();}
         else{

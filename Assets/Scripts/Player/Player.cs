@@ -153,8 +153,12 @@ public class Player : MonoBehaviour
         
         lastHit = player;
 
-        battleManager.sdm.Play((!atk_sound.Equals("")) ? atk_sound:"Slash1");
-
+        if(atk_sound == ""){
+            battleManager.sdm.Play((player.farAtt) ? "Gun1":"Slash1");
+        }
+        else{
+            battleManager.sdm.Play(atk_sound);
+        }
         
         for(int i = 0;i<cards.Count;i++){
                 cards[i].ability.OnDamage(cards[i],lastHit,damage,battleManager);

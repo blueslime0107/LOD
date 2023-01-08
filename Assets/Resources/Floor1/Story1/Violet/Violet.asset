@@ -16,10 +16,11 @@ MonoBehaviour:
   breaks: 140000000f0000000a0000000500000000000000
   char_sprites: {fileID: 11400000, guid: 8a826d943818d6942bde77713031aa47, type: 2}
   char_preCards:
-  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 11400000, guid: 5c27455602b27424ea45b6fa9d219e7b, type: 2}
   - {fileID: 11400000, guid: c1e702011e0c03a45a34e87bcaac7581, type: 2}
   - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
   - {fileID: 11400000, guid: 2967a30e65a63fa4fad428c25e16cb0d, type: 2}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  atk_sound: 

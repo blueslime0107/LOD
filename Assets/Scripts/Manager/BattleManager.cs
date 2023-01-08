@@ -220,6 +220,7 @@ public class BattleManager : MonoBehaviour
             ui.Dice6.gameObject.SetActive(false);
             
             StopCoroutine("selectingCard");
+            ui.battleStartButton.gameObject.SetActive(true);
             ui.VisualCardPanel(true);
             BattlePreReset();
             # endregion
@@ -314,10 +315,31 @@ public class BattleManager : MonoBehaviour
                         break;
                     }
                 }
+
+                if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count) || right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+                    battle_end =  true;
+                    break;
+                }
+
+                bool rightNo = right_players.FindAll(x => x.dice > 0).Count > 0;
+                bool leftNo = left_players.FindAll(x => x.dice > 0).Count > 0;
+
+                if(left_turn){
+                    if(rightNo && !leftNo)
+                        TurnTeam("Right");
+                }
+                else if(right_turn){
+                    if(leftNo && !rightNo)
+                        TurnTeam("Left");
+                }
+
+                
+
                 //Left_battleAI.isBattleing();
                 if(Right_battleAI.active){Right_battleAI.isBattleing();}
 
                 if(Input.GetMouseButtonDown(0)){
+                    target2 = null;
                     foreach(Dice_Indi dice in dice_indis){
                         
                         if(dice.onMouseDown){
@@ -348,9 +370,6 @@ public class BattleManager : MonoBehaviour
                     lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
 
                 }
-
-                
-
                 
             }
             # endregion
@@ -377,6 +396,7 @@ public class BattleManager : MonoBehaviour
     }
 
     public void CheckNextTeam(){
+
         if(left_turn){
             if(right_players.FindAll(x => x.dice <= 0 || x.died).Count >= right_players.Count){
                 TurnTeam("Left");
@@ -592,6 +612,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator selectingCard(){
         ui.VisualCardPanel(false);
+        ui.battleStartButton.gameObject.SetActive(false);
         while(true){
             if(Input.GetMouseButtonDown(0)){
                 ui.VisualCardPanel(true);

@@ -61,6 +61,7 @@ public class CardUI : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData){
         if(!cardSelecting){return;}
         bool triggered = false;
+        menuCard.lobby.sdm.Play("Paper1");
         for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
             Debug.Log(i);
             if(triggered){

@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: youtube_button
     m_Metadata:
       m_Items: []
+  - m_Id: 4172261102653440
+    m_Key: setting_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -15,7 +15,7 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData){
         cardExplain.gameObject.SetActive(true);
         cardExplain.updateCard(cardAbility);
-
+        cardExplain.sdm.Play("Paper2");
 
     }
 
@@ -26,12 +26,13 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
         if(!cardSelecting){return;}
+        
         for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
-            Debug.Log(i);
             try{
                 Debug.Log(menuCard.selectingChar.char_preCards[i].Equals(null));
             }
             catch{
+                cardExplain.sdm.Play("DiceGrab");
                 menuCard.selectingChar.char_preCards[i] = cardAbility;
                 menuCard.RenderSelectCard();
                 break;

@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8387474057337548284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8387474057337548274}
+  - component: {fileID: 8387474057337548275}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8387474057337548274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387474057337548284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4160664, y: -0.2344001, z: -1.0895786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8387474057337548275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8387474057337548284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463e041ae55207f4f93eb6cb94bf0f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSound: 
+  sounds:
+  - name: Snap
+    clip: {fileID: 8300000, guid: 3911a2e9c7bf0e94495b6fd3c589e740, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: RollDice
+    clip: {fileID: 8300000, guid: c80dc2edceb43134fb3130347915f340, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: HitTable
+    clip: {fileID: 8300000, guid: 96050956a7a69854fba4023a507bfffa, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: DiceGrab
+    clip: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
+    volume: 0.6
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Paper1
+    clip: {fileID: 8300000, guid: e576d902ae108e1458bc3479d1ac455c, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: BattleReady
+    clip: {fileID: 8300000, guid: ec0689662a97fdb4fadcc4f4cc5474c4, type: 3}
+    volume: 1
+    pitch: 1.14
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Select1
+    clip: {fileID: 8300000, guid: 6f6303c4dff53bd4da6412dcddc16fa2, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Aim
+    clip: {fileID: 8300000, guid: d3433da6fe342f740905f10906fac95f, type: 3}
+    volume: 0.775
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Fire1
+    clip: {fileID: 8300000, guid: 4f391c0eefaf9f346aa18c66fdbcae6b, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Slash1
+    clip: {fileID: 8300000, guid: 0deba219000175a418f201c88fc53b93, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Pery
+    clip: {fileID: 8300000, guid: 265b5d17fa697904fa9edd36f80a9781, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: BreakCardGet
+    clip: {fileID: 8300000, guid: 9f96db4130c0cf74bab73ad7afa425af, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Paper2
+    clip: {fileID: 8300000, guid: 4a18507027047a64da897ab6daa1936f, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Paper3
+    clip: {fileID: 8300000, guid: d0bb80c4b1dd2094387b3c9c7eb4ca0d, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: GetCard
+    clip: {fileID: 8300000, guid: a7eb7fae68f770349a7a711a0934946b, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: LowBack
+    clip: {fileID: 8300000, guid: 2ed24568b3cd17c4294643681408913c, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: CharDie
+    clip: {fileID: 8300000, guid: 4c1b0341455c71443bdf5727accdaf97, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Open
+    clip: {fileID: 8300000, guid: a55ba25406fd7f54ba8737097b4522b2, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Close
+    clip: {fileID: 8300000, guid: 5d4854fbaba22054fbffd9d8f48d002e, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: CardDrawOpen
+    clip: {fileID: 8300000, guid: 27cfba7447a431b458318a61bc9e422b, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: SGM_Blow1
+    clip: {fileID: 8300000, guid: e4449905b2b6b4b43b5beb9a02538871, type: 3}
+    volume: 1
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Gun1
+    clip: {fileID: 8300000, guid: 0132a6818e29da24790246c9aba21689, type: 3}
+    volume: 0.733
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  mixer:
+  - {fileID: -3328339283235370755, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}
+  - {fileID: 8082049311940040082, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}

@@ -100,8 +100,12 @@ public class UI : MonoBehaviour
             return;
         if(indi.Count <= 0)
             return;
-        for(int i =0; i<card.Count;i++){
+        try
+        {for(int i =0; i<card.Count;i++){
             indi[i].gameObject.SetActive(true); 
+        }}
+        catch{
+            Debug.Log("CardFoldErrpr");
         }
     }
 

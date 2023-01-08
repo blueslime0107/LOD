@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneMove : MonoBehaviour
 {
+    public GameObject setting_menu;
+
     public void MoveLobby(){
         SceneManager.LoadScene("Lobby");
     }

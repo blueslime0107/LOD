@@ -7,6 +7,7 @@ using TMPro;
 
 public class CardExplain : MonoBehaviour
 {
+    public SoundManager sdm;
     public TextMeshProUGUI cardAbText;
     public Image cardImg; 
 

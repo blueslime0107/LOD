@@ -12,6 +12,7 @@ public class Sound
     public float volume;
     [Range(.1f,3f)]
     public float pitch;
+    public int group;
 
     [HideInInspector]
     public AudioSource source;

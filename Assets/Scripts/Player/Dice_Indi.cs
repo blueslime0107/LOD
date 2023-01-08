@@ -160,7 +160,7 @@ public class Dice_Indi : MonoBehaviour
     }
 
     void OnMouseDrag() { // 마우스 
-        if(battleManager.battle_start){       
+        if(battleManager.cardActiveAble){       
             if(battleManager.left_turn && gameObject.tag == "Team2"){
                 return;
             }
@@ -217,7 +217,9 @@ public class Dice_Indi : MonoBehaviour
     }
 
     void OnMouseOver() {
-        if(battleManager.target1 != null && !battleManager.battleing){lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward);}
+        if(battleManager.target1 != null && !battleManager.battleing){
+            lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward);
+        }
     }
 
 
