@@ -8,7 +8,7 @@ public class Card46 : CardAbility
 
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
-        foreach(Player player in (attacker.tag.Equals("PlayerTeam1")) ?  match.right_players : match.left_players){
+        foreach(Player player in (attacker.tag.Equals("PlayerTeam1")) ?  match.left_players : match.right_players){
             if(player.Equals(card.player)){continue;}
             Debug.Log(player.gameObject.tag);
             player.AddHealth((int)Mathf.Ceil(damage.value / 2));
@@ -19,7 +19,7 @@ public class Card46 : CardAbility
     public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
         if(dead_player != card.player){return;}
-        foreach(Player player in (dead_player.tag.Equals("PlayerTeam1")) ?  match.right_players : match.left_players){
+        foreach(Player player in (dead_player.tag.Equals("PlayerTeam1")) ?  match.left_players : match.right_players){
             if(player.Equals(card.player)){continue;}
             player.NewDamagedByInt(4,card.player);
         }

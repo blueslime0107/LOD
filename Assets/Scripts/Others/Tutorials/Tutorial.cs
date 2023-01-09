@@ -22,21 +22,13 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator tutorial1(){
         bm.dices[0].diceLock.Add(4);
-        bm.dices[1].diceLock.Add(2);
+        bm.dices[1].diceLock.Add(2);//2
         bm.dices[0].diceLock.Add(3);
         bm.dices[1].diceLock.Add(6);
         bm.dices[0].diceLock.Add(1);
-        bm.dices[1].diceLock.Add(6);
-        bm.dices[0].diceLock.Add(2);
-        bm.dices[1].diceLock.Add(5);
-        bm.dices[0].diceLock.Add(5);
-        bm.dices[1].diceLock.Add(1);
+        bm.dices[1].diceLock.Add(6);//1
         bm.dices[0].diceLock.Add(4);
-        bm.dices[1].diceLock.Add(2);
-        bm.dices[0].diceLock.Add(6);
-        bm.dices[1].diceLock.Add(1);
-        bm.dices[0].diceLock.Add(4);
-        bm.dices[1].diceLock.Add(1);
+        bm.dices[1].diceLock.Add(2);//2
         yield return new WaitForSeconds(0.1f);  
         bm.ui.battleStartButton.gameObject.SetActive(false);
         scenes[0].SetActive(true);

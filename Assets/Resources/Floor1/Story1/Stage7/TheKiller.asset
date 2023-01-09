@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
-  m_Name: S3PlayerC
+  m_Name: TheKiller
   m_EditorClassIdentifier: 
-  id: 0
+  id: 7
   xmlFile_path:
   - Floor1/Story1/Story1_en.xml
   - Floor1/Story1/Story1_kr.xml
   title: 
   sub_text: 
-  rank: 1
+  rank: 5
   values: 
   characters:
-  - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 98aaed1a0d0db0e49a502813c03de2b5, type: 2}
+  - {fileID: 11400000, guid: ff0f116a9d977934b87095767b690f5e, type: 2}
+  - {fileID: 11400000, guid: ff0f116a9d977934b87095767b690f5e, type: 2}
+  - {fileID: 11400000, guid: ff0f116a9d977934b87095767b690f5e, type: 2}
+  - {fileID: 11400000, guid: ff0f116a9d977934b87095767b690f5e, type: 2}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage: []

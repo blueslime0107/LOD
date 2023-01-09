@@ -29,8 +29,10 @@ public class Card26 : CardAbility
         card.saved_ability = selected_card.ability; // 봉인할 카드의 능력 저장한 후
         card.saved_card = selected_card; // 봉인 카드 저장
         selected_card.overCard = card.ability.overCard;
+        match.ui.CardReload();
 
         selected_card.ability = match.null_card; // 능력 삭제 (봉인)
+
         
         
         

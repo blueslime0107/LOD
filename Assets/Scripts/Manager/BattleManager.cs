@@ -131,6 +131,10 @@ public class BattleManager : MonoBehaviour
                         card_getting_team = "Left";
                     }
                 //card_getting_team = (first_turn.Equals("Left")) ? "Left" : "Right";
+                if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count) || right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+                    battle_end =  true;
+                    break;
+                }
 
                 if((card_getting_team.Equals("Left") && card_left_draw <= 0) || (card_getting_team.Equals("Right") && card_right_draw <= 0)){
                     if(card_getting_team.Equals("Left")){
@@ -220,7 +224,7 @@ public class BattleManager : MonoBehaviour
             ui.Dice6.gameObject.SetActive(false);
             
             StopCoroutine("selectingCard");
-            ui.battleStartButton.gameObject.SetActive(true);
+            ui.battleStartButton_posing.ActiveOpenClose();
             ui.VisualCardPanel(true);
             BattlePreReset();
             # endregion
@@ -612,7 +616,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator selectingCard(){
         ui.VisualCardPanel(false);
-        ui.battleStartButton.gameObject.SetActive(false);
+        ui.battleStartButton_posing.ActiveOpenClose();
         while(true){
             if(Input.GetMouseButtonDown(0)){
                 ui.VisualCardPanel(true);

@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     public BattleManager bm;
     public StartButton battleStartButton;
+    public MenuItem battleStartButton_posing;
     public Button Dice6;
     public GameObject cardMessage;
     public TextMeshProUGUI cardAbility;
@@ -114,7 +115,12 @@ public class UI : MonoBehaviour
         rightPanel.SetActive(active);
     }
 
-    public void CardReload(string team){
+    public void CardReload(string team=""){
+        if(team.Equals("")){
+            CardReload("Left");
+            CardReload("Right");
+            return;
+        }
         List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
         foreach(Card_text card in indi){
             card.cardPrefap.loaded = false;

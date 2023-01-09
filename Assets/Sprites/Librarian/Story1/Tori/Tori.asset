@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Tori
   m_EditorClassIdentifier: 
-  name: Tori
+  name_: Tori
   poses:
   - {fileID: 21300000, guid: 65129c9477b748345af1a7b8192b1abd, type: 3}
   - {fileID: 21300000, guid: dcc92d094d0e20d459c5a081037e033e, type: 3}

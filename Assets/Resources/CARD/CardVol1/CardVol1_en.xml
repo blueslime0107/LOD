@@ -45,8 +45,7 @@
     <Card Code="7">
         <name>Graverobber</name>
         <text>Sorry.. But I need your power</text>
-        <ability>[Team's death]Gets one more dice from dice-2 to dice-6.
-            [Enemy's death]Get a card.</ability>
+        <ability>[Team's death]Gets one more dice from dice-2 to dice-6.&#10;[Enemy's death]Get a card.</ability>
         <story></story>
     </Card>
     <Card Code="8">
@@ -78,51 +77,50 @@
     <Card Code="12">
         <name>Tained Four-leaf Clover</name>
         <text>The luck here is long gone</text>
-        <ability>[발동] 자신위력이 2 이하일때
-            5위력 이상의 모든 캐릭터들의 주사위를 파괴한다</ability>
+        <ability>[Active] When your power is below 2,
+            Destroy the dice of all characters above dice-5.</ability>
         <story></story>
     </Card>
     <Card Code="13">
         <name>Reality denial</name>
         <text>No it not be.. give me one chance!</text>
-        <ability>[합 시작] 자신위력이 상대위력보다 낮으면 주사위를 다시 굴린다
-            이후 [합 승리]시 피해만큼 체력회복</ability>
+        <ability>[Clash win] If your power is lower than your opponent's, roll the dice again.&#10;After that, [Clash win] recover HP as damage.</ability>
         <story></story>
     </Card>
     <Card Code="14">
         <name>M.A.D</name>
         <text>Now I am become Death, the destroyer of worlds</text>
-        <ability>[합 패배] 모든 상대팀 캐릭터에게 1 피해를 준다</ability>
+        <ability>[Clash lose] 1 damage to all opposing team characters.</ability>
         <story></story>
     </Card>
     <Card Code="15">
         <name>Bloody Memory</name>
         <text>I didn't want to recall those memories</text>
-        <ability>[공격받음] 상대에게 피해의 절반(올림)을 준다</ability>
+        <ability>[Get Damaged] Give half the damage on the opponent</ability>
         <story></story>
     </Card>
     <Card Code="16">
         <name>Fatal single blow</name>
-        <text>방심하는 순간 그 뒤는 무시할 수 없어</text>
-        <ability>[피해줌] 피해 2 이하일시 두 배가 된다</ability>
+        <text>The moment you let your guard down&#10;you can't ignore the rest.</text>
+        <ability>[Do Damage] 2 or less damages will be doubled.</ability>
         <story></story>
     </Card>
     <Card Code="17">
         <name>NerveDrone</name>
-        <text>/violence detected
-            /Evasive actived</text>
-        <ability>[피해받음] 피해 2 이하일시 회피한다</ability>
+        <text>violence detected
+            Envade!</text>
+        <ability>[Get Damaged] Avoid below 2 damage.</ability>
         <story></story>
     </Card>
     <Card Code="18">
         <name>Fair blood donor</name>
         <text>Is this really fair right?</text>
-        <ability>[발동][일회성] 생존한 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
+        <ability>[Active][Disposable] Adjusts the HP of all surviving characters to the average value.</ability>
         <story></story>
     </Card>
     <Card Code="19">
-        <name>눈알CCTV</name>
-        <text>멀리서 관전하는게 얼마나 재밌는데</text>
+        <name>Eye CCTV</name>
+        <text>How fun is it to watch from afar?</text>
         <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
         <story></story>
     </Card>

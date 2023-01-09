@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Allll
   m_EditorClassIdentifier: 
-  name: Allll
+  name_: Allll
   poses:
   - {fileID: 21300000, guid: df8f1f75dcc6cf34f9a460f7373e7cc9, type: 3}
   - {fileID: 21300000, guid: 3d09dbd259b57354ab5f426eb84c6842, type: 3}

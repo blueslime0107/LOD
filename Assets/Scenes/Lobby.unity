@@ -12066,6 +12066,7 @@ MonoBehaviour:
     SubStage:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: bddf9ceee52b73e48a43bf97fc8074e5, type: 2}
+    - {fileID: 11400000, guid: 3e8b15bd15591ae4c9be098e4968495e, type: 2}
   FloorOfSocial:
     PlayerStage: {fileID: 0}
     rank1: 0

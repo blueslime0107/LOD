@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
-  m_Name: Tub
+  m_Name: Rectan
   m_EditorClassIdentifier: 
-  health: 5
-  breaks: 0500000000000000
-  char_sprites: {fileID: 11400000, guid: 83a4d27aee78b9d43a381f75b097b9be, type: 2}
+  health: 12
+  breaks: 080000000400000000000000
+  char_sprites: {fileID: 11400000, guid: ec145c8713564804c8e1bebceb88b957, type: 2}
   char_preCards:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5cab51ff28633de48aaa3b1d2e870a12, type: 2}
+  - {fileID: 11400000, guid: eb5228ace9796934e84a334f4825ab84, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

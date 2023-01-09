@@ -264,6 +264,8 @@ public class BattleCaculate : MonoBehaviour
             if(player != myChar || player != eneChar){
                 player.dice_Indi.gameObject.SetActive(true);
                 player.hp_Indi.gameObject.SetActive(true);
+                player.dice_Indi.onMouseDown = false;
+                player.dice_Indi.onMouseEnter = false;
             }
         }
         bm.ui.StartCoroutine("PanoraOff");

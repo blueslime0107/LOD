@@ -3,37 +3,31 @@
     <Card Code="21">
         <name>프로불펌러</name>
         <text>출처? 그딴게 왜 필요해</text>
-        <ability>[합 성공] 상대에게 '해킹당함'카드를 준다
-            [카드지정] 캐릭터가 '해킹당함' 카드를 소지하고 있으면
-            그 캐릭터가 가진 카드 중 하나를 골라, 효과를 얻는다</ability>
+        <ability>[카드지정] 상대의 카드중 하나를 골라 효과를 얻는다</ability>
         <story></story>
     </Card>
     <Card Code="22">
         <name>행동복사로봇</name>
         <text>그저 흉내내는거죠 강해진게 아닙니다</text>
-        <ability>[전투시작] 상대팀 캐릭터들중 가장 위력이 큰 캐릭터의 위력과 같아진다
-            5이상의 위력과 같아졌을때 다음턴엔 효과가 발동하지 않는다</ability>
+        <ability>[전투시작] 상대팀 캐릭터들중 가장 위력이 큰 캐릭터의 위력과 같아진다&#10;5이상의 위력과 같아졌을때 다음턴엔 효과가 발동하지 않는다</ability>
         <story></story>
     </Card>
     <Card Code="23">
         <name>File_Crashed</name>
         <text>%!@%*!^*#@$%!</text>
-        <ability>[전투끝] 랜덤한 카드효과를 얻는다</ability>
+        <ability>[전투시작] 랜덤한 카드효과를 얻는다</ability>
         <story></story>
     </Card>
     <Card Code="24">
         <name>보험</name>
         <text>가입하시면 절대 후회되지 않을겁니다!</text>
-        <ability>[획득] 체력 4 회복, 이후 자신팀의 카드뽑기부터 이 카드의 효과가 추가된다
-            [전투전개] 체력 1  깎임</ability>
+        <ability>[획득] 체력 4 회복, 이후 자신팀의 카드뽑기부터 이 카드의 효과가 추가된다</ability>
         <story></story>
     </Card>
     <Card Code="25">
         <name>미믹</name>
         <text>카드 맛있어!</text>
-        <ability>상대가 카드뽑기에서 카드를 뽑을때
-            카드를 얻은 캐릭터는 확률적으로 얻은 카드가 파괴되고 체력이 깎인다
-            얻은 카드의 가치가 높을수록 확률이 커지고, 체력이 많이 깎인다</ability>
+        <ability>상대가 카드뽑기에서 카드를 뽑을때&#10;카드를 얻은 캐릭터는 확률적으로 얻은 카드가 파괴되고 체력이 깎인다</ability>
         <story></story>
     </Card>
     <Card Code="26">
@@ -51,8 +45,7 @@
     <Card Code="28">
         <name>명현현상</name>
         <text>고치고 고쳐도 달라진건 없었어</text>
-        <ability>[전투시작] 체력 1~2 회복, 최대체력을 넘을경우
-            넘은만큼 카운트가 상승한다, 카운트가 3 이상일시 사망한다</ability>
+        <ability>[전투시작] 체력 1~2 회복, 최대체력을 넘을경우&#10;넘은만큼 카운트가 상승한다, 카운트가 3 이상일시 사망한다</ability>
         <story></story>
     </Card>
     <Card Code="29">
@@ -70,8 +63,7 @@
     <Card Code="31">
         <name>Assult Rifle-M16A5</name>
         <text>탄을 남기는거 좋은 생각이지 않을까?</text>
-        <ability>[합 시작] 자신위력이 상대위력보다 크면 자신위력을 상대위력까지 낮추고
-            낮춘만큼 위력의 여분주사위를 얻는다</ability>
+        <ability>[합 시작] 자신위력이 상대위력보다 크면 자신위력을 상대위력까지 낮추고&#10;낮춘만큼 위력의 여분주사위를 얻는다</ability>
         <story></story>
     </Card>
     <Card Code="32">
@@ -82,15 +74,13 @@
     </Card>
     <Card Code="33">
         <name>엑스칼리버-X</name>
-        <text>선택받는 자는 모르겠고
-            이거 겁다 쎈데?</text>
+        <text>선택받는 자는 모르겠고&#10;이거 겁나 쎈데?</text>
         <ability>[합 승리] 위력 2 상승</ability>
         <story></story>
     </Card>
     <Card Code="34">
         <name>아이기스-I</name>
-        <text>최고의 공격은
-            최고의 방어</text>
+        <text>최고의 공격은&#10;최고의 방어</text>
         <ability>[피해받음][무방비] 피해 3 감소</ability>
         <story></story>
     </Card>
@@ -108,7 +98,7 @@
     </Card>
     <Card Code="37">
         <name>솎아내기</name>
-        <text>방심하는 순간 그 뒤는 무시할 수 없어</text>
+        <text>먹기 좋게 잘라내면, 맛있어</text>
         <ability>[발동] 위력 1 감소, 확률적으로 체력 1 회복
             발동마다 확률이 낮아진다</ability>
         <story></story>
@@ -127,8 +117,7 @@
     </Card>
     <Card Code="40">
         <name>SA비상식량</name>
-        <text>이 간식이 참 맛있단말이야
-            양도 넉넉하고.. 고급재료를 썼어</text>
+        <text>이 간식이 참 맛있단말이야&#10;양도 넉넉하고.. 고급재료를 썼어</text>
         <ability>[획득] 최대체력 5 증가</ability>
         <story></story>
     </Card>

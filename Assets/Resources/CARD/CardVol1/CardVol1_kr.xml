@@ -75,15 +75,13 @@
     <Card Code="12">
         <name>시들어진 네잎클로버</name>
         <text>이곳의 운은 이미 죽은지 오래에요</text>
-        <ability>[발동] 자신위력이 2 이하일때
-            5위력 이상의 모든 캐릭터들의 주사위를 파괴한다</ability>
+        <ability>[발동] 자신위력이 2 이하일때&#10;5위력 이상의 모든 캐릭터들의 주사위를 파괴한다</ability>
         <story></story>
     </Card>
     <Card Code="13">
         <name>현실부정</name>
         <text>아니 그럴리 없어 한번만 다시 기회를..</text>
-        <ability>[합 시작] 자신위력이 상대위력보다 낮으면 주사위를 다시 굴린다
-            이후 [합 승리]시 피해만큼 체력회복</ability>
+        <ability>[합 시작] 자신위력이 상대위력보다 낮으면 주사위를 다시 굴린다&#10;이후 [합 승리]시 피해만큼 체력회복</ability>
         <story></story>
     </Card>
     <Card Code="14">

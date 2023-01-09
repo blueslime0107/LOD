@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Navy
   m_EditorClassIdentifier: 
-  name: Navy
+  name_: Navy
   poses:
   - {fileID: 21300000, guid: b5931505c7c82104bada50f33f825d40, type: 3}
   - {fileID: 21300000, guid: 8bf089844ad20ca418c2ac764a5ad841, type: 3}

@@ -1,140 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CardVol Filename="CardVol1">
-    <Card Code="1">
-        <name>Perfect Student</name>
-        <text>should be perfect..</text>
-        <ability>[Battle Start] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+    <Card Code="41">
+        <name>완벽한 모범생</name>
+        <text>완벽해야 되요</text>
+        <ability>[전투 시작] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
         <story></story>
     </Card>
-    <Card Code="2">
-        <name>ReverseWorld</name>
-        <text>이 뒷편의 세계.. 궁금하지 않나요?</text>
-        <ability>[캐릭터 지정] 전투당 한번, 캐릭터의 위력을 위력-7 의 절댓값으로 바꾼다
-            [전투전개] 캐릭터 지정을 안했다면 자신을 대상으로 캐릭터 지정이 발동된다</ability>
+    <Card Code="42">
+        <name>Book scavenger</name>
+        <text>All of these books are&#10;had an owner</text>
+        <ability>[Any Death] Among the dead character's cards&#10;Take the first card they got</ability>
         <story></story>
     </Card>
-    <Card Code="3">
-        <name>EYE CCTV</name>
-        <text>멀리서 관전하는게 얼마나 재밌는데</text>
-        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
+    <Card Code="43">
+        <name>Security CCTV</name>
+        <text>Card? What are you doing in battle?</text>
+        <ability> HP -2 when acquiring a card regardless of team</ability>
         <story></story>
     </Card>
-    <Card Code="4">
-        <name>Spoon Murder</name>
-        <text>One hit.. and one hit</text>
-        <ability>[발동중][합 시작] 공격일때 상대 주사위 파괴, 위력이 1이 된다</ability>
+    <Card Code="44">
+        <name>Hit and run</name>
+        <text>Put away that weapon!</text>
+        <ability>[Clash Lose][Attacking] take damage to 0</ability>
         <story></story>
     </Card>
-    <Card Code="5">
-        <name>Dagger of instinct</name>
-        <text>Dagger has a Willingness</text>
-        <ability>[피해받음]피해를 1 줄이고, 상대에게 1 피해를 준다
-            무방비시 피해를 절반 줄이고, 줄인만큼 상대에게 피해를 준다</ability>
+    <Card Code="45">
+        <name>Meat shield</name>
+        <text>Go meat shield! use Nothing!</text>
+        <ability>[Active]Reduce 2 HP&#10;[In action][Get damaged] Set the damage to 0, and turn off the activation state</ability>
         <story></story>
     </Card>
-    <Card Code="6">
-        <name>Stone tape</name>
-        <text>Did you killed me?</text>
-        <ability>[사망] 사망 직전 마지막으로 공격한 캐릭터에게 
-            원한([전투시작]2 카운트 상승, 카운트 만큼 피해받음)을 준다</ability>
+    <Card Code="46">
+        <name>Sospirando</name>
+        <text>very sad...</text>
+        <ability>[Get damaged] Recovers the HP of all teams except yourself by half the damage&#10;[Death] All own teams Decrease 4 HP</ability>
         <story></story>
     </Card>
-    <Card Code="165">
-        <name>Rancor</name>
-        <text>I'll kill you..</text>
-        <ability>[전투시작]2 카운트 상승, 카운트 만큼 피해받음</ability>
-        <story></story>
-    </Card>
-    <Card Code="7">
-        <name>Grave Robber</name>
-        <text>Sorry.. But I need your power</text>
-        <ability>[자신팀][사망] 2~6 위력 여분 주사위를 얻는다
-            [상대팀 사망] 카드 획득</ability>
-        <story></story>
-    </Card>
-    <Card Code="8">
-        <name>Desire to live</name>
-        <text>last strength</text>
-        <ability>[사망] 체력 1로 살아남고 1턴 동안 위력 + 4, 피해를 받지 않음</ability>
-        <story></story>
-    </Card>
-    <Card Code="9">
-        <name>Human trafficking</name>
-        <text>Here.. take this</text>
-        <ability>[발동]체력을 0~1 깎고, 위력을 1 올린다</ability>
-        <story></story>
-    </Card>
-    <Card Code="10">
-        <name>Merchant Fixer</name>
-        <text>Here is a medicine!
-            Don't think about behind me!
-        </text>
-        <ability>[획득]체력 + 7
-            [전투시작] 4턴마다 4 피해를 받는다 </ability>
-        <story></story>
-    </Card>
-    <Card Code="11">
-        <name>The world's best alchemy</name>
-        <text>Gather your blood</text>
-        <ability>[피해발생] 피해만큼 카운트 상승
-            [발동] 카운트가 15 소비하고 카드 획득</ability>
-        <story></story>
-    </Card>
-    <Card Code="12">
-        <name>Tained Four-leaf Clover</name>
-        <text>The luck here is long gone</text>
-        <ability>[발동] 자신위력이 2 이하일때
-            5위력 이상의 모든 캐릭터들의 주사위를 파괴한다</ability>
-        <story></story>
-    </Card>
-    <Card Code="13">
-        <name>Reality denial</name>
-        <text>No it not be.. give me one chance!</text>
-        <ability>[합 시작] 자신위력이 상대위력보다 낮으면 주사위를 다시 굴린다
-            이후 [합 승리]시 피해만큼 체력회복</ability>
-        <story></story>
-    </Card>
-    <Card Code="14">
-        <name>M.A.D</name>
-        <text>Now I am become Death, the destroyer of worlds</text>
-        <ability>[합 패배] 모든 상대팀 캐릭터에게 1 피해를 준다</ability>
-        <story></story>
-    </Card>
-    <Card Code="15">
-        <name>Bloody Memory</name>
-        <text>I didn't want to recall those memories</text>
-        <ability>[공격받음] 상대에게 피해의 절반(올림)을 준다</ability>
-        <story></story>
-    </Card>
-    <Card Code="16">
-        <name>Fatal single blow</name>
-        <text>방심하는 순간 그 뒤는 무시할 수 없어</text>
-        <ability>[피해줌] 피해 2 이하일시 두 배가 된다</ability>
-        <story></story>
-    </Card>
-    <Card Code="17">
-        <name>NerveDrone</name>
-        <text>/violence detected
-            /Evasive actived</text>
-        <ability>[피해받음] 피해 2 이하일시 회피한다</ability>
-        <story></story>
-    </Card>
-    <Card Code="18">
-        <name>Fair blood donor</name>
-        <text>Is this really fair right?</text>
-        <ability>[발동][일회성] 생존한 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
-        <story></story>
-    </Card>
-    <Card Code="19">
-        <name>눈알CCTV</name>
-        <text>멀리서 관전하는게 얼마나 재밌는데</text>
-        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
-        <story></story>
-    </Card>
-    <Card Code="20">
-        <name>책장정리</name>
-        <text>이 책들 어지렆히면 안되죠</text>
-        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
+    <Card Code="49">
+        <name>Feroce</name>
+        <text>roughly...</text>
+        <ability>[Battle start] Increases the 1 power of all own teams&#10;[Clash Lose] The effect for the next 1 turn is changed to ([Battle start] Power fixed to 1)</ability>
         <story></story>
     </Card>
     

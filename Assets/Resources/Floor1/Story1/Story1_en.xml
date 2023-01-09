@@ -11,14 +11,29 @@
         <sub_text2>Yeah I'm alone</sub_text2>
     </Stage>
     <Stage id="2">
-        <title></title>
-        <sub_text></sub_text>
-        <sub_text2></sub_text2>
+        <title>Now we are two!</title>
+        <sub_text>it's not hard</sub_text>
+        <sub_text2>Did u have friends?</sub_text2>
     </Stage>
     <Stage id="4">
         <title>Let's fight sincerely!</title>
         <sub_text>Now the real battle begin</sub_text>
         <sub_text2>Good Luck!</sub_text2>
+    </Stage>
+    <Stage id="5">
+        <title>The Gunners</title>
+        <sub_text>And a spoon...</sub_text>
+        <sub_text2>Bang! Bang!</sub_text2>
+    </Stage>
+    <Stage id="6">
+        <title>Tained Collecter</title>
+        <sub_text>Get a card</sub_text>
+        <sub_text2>and be stronger..</sub_text2>
+    </Stage>
+    <Stage id="7">
+        <title>Nemo Fixer</title>
+        <sub_text>Wow! new Character!</sub_text>
+        <sub_text2></sub_text2>
     </Stage>
     <Stage id="10">
         <title>It's her</title>

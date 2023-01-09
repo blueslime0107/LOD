@@ -8,6 +8,7 @@ public class Card31 : CardAbility
     public override void OnClashStart(CardPack card, BattleCaculate battle,Player enemy)
     {
         if(card.player.dice <= enemy.dice || card.active){return;}
+        if(enemy.dice <= 0){return;}
         Dice newDice = dice; 
         newDice.dice_value = card.player.dice - enemy.dice;
         card.player.SetDice(enemy.dice);

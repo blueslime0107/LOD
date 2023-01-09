@@ -11,14 +11,29 @@
         <sub_text2>어 혼자왔어</sub_text2>
     </Stage>
     <Stage id="2">
-        <title></title>
-        <sub_text></sub_text>
-        <sub_text2></sub_text2>
+        <title>이젠 둘이다!</title>
+        <sub_text>그렇다고 어렵진 않아!</sub_text>
+        <sub_text2>너 친구있었니?</sub_text2>
     </Stage>
     <Stage id="4">
         <title>진심으로 싸우자!</title>
         <sub_text>이제부턴 실전이야</sub_text>
         <sub_text2>행운을 빌어!</sub_text2>
+    </Stage>
+    <Stage id="5">
+        <title>총든자들</title>
+        <sub_text>그리고 숟가락...</sub_text>
+        <sub_text2>따당따당!</sub_text2>
+    </Stage>
+    <Stage id="6">
+        <title>더럽혀진 수집가</title>
+        <sub_text>카드를 모아서</sub_text>
+        <sub_text2>강해진다..</sub_text2>
+    </Stage>
+    <Stage id="7">
+        <title>네모네모 해결사</title>
+        <sub_text>와! 신캐!</sub_text>
+        <sub_text2></sub_text2>
     </Stage>
     <Stage id="10">
         <title>그녀다</title>

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Piping
   m_EditorClassIdentifier: 
-  name: Piping
+  name_: Piping
   poses:
   - {fileID: 21300000, guid: 4c20fc75999512f4b8547ec45866dd6d, type: 3}
   - {fileID: 21300000, guid: f9398779f4d062f42830efe2742d7924, type: 3}
