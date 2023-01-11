@@ -115,10 +115,10 @@ public class Interaction : MonoBehaviour
 
     public void SkipText(){
         if(dataBase.stageManager.play_stage.victoryed){
-            sceneMove.MoveLobby();
+            sceneMove.Move("Lobby");
         }
         else{
-            sceneMove.MoveBattle();
+            sceneMove.Move("Lobby");
         }
         
     }

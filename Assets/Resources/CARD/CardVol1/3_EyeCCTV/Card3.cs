@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card3 : CardAbility
 {
 
-    public override void WhoEverDamage(CardPack card, Damage damage)
+    public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match)
     {
         if(damage.value >= 3){
             card.player.AddHealth(2);

@@ -176,9 +176,9 @@ public class Lobby : MonoBehaviour
     public void GetStory(){
         sdm.Play("Snap");
         if(stageManager.play_stage.beforeStory != null)
-        {sceneM.MoveStory();}
+        {sceneM.Move("Talk");}
         else{
-            sceneM.MoveBattle();
+            sceneM.Move("Battle");
         }
     }
 

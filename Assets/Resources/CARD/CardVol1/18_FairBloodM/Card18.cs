@@ -24,4 +24,24 @@ public class Card18 : CardAbility
         match.backColorEff.changeColor(255,0,0,230);
         card.active = true;
     }
+
+    public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match)
+    {
+        card.count = 0;
+        foreach(Player player in match.players){
+            card.count += player.health;
+            
+        }
+        card.count = (int)card.count/match.players.Count;
+    }
+
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
+    {
+        card.count = 0;
+        foreach(Player playe in match.players){
+            card.count += playe.health;
+            
+        }
+        card.count = (int)card.count/match.players.Count;
+    }
 }

@@ -168,7 +168,7 @@ public class Player : MonoBehaviour
             }
         foreach(Player play in battleManager.players){
             for(int i = 0;i<play.cards.Count;i++){
-                play.cards[i].ability.WhoEverDamage(play.cards[i],damage);
+                play.cards[i].ability.WhoEverDamage(play.cards[i],damage,battleManager);
             }
         }
 
@@ -201,6 +201,7 @@ public class Player : MonoBehaviour
 
     public void AddHealth(int value){
         health += value;
+        Debug.Log(max_health);
         if(health > max_health){
             health = max_health;
         }

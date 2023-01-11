@@ -8,14 +8,12 @@ public class SpdCard : CardAbility
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         Dice copyDice = new Dice();
-        Debug.Log(card.count);
         for(int i=0;i<card.count;i++)
         {
             copyDice = new Dice();
             copyDice.dice_value = (int)Random.Range(0,6)+1;
             card.player.dice_Indi.put_subDice(copyDice);
             card.count -= 1;
-            Debug.Log(card.count);
         }
     }
     

@@ -93,10 +93,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78.94
+  m_fontSize: 72
   m_fontSizeBase: 78.94
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -430,7 +430,6 @@ MonoBehaviour:
   isLeft: 0
   battleManager: {fileID: 0}
   card: {fileID: 0}
-  card_overImg: {fileID: 2521707822599360930}
   card_light: {fileID: 283580428401910299}
   block_obj: {fileID: 1756412048902173876}
   countObj: {fileID: 8802849931590735062}
@@ -834,6 +833,7 @@ MonoBehaviour:
   tain: {fileID: 4929782904987449361}
   name_: {fileID: 6080415865224431928}
   message: {fileID: 7761564409301969970}
+  loaded: 0
 --- !u!1 &7887111586349471539
 GameObject:
   m_ObjectHideFlags: 0

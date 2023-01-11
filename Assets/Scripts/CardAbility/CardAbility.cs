@@ -25,6 +25,8 @@ public class CardAbility : ScriptableObject
     public bool usingCount;
     public int pre_count;
 
+    [Space(4f),Header("AI abiliby")]
+
     [Space(15f),Header ("Ability Sprite")]
     public Sprite overCard;
     public GameObject[] effect;
@@ -67,7 +69,7 @@ public class CardAbility : ScriptableObject
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
     public virtual void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match){}
     public virtual void OnDamaging(CardPack card,  Player defender, Damage damage, BattleManager match){}
-    public virtual void WhoEverDamage(CardPack card, Damage damage){}
+    public virtual void WhoEverDamage(CardPack card, Damage damage, BattleManager match){}
 
     public virtual void OnDeath(CardPack card, Player dead_player, BattleManager match){}
 

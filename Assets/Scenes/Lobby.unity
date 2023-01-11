@@ -182,6 +182,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6368305238210495195, guid: cdf744608d0503343b889af84d30ecbf, type: 3}
+      propertyPath: fade_obj
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368305238210495195, guid: cdf744608d0503343b889af84d30ecbf, type: 3}
+      propertyPath: setting_menu
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdf744608d0503343b889af84d30ecbf, type: 3}
 --- !u!4 &14384632 stripped
@@ -12054,6 +12062,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: e5c3ce20ace5e234bb000a6d47392a36, type: 2}
+    - {fileID: 11400000, guid: 845aae95fd4d54f4d87394e75c8d57c9, type: 2}
   FloorOfResource:
     PlayerStage: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
     rank1: 3

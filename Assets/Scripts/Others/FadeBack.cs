@@ -6,41 +6,30 @@ using UnityEngine.UI;
 public class FadeBack : MonoBehaviour
 {
     [SerializeField] Image blackImg;
-    [SerializeField] Animator animator;
+    Animator animator;
     [SerializeField] ParticleSystem fether;
-    public GameObject backObject;
-    public GameObject backGround;
 
-    void Start(){
-        changeBackGround(backGround);
+    private void Awake() {
+        animator = gameObject.GetComponent<Animator>();
     }
 
-    
-
-    public void FadeIn(){
-        animator.SetBool("FadeIn",true);
+    public void FadeIn(){ // 장면 들어갈때
+    Debug.Log(animator.GetBool("FadeOut"));
+    animator.SetBool("FadeOut",false);
+        gameObject.SetActive(false);
+        
         gameObject.SetActive(true);
         fether.Play();
     }
 
-    public void FadeOut(){
-        animator.SetBool("FadeIn",false);
+    public void FadeOut(){ // 장면 나갈때
+    Debug.Log(animator.GetBool("FadeOut"));
+        gameObject.SetActive(false);
         gameObject.SetActive(true);
+        animator.SetBool("FadeOut",true);
+        Debug.Log(animator.GetBool("FadeOut"));
         fether.Play();
     }
 
-    void changeBackGround(GameObject bg){
-        StartCoroutine(changeBg(bg));
-    }
 
-    IEnumerator changeBg(GameObject bg){
-        FadeIn();
-        yield return new WaitForSeconds(2f);
-        GameObject obj = Instantiate(bg);
-        obj.transform.SetParent(backObject.transform);
-        obj.transform.SetAsFirstSibling();
-        Destroy(backObject.transform.GetChild(1).gameObject);
-        FadeOut();
-        yield return null;
-    }
 }

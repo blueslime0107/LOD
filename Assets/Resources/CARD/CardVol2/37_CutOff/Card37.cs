@@ -8,7 +8,7 @@ public class Card37 : CardAbility
 
     public override void CardActivate(CardPack card, BattleManager match)
     {
-        if(card.player.dice >= 1){
+        if(card.player.dice > 1){
             card.player.AddDice(-1);
             
             int rand = (int)Random.Range(0f,101f);

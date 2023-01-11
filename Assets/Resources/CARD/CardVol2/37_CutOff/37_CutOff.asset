@@ -17,8 +17,7 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC18E\uC544\uB0B4\uAE30"
-  message: "\uBC29\uC2EC\uD558\uB294 \uC21C\uAC04 \uADF8 \uB4A4\uB294 \uBB34\uC2DC\uD560
-    \uC218 \uC5C6\uC5B4"
+  message: "\uBA39\uAE30 \uC88B\uAC8C \uC798\uB77C\uB0B4\uBA74, \uB9DB\uC788\uC5B4"
   ability_message: "[\uBC1C\uB3D9] \uC704\uB825 1 \uAC10\uC18C, \uD655\uB960\uC801\uC73C\uB85C
     \uCCB4\uB825 1 \uD68C\uBCF5\r\n            \uBC1C\uB3D9\uB9C8\uB2E4 \uD655\uB960\uC774
     \uB0AE\uC544\uC9C4\uB2E4"
@@ -26,7 +25,7 @@ MonoBehaviour:
   tained: 0
   price: 0
   illust: {fileID: 21300000, guid: 03f62d884290eae43bc58e78ea03f404, type: 3}
-  usingCount: 0
+  usingCount: 1
   pre_count: 100
   overCard: {fileID: 0}
   effect: []

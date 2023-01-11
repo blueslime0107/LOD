@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/2평행세계", order = 2)]
 public class Card2 : CardAbility
 {
     public override void StartMatch(CardPack card, BattleManager match)

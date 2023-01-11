@@ -224,7 +224,7 @@ public class BattleManager : MonoBehaviour
             ui.Dice6.gameObject.SetActive(false);
             
             StopCoroutine("selectingCard");
-            ui.battleStartButton_posing.ActiveOpenClose();
+            ui.battleStartButton_posing.MoveToOrigin();
             ui.VisualCardPanel(true);
             BattlePreReset();
             # endregion
@@ -248,7 +248,6 @@ public class BattleManager : MonoBehaviour
             foreach(Dice die in dices){
                 die.StopRollingDice();
             }
-
             # endregion
             # region 주사위 지정
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
@@ -391,10 +390,10 @@ public class BattleManager : MonoBehaviour
             gameManager.sm.play_stage.noPrice = true;
         }
         if(gameManager.sm.play_stage.afterStory != null){
-            gameManager.sceneMove.MoveStory();
+            gameManager.sceneMove.Move("Talk");
         }
         else{
-            gameManager.sceneMove.MoveLobby();
+            gameManager.sceneMove.Move("Lobby");
         }
                  
     }
@@ -616,7 +615,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator selectingCard(){
         ui.VisualCardPanel(false);
-        ui.battleStartButton_posing.ActiveOpenClose();
+        ui.battleStartButton_posing.MoveToMove();
         while(true){
             if(Input.GetMouseButtonDown(0)){
                 ui.VisualCardPanel(true);

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Cards/11이세상 최고의 연금술", order =11)]
 public class Card11 : CardAbility
 {
-    public override void WhoEverDamage(CardPack card, Damage damage)
+    public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match)
     {
         card.count += damage.value;
         if(card.count >= 15){card.count = 15;}

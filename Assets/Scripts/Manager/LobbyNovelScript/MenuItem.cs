@@ -17,6 +17,7 @@ public class MenuItem : MonoBehaviour
 
     public void ActiveOpenClose(){
         moveStat = !moveStat;
+        if(!gameObject.activeSelf){return;}
         if(moveStat)
             StartCoroutine("MoveMove");
         else
@@ -29,6 +30,7 @@ public class MenuItem : MonoBehaviour
         while(true){
             rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition,move_pos,speed*Time.deltaTime);
             if(Vector2.Distance(rect.anchoredPosition,move_pos) <= 2){
+                rect.anchoredPosition = move_pos;
                 break;
             }
             yield return null;
@@ -42,11 +44,30 @@ public class MenuItem : MonoBehaviour
         while(true){
             rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition,origin_pos,speed*Time.deltaTime);
             if(Vector2.Distance(rect.anchoredPosition,origin_pos) <= 2){
+                rect.anchoredPosition = origin_pos;
                 break;
             }
             yield return null;
         }
         yield return null;
         
+    }
+
+    public void MoveToMove(){
+        if(gameObject.activeSelf){
+            StartCoroutine("MoveMove");
+        }
+        else{
+            rect.anchoredPosition = move_pos;
+        }
+    }
+
+    public void MoveToOrigin(){
+        if(gameObject.activeSelf){
+            StartCoroutine("MoveOrigin");
+        }
+        else{
+            rect.anchoredPosition = origin_pos;
+        }
     }
 }

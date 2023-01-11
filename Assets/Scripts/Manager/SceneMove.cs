@@ -6,16 +6,20 @@ using UnityEngine.SceneManagement;
 public class SceneMove : MonoBehaviour
 {
     public GameObject setting_menu;
+    public FadeBack fade_obj;
 
-    public void MoveLobby(){
-        SceneManager.LoadScene("Lobby");
+    // public void Start(){
+    //     fade_obj.FadeIn();
+    // }
+
+    public void Move(string scene){
+        StartCoroutine(MoveScene(scene));
     }
 
-    public void MoveStory(){
-        SceneManager.LoadScene("Talk");
+    IEnumerator MoveScene(string scene){
+        //fade_obj.FadeOut();
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(scene);
     }
 
-    public void MoveBattle(){
-        SceneManager.LoadScene("Battle");
-    }
 }
