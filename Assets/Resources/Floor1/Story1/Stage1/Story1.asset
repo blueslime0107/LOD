@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a299d3a91b57b2f489eec8be86878547, type: 3}
+  m_Name: Story1
+  m_EditorClassIdentifier: 
+  scriptName: 
+  text_path:
+  - Floor1/Story1/Stage1/kr.xml
+  - Floor1/Story1/Stage1/kr.xml
+  charStd:
+  - {fileID: 11400000, guid: f1121259c24d6f44d9b711e43c1d00ee, type: 2}
+  - {fileID: 11400000, guid: f8405403ad2c7bb46bdefbbd5f9996d0, type: 2}
+  charPos:
+  - -6
+  - 6

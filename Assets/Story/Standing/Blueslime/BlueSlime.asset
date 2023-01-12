@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad0d5d37cf578c4f873013833b73615, type: 3}
   m_Name: BlueSlime
   m_EditorClassIdentifier: 
+  name_: "\uD30C\uC2AC\uB9AC"
   character:
   - {fileID: 21300000, guid: 4402b3f7c36b3074f9ebb894f35dbff9, type: 3}
   - {fileID: 21300000, guid: 631de3989fb5c4743a7c501c1cf83647, type: 3}

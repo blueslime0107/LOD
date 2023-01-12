@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad0d5d37cf578c4f873013833b73615, type: 3}
   m_Name: JoRang2
   m_EditorClassIdentifier: 
+  name_: "\uC870\uB7AD\uC774"
   character:
   - {fileID: 21300000, guid: adb60d8bedbe06f48bb6bdca399e4c47, type: 3}
   - {fileID: 21300000, guid: fa971bcda9d01f644ad051bfb0b0878e, type: 3}

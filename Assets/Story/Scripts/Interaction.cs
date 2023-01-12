@@ -8,26 +8,35 @@ public class Interaction : MonoBehaviour
 {
     public DTManager dataBase;
     public SceneMove sceneMove;
-    [SerializeField] GameObject parentStanding;
     [SerializeField] GameObject standing;
 
     [SerializeField]TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI contentText;
-    List<StandingScript> standing_list = new List<StandingScript>();  
+    [SerializeField]List<Standing> stands = new List<Standing>();  
     int index = 0;
     bool type = false;
     string textadd = "";
 
     Color disAbleColor = new Color(125/255f,125/255f,125/255f);
 
-    public void Start(){
-        for(int i=0;i<dataBase.story.char_list.Length;i++){
-            GameObject obj = Instantiate(standing);
-            StandingScript script = obj.GetComponent<StandingScript>();
-            script.gameObject.transform.position += Vector3.right*dataBase.story.char_x[i];
-            standing_list.Add(script);
-        }
-        NextText();
+    public void showCommand(string name, int pos, int flip){
+        GameObject obj = Instantiate(standing);
+        Standing stand = obj.GetComponent<Standing>();
+        stand.gameObject.transform.position = Vector3.right*pos;
+        stand.gameObject.SetActive(true);
+        stand.name_ = name;
+        stand.spriteRenderer.flipX = (flip.Equals(0)) ? false : true;
+        stands.Add(stand);
+    }
+
+    public void hideCommand(string name){
+        Standing stand = stands.Find(x => x.name_.Equals(name));
+        stand.gameObject.SetActive(false);
+    }
+
+    public void standCommand(string name, int feel){
+        Standing stand = stands.Find(x => x.name_.Equals(name));
+        stand.spriteRenderer.sprite = dataBase.story.charStd.Find(x => x.name_.Equals(name)).character[feel];
     }
 
     private void Update() {
@@ -38,7 +47,6 @@ public class Interaction : MonoBehaviour
                 contentText.text = textadd;
             }
             else{
-                index += 1;
                 NextText();
             }
         }
@@ -48,10 +56,10 @@ public class Interaction : MonoBehaviour
         type = true;
         
         for(int i=0;i<=text.Length;i++){
-            try
-            {if(text[i].Equals('<')){
-                i += 4;
-            }
+            try{
+            // {if(text[i].Equals('<')){
+            //     i += 4;
+            // }
             contentText.text = text.Substring(0,i);
             
             }
@@ -63,57 +71,53 @@ public class Interaction : MonoBehaviour
         type = false;
     }
 
-    void PreSet(){
-        standing_list[dataBase.dialogDic[index].char_sprite].spriteRenderer.sprite = dataBase.story.char_list[dataBase.dialogDic[index].char_sprite].character[dataBase.dialogDic[index].char_condi];
-        nameText.text = dataBase.dialogDic[index].name;
-        textadd = "";
-        foreach(string text in dataBase.dialogDic[index].context){
-            textadd += text;
-            textadd += "<br>";
-        }
-        StartCoroutine(typing(textadd));
-    }
+    // void PreSet(){
+    //     stands[dataBase.dialogDic[index].char_sprite].spriteRenderer.sprite = dataBase.story.charStd[dataBase.dialogDic[index].char_sprite].character[dataBase.dialogDic[index].char_feel];
+    //     nameText.text = dataBase.dialogDic[index].name;
+    //     // textadd = "";
+    //     // foreach(string text in dataBase.dialogDic[index].context){
+    //     //     textadd += text;
+    //     //     textadd += "<br>";
+    //     // }
+    //     textadd += dataBase.dialogDic[index].context;
+    //     StartCoroutine(typing(textadd));
+    // }
 
-    void NextText(){
-        try{foreach(StandingScript stand in standing_list){
-            if(standing_list[dataBase.dialogDic[index].char_sprite].Equals(stand)){
-                standing_list[dataBase.dialogDic[index].char_sprite].spriteRenderer.sprite = dataBase.story.char_list[dataBase.dialogDic[index].char_sprite].character[dataBase.dialogDic[index].char_condi];
-                standing_list[dataBase.dialogDic[index].char_sprite].spriteRenderer.color = Color.white;
+    public void NextText(){
+        if(index >= dataBase.dialogDic.Count){SkipText(); return;}
+        foreach(Standing stand in stands){
+            if(dataBase.dialogDic[index].name.Equals(stand.name_)){
+                stand.spriteRenderer.sprite = dataBase.story.charStd.Find(x => x.name_.Equals(stand.name_)).character[dataBase.dialogDic[index].char_feel];
+                stand.spriteRenderer.color = Color.white;
             }
             else{
                 stand.spriteRenderer.color = disAbleColor;
             }
         }
-        standing_list[dataBase.dialogDic[index].char_sprite].spriteRenderer.sprite = dataBase.story.char_list[dataBase.dialogDic[index].char_sprite].character[dataBase.dialogDic[index].char_condi];
-        if(dataBase.dialogDic[index].char_show.Equals(1)){
-            standing_list[dataBase.dialogDic[index].char_sprite].gameObject.SetActive(true);
-        }
-        if(dataBase.dialogDic[index].char_show.Equals(2)){
-            standing_list[dataBase.dialogDic[index].char_sprite].gameObject.SetActive(false);
-        }
+        //stands[dataBase.dialogDic[index].char_sprite].spriteRenderer.sprite = dataBase.story.charStd[dataBase.dialogDic[index].char_sprite].character[dataBase.dialogDic[index].char_feel];
         
-        if(dataBase.dialogDic[index].name.Equals("#")){
-            index += 1;
-            NextText();
-            return;
-        }
+        // if(dataBase.dialogDic[index].name.Equals("#")){
+        //     index += 1;
+        //     NextText();
+        //     return;
+        // }
         
         nameText.text = dataBase.dialogDic[index].name;
         
         textadd = "";
-        foreach(string text in dataBase.dialogDic[index].context){
-            textadd += text.Replace('/',',');
-            textadd += "<br>";
-        }
-        Debug.Log(dataBase.stageManager.play_stage.victoryed);
+        // foreach(string text in dataBase.dialogDic[index].context){
+        //     textadd += text.Replace('/',',');
+        //     textadd += "<br>";
+        // }
+        textadd += dataBase.dialogDic[index].context;
+        //Debug.Log(dataBase.stageManager.play_stage.victoryed);
 
-        StartCoroutine(typing(textadd));}
-        catch{
-            SkipText();
-        }
+        StartCoroutine(typing(textadd));
+        index += 1;
     }
 
     public void SkipText(){
+        if(dataBase.stageManager == null){return;}
         if(dataBase.stageManager.play_stage.victoryed){
             sceneMove.Move("Lobby");
         }

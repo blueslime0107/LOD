@@ -7,12 +7,14 @@ public class Dialog
 {
     [Tooltip("캐릭터")]
     public string name;
+    [Tooltip("스탠드")]
+    public int char_feel;
+    [Tooltip("위치")]
+    public int char_pos;
     [Tooltip("대사")]
-    public string[] context;
-    [Tooltip("대사")]
-    public int char_sprite;
-    [Tooltip("대사")]
-    public int char_condi;
+    public string context;
+    
+    
 
     public int char_show;
 

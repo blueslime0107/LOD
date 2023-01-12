@@ -17,9 +17,9 @@ public class SceneMove : MonoBehaviour
     }
 
     IEnumerator MoveScene(string scene){
-        //fade_obj.FadeOut();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene(scene);
+        
     }
 
 }
