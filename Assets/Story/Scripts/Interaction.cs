@@ -122,7 +122,7 @@ public class Interaction : MonoBehaviour
             sceneMove.Move("Lobby");
         }
         else{
-            sceneMove.Move("Lobby");
+            sceneMove.Move("Battle");
         }
         
     }

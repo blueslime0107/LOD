@@ -10,15 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a299d3a91b57b2f489eec8be86878547, type: 3}
-  m_Name: Story1
+  m_Name: Bef_Story
   m_EditorClassIdentifier: 
-  scriptName: 
-  text_path:
-  - Floor1/Story1/Stage1/kr.xml
-  - Floor1/Story1/Stage1/kr.xml
+  texts:
+  - {fileID: 4900000, guid: c1fc4224a2ac33848a0ac4a5bdf6e99f, type: 3}
+  - {fileID: 4900000, guid: c1fc4224a2ac33848a0ac4a5bdf6e99f, type: 3}
   charStd:
   - {fileID: 11400000, guid: f1121259c24d6f44d9b711e43c1d00ee, type: 2}
   - {fileID: 11400000, guid: f8405403ad2c7bb46bdefbbd5f9996d0, type: 2}
-  charPos:
-  - -6
-  - 6

@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour
     public Stage play_stage; // 플레이 할 스테이지
     public Stage player_battleCard; // 플레이어 카드
     public List<CardAbility> player_cardDic;
+    public List<CardAbility> collected_card;
 
     public Floor FloorOfBattle;
     public Floor FloorOfResource;
@@ -81,6 +82,10 @@ public class StageManager : MonoBehaviour
             
         }
 
+    }
+
+    public void AddCardDic(List<CardAbility> cards){
+        player_cardDic.AddRange(cards);
     }
 
 }

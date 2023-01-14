@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Settings;
 
@@ -22,7 +24,8 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
     [SerializeField]GameObject playerCardPanel;
     [SerializeField]CardUI[] player_cards = new CardUI[7];
 
-    
+    public Slider priceGague;
+    public TextMeshProUGUI price_text;
 
     string curLanguage;
 
@@ -74,10 +77,16 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
 
     public void RenderSelectCard(){
         Debug.Log("RenderSelectCard");
+        
         if(cardSelecting){
+            priceGague.maxValue = selectingChar.max_price;
+            priceGague.value = selectingChar.getCardPriceSum();
+            price_text.text = priceGague.value.ToString() + "/" + priceGague.maxValue.ToString();
             foreach(CardPanelCard item in objList){
             item.cardSelecting = true;
             }
+            priceGague.gameObject.SetActive(true);
+            price_text.gameObject.SetActive(true);
             playerCardPanel.SetActive(true);
             for(int i=0;i<selectingChar.char_preCards.Length;i++){
                 if(selectingChar.char_preCards[i] != null){
@@ -94,6 +103,8 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             foreach(CardPanelCard item in objList){
             item.cardSelecting = false;
             }
+            priceGague.gameObject.SetActive(false);
+            price_text.gameObject.SetActive(false);
             playerCardPanel.SetActive(false);
         }
     }

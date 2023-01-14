@@ -25,7 +25,7 @@ MonoBehaviour:
     \uCE90\uB9AD\uD130 \uC9C0\uC815\uC774 \uBC1C\uB3D9\uB41C\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 10
   illust: {fileID: 21300000, guid: dadfe44d6d76ba24a98f1b6c47e28a19, type: 3}
   usingCount: 0
   pre_count: 0

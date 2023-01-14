@@ -9,6 +9,8 @@ public class Lobby : MonoBehaviour
     public int floorNum;
     public StageManager stageManager;
 
+    [SerializeField] YouGetACard youGetACard;
+
     [SerializeField] SceneMove sceneM;
     [SerializeField] GameObject darScreen;
     [SerializeField] MenuItem battle_table;
@@ -17,9 +19,6 @@ public class Lobby : MonoBehaviour
     [SerializeField] MenuItem card_table;
 
     public  MenuCard menuCard;
-
-
-
 
     [SerializeField] MenuItem enemyCard;
     [SerializeField] MenuItem playerCard;
@@ -56,6 +55,12 @@ public class Lobby : MonoBehaviour
                 player = stageManager.FloorOfResource.PlayerStage; break;
             case 3:
                 player = stageManager.FloorOfSocial.PlayerStage; break;
+        }
+        if(stageManager.collected_card.Count > 0){
+            youGetACard.cardAbility.AddRange(stageManager.collected_card);
+            youGetACard.GeTheCard();
+            stageManager.AddCardDic(stageManager.collected_card);
+            stageManager.collected_card.Clear();
         }
     }
 

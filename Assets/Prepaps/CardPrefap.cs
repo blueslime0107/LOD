@@ -8,11 +8,12 @@ using UnityEngine.Localization.Settings;
 
 public class CardPrefap : MonoBehaviour
 {
-    CardAbility ability;
+    public CardAbility ability;
     [SerializeField]Image image;
     [SerializeField]GameObject tain;
     [SerializeField]TextMeshProUGUI name_;
     [SerializeField]TextMeshProUGUI message;
+    [SerializeField]TextMeshProUGUI price;
     public bool loaded = false;
 
     public void cardUpdate(CardAbility card){
@@ -24,6 +25,7 @@ public class CardPrefap : MonoBehaviour
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(card.xmlFile_path[1]);}
         name_.text = ability.name;
         message.text = ability.message;
+        if(price){price.text = ability.price.ToString();}
         tain.SetActive(ability.tained);
         loaded = true;
     }

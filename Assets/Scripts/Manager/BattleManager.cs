@@ -387,6 +387,9 @@ public class BattleManager : MonoBehaviour
             if(gameManager.sm.play_stage.priceChars.Count > 0){
                 gameManager.sm.AddPlayerCardChar(gameManager.sm.play_stage.priceChars);
             }
+            if(gameManager.sm.play_stage.priceCards.Count > 0){
+                gameManager.sm.collected_card.AddRange(gameManager.sm.play_stage.priceCards);
+            }
             gameManager.sm.play_stage.noPrice = true;
         }
         if(gameManager.sm.play_stage.afterStory != null){

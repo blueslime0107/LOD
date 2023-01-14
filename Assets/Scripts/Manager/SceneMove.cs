@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneMove : MonoBehaviour
 {
-    public GameObject setting_menu;
-    public FadeBack fade_obj;
+
+    public Animator transtion;
+    public float transtionTime = 1f;
+
 
     // public void Start(){
     //     fade_obj.FadeIn();
@@ -17,9 +20,9 @@ public class SceneMove : MonoBehaviour
     }
 
     IEnumerator MoveScene(string scene){
-        yield return new WaitForSeconds(0.1f);
+        transtion.SetTrigger("Start");
+        yield return new WaitForSeconds(transtionTime);
         SceneManager.LoadScene(scene);
-        
     }
 
 }

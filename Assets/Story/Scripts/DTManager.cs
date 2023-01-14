@@ -16,11 +16,11 @@ public class DTManager : MonoBehaviour
     private void Awake() {
         stageManager = FindObjectOfType<StageManager>();
         if(stageManager){story = (!stageManager.play_stage.victoryed) ? stageManager.play_stage.beforeStory : stageManager.play_stage.afterStory;}
-        
-        string scriptPath = "";
 
-        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){scriptPath = story.text_path[0];}
-        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){scriptPath = story.text_path[1];}
+        TextAsset scriptPath = new TextAsset();
+
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){scriptPath = story.texts[0];}
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){scriptPath = story.texts[1];}
 
         Dialog[] dialoges = Parse(scriptPath);
 
@@ -35,9 +35,9 @@ public class DTManager : MonoBehaviour
 
         
 
-    public Dialog[] Parse(string filename){
+    public Dialog[] Parse(TextAsset filename){
         List<Dialog> dialogList = new List<Dialog>();
-        TextAsset csvData = (TextAsset) Resources.Load(filename.Split(".")[0]);
+        TextAsset csvData = filename;//(TextAsset) Resources.Load(filename.Split(".")[0]);
 
         Debug.Log(csvData);
         Debug.Log(csvData.text);

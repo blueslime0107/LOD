@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
-  m_Name: Stage1
+  m_Name: Stage
   m_EditorClassIdentifier: 
   id: 1
   xmlFile_path:
@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  beforeStory: {fileID: 0}
+  beforeStory: {fileID: 11400000, guid: 8d8c5d8b5c446fe4b95781733e169d67, type: 2}
   afterStory: {fileID: 0}
   priceStage:
   - floor: 1
@@ -36,6 +36,8 @@ MonoBehaviour:
   victoryed: 0
   playerStageLock: {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
   priceChars: []
+  priceCards:
+  - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
   tutorialLine: 1
   noBreakCards: 1
   noPrice: 0

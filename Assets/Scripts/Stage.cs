@@ -23,6 +23,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     [Header("Advanced"), Space(15f)]
     public Stage playerStageLock;
     public List<Character> priceChars;
+    public List<CardAbility> priceCards;
     public int tutorialLine;
     public bool noBreakCards;
     public bool noPrice;

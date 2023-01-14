@@ -26,6 +26,7 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
         if(!cardSelecting){return;}
+        if(menuCard.selectingChar.getCardPriceSum()+cardAbility.price > menuCard.selectingChar.max_price){cardExplain.sdm.Play("Pery");return;}
         
         for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
             try{
@@ -33,6 +34,7 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             }
             catch{
                 cardExplain.sdm.Play("DiceGrab");
+
                 menuCard.selectingChar.char_preCards[i] = cardAbility;
                 menuCard.RenderSelectCard();
                 break;

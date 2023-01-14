@@ -33,6 +33,8 @@ MonoBehaviour:
   victoryed: 0
   playerStageLock: {fileID: 0}
   priceChars: []
+  priceCards:
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
