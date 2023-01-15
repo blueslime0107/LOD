@@ -7,7 +7,7 @@ public class DebugButton : MonoBehaviour
     public BattleManager bm;
 
     public void WintheGame(){
-        foreach(Player player in bm.right_players){
+        foreach(Player player in bm.right_team.players){
             player.AddHealth(-999);
         }
         bm.battle_start = true;

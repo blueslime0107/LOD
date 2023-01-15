@@ -119,15 +119,27 @@
         <story></story>
     </Card>
     <Card Code="19">
-        <name>Eye CCTV</name>
-        <text>How fun is it to watch from afar?</text>
-        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
+        <name>스포츠맨십</name>
+        <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
+        <ability>{팀전체 대상}[무방비][피해받음]상대에게&#10;다음 1턴 동안 피해를 못주는 레드카드를 준다</ability>
+        <story></story>
+    </Card>
+    <Card Code="195">
+        <name>레드카드</name>
+        <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
+        <ability>[피해줌]피해가 0이 된다, 1턴뒤 파괴됨</ability>
         <story></story>
     </Card>
     <Card Code="20">
         <name>책장정리</name>
         <text>이 책들 어지렆히면 안되죠</text>
-        <ability>[피해발생] 3 피해 이상일시 체력 2 회복</ability>
+        <ability>{추가카드}[사망] 소지한 모든 카드들을 다른 캐릭터에게 넘길 수 있다</ability>
+        <story></story>
+    </Card>
+    <Card Code="201">
+        <name>책더미</name>
+        <text>이 책들 어지렆히면 안되죠</text>
+        <ability>[획득]사망한 캐릭터의 카드들을 가져온다</ability>
         <story></story>
     </Card>
     

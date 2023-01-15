@@ -9,14 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba37b54728c843549a6b155c359b0553, type: 3}
+  m_Script: {fileID: 11500000, guid: b0f0d8ecc0244b44d845bf1c83602ae7, type: 3}
   m_Name: 27_RavenCall
   m_EditorClassIdentifier: 
-  card_id: 8
+  card_id: 27
+  xmlFile_path:
+  - CARD/CardVol2/CardVol2_en.xml
+  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uB808\uC774\uBE10\uCF5C"
-  message: "\uADF8\uB54C \uBABB\uAC00\uC83C\uAC04\uAC70 \uC9C0\uAE08 \uC8FC\uC138\uC694"
-  ability_message: "\uCE74\uB4DC+1 \uCE74\uB4DC\uBF51\uAE30\uC5D0 \uC804\uC5D0 \uB4F1\uC7A5\uD55C
-    \uCE74\uB4DC\uAC00 \uCD94\uAC00\uB85C \uB098\uC635\uB2C8\uB2E4"
+  message: "\uB9E1\uAE30\uC2E0 \uCE74\uB4DC \uB098\uC654\uC2B5\uB2C8\uB2E4"
+  ability_message: "{\uCD94\uAC00\uCE74\uB4DC}\uCE74\uB4DC\uBF51\uAE30\uC911\uC5D0
+    \uC804\uC5D0 \uBC84\uB824\uC9C4 \uCE74\uB4DC\uB4E4\uC744 \uBF51\uC744 \uC218
+    \uC788\uB2E4"
   story_message: 
-  illust: {fileID: 21300000, guid: 323b0c5817f020444bfa4b1210972da6, type: 3}
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: ce7585f5094419742a0d202a1d16f7dc, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
   effect: []
+  linked_card:
+  - {fileID: 11400000, guid: 7a49b614a31337943a608898c3639676, type: 2}
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

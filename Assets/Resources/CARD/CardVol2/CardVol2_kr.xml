@@ -37,9 +37,15 @@
         <story></story>
     </Card>
     <Card Code="27">
-        <name>원한</name>
-        <text>죽일거야...</text>
-        <ability>[전투시작]2 카운트 상승, 카운트 만큼 피해받음</ability>
+        <name>레이븐콜</name>
+        <text>맡기신 카드 나왔습니다</text>
+        <ability>{추가카드}카드뽑기중에 전에 버려진 카드들을 뽑을 수 있다</ability>
+        <story></story>
+    </Card>
+    <Card Code="271">
+        <name>리콜</name>
+        <text>다음 카드 나와주세요</text>
+        <ability>현재 카드뽑기를 넘기고 새 카드뽑기를 진행한다</ability>
         <story></story>
     </Card>
     <Card Code="28">
@@ -91,9 +97,9 @@
         <story></story>
     </Card>
     <Card Code="36">
-        <name>핏빛기억</name>
-        <text>그때의 기억은 다시 떠올리고 싶지 않았는데</text>
-        <ability>[공격받음] 상대에게 피해의 절반(올림)을 준다</ability>
+        <name>미믹아 먹어!</name>
+        <text>마구 먹는거시다!</text>
+        <ability>[카드지정] 미믹이 먹을 카드를 지정한다&#10;[전투시작] 카운트가 홀수일때 지정한 카드를 파괴한다</ability>
         <story></story>
     </Card>
     <Card Code="37">
@@ -110,9 +116,9 @@
         <story></story>
     </Card>
     <Card Code="39">
-        <name>공정한 헌혈기</name>
-        <text>이거 진짜 공평한거 맞는거지?</text>
-        <ability>[발동][일회성] 생존한 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
+        <name>D6</name>
+        <text>마음에 안들면 바꾸자!</text>
+        <ability>[발동]카드뽑기의 카드들을 새로 바꾼다</ability>
         <story></story>
     </Card>
     <Card Code="40">

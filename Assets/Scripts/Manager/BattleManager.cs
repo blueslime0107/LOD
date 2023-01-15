@@ -7,7 +7,7 @@ public class BattleManager : MonoBehaviour
     public SoundManager sdm;
     public GameManager gameManager;
     public BattleCaculate battleCaculate;
-    public BattleAI Right_battleAI;
+    //public BattleAI Right_battleAI;
     //public BattleAI Left_battleAI;
     public new CameraCtrl camera;
     public BackGround backGround;
@@ -17,6 +17,11 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public List<Dice> dices = new List<Dice>();
     [HideInInspector]public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
     [HideInInspector]public List<Player> players = new List<Player>();
+
+    public Team left_team = new Team();
+    public Team right_team = new Team();
+    public Team cur_team = new Team();
+
     public List<CardAbility> cards = new List<CardAbility>();
     public List<CardAbility> game_cards = new List<CardAbility>();
     public List<CardAbility> cur_game_cards = new List<CardAbility>();
@@ -33,15 +38,13 @@ public class BattleManager : MonoBehaviour
     public bool battle_end = false;
 
     [Space(10f), Header("CardGet")]
-    [HideInInspector]public string card_getting_team;
-    public int card_left_draw = 0;
-    public int card_right_draw = 0;
+    public Team card_getting_team;
     [HideInInspector]public bool card_gived = false;
     [HideInInspector]public int card_give_count = 0;
     public List<CardDraw> show_cards = new List<CardDraw>();
 
     [Space(10f), Header("CardLock")]
-    public bool left_cardLook_lock = false;
+    public bool left_cardLook_lock = false; //
     public bool right_cardLook_lock= false;
     [HideInInspector]public Card_text cardTouching;
     public CardPack card_selecting;
@@ -57,15 +60,15 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public bool battleing;
 
     [Space(10f), Header("CardView")]
-    public Player cardViewChar_left;
+    public Player cardViewChar_left; //
     public Player cardViewChar_right;
-    public Player render_cardViewChar_left;
+    public Player render_cardViewChar_left; //
     public Player render_cardViewChar_right;
 
     [Space(10f), Header("Turn")]
-    public string first_turn; // 전투시작시 처음 주사위,전투를 할지 결정
-    [HideInInspector]public bool right_turn;
-    [HideInInspector]public bool left_turn;
+    public Team first_turn; // 전투시작시 처음 주사위,전투를 할지 결정
+    //[HideInInspector]public bool right_turn;
+    //[HideInInspector]public bool left_turn;
 
     float gague_time;
     public float left_gague_max;
@@ -75,9 +78,6 @@ public class BattleManager : MonoBehaviour
     [SerializeField]float left_gague_spd;
     [SerializeField]float right_gague_spd;
 
-    [HideInInspector]public List<Player> left_players = new List<Player>();
-    [HideInInspector]public List<Player> right_players = new List<Player>();
-
     [HideInInspector]public bool left_d6 = false;
     [HideInInspector]public bool right_d6 = false;
     [HideInInspector]public int left_d6_Count;
@@ -85,28 +85,27 @@ public class BattleManager : MonoBehaviour
     public BackColorEff backColorEff;
 
     public GameObject tutorial;
-
     public void Battle(){
-        left_gague = left_gague_max;
-        right_gague = right_gague_max;
-        left_players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam1"));
-        right_players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam2"));    
+        // left_team.gague = left_team.max_gague;
+        // right_team.gague = right_team.max_gague;
+        left_team.players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam1"));
+        right_team.players = players.FindAll(x => x.gameObject.tag.Equals("PlayerTeam2"));    
         StartCoroutine("BattleMain");
-        StartCoroutine("TeamTimerGague");
+        //StartCoroutine("TeamTimerGague");
     }
 
     IEnumerator BattleMain() {   
         FirstTeam();
 
-        if(Right_battleAI.active){Right_battleAI.AIPreSet();}
+        if(right_team.battleAI.active){right_team.battleAI.AIPreSet();}
         //Left_battleAI.AIPreSet();
 
         while(true){ // 계속반복
-            if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count)){
+            if(left_team.players.FindAll(x => x.died).Count.Equals(left_team.players.Count)){
                 Debug.Log("You Lose!");
                 break;
             }
-            if(right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+            if(right_team.players.FindAll(x => x.died).Count.Equals(right_team.players.Count)){
                 Debug.Log("You Win!");
                 gameManager.sm.play_stage.victoryed = true;
                 break;
@@ -123,27 +122,14 @@ public class BattleManager : MonoBehaviour
                 yield return null;
             }
             yield return new WaitForSeconds(0.2f);
-            while(card_left_draw>0 || card_right_draw>0){
-                if(first_turn.Equals("Left")){
-                        card_getting_team = "Right";
-                    }
-                    else{
-                        card_getting_team = "Left";
-                    }
+            while(left_team.carddraw>0 || right_team.carddraw>0){
+                if(first_turn.Equals("Left")){card_getting_team = right_team;}else{card_getting_team = left_team;}
                 //card_getting_team = (first_turn.Equals("Left")) ? "Left" : "Right";
-                if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count) || right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+                if(left_team.players.FindAll(x => x.died).Count.Equals(left_team.players.Count) || right_team.players.FindAll(x => x.died).Count.Equals(right_team.players.Count)){
                     battle_end =  true;
                     break;
                 }
-
-                if((card_getting_team.Equals("Left") && card_left_draw <= 0) || (card_getting_team.Equals("Right") && card_right_draw <= 0)){
-                    if(card_getting_team.Equals("Left")){
-                        card_getting_team = "Right";
-                    }
-                    else{
-                        card_getting_team = "Left";
-                    }
-                }
+                if(card_getting_team.carddraw <= 0){card_getting_team = (card_getting_team.Equals(left_team)) ? right_team:left_team;}
 
                 TurnTeam(card_getting_team);
                 
@@ -157,12 +143,28 @@ public class BattleManager : MonoBehaviour
                     default: card_give_count = 3;break;
                 }
                 cur_game_cards.Clear();
-                for(int i=0;i<card_give_count;i++){
+
+                if(card_getting_team.cardGetSituations.Count > 0){
+                    
+                    card_give_count = card_getting_team.cardGetSituations[0].specialCards.Count;
+                    for(int i=0;i<card_give_count;i++){
+                    cur_game_cards.Add(card_getting_team.cardGetSituations[0].specialCards[0]);
+                    card_getting_team.cardGetSituations[0].specialCards.RemoveAt(0);
+                    }
+                    card_getting_team.cardGetSituations.RemoveAt(0);
+
+                }
+                else{
+                    Debug.Log("normal");
+                    for(int i=0;i<card_give_count;i++){
                     cur_game_cards.Add(game_cards[0]);
                     game_cards.RemoveAt(0);
+                    }
                 }
 
-                foreach(Player player in (left_turn) ? left_players : right_players){
+                
+
+                foreach(Player player in cur_team.players){
                     for(int i = 0;i<player.cards.Count;i++){
                         player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
                     
@@ -170,11 +172,10 @@ public class BattleManager : MonoBehaviour
                 }
 
 
-                if((right_turn) && Right_battleAI.active){
-                    Right_battleAI.isGettingCard(cur_game_cards);
-
+                if(cur_team.battleAI){
+                    cur_team.battleAI.isGettingCard(cur_game_cards);
                     card_gived = true;
-                    card_right_draw -= 1;
+                    cur_team.carddraw -= 1;
                 }
                 else{
                     sdm.Play("Paper3");
@@ -199,12 +200,7 @@ public class BattleManager : MonoBehaviour
                 
                 ui.cardMessage.SetActive(true);
                 # region 팀 주사위6 활성화 됨?
-                if(left_turn){
-                    ui.Dice6.gameObject.SetActive(left_d6 && left_d6_Count>0);
-                }
-                else{
-                    ui.Dice6.gameObject.SetActive(right_d6 && right_d6_Count>0);
-                }
+                ui.DiceObj.SetActive(card_getting_team.diceRollGague > 0);
                 # endregion
                 
                   
@@ -213,7 +209,7 @@ public class BattleManager : MonoBehaviour
                     yield return null;
                 }
                 //// 카드를 뽑은 뒤 이벤트
-                foreach(Player player in (left_turn) ? left_players : right_players){
+                foreach(Player player in cur_team.players){
                     for(int i = 0;i<player.cards.Count;i++){
                         player.cards[i].ability.AfterCardDraw(this,player);
                     }
@@ -221,7 +217,8 @@ public class BattleManager : MonoBehaviour
                 ui.cardMessage.SetActive(false);
                 card_gived = false;
             }
-            ui.Dice6.gameObject.SetActive(false);
+
+            ui.DiceObj.SetActive(false);
             
             StopCoroutine("selectingCard");
             ui.battleStartButton_posing.MoveToOrigin();
@@ -229,8 +226,8 @@ public class BattleManager : MonoBehaviour
             BattlePreReset();
             # endregion
             # region 선두팀 바꾸기   
-            first_turn = (first_turn.Equals("Left")) ? "Right" : "Left"; 
-            ui.battleStartButton.updateYeamColor(first_turn);
+            first_turn = (first_turn.Equals(left_team)) ? right_team : left_team; 
+            ui.battleStartButton.updateYeamColor(first_turn.text);
             TurnTeam(first_turn);
             if(game_cards.Count<1)
                 game_cards = CardSuffle();
@@ -244,47 +241,41 @@ public class BattleManager : MonoBehaviour
             }
             DiceRoll(); // 주사위를                                                 
             yield return new WaitForSeconds(1f);
-            if(Right_battleAI.active){Right_battleAI.did = false;}
+            if(right_team.battleAI.active){right_team.battleAI.did = false;}
             foreach(Dice die in dices){
                 die.StopRollingDice();
             }
             # endregion
             # region 주사위 지정
             while(true){ // 모든 캐릭터에게 주사위가 있으면 진행
-                if(!left_turn || !right_turn){
-                    // 팀이 주사위를 전부 얻으면 상대팀
-                    if(left_turn){
-                        if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count)
-                            TurnTeam("Right");
-                    }
-                    if(right_turn){
-                        if(right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count)
-                            TurnTeam("Left");
-                    }
-                    
-                    //Left_battleAI.isDiceSelect();
-                    if(Right_battleAI.active){Right_battleAI.isDiceSelect();}
-                
 
-                    // 주사위를 다 넣었으면(죽으면 넣은걸로 인정)
-                    if(left_players.FindAll(x => x.dice>0 || x.died).Count >= left_players.Count &&
-                    right_players.FindAll(x => x.dice>0 || x.died).Count >= right_players.Count){
-                        cardActiveAble = true;
-                        backGround.leftCircle.SetActive(true);
-                        backGround.rightCircle.SetActive(true);
-                        // 주사위를 다 넣었을때 효과 발동
-                        for(int i = 0; i < players.Count; i++){
-                            for(int j = 0; j < players[i].cards.Count; j++){
-                                players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
-                            }
-                        }   
-                        sdm.Play("BattleReady");
-                        ui.battleStartButton.StartCoroutine("startBlink");             
-                        while(!battle_start){
-                            yield return null; 
+                // 팀이 주사위를 전부 얻으면 상대팀
+                if(cur_team.players.FindAll(x => x.dice>0 || x.died).Count >= cur_team.players.Count)
+                TurnTeam(cur_team,true);
+                
+                //Left_battleAI.isDiceSelect();
+                if(right_team.battleAI.active){right_team.battleAI.isDiceSelect();}
+            
+
+                // 주사위를 다 넣었으면(죽으면 넣은걸로 인정)
+                if(left_team.players.FindAll(x => x.dice>0 || x.died).Count >= left_team.players.Count &&
+                right_team.players.FindAll(x => x.dice>0 || x.died).Count >= right_team.players.Count){
+                    cardActiveAble = true;
+                    backGround.leftCircle.SetActive(true);
+                    backGround.rightCircle.SetActive(true);
+                    // 주사위를 다 넣었을때 효과 발동
+                    for(int i = 0; i < players.Count; i++){
+                        for(int j = 0; j < players[i].cards.Count; j++){
+                            players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
                         }
+                    }   
+                    sdm.Play("BattleReady");
+                    ui.battleStartButton.StartCoroutine("startBlink");             
+                    while(!battle_start){
+                        yield return null; 
                     }
                 }
+                
                 if(battle_start)
                 {
                     for(int i = 0; i < players.Count; i++){
@@ -294,8 +285,7 @@ public class BattleManager : MonoBehaviour
                         }
                     target1 = null;
                     target2 = null;
-                    if(first_turn.Equals("Left")) TurnTeam("Left");
-                    else TurnTeam("Right");
+                    TurnTeam(first_turn);
                     break;
                 }
                     
@@ -312,34 +302,34 @@ public class BattleManager : MonoBehaviour
                 }
 
                 if(!battle_end){
-                    if(left_players.FindAll(x => x.dice<=0 || x.died).Count >= left_players.Count &&
-                    right_players.FindAll(x => x.dice<=0 || x.died).Count >= right_players.Count){
+                    if(left_team.players.FindAll(x => x.dice<=0 || x.died).Count >= left_team.players.Count &&
+                    right_team.players.FindAll(x => x.dice<=0 || x.died).Count >= right_team.players.Count){
                         battle_end =  true;
                         break;
                     }
                 }
 
-                if(left_players.FindAll(x => x.died).Count.Equals(left_players.Count) || right_players.FindAll(x => x.died).Count.Equals(right_players.Count)){
+                if(left_team.players.FindAll(x => x.died).Count.Equals(left_team.players.Count) || right_team.players.FindAll(x => x.died).Count.Equals(right_team.players.Count)){
                     battle_end =  true;
                     break;
                 }
 
-                bool rightNo = right_players.FindAll(x => x.dice > 0).Count > 0;
-                bool leftNo = left_players.FindAll(x => x.dice > 0).Count > 0;
+                bool rightNo = right_team.players.FindAll(x => x.dice > 0).Count > 0;
+                bool leftNo = left_team.players.FindAll(x => x.dice > 0).Count > 0;
 
-                if(left_turn){
+                if(cur_team.Equals(left_team)){
                     if(rightNo && !leftNo)
-                        TurnTeam("Right");
+                        TurnTeam(right_team);
                 }
-                else if(right_turn){
+                else{
                     if(leftNo && !rightNo)
-                        TurnTeam("Left");
+                        TurnTeam(left_team);
                 }
 
                 
 
                 //Left_battleAI.isBattleing();
-                if(Right_battleAI.active){Right_battleAI.isBattleing();}
+                if(right_team.battleAI.active){right_team.battleAI.isBattleing();}
 
                 if(Input.GetMouseButtonDown(0)){
                     target2 = null;
@@ -347,12 +337,9 @@ public class BattleManager : MonoBehaviour
                         
                         if(dice.onMouseDown){
                             if(dice.player.dice <= 0){continue;}
-                            if(dice.gameObject.tag.Equals("Team1") && left_turn){
-                                target1 = dice.player;
-                            }
-                            if(dice.gameObject.tag.Equals("Team2") && right_turn){
-                                target1 = dice.player;
-                            }
+                            if(cur_team.players.Contains(dice.player))                       
+                            target1 = dice.player;
+                            
                             sdm.Play("Select1");
                         }
                     }
@@ -375,6 +362,15 @@ public class BattleManager : MonoBehaviour
                 }
                 
             }
+            
+            foreach(Player player in players){
+                    for(int i = 0;i<player.cards.Count;i++){
+                        player.cards[i].ability.OnBattleEnd(player.cards[i],player,this);
+                    }
+                }
+            
+            
+            
             # endregion
 
         }   
@@ -403,22 +399,14 @@ public class BattleManager : MonoBehaviour
 
     public void CheckNextTeam(){
 
-        if(left_turn){
-            if(right_players.FindAll(x => x.dice <= 0 || x.died).Count >= right_players.Count){
-                TurnTeam("Left");
-            }
-            else{
-                TurnTeam("Right");
-
-            }
+        if(cur_team.Equals(left_team)){
+            if(right_team.players.FindAll(x => x.dice <= 0 || x.died).Count >= right_team.players.Count) TurnTeam(left_team); 
+            else TurnTeam(right_team);
         }
-        else if(right_turn){
-            if(left_players.FindAll(x => x.dice <= 0 || x.died).Count >= left_players.Count){
-                TurnTeam("Right");
-            }else{
-
-            TurnTeam("Left");
-            }
+        else{
+            if(left_team.players.FindAll(x => x.dice <= 0 || x.died).Count >= left_team.players.Count) TurnTeam(right_team);
+            else TurnTeam(left_team);
+            
         }
     }
 
@@ -437,74 +425,60 @@ public class BattleManager : MonoBehaviour
     }
 
     public void ReRoll(){
+        if(card_getting_team.diceRollGague <= 0){return;}
         for(int i =0; i<show_cards.Count;i++){
             show_cards[i].DestroyTheCard();
         }
         card_gived = true;
+        card_getting_team.diceRollGague -= 1;
     }
 
-    IEnumerator TeamTimerGague(){
-        while(true){
-            if(!battleing){
-                if(left_turn){
-                left_gague -= left_gague_spd * Time.deltaTime;
-                if(left_gague<=0){
-                    TurnTeam("Right");
-                }
-                }
-                if(right_turn){
-                right_gague -= right_gague_spd * Time.deltaTime;
-                if(right_gague<=0){
-                    TurnTeam("Left");
-                }
-                }
-            }
+    // IEnumerator TeamTimerGague(){
+    //     while(true){
+    //         if(!battleing){
+    //             if(left_turn){
+    //             left_gague -= left_gague_spd * Time.deltaTime;
+    //             if(left_gague<=0){
+    //                 TurnTeam("Right");
+    //             }
+    //             }
+    //             if(right_turn){
+    //             right_gague -= right_gague_spd * Time.deltaTime;
+    //             if(right_gague<=0){
+    //                 TurnTeam("Left");
+    //             }
+    //             }
+    //         }
 
 
-            ui.left_gague.value = left_gague/left_gague_max;
-            ui.right_gague.value = right_gague/right_gague_max;
-            yield return null;
-        }
+    //         ui.left_gague.value = left_gague/left_gague_max;
+    //         ui.right_gague.value = right_gague/right_gague_max;
+    //         yield return null;
+    //     }
         
-    }
+    // }
 
     void FirstTeam(){
-        if((int)Random.Range(0f,2f) == 0){
-            first_turn = "Right";
-        }
-        else{
-            first_turn = "Left";
-        }
-        first_turn = "Right";
-        ui.battleStartButton.updateYeamColor(first_turn);
+        // if((int)Random.Range(0f,2f) == 0){
+        //     first_turn = "Right";
+        // }
+        // else{
+        //     first_turn = "Left";
+        // }
+        first_turn = right_team;
+        ui.battleStartButton.updateYeamColor(first_turn.text);
         TurnTeam(first_turn);
         
     }
 
-    public void TurnTeam(string team = ""){
+    public void TurnTeam(Team team,bool reverse = false){
         // 팀을 바꾸면 게이지를 약간 채우고 배경을 그 팀 전용으로 맞춤한다.
-        if(team.Equals("Left")){ 
-            right_gague = (right_gague<right_gague_max) ? right_gague+100f : right_gague_max;
-            backGround.TeamChanged("Left");
-            left_turn = true;
-            right_turn = false;
-        }
-        if(team.Equals("Right")){
-            left_gague = (left_gague<left_gague_max) ? left_gague+100f : left_gague_max;
-            backGround.TeamChanged("Right");
-            right_turn = true;
-            left_turn = false;
-        }
+        //team.gague = (team.gague<team.max_gague) ? team.gague+100 : team.max_gague;
+        if(team.Equals(cur_team) && reverse){TurnTeam((cur_team.Equals(left_team)) ? right_team:left_team);
+        return;}
+        backGround.TeamChanged(team.text);
+        cur_team = team;
         // 적지 않았을때 팀을 넘김
-        if(team.Equals("")){
-            if(left_turn){
-                TurnTeam("Right");
-            }
-            if(right_turn){
-                TurnTeam("Left");
-            }
-
-        }
     }
 
     void PlayerGoToOrigin(){
@@ -574,7 +548,7 @@ public class BattleManager : MonoBehaviour
         sdm.Play("Snap");
         battle_start = true;
         ui.battleStartButton.StopAllCoroutines();
-        ui.battleStartButton.updateYeamColor(first_turn);
+        ui.battleStartButton.updateYeamColor(first_turn.text);
     }
 
     void Card(Vector3 pos,CardAbility cardo){
@@ -632,13 +606,15 @@ public class BattleManager : MonoBehaviour
     }
 
     public void SelectiedCard(CardPack card){
+        if(card.ability.tained){return;}
         card_selecting.ability.CardSelected(card_selecting,card,this);
         card_selecting = null;
         card_select_trigger = false;
         cardlineRender.gameObject.SetActive(false);
     }
 
-    public CardPack GiveCard(CardAbility having_card, Player player){
+    public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false){
+        if(having_card.tained && !ableTain){return null;}
         GameObject game_card = new GameObject();
         CardPack card = game_card.AddComponent<CardPack>() as CardPack;
         //CardPack card = new CardPack();
@@ -650,16 +626,17 @@ public class BattleManager : MonoBehaviour
         player.cardGet.SetActive(false);
         player.cardGet.SetActive(true);
         foreach(Player playe in players){
-                for(int i =0; i<playe.cards.Count;i++){
-                    playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player,card);
-                }
+            for(int i =0; i<playe.cards.Count;i++){
+                playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player,card);
             }
+        }
         card.ability.WhenCardGetImmedi(card,this);
         sdm.Play("GetCard");
         return card;
     }
 
-    public CardPack GiveCardPack(CardPack card, Player player){
+    public CardPack GiveCardPack(CardPack card, Player player,bool ableTain = false){
+        if(card.ability.tained && !ableTain){return card;}
         card.ability.WhenCardDisabled(card,this);
         card.player.cards.Remove(card);
         card.PreSetting(player);
@@ -672,6 +649,14 @@ public class BattleManager : MonoBehaviour
         // pre_card.ability.WhenCardGet(pre_card, this,player);
     }
 
+    public Team OpposeTeam(Team team){
+        if(team.Equals(left_team)){
+            return right_team;
+        }
+        else{
+            return left_team;
+        }
+    }
 
     public List<CardAbility> CardSuffle(){
         List<CardAbility> origin_cards = new List<CardAbility>(cards);
@@ -687,13 +672,19 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    public void AddCardPoint(string team){
-        if(team.Equals("PlayerTeam1")){
-            card_left_draw += 1;
-        }
-        if(team.Equals("PlayerTeam2")){
-            card_right_draw += 1;
-        }
+    public void AddCardPoint(Team team){
+        team.carddraw += 1;
     }
 
+    public void SpecialCardGet(Team team, List<CardAbility> cards){
+        CardGetSituation cardGetSituation = new CardGetSituation();
+        cardGetSituation.specialCards.AddRange(cards);
+        team.cardGetSituations.Add(cardGetSituation);
+    }
+
+
+    
+
 }
+
+

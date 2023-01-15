@@ -17,7 +17,7 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC758\uC2DD\uC2E4\uD328"
-  message: 
+  message: "\uC2E4\uD328\uD588\uC5B4.. \uC774\uC820 \uB05D\uC774\uC57C"
   ability_message: "[\uCE74\uB4DC\uC9C0\uC815] \uC9C0\uC815\uD55C \uCE74\uB4DC\uC758
     \uD6A8\uACFC\uBC1C\uB3D9\uC744 \uB9C9\uB294\uB2E4"
   story_message: 
@@ -26,8 +26,9 @@ MonoBehaviour:
   illust: {fileID: 21300000, guid: e95c4e9938ccb754a97c52b5ba808c37, type: 3}
   usingCount: 0
   pre_count: 0
-  overCard: {fileID: 0}
+  overCard: {fileID: 21300000, guid: 7b8fd9adbee6d0544abb6af03958df7a, type: 3}
   effect: []
-  linked_card: []
+  linked_card:
+  - {fileID: 11400000, guid: 8eb0e8022d9b548479fdbd738a605736, type: 2}
   diceLink: {fileID: 0}
   dice: {fileID: 0}

@@ -14,7 +14,7 @@ public class Card22 : CardAbility
             card.active = false;
             return;
         }
-        foreach(Player play in (player.tag.Equals("PlayerTeam1")) ? match.right_players : match.left_players){
+        foreach(Player play in card.player.team.players){
             if(play.dice > bigNum){
                 bigNum = play.dice;
             }

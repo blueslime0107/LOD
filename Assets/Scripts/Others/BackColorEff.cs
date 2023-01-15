@@ -15,6 +15,7 @@ public class BackColorEff : MonoBehaviour
         targetColor = new Color32(r,g,b,a);
         timeLeft = 1.0f;
         spriteRenderer.color = targetColor;
+        gameObject.SetActive(true);
         StartCoroutine("StartColorChange");
     }
 

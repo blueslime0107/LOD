@@ -47,12 +47,12 @@ public class BattleAI : MonoBehaviour
         my_dicetag = (gameObject.tag.Equals("PlayerTeam1")) ? "Team1" : "Team2";
 
         if(gameObject.tag.Equals("PlayerTeam1")){
-            my_players = bm.left_players;
-            ene_players = bm.right_players;
+            my_players = bm.left_team.players;
+            ene_players = bm.right_team.players;
         }
         else{
-            my_players = bm.right_players;
-            ene_players = bm.left_players;
+            my_players = bm.right_team.players;
+            ene_players = bm.left_team.players;
             
         }
 
@@ -105,11 +105,6 @@ public class BattleAI : MonoBehaviour
             myplayer.Reverse();
 
         myplayer.Sort(SortPlayerHavDice);
-
-        foreach(Player pla in myplayer){
-            Debug.Log(pla.gameObject.name);
-        }
-
         List<Player> eneplayer = ene_players.FindAll(x => !x.died);
 
         if(myplayer[0].dice.Equals(6)){

@@ -6,11 +6,10 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Player : MonoBehaviour
 {
     public Character character;
-    [SerializeField]
-    public BattleManager battleManager;
+    public Team team;
+    [SerializeField]public BattleManager battleManager;
     public Dice_Indi dice_Indi;
-    [SerializeField]
-    public Hp_Indi hp_Indi;
+    [SerializeField]public Hp_Indi hp_Indi;
     Material material;
     float fade = 0.7f;
     
@@ -168,7 +167,7 @@ public class Player : MonoBehaviour
             }
         foreach(Player play in battleManager.players){
             for(int i = 0;i<play.cards.Count;i++){
-                play.cards[i].ability.WhoEverDamage(play.cards[i],damage,battleManager);
+                play.cards[i].ability.WhoEverDamage(play.cards[i],damage,battleManager,lastHit,this);
             }
         }
 
@@ -216,8 +215,7 @@ public class Player : MonoBehaviour
         if(breakCount.Count <= 0 || battleManager.gameManager.sm.play_stage.noBreakCards){return;}
         for(int i = 0;i<breakCount.Count;i++){
             if(health <= breakCount[0]){
-                if(gameObject.tag.Equals("PlayerTeam1")){battleManager.card_left_draw += 1;}
-                else{battleManager.card_right_draw += 1;}
+                team.carddraw += 1;
                 battleManager.sdm.Play("BreakCardGet");
                 hp_Indi.ActiveEff();
                 breakCount.RemoveAt(0);
@@ -230,7 +228,11 @@ public class Player : MonoBehaviour
         if(died){return;}
         UpdateHp();
         battleManager.sdm.Play("CharDie");
+        for(int i =0;i<cards.Count;i++){
+                    cards[i].ability.OnDeath(cards[i],this,battleManager);
+                }
         foreach(Player player in battleManager.players){
+            if(player.Equals(this)){continue;}
             for(int i =0;i<player.cards.Count;i++){
                     player.cards[i].ability.OnDeath(player.cards[i],this,battleManager);
                 }

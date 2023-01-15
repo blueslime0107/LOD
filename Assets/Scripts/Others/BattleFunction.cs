@@ -25,14 +25,7 @@ public class BattleFunction : MonoBehaviour
     }
 
     public string TeamBool2Str(){
-        if(bm.left_turn){
-            return "Left";
-        }
-        else if(bm.right_turn){
-            return "Right";
-        }
-        Debug.Log("Error");
-        return " ";
+        return bm.cur_team.text;
     }
 
     

@@ -10,7 +10,7 @@ public class Card7 : CardAbility
     {
         Debug.Log("died");
         if(dead_player.tag != card.player.tag){
-            match.AddCardPoint(card.player.tag);
+            match.AddCardPoint(card.player.team);
         }
         else{
             card.active = true;

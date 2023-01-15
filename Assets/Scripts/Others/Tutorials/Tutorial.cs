@@ -32,7 +32,7 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(0.1f);  
         bm.ui.battleStartButton.gameObject.SetActive(false);
         scenes[0].SetActive(true);
-        while(bm.left_players.FindAll(x => x.dice>0 || x.died).Count < bm.left_players.Count){yield return null;}
+        while(bm.left_team.players.FindAll(x => x.dice>0 || x.died).Count < bm.left_team.players.Count){yield return null;}
         yield return null;
         scenes[0].SetActive(false);
 
@@ -96,9 +96,9 @@ public class Tutorial : MonoBehaviour
         bm.dices[1].diceLock.Add(2);
         bm.dices[0].diceLock.Add(5);
         bm.dices[1].diceLock.Add(2);
-        while(bm.card_left_draw <= 0){yield return null;}
+        while(bm.left_team.carddraw <= 0){yield return null;}
 
-        while(bm.card_left_draw > 0){
+        while(bm.left_team.carddraw > 0){
             scenes[6].SetActive(Input.GetMouseButton(0));
             yield return null;
         }

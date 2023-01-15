@@ -34,6 +34,7 @@ public class CardPack : MonoBehaviour
     public Sprite illust;
 
     public int count;
+    public int sub_count;
     public int price;
 
     private void Start() {

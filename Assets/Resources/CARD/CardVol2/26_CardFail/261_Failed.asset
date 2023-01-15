@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccc2e2676cace64094d44c7b4cdcef3, type: 3}
+  m_Name: 261_Failed
+  m_EditorClassIdentifier: 
+  card_id: 7
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
+  name: "\uB3C4\uAD74\uAFBC"
+  message: "\uBBF8\uC548\uD558\uC9C0\uB9CC \uB2C8\uAEC4 \uCACC \uC368\uC57C\uACA0\uB2E4"
+  ability_message: "[\uC790\uC2E0\uD300][\uC0AC\uB9DD] 2~6 \uC704\uB825 \uC5EC\uBD84
+    \uC8FC\uC0AC\uC704\uB97C \uC5BB\uB294\uB2E4\n[\uC0C1\uB300\uD300 \uC0AC\uB9DD]
+    \uCE74\uB4DC \uD68D\uB4DD"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: ff1a50a890747f64488eb64a51b17e6d, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1895d71d3ec22a548ac11f43233428d9, type: 3}
+  m_Name: 49_Feroce
+  m_EditorClassIdentifier: 
+  card_id: 49
+  xmlFile_path:
+  - CARD/CardVol3/CardVol3_en.xml
+  - CARD/CardVol3/CardVol3_kr.xml
+  name: "\uD398\uB85C\uCCB4"
+  message: "\uAC70\uCE60\uAC8C..."
+  ability_message: "[\uC804\uD22C\uC2DC\uC791] \uBAA8\uB4E0 \uC790\uC2E0\uD300\uB4E4\uC758
+    \uC704\uB825 +1, \uC0AC\uB9DD\uD55C \uCE90\uB9AD\uD130\uB9CC\uD07C \uC790\uC2E0\uC704\uB825
+    \uC0C1\uC2B9\r\n[\uD569 \uD328\uBC30] \uB2E4\uC74C 1\uD134 \uBAA8\uB4E0 \uC790\uC2E0\uD300\uB4E4\uC758
+    \uC704\uB825 -3,\uD328\uBC30\uD574\uB3C4 \uC774 \uD6A8\uACFC\uAC00 \uBC1C\uB3D9\uC548\uD568"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: ded351cd1d9ab944f86617cca599dc23, type: 3}
+  usingCount: 0
+  pre_count: 1
+  overCard: {fileID: 0}
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/1의식실패", order = 26)]
 public class Card26 : CardAbility
 {
 
@@ -29,9 +28,12 @@ public class Card26 : CardAbility
         card.saved_ability = selected_card.ability; // 봉인할 카드의 능력 저장한 후
         card.saved_card = selected_card; // 봉인 카드 저장
         selected_card.overCard = card.ability.overCard;
-        match.ui.CardReload();
+        //match.ui.CardReload();
 
-        selected_card.ability = match.null_card; // 능력 삭제 (봉인)
+        linked_card[0].illust = selected_card.ability.illust;
+        linked_card[0].card_id = selected_card.ability.card_id;
+        linked_card[0].xmlFile_path = selected_card.ability.xmlFile_path;
+        selected_card.ability = linked_card[0]; // 능력 삭제 (봉인)
 
         
         

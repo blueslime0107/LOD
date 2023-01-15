@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Edelweiss
+  m_EditorClassIdentifier: 
+  name_: Edelweiss
+  poses:
+  - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
+  - {fileID: 21300000, guid: c8be71f06da47bd49b588714f07df90e, type: 3}
+  - {fileID: 21300000, guid: 25ac78f6ca9ca344c91c0f356f4d61d4, type: 3}
+  - {fileID: 21300000, guid: 841812bfd68fcd644a3b397a5397b70c, type: 3}
+  - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
+  farAtk: 0

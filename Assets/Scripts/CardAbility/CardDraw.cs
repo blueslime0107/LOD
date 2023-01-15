@@ -67,7 +67,7 @@ public class CardDraw : MonoBehaviour
     }
 
     IEnumerator MoveSelect(){
-        Vector3 target = (battleManager.right_turn) ? Vector3.left*5+Vector3.up : Vector3.right*5+Vector3.up;
+        Vector3 target = (battleManager.cur_team.text.Equals("Right")) ? Vector3.left*5+Vector3.up : Vector3.right*5+Vector3.up;
         while(true)
         { 
             transform.position = Vector3.MoveTowards(transform.position,target,100*Time.deltaTime);
@@ -89,21 +89,10 @@ public class CardDraw : MonoBehaviour
             }            
         }
         if(battleManager.card_gived) {  // 이미 카드를 줬을때 사라지기
-            if(battleManager.left_turn){
-                    foreach(Player player in battleManager.left_players){
-                        for(int i = 0;i<player.cards.Count;i++){
-                            player.cards[i].ability.WhenCardDestroy(player.cards[i],having_card);
-                        
-                        }
-                    }
-                    
-                }
-            else{
-                foreach(Player player in battleManager.right_players){
-                    for(int i = 0;i<player.cards.Count;i++){
-                        player.cards[i].ability.WhenCardDestroy(player.cards[i],having_card);
-                    
-                    }
+            foreach(Player player in battleManager.cur_team.players){
+                for(int i = 0;i<player.cards.Count;i++){
+                    player.cards[i].ability.WhenCardDestroy(player.cards[i],having_card);
+                
                 }
             }
             gameObject.SetActive(false);
@@ -162,16 +151,10 @@ public class CardDraw : MonoBehaviour
         battleManager.lineRender.SetPosition(1, Vector3.zero);
         battleManager.lineRender.SetPosition(0, Vector3.zero);
         if(battleManager.mouseTouchingPlayer != null){
-            if(battleManager.card_getting_team.Equals("Left") && battleManager.card_left_draw > 0 && battleManager.mouseTouchingPlayer.gameObject.tag.Equals("PlayerTeam1")){
+            if(battleManager.card_getting_team.Equals(battleManager.mouseTouchingPlayer.team) && battleManager.card_getting_team.carddraw > 0){
                 battleManager.GiveCard(having_card,battleManager.mouseTouchingPlayer);
                 battleManager.card_gived = true;
-                battleManager.card_left_draw -= 1;
-                gameObject.SetActive(false);
-            }
-            if(battleManager.card_getting_team.Equals("Right") && battleManager.card_right_draw > 0 && battleManager.mouseTouchingPlayer.gameObject.tag.Equals("PlayerTeam2")){
-                battleManager.GiveCard(having_card,battleManager.mouseTouchingPlayer);
-                battleManager.card_gived = true;
-                battleManager.card_right_draw -= 1;
+                battleManager.card_getting_team.carddraw -= 1;
                 gameObject.SetActive(false);
             }
             

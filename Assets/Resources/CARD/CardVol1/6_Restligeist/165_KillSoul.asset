@@ -17,11 +17,11 @@ MonoBehaviour:
   - CARD/CardVol1/CardVol1_en.xml
   - CARD/CardVol1/CardVol1_kr.xml
   name: "\uC6D0\uD55C"
-  message: "\uD750\uD750\uD750"
+  message: "\uC8FD\uC77C\uAC70\uC57C..."
   ability_message: "[\uC804\uD22C\uC2DC\uC791]2 \uCE74\uC6B4\uD2B8 \uC0C1\uC2B9,
     \uCE74\uC6B4\uD2B8 \uB9CC\uD07C \uD53C\uD574\uBC1B\uC74C"
   story_message: 
-  tained: 0
+  tained: 1
   price: 0
   illust: {fileID: 21300000, guid: 110a872115233e142871edd579317f0e, type: 3}
   usingCount: 1

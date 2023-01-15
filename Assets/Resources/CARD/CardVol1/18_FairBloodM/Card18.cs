@@ -25,7 +25,7 @@ public class Card18 : CardAbility
         card.active = true;
     }
 
-    public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match)
+    public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match,Player attacker,Player defender)
     {
         card.count = 0;
         foreach(Player player in match.players){

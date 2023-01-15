@@ -20,10 +20,10 @@ public class BackGround : MonoBehaviour
 
     void Update()
     {
-        if(bm.left_turn){
+        if(bm.cur_team.Equals(bm.left_team)){
             leftCircle.transform.Rotate(Vector3.forward * rotate_spd);
         }
-        if(bm.right_turn){
+        if(bm.cur_team.Equals(bm.right_team)){
             rightCircle.transform.Rotate(Vector3.forward * rotate_spd);
         }
     }

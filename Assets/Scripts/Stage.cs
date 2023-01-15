@@ -18,6 +18,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public List<AddStage> priceStage;
     public CardAbility priceCard;
     public bool victoryed = false;
+    public int avaliblePrice = 100;
 
 
     [Header("Advanced"), Space(15f)]
@@ -27,6 +28,18 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public int tutorialLine;
     public bool noBreakCards;
     public bool noPrice;
+
+    public int GetPriceSum(){
+      int newint = 0;
+      foreach(Character chars in characters){
+         if(chars == null){break;}
+         foreach(CardAbility card in chars.char_preCards){
+            if(card == null){break;}
+            newint += card.price;
+         }
+      }
+      return newint;
+    }
 
 
     public void ResetOnExitPlay()

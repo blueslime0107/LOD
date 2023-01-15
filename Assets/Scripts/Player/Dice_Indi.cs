@@ -161,12 +161,7 @@ public class Dice_Indi : MonoBehaviour
 
     void OnMouseDrag() { // 마우스 
         if(battleManager.cardActiveAble){       
-            if(battleManager.left_turn && gameObject.tag == "Team2"){
-                return;
-            }
-            if(battleManager.right_turn && gameObject.tag == "Team1"){
-                return;
-            }     
+            if(!battleManager.cur_team.players.Contains(player)) return; 
             lineRender.SetPosition(1, saved_pos+Vector3.forward);
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);  

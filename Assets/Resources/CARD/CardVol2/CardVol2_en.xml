@@ -37,9 +37,15 @@
         <story></story>
     </Card>
     <Card Code="27">
-        <name>원한</name>
-        <text>죽일거야...</text>
-        <ability>[전투시작]2 카운트 상승, 카운트 만큼 피해받음</ability>
+        <name>레이븐콜</name>
+        <text>맡기신 카드 나왔습니다</text>
+        <ability>{추가카드}카드뽑기중에 전에 버려진 카드들을 뽑을 수 있다</ability>
+        <story></story>
+    </Card>
+    <Card Code="271">
+        <name>리콜</name>
+        <text>다음 카드 나와주세요</text>
+        <ability>현재 카드뽑기를 넘기고 새 카드뽑기를 진행한다</ability>
         <story></story>
     </Card>
     <Card Code="28">

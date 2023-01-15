@@ -7,6 +7,7 @@ using TMPro;
 public class CharItem : MonoBehaviour
 {
     public Lobby lobby;
+    public Stage cur_stage;
     public Character cur_char;
 
     public TextMeshProUGUI health;
@@ -20,14 +21,10 @@ public class CharItem : MonoBehaviour
 
     public CardUI[] cards = new CardUI[7];
 
-    public Slider priceGague;
-    public TextMeshProUGUI price_text;
-    public int min_price;
-    public int max_price;
-
     public void OpenCardSelectMenu(){
         Debug.Log(cur_char.name);
         Debug.Log(cur_char.char_preCards);
+        lobby.menuCard.selectingStage = cur_stage;
         lobby.menuCard.selectingChar = cur_char;
         lobby.OpenCardSelectMenu();
     }
@@ -38,11 +35,6 @@ public class CharItem : MonoBehaviour
         breaks_value = chars.breaks;
         char_name.text = chars.char_sprites.name_;
         character.sprite = chars.char_sprites.poses[0];
-
-        priceGague.maxValue = chars.max_price;
-        priceGague.minValue = 0;
-        priceGague.value = chars.getCardPriceSum();
-        price_text.text = priceGague.value.ToString() + "/" + priceGague.maxValue.ToString();
 
         health.text = health_value.ToString();
         breaks.text = "";

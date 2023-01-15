@@ -19,11 +19,11 @@ MonoBehaviour:
   name: "\uB3C4\uAD74\uAFBC"
   message: "\uBBF8\uC548\uD558\uC9C0\uB9CC \uB2C8\uAEC4 \uCACC \uC368\uC57C\uACA0\uB2E4"
   ability_message: "[\uC790\uC2E0\uD300][\uC0AC\uB9DD] 2~6 \uC704\uB825 \uC5EC\uBD84
-    \uC8FC\uC0AC\uC704\uB97C \uC5BB\uB294\uB2E4\r\n            [\uC0C1\uB300\uD300
-    \uC0AC\uB9DD] \uCE74\uB4DC \uD68D\uB4DD"
+    \uC8FC\uC0AC\uC704\uB97C \uC5BB\uB294\uB2E4\n[\uC0C1\uB300\uD300 \uC0AC\uB9DD]
+    \uCE74\uB4DC \uD68D\uB4DD"
   story_message: 
   tained: 0
-  price: 0
+  price: 45
   illust: {fileID: 21300000, guid: ff1a50a890747f64488eb64a51b17e6d, type: 3}
   usingCount: 1
   pre_count: 0

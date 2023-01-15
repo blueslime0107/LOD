@@ -36,10 +36,51 @@
         <ability>[공격받음] 자신제외 모든 자신팀들의 체력을 피해의 반만큼(올림) 회복&#10;[사망] 자신팀들의 체력 - 4</ability>
         <story></story>
     </Card>
+    <Card Code="47">
+        <name>비바체</name>
+        <text>아주 빠르게...</text>
+        <ability>[합 승리] 자신제외 자신팀들이 소지한 카드 수만큼&#10;최대 자신이 소지한 카드 수까지 피해 상승
+2턴마다 캐릭터에게 '빠르게([발동]위력 1 증가)를 줄 수 있다</ability>
+        <story></story>
+    </Card>
+    <Card Code="471">
+        <name>빠르게</name>
+        <text>빠른 소리</text>
+        <ability>[발동] 위력 2 상승, 이후 파괴됨</ability>
+        <story></story>
+    </Card>
+    <Card Code="48">
+        <name>퓨리오소</name>
+        <text>난폭하게..</text>
+        <ability>[전투시작] 2턴마다 카운트 상승, 카운트만큼 상대팀의 체력회복(최대 2), 위력감소 
+[무방비][피해받음]카운트 초기화</ability>
+        <story></story>
+    </Card>
     <Card Code="49">
         <name>페로체</name>
         <text>거칠게...</text>
-        <ability>[전투시작] 모든 자신팀들의 위력 1 상승&#10;[합 패배] 다음1턴 효과가 ([전투시작] 위력 1 고정)으로 바뀐다</ability>
+        <ability>[전투시작] 모든 자신팀들의 위력 +1, 사망한 캐릭터만큼 자신위력 상승
+[합 패배] 다음 1턴 모든 자신팀들의 위력 -3,패배해도 이 효과가 발동안함</ability>
+        <story></story>
+    </Card>
+    <Card Code="50">
+        <name>라멘토소</name>
+        <text>슬픈듯이...</text>
+        <ability>[획득] 사망한 캐릭터만큼 '플룻'획득, [아무 사망] '플룻'획득
+플룻([발동] 효과를 바꾼다 {[피해줌] 피해 1 증가,
+[피해받음] 피해 1 감소} [전투끝] 효과가 고정됨)</ability>
+        <story></story>
+    </Card>
+    <Card Code="501">
+        <name>플러터 텅잉</name>
+        <text>슬픈듯이...</text>
+        <ability>[피해줌] 피해 1 증가 [전투끝] 효과가 고정됨</ability>
+        <story></story>
+    </Card>
+    <Card Code="502">
+        <name>비브라토</name>
+        <text>슬픈듯이...</text>
+        <ability>[피해받음] 피해 1 감소 [전투끝] 효과가 고정됨</ability>
         <story></story>
     </Card>
     

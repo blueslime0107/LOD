@@ -9,6 +9,6 @@ public class Card6 : CardAbility
     public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
         if(dead_player != card.player){return;}
-        match.GiveCard(linked_card[0],dead_player.lastHit);
+        match.GiveCard(linked_card[0],dead_player.lastHit,true);
     }
 }

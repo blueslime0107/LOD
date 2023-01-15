@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Bekk
+  m_EditorClassIdentifier: 
+  name_: Bekk
+  poses:
+  - {fileID: 21300000, guid: b5931505c7c82104bada50f33f825d40, type: 3}
+  - {fileID: 21300000, guid: 8bf089844ad20ca418c2ac764a5ad841, type: 3}
+  - {fileID: 21300000, guid: 0397e3ddbf3c8d841a58dccffd213b3a, type: 3}
+  - {fileID: 21300000, guid: e689d1239d8cbea47889070564b83b6d, type: 3}
+  - {fileID: 21300000, guid: 450c9bcf6f49b144991c62f58dd36baf, type: 3}
+  farAtk: 0

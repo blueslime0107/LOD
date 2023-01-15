@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     public StartButton battleStartButton;
     public MenuItem battleStartButton_posing;
     public Button Dice6;
+    public GameObject DiceObj;
     public GameObject cardMessage;
     public TextMeshProUGUI cardAbility;
     public TextMeshProUGUI cardStroy;
@@ -51,7 +52,7 @@ public class UI : MonoBehaviour
 
     void Start(){
         CardUIUpdate("Left");
-            CardUIUpdate("Right");
+        CardUIUpdate("Right");
         StartCoroutine("UpdateCards");
     }
 

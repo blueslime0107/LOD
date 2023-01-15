@@ -2,35 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/20책장정리", order = 20)]
 public class Card20 : CardAbility
 {
 
     public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
-        if(card.player.gameObject.tag.Equals("PlayerTeam1")){
-            foreach(Player player in match.left_players){
-                if(!player.Equals(card.player)){
-                    match.GiveCard(linked_card[0],player);
-                }
-            }
+        
+        if(!card.player.Equals(dead_player)){return;}
+        Debug.Log("OnDeath");
+        List<CardAbility> myCards = new List<CardAbility>();
+        foreach(CardPack cards in card.player.cards){
+            if(cards.Equals(card)){continue;}
+            myCards.Add(cards.ability);
         }
-        else{
-            foreach(Player player in match.right_players){
-                if(!player.Equals(card.player)){
-                    match.GiveCard(linked_card[0],player);
-                }
-            }
-        }   
+        linked_card[0].linked_card = myCards;
+        match.SpecialCardGet(card.player.team,linked_card);
+        card.player.team.carddraw += 1;
     }
 
-    public override void WhenCardGet(CardPack card, BattleManager match, Player player, CardPack getCard)
+    public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
-        if(player.gameObject.tag == "PlayerTeam1"){
-            match.card_left_draw += 1;
-        }
-        if(player.gameObject.tag == "PlayerTeam2"){
-            match.card_right_draw += 1;
-        }
+        Debug.Log("WhenCardGetImmedi");
+        card.player.team.carddraw += 1;
     }
 }

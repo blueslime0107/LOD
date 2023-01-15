@@ -21,6 +21,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
 
     public bool cardSelecting;
     public Character selectingChar;
+    public Stage selectingStage;
     [SerializeField]GameObject playerCardPanel;
     [SerializeField]CardUI[] player_cards = new CardUI[7];
 
@@ -79,8 +80,8 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
         Debug.Log("RenderSelectCard");
         
         if(cardSelecting){
-            priceGague.maxValue = selectingChar.max_price;
-            priceGague.value = selectingChar.getCardPriceSum();
+            priceGague.maxValue = selectingStage.avaliblePrice;
+            priceGague.value = selectingStage.GetPriceSum();
             price_text.text = priceGague.value.ToString() + "/" + priceGague.maxValue.ToString();
             foreach(CardPanelCard item in objList){
             item.cardSelecting = true;

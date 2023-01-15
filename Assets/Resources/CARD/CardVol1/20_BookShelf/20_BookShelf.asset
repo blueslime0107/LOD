@@ -9,18 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9814fc0027102042a0ffe7babd6da0d, type: 3}
+  m_Script: {fileID: 11500000, guid: d5de600a9e93bfc4d9f60a4f80b2a096, type: 3}
   m_Name: 20_BookShelf
   m_EditorClassIdentifier: 
-  card_id: 17
+  card_id: 20
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
   name: "\uCC45\uC7A5\uC815\uB9AC"
-  message: "\uCC45\uB4E4\uC744 \uC5CE\uC9C0\uB974\uBA74 \uC548\uB418\uC694"
-  ability_message: "[\uC0AC\uB9DD] \uC544\uAD70\uC5D0\uAC8C \uAC00\uC9C0\uACE0\uC788\uB358
-    \uCE74\uB4DC\uB4E4\uC744 \uB118\uAE38 \uC218 \uC788\uB294\n\uCC45\uB354\uBBF8
-    \uC0DD\uC131"
+  message: "\uC774 \uCC45\uB4E4 \uC5B4\uC9C0\uB806\uD788\uBA74 \uC548\uB418\uC8E0"
+  ability_message: "{\uCD94\uAC00\uCE74\uB4DC}[\uC0AC\uB9DD] \uC18C\uC9C0\uD55C \uBAA8\uB4E0
+    \uCE74\uB4DC\uB4E4\uC744 \uB2E4\uB978 \uCE90\uB9AD\uD130\uC5D0\uAC8C \uB118\uAE38
+    \uC218 \uC788\uB2E4"
   story_message: 
-  illust: {fileID: 21300000, guid: 6e7077832ce573146b362cb3b8d58d06, type: 3}
-  effect:
-  - {fileID: 1546967367116476333, guid: 72cc41ba341cc5649b82c8eef53a89d7, type: 3}
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: cd4f6fb3d7b196b488a08f64e897fdca, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
   linked_card:
-  - {fileID: 11400000, guid: 7378c73487d0c294ba1b02af51b58a2f, type: 2}
+  - {fileID: 11400000, guid: 49ffb6dd0b77422418518fec8d3100f6, type: 2}
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

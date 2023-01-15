@@ -10,6 +10,20 @@ public class Damage{
     }
 }
 
+public class CardGetSituation{
+    public List<CardAbility> specialCards = new List<CardAbility>();
+}
+
+[System.Serializable]
+public class Team{
+    public string text;
+    public List<Player> players;
+    public int carddraw;
+    public BattleAI battleAI;
+    public List<CardGetSituation> cardGetSituations = new List<CardGetSituation>();
+    public int diceRollGague;
+}
+
 public class GameManager : MonoBehaviour
 {
     public SoundManager soundManager;
@@ -72,11 +86,11 @@ public class GameManager : MonoBehaviour
                 leftPlayers[i].poses = chars.char_sprites.poses;
                 leftPlayers[i].farAtt = chars.char_sprites.farAtk;
                 leftPlayers[i].UpdateHp();
-                foreach(CardAbility ability in chars.char_preCards)
-                {
-                    leftPlayers[i].pre_cards.Add(ability);
-                }
+                leftPlayers[i].pre_cards.AddRange(chars.char_preCards);
+                leftPlayers[i].team = battleManager.left_team;
             }
+            
+
         }
 
         for(int i=0;i<sm.play_stage.characters.Length;i++){
@@ -97,6 +111,7 @@ public class GameManager : MonoBehaviour
                 rightPlayers[i].farAtt = chars.char_sprites.farAtk;
                 rightPlayers[i].UpdateHp();
                 rightPlayers[i].pre_cards.AddRange(chars.char_preCards);
+                rightPlayers[i].team = battleManager.right_team;
                 
             }
         }

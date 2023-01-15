@@ -37,6 +37,11 @@ public class PauseMenu : MonoBehaviour
         GameisPaused = true;
     }
 
+    public void Reset(){
+        Resume();
+        sceneManager.Move("Battle");
+    }
+
     public void Setting(){
         settingMenuUI.gameObject.SetActive(true);
     }

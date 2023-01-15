@@ -81,12 +81,7 @@ public class Dice : MonoBehaviour
     }
 
     void OnMouseDrag() { // 마우스 
-        if(battleManager.left_turn && gameObject.tag == "Team2"){
-            return;
-        }
-        if(battleManager.right_turn && gameObject.tag == "Team1"){
-            return;
-        }
+        if(!battleManager.cur_team.players.Contains(player)){return;}
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);        
         transform.position = objPosition;

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e639df480c88bf84588644a1f062327b, type: 3}
+  m_Name: 19_SportMan
+  m_EditorClassIdentifier: 
+  card_id: 19
+  xmlFile_path:
+  - CARD/CardVol1/CardVol1_en.xml
+  - CARD/CardVol1/CardVol1_kr.xml
+  name: "\uC2A4\uD3EC\uCE20\uB9E8\uC2ED"
+  message: "\uC090\uBE45! \uC774\uAC70 \uC548\uB429\uB2C8\uB2E4! \n\uB9E4\uB108\uD558\uC2DC\uC8E0!"
+  ability_message: "{\uD300\uC804\uCCB4 \uB300\uC0C1}[\uBB34\uBC29\uBE44][\uD53C\uD574\uBC1B\uC74C]\uC0C1\uB300\uC5D0\uAC8C\n\uB2E4\uC74C
+    1\uD134 \uB3D9\uC548 \uD53C\uD574\uB97C \uBABB\uC8FC\uB294 \uB808\uB4DC\uCE74\uB4DC\uB97C
+    \uC900\uB2E4"
+  story_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: 854e108747823dc4d940b7843f042617, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card:
+  - {fileID: 11400000, guid: 6fd6d9154630038488fe73efc52c1e77, type: 2}
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}

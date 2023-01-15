@@ -30,7 +30,7 @@ public class CardAbility : ScriptableObject
     [Space(15f),Header ("Ability Sprite")]
     public Sprite overCard;
     public GameObject[] effect;
-    public CardAbility[] linked_card;
+    public List<CardAbility> linked_card;
     public GameObject diceLink;
     public Dice dice;
 
@@ -47,7 +47,7 @@ public class CardAbility : ScriptableObject
 
     public virtual void BeforeCardDraw(CardPack card, BattleManager match, Player player){}
     public virtual void AfterCardDraw(BattleManager match, Player player){}
-    public virtual void WhenCardGet(CardPack card, BattleManager match, Player player, CardPack getCard){}
+    public virtual void WhenCardGet(CardPack card, BattleManager match, Player cardGetPlayer, CardPack getCard){}
     public virtual void WhenCardGetImmedi(CardPack card, BattleManager match){}
     public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
     public virtual void WhenCardDisabled(CardPack card, BattleManager match){}
@@ -60,6 +60,7 @@ public class CardAbility : ScriptableObject
 
     public virtual void OnBattleReady(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleStart(CardPack card, Player player, BattleManager match){}
+    public virtual void OnBattleEnd(CardPack card, Player player, BattleManager match){}
 
     public virtual void OnClashStart(CardPack card, BattleCaculate battle,Player enemy){}
     public virtual void OnClashWin(CardPack card, BattleCaculate battle){}
@@ -69,7 +70,7 @@ public class CardAbility : ScriptableObject
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
     public virtual void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match){}
     public virtual void OnDamaging(CardPack card,  Player defender, Damage damage, BattleManager match){}
-    public virtual void WhoEverDamage(CardPack card, Damage damage, BattleManager match){}
+    public virtual void WhoEverDamage(CardPack card, Damage damage, BattleManager match,Player attacker,Player defender){}
 
     public virtual void OnDeath(CardPack card, Player dead_player, BattleManager match){}
 
