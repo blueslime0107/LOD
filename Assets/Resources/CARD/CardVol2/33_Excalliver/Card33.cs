@@ -9,6 +9,7 @@ public class Card33 : CardAbility
     {
         Active(card);
         battle.AddDamage(2);
+        battle.bm.CardLog(card);
     }
 
     public override void AttackEffect(CardPack card,Player defender)

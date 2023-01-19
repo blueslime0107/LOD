@@ -7,6 +7,7 @@ public class Card43 : CardAbility
 {
     public override void WhenCardGet(CardPack card, BattleManager match, Player player, CardPack getCard)
     {
-        player.AddHealth(-2);
+        player.AddHealth(-1);
+        match.CardLog(card,player);
     }
 }

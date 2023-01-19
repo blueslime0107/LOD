@@ -16,10 +16,11 @@ MonoBehaviour:
   breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 83a4d27aee78b9d43a381f75b097b9be, type: 2}
   char_preCards:
+  - {fileID: 11400000, guid: 2967a30e65a63fa4fad428c25e16cb0d, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  atk_sound: 

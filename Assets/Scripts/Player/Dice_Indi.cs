@@ -51,9 +51,6 @@ public class Dice_Indi : MonoBehaviour
         dice_value = dice.dice_value;
         isDiced = true;       
         render.sprite = dice_img[dice.dice_value];
-        for(int i = 0; i<player.cards.Count;i++){
-            player.cards[i].ability.DiceApplyed(player.cards[i], player);
-        }
         battleManager.sdm.Play("Paper1");
         
         
@@ -78,11 +75,6 @@ public class Dice_Indi : MonoBehaviour
         dice_value = dice_list[0].dice_value;
         isDiced = true;       
         render.sprite = dice_img[dice_list[0].dice_value];
-        for(int i = 0; i<player.cards.Count;i++){
-            player.cards[i].ability.DiceApplyed(player.cards[i], player);
-        }
-
-        
 
         if(dice_list.Count < 2){
             sub_dice.SetActive(false);

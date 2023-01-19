@@ -162,16 +162,6 @@ public class BattleManager : MonoBehaviour
                     }
                 }
 
-                
-
-                foreach(Player player in cur_team.players){
-                    for(int i = 0;i<player.cards.Count;i++){
-                        player.cards[i].ability.BeforeCardDraw(player.cards[i],this,player);
-                    
-                    }
-                }
-
-
                 if(cur_team.battleAI){
                     cur_team.battleAI.isGettingCard(cur_game_cards);
                     card_gived = true;
@@ -209,11 +199,6 @@ public class BattleManager : MonoBehaviour
                     yield return null;
                 }
                 //// 카드를 뽑은 뒤 이벤트
-                foreach(Player player in cur_team.players){
-                    for(int i = 0;i<player.cards.Count;i++){
-                        player.cards[i].ability.AfterCardDraw(this,player);
-                    }
-                }
                 ui.cardMessage.SetActive(false);
                 card_gived = false;
             }
@@ -264,6 +249,7 @@ public class BattleManager : MonoBehaviour
                     backGround.leftCircle.SetActive(true);
                     backGround.rightCircle.SetActive(true);
                     // 주사위를 다 넣었을때 효과 발동
+                    CardLogText("[Battle Ready]","#ffa1fc");
                     for(int i = 0; i < players.Count; i++){
                         for(int j = 0; j < players[i].cards.Count; j++){
                             players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
@@ -278,6 +264,7 @@ public class BattleManager : MonoBehaviour
                 
                 if(battle_start)
                 {
+                    CardLogText("[Battle Start]","#ff00f7");
                     for(int i = 0; i < players.Count; i++){
                             for(int j = 0; j < players[i].cards.Count; j++){
                                 players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
@@ -363,6 +350,7 @@ public class BattleManager : MonoBehaviour
                 
             }
             
+            CardLogText("[Battle End]","#70006d");
             foreach(Player player in players){
                     for(int i = 0;i<player.cards.Count;i++){
                         player.cards[i].ability.OnBattleEnd(player.cards[i],player,this);
@@ -615,8 +603,8 @@ public class BattleManager : MonoBehaviour
 
     public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false){
         if(having_card.tained && !ableTain){return null;}
-        GameObject game_card = new GameObject();
-        CardPack card = game_card.AddComponent<CardPack>() as CardPack;
+        //GameObject game_card = new GameObject();
+        CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
         //CardPack card = new CardPack();
         card.ability = having_card;
         card.price = having_card.price;
@@ -637,8 +625,7 @@ public class BattleManager : MonoBehaviour
 
     public CardPack GiveCardPack(CardPack card, Player player,bool ableTain = false){
         if(card.ability.tained && !ableTain){return card;}
-        card.ability.WhenCardDisabled(card,this);
-        card.player.cards.Remove(card);
+        DestroyCard(card, player);
         card.PreSetting(player);
         player.cards.Add(card);
         card.ability.WhenCardGetImmedi(card,this);
@@ -647,6 +634,11 @@ public class BattleManager : MonoBehaviour
         // pre_card.PreSetting(player);
         // player.cards.Add(pre_card);
         // pre_card.ability.WhenCardGet(pre_card, this,player);
+    }
+
+    public void DestroyCard(CardPack card, Player player){
+        card.ability.WhenCardDisabled(card,this);
+        player.cards.Remove(card);
     }
 
     public Team OpposeTeam(Team team){
@@ -682,7 +674,30 @@ public class BattleManager : MonoBehaviour
         team.cardGetSituations.Add(cardGetSituation);
     }
 
+    public void CardLog(CardPack card, Player oppose = null){
+        string color1 = (card.player.team.text.Equals("Left")) ? "#0099ff" : "#ff2b2b";
+        string newText = "";
 
+        if(oppose == null){
+            newText = "<color=" + color1 + ">" + card.player.character.name + "</color> " + card.ability.name + "\n";
+            //newText = card.player.character.name + " " + card.ability.name + "\n";
+            ui.cardLog.text = newText + ui.cardLog.text;
+
+            return;
+        }
+
+
+        string color2 = (oppose.team.text.Equals("Left")) ? "#0099ff" : "#ff2b2b";
+        newText = "<color=" + color1 + ">" + card.player.character.name + "</color> " + card.ability.name + "\n -> <color=" + color2 + ">" + oppose.character.name + "</color>" + "\n";
+        //newText = card.player.character.name + "-> " + oppose.character.name + "\n -> " + card.ability.name + "\n";
+        ui.cardLog.text = newText + ui.cardLog.text;
+    }
+
+    public void CardLogText(string text,string color="green"){
+        string newText = "";
+        newText = "<color="+color+">" + text + "</color> \n";
+        ui.cardLog.text = newText + ui.cardLog.text;
+    }
     
 
 }

@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4014734665765158299, guid: 0fb9c52760c3fbf428e80662a6244656, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4014734665765158303, guid: 0fb9c52760c3fbf428e80662a6244656, type: 3}
       propertyPath: m_Name
       value: CardPrefap
@@ -590,7 +594,12 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9220570842800854408, guid: 0fb9c52760c3fbf428e80662a6244656, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4014734665765158299, guid: 0fb9c52760c3fbf428e80662a6244656, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0fb9c52760c3fbf428e80662a6244656, type: 3}
 --- !u!114 &6673252614276075267 stripped
 MonoBehaviour:

@@ -16,7 +16,7 @@ MonoBehaviour:
   breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 99f1cbf5100b3b54ca0764323c13e0fb, type: 2}
   char_preCards:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5b4b582976f22b4498ef9edbf9a7ac0a, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -24,4 +24,3 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   atk_sound: 
-  max_price: 80

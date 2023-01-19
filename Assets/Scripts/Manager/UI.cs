@@ -15,7 +15,7 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI cardAbility;
     public TextMeshProUGUI cardStroy;
 
-    
+    public TextMeshProUGUI cardLog;
 
     public GameObject panorama_up;
     public GameObject panorama_down;

@@ -20,12 +20,13 @@ public class Card21 : CardAbility
     {
         if(card.active){return;}
         if(card.saved_card != null){
-            card.player.cards.Remove(card.saved_card);
+            match.DestroyCard(card.saved_card,card.player);
             card.saved_card = null;
         }
         card.saved_card = match.GiveCard(selected_card.ability,card.player);
         card.saved_card.overCard = card.ability.overCard;
         card.active = true;
+        match.CardLog(card,selected_card.player);
     }
 
 }

@@ -125,6 +125,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.gameObject.SetActive(true);
         battleDice.SetPlayerPosition(myChar,eneChar);
 
+        bm.CardLogText("[Clash Start "+myChar.character.name +"->"+eneChar.character.name+"]","#00ff08");
         for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
                     my_ability[i].ability.OnClashStart(my_ability[i],this,eneChar);
                 }
@@ -193,6 +194,7 @@ public class BattleCaculate : MonoBehaviour
             // while(card_activated){
             //     yield return null;
             // }
+            bm.CardLogText("[Draw]","#969696");
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashDraw(my_ability[i],this,eneChar);
             }
@@ -203,6 +205,7 @@ public class BattleCaculate : MonoBehaviour
             yield return null;
         }
         if(damage.value>0){ // 승리
+            bm.CardLogText("[Win "+myChar.character.name+"/Lose "+eneChar.character.name+"]","#ffffff");
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnClashLose(ene_ability[i],this);
             }
@@ -222,6 +225,7 @@ public class BattleCaculate : MonoBehaviour
             // Damage(myChar,eneChar);
         }
         if(damage.value<0){ // 패배
+        bm.CardLogText("[Win "+eneChar.character.name+"/Lose "+myChar.character.name+"]","#ffffff");
             damage.value = -damage.value;
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashLose(my_ability[i],this);
@@ -280,11 +284,7 @@ public class BattleCaculate : MonoBehaviour
         bm.ui.CardFold("Left",true);
         bm.ui.CardFold("Right",true);
 
-        bm.blackScreen.SetActive(false);
-        myChar.SetDice(0);
-        myChar.ChangeCondition(0);
-        eneChar.SetDice(0);
-        eneChar.ChangeCondition(0);
+        
         
         bm.target1 = null;
         bm.target2 = null;
@@ -296,6 +296,8 @@ public class BattleCaculate : MonoBehaviour
         battleDice.gameObject.SetActive(false);
         # endregion
 
+        bm.CardLogText("[Clash End]","#009105");
+
         
         for(int i = 0; i<bm.on_battle_card_effect.Count;i++){
             bm.on_battle_card_effect[i].gameObject.SetActive(false);
@@ -303,11 +305,11 @@ public class BattleCaculate : MonoBehaviour
         }
         # region BattleEnded
         for(int i =0;i<myChar.cards.Count;i++){
-            myChar.cards[i].ability.ClashEnded(myChar.cards[i]);
+            myChar.cards[i].ability.ClashEnded(myChar.cards[i],this);
             myChar.cards[i].card_battleActive = false;
         }
         for(int i =0;i<eneChar.cards.Count;i++){
-            eneChar.cards[i].ability.ClashEnded(eneChar.cards[i]);
+            eneChar.cards[i].ability.ClashEnded(eneChar.cards[i],this);
             eneChar.cards[i].card_battleActive = false;
         }
         #endregion
@@ -326,6 +328,12 @@ public class BattleCaculate : MonoBehaviour
         }
 
         battleDice.DamageUpdate();
+
+        bm.blackScreen.SetActive(false);
+        myChar.SetDice(0);
+        myChar.ChangeCondition(0);
+        eneChar.SetDice(0);
+        eneChar.ChangeCondition(0);
 
         bm.CheckNextTeam();
 

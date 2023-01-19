@@ -7,6 +7,7 @@ public class Card_IllKillU : CardAbility
 {
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
+        match.CardLog(card);
         card.count += 2;
         player.NewDamagedByInt(card.count,player);
     }

@@ -13,6 +13,7 @@ public class Card47 : CardAbility
     public override void OnClashWin(CardPack card, BattleCaculate battle)
     {
         battle.damage.value += card.count;
+        battle.bm.CardLog(card);
     }
 
     public override void WhenCardGet(CardPack card, BattleManager match, Player cardGetPlayer, CardPack getCard)
@@ -43,6 +44,7 @@ public class Card47 : CardAbility
     public override void PlayerSelected(CardPack card, Player selected_player, BattleManager match)
     {
         match.GiveCard(linked_card[0],selected_player);
+        match.CardLog(card);
         card.active = false;
         card.sub_count = 0;
     }

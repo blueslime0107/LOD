@@ -5,9 +5,6 @@ using UnityEngine;
 public class CardEffect : MonoBehaviour
 {
     public BattleManager battleManager;
-    public bool onplayer;
-    public bool OnAttack;
-    public bool onbattleEnd;
     
     float time;
     public float moveFront=0;
@@ -39,9 +36,9 @@ public class CardEffect : MonoBehaviour
             StartCoroutine(Normal());
         }
         time = 0f;
-        if(onbattleEnd){
-            battleManager.on_battle_card_effect.Add(this);
-        }
+        // if(onbattleEnd){
+        //     battleManager.on_battle_card_effect.Add(this);
+        // }
         
     }
 

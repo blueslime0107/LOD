@@ -10,12 +10,13 @@ public class Card12 : CardAbility
     {
         if(card.player.dice > 2 || card.count <= 0){return;}
         card.diceLink.positionCount = 0;
-        foreach(Player player in match.players){
+        foreach(Player player in (card.count.Equals(1)) ? match.players : match.OpposeTeam(card.player.team).players){
             if(player.dice >= 5){
                 player.SetDice(0);
                 card.diceLink.positionCount += 2;
                 card.diceLink.SetPosition(card.diceLink.positionCount-2,player.dice_Indi.gameObject.transform.position);
                 card.diceLink.SetPosition(card.diceLink.positionCount-1,card.player.dice_Indi.gameObject.transform.position);
+                match.CardLog(card,player);
             }
             
         }

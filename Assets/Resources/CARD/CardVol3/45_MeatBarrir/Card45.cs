@@ -10,6 +10,7 @@ public class Card45 : CardAbility
         if(card.active){return;}
         card.active = true;
         card.player.AddHealth(-2);
+        match.CardLog(card);
     }
 
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
@@ -17,5 +18,6 @@ public class Card45 : CardAbility
         if(!card.active){return;}
         damage.value = 0;
         card.active = false;
+        match.CardLog(card);
     }
 }

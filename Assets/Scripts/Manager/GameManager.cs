@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Damage{
     public int value;
-    public CardPack origin;
     public void setDamage(int damage){
         value = damage; 
+    }
+    public void adDamage(int damage){
+        value += damage; 
     }
 }
 

@@ -7,15 +7,17 @@ public class Card195 : CardAbility
 {
     public override void OnDamaging(CardPack card, Player defender, Damage damage, BattleManager match)
     {
+        Debug.Log(card.player.dice);
         damage.value = 0;
+        match.CardLog(card);
     }
 
-    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
+    public override void OnBattleEnd(CardPack card, Player player, BattleManager match)
     {
-        if(card.count.Equals(10)){
-            card.player.cards.Remove(card);
-        }
-        card.count = 10;
+        if(!card.active){
+            card.active = true;
+            return;}
+        match.DestroyCard(card,card.player);
     }
 
 }

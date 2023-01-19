@@ -10,6 +10,7 @@ public class Card201 : CardAbility
         foreach(CardAbility cards in card.ability.linked_card){
             match.GiveCard(cards,card.player);
         }
-        card.player.cards.Remove(card);
+        match.DestroyCard(card,card.player);
+        match.CardLog(card);
     }
 }

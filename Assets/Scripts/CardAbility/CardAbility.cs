@@ -44,9 +44,6 @@ public class CardAbility : ScriptableObject
 
     public virtual void StartMatch(CardPack card, BattleManager match){}
 
-
-    public virtual void BeforeCardDraw(CardPack card, BattleManager match, Player player){}
-    public virtual void AfterCardDraw(BattleManager match, Player player){}
     public virtual void WhenCardGet(CardPack card, BattleManager match, Player cardGetPlayer, CardPack getCard){}
     public virtual void WhenCardGetImmedi(CardPack card, BattleManager match){}
     public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
@@ -55,8 +52,6 @@ public class CardAbility : ScriptableObject
     public virtual void CardActivate(CardPack card, BattleManager match){}
     public virtual void CardSelected(CardPack card, CardPack selected_card,BattleManager match){}
     public virtual void PlayerSelected(CardPack card, Player selected_player, BattleManager match){}
-    public virtual void DiceApplyed(CardPack card, Player player){}
-
 
     public virtual void OnBattleReady(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleStart(CardPack card, Player player, BattleManager match){}
@@ -74,7 +69,7 @@ public class CardAbility : ScriptableObject
 
     public virtual void OnDeath(CardPack card, Player dead_player, BattleManager match){}
 
-    public virtual void ClashEnded(CardPack card){}
+    public virtual void ClashEnded(CardPack card, BattleCaculate battle){}
 
     
     
@@ -83,13 +78,15 @@ public class CardAbility : ScriptableObject
 
 
     public void EffectPlayerSet(GameObject effect, Player player, Transform tran, float x,float y){
+        effect.SetActive(true);
         if(player.gameObject.tag == "PlayerTeam1"){
             effect.transform.eulerAngles = Vector3.up*180;
         }
         else{
             effect.transform.eulerAngles = Vector3.zero;
         }
-        effect.transform.position = tran.position + Vector3.right*x*player.TeamVector() + Vector3.up*y;
+        effect.transform.localPosition = tran.localPosition + Vector3.right*x*player.TeamVector() + Vector3.up*y;
+        //effect.transform.position = tran.position + Vector3.right*x*player.TeamVector() + Vector3.up*y;
         //card.effect[0].transform.position = player.transform.position + Vector3.right*player.TeamVector();
     }
     // public virtual void Actived(){

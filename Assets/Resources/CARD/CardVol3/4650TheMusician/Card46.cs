@@ -10,6 +10,7 @@ public class Card46 : CardAbility
         foreach(Player player in card.player.team.players){
             if(player.Equals(card.player)){continue;}
             player.AddHealth((int)Mathf.Ceil(damage.value / 2));
+            match.CardLog(card,player);
         }
         match.backColorEff.changeColor(94, 94, 94,210);
     }
@@ -20,6 +21,7 @@ public class Card46 : CardAbility
         foreach(Player player in dead_player.team.players){
             if(player.Equals(card.player)){continue;}
             player.NewDamagedByInt(4,card.player);
+            match.CardLog(card,player);
         }
     }
 }

@@ -138,14 +138,7 @@ public class BattleAI : MonoBehaviour
     public void isGettingCard(List<CardAbility> cardlist){
         List<Player> myplayer = my_players.FindAll(x => !x.died);
         bm.GiveCard(cardlist[0],myplayer[0]);
-        cardlist.Remove(cardlist[0]);
-        foreach(Player player in myplayer){
-            for(int i = 0;i<player.cards.Count;i++){
-                foreach(CardAbility card in cardlist){
-                    player.cards[i].ability.WhenCardDestroy(player.cards[i],card);
-                }
-            }
-        }        
+        cardlist.Remove(cardlist[0]);      
 
     }
 

@@ -9,7 +9,7 @@ public class Card20 : CardAbility
     {
         
         if(!card.player.Equals(dead_player)){return;}
-        Debug.Log("OnDeath");
+        match.CardLog(card);
         List<CardAbility> myCards = new List<CardAbility>();
         foreach(CardPack cards in card.player.cards){
             if(cards.Equals(card)){continue;}
@@ -22,7 +22,7 @@ public class Card20 : CardAbility
 
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
-        Debug.Log("WhenCardGetImmedi");
+        match.CardLog(card);
         card.player.team.carddraw += 1;
     }
 }

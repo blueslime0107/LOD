@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField]public BattleManager battleManager;
     public Dice_Indi dice_Indi;
     [SerializeField]public Hp_Indi hp_Indi;
+    [SerializeField]TextMeshPro textMeshPro; 
     Material material;
     float fade = 0.7f;
     
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         max_health = health;
         originPoint = transform.position;
+        
     }
 
     public int speed;
@@ -81,6 +84,7 @@ public class Player : MonoBehaviour
                 battleManager.GiveCard(card,this);
             }
         }
+        textMeshPro.text = character.name;
         UpdateHp();
     }
 
@@ -135,7 +139,6 @@ public class Player : MonoBehaviour
 
 
     public void SetDice(int value){
-
         dice_Indi.setDice(value);
     }
 
@@ -193,14 +196,23 @@ public class Player : MonoBehaviour
     public void DamagedByInt(int damage, Player player,Damage origin_dmg, CardPack cardAbility,string atk_sound=""){
         Damage newdamage = new Damage();
         newdamage.value = damage;
-        newdamage.origin = (origin_dmg.origin == null) ? cardAbility:origin_dmg.origin;
         DamagedBy(newdamage,player,atk_sound);
 
     }
 
     public void AddHealth(int value){
         health += value;
-        Debug.Log(max_health);
+        if(health > max_health){
+            health = max_health;
+        }
+        else if(health<=0){
+            YouAreDead();
+        }
+        UpdateHp();
+    }
+
+    public void SetHealth(int value){
+        health = value;
         if(health > max_health){
             health = max_health;
         }

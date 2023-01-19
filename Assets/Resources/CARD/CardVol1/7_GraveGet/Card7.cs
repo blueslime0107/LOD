@@ -8,12 +8,13 @@ public class Card7 : CardAbility
 
     public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
-        Debug.Log("died");
-        if(dead_player.tag != card.player.tag){
+        if(dead_player.team == match.OpposeTeam(card.player.team)){
             match.AddCardPoint(card.player.team);
+            match.CardLog(card,dead_player);
         }
         else{
             card.active = true;
+            match.CardLog(card,dead_player);
         }
         
     }
@@ -32,14 +33,16 @@ public class Card7 : CardAbility
         dice = card.player.dice;
         card.player.SetDice(card.count);
         card.count = dice;
+        match.CardLog(card);
         
     }
 
-    public override void ClashEnded(CardPack card)
+    public override void ClashEnded(CardPack card, BattleCaculate battle)
     {
         if(!card.active || card.count.Equals(0)){return;}
         int dice = card.player.dice;
         card.player.SetDice(card.count);
         card.count = dice;
+        battle.bm.CardLog(card);
     }
 }

@@ -8,5 +8,6 @@ public class Card42 : CardAbility
     {
         if(dead_player.cards.Count <= 0 || dead_player.Equals(card.player)){return;}
         match.GiveCardPack(dead_player.cards[0],card.player);
+        match.CardLog(card,dead_player);
     }
 }

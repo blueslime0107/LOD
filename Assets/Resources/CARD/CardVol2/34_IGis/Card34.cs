@@ -10,5 +10,6 @@ public class Card34 : CardAbility
         if(card.player.dice != 0){return;}
         damage.value -= 3;
         if(damage.value <= 0){damage.value = 0;}
+        match.CardLog(card);
     }
 }

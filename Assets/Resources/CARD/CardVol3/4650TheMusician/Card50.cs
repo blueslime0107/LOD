@@ -19,5 +19,6 @@ public class Card50 : CardAbility
     public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
         match.GiveCard(linked_card[0],card.player);
+        match.CardLog(card);
     }
 }

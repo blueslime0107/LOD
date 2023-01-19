@@ -8,8 +8,9 @@ public class Card23 : CardAbility
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         if(card.active){return;}
+        match.CardLog(card);
         if(card.saved_card != null){
-            card.player.cards.Remove(card.saved_card);
+            match.DestroyCard(card.saved_card,card.player);
             card.saved_card = null;
         }
         List<CardAbility> random_caard = match.cards;

@@ -26,11 +26,13 @@ public class Card49 : CardAbility
                 card.player.AddDice(1);
             }
         }
+        match.CardLog(card);
     }
 
     public override void OnClashLose(CardPack card, BattleCaculate battle)
     {
         card.active = false;
         battle.bm.backColorEff.changeColor(255,255,255,200);
+        battle.bm.CardLog(card);
     }
 }

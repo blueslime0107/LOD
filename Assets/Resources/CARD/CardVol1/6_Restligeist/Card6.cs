@@ -10,5 +10,6 @@ public class Card6 : CardAbility
     {
         if(dead_player != card.player){return;}
         match.GiveCard(linked_card[0],dead_player.lastHit,true);
+        match.CardLog(card,dead_player.lastHit);
     }
 }

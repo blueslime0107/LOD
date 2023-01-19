@@ -65,11 +65,11 @@ public class CardPack : MonoBehaviour
             // 오른쪽 팀이면 좌우반전
             if(player.gameObject.tag == "PlayerTeam2"){ 
                 card.transform.eulerAngles += Vector3.up*180f;  
-                if(card_effect.onplayer){
-                    Vector3 pre = card.transform.localPosition;
-                    pre.x *= -1; 
-                    card.transform.localPosition = pre;
-                }
+                //if(card_effect.onplayer){
+                Vector3 pre = card.transform.localPosition;
+                pre.x *= -1; 
+                card.transform.localPosition = pre;
+                //}
             }
             effect.Add(card);
 
