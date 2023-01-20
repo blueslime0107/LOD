@@ -7,4 +7,5 @@ public class CharObj : ScriptableObject
 {
     public string name_;
     public List<Sprite> character = new List<Sprite>();
+    public float preY;
 }

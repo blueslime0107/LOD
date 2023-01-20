@@ -180,7 +180,7 @@ public class Lobby : MonoBehaviour
 
     public void GetStory(){
         sdm.Play("Snap");
-        if(stageManager.play_stage.beforeStory != null)
+        if(stageManager.play_stage.beforeStory != null && !stageManager.play_stage.victoryed)
         {sceneM.Move("Talk");}
         else{
             sceneM.Move("Battle");

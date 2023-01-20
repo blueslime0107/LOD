@@ -6,6 +6,7 @@ using UnityEngine.Localization.Settings;
 public class DTManager : MonoBehaviour
 {
     public StageManager stageManager;
+    public SoundManager sound;
 
     public StoryScript story;
 
@@ -39,40 +40,51 @@ public class DTManager : MonoBehaviour
         List<Dialog> dialogList = new List<Dialog>();
         TextAsset csvData = filename;//(TextAsset) Resources.Load(filename.Split(".")[0]);
 
-        Debug.Log(csvData);
-        Debug.Log(csvData.text);
-
         string[] data = csvData.text.Split(new char[]{'\n'});
 
         for(int i=1; i<data.Length; i++){
             string[] row = data[i].Split(new char[]{','}); 
-
             Dialog dialog = new Dialog();
-            try{
+            Debug.Log(row.Length);
+            if(row.Length == 1){
+                dialogList[dialogList.Count-1].context += "\n" + row[0];
+                i++;
+                if(i>=data.Length){break;}
+                row = data[i].Split(new char[]{','}); 
+            }
+            if(row.Length == 1){
+                dialogList[dialogList.Count-1].context += "\n" + row[0];
+                i++;
+                if(i>=data.Length){break;}
+                row = data[i].Split(new char[]{','}); 
+            }
             if(row[1].Contains("/")){
                 string[] magevar = row[2].Split(';');
                 if(row[1].Equals("/show")){
-                    inter.showCommand(magevar[0],int.Parse(magevar[1]),int.Parse(magevar[2]));
+                    dialog.function_name = row[1];
+                    dialog.targetChar = magevar[0];
+                    dialog.parameters.Add(float.Parse(magevar[1]));
+                    dialog.parameters.Add(float.Parse(magevar[2]));
+                    dialog.parameters.Add(story.charStd.Find(x => x.name_.Equals(magevar[0])).preY);
+
                 }
                 if(row[1].Equals("/hide")){
-                    inter.hideCommand(magevar[0]);
+                    dialog.function_name = row[1];
+                    dialog.targetChar = magevar[0];
                 }
                 if(row[1].Equals("/stand")){
-                    inter.standCommand(magevar[0],int.Parse(magevar[1]));
-                }
-                
-                
+                    dialog.function_name = row[1];
+                    dialog.targetChar = magevar[0];
+                    dialog.parameters.Add(int.Parse(magevar[1])-1);
+                } 
+                dialogList.Add(dialog);
             }
             else{
             dialog.name = row[0];
             dialog.char_feel = int.Parse(row[1])-1;
             dialog.context = row[2].Replace("\\n","\n");
             dialogList.Add(dialog);
-            }}
-            catch{
-                break;
             }
-
 
             //List<string> contextList = new List<string>();
 

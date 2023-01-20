@@ -15,6 +15,11 @@
         <sub_text>그렇다고 어렵진 않아!</sub_text>
         <sub_text2>너 친구있었니?</sub_text2>
     </Stage>
+    <Stage id="3">
+        <title>자 카드를 들어라!</title>
+        <sub_text>브레이크 수치도 알아보자고</sub_text>
+        <sub_text2>다시 1대1 이야</sub_text2>
+    </Stage>
     <Stage id="4">
         <title>진심으로 싸우자!</title>
         <sub_text>이제부턴 실전이야</sub_text>

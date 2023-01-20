@@ -200,6 +200,13 @@ MonoBehaviour:
     group: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: pop
+    clip: {fileID: 8300000, guid: bf9dcc037eb83a94f8189caf5eaebdc1, type: 3}
+    volume: 0.289
+    pitch: 1
+    group: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   mixer:
   - {fileID: -3328339283235370755, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}
   - {fileID: 8082049311940040082, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}

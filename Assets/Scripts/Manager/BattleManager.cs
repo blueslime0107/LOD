@@ -249,6 +249,7 @@ public class BattleManager : MonoBehaviour
                     backGround.leftCircle.SetActive(true);
                     backGround.rightCircle.SetActive(true);
                     // 주사위를 다 넣었을때 효과 발동
+                    ui.cardLog.text = "";
                     CardLogText("[Battle Ready]","#ffa1fc");
                     for(int i = 0; i < players.Count; i++){
                         for(int j = 0; j < players[i].cards.Count; j++){

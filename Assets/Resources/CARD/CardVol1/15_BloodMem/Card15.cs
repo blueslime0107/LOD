@@ -9,8 +9,8 @@ public class Card15 : CardAbility
     {
         if(card.card_battleActive){return;}
         Active(card);
-        attacker.DamagedByInt((int)Mathf.Ceil(damage.value*0.5f),card.player,damage,card);
         match.CardLog(card,attacker);
+        attacker.DamagedByInt((int)Mathf.Ceil(damage.value*0.5f),card.player,damage,card);
         match.backColorEff.changeColor(255,0,0,255);
         
     }

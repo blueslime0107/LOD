@@ -7480,7 +7480,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 37
+  m_SortingOrder: 25
   m_TargetDisplay: 0
 --- !u!224 &367848750
 RectTransform:
@@ -19475,6 +19475,7 @@ GameObject:
   - component: {fileID: 1496769365}
   - component: {fileID: 1496769364}
   - component: {fileID: 1496769363}
+  - component: {fileID: 1496769366}
   m_Layer: 5
   m_Name: CardLog
   m_TagString: Untagged
@@ -19562,8 +19563,20 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 40
+  m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!225 &1496769366
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496769361}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1505054214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33716,7 +33729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948402277
@@ -33731,7 +33744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751e7b21e87258548b5b2060a134a195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_pos: {x: 0, y: 416}
+  move_pos: {x: 0, y: 315}
   speed: 10
 --- !u!1 &1953494036
 GameObject:

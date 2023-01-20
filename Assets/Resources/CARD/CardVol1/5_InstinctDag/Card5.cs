@@ -12,14 +12,16 @@ public class Card5 : CardAbility
             reduce = (int)Mathf.Floor(damage.value / 2);
             damage.adDamage(-reduce);
             Active(card);
-            attacker.DamagedByInt(reduce,card.player,damage,card);
             match.CardLog(card,attacker);
+            attacker.DamagedByInt(reduce,card.player,damage,card);
+            
         }
         else{
             damage.adDamage(-1);
             Active(card);
-            attacker.DamagedByInt(1,card.player,damage,card);
             match.CardLog(card,attacker);
+            attacker.DamagedByInt(1,card.player,damage,card);
+            
         }
 
 

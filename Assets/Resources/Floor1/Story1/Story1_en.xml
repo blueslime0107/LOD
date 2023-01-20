@@ -15,6 +15,11 @@
         <sub_text>it's not hard</sub_text>
         <sub_text2>Did u have friends?</sub_text2>
     </Stage>
+    <Stage id="3">
+        <title>Hold a Card!</title>
+        <sub_text>Let's learn about BREAK</sub_text>
+        <sub_text2>1vs1 again</sub_text2>
+    </Stage>
     <Stage id="4">
         <title>Let's fight sincerely!</title>
         <sub_text>Now the real battle begin</sub_text>
