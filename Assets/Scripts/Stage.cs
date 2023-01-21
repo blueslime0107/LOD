@@ -12,11 +12,10 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public string sub_text;
     public int rank;
     public string values;
-    public Character[] characters;
+    public Character[] characters = new Character[5];
     public StoryScript beforeStory;
     public StoryScript afterStory;
     public List<AddStage> priceStage;
-    public CardAbility priceCard;
     public bool victoryed = false;
     public int avaliblePrice = 100;
 
@@ -25,6 +24,10 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public Stage playerStageLock;
     public List<Character> priceChars;
     public List<CardAbility> priceCards;
+
+
+    [Header("Special"), Space(15f)]
+    public GameObject custom_stage;
     public int tutorialLine;
     public bool noBreakCards;
     public bool noPrice;

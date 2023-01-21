@@ -45,7 +45,6 @@ public class DTManager : MonoBehaviour
         for(int i=1; i<data.Length; i++){
             string[] row = data[i].Split(new char[]{','}); 
             Dialog dialog = new Dialog();
-            Debug.Log(row.Length);
             if(row.Length == 1){
                 dialogList[dialogList.Count-1].context += "\n" + row[0];
                 i++;

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CardVol Filename="CardVol1">
     <Card Code="41">
-        <name>완벽한 모범생</name>
-        <text>완벽해야 되요</text>
-        <ability>[전투 시작] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+        <name>도발</name>
+        <text>아무고토 못하죠?!</text>
+        <ability>[캐릭터 지정]지정한 캐릭터의 위력이 자신보다 높다면
+지정한 캐릭터는 1턴 동안 자신을 제외한 다른 캐릭터에게 공격할 수 없다.
+        </ability>
         <story></story>
     </Card>
     <Card Code="42">

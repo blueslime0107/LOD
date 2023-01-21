@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
+  m_Name: Char1
+  m_EditorClassIdentifier: 
+  health: 10
+  breaks: 060000000200000000000000
+  char_sprites: {fileID: 11400000, guid: 39c730357a353504e9e1720899604b23, type: 2}
+  char_preCards:
+  - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  atk_sound: 

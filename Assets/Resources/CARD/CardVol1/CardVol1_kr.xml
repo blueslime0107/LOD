@@ -75,7 +75,7 @@
     <Card Code="12">
         <name>시들어진 네잎클로버</name>
         <text>이곳의 운은 이미 죽은지 오래에요</text>
-        <ability>[발동] 자신위력이 2 이하일때&#10;5위력 이상의 모든 캐릭터들의 주사위를 파괴한다</ability>
+        <ability>[발동 최대3번] 자신위력이 2 이하일때 5위력 이상의 상대팀 캐릭터들의 주사위를 파괴한다.&#10;3번째 발동때 모든캐릭터를 대상으로 효과가 적용된다.</ability>
         <story></story>
     </Card>
     <Card Code="13">
@@ -138,7 +138,4 @@
         <ability>[획득]사망한 캐릭터의 카드들을 가져온다</ability>
         <story></story>
     </Card>
-
-
-    
 </CardVol>

@@ -14,7 +14,6 @@ public class Card25 : CardAbility
             player.AddHealth(-Mathf.CeilToInt(card.count / 2));
             getCard.player.cards.Remove(getCard);
             card.count = -1;
-            match.backColorEff.gameObject.SetActive(true);
             match.backColorEff.changeColor(255, 162, 0,255);
             match.CardLog(card,player);
         }

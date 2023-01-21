@@ -30,6 +30,8 @@ public class BattleCaculate : MonoBehaviour
     public Player myChar;
     public Player eneChar;
 
+    public int ones_power = 1;
+
 
     public bool card_activated;
 
@@ -92,10 +94,10 @@ public class BattleCaculate : MonoBehaviour
 
 
     void BasicDice(){        
-        if(myChar.dice == 1 && eneChar.dice >= 6){
+        if(myChar.dice == ones_power && eneChar.dice >= 6){
             myChar.AddDice(6);
         }
-        else if(eneChar.dice == 1 && myChar.dice >= 6){
+        else if(eneChar.dice == ones_power && myChar.dice >= 6){
             eneChar.AddDice(6);
         }
     }
@@ -211,6 +213,7 @@ public class BattleCaculate : MonoBehaviour
             }
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashWin(my_ability[i],this);
+                BasicDice();
                 if(my_ability[i].card_battleActive){
                     myChar.UpdateActiveStat();
                 }
@@ -232,6 +235,7 @@ public class BattleCaculate : MonoBehaviour
             }
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnClashWin(ene_ability[i],this);
+                BasicDice();
                 if(ene_ability[i].card_battleActive){
                     eneChar.UpdateActiveStat();
                 }
@@ -284,7 +288,7 @@ public class BattleCaculate : MonoBehaviour
         bm.ui.CardFold("Left",true);
         bm.ui.CardFold("Right",true);
 
-        
+        ones_power = 1;
         
         bm.target1 = null;
         bm.target2 = null;
@@ -305,12 +309,14 @@ public class BattleCaculate : MonoBehaviour
         }
         # region BattleEnded
         for(int i =0;i<myChar.cards.Count;i++){
-            myChar.cards[i].ability.ClashEnded(myChar.cards[i],this);
             myChar.cards[i].card_battleActive = false;
+            myChar.cards[i].ability.ClashEnded(myChar.cards[i],this);
+            
         }
         for(int i =0;i<eneChar.cards.Count;i++){
-            eneChar.cards[i].ability.ClashEnded(eneChar.cards[i],this);
             eneChar.cards[i].card_battleActive = false;
+            eneChar.cards[i].ability.ClashEnded(eneChar.cards[i],this);
+            
         }
         #endregion
 

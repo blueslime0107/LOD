@@ -404,6 +404,11 @@ public class BattleManager : MonoBehaviour
             target2 = null;
             return;
         }
+        foreach(Player player in players){
+            foreach(CardPack card in player.cards){
+                card.ability.OnClashTargetSelected(card,target2,this);
+            }
+        }
         if(target1 != target2){
 
             battleing = true;
@@ -411,6 +416,11 @@ public class BattleManager : MonoBehaviour
 
             battleCaculate.BattleMatch(target1,target2);
         }
+    }
+
+    public void ChangeTarget2(Player target){
+        if(target.died || !target.gameObject.activeSelf){return;}
+        target2 = target;
     }
 
     public void ReRoll(){

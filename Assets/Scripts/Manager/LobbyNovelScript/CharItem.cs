@@ -22,8 +22,6 @@ public class CharItem : MonoBehaviour
     public CardUI[] cards = new CardUI[7];
 
     public void OpenCardSelectMenu(){
-        Debug.Log(cur_char.name);
-        Debug.Log(cur_char.char_preCards);
         lobby.menuCard.selectingStage = cur_stage;
         lobby.menuCard.selectingChar = cur_char;
         lobby.OpenCardSelectMenu();

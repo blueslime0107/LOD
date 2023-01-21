@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/10해결사 상인", order = 10)]
 public class Card10 : CardAbility
 {
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)

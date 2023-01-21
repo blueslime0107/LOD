@@ -45,5 +45,10 @@
         <sub_text>감정을 끝까지 밀어붙이면..</sub_text>
         <sub_text2>가능하다 생각하니?</sub_text2>
     </Stage>
+    <Stage id="22">
+        <title>고치고 고치고</title>
+        <sub_text>하하 새로운 도전자다!</sub_text>
+        <sub_text2>그런데 내가 더 불리한것 같아</sub_text2>
+    </Stage>
     
 </CardVol>

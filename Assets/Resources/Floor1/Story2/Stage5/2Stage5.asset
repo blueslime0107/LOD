@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: 2Stage5
+  m_EditorClassIdentifier: 
+  id: 25
+  xmlFile_path:
+  - Floor1/Story1/Story1_en.xml
+  - Floor1/Story1/Story1_kr.xml
+  title: 
+  sub_text: 
+  rank: 5
+  values: 
+  characters:
+  - {fileID: 11400000, guid: 8e37c7005b04d354e8e5f477fc9dfd27, type: 2}
+  - {fileID: 11400000, guid: 0a4ac5f39d3e498418b4c330fe3b0f8c, type: 2}
+  - {fileID: 11400000, guid: 0a4ac5f39d3e498418b4c330fe3b0f8c, type: 2}
+  - {fileID: 11400000, guid: 0a4ac5f39d3e498418b4c330fe3b0f8c, type: 2}
+  - {fileID: 0}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  priceStage:
+  - floor: 1
+    panel: 2
+    stage: {fileID: 11400000, guid: b1aaade6c00e7b24c93e5855529f6b58, type: 2}
+  victoryed: 0
+  avaliblePrice: 100
+  playerStageLock: {fileID: 0}
+  priceChars: []
+  priceCards:
+  - {fileID: 11400000, guid: 7b124d01946e0884eb6940471d8d49c2, type: 2}
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0

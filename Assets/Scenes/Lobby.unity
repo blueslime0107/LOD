@@ -17164,8 +17164,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
   - {fileID: 11400000, guid: 4ac569eccb5aa8545b3997fcf27b8a26, type: 2}
   - {fileID: 11400000, guid: bb4bf4620e9e30f40a7ee50ca7017b4b, type: 2}
+  - {fileID: 11400000, guid: 42245c302d93c1741a90f8a61f19c022, type: 2}
   - {fileID: 11400000, guid: aeb745c0e4eacfc4096d0f3cb8c240ca, type: 2}
   - {fileID: 11400000, guid: 16b5d4da762553848af21023049de00f, type: 2}
+  - {fileID: 11400000, guid: 814b51028aa158940b857e38938b7be3, type: 2}
   - {fileID: 11400000, guid: bb90cf131995f164f8d30f6e1a7e5c19, type: 2}
   - {fileID: 11400000, guid: c49182a4022c7034db45a2aea1a2991e, type: 2}
   - {fileID: 11400000, guid: 8b70d90f80a75db4294fb906ce48bee7, type: 2}
@@ -17183,10 +17185,15 @@ MonoBehaviour:
     Stage1:
     - {fileID: 11400000, guid: c621d23c27757c0429de305c3f2e34f2, type: 2}
     rank2: 2
-    title2: 
-    Stage2: []
+    title2: "\uC644\uBCBD\uD55C \uC0AC\uB78C"
+    Stage2:
+    - {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
+    - {fileID: 11400000, guid: 0672b2e9e195bab428c229ecbd507636, type: 2}
+    - {fileID: 11400000, guid: b0827b11b77ed974791e386ca9ddd43e, type: 2}
+    - {fileID: 11400000, guid: fbf8e0657780a8d449de22f8bc40800e, type: 2}
+    - {fileID: 11400000, guid: 187b3f8fa5d6cf54c9940e1d419fffef, type: 2}
+    - {fileID: 11400000, guid: b1aaade6c00e7b24c93e5855529f6b58, type: 2}
     SubStage:
-    - {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: e5c3ce20ace5e234bb000a6d47392a36, type: 2}
     - {fileID: 11400000, guid: 845aae95fd4d54f4d87394e75c8d57c9, type: 2}
@@ -17236,6 +17243,7 @@ MonoBehaviour:
         m_TrackedProperties:
           items:
           - rid: 3092991264387760145
+          - rid: 3092991548109619202
         m_UpdateType: 0
         m_Changed:
           m_PersistentCalls:
@@ -17253,6 +17261,19 @@ MonoBehaviour:
           m_WaitForCompletion: 0
           m_LocalVariables: []
         m_PropertyPath: FloorOfBattle.title1
+    - rid: 3092991548109619202
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:f917c7079e91ec541a4cc6d2d0214c75
+          m_TableEntryReference:
+            m_KeyId: 8676673917489152
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: FloorOfBattle.title2
 --- !u!1 &1956010149
 GameObject:
   m_ObjectHideFlags: 0

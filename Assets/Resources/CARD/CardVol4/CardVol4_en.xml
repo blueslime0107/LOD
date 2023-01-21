@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Card Code="41">
+        <name>완벽한 모범생</name>
+        <text>완벽해야 되요</text>
+        <ability>[전투 시작] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+        <story></story>
+    </Card>
+    <Card Code="42">
+        <name>Book scavenger</name>
+        <text>All of these books are&#10;had an owner</text>
+        <ability>[Any Death] Among the dead character's cards&#10;Take the first card they got</ability>
+        <story></story>
+    </Card>
+    <Card Code="43">
+        <name>Security CCTV</name>
+        <text>Card? What are you doing in battle?</text>
+        <ability> HP -2 when acquiring a card regardless of team</ability>
+        <story></story>
+    </Card>
+    <Card Code="44">
+        <name>Hit and run</name>
+        <text>Put away that weapon!</text>
+        <ability>[Clash Lose][Attacking] take damage to 0</ability>
+        <story></story>
+    </Card>
+    <Card Code="45">
+        <name>Meat shield</name>
+        <text>Go meat shield! use Nothing!</text>
+        <ability>[Active]Reduce 2 HP&#10;[In action][Get damaged] Set the damage to 0, and turn off the activation state</ability>
+        <story></story>
+    </Card>
+    <Card Code="46">
+        <name>Sospirando</name>
+        <text>very sad...</text>
+        <ability>[Get damaged] Recovers the HP of all teams except yourself by half the damage&#10;[Death] All own teams Decrease 4 HP</ability>
+        <story></story>
+    </Card>
+    <Card Code="49">
+        <name>Feroce</name>
+        <text>roughly...</text>
+        <ability>[Battle start] Increases the 1 power of all own teams&#10;[Clash Lose] The effect for the next 1 turn is changed to ([Battle start] Power fixed to 1)</ability>
+        <story></story>
+    </Card>
+    
+</CardVol>

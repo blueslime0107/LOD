@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: DontFastGate
+  m_EditorClassIdentifier: 
+  name_: Speed Gate
+  poses:
+  - {fileID: 21300000, guid: 0cf370426eb24cc43824b4b611f24070, type: 3}
+  - {fileID: 21300000, guid: 4a676482c00e33a4587ba52d881b7802, type: 3}
+  - {fileID: 21300000, guid: 35cdacf0c17b64b40b5c55f1ac3c5ccc, type: 3}
+  - {fileID: 21300000, guid: d645993c18d79fb48a47be2ae4ba4188, type: 3}
+  - {fileID: 21300000, guid: c194c0b19ea094b42adc13f5a374529a, type: 3}
+  farAtk: 1

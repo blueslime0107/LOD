@@ -9,6 +9,7 @@ public class Damage{
     }
     public void adDamage(int damage){
         value += damage; 
+        if(value <= 0){value = 0;}
     }
 }
 
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
     public CameraCtrl main_camera_ctrl;
 
     public StageManager sm;
+    [SerializeField]public GameObject parent_back;
+    
 
     public Stage debugPlayerStage;
     public Stage debugStage;
@@ -125,12 +128,22 @@ public class GameManager : MonoBehaviour
         }
         
         }
-
-        switch(sm.floor){
-            case 1: backGrounds[1].SetActive(true); break;
-            case 2: backGrounds[0].SetActive(true); break;
-            case 3: backGrounds[2].SetActive(true); break;
+        if(sm.play_stage.custom_stage){
+            GameObject obj = Instantiate(sm.play_stage.custom_stage);
+            obj.transform.SetParent(parent_back.transform,false);   
         }
+        else{
+        switch(sm.floor){
+            case 1: backGrounds[1].SetActive(true); 
+            break;
+            case 2: backGrounds[0].SetActive(true); 
+            break;
+            case 3: backGrounds[2].SetActive(true); 
+            break;
+        }
+
+        }
+
 
 
     }

@@ -82,7 +82,6 @@ public class Interaction : MonoBehaviour
         if(index >= dataBase.dialogDic.Count){SkipText(); return;}
 
         if(dataBase.dialogDic[index].function_name != null){
-            Debug.Log("fucc");
             switch(dataBase.dialogDic[index].function_name){
                 case "/show":
                 showCommand(dataBase.dialogDic[index].targetChar,dataBase.dialogDic[index].parameters[0],((int)dataBase.dialogDic[index].parameters[1]),dataBase.dialogDic[index].parameters[2]); break;
