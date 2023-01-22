@@ -1285,7 +1285,7 @@ GameObject:
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!81 &991160525
 AudioListener:
@@ -2122,7 +2122,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1560350572
 MonoBehaviour:
@@ -2223,7 +2223,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1568092840
 MonoBehaviour:
@@ -2285,6 +2285,10 @@ PrefabInstance:
     - target: {fileID: 312131386047867288, guid: 9d94f61f116922443801813c313c7d51, type: 3}
       propertyPath: m_Name
       value: SceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 312131386047867288, guid: 9d94f61f116922443801813c313c7d51, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 559351657460597126, guid: 9d94f61f116922443801813c313c7d51, type: 3}
       propertyPath: m_Controller
@@ -2394,6 +2398,10 @@ PrefabInstance:
     - target: {fileID: 8387474057337548284, guid: d12a07b8e81c29f4fa0e7449a5098667, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387474057337548284, guid: d12a07b8e81c29f4fa0e7449a5098667, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12a07b8e81c29f4fa0e7449a5098667, type: 3}
@@ -2664,7 +2672,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1904822218
 MonoBehaviour:
@@ -3045,7 +3053,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &2127239500
 SpriteRenderer:
