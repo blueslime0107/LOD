@@ -75,7 +75,7 @@
         <story></story>
     </Card>
     <Card Code="12">
-        <name>Tained Four-leaf Clover</name>
+        <name>Withering fate</name>
         <text>The luck here is long gone</text>
         <ability>[Active] When your power is below 2,
             Destroy the dice of all characters above dice-5.</ability>
@@ -88,50 +88,50 @@
         <story></story>
     </Card>
     <Card Code="14">
-        <name>M.A.D</name>
+        <name>M.A.D.</name>
         <text>Now I am become Death, the destroyer of worlds</text>
         <ability>[Clash lose] 1 damage to all opposing team characters.</ability>
         <story></story>
     </Card>
     <Card Code="15">
-        <name>Bloody Memory</name>
+        <name>Guilt</name>
         <text>I didn't want to recall those memories</text>
         <ability>[Get Damaged] Give half the damage on the opponent</ability>
         <story></story>
     </Card>
     <Card Code="16">
-        <name>Fatal single blow</name>
+        <name>A singular strike</name>
         <text>The moment you let your guard down&#10;you can't ignore the rest.</text>
         <ability>[Do Damage] 2 or less damages will be doubled.</ability>
         <story></story>
     </Card>
     <Card Code="17">
-        <name>NerveDrone</name>
+        <name>Homing craft</name>
         <text>violence detected
             Envade!</text>
         <ability>[Get Damaged] Avoid below 2 damage.</ability>
         <story></story>
     </Card>
     <Card Code="18">
-        <name>Fair blood donor</name>
+        <name>All for All</name>
         <text>Is this really fair right?</text>
         <ability>[Active][Disposable] Adjusts the HP of all surviving characters to the average value.</ability>
         <story></story>
     </Card>
     <Card Code="19">
-        <name>스포츠맨십</name>
+        <name>Sportsmanship</name>
         <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
         <ability>{팀전체 대상}[무방비][피해받음]상대에게&#10;다음 1턴 동안 피해를 못주는 레드카드를 준다</ability>
         <story></story>
     </Card>
     <Card Code="195">
-        <name>레드카드</name>
+        <name>Redcard</name>
         <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
         <ability>[피해줌]피해가 0이 된다, 1턴뒤 파괴됨</ability>
         <story></story>
     </Card>
     <Card Code="20">
-        <name>책장정리</name>
+        <name>Rearrange</name>
         <text>이 책들 어지렆히면 안되죠</text>
         <ability>{추가카드}[사망] 소지한 모든 카드들을 다른 캐릭터에게 넘길 수 있다</ability>
         <story></story>

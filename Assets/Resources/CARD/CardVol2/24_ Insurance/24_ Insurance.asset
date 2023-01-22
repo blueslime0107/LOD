@@ -17,13 +17,14 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uBCF4\uD5D8"
-  message: 
+  message: "\uAC00\uC785\uD558\uC2DC\uBA74 \uC808\uB300 \uD6C4\uD68C\uB418\uC9C0
+    \uC54A\uC744\uAC81\uB2C8\uB2E4!"
   ability_message: "[\uD68D\uB4DD] \uCCB4\uB825 4 \uD68C\uBCF5, \uC774\uD6C4 \uC790\uC2E0\uD300\uC758
     \uCE74\uB4DC\uBF51\uAE30\uBD80\uD130 \uC774 \uCE74\uB4DC\uC758 \uD6A8\uACFC\uAC00
-    \uCD94\uAC00\uB41C\uB2E4\n[\uC804\uD22C\uC804\uAC1C] \uCCB4\uB825 1  \uAE4E\uC784\n"
+    \uCD94\uAC00\uB41C\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 65
   illust: {fileID: 21300000, guid: 49787946f64c4ff4c8c7fc79d2c68849, type: 3}
   usingCount: 0
   pre_count: 0

@@ -20,6 +20,9 @@ public class Interaction : MonoBehaviour
     string textadd = "";
 
     Color disAbleColor = new Color(125/255f,125/255f,125/255f);
+    private void Start() {
+        dataBase.sound.Play("Dialog1");    
+    }
 
     public void showCommand(string name, float pos, int flip, float preY){
         GameObject obj = Instantiate(standing);

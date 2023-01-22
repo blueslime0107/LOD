@@ -22,10 +22,10 @@ MonoBehaviour:
     \uD68C\uD53C\uD55C\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 35
   illust: {fileID: 21300000, guid: dd30697ca458b0b4cb28fec9afc33239, type: 3}
   usingCount: 0
-  pre_count: 0
+  pre_count: 35
   overCard: {fileID: 0}
   effect: []
   linked_card: []

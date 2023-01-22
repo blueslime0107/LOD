@@ -16,6 +16,8 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
     public TextMeshProUGUI title;
     public DiceIcon diceIcon;
 
+    [SerializeField] GameObject alert;
+
     private void Awake() {
         sm = FindObjectOfType<StageManager>();
     }
@@ -29,20 +31,30 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         }
         switch(panel){
             case 1: stages = floor.Stage1; 
+            alert.SetActive(floor.addedStage1);
+            lobby.main_alert.SetActive(true);
+            floor.addedStage1 = false;
             title.text = floor.title1;
             diceIcon.SetRank(floor.rank1);
             break;     
             case 2: stages = floor.Stage2;
+            alert.SetActive(floor.addedStage2);
+            lobby.main_alert.SetActive(true);
+            floor.addedStage2 = false;
             title.text = floor.title2;
             diceIcon.SetRank(floor.rank2); 
             break;    
             case 3: stages = floor.SubStage; 
+            alert.SetActive(floor.addedSubStage);
+            floor.addedSubStage = false;
             break;    
         }
+        //floor.addedStage = false;
     }
 
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
+        alert.SetActive(false);
         if(panel.Equals(3)){
             lobby.OpenSubMenu();
         }

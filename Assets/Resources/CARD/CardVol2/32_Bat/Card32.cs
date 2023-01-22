@@ -9,8 +9,9 @@ public class Card32 : CardAbility
     public override void OnClashDraw(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(card.player == enemy){return;}
-        card.player.AddDice(3);
         battle.bm.CardLog(card);
+        enemy.NewDamagedByInt(3,card.player);
+        
     }
 
 }

@@ -131,12 +131,13 @@ public class GameManager : MonoBehaviour
         if(sm.play_stage.custom_stage){
             GameObject obj = Instantiate(sm.play_stage.custom_stage);
             obj.transform.SetParent(parent_back.transform,false);   
+            soundManager.Play(sm.play_stage.custom_BGM);
         }
         else{
         switch(sm.floor){
-            case 1: backGrounds[1].SetActive(true); 
+            case 1: backGrounds[1].SetActive(true); soundManager.Play("BattleFloor");
             break;
-            case 2: backGrounds[0].SetActive(true); 
+            case 2: backGrounds[0].SetActive(true); soundManager.Play("ResourceFloor");
             break;
             case 3: backGrounds[2].SetActive(true); 
             break;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Char1
   m_EditorClassIdentifier: 
   health: 10
-  breaks: 060000000200000000000000
+  breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 39c730357a353504e9e1720899604b23, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}

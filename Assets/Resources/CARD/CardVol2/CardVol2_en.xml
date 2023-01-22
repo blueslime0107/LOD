@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CardVol Filename="CardVol1">
     <Card Code="21">
-        <name>Professional scammer</name>
+        <name>Copy rights</name>
         <text>source indication? why do you need that</text>
         <ability>[Card select]Choose one of your opponent's cards to gain an effect.</ability>
         <story></story>
     </Card>
     <Card Code="22">
-        <name>Behavioral Copy Robot</name>
+        <name>Copy Robot</name>
         <text>I'm just copying, not getting stronger</text>
         <ability>[Battle start] The power of the most powerful character on the opposing team is equal to the power of the character with the greatest power.&#10;When the power is equal to 5 or more, the effect does not activate next turn</ability>
         <story></story>
@@ -31,13 +31,13 @@
         <story></story>
     </Card>
     <Card Code="26">
-        <name>Loss of consciousness</name>
+        <name>Call of Outer</name>
         <text>I failed.. it's over now</text>
         <ability>[Card select] Prevents the activation of the effect of the specified card.</ability>
         <story></story>
     </Card>
     <Card Code="27">
-        <name>레이븐콜</name>
+        <name>Raven's call</name>
         <text>맡기신 카드 나왔습니다</text>
         <ability>{추가카드}카드뽑기중에 전에 버려진 카드들을 뽑을 수 있다</ability>
         <story></story>
@@ -49,7 +49,7 @@
         <story></story>
     </Card>
     <Card Code="28">
-        <name>Unlucky mechanic</name>
+        <name>Overloader overdose</name>
         <text>Fixing and fixing didn't change anything</text>
         <ability>[Battle start] Recovers 1-2 HP, counts up by 1 when max HP is exceeded, &#10;dies when count is 3 or higher</ability>
         <story></story>
@@ -73,7 +73,7 @@
         <story></story>
     </Card>
     <Card Code="32">
-        <name>Baseball Bat</name>
+        <name>Iron bat</name>
         <text>The gift is in full swing!</text>
         <ability>[Clash start] Increases 3 power if own power equals opponent power</ability>
         <story></story>
@@ -85,7 +85,7 @@
         <story></story>
     </Card>
     <Card Code="34">
-        <name>Aigos-I</name>
+        <name>Aegis-I</name>
         <text>the best attack, best defense</text>
         <ability>[Get damaged][Defenseless] reduce 3 damage</ability>
         <story></story>
@@ -97,31 +97,31 @@
         <story></story>
     </Card>
     <Card Code="36">
-        <name>Bloody memory</name>
+        <name>Mimic's walk</name>
         <text>그때의 기억은 다시 떠올리고 싶지 않았는데</text>
         <ability>[공격받음] 상대에게 피해의 절반(올림)을 준다</ability>
         <story></story>
     </Card>
     <Card Code="37">
-        <name>Thin out</name>
+        <name>Slicing off</name>
         <text>If you cut it into bite-size pieces, it's delicious</text>
         <ability>[Active] Reduce 1 power, Chance to recover 1 HP&#10;Chance decreases with each trigger</ability>
         <story></story>
     </Card>
     <Card Code="38">
-        <name>신경지배드론</name>
+        <name>La-debug</name>
         <text>/폭력행위 발견 /회피기동 발동</text>
         <ability>[피해받음] 피해 2 이하일시 회피한다</ability>
         <story></story>
     </Card>
     <Card Code="39">
-        <name>공정한 헌혈기</name>
+        <name>D6</name>
         <text>이거 진짜 공평한거 맞는거지?</text>
         <ability>[발동][일회성] 생존한 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
         <story></story>
     </Card>
     <Card Code="40">
-        <name>SAemergency food</name>
+        <name>SA-MRE</name>
         <text>I mean, this snack is so delicious.&#10;The amount is generous... and used high-quality ingredients.</text>
         <ability>[Gain] increase 5 max hp</ability>
         <story></story>

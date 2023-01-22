@@ -22,6 +22,7 @@ public class CardAbility : ScriptableObject
 
     public Sprite illust;
 
+    [Space(4f),Header("Count")]
     public bool usingCount;
     public int pre_count;
 

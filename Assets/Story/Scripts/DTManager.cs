@@ -30,8 +30,9 @@ public class DTManager : MonoBehaviour
             dialogDic.Add(dialoges[i]);
         }
 
+        
         inter.NextText();
-
+        
         }
 
         

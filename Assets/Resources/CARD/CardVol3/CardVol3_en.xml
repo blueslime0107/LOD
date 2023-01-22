@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CardVol Filename="CardVol1">
     <Card Code="41">
-        <name>완벽한 모범생</name>
-        <text>완벽해야 되요</text>
-        <ability>[전투 시작] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+        <name>Taunt</name>
+        <text>아무고토 못하죠?!</text>
+        <ability>[캐릭터 지정]지정한 캐릭터의 위력이 자신보다 높다면
+지정한 캐릭터는 1턴 동안 자신을 제외한 다른 캐릭터에게 공격할 수 없다.
+        </ability>
         <story></story>
     </Card>
     <Card Code="42">
@@ -13,7 +15,7 @@
         <story></story>
     </Card>
     <Card Code="43">
-        <name>Security CCTV</name>
+        <name>Security Saver</name>
         <text>Card? What are you doing in battle?</text>
         <ability> HP -2 when acquiring a card regardless of team</ability>
         <story></story>
@@ -26,7 +28,7 @@
     </Card>
     <Card Code="45">
         <name>Meat shield</name>
-        <text>Go meat shield! use Nothing!</text>
+        <text>Shut up and take my….!</text>
         <ability>[Active]Reduce 2 HP&#10;[In action][Get damaged] Set the damage to 0, and turn off the activation state</ability>
         <story></story>
     </Card>
@@ -36,10 +38,51 @@
         <ability>[Get damaged] Recovers the HP of all teams except yourself by half the damage&#10;[Death] All own teams Decrease 4 HP</ability>
         <story></story>
     </Card>
+    <Card Code="47">
+        <name>Vivace</name>
+        <text>아주 빠르게...</text>
+        <ability>[합 승리] 자신제외 자신팀들이 소지한 카드 수만큼&#10;최대 자신이 소지한 카드 수까지 피해 상승
+2턴마다 캐릭터에게 '빠르게([발동]위력 1 증가)를 줄 수 있다</ability>
+        <story></story>
+    </Card>
+    <Card Code="471">
+        <name>Faast</name>
+        <text>빠른 소리</text>
+        <ability>[발동] 위력 2 상승, 이후 파괴됨</ability>
+        <story></story>
+    </Card>
+    <Card Code="48">
+        <name>Furioso</name>
+        <text>난폭하게..</text>
+        <ability>[전투시작] 2턴마다 카운트 상승, 카운트만큼 상대팀의 체력회복(최대 2), 위력감소 
+[무방비][피해받음]카운트 초기화</ability>
+        <story></story>
+    </Card>
     <Card Code="49">
         <name>Feroce</name>
-        <text>roughly...</text>
-        <ability>[Battle start] Increases the 1 power of all own teams&#10;[Clash Lose] The effect for the next 1 turn is changed to ([Battle start] Power fixed to 1)</ability>
+        <text>거칠게...</text>
+        <ability>[전투시작] 모든 자신팀들의 위력 +1, 사망한 캐릭터만큼 자신위력 상승
+[합 패배] 다음 1턴 모든 자신팀들의 위력 -3,패배해도 이 효과가 발동안함</ability>
+        <story></story>
+    </Card>
+    <Card Code="50">
+        <name>Lamentoso</name>
+        <text>슬픈듯이...</text>
+        <ability>[획득] 사망한 캐릭터만큼 '플룻'획득, [아무 사망] '플룻'획득
+플룻([발동] 효과를 바꾼다 {[피해줌] 피해 1 증가,
+[피해받음] 피해 1 감소} [전투끝] 효과가 고정됨)</ability>
+        <story></story>
+    </Card>
+    <Card Code="501">
+        <name>플러터 텅잉</name>
+        <text>슬픈듯이...</text>
+        <ability>[피해줌] 피해 1 증가 [전투끝] 효과가 고정됨</ability>
+        <story></story>
+    </Card>
+    <Card Code="502">
+        <name>비브라토</name>
+        <text>슬픈듯이...</text>
+        <ability>[피해받음] 피해 1 감소 [전투끝] 효과가 고정됨</ability>
         <story></story>
     </Card>
     

@@ -36,7 +36,10 @@ MonoBehaviour:
   avaliblePrice: 100
   playerStageLock: {fileID: 0}
   priceChars: []
-  priceCards: []
+  priceCards:
+  - {fileID: 11400000, guid: 17b7ed7f5abe838459ccfd62f1800a3d, type: 2}
+  custom_stage: {fileID: 0}
+  custom_BGM: 
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

@@ -15,7 +15,13 @@ public class Floor{
     public List<Stage> Stage2 = new List<Stage>();
     [Space (15f), Header ("SubStage")]
     public List<Stage> SubStage = new List<Stage>();
+    [HideInInspector]public bool addedStage1;
+    [HideInInspector]public bool addedSubStage;
+    [HideInInspector]public bool addedStage2;
+
+
 }
+
 [System.Serializable]
 public class AddStage{
     public int floor;
@@ -36,6 +42,8 @@ public class StageManager : MonoBehaviour
     public Floor FloorOfBattle;
     public Floor FloorOfResource;
     public Floor FloorOfSocial;
+
+    [HideInInspector]
 
     private void Awake() {
         var obj = FindObjectsOfType<StageManager>();
@@ -58,9 +66,12 @@ public class StageManager : MonoBehaviour
                 case 3:floor_ = FloorOfSocial; break;
             }
             switch(stage.panel){
-                case 1: floor_.Stage1.Add(stage.stage); break;     
-                case 2: floor_.Stage2.Add(stage.stage); break;    
-                case 3: floor_.SubStage.Add(stage.stage); break;    
+                case 1: floor_.Stage1.Add(stage.stage); 
+                floor_.addedStage1 = true;break;     
+                case 2: floor_.Stage2.Add(stage.stage); 
+                floor_.addedStage2 = true;break;    
+                case 3: floor_.SubStage.Add(stage.stage); 
+                floor_.addedSubStage = true;break;    
             }
         }
     }

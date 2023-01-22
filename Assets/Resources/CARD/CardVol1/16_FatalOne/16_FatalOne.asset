@@ -23,7 +23,7 @@ MonoBehaviour:
     \uB450 \uBC30\uAC00 \uB41C\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 40
   illust: {fileID: 21300000, guid: 4c47e42a3b19b32499ad2f8345c44ced, type: 3}
   usingCount: 0
   pre_count: 0

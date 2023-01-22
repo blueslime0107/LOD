@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
                 battleManager.GiveCard(card,this);
             }
         }
-        textMeshPro.text = character.name;
+        textMeshPro.text = character.char_sprites.name;
         UpdateHp();
     }
 

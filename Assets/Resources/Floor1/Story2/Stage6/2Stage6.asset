@@ -16,16 +16,16 @@ MonoBehaviour:
   xmlFile_path:
   - Floor1/Story1/Story1_en.xml
   - Floor1/Story1/Story1_kr.xml
-  title: 
-  sub_text: 
+  title: "\uC644\uBCBD\uD560 \uBAA8\uBC94\uC0DD"
+  sub_text: "\uB098\uC758 \uCC9C\uC6B4\uC740 \uC5B4\uB514\uB85C \uAC04\uAC00\uC9C0..?"
   rank: 6
-  values: 
+  values: "\uAE30\uBD84\uD0D3\uC77C \uAC70\uC57C..."
   characters:
   - {fileID: 11400000, guid: db589be8fce417f4cb524965790a4daa, type: 2}
   - {fileID: 11400000, guid: 0a4ac5f39d3e498418b4c330fe3b0f8c, type: 2}
   - {fileID: 11400000, guid: 0a4ac5f39d3e498418b4c330fe3b0f8c, type: 2}
   - {fileID: 11400000, guid: d40e780cdfdcedc4bb9bb1da7a59bacd, type: 2}
-  - {fileID: 11400000, guid: d40e780cdfdcedc4bb9bb1da7a59bacd, type: 2}
+  - {fileID: 0}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage: []
@@ -33,9 +33,11 @@ MonoBehaviour:
   avaliblePrice: 100
   playerStageLock: {fileID: 0}
   priceChars:
-  - {fileID: 11400000, guid: 27f2b9827d2aefd4caba013a63c7abaa, type: 2}
+  - {fileID: 11400000, guid: c4288cf928bb7844c85069236287e2f2, type: 2}
   priceCards:
-  - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
+  - {fileID: 11400000, guid: 5b4b582976f22b4498ef9edbf9a7ac0a, type: 2}
+  custom_stage: {fileID: 9121205277326352565, guid: 2e12a5dd67ab45840852808c55ba0b9c, type: 3}
+  custom_BGM: RoboFloor2
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

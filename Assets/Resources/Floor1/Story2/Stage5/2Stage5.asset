@@ -38,6 +38,8 @@ MonoBehaviour:
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: 7b124d01946e0884eb6940471d8d49c2, type: 2}
+  custom_stage: {fileID: 474350401857276866, guid: 2b1cbfb73e23410498a859864d3df733, type: 3}
+  custom_BGM: RoboFloor1
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

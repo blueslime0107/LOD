@@ -28,14 +28,18 @@ MonoBehaviour:
   - {fileID: 0}
   beforeStory: {fileID: 11400000, guid: b2760a470e0a74e48b9cc1980bc7cc7f, type: 2}
   afterStory: {fileID: 0}
-  priceStage: []
-  priceCard: {fileID: 0}
+  priceStage:
+  - floor: 1
+    panel: 2
+    stage: {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
   victoryed: 0
   avaliblePrice: 100
   playerStageLock: {fileID: 0}
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  custom_stage: {fileID: 0}
+  custom_BGM: 
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

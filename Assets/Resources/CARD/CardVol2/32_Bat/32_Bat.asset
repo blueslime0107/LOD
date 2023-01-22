@@ -17,12 +17,12 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uC57C\uAD6C\uBE60\uB530"
-  message: 
+  message: "\uC120\uBB3C\uC740 \uD480\uC2A4\uC719\uC774\uB2E4!"
   ability_message: "[\uD569 \uC2DC\uC791] \uC790\uC2E0\uC704\uB825\uC774 \uC0C1\uB300\uC704\uB825\uACFC
     \uAC19\uC73C\uBA74 \uC704\uB825 3 \uC99D\uAC00"
   story_message: 
   tained: 0
-  price: 0
+  price: 35
   illust: {fileID: 21300000, guid: ede042d29ee5ded43bab64c3c559a8ee, type: 3}
   usingCount: 0
   pre_count: 0

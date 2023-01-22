@@ -28,6 +28,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
 
     [Header("Special"), Space(15f)]
     public GameObject custom_stage;
+    public string custom_BGM;
     public int tutorialLine;
     public bool noBreakCards;
     public bool noPrice;

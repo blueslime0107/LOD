@@ -96,6 +96,10 @@ public class Tutorial : MonoBehaviour
         bm.dices[1].diceLock.Add(2);
         bm.dices[0].diceLock.Add(5);
         bm.dices[1].diceLock.Add(2);
+        bm.dices[0].diceLock.Add(6);
+        bm.dices[1].diceLock.Add(3);
+        bm.dices[0].diceLock.Add(5);
+        bm.dices[1].diceLock.Add(1);
         while(bm.left_team.carddraw <= 0){yield return null;}
 
         while(bm.left_team.carddraw > 0){

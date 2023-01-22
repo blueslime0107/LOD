@@ -34,7 +34,8 @@ public class Lobby : MonoBehaviour
 
     public List<string> curMenu = new List<string>();
 
-    
+    public GameObject main_alert;
+    public GameObject sub_alert;
 
     public BattleCardManager playerBattleCard;
     public BattleCardManager enemyBattleCard;
@@ -62,6 +63,7 @@ public class Lobby : MonoBehaviour
             stageManager.AddCardDic(stageManager.collected_card);
             stageManager.collected_card.Clear();
         }
+        sdm.Play("Lobby");
     }
 
     public void Update(){
@@ -111,6 +113,7 @@ public class Lobby : MonoBehaviour
     }
 
     public void OpenSubMenu(){
+        if(sub_alert.activeSelf){sub_alert.SetActive(false);}
         if(curMenu.Equals("surMenu")){
             return;
         }
@@ -122,6 +125,7 @@ public class Lobby : MonoBehaviour
     }
 
     public void OpenMainMenu(){
+        if(main_alert.activeSelf){main_alert.SetActive(false);}
         if(curMenu.Equals("mainMenu")){
             return;
         }

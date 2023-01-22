@@ -45,10 +45,34 @@
         <sub_text>The Super Ego</sub_text>
         <sub_text2>Is it posible?</sub_text2>
     </Stage>
-    
+    <Stage id="21">
+        <title>Unnlucky man</title>
+        <sub_text>Who is it?</sub_text>
+        <sub_text2>Unlucky</sub_text2>
+    </Stage>
     <Stage id="22">
-        <title>Fix and Fix</title>
-        <sub_text>HaHa new challenger!</sub_text>
-        <sub_text2>But I think i'm more less</sub_text2>
+        <title>Fix Fix</title>
+        <sub_text>Haha new Challenger!</sub_text>
+        <sub_text2>But wait</sub_text2>
+    </Stage>
+    <Stage id="23">
+        <title>Undefined Flying Obj</title>
+        <sub_text>They came from somewhere!</sub_text>
+        <sub_text2>dangerous</sub_text2>
+    </Stage>
+    <Stage id="24">
+        <title>Secret Laboratory</title>
+        <sub_text>This is part of the school..?</sub_text>
+        <sub_text2>Woah Long PassageWay</sub_text2>
+    </Stage>
+    <Stage id="25">
+        <title>Copy Paste</title>
+        <sub_text>Challenger?</sub_text>
+        <sub_text2>They are Robots</sub_text2>
+    </Stage>
+    <Stage id="26">
+        <title>Perfect Student</title>
+        <sub_text>Where is my luck..?</sub_text>
+        <sub_text2>it could be...</sub_text2>
     </Stage>
 </CardVol>
