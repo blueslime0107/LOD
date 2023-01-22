@@ -604,7 +604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121, y: -284}
+  m_AnchoredPosition: {x: -121, y: -261}
   m_SizeDelta: {x: 1070.52, y: 115.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436643986
@@ -636,7 +636,10 @@ MonoBehaviour:
     Sound
     - from Pixabay
 
-    Translation - Ch3sire, Google translate'
+    Music - MaiaCAst, and from Pixabay
+
+    Translation - Ch3sire,
+    Google translate'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d987255658f9722448060088bba404d8, type: 2}
   m_sharedMaterial: {fileID: -6478293896241140174, guid: d987255658f9722448060088bba404d8, type: 2}
@@ -2771,7 +2774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -580, y: -200}
+  m_AnchoredPosition: {x: -580, y: -163}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980918773
