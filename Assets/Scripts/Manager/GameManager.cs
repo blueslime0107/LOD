@@ -67,33 +67,25 @@ public class GameManager : MonoBehaviour
 
         if(sm != null)
         {
+            int battleable = 0;
             for(int i=0;i<sm.player_battleCard.characters.Length;i++){
-            if(sm.player_battleCard.characters[i] != null)
-            {
-                try
-                {
-                    if(leftPlayers[i].Equals(null)){continue;}
-                }
-                catch
-                {
-                    continue;
-                }
-                leftPlayers[i].battleManager = battleManager;
-                leftPlayers[i].dice_Indi.battleManager = battleManager;
-                leftPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
-                leftPlayers[i].dice_Indi.lineRender = battleManager.lineRender;
-                leftPlayers[i].gameObject.SetActive(true);
-                Character chars = sm.player_battleCard.characters[i];
-                leftPlayers[i].character = chars;
-                leftPlayers[i].health = chars.health;
-                leftPlayers[i].max_health = chars.health;
-                leftPlayers[i].breakCount = new List<int>(chars.breaks);
-                leftPlayers[i].poses = chars.char_sprites.poses;
-                leftPlayers[i].farAtt = chars.char_sprites.farAtk;
-                leftPlayers[i].UpdateHp();
-                leftPlayers[i].pre_cards.AddRange(chars.char_preCards);
-                leftPlayers[i].team = battleManager.left_team;
-            }
+            if(sm.player_battleCard.characters[i] == null){continue;}
+            if(!sm.player_battleCard.characters[i].battleAble){battleable++; continue;}
+            leftPlayers[i-battleable].battleManager = battleManager;
+            leftPlayers[i-battleable].dice_Indi.battleManager = battleManager;
+            leftPlayers[i-battleable].dice_Indi.battleCaculate = battleManager.battleCaculate;
+            leftPlayers[i-battleable].dice_Indi.lineRender = battleManager.lineRender;
+            leftPlayers[i-battleable].gameObject.SetActive(true);
+            Character chars = sm.player_battleCard.characters[i];
+            leftPlayers[i-battleable].character = chars;
+            leftPlayers[i-battleable].health = chars.health;
+            leftPlayers[i-battleable].max_health = chars.health;
+            leftPlayers[i-battleable].breakCount = new List<int>(chars.breaks);
+            leftPlayers[i-battleable].poses = chars.char_sprites.poses;
+            leftPlayers[i-battleable].farAtt = chars.char_sprites.farAtk;
+            leftPlayers[i-battleable].UpdateHp();
+            leftPlayers[i-battleable].pre_cards.AddRange(chars.char_preCards);
+            leftPlayers[i-battleable].team = battleManager.left_team;
             
 
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
+// 로비에 왔을때 층에 맞는 스테이지를 로딩하는 스크립트
 public class BattleLoad : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]bool debug;
@@ -31,7 +32,7 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         }
         switch(panel){
             case 1: stages = floor.Stage1; 
-            alert.SetActive(floor.addedStage1);
+            alert.SetActive(floor.addedStage1); // 새 스테이지가 왔다면 알리기
             lobby.main_alert.SetActive(true);
             floor.addedStage1 = false;
             title.text = floor.title1;
@@ -52,10 +53,11 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         //floor.addedStage = false;
     }
 
+    // 눌렀을때 전투가 로딩되있는 창을 띄운다
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
         alert.SetActive(false);
-        if(panel.Equals(3)){
+        if(panel.Equals(3)){ // 서브스테이지 그룹이라면 바로 띄우기
             lobby.OpenSubMenu();
         }
         else{
@@ -66,7 +68,7 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         RenderStage();
     }
 
-    public void RenderStage(){
+    public void RenderStage(){ // 전투로딩 스크립트
         foreach(BattleItem item in lobby.stageItem){
             item.gameObject.SetActive(false);
         }

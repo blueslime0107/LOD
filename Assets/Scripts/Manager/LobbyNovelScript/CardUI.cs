@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
+// 캐릭터가 들고있는 카드들을 표시하는 프리펩 스크립트
 public class CardUI : MonoBehaviour, IPointerDownHandler
 {
     

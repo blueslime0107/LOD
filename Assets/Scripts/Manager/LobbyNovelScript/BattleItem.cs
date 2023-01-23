@@ -6,6 +6,7 @@ using System.Xml;
 using UnityEngine.Localization.Settings;
 using TMPro;
 
+// 전투들을 불러올때 항목들의 스크립트
 public class BattleItem : MonoBehaviour
 {
     public Lobby lobby;
@@ -14,6 +15,7 @@ public class BattleItem : MonoBehaviour
     public TextMeshProUGUI battle_title;
     public GameObject cleared;
 
+    // 랭크와 제목 로컬라이즈
     public void UpdateStat(){
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){ReadXML(stage.xmlFile_path[0]);}
         if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(stage.xmlFile_path[1]);}
@@ -21,6 +23,7 @@ public class BattleItem : MonoBehaviour
         diceIcon.SetRank(stage.rank);
         battle_title.text = stage.title;
         cleared.SetActive(stage.victoryed);
+
     }
     private void ReadXML(string filename){
         XmlDocument xmlDocument = new XmlDocument();
@@ -41,13 +44,14 @@ public class BattleItem : MonoBehaviour
 
     }
 
+    // 눌렀을때 양팀의 전투카드 불러오기
     public void Clicked(){
-        lobby.stage = stage;
-        lobby.stageManager.play_stage = stage;
-        lobby.stageManager.player_battleCard = lobby.player;
-        if(stage.playerStageLock != null){
+        lobby.stage = stage; 
+        lobby.stageManager.play_stage = stage; // 적팀 스테이지
+        lobby.stageManager.player_battleCard = lobby.player; // 플레이어 스테이지
+        if(stage.playerStageLock != null){ // 정해진 플레이어 스테이지가 있을때 그 스테이지로 바꾸기
             lobby.stageManager.player_battleCard = stage.playerStageLock;
-            if(lobby.stageManager.player_battleCard.title.Equals("")){
+            if(lobby.stageManager.player_battleCard.title.Equals("")){ // 제목이 없으면 원래의 플레이어 스테이지의 텍스트 가져오기
                 lobby.stageManager.player_battleCard.title = lobby.player.title;
                 lobby.stageManager.player_battleCard.sub_text = lobby.player.sub_text;
                 lobby.stageManager.player_battleCard.values = lobby.player.values;

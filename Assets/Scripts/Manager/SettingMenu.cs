@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using TMPro;
 
 public class SettingMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
+    public Slider sfxSlider;
+    public Slider bgmSlider;
 
     Resolution[] resolutions;
 
@@ -29,7 +32,19 @@ public class SettingMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        sfxSlider.value = GetMixerLevel("SFX");
+        bgmSlider.value = GetMixerLevel("BGM");
     }
+
+    public float GetMixerLevel(string name){
+         float value;
+         bool result =  audioMixer.GetFloat(name, out value);
+         if(result){
+             return value;
+         }else{
+             return 0f;
+         }
+     }
 
     public void GoBack(){
         gameObject.SetActive(false);
@@ -37,9 +52,15 @@ public class SettingMenu : MonoBehaviour
 
     public void SetSFXVolume(float volume){
         audioMixer.SetFloat("SFX",volume);
+        if(volume == sfxSlider.minValue){
+            audioMixer.SetFloat("SFX",-80);
+        }
     }
     public void SetBGMVolume(float volume){
         audioMixer.SetFloat("BGM",volume);
+        if(volume == bgmSlider.minValue){
+            audioMixer.SetFloat("BGM",-80);
+        }
     }
 
     public void SetFullscreen(bool isFullscreed){

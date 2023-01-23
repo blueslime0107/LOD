@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// 전투카드창에 등장하는 캐릭터들의 항목
 public class CharItem : MonoBehaviour
 {
     public Lobby lobby;
@@ -21,12 +22,18 @@ public class CharItem : MonoBehaviour
 
     public CardUI[] cards = new CardUI[7];
 
+    [SerializeField]Image ableToFight_img;
+    [SerializeField]Sprite[] fightSprite = new Sprite[2];
+    [SerializeField]GameObject disabledPanel;
+
+    // 눌렀을때 카드덱 편집 창으로 가기
     public void OpenCardSelectMenu(){
         lobby.menuCard.selectingStage = cur_stage;
         lobby.menuCard.selectingChar = cur_char;
         lobby.OpenCardSelectMenu();
     }
 
+    // 이름, 스프라이트, 카드덱들을 로딩하기
     public void UpdateStat(Character chars){
         cur_char = chars;
         health_value = chars.health;
@@ -34,14 +41,14 @@ public class CharItem : MonoBehaviour
         char_name.text = chars.char_sprites.name_;
         character.sprite = chars.char_sprites.poses[0];
 
-        health.text = health_value.ToString();
+        health.text = health_value.ToString(); // 파괴수치
         breaks.text = "";
         foreach(int breaked in breaks_value){
             breaks.text += breaked.ToString();
             breaks.text += " ";
         }
 
-        for(int i=0;i<chars.char_preCards.Length;i++){
+        for(int i=0;i<chars.char_preCards.Length;i++){ // 카드덱
             if(chars.char_preCards[i] != null){
                 cards[i].gameObject.SetActive(true);
                 cards[i].card = chars.char_preCards[i];
@@ -51,7 +58,28 @@ public class CharItem : MonoBehaviour
                 cards[i].gameObject.SetActive(false);
             }
         }
+        fightAbleRender();
+    }
 
+    public void changeFightAble(bool able){
+        if(cur_char == null){return;}
+        cur_char.battleAble = able;
+        fightAbleRender();
+        lobby.battleButtonCharLimit();
+
+    }
+    public void changeFightAbleToggle(){
+        if(cur_char == null){return;}
+        cur_char.battleAble = !cur_char.battleAble;
+        fightAbleRender();
+        lobby.battleButtonCharLimit();
+
+    }
+
+    void fightAbleRender(){
+        if(cur_stage == lobby.stage){return;}
+        ableToFight_img.sprite = (cur_char.battleAble) ? fightSprite[0] : fightSprite[1];
+        disabledPanel.SetActive(!cur_char.battleAble);
     }
 
 }

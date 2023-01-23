@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 현재의 층에 맞게 배경을 로딩하는 스크립트
 public class FloorScript : MonoBehaviour
 {
     GameObject curBg;
@@ -18,6 +19,7 @@ public class FloorScript : MonoBehaviour
     [SerializeField] Lobby lobby;
     [SerializeField] int fl;
 
+    // 현재 층의 배경 로딩하기
     void Awake(){
         StageManager sm = FindObjectOfType<StageManager>();
         curFloor = lobby.SnumToIndex(sm.floor);
@@ -46,6 +48,7 @@ public class FloorScript : MonoBehaviour
         
     }
 
+    // 층 움직이는 모션과 그 층에 맞는 스테이지 로딩
     IEnumerator FloorMove(int dir){
         while(Vector3.Distance(transform.position, Vector3.up*fl*dir) > 1){
             transform.position = Vector3.Lerp(transform.position,Vector3.up*fl*dir,Time.deltaTime*15f);

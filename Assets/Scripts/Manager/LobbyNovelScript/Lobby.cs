@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Lobby : MonoBehaviour
 {
@@ -22,7 +23,10 @@ public class Lobby : MonoBehaviour
 
     [SerializeField] MenuItem enemyCard;
     [SerializeField] MenuItem playerCard;
+
     [SerializeField] MenuItem BattleButton;
+    [SerializeField]  TextMeshProUGUI BattleButton_pricelimit;
+    [SerializeField]  TextMeshProUGUI BattleButton_charlimittext;
 
     [Tooltip("서브 스테이지 보드")]
     public GameObject stage_board;
@@ -181,6 +185,19 @@ public class Lobby : MonoBehaviour
         BattleButton.ActiveOpenClose();
         curMenu.Add("battle");
     }
+
+    public void battleButtonCharLimit(){
+        playerBattleCard.updatePriceGague();
+        int isBattleAble = 0;
+        foreach(Character chars in stageManager.player_battleCard.characters){
+            if(chars == null){break;}
+            if(chars.battleAble){isBattleAble++;}
+            
+        }
+
+        BattleButton_charlimittext.text = isBattleAble.ToString() + " / "+stage.charlimit.ToString();
+
+        }
 
     public void GetStory(){
         sdm.Play("Snap");

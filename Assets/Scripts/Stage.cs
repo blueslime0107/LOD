@@ -18,6 +18,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public List<AddStage> priceStage;
     public bool victoryed = false;
     public int avaliblePrice = 100;
+    public int charlimit = 5;
 
 
     [Header("Advanced"), Space(15f)]
@@ -37,6 +38,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
       int newint = 0;
       foreach(Character chars in characters){
          if(chars == null){break;}
+         if(!chars.battleAble){continue;}
          foreach(CardAbility card in chars.char_preCards){
             if(card == null){break;}
             newint += card.price;

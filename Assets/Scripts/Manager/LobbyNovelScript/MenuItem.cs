@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 쉽게 현재 위치와 바뀔위치로 속도에맞게 움직일 수 있음
 public class MenuItem : MonoBehaviour
 {
     Vector2 origin_pos;

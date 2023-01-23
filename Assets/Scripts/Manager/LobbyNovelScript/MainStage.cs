@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// 메인스테이지의 두 전투묶음 창
 public class MainStage : MonoBehaviour
 {
     public Lobby lobby;

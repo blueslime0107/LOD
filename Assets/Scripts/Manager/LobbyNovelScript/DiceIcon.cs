@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 숫자만 넣어도 스프라이트가 바뀌는 아이콘
 public class DiceIcon : MonoBehaviour
 {
     public Image spriteRenderer;

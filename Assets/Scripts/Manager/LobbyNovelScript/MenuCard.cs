@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Settings;
 
+// 카드 도감 스크립트
 public class MenuCard : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]bool debug;
@@ -50,6 +51,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
         RenderCard();
     }
 
+    // 들어올때 카드를 로딩함
     public void RenderCard(){
         RenderSelectCard();
         if(curLanguage.Equals(LocalizationSettings.SelectedLocale.name)){return;}
@@ -76,13 +78,14 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    //
     public void RenderSelectCard(){
-        Debug.Log("RenderSelectCard");
         
         if(cardSelecting){
             priceGague.maxValue = selectingStage.avaliblePrice;
-            priceGague.value = selectingStage.GetPriceSum();
-            price_text.text = priceGague.value.ToString() + "/" + priceGague.maxValue.ToString();
+            int getPrice = selectingStage.GetPriceSum();
+            priceGague.value = getPrice;
+            price_text.text = getPrice.ToString() + "/" + priceGague.maxValue.ToString();
             foreach(CardPanelCard item in objList){
             item.cardSelecting = true;
             }
