@@ -21,23 +21,46 @@ public class BattleAI : MonoBehaviour
         return _list;
     }
 
-    public List<int> diceSelect = new List<int>() {0,0,0};
-    public List<int> battleWho = new List<int>() {0,0,0};
-    public List<int> battleTarget = new List<int>() {0,0,0,0,0,0};
+    [Space (15f), Header ("DiceSelect")]
+    public bool ds_upper;
+    public bool ds_rev;
 
-    public bool did = false; // 연산을 하면 다시 안하기
+    [Space (15f), Header ("DiceWho")]
+    public bool dw_health;
+    public bool dw_rev;
+
+    [Space (15f), Header ("BattleWho")]
+    public bool bw_dice;
+    public bool bw_health;
+    public bool bw_rev;
+
+    [Space (15f), Header ("BattleWho")]
+    public bool bt_dice;
+    public bool bt_health;
+    public bool bt_rev;
+    public bool bt_atkNoDice;
+    public bool bt_bigDam;
+    public bool bt_kill;
+
+    [Space (15f), Header ("BattleWho_NoDice")]
+    public bool btnd_health;
+    public bool btnd_rev;
+    public bool btnd_bigDam;
+    public bool btnd_kill;
+
+
+
+
+    [HideInInspector]public bool did = false; // 연산을 하면 다시 안하기
+    Player battleTarget;
     public BattleManager bm;
     public BattleFunction bf;
-    public string my_team;
-    public string my_dicetag;
-    
-    public string[] battle_type;
+    string my_team;
+    string my_dicetag;
 
-    public string battleType;
-
-    public List<Player> my_players = new List<Player>();
-    public List<Player> ene_players = new List<Player>();
-    public List<Dice> my_dice = new List<Dice>();
+    List<Player> my_players = new List<Player>();
+    List<Player> ene_players = new List<Player>();
+    List<Dice> my_dice = new List<Dice>();
 
     Battlgolithm onDiceSelect;
     Battlgolithm onBattleing;
@@ -60,25 +83,24 @@ public class BattleAI : MonoBehaviour
     }
 
     public void isDiceSelect(){
-        if(!bf.TeamBool2Str().Equals(my_team) || did){return;}
+        if(!bf.CurTeamTxt().Equals(my_team) || did){return;}
         did = true; // 이 계산을 한번만 하겠다
 
-        List<Dice> dice = bm.dices.FindAll(x => x.tag.Equals(my_dicetag)); // 자신팀 주사위 가져오기
-        dice = dice.FindAll(x => x.player.health >0);
 
-        if(diceSelect[0] > 0)
+        // 어떤 주사위를
+        List<Dice> dice = bm.dices.FindAll(x => x.tag.Equals(my_dicetag) && x.player.health >0); // 자신팀 주사위 가져오기
+        if(ds_upper)
             dice.Sort(SortDice);
-        if(diceSelect[0].Equals(2))
-            dice.Reverse();
+        if(ds_rev)
+        dice.Reverse();
 
-        List<Player> player = my_players.FindAll(x => !x.died);
-        player = player.FindAll(x => x.health >0);
-        if(diceSelect[1] > 0)
+        // 어떤 캐릭터에게 줄까?
+        List<Player> player = my_players.FindAll(x => !x.died && x.health >0);
+        if(dw_health)
             player.Sort(SortHealth);
-        if(diceSelect[1].Equals(2))
+        if(dw_rev)
             player.Reverse();
-        if(diceSelect[1].Equals(0))
-            GetShuffleList(player);
+
         try
         {for(int i=0;i<dice.Count;i++){
             bf.DiceToPlayer(dice[i],player[i]);
@@ -86,53 +108,73 @@ public class BattleAI : MonoBehaviour
         catch{
 
         }
+        
 
     }
 
     public void isBattleing(){
-        if(!bf.TeamBool2Str().Equals(my_team)){return;}
+        if(!bf.CurTeamTxt().Equals(my_team)){return;}
 
 
         List<Player> myplayer = my_players.FindAll(x => !x.died && x.dice > 0);
-        if(battleWho[0] > 0)
-            myplayer.Sort(SortPlayerDice);
-        if(battleWho[0].Equals(2))
-            myplayer.Reverse();
-
-        if(battleWho[1] > 0)
-            myplayer.Sort(SortHealth);
-        if(battleWho[1].Equals(2))
-            myplayer.Reverse();
-
-        myplayer.Sort(SortPlayerHavDice);
+        if(bw_dice)
+            {myplayer.Sort(SortPlayerDice);}
+        if(bw_health)
+            {myplayer.Sort(SortHealth);}
+        if(bw_rev)
+            {myplayer.Reverse();}
+            
         List<Player> eneplayer = ene_players.FindAll(x => !x.died);
 
-        if(myplayer[0].dice.Equals(6)){
-            foreach(Player pla in eneplayer){
-                if(pla.dice.Equals(1)){
-                    pla.dice += 6;
-                }
-            }
-        }
+        battleTarget = myplayer[0];
 
-        if(battleTarget[0] > 0)
+        if(eneplayer.Find(x => x.dice > 0) == null){
+            Debug.Log("they has no dice");
+            if(btnd_health)
+                eneplayer.Sort(SortHealth);
+
+            if(btnd_bigDam)
+                eneplayer.Sort(SortBigDam);
+
+            if(btnd_rev)
+                eneplayer.Reverse();
+
+            if(btnd_kill)
+                eneplayer.Sort(SortKillChance);
+        }   
+        else{
+
+        if(bt_dice)
             eneplayer.Sort(SortPlayerDice);
-        if(battleTarget[0].Equals(2))
-            eneplayer.Reverse();
 
-        if(battleTarget[1] > 0)
+        if(bt_health)
             eneplayer.Sort(SortHealth);
-        if(battleTarget[1].Equals(1))
+
+        if(bt_bigDam)
+            eneplayer.Sort(SortBigDam);
+        
+
+        if(bt_rev)
             eneplayer.Reverse();
 
-        if(battleTarget[3].Equals(0))
+        if(!bt_atkNoDice)
             eneplayer.Sort(SortPlayerHavDice);
 
+        if(bt_kill){
+            eneplayer.Sort(SortKillChance);
+        }
+
+
+        }
+
+        Player myPlayerOne = myplayer.Find(x => x.dice <= bm.battleCaculate.ones_power);
+        Player enemySix = eneplayer.Find(x => x.dice >= 6);
+        if(myPlayerOne != null && enemySix != null){
+            myplayer[0] = myPlayerOne;
+            eneplayer[0] = enemySix;
+        }
+
         bf.TargetPlayer(myplayer[0],eneplayer[0]);
-        // List<Player> my_players_dice = my_players.FindAll(x => x.dice >0);
-        // List<Player> ene_players_dice = ene_players.FindAll(x => x.dice >0);
-        // if(my_players_dice.Count <= 0){return;}
-        // bf.TargetPlayer(my_players_dice[0],ene_players_dice[0]);
     }
 
     public void isGettingCard(List<CardAbility> cardlist){
@@ -144,6 +186,7 @@ public class BattleAI : MonoBehaviour
 
 ///////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
+
     private int SortPlayerDice(Player pl1, Player pl2){
         if(pl1.dice < pl2.dice){
             return 1;
@@ -168,7 +211,9 @@ public class BattleAI : MonoBehaviour
         if(pl1.dice > 0){
             return -1;
         }
-        return 0;
+        else{
+            return 1;
+        }
     }
 
     private int SortDice(Dice pl1, Dice pl2){
@@ -179,6 +224,25 @@ public class BattleAI : MonoBehaviour
             return -1;
         }
         return 0;
+    }
+
+    private int SortBigDam(Player pl1, Player pl2){
+        if(pl1.dice-battleTarget.dice > pl2.dice - battleTarget.dice){
+            return -1;
+        }
+        else if(pl1.dice-battleTarget.dice < pl2.dice - battleTarget.dice){
+            return 1;
+        }
+        return 0;
+    }
+
+    private int SortKillChance(Player pl1, Player pl2){
+        if(pl1.health + pl1.dice - battleTarget.dice <= 0){
+            return -1;
+        }
+        else{
+            return 1;
+        }
     }
 
 }

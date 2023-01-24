@@ -6,11 +6,11 @@ using UnityEngine;
 public class Card32 : CardAbility
 {
 
-    public override void OnClashDraw(CardPack card, BattleCaculate battle, Player enemy)
+    public override void OnClashStart(CardPack card, BattleCaculate battle, Player enemy)
     {
-        if(card.player == enemy){return;}
+        if(card.player.dice == enemy.dice){return;}
         battle.bm.CardLog(card);
-        enemy.NewDamagedByInt(3,card.player);
+        card.player.AddDice(3);
         
     }
 

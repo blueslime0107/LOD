@@ -24,7 +24,7 @@ public class BattleFunction : MonoBehaviour
         bm.BattleTargetReady();
     }
 
-    public string TeamBool2Str(){
+    public string CurTeamTxt(){
         return bm.cur_team.text;
     }
 

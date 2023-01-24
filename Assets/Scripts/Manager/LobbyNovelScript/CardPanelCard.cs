@@ -31,16 +31,12 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(menuCard.selectingStage.GetPriceSum()+cardAbility.price > menuCard.selectingStage.avaliblePrice){cardExplain.sdm.Play("Pery");return;}
         
         for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
-            try{
-                Debug.Log(menuCard.selectingChar.char_preCards[i].Equals(null));
-            }
-            catch{
-                cardExplain.sdm.Play("DiceGrab");
-
-                menuCard.selectingChar.char_preCards[i] = cardAbility;
-                menuCard.RenderSelectCard();
-                break;
-            }
+            if(menuCard.selectingChar.char_preCards[i] != null){continue;}
+            cardExplain.sdm.Play("DiceGrab");
+            menuCard.selectingChar.char_preCards[i] = cardAbility;
+            menuCard.RenderSelectCard();
+            break;
+            
         }
     }
 

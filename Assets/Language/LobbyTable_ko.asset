@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: "\uCE74\uB4DC\uBCF4\uB294 \uACF3"
     m_Metadata:
       m_Items: []
+  - m_Id: 9786086321491968
+    m_Localized: "\uCD08\uACFC\uBC1C\uC0DD"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

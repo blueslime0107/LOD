@@ -16,12 +16,12 @@ MonoBehaviour:
   breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 840a7be8d1587b140ba2678c0ca86d7b, type: 2}
   char_preCards:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: eb5228ace9796934e84a334f4825ab84, type: 2}
+  - {fileID: 11400000, guid: a21f1569feb6d9e48966feff29f83c60, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   atk_sound: 
-  max_price: 80
+  battleAble: 1

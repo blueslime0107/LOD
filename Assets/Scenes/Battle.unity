@@ -476,7 +476,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &88400455
 Transform:
@@ -7776,7 +7776,7 @@ GameObject:
   m_TagString: LeftBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &396753525
 Transform:
@@ -8981,7 +8981,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &449571248
 Transform:
@@ -9052,7 +9052,7 @@ GameObject:
   m_TagString: PlayerTeam2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &480509021
 MonoBehaviour:
@@ -9067,19 +9067,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  diceSelect: 010000000100000000000000
-  battleWho: 010000000000000000000000
-  battleTarget: 010000000000000000000000000000000000000000000000
+  ds_upper: 1
+  ds_rev: 0
+  dw_health: 1
+  dw_rev: 0
+  bw_dice: 1
+  bw_health: 0
+  bw_rev: 0
+  bt_dice: 1
+  bt_health: 0
+  bt_rev: 0
+  bt_atkNoDice: 0
+  bt_bigDam: 1
+  bt_kill: 0
+  btnd_health: 1
+  btnd_rev: 1
+  btnd_bigDam: 0
+  btnd_kill: 1
   did: 0
   bm: {fileID: 1916609188}
   bf: {fileID: 449571249}
-  my_team: 
-  my_dicetag: 
-  battle_type: []
-  battleType: Match
-  my_players: []
-  ene_players: []
-  my_dice: []
 --- !u!4 &480509022
 Transform:
   m_ObjectHideFlags: 0
@@ -12817,8 +12824,8 @@ GameObject:
   m_TagString: PlayerTeam1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!114 &766517154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12832,19 +12839,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  diceSelect: 000000000000000000000000
-  battleWho: 000000000000000000000000
-  battleTarget: 000000000000000000000000000000000000000000000000
+  ds_upper: 0
+  ds_rev: 0
+  dw_health: 0
+  dw_rev: 0
+  bw_dice: 0
+  bw_health: 0
+  bw_rev: 0
+  bt_dice: 0
+  bt_health: 0
+  bt_rev: 0
+  bt_atkNoDice: 0
+  bt_bigDam: 0
+  bt_kill: 0
+  btnd_health: 0
+  btnd_rev: 0
+  btnd_bigDam: 0
+  btnd_kill: 0
   did: 0
   bm: {fileID: 1916609188}
   bf: {fileID: 449571249}
-  my_team: 
-  my_dicetag: 
-  battle_type: []
-  battleType: 
-  my_players: []
-  ene_players: []
-  my_dice: []
 --- !u!4 &766517155
 Transform:
   m_ObjectHideFlags: 0
@@ -14194,7 +14208,7 @@ GameObject:
   m_TagString: RightBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &905360974
 Transform:
@@ -17018,7 +17032,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1180786137
 MonoBehaviour:
@@ -19219,8 +19233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -438}
-  m_SizeDelta: {x: 320.44, y: 425.03}
+  m_AnchoredPosition: {x: 0, y: -404.72}
+  m_SizeDelta: {x: 320.44, y: 358.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473128516
 MonoBehaviour:
@@ -27307,7 +27321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1853501164
@@ -28114,7 +28128,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1916609188
 MonoBehaviour:
@@ -33749,7 +33763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: 0, y: -3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948402277
@@ -33764,7 +33778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751e7b21e87258548b5b2060a134a195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_pos: {x: 0, y: 315}
+  move_pos: {x: 0, y: 356}
   speed: 10
 --- !u!1 &1953494036
 GameObject:
