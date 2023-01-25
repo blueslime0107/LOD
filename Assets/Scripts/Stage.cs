@@ -47,6 +47,16 @@ public class Stage: ScriptableObject, IResetOnExitPlay
       return newint;
     }
 
+    public int GetSelfPriceSum(Character player){
+      int newint = 0;
+         foreach(CardAbility card in player.char_preCards){
+            if(card == null){break;}
+            newint += card.price;
+         }
+      
+      return newint;
+    }
+
 
     public void ResetOnExitPlay()
      {

@@ -22,6 +22,13 @@ public class CharItem : MonoBehaviour
 
     public CardUI[] cards = new CardUI[7];
 
+    [SerializeField]TextMeshProUGUI selfCostText;
+
+    [SerializeField]GameObject disableEdit;
+    [SerializeField]GameObject healthEdit;
+    [SerializeField]GameObject cardEdit;
+    [SerializeField]TMP_InputField healthedit_inputField;
+
     [SerializeField]Image ableToFight_img;
     [SerializeField]Sprite[] fightSprite = new Sprite[2];
     [SerializeField]GameObject disabledPanel;
@@ -35,6 +42,11 @@ public class CharItem : MonoBehaviour
 
     // 이름, 스프라이트, 카드덱들을 로딩하기
     public void UpdateStat(Character chars){
+        healthEdit.SetActive(lobby.pc.debugBoolen);
+        if(cur_stage == lobby.stage){
+            cardEdit.SetActive(lobby.pc.debugBoolen);
+            disableEdit.SetActive(lobby.pc.debugBoolen);
+        }
         cur_char = chars;
         health_value = chars.health;
         breaks_value = chars.breaks;
@@ -47,6 +59,8 @@ public class CharItem : MonoBehaviour
             breaks.text += breaked.ToString();
             breaks.text += " ";
         }
+
+        selfCostText.text = cur_stage.GetSelfPriceSum(cur_char).ToString();
 
         for(int i=0;i<chars.char_preCards.Length;i++){ // 카드덱
             if(chars.char_preCards[i] != null){
@@ -75,9 +89,16 @@ public class CharItem : MonoBehaviour
         lobby.battleButtonCharLimit();
 
     }
+    public void EditHealth(){
+        healthedit_inputField.gameObject.SetActive(true);
+    }
+    public void EditHealthInputField(){
+        cur_char.health = int.Parse(healthedit_inputField.text);
+        healthedit_inputField.gameObject.SetActive(false);
+    }
 
     void fightAbleRender(){
-        if(cur_stage == lobby.stage){return;}
+        if(cur_stage == lobby.stage && !lobby.pc.debugBoolen){return;}
         ableToFight_img.sprite = (cur_char.battleAble) ? fightSprite[0] : fightSprite[1];
         disabledPanel.SetActive(!cur_char.battleAble);
     }

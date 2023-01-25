@@ -13,7 +13,7 @@
         <story></story>
     </Card>
     <Card Code="63">
-        <name>유리방패</name>
+        <name>Handle with care!</name>
         <text>이거 재료를 잘못썻어</text>
         <ability>[합 패배]피해 2 감소, [공격받음] 피해 1 증가받음</ability>
         <story></story>
@@ -43,7 +43,7 @@
         <story></story>
     </Card>
     <Card Code="68">
-        <name>SpeedBump Exit</name>
+        <name>Access Restriction</name>
         <text>Calm down</text>
         <ability>[Get Damaged]If the damage is 4 or more up to 3 times, the damage is reduced to 0</ability>
         <story></story>

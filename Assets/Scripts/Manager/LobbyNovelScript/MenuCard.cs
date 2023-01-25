@@ -27,6 +27,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
     [SerializeField]CardUI[] player_cards = new CardUI[7];
 
     public Slider priceGague;
+    public TextMeshProUGUI selfprice_text;
     public TextMeshProUGUI price_text;
 
     string curLanguage;
@@ -86,11 +87,13 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             int getPrice = selectingStage.GetPriceSum();
             priceGague.value = getPrice;
             price_text.text = getPrice.ToString() + "/" + priceGague.maxValue.ToString();
+            selfprice_text.text = selectingStage.GetSelfPriceSum(selectingChar).ToString();
             foreach(CardPanelCard item in objList){
             item.cardSelecting = true;
             }
             priceGague.gameObject.SetActive(true);
             price_text.gameObject.SetActive(true);
+            selfprice_text.gameObject.SetActive(true);
             playerCardPanel.SetActive(true);
             for(int i=0;i<selectingChar.char_preCards.Length;i++){
                 if(selectingChar.char_preCards[i] != null){
@@ -108,6 +111,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             item.cardSelecting = false;
             }
             priceGague.gameObject.SetActive(false);
+            selfprice_text.gameObject.SetActive(false);
             price_text.gameObject.SetActive(false);
             playerCardPanel.SetActive(false);
         }

@@ -9,6 +9,7 @@ public class Lobby : MonoBehaviour
     public SoundManager sdm;
     public int floorNum;
     public StageManager stageManager;
+    public ProperContainer pc;
 
     [SerializeField] YouGetACard youGetACard;
 
@@ -46,9 +47,11 @@ public class Lobby : MonoBehaviour
 
     public Stage stage;
     public Stage player;
+    public SettingMenu settingMenu;
 
     void Awake(){
         stageManager = FindObjectOfType<StageManager>();
+        pc = FindObjectOfType<ProperContainer>();
         curMenu.Add("lobby");
     }
 
@@ -201,6 +204,10 @@ public class Lobby : MonoBehaviour
 
     public void GetStory(){
         sdm.Play("Snap");
+        if(pc.debugBoolen){
+            sceneM.Move("Battle");
+            return;
+        }
         if(stageManager.play_stage.beforeStory != null && !stageManager.play_stage.victoryed)
         {sceneM.Move("Talk");}
         else{

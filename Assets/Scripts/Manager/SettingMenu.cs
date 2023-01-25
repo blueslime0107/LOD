@@ -7,16 +7,22 @@ using TMPro;
 
 public class SettingMenu : MonoBehaviour
 {
+    public ProperContainer properContainer;
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
     public Slider sfxSlider;
     public Slider bgmSlider;
+    public Toggle debugToggle;
 
     Resolution[] resolutions;
 
+    void Awake(){
+        properContainer = FindObjectOfType<ProperContainer>();
+    }
+
     void Start(){
         resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
+        resolutionDropdown.ClearOptions();    
 
         List<string> options = new List<string>();
         int currentResolutionIndex = 0;
@@ -61,6 +67,9 @@ public class SettingMenu : MonoBehaviour
         if(volume == bgmSlider.minValue){
             audioMixer.SetFloat("BGM",-80);
         }
+    }
+    public void SetDebugMode(bool boolen){
+        properContainer.debugBoolen = boolen;
     }
 
     public void SetFullscreen(bool isFullscreed){

@@ -28,7 +28,7 @@ public class CardPanelCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(Input.GetMouseButtonDown(1)){return;}
         if(!cardSelecting){return;}
         // 해당카드를 더한 총 코스트가 현재 코스트 값보다 크면 넣지 못함 
-        if(menuCard.selectingStage.GetPriceSum()+cardAbility.price > menuCard.selectingStage.avaliblePrice){cardExplain.sdm.Play("Pery");return;}
+        if(menuCard.selectingStage.GetPriceSum()+cardAbility.price > menuCard.selectingStage.avaliblePrice && !menuCard.lobby.pc.debugBoolen){cardExplain.sdm.Play("Pery");return;}
         
         for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
             if(menuCard.selectingChar.char_preCards[i] != null){continue;}

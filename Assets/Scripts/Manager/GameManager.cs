@@ -89,28 +89,28 @@ public class GameManager : MonoBehaviour
             
 
         }
-
+        battleable = 0;
         for(int i=0;i<sm.play_stage.characters.Length;i++){
-            if(sm.play_stage.characters[i] != null)
-            {
-                rightPlayers[i].battleManager = battleManager;
-                rightPlayers[i].dice_Indi.battleManager = battleManager;
-                rightPlayers[i].dice_Indi.battleCaculate = battleManager.battleCaculate;
-                rightPlayers[i].dice_Indi.lineRender = battleManager.lineRender;
+            if(sm.play_stage.characters[i] == null){continue;}
+            if(!sm.play_stage.characters[i].battleAble){battleable++; continue;}
+                rightPlayers[i-battleable].battleManager = battleManager;
+                rightPlayers[i-battleable].dice_Indi.battleManager = battleManager;
+                rightPlayers[i-battleable].dice_Indi.battleCaculate = battleManager.battleCaculate;
+                rightPlayers[i-battleable].dice_Indi.lineRender = battleManager.lineRender;
 
-                rightPlayers[i].gameObject.SetActive(true);
+                rightPlayers[i-battleable].gameObject.SetActive(true);
                 Character chars = sm.play_stage.characters[i];
-                rightPlayers[i].character = chars;
-                rightPlayers[i].health = chars.health;
-                rightPlayers[i].max_health = chars.health;
-                rightPlayers[i].breakCount = new List<int>(chars.breaks);
-                rightPlayers[i].poses = chars.char_sprites.poses;
-                rightPlayers[i].farAtt = chars.char_sprites.farAtk;
-                rightPlayers[i].UpdateHp();
-                rightPlayers[i].pre_cards.AddRange(chars.char_preCards);
-                rightPlayers[i].team = battleManager.right_team;
+                rightPlayers[i-battleable].character = chars;
+                rightPlayers[i-battleable].health = chars.health;
+                rightPlayers[i-battleable].max_health = chars.health;
+                rightPlayers[i-battleable].breakCount = new List<int>(chars.breaks);
+                rightPlayers[i-battleable].poses = chars.char_sprites.poses;
+                rightPlayers[i-battleable].farAtt = chars.char_sprites.farAtk;
+                rightPlayers[i-battleable].UpdateHp();
+                rightPlayers[i-battleable].pre_cards.AddRange(chars.char_preCards);
+                rightPlayers[i-battleable].team = battleManager.right_team;
                 
-            }
+            
         }
 
         battleManager.cards = sm.player_cardDic;

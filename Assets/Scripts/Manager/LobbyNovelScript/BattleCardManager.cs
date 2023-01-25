@@ -49,8 +49,6 @@ public class BattleCardManager : MonoBehaviour
 
         }
 
-        if(playerCard){
-
         List<CharItem> newCharList = characters.FindAll(x => x.cur_char != null);
         for(int i=0;i<newCharList.Count;i++){
             newCharList[i].cur_char.battleAble = true;
@@ -59,8 +57,7 @@ public class BattleCardManager : MonoBehaviour
             }
             newCharList[i].changeFightAble(newCharList[i].cur_char.battleAble);
         }
-        lobby.battleButtonCharLimit();
-        }
+        
 
         
     }
@@ -74,6 +71,10 @@ public class BattleCardManager : MonoBehaviour
     }
 
     public void FightStart(){
+        if(lobby.pc.debugBoolen){
+            lobby.GetStory();
+            return;
+        }
         int playerLessFight = 0;
         foreach(CharItem chars in characters){
             if(chars.cur_char == null){break;}
