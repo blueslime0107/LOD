@@ -16,7 +16,7 @@ public class Card12 : CardAbility
                 card.diceLink.positionCount += 2;
                 card.diceLink.SetPosition(card.diceLink.positionCount-2,player.dice_Indi.gameObject.transform.position);
                 card.diceLink.SetPosition(card.diceLink.positionCount-1,card.player.dice_Indi.gameObject.transform.position);
-                match.CardLog(card,player);
+                match.CardLog("BreakDice",card,player);
             }
             
         }

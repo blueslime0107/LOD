@@ -10,7 +10,7 @@ public class Card16 : CardAbility
         if(damage.value < 3){
             Active(card);
             damage.setDamage(damage.value * 2);
-            match.CardLog(card);
+            match.CardLog("Double Damage",card);
             //defender.getDamage = damage;
         }
         

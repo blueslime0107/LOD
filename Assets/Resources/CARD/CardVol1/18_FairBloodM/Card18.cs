@@ -18,7 +18,7 @@ public class Card18 : CardAbility
         foreach(Player player in match.players){
             player.health = allHealth;
             player.UpdateHp();
-            match.CardLog(card,player);
+            match.CardLog("Blood",card,player);
         }
         match.backColorEff.gameObject.SetActive(true);
         match.backColorEff.changeColor(255,0,0,230);

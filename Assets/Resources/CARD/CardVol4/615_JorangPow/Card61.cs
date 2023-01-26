@@ -6,7 +6,7 @@ public class Card61 : CardAbility
 {
     public override void OnClashStart(CardPack card, BattleCaculate battle, Player enemy)
     {
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("Active",card);
         battle.ones_power = 2;
     }
 }

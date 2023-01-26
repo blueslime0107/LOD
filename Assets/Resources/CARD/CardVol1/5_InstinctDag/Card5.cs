@@ -12,14 +12,14 @@ public class Card5 : CardAbility
             reduce = (int)Mathf.Floor(damage.value / 2);
             damage.adDamage(-reduce);
             Active(card);
-            match.CardLog(card,attacker);
+            match.CardLog("Damage",card,attacker);
             attacker.DamagedByInt(reduce,card.player,damage,card);
             
         }
         else{
             damage.adDamage(-1);
             Active(card);
-            match.CardLog(card,attacker);
+            match.CardLog("Defenceless",card,attacker);
             attacker.DamagedByInt(1,card.player,damage,card);
             
         }

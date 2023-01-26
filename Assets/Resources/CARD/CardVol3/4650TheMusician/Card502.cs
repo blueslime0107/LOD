@@ -8,7 +8,7 @@ public class Card502 : CardAbility
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
         damage.value -= 1;
-        match.CardLog(card);
+        match.CardLog("Damage",card);
 
     }
 

@@ -11,7 +11,7 @@ public class Card14 : CardAbility
         Active(card);
         card.diceLink.positionCount = 0;
         foreach(Player player in attacker.team.players){
-            match.CardLog(card,player);
+            match.CardLog("Damage",card,player);
             player.DamagedByInt(1, card.player,damage,card);
             card.diceLink.positionCount += 2;
             card.diceLink.SetPosition(card.diceLink.positionCount-2,player.dice_Indi.gameObject.transform.position);

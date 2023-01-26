@@ -10,6 +10,6 @@ public class Card35 : CardAbility
     {
         if(battle.myChar != card.player){return;}
         battle.eneChar.AddDice(-2);
-        battle.bm.CardLog(card,battle.eneChar);
+        battle.bm.CardLog("PowerDown",card,battle.eneChar);
     }
 }

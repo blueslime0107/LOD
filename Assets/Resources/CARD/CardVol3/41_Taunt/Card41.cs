@@ -15,7 +15,7 @@ public class Card41 : CardAbility
     {
         if(selected_player.dice < card.player.dice ){return;}
         card.saved_player = selected_player;
-        match.CardLog(card,selected_player);
+        match.CardLog("AttackMe",card,selected_player);
         match.backColorEff.changeColor(196, 33, 255,255);
     }
 
@@ -23,7 +23,7 @@ public class Card41 : CardAbility
     {
         if(card.saved_player == null || !card.active){return;}
         if(card.saved_player != match.target1){return;}
-        match.CardLog(card,card.saved_player);
+        match.CardLog("Taunted",card,card.saved_player);
         match.ChangeTarget2(card.player);
     }
 
@@ -32,7 +32,7 @@ public class Card41 : CardAbility
         if(card.saved_player == null || !card.active){return;}
         if(attacker != card.saved_player){return;}
         if(defender == card.player){return;}
-        match.CardLog(card,attacker);
+        match.CardLog("Not Other!",card,attacker);
         damage.setDamage(0);
 
     }

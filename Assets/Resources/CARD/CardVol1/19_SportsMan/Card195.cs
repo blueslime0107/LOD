@@ -9,7 +9,7 @@ public class Card195 : CardAbility
     {
         Debug.Log(card.player.dice);
         damage.value = 0;
-        match.CardLog(card);
+        match.CardLog("NoDamage",card);
     }
 
     public override void OnBattleEnd(CardPack card, Player player, BattleManager match)

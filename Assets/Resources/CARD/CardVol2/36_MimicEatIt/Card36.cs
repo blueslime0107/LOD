@@ -20,7 +20,7 @@ public class Card36 : CardAbility
         if(card.saved_card){return;}
         card.saved_card = selected_card;
         selected_card.overCard = card.ability.overCard;
-        match.CardLog(card,selected_card.player);
+        match.CardLog("ToEat!",card,selected_card.player);
     }
 
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
@@ -32,12 +32,12 @@ public class Card36 : CardAbility
             match.DestroyCard(card.saved_card,card.saved_card.player);
             card.saved_card = null;
             match.backColorEff.changeColor(255, 162, 0,255);
-            match.CardLog(card,card.saved_card.player);
+            match.CardLog("Eat!",card,card.saved_card.player);
         }
         if(card.count == 1){
             card.active = true;
             card.saved_card.player.team.carddraw += 2;
-            match.CardLog(card);
+            match.CardLog("I'm Full!",card);
         }
         card.count -= 1;
     }

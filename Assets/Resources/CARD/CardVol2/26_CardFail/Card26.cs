@@ -35,7 +35,7 @@ public class Card26 : CardAbility
         linked_card[0].xmlFile_path = selected_card.ability.xmlFile_path;
         selected_card.ability.WhenCardDestroy(selected_card,selected_card.ability);
         selected_card.ability = linked_card[0]; // 능력 삭제 (봉인)
-        match.CardLog(card,selected_card.player);
+        match.CardLog("Lock",card,selected_card.player);
         
         
         

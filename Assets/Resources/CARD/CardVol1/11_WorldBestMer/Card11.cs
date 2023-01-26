@@ -8,7 +8,7 @@ public class Card11 : CardAbility
     public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match,Player attacker,Player defender)
     {
         if(card.count >= 15){card.count = 15; return;}
-        match.CardLog(card);
+        match.CardLog("Count",card);
         card.count += damage.value;
         if(card.count >= 15){card.count = 15;}
 
@@ -17,7 +17,7 @@ public class Card11 : CardAbility
     public override void CardActivate(CardPack card, BattleManager match)
     {
         if(card.count < 15){return;}
-        match.CardLog(card);
+        match.CardLog("GetCard",card);
         card.count = 0;
         card.player.team.carddraw += 1;
     }

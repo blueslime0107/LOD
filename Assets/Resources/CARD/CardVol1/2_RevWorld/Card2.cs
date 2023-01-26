@@ -23,7 +23,7 @@ public class Card2 : CardAbility
         EffectPlayerSet(card.effect[0],player,player.dice_Indi.transform,0,0);
 
         card.active = true;
-        match.CardLog(card,player);
+        match.CardLog("Reverse",card,player);
     }
 
     public override void OnBattleStart(CardPack card, Player player, BattleManager match)

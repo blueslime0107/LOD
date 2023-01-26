@@ -14,7 +14,7 @@ public class Card64 : CardAbility
         if(!card.active){return;}
         foreach(Player play in player.team.players ){
             if(play.dice <= 3){
-                match.CardLog(card,play);
+                match.CardLog("PowerUp",card,play);
                 play.AddDice(1);
             }
         }

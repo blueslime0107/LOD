@@ -10,6 +10,6 @@ public class Card43 : CardAbility
         if(!card.player.tag.Equals(player.tag)){return;}
         if(match.left_team.carddraw>0 || match.right_team.carddraw>0){
         player.AddHealth(-1);
-        match.CardLog(card,player);}
+        match.CardLog("illigal",card,player);}
     }
 }

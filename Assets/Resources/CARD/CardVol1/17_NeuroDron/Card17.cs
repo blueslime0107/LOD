@@ -10,7 +10,7 @@ public class Card17 : CardAbility
         
         if(damage.value <= 2){
             damage.value = 0;
-            match.CardLog(card);
+            match.CardLog("Avoid",card);
             match.backColorEff.changeColor(0, 200, 255,200);
         }
     }

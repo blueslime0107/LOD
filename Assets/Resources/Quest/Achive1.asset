@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a3ea86b021b1642be712e739523e25, type: 3}
+  m_Name: Achive1
+  m_EditorClassIdentifier: 
+  stack: 1
+  quest_text: "\uB098\uBB34\uB9C9\uB300\uAE30\uB97C 3\uBC88 \uBD80\uC21C\uB2E4."
+  count: 0
+  max_count: 3
+  achieved: 0
+  questNum: 1

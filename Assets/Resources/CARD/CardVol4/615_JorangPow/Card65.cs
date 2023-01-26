@@ -7,7 +7,7 @@ public class Card65 : CardAbility
     public override void OnClashLose(CardPack card, BattleCaculate battle)
     {
         if(card.player.dice > 2){return;}
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("Avoid",card);
         battle.damage.setDamage(0);
         card.active = false;
 

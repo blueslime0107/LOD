@@ -11,6 +11,5 @@ public class Card201 : CardAbility
             match.GiveCard(cards,card.player);
         }
         match.DestroyCard(card,card.player);
-        match.CardLog(card);
     }
 }

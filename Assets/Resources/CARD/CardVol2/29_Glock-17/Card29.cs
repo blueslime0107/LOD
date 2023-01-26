@@ -11,7 +11,7 @@ public class Card29 : CardAbility
         copyDice.dice_value = 1;
         card.player.dice_Indi.put_subDice(copyDice);
         card.dice = copyDice;
-        match.CardLog(card);
+        match.CardLog("AddDice",card);
     }
     
 

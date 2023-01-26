@@ -7,16 +7,9 @@ public class Card66 : CardAbility
 {
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
-        match.CardLog(card);
-        card.player.AddHealth(2);
+        match.CardLog("Health",card);
+        card.player.AddHealth(3);
         card.active = true;
     }
 
-    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
-    {
-        if(!card.active){return;}
-        match.CardLog(card);
-        card.player.AddDice(1);
-        card.active = false;
-    }
 }

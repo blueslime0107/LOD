@@ -27,7 +27,7 @@ public class Card38 : CardAbility
         linked_card[0].xmlFile_path = selected_card.ability.xmlFile_path;
         selected_card.ability.WhenCardDestroy(selected_card,selected_card.ability);
         selected_card.ability = linked_card[0]; // 능력 삭제 (봉인)
-        match.CardLog(card,selected_card.player);
+        match.CardLog("ERROR",card,selected_card.player);
         
     }
 
@@ -41,7 +41,7 @@ public class Card38 : CardAbility
     {
         if(card.saved_card == null){return;}
         card.active = true;
-        match.CardLog(card);
+        match.CardLog("Debug",card);
         if(selected_card == card.saved_card){
             card.player.AddHealth(5);
             card.saved_card.ability = card.saved_ability;
@@ -56,7 +56,7 @@ public class Card38 : CardAbility
     public override void OnClashWin(CardPack card, BattleCaculate battle)
     {
         if(!card.active){return;}
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("GiveCard",card);
         Player player = (card.player.Equals(battle.myChar) ? battle.eneChar : battle.myChar);
         battle.bm.GiveCard(card.ability,player);
         card.count = 10;
@@ -66,6 +66,7 @@ public class Card38 : CardAbility
     public override void ClashEnded(CardPack card, BattleCaculate battle)
     {
         if(card.count != 10){return;}
+        battle.bm.CardLog("Fatal ERROR",card);
         battle.bm.DestroyCard(card,card.player);
     }
 }

@@ -39,6 +39,8 @@ public class StageManager : MonoBehaviour
     public List<CardAbility> player_cardDic;
     public List<CardAbility> collected_card;
 
+    public List<AchieveMent> achiveItms= new List<AchieveMent>();
+
     public Floor FloorOfBattle;
     public Floor FloorOfResource;
     public Floor FloorOfSocial;

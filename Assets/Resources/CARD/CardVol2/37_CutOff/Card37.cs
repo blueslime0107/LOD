@@ -15,7 +15,7 @@ public class Card37 : CardAbility
             if(rand <= card.count){
                 card.player.AddHealth(1);
                 card.count -= 5;
-                match.CardLog(card);
+                match.CardLog("Health",card);
             }
         }
         

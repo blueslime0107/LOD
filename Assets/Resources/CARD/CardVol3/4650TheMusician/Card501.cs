@@ -7,7 +7,7 @@ public class Card501 : CardAbility
     public override void OnDamaging(CardPack card, Player defender, Damage damage, BattleManager match)
     {
        damage.value += 1;
-        match.CardLog(card);
+        match.CardLog("PowerUp",card);
 
     }
 

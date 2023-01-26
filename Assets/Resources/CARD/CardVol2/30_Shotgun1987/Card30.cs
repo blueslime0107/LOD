@@ -11,11 +11,11 @@ public class Card30 : CardAbility
         if(card.active){
             card.active = false;
             card.player.SetDice(2);
-            match.CardLog(card);
+            match.CardLog("Reload",card);
         }
         else{
             card.player.SetDice(card.player.dice + (int)Random.Range(2f,8f));
-            match.CardLog(card);
+            match.CardLog("PowerUp",card);
             card.active = true;
         }
     }

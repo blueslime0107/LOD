@@ -15,7 +15,7 @@ public class Card13 : CardAbility
         if(card.player.dice < battle.eneChar.dice){
             card.player.SetDice((int)Random.Range(1,7));
             card.active = true;
-            battle.bm.CardLog(card);
+            battle.bm.CardLog("RandomDice",card);
         }
     }
 
@@ -23,6 +23,6 @@ public class Card13 : CardAbility
     {
         if(!card.active){return;}
         card.player.AddHealth(battle.damage.value);
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("Health",card);
     }
 }

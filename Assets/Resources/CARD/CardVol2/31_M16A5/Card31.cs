@@ -14,7 +14,7 @@ public class Card31 : CardAbility
         card.player.SetDice(enemy.dice);
         card.player.dice_Indi.put_subDice(newDice);
         card.active = true;
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("LeftDice",card);
 
 
     }

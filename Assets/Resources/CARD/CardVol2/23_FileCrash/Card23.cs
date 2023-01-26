@@ -8,7 +8,7 @@ public class Card23 : CardAbility
     public override void StartMatch(CardPack card, BattleManager match)
     {
         if(card.active){return;}
-        match.CardLog(card);
+        match.CardLog("ERROR",card);
         if(card.saved_card != null){
             match.DestroyCard(card.saved_card,card.player);
             card.saved_card = null;

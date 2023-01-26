@@ -15,7 +15,7 @@ public class Card27 : CardAbility
         }
         saved_cards.Add(linked_card[0]);
         match.SpecialCardGet(card.player.team,saved_cards);
-        match.CardLog(card);
+        match.CardLog("SaveCard",card);
     }
 
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)

@@ -15,7 +15,7 @@ public class Card25 : CardAbility
             getCard.player.cards.Remove(getCard);
             card.count = -1;
             match.backColorEff.changeColor(255, 162, 0,255);
-            match.CardLog(card,player);
+            match.CardLog("Mimic!",card,player);
         }
         card.count += 1;
 

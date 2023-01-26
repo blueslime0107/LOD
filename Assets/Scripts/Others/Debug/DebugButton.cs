@@ -19,10 +19,10 @@ public class DebugButton : MonoBehaviour
     }
 
     public void CaculateMisfortune(){
-        bm.CardLogText(CaculateMisfortuneLogic(bm.left_team).ToString(),"#0099ff");
-        bm.CardLogText("[왼쪽팀 불행지수]","#0099ff");
-        bm.CardLogText(CaculateMisfortuneLogic(bm.right_team).ToString(),"#ff2b2b");
-        bm.CardLogText("[오른쪽팀 불행지수]","#ff2b2b");
+        bm.CardLogText("",CaculateMisfortuneLogic(bm.left_team).ToString(),"#0099ff");
+        bm.CardLogText("","[왼쪽팀 불행지수]","#0099ff");
+        bm.CardLogText("",CaculateMisfortuneLogic(bm.right_team).ToString(),"#ff2b2b");
+        bm.CardLogText("","[오른쪽팀 불행지수]","#ff2b2b");
     }
 
     public void UpdateHp(){
@@ -32,9 +32,9 @@ public class DebugButton : MonoBehaviour
     }
 
     float CaculateMisfortuneLogic(Team team){
-        bm.CardLogText("[체력 " + Health(team) +" ]");
-        bm.CardLogText("[캐릭 " + Player(team) +" ]");
-        bm.CardLogText("[코스트 " + Cost(team) +" ]");
+        bm.CardLogText("","[체력 " + Health(team) +" ]");
+        bm.CardLogText("","[캐릭 " + Player(team) +" ]");
+        bm.CardLogText("","[코스트 " + Cost(team) +" ]");
 
         return Player(team)*100+Health(team)*5+Cost(team)*1.5f;
     }

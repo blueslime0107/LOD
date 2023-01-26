@@ -8,7 +8,7 @@ public class Card10 : CardAbility
     {
         card.player.AddHealth(7);
         card.count = 4;
-        match.CardLog(card);
+        match.CardLog("Health",card);
     }
 
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
@@ -19,7 +19,7 @@ public class Card10 : CardAbility
             newDam.setDamage(4);
             card.player.DamagedBy(newDam,player);
             card.count = 4;
-            match.CardLog(card);
+            match.CardLog("Cost",card);
         }
     }
 

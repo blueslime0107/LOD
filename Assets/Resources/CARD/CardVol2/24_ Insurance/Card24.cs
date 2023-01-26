@@ -10,7 +10,7 @@ public class Card24 : CardAbility
     {
         if(!card.player.tag.Equals(player.tag)){return;}
         if(match.left_team.carddraw>0 || match.right_team.carddraw>0){
-        match.CardLog(card,player);
+        match.CardLog("Health",card,player);
         player.AddHealth(4);}
     }
 }

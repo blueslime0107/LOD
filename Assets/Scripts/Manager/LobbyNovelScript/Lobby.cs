@@ -36,6 +36,8 @@ public class Lobby : MonoBehaviour
     [Tooltip("카드 보드")]
     public GameObject card_board;
     public List<BattleItem> stageItem = new List<BattleItem>();
+    [Tooltip("도전과제 보드")]
+    public TextMeshProUGUI quest_text;
 
     public List<string> curMenu = new List<string>();
 
@@ -223,5 +225,8 @@ public class Lobby : MonoBehaviour
             default: return 1;
         }
     }
+
+    
+
 
 }

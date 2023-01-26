@@ -9,7 +9,7 @@ public class Card32 : CardAbility
     public override void OnClashStart(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(card.player.dice == enemy.dice){return;}
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("Draw",card);
         card.player.AddDice(3);
         
     }

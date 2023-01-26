@@ -10,7 +10,7 @@ public class Card8 : CardAbility
         if(dead_player != card.player || card.count >= 2){return;}
         card.player.AddHealth(1);
         card.active = true;
-        match.CardLog(card);
+        match.CardLog("Revival",card);
         
     }
 
@@ -18,7 +18,7 @@ public class Card8 : CardAbility
     {
         if(!card.active){return;}
         player.SetDice(player.dice + 4);
-        match.CardLog(card);
+        match.CardLog("PowerUp",card);
     }
 
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
@@ -26,7 +26,7 @@ public class Card8 : CardAbility
         if(!card.active){return;}
         Active(card);
         damage.value = 0;
-        match.CardLog(card);
+        match.CardLog("NoDamage",card);
 
     }
 

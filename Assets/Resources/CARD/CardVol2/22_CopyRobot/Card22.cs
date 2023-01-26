@@ -27,6 +27,6 @@ public class Card22 : CardAbility
         if(bigNum >= 5){
             card.active = false;
         }
-        match.CardLog(card);
+        match.CardLog("Copyed",card);
     }
 }

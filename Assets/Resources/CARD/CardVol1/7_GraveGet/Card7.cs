@@ -9,11 +9,11 @@ public class Card7 : CardAbility
     {
         if(dead_player.team == match.OpposeTeam(card.player.team)){
             match.AddCardPoint(card.player.team);
-            match.CardLog(card,dead_player);
+            match.CardLog("GetCard",card,dead_player);
         }
         else{
             card.active = true;
-            match.CardLog(card,dead_player);
+            match.CardLog("AddDice",card,dead_player);
         }
         
     }
@@ -32,7 +32,7 @@ public class Card7 : CardAbility
         dice = card.player.dice;
         card.player.SetDice(card.count);
         card.count = dice;
-        match.CardLog(card);
+        match.CardLog("Active",card);
         
     }
 
@@ -42,6 +42,6 @@ public class Card7 : CardAbility
         int dice = card.player.dice;
         card.player.SetDice(card.count);
         card.count = dice;
-        battle.bm.CardLog(card);
+        battle.bm.CardLog("Dice",card);
     }
 }

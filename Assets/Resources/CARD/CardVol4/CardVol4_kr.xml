@@ -33,7 +33,7 @@
     <Card Code="66">
         <name>공기</name>
         <text>쓰으으읍..! 하ㅏㅏ</text>
-        <ability>[획득]체력 2 회복, 다음 1턴 위력 1 증가</ability>
+        <ability>[획득]체력 3 회복</ability>
         <story></story>
     </Card>
     <Card Code="67">

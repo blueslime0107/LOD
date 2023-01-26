@@ -26,7 +26,7 @@ public class Card21 : CardAbility
         card.saved_card = match.GiveCard(selected_card.ability,card.player);
         card.saved_card.overCard = card.ability.overCard;
         card.active = true;
-        match.CardLog(card,selected_card.player);
+        match.CardLog("Copyed",card,selected_card.player);
     }
 
 }

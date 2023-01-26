@@ -9,7 +9,7 @@ public class Card40 : CardAbility
     {
         card.player.max_health += 5;
         card.player.AddHealth(5);
-        match.CardLog(card);
+        match.CardLog("Delicious",card);
     }
 
     public override void WhenCardDestroy(CardPack card, CardAbility card_abili)

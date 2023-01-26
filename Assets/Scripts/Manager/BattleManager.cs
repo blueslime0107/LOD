@@ -83,6 +83,7 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public int left_d6_Count;
     [HideInInspector]public int right_d6_Count;
     public BackColorEff backColorEff;
+    [SerializeField]AchiveManager achiveManager;
 
     public GameObject tutorial;
     public void Battle(){
@@ -250,7 +251,7 @@ public class BattleManager : MonoBehaviour
                     backGround.rightCircle.SetActive(true);
                     // 주사위를 다 넣었을때 효과 발동
                     ui.cardLog.text = "";
-                    CardLogText("[Battle Ready]","#ffa1fc");
+                    CardLogText("BattleReady","[Battle Ready]","#ffa1fc");
                     for(int i = 0; i < players.Count; i++){
                         for(int j = 0; j < players[i].cards.Count; j++){
                             players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
@@ -265,7 +266,7 @@ public class BattleManager : MonoBehaviour
                 
                 if(battle_start)
                 {
-                    CardLogText("[Battle Start]","#ff00f7");
+                    CardLogText("BattleStart","[Battle Start]","#ff00f7");
                     for(int i = 0; i < players.Count; i++){
                             for(int j = 0; j < players[i].cards.Count; j++){
                                 players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
@@ -351,7 +352,7 @@ public class BattleManager : MonoBehaviour
                 
             }
             
-            CardLogText("[Battle End]","#70006d");
+            CardLogText("BattleEnd","[Battle End]","#70006d");
             foreach(Player player in players){
                     for(int i = 0;i<player.cards.Count;i++){
                         player.cards[i].ability.OnBattleEnd(player.cards[i],player,this);
@@ -364,6 +365,9 @@ public class BattleManager : MonoBehaviour
 
         }   
         yield return new WaitForSeconds(1f);
+        foreach(AchieveMent achieveMent in gameManager.sm.achiveItms){
+            achieveMent.isStack();
+        }
         if(gameManager.sm.play_stage.victoryed && !gameManager.sm.play_stage.noPrice)
         {
             if(gameManager.sm.play_stage.priceStage.Count > 0){
@@ -685,12 +689,23 @@ public class BattleManager : MonoBehaviour
         team.cardGetSituations.Add(cardGetSituation);
     }
 
-    public void CardLog(CardPack card, Player oppose = null){
+    public void CardLog(string tag, CardPack card, Player oppose = null){
+
+        foreach(AchieveMent achieveMent in gameManager.sm.achiveItms){
+            if(achieveMent.achieved){continue;}
+            achieveMent.cardPack = card;
+            achieveMent.tag = tag;
+            achieveMent.OnCardActive();
+        }
+        achiveManager.RenderAchieveText();
+
+
+
         string color1 = (card.player.team.text.Equals("Left")) ? "#0099ff" : "#ff2b2b";
         string newText = "";
 
         if(oppose == null){
-            newText = "<color=" + color1 + ">" + card.player.character.name + "</color> " + card.ability.name + "\n";
+            newText = "<color=" + color1 + ">" + card.player.character.name + "</color> " + card.ability.name + " ("+tag+")"+"\n";
             //newText = card.player.character.name + " " + card.ability.name + "\n";
             ui.cardLog.text = newText + ui.cardLog.text;
 
@@ -704,7 +719,13 @@ public class BattleManager : MonoBehaviour
         ui.cardLog.text = newText + ui.cardLog.text;
     }
 
-    public void CardLogText(string text,string color="green"){
+    public void CardLogText(string tag, string text,string color="green"){
+        foreach(AchieveMent achieveMent in gameManager.sm.achiveItms){
+            if(achieveMent.achieved){continue;}
+            achieveMent.tag = tag;
+            achieveMent.OnBattleFoward();
+        }
+        achiveManager.RenderAchieveText();
         string newText = "";
         newText = "<color="+color+">" + text + "</color> \n";
         ui.cardLog.text = newText + ui.cardLog.text;

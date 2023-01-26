@@ -127,7 +127,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.gameObject.SetActive(true);
         battleDice.SetPlayerPosition(myChar,eneChar);
 
-        bm.CardLogText("[Clash Start "+myChar.character.name +"->"+eneChar.character.name+"]","#00ff08");
+        bm.CardLogText("Start","[Clash Start "+myChar.character.name +"->"+eneChar.character.name+"]","#00ff08");
         for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
                     my_ability[i].ability.OnClashStart(my_ability[i],this,eneChar);
                 }
@@ -196,7 +196,7 @@ public class BattleCaculate : MonoBehaviour
             // while(card_activated){
             //     yield return null;
             // }
-            bm.CardLogText("[Draw]","#969696");
+            bm.CardLogText("Draw","[Draw]","#969696");
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashDraw(my_ability[i],this,eneChar);
             }
@@ -207,7 +207,7 @@ public class BattleCaculate : MonoBehaviour
             yield return null;
         }
         if(damage.value>0){ // 승리
-            bm.CardLogText("[Win "+myChar.character.name+"/Lose "+eneChar.character.name+"]","#ffffff");
+            bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+myChar.character.name+"/Lose "+eneChar.character.name+"]","#ffffff");
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnClashLose(ene_ability[i],this);
             }
@@ -228,7 +228,7 @@ public class BattleCaculate : MonoBehaviour
             // Damage(myChar,eneChar);
         }
         if(damage.value<0){ // 패배
-        bm.CardLogText("[Win "+eneChar.character.name+"/Lose "+myChar.character.name+"]","#ffffff");
+        bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+eneChar.character.name+"/Lose "+myChar.character.name+"]","#ffffff");
             damage.value = -damage.value;
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashLose(my_ability[i],this);
@@ -300,7 +300,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.gameObject.SetActive(false);
         # endregion
 
-        bm.CardLogText("[Clash End]","#009105");
+        bm.CardLogText("End","[Clash End]","#009105");
 
         
         for(int i = 0; i<bm.on_battle_card_effect.Count;i++){

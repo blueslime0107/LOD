@@ -8,7 +8,7 @@ public class Card68 : CardAbility
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
         if(!card.active || damage.value < 4){return;}
-        match.CardLog(card);
+        match.CardLog("Block",card);
         damage.setDamage(0); 
         card.count++;
         if(card.count >= 3){card.active = false;}
