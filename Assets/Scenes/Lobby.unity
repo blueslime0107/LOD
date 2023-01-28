@@ -19533,6 +19533,9 @@ MonoBehaviour:
     title1: "\uC5EC\uAE30\uB97C \uB20C\uB7EC\uC11C \uD29C\uD1A0\uB9AC\uC5BC"
     Stage1:
     - {fileID: 11400000, guid: c621d23c27757c0429de305c3f2e34f2, type: 2}
+    - {fileID: 11400000, guid: c80c287a27581b14084b9c6dc655231a, type: 2}
+    - {fileID: 11400000, guid: 6603b3e5197401841b57ddf7fe523355, type: 2}
+    - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     rank2: 2
     title2: "\uC644\uBCBD\uD55C \uC0AC\uB78C"
     Stage2: []
@@ -19553,7 +19556,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c80c287a27581b14084b9c6dc655231a, type: 2}
     rank2: 5
     title2: 
-    Stage2: []
+    Stage2:
+    - {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
+    - {fileID: 11400000, guid: 0672b2e9e195bab428c229ecbd507636, type: 2}
+    - {fileID: 11400000, guid: b0827b11b77ed974791e386ca9ddd43e, type: 2}
+    - {fileID: 11400000, guid: fbf8e0657780a8d449de22f8bc40800e, type: 2}
+    - {fileID: 11400000, guid: 187b3f8fa5d6cf54c9940e1d419fffef, type: 2}
+    - {fileID: 11400000, guid: b1aaade6c00e7b24c93e5855529f6b58, type: 2}
     SubStage:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: bddf9ceee52b73e48a43bf97fc8074e5, type: 2}
