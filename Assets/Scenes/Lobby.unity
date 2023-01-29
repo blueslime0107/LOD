@@ -19538,7 +19538,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     rank2: 2
     title2: "\uC644\uBCBD\uD55C \uC0AC\uB78C"
-    Stage2: []
+    Stage2:
+    - {fileID: 11400000, guid: d57bece0963d49441bd85e1979d14a36, type: 2}
+    - {fileID: 11400000, guid: b3e74dddffb9b3f4db31b5db943d0590, type: 2}
+    - {fileID: 11400000, guid: 983e0153e92131d4ab1c1005f7a0148c, type: 2}
     SubStage:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: e5c3ce20ace5e234bb000a6d47392a36, type: 2}

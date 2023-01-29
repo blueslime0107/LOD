@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Mabubsa
+  m_EditorClassIdentifier: 
+  name_: Mabubsa
+  poses:
+  - {fileID: 21300000, guid: e233b8727ebbebd4c8767668cb7db0ff, type: 3}
+  - {fileID: 21300000, guid: 7456b7c228c4c534781e755f04fc4e40, type: 3}
+  - {fileID: 21300000, guid: 6e699a5b3c45dd740b9b4d994f0f0506, type: 3}
+  - {fileID: 21300000, guid: b4ff7df80fcf2f24490b89aadc14edec, type: 3}
+  - {fileID: 21300000, guid: 58627bf5cd7f06e4a9248056cbc97984, type: 3}
+  farAtk: 0

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/14공정한 헌혈기", order = 18)]
 public class Card18 : CardAbility
 {
 

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: ToyBox
+  m_EditorClassIdentifier: 
+  name_: ToyBox
+  poses:
+  - {fileID: 21300000, guid: f2ccaebade4bdc54395c412f108d85fd, type: 3}
+  - {fileID: 21300000, guid: f2ccaebade4bdc54395c412f108d85fd, type: 3}
+  - {fileID: 21300000, guid: 825642186e4f1b74cbeeb2e702c32b1b, type: 3}
+  - {fileID: 21300000, guid: 4df1273a2181eaf44bea3bcebd64d002, type: 3}
+  - {fileID: 21300000, guid: f2ccaebade4bdc54395c412f108d85fd, type: 3}
+  farAtk: 0

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/4숟가락 살인마", order = 4)]
 public class Card4 : CardAbility
 {
     public override void OnClashStart(CardPack card, BattleCaculate battle,Player enemy)

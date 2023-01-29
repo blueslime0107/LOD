@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Mari
+  m_EditorClassIdentifier: 
+  name_: Mari
+  poses:
+  - {fileID: 21300000, guid: b54251aabd8846f40b5c5da369f6b716, type: 3}
+  - {fileID: 21300000, guid: d0c0f2287dfcfae499d0b9a8e32eb533, type: 3}
+  - {fileID: 21300000, guid: 104348c0dbac17f49ab75075f86cd5ef, type: 3}
+  - {fileID: 21300000, guid: ef33682c28376b9428bd663322c3d65c, type: 3}
+  - {fileID: 21300000, guid: b43289d312b2cb14dacd2c8803354a8d, type: 3}
+  farAtk: 0

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: JJunSa
+  m_EditorClassIdentifier: 
+  name_: JJunSa
+  poses:
+  - {fileID: 21300000, guid: 151467dd83ce39149a140fe57edf5090, type: 3}
+  - {fileID: 21300000, guid: 3283979971e81a54b8035fa29e92750e, type: 3}
+  - {fileID: 21300000, guid: a74d619f33af93b4c88260f91d9ade5b, type: 3}
+  - {fileID: 21300000, guid: d8760d4896c670c4a82e5c6ec3bc7440, type: 3}
+  - {fileID: 21300000, guid: 856b176e7b7e3574ca211b5b157c57c5, type: 3}
+  farAtk: 0

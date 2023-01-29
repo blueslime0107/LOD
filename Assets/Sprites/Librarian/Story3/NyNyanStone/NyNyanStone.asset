@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: NyNyanStone
+  m_EditorClassIdentifier: 
+  name_: NyNyanStone
+  poses:
+  - {fileID: 21300000, guid: bc26b1f51e923f9429d6b160f61bf06e, type: 3}
+  - {fileID: 21300000, guid: bd44e22a9792c204385c7680a44cdf05, type: 3}
+  - {fileID: 21300000, guid: bd44e22a9792c204385c7680a44cdf05, type: 3}
+  - {fileID: 21300000, guid: 49a2a9644d03a2945a9e667dc5945bec, type: 3}
+  - {fileID: 21300000, guid: bc26b1f51e923f9429d6b160f61bf06e, type: 3}
+  farAtk: 0
