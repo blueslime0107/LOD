@@ -18,7 +18,7 @@ MonoBehaviour:
   - Floor2/Story2_kr.xml
   title: "\uCD08\uB300\uBC1B\uC9C0 \uC54A\uC740 \uBD88\uCCAD\uAC1D"
   sub_text: "\uBB50\uC57C \uC800\uAC74?"
-  rank: 0
+  rank: 3
   values: "\uC77C\uB2E8 \uAC80\uC744 \uB4E4\uACE0\uC788\uC73C\uB2C8 \uC804\uD22C\uB2E4!"
   characters:
   - {fileID: 11400000, guid: 272a361c9be52744e8e7a170493ca90c, type: 2}

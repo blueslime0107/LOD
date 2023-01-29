@@ -200,7 +200,10 @@ public class Player : MonoBehaviour
 
     }
 
-    public void AddHealth(int value){
+    public void AddHealth(int value,bool changemaxHp=false){
+        if(changemaxHp){
+            max_health += value;
+        }
         health += value;
         if(health > max_health){
             health = max_health;
@@ -211,7 +214,10 @@ public class Player : MonoBehaviour
         UpdateHp();
     }
 
-    public void SetHealth(int value){
+    public void SetHealth(int value,bool changemaxHp=false){
+        if(changemaxHp){
+            max_health = value;
+        }
         health = value;
         if(health > max_health){
             health = max_health;
@@ -220,6 +226,23 @@ public class Player : MonoBehaviour
             YouAreDead();
         }
         UpdateHp();
+    }
+
+    public void AddBreak(int value){
+        breakCount[0] += value;
+        if(health <= breakCount[0]){
+                team.carddraw += 1;
+                battleManager.sdm.Play("BreakCardGet");
+                hp_Indi.ActiveEff();
+                breakCount.RemoveAt(0);
+            }
+        else{
+            for(int i = 1;i<breakCount.Count;i++){
+            if(breakCount[0] <= breakCount[1]){
+                breakCount.RemoveAt(1);
+            }
+            }
+        }
     }
 
     public void UpdateHp(){
@@ -376,6 +399,10 @@ public class Player : MonoBehaviour
         foreach(AttEffect effect in attack_effect){
             effect.gameObject.SetActive(false);
         }
+    }
+
+    public string GetCharName(){
+        return character.char_sprites.name_;
     }
 
 }

@@ -6,6 +6,12 @@
         <ability>It has infinite power</ability>
         <story></story>
     </Card>
+    <Card Code="368">
+        <name>NoBehavior</name>
+        <text>...</text>
+        <ability>[Battle Ready]Set Power to 0</ability>
+        <story></story>
+    </Card>
     <Card Code="369">
         <name>Speed 2</name>
         <text>Gonna go fast!</text>

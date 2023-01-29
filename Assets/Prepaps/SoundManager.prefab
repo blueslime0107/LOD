@@ -249,6 +249,20 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: DayGrass
+    clip: {fileID: 8300000, guid: c26f7b54bd60226419181de63d83d370, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: NightGrass
+    clip: {fileID: 8300000, guid: e8a7314fb3a5f184d90eb85330b0ea41, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   mixer:
   - {fileID: -3328339283235370755, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}
   - {fileID: 8082049311940040082, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}

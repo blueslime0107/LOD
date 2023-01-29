@@ -34,9 +34,10 @@ MonoBehaviour:
   charlimit: 5
   playerStageLock: {fileID: 0}
   priceChars: []
-  priceCards: []
-  custom_stage: {fileID: 0}
-  custom_BGM: 
+  priceCards:
+  - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
+  custom_stage: {fileID: 478196262192403701, guid: ec393abb3dd41024bbd68893b3d2b0e5, type: 3}
+  custom_BGM: DayGrass
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

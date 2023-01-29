@@ -72,7 +72,7 @@ public class CardAbility : ScriptableObject
 
     public virtual void OnDeath(CardPack card, Player dead_player, BattleManager match){}
 
-    public virtual void ClashEnded(CardPack card, BattleCaculate battle){}
+    public virtual void OnClashEnded(CardPack card, BattleCaculate battle){}
 
     
     

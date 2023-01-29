@@ -36,7 +36,7 @@ public class Card7 : CardAbility
         
     }
 
-    public override void ClashEnded(CardPack card, BattleCaculate battle)
+    public override void OnClashEnded(CardPack card, BattleCaculate battle)
     {
         if(!card.active || card.count.Equals(0)){return;}
         int dice = card.player.dice;

@@ -705,7 +705,7 @@ public class BattleManager : MonoBehaviour
         string newText = "";
 
         if(oppose == null){
-            newText = "<color=" + color1 + ">" + card.player.character.name + "</color> " + card.ability.name + " ("+tag+")"+"\n";
+            newText = "<color=" + color1 + ">" + card.player.GetCharName() + "</color> " + card.ability.name + " ("+tag+")"+"\n";
             //newText = card.player.character.name + " " + card.ability.name + "\n";
             ui.cardLog.text = newText + ui.cardLog.text;
 
@@ -714,7 +714,7 @@ public class BattleManager : MonoBehaviour
 
 
         string color2 = (oppose.team.text.Equals("Left")) ? "#0099ff" : "#ff2b2b";
-        newText = "<color=" + color1 + ">" + card.player.character.name + "</color> " + card.ability.name + "\n -> <color=" + color2 + ">" + oppose.character.name + "</color>" + "\n";
+        newText = "<color=" + color1 + ">" + card.player.GetCharName() + "</color> " + card.ability.name + " ("+tag+")"+"\n -> <color=" + color2 + ">" + oppose.character.name + "</color>" + "\n";
         //newText = card.player.character.name + "-> " + oppose.character.name + "\n -> " + card.ability.name + "\n";
         ui.cardLog.text = newText + ui.cardLog.text;
     }

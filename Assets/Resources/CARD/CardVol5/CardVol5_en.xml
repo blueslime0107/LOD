@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Card Code="61">
+        <name>조랭 가호</name>
+        <text>받아라!! 조 랭 가 호!!!</text>
+        <ability>[합 시작]자신위력이 2일때도 1의반란이 발동된다</ability>
+        <story></story>
+    </Card>
+    <Card Code="62">
+        <name>나무막대기</name>
+        <text>이야 이거 단단한데?</text>
+        <ability>[합 승리]위력 1 상승, 2번 발동후 파괴됨</ability>
+        <story></story>
+    </Card>
+    <Card Code="63">
+        <name>Handle with care!</name>
+        <text>이거 재료를 잘못썻어</text>
+        <ability>[합 패배]피해 2 감소, [공격받음] 피해 1 증가받음</ability>
+        <story></story>
+    </Card>
+    <Card Code="64">
+        <name>초심자의 행운</name>
+        <text>역시 뉴비야&#10;초심자의 행운이 있구만</text>
+        <ability>[전투 준비]2턴마다 자신팀 전체 3이하 위력이 1 오른다</ability>
+        <story></story>
+    </Card>
+    <Card Code="65">
+        <name>슈슈슉</name>
+        <text>시 시시 씨!</text>
+        <ability>[합 패배]자신위력 2 이하시 피해무시, 2턴 동안 발동안됨</ability>
+        <story></story>
+    </Card>
+    <Card Code="66">
+        <name>공기</name>
+        <text>쓰으으읍..! 하ㅏㅏ</text>
+        <ability>[획득]체력 2 회복, 다음 1턴 위력 1 증가</ability>
+        <story></story>
+    </Card>
+    <Card Code="67">
+        <name>의미심장한 검</name>
+        <text>이 낡은 검은 뭐지?</text>
+        <ability>[합 승리] 3번 합 승리시 엑스칼리버로 진화한다</ability>
+        <story></story>
+    </Card>
+    <Card Code="68">
+        <name>Access Restriction</name>
+        <text>Calm down</text>
+        <ability>[Get Damaged]If the damage is 4 or more up to 3 times, the damage is reduced to 0</ability>
+        <story></story>
+    </Card>
+
+</CardVol>

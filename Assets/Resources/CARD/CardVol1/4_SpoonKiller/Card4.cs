@@ -6,7 +6,7 @@ public class Card4 : CardAbility
 {
     public override void OnClashStart(CardPack card, BattleCaculate battle,Player enemy)
     {
-        if(card.player.dice > enemy.dice){return;}
+        if(card.player.dice > enemy.dice || card.player.dice <= 0){return;}
 
         card.player.SetDice(1);
         enemy.SetDice(0);

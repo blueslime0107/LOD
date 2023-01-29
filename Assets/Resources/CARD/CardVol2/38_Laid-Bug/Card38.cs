@@ -63,7 +63,7 @@ public class Card38 : CardAbility
         
     }
 
-    public override void ClashEnded(CardPack card, BattleCaculate battle)
+    public override void OnClashEnded(CardPack card, BattleCaculate battle)
     {
         if(card.count != 10){return;}
         battle.bm.CardLog("Fatal ERROR",card);

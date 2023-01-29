@@ -310,12 +310,12 @@ public class BattleCaculate : MonoBehaviour
         # region BattleEnded
         for(int i =0;i<myChar.cards.Count;i++){
             myChar.cards[i].card_battleActive = false;
-            myChar.cards[i].ability.ClashEnded(myChar.cards[i],this);
+            myChar.cards[i].ability.OnClashEnded(myChar.cards[i],this);
             
         }
         for(int i =0;i<eneChar.cards.Count;i++){
             eneChar.cards[i].card_battleActive = false;
-            eneChar.cards[i].ability.ClashEnded(eneChar.cards[i],this);
+            eneChar.cards[i].ability.OnClashEnded(eneChar.cards[i],this);
             
         }
         #endregion

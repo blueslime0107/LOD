@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Card Code="71">
+        <name>전사의 검</name>
+        <text>받아라!!!!!!</text>
+        <ability>[합 승리] 위력 2 증가, 상대 사망시 파괴됨 </ability>
+        <story></story>
+    </Card>
+    <Card Code="72">
+        <name>마이크테스트</name>
+        <text>수면의 노래ㅐㅐㅐ~</text>
+        <ability>[발동]다음 효과중 하나가 발동된다.
+자신제외 전체 주사위 파괴 15% 자신주사위 파괴15%
+자신제외 전체 위력 2 감소 35% 자신위력 2 감소 35%</ability>
+        <story></story>
+    </Card>
+    <Card Code="73">
+        <name>어..?</name>
+        <text>뭐 쨌든 맞췄다!</text>
+        <ability>[합 패배]랜덤한 다른 캐릭터가 합 피해를 받는다.</ability>
+        <story></story>
+    </Card>
+    <Card Code="74">
+        <name>쓰으읍</name>
+        <text>무엇을 쓸까나~</text>
+        <ability>[전투 준비]자신이 원하는 스크롤 카드를 뽑는다</ability>
+        <story></story>
+    </Card>
+    <Card Code="75">
+        <name>체력 강화를 해볼까?</name>
+        <text>어떻게 될려나</text>
+        <ability>[합 시작]다음 효과중 하나가 발동된다.
+상대 최대체력 5 감소 15% 상대 최대체력 5 증가15%
+상대 체력 5 감소 35% 상대 체력 5 증가 35%</ability>
+        <story></story>
+    </Card>
+    <Card Code="76">
+        <name>무기 강화도 해보자!</name>
+        <text>어떻게 될려나</text>
+        <ability>[합 시작]다음 효과중 하나가 발동된다.
+자신 주사위 파괴 15% 자신 위력 2배 증가 15%
+자신 위력 3 감소 35% 자신 위력 3 증가 35%</ability>
+        <story></story>
+    </Card>
+    <Card Code="77">
+        <name>카드도 강화할 수 있나?</name>
+        <text>어떻게 될려나</text>
+        <ability>[합 시작]다음 효과중 하나가 발동된다.
+상대의 카드하나 파괴 15% 상대의 카드뽑기 추가 15%
+상대의 Break수치 3 감소 35% 상대의 Break수치 3 증가 35%</ability>
+        <story></story>
+    </Card>
+    <Card Code="78">
+        <name>감자나무의 열매</name>
+        <text>조심히 따세요</text>
+        <ability>3턴 마다 합피해를 상대팀 전체에게 줄 수 있는
+            감자포를 '마뻡사'에게 준다.</ability>
+        <story></story>
+    </Card>
+    <Card Code="79">
+        <name>걍걍</name>
+        <text>이 고양이 참 위협적이군</text>
+        <ability>[피해받음] 상대의 공격으로 얻게된 카드뽑기는
+            상대가 가져가게 된다.</ability>
+        <story></story>
+    </Card>
+    <Card Code="80">
+        <name>쩐사의 엑스칼리버</name>
+        <text>각오는 됬는가?</text>
+        <ability>[합 승리] 카운트가 상승한다, 카운트만큼 위력 증가
+[합 패배]카운트 이상의 피해를 받을시 카운트 감소</ability>
+        <story></story>
+    </Card>
+    <Card Code="81">
+        <name>감자비이이이이임!!!!</name>
+        <text>푸와ㅏㅏㅏㅏㅏ</text>
+        <ability>[합 승리] 상대 전체에게 합 피해의 2배를 준다</ability>
+        <story></story>
+    </Card>
+</CardVol>

@@ -19497,7 +19497,7 @@ MonoBehaviour:
   play_stage: {fileID: 0}
   player_battleCard: {fileID: 0}
   player_cardDic:
-  - {fileID: 11400000, guid: 8377e780e3b4e164caea4eafc37ee622, type: 2}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
   - {fileID: 11400000, guid: c1e702011e0c03a45a34e87bcaac7581, type: 2}
   - {fileID: 11400000, guid: 28dfdd22dc8cc4b40b5ba4d969dda37f, type: 2}
@@ -19541,7 +19541,10 @@ MonoBehaviour:
     Stage2:
     - {fileID: 11400000, guid: d57bece0963d49441bd85e1979d14a36, type: 2}
     - {fileID: 11400000, guid: b3e74dddffb9b3f4db31b5db943d0590, type: 2}
+    - {fileID: 11400000, guid: cbaaf8e4119837d41b5861a4466f447f, type: 2}
     - {fileID: 11400000, guid: 983e0153e92131d4ab1c1005f7a0148c, type: 2}
+    - {fileID: 11400000, guid: b9f0d6ee4f049bd40acd8eac7751fcc9, type: 2}
+    - {fileID: 11400000, guid: 0ca2924821b545e4283082d4c5b509a3, type: 2}
     SubStage:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: e5c3ce20ace5e234bb000a6d47392a36, type: 2}
@@ -19556,16 +19559,15 @@ MonoBehaviour:
     rank1: 3
     title1: "\uC644\uBCBD\uD55C \uACC4\uD68D"
     Stage1:
-    - {fileID: 11400000, guid: c80c287a27581b14084b9c6dc655231a, type: 2}
-    rank2: 5
-    title2: 
-    Stage2:
     - {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
     - {fileID: 11400000, guid: 0672b2e9e195bab428c229ecbd507636, type: 2}
     - {fileID: 11400000, guid: b0827b11b77ed974791e386ca9ddd43e, type: 2}
     - {fileID: 11400000, guid: fbf8e0657780a8d449de22f8bc40800e, type: 2}
     - {fileID: 11400000, guid: 187b3f8fa5d6cf54c9940e1d419fffef, type: 2}
     - {fileID: 11400000, guid: b1aaade6c00e7b24c93e5855529f6b58, type: 2}
+    rank2: 5
+    title2: 
+    Stage2: []
     SubStage:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: bddf9ceee52b73e48a43bf97fc8074e5, type: 2}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+
 public class Achive1 : AchieveMent
 {
     public override void OnCardActive()

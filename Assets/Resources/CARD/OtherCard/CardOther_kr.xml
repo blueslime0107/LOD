@@ -6,6 +6,12 @@
         <ability>무한한 힘을 가지고 있다</ability>
         <story></story>
     </Card>
+    <Card Code="368">
+        <name>행동불가</name>
+        <text>...</text>
+        <ability>[전투준비]위력이 0이 된다</ability>
+        <story></story>
+    </Card>
     <Card Code="369">
         <name>속도 2</name>
         <text>빨라질 시간이야!</text>

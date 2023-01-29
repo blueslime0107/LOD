@@ -18,7 +18,7 @@ MonoBehaviour:
   - Floor2/Story2_kr.xml
   title: 
   sub_text: 
-  rank: 3
+  rank: 4
   values: 
   characters:
   - {fileID: 11400000, guid: 99f2cd42a4e7dd64fa85ac0329d43d6d, type: 2}
