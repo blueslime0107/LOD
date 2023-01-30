@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Card73 : CardAbility
 {
-    public override void OnClashLose(CardPack card, BattleCaculate battle)
+    public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(card.card_battleActive){return;}
         card.saved_player = battle.bm.players[Random.Range(0,battle.bm.players.Count)];

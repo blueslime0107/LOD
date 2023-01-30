@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
         render.sprite = poses[0];
         if(pre_cards.Count > 0){
             foreach(CardAbility card in pre_cards.FindAll(x => x != null)){
-                battleManager.GiveCard(card,this);
+                battleManager.GiveCard(card,this,true);
             }
         }
         textMeshPro.text = character.char_sprites.name;
@@ -277,7 +277,6 @@ public class Player : MonoBehaviour
             return;
         }
         dice_com.cannot_roll = true;
-        Debug.Log("youardead");
         died = true;
         SetDice(0);
     }

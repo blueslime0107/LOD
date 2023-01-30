@@ -163,7 +163,7 @@ public class BattleManager : MonoBehaviour
                     }
                 }
 
-                if(cur_team.battleAI){
+                if(cur_team.battleAI.active){
                     cur_team.battleAI.isGettingCard(cur_game_cards);
                     card_gived = true;
                     cur_team.carddraw -= 1;
@@ -731,6 +731,15 @@ public class BattleManager : MonoBehaviour
         ui.cardLog.text = newText + ui.cardLog.text;
     }
     
+
+    public void RefreshPlayerDied(){
+        for(int i=0;i<players.Count;i++){
+            if(players[i].died){
+                players.RemoveAt(i);
+                players[i].team.players.Remove(players[i]);
+            }
+        }
+    }
 
 }
 

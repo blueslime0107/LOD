@@ -18,7 +18,7 @@ MonoBehaviour:
   char_preCards:
   - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
   - {fileID: 11400000, guid: 274338a7d950cc047bc4850bfefd6649, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

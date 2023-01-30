@@ -16,9 +16,10 @@ MonoBehaviour:
   xmlFile_path:
   - CARD/CardVol5/CardVol5_en.xml
   - CARD/CardVol5/CardVol5_kr.xml
-  name: 
-  message: 
-  ability_message: 
+  name: "\uAC10\uC790\uBE44\uC774\uC774\uC774\uC774\uC784!!!!"
+  message: "\uD478\uC640\u314F\u314F\u314F\u314F\u314F"
+  ability_message: "[\uD569 \uC2B9\uB9AC] \uC0C1\uB300 \uC804\uCCB4\uC5D0\uAC8C \uD569
+    \uD53C\uD574\uC758 2\uBC30\uB97C \uC900\uB2E4"
   story_message: 
   tained: 0
   price: 0
@@ -28,5 +29,5 @@ MonoBehaviour:
   overCard: {fileID: 0}
   effect: []
   linked_card: []
-  diceLink: {fileID: 0}
+  diceLink: {fileID: 4540444742068189109, guid: cf150133be96d17479beac2c9d60d7e4, type: 3}
   dice: {fileID: 0}

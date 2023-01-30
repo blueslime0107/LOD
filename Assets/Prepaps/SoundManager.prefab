@@ -263,6 +263,34 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: Pumble
+    clip: {fileID: 8300000, guid: 3cecca1d1258caa4bac7ba8c3820f653, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Failed
+    clip: {fileID: 8300000, guid: cae59d41e6879e5499404fb32737c502, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Success
+    clip: {fileID: 8300000, guid: 785dab675eb6a5e48bbb159205016755, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: HappySuccess
+    clip: {fileID: 8300000, guid: 9782835a9ae053a45b307131c96fad11, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   mixer:
   - {fileID: -3328339283235370755, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}
   - {fileID: 8082049311940040082, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}

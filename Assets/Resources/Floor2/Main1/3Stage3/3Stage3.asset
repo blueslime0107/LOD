@@ -16,13 +16,13 @@ MonoBehaviour:
   xmlFile_path:
   - Floor2/Story2_en.xml
   - Floor2/Story2_kr.xml
-  title: 
-  sub_text: 
+  title: "\uBC8C\uB808 \uC7A1\uC544\uB77C!"
+  sub_text: "\uC815\uCCB4\uBD88\uBA85\uC758 \uBC8C\uBA54 \uCD9C\uD604!"
   rank: 3
-  values: 
+  values: "\uC800\uB140\uC11D \uC77C\uC744 \uB0B4\uACE0 \uC788\uC5B4!"
   characters:
   - {fileID: 11400000, guid: d20e91737cd8d00439351df7512e4419, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d20e91737cd8d00439351df7512e4419, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -31,13 +31,13 @@ MonoBehaviour:
   priceStage: []
   victoryed: 0
   avaliblePrice: 100
-  charlimit: 1
+  charlimit: 4
   playerStageLock: {fileID: 11400000, guid: d591553d9c7fa1d4eafbbe92cba47163, type: 2}
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: a21f1569feb6d9e48966feff29f83c60, type: 2}
-  custom_stage: {fileID: 0}
-  custom_BGM: 
+  custom_stage: {fileID: 474350401857276866, guid: 2b1cbfb73e23410498a859864d3df733, type: 3}
+  custom_BGM: RoboFloor1
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

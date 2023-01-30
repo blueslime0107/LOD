@@ -50,6 +50,9 @@ public class Lobby : MonoBehaviour
     public Stage stage;
     public Stage player;
     public SettingMenu settingMenu;
+   
+    public MenuItem upFloor;
+    public MenuItem downFloor;
 
     void Awake(){
         stageManager = FindObjectOfType<StageManager>();
@@ -80,12 +83,16 @@ public class Lobby : MonoBehaviour
             switch(curMenu[curMenu.Count-1]){
                 case "surMenu":
                 sdm.Play("Close");
+                upFloor.MoveToOrigin();
+                downFloor.MoveToOrigin();
                     sub_table.ActiveOpenClose();
                     battle_table.ActiveOpenClose();
                     darScreen.SetActive(false);        
                     curMenu.Remove("surMenu"); break;
                 case "mainMenu":
                 sdm.Play("Close");
+                upFloor.MoveToOrigin();
+                downFloor.MoveToOrigin();
                     main_table.ActiveOpenClose();
                     darScreen.SetActive(false);        
                     curMenu.Remove("mainMenu"); break;
@@ -102,6 +109,8 @@ public class Lobby : MonoBehaviour
 
                 case "cardMenu":
                 sdm.Play("Close");
+                upFloor.MoveToOrigin();
+                downFloor.MoveToOrigin();
                     darScreen.SetActive(false);        
                     card_table.ActiveOpenClose();
                     curMenu.Remove("cardMenu"); break;
@@ -122,6 +131,8 @@ public class Lobby : MonoBehaviour
     }
 
     public void OpenSubMenu(){
+        upFloor.MoveToMove();
+        downFloor.MoveToMove();
         if(sub_alert.activeSelf){sub_alert.SetActive(false);}
         if(curMenu.Equals("surMenu")){
             return;
@@ -138,6 +149,8 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("mainMenu")){
             return;
         }
+        upFloor.MoveToMove();
+        downFloor.MoveToMove();
         sdm.Play("Open");
         main_table.ActiveOpenClose();
         darScreen.SetActive(true);
@@ -154,9 +167,13 @@ public class Lobby : MonoBehaviour
     }
     
     public void OpenCardMenu(){
+        
         if(curMenu.Equals("cardMenu")){
+
             return;
         }
+        upFloor.MoveToMove();
+        downFloor.MoveToMove();
         sdm.Play("CardDrawOpen");
         card_table.ActiveOpenClose();
         darScreen.SetActive(true);

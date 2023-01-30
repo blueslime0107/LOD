@@ -19,7 +19,7 @@ public class Card13 : CardAbility
         }
     }
 
-    public override void OnClashWin(CardPack card, BattleCaculate battle)
+    public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(!card.active){return;}
         card.player.AddHealth(battle.damage.value);

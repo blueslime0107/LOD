@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Card71 : CardAbility
 {
-    public override void OnClashWin(CardPack card, BattleCaculate battle)
+    public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
         battle.bm.CardLog("PowerUp",card);
         battle.damage.adDamage(2);

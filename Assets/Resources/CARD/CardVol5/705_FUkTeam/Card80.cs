@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Card80 : CardAbility
 {
-    public override void OnClashWin(CardPack card, BattleCaculate battle)
+    public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
         card.count += 1;
         battle.damage.adDamage(card.count);
@@ -15,7 +15,7 @@ public class Card80 : CardAbility
         }
     }
 
-    public override void OnClashLose(CardPack card, BattleCaculate battle)
+    public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(battle.damage.value >= card.count){
             card.count --;

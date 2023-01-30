@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Bug
   m_EditorClassIdentifier: 
-  health: 15
+  health: 17
   breaks: 0c0000000700000004000000
   char_sprites: {fileID: 11400000, guid: 0e27ea824b8f0e34fa606e2dad09b9ba, type: 2}
   char_preCards:

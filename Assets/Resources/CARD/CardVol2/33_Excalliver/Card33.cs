@@ -5,7 +5,7 @@ using UnityEngine;
 public class Card33 : CardAbility
 {
 
-    public override void OnClashWin(CardPack card,BattleCaculate battle)
+    public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
         Active(card);
         battle.AddDamage(2);

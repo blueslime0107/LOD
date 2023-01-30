@@ -209,11 +209,12 @@ public class BattleCaculate : MonoBehaviour
         if(damage.value>0){ // 승리
             bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+myChar.character.name+"/Lose "+eneChar.character.name+"]","#ffffff");
             for(int i = 0; i<ene_ability.Count;i++){
-                ene_ability[i].ability.OnClashLose(ene_ability[i],this);
+                ene_ability[i].ability.OnClashLose(ene_ability[i],this, myChar);
             }
             for(int i = 0; i<my_ability.Count;i++){
-                my_ability[i].ability.OnClashWin(my_ability[i],this);
+                my_ability[i].ability.OnClashWin(my_ability[i],this, eneChar);
                 BasicDice();
+                if(my_ability.Count <= i){continue;}
                 if(my_ability[i].card_battleActive){
                     myChar.UpdateActiveStat();
                 }
@@ -231,11 +232,12 @@ public class BattleCaculate : MonoBehaviour
         bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+eneChar.character.name+"/Lose "+myChar.character.name+"]","#ffffff");
             damage.value = -damage.value;
             for(int i = 0; i<my_ability.Count;i++){
-                my_ability[i].ability.OnClashLose(my_ability[i],this);
+                my_ability[i].ability.OnClashLose(my_ability[i],this, eneChar);
             }
             for(int i = 0; i<ene_ability.Count;i++){
-                ene_ability[i].ability.OnClashWin(ene_ability[i],this);
+                ene_ability[i].ability.OnClashWin(ene_ability[i],this, myChar);
                 BasicDice();
+                if(ene_ability.Count <= i){continue;}
                 if(ene_ability[i].card_battleActive){
                     eneChar.UpdateActiveStat();
                 }
@@ -307,6 +309,11 @@ public class BattleCaculate : MonoBehaviour
             bm.on_battle_card_effect[i].gameObject.SetActive(false);
             bm.on_battle_card_effect.Remove(bm.on_battle_card_effect[i]);
         }
+        
+        bm.RefreshPlayerDied();
+        
+        
+        
         # region BattleEnded
         for(int i =0;i<myChar.cards.Count;i++){
             myChar.cards[i].card_battleActive = false;

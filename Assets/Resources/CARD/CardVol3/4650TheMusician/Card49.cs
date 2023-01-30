@@ -29,7 +29,7 @@ public class Card49 : CardAbility
         match.CardLog("PowerUp",card);
     }
 
-    public override void OnClashLose(CardPack card, BattleCaculate battle)
+    public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
     {
         card.active = false;
         battle.bm.backColorEff.changeColor(255,255,255,200);

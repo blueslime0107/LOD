@@ -53,7 +53,7 @@ public class Card38 : CardAbility
         }
     }
 
-    public override void OnClashWin(CardPack card, BattleCaculate battle)
+    public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(!card.active){return;}
         battle.bm.CardLog("GiveCard",card);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Card65 : CardAbility
 {
-    public override void OnClashLose(CardPack card, BattleCaculate battle)
+    public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(card.player.dice > 2){return;}
         battle.bm.CardLog("Avoid",card);

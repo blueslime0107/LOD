@@ -13,10 +13,9 @@
         <story></story>
     </Card>
     <Card Code="369">
-        <name>속도 2</name>
+        <name>속도</name>
         <text>빨라질 시간이야!</text>
-        <ability>[캐릭터 지정] 전투당 한번, 캐릭터의 위력을 위력-7 의 절댓값으로 바꾼다
-            [전투전개] 캐릭터 지정을 안했다면 자신을 대상으로 캐릭터 지정이 발동된다</ability>
+        <ability>[전투 준비] 카운트만큼 여분 주사위를 얻는다</ability>
         <story></story>
     </Card>
  

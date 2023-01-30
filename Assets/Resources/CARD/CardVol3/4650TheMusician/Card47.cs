@@ -10,7 +10,7 @@ public class Card47 : CardAbility
     //     card.player.AddHealth(dead_player.cards.Count);
     // }
 
-    public override void OnClashWin(CardPack card, BattleCaculate battle)
+    public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
         battle.damage.value += card.count;
         battle.bm.CardLog("PowerUp",card);

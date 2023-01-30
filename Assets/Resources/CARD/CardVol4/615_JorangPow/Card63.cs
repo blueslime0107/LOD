@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Card63 : CardAbility
 {
-    public override void OnClashLose(CardPack card, BattleCaculate battle)
+    public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
     {
         battle.bm.CardLog("Block",card);
         battle.damage.adDamage(-2);

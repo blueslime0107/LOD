@@ -18,6 +18,7 @@ public class FloorScript : MonoBehaviour
     public int curFloor;
     [SerializeField] Lobby lobby;
     [SerializeField] int fl;
+    
 
     // 현재 층의 배경 로딩하기
     void Awake(){
@@ -50,6 +51,8 @@ public class FloorScript : MonoBehaviour
 
     // 층 움직이는 모션과 그 층에 맞는 스테이지 로딩
     IEnumerator FloorMove(int dir){
+        lobby.upFloor.ActiveOpenClose();
+        lobby.downFloor.ActiveOpenClose();
         while(Vector3.Distance(transform.position, Vector3.up*fl*dir) > 1){
             transform.position = Vector3.Lerp(transform.position,Vector3.up*fl*dir,Time.deltaTime*15f);
             yield return null;
@@ -71,6 +74,8 @@ public class FloorScript : MonoBehaviour
             yield return null;
         }
         transform.position = Vector3.zero;
+        lobby.upFloor.ActiveOpenClose();
+        lobby.downFloor.ActiveOpenClose();
         yield return null;
     }
 

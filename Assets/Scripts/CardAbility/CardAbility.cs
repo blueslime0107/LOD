@@ -61,8 +61,8 @@ public class CardAbility : ScriptableObject
     public virtual void OnClashTargetSelected(CardPack card, Player target2, BattleManager match){}
 
     public virtual void OnClashStart(CardPack card, BattleCaculate battle,Player enemy){}
-    public virtual void OnClashWin(CardPack card, BattleCaculate battle){}
-    public virtual void OnClashLose(CardPack card,BattleCaculate battle){}
+    public virtual void OnClashWin(CardPack card, BattleCaculate battle,Player enemy){}
+    public virtual void OnClashLose(CardPack card,BattleCaculate battle,Player enemy){}
     public virtual void OnClashDraw(CardPack card,BattleCaculate battle,Player enemy){}
     // public virtual void OnDamageing(CardPack card,BattleCaculate battle, Player attacker){}
     // public virtual void OnDamaged(CardPack card, BattleCaculate battle, Player defender){}
