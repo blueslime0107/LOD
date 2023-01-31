@@ -8,7 +8,7 @@
     <Stage id="1">
         <title>방패 맛좀 봐!</title>
         <sub_text>절대 방어</sub_text>
-        <sub_text2>업그레이드도 해줄께!</sub_text2>
+        <sub_text2>피해는 있을 수 없다!</sub_text2>
     </Stage>
     <Stage id="2">
         <title>초대받지 않은 불청객</title>
@@ -17,12 +17,12 @@
     </Stage>
     <Stage id="3">
         <title>벌레 잡아라!</title>
-        <sub_text>정체불명의 벌메 출현!</sub_text>
+        <sub_text>정체불명의 벌레 출현!</sub_text>
         <sub_text2>저녀석 일을 내고 있어!</sub_text2>
     </Stage>
     <Stage id="4">
         <title>야외의 활잡이</title>
-        <sub_text>어떻게든 맏게 된다</sub_text>
+        <sub_text>어떻게든 맞게 된다</sub_text>
         <sub_text2>피할 수 없다!</sub_text2>
     </Stage>
     <Stage id="5">

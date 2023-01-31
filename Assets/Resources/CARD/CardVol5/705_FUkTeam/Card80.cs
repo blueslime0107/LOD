@@ -10,7 +10,7 @@ public class Card80 : CardAbility
         battle.damage.adDamage(card.count);
         battle.bm.CardLog("PowerUp",card);
         if(card.count >= 6){
-            battle.bm.GiveCard(linked_card[0],card.player);
+            battle.bm.GiveCard(linked_card[0],enemy);
             battle.bm.DestroyCard(card,card.player);
         }
     }

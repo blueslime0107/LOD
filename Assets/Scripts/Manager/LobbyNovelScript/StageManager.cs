@@ -44,6 +44,7 @@ public class StageManager : MonoBehaviour
 
     [Space (15f), Header ("Debug")]
     public bool nogiveStage;
+    public bool nogiveChar;
 
     [HideInInspector]
 
@@ -77,6 +78,7 @@ public class StageManager : MonoBehaviour
     }
 
     public void AddPlayerCardChar(List<Character> chars){
+        if(nogiveChar){return;}
         Floor floor_ = new Floor();
         switch(floor){
          case 1:floor_ = FloorOfBattle; break;

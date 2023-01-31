@@ -10,22 +10,11 @@ public class Card11 : CardAbility
         if(card.count >= 15){card.count = 15; return;}
         match.CardLog("Count",card);
         card.count += damage.value;
-        if(card.count >= 15){card.count = 15;}
-
-    }
-
-    public override void CardActivate(CardPack card, BattleManager match)
-    {
-        if(card.count < 15){return;}
-        match.CardLog("GetCard",card);
+        if(card.count >= 15){
+            match.CardLog("GetCard",card);
         card.count = 0;
         match.AddCardPoint(card.player.team);
-    }
-
-    public override void AIgorithm(CardPack card, BattleManager match)
-    {
-        if(card.count >= 15){
-            CardActivate(card, match);
         }
+
     }
 }

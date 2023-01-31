@@ -41,15 +41,26 @@ public class Card38 : CardAbility
     {
         if(card.saved_card == null){return;}
         card.active = true;
-        match.CardLog("Debug",card);
         if(selected_card == card.saved_card){
+            match.CardLog("Debug Success!",card);
+
             card.player.AddHealth(5);
             card.saved_card.ability = card.saved_ability;
             card.saved_card = null;
         }
         else{
+            match.CardLog("Debug Failed",card);
             match.DestroyCard(selected_card,card.player);
             card.saved_card = null;
+        }
+    }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        pre_count++;
+        if(pre_count > 1){
+            CardSelected(card, card.saved_card, match);
+            pre_count = 0;
         }
     }
 

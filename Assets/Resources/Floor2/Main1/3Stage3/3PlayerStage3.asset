@@ -24,7 +24,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 99f2cd42a4e7dd64fa85ac0329d43d6d, type: 2}
   - {fileID: 11400000, guid: 7abf43f5cd664364a929b41137457dcf, type: 2}
   - {fileID: 11400000, guid: a1aaaed386926a7498365c64dbe11334, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bcd9620b7cea22846ad83460c9ca2adc, type: 2}
   - {fileID: 0}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
@@ -40,3 +40,4 @@ MonoBehaviour:
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  discovered: 0

@@ -10,6 +10,17 @@ public class DebugButton : MonoBehaviour
     [SerializeField]float playerVal;
     [SerializeField]float costVal;
 
+    public StageManager stageManager;
+    public Character[] floor1Player;
+    public Character[] floor2Player;
+
+    public void UnlockCharacter(){
+        stageManager = FindObjectOfType<StageManager>();
+        stageManager.FloorOfBattle.PlayerStage.characters = floor1Player;
+        stageManager.FloorOfResource.PlayerStage.characters = floor2Player;
+        stageManager.nogiveChar = true;
+    }
+
     public void WintheGame(){
         foreach(Player player in bm.right_team.players){
             player.AddHealth(-999);
