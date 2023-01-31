@@ -17,12 +17,12 @@ public class Card20 : CardAbility
         }
         linked_card[0].linked_card = myCards;
         match.SpecialCardGet(card.player.team,linked_card);
-        card.player.team.carddraw += 1;
+        match.AddCardPoint(card.player.team);
     }
 
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
         match.CardLog("GetCard",card);
-        card.player.team.carddraw += 1;
+        match.AddCardPoint(card.player.team);
     }
 }

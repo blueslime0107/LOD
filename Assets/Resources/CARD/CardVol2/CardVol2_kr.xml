@@ -87,7 +87,7 @@
     <Card Code="34">
         <name>아이기스-I</name>
         <text>최고의 공격은&#10;최고의 방어</text>
-        <ability>[피해받음][무방비] 피해 3 감소</ability>
+        <ability>[피해받음] 피해 1 감소 [무방비] 피해 3 감소</ability>
         <story></story>
     </Card>
     <Card Code="35">

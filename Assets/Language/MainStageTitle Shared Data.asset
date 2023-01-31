@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: Floor1_Title2
     m_Metadata:
       m_Items: []
+  - m_Id: 12294401409679360
+    m_Key: Floor2_Title1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

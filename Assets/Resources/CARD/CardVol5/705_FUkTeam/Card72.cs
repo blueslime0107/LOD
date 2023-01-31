@@ -22,7 +22,10 @@ public class Card72 : CardAbility
         if(newValue > 10 && newValue <= 17){
             match.CardLog("Success",card);
             match.sdm.Play("Success");
-            card.player.AddDice(2);
+            foreach(Player player in match.players){
+                if(player == card.player){continue;}
+                player.AddDice(-2);
+            }
         }
         if(newValue > 17){
             match.CardLog("Critical",card);

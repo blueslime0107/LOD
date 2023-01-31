@@ -129,7 +129,6 @@ public class BattleAI : MonoBehaviour
         battleTarget = myplayer[0];
 
         if(eneplayer.Find(x => x.dice > 0) == null){
-            Debug.Log("they has no dice");
             if(btnd_health)
                 eneplayer.Sort(SortHealth);
 

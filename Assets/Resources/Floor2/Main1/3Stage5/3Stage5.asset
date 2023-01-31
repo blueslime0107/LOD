@@ -28,15 +28,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7f8e99318fb3e34196a49d3369e96d2, type: 2}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
-  priceStage: []
+  priceStage:
+  - floor: 1
+    panel: 2
+    stage: {fileID: 11400000, guid: 0ca2924821b545e4283082d4c5b509a3, type: 2}
   victoryed: 0
   avaliblePrice: 100
   charlimit: 5
   playerStageLock: {fileID: 0}
   priceChars: []
-  priceCards: []
+  priceCards:
+  - {fileID: 11400000, guid: b92b930350288d0469d9f326582d8937, type: 2}
   custom_stage: {fileID: 478196262192403701, guid: ec393abb3dd41024bbd68893b3d2b0e5, type: 3}
   custom_BGM: DayGrass
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  discovered: 0

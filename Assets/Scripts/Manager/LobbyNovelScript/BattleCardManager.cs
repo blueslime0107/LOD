@@ -29,7 +29,7 @@ public class BattleCardManager : MonoBehaviour
 
         stage = (!playerCard) ? lobby.stage : lobby.stageManager.player_battleCard;
 
-        
+        stage.discovered = true;
 
         title.text = stage.title;
         sub_text.text = stage.sub_text;

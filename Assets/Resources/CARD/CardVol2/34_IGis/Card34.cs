@@ -7,8 +7,7 @@ public class Card34 : CardAbility
 {
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
-        if(card.player.dice != 0){return;}
-        damage.value -= 3;
+        damage.value -= (card.player.dice != 0) ? 1 : 3;
         if(damage.value <= 0){damage.value = 0;}
         match.CardLog("Defend",card);
     }

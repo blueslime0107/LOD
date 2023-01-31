@@ -19,6 +19,13 @@ public class Card11 : CardAbility
         if(card.count < 15){return;}
         match.CardLog("GetCard",card);
         card.count = 0;
-        card.player.team.carddraw += 1;
+        match.AddCardPoint(card.player.team);
+    }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        if(card.count >= 15){
+            CardActivate(card, match);
+        }
     }
 }

@@ -16,10 +16,10 @@ MonoBehaviour:
   xmlFile_path:
   - Floor1/Story1/Story1_en.xml
   - Floor1/Story1/Story1_kr.xml
-  title: 
-  sub_text: 
+  title: "\uC815\uCCB4\uBD88\uBA85\uC758 \uBE44\uD589\uBB3C\uCCB4"
+  sub_text: "\uAC11\uC790\uAE30 \uC5B4\uB514\uC120\uAC00 \uB0A0\uC544\uC654\uB2E4!"
   rank: 3
-  values: 
+  values: "\uC704\uD611\uC801\uC774\uB2E4"
   characters:
   - {fileID: 11400000, guid: d40e780cdfdcedc4bb9bb1da7a59bacd, type: 2}
   - {fileID: 11400000, guid: d40e780cdfdcedc4bb9bb1da7a59bacd, type: 2}
@@ -29,11 +29,12 @@ MonoBehaviour:
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 1
-    panel: 2
+  - floor: 2
+    panel: 1
     stage: {fileID: 11400000, guid: fbf8e0657780a8d449de22f8bc40800e, type: 2}
   victoryed: 0
   avaliblePrice: 100
+  charlimit: 5
   playerStageLock: {fileID: 0}
   priceChars: []
   priceCards:

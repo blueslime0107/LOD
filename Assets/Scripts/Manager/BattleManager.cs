@@ -166,7 +166,7 @@ public class BattleManager : MonoBehaviour
                 if(cur_team.battleAI.active){
                     cur_team.battleAI.isGettingCard(cur_game_cards);
                     card_gived = true;
-                    cur_team.carddraw -= 1;
+                    AddCardPoint(cur_team, -1);
                 }
                 else{
                     sdm.Play("Paper3");
@@ -258,9 +258,27 @@ public class BattleManager : MonoBehaviour
                         }
                     }   
                     sdm.Play("BattleReady");
-                    ui.battleStartButton.StartCoroutine("startBlink");             
+                    ui.battleStartButton.StartCoroutine("startBlink");       
+
+
+                    if(right_team.battleAI.active && first_turn == right_team){
+                        foreach(Player player in right_team.players){
+                            foreach(CardPack card in player.cards){
+                                card.ability.AIgorithm(card,this);
+                            }
+                        }
+                    }
+
                     while(!battle_start){
                         yield return null; 
+                    }
+
+                    if(right_team.battleAI.active && first_turn == left_team){
+                        foreach(Player player in right_team.players){
+                            foreach(CardPack card in player.cards){
+                                card.ability.AIgorithm(card,this);
+                            }
+                        }
                     }
                 }
                 
@@ -679,8 +697,9 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    public void AddCardPoint(Team team){
-        team.carddraw += 1;
+    public void AddCardPoint(Team team,int count=1){
+        team.carddraw += count;
+        ui.CardDrawUpdate();
     }
 
     public void SpecialCardGet(Team team, List<CardAbility> cards){
@@ -731,15 +750,36 @@ public class BattleManager : MonoBehaviour
         ui.cardLog.text = newText + ui.cardLog.text;
     }
     
-
-    public void RefreshPlayerDied(){
-        for(int i=0;i<players.Count;i++){
-            if(players[i].died){
-                players.RemoveAt(i);
-                players[i].team.players.Remove(players[i]);
-            }
+    public int GetHealthAverage(){
+        int newint =0;
+        foreach(Player player in players){
+            newint += player.health;
         }
+        newint /= players.Count;
+        return newint;
     }
+
+    public int GetDiceAverage(){
+        int newint =0;
+        foreach(Player player in players){
+            newint += player.dice;
+        }
+        newint /= players.Count;
+        return newint;
+    }
+    
+    
+    
+    // public void RefreshPlayerDied(){
+    //     for(int i=0;i<players.Count;i++){
+    //         if(i >= players.Count){return;}
+    //         if(players[i].died){
+    //             players.RemoveAt(i);
+    //             players[i].team.players.Remove(players[i]);
+    //             i--;
+    //         }
+    //     }
+    // }
 
 }
 

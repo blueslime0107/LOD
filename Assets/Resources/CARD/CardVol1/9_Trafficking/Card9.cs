@@ -12,4 +12,13 @@ public class Card9 : CardAbility
         card.player.SetDice(card.player.dice+1);
         match.CardLog("Dice",card);
     }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        for(int i=0;i<2;i++){
+            if(match.OpposeTeam(card.player.team).getDiceMaMin() > card.player.dice){
+                CardActivate(card, match);
+            }
+        }
+    }
 }

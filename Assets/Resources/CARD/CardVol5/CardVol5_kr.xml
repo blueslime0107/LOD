@@ -77,4 +77,16 @@
         <ability>[합 승리] 상대 전체에게 합 피해의 2배를 준다</ability>
         <story></story>
     </Card>
+    <Card Code="82">
+        <name>왈 우왈 와라랄</name>
+        <text>잠이 와랏</text>
+        <ability>[발동][일회용] 자신제외 모든캐릭터들의 위력을 자신위력/2 만큼 낮춘다</ability>
+        <story></story>
+    </Card>
+    <Card Code="83">
+        <name>감자봉</name>
+        <text>하아앗 힘을 모은다!</text>
+        <ability>[전투준비]카운트 상승 [발동] 카운트만큼 위력증가, 카운트 초기화</ability>
+        <story></story>
+    </Card>
 </CardVol>

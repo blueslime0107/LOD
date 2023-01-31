@@ -154,7 +154,7 @@ public class CardDraw : MonoBehaviour
             if(battleManager.card_getting_team.Equals(battleManager.mouseTouchingPlayer.team) && battleManager.card_getting_team.carddraw > 0){
                 battleManager.GiveCard(having_card,battleManager.mouseTouchingPlayer);
                 battleManager.card_gived = true;
-                battleManager.card_getting_team.carddraw -= 1;
+                battleManager.AddCardPoint(battleManager.card_getting_team, -1);
                 gameObject.SetActive(false);
             }
             

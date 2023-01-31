@@ -24,7 +24,7 @@ MonoBehaviour:
     \uB2E4\uB978 \uCE90\uB9AD\uD130\uC5D0\uAC8C \uACF5\uACA9\uD560 \uC218 \uC5C6\uB2E4.\r\n        "
   story_message: 
   tained: 0
-  price: 0
+  price: 35
   illust: {fileID: 21300000, guid: 90bdb66d615a28b428759537678bf3e4, type: 3}
   usingCount: 0
   pre_count: 0

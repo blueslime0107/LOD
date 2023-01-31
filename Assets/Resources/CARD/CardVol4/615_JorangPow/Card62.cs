@@ -6,8 +6,8 @@ public class Card62 : CardAbility
 {
     public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)
     {
-        battle.bm.CardLog("PowerUp",card);
-        card.player.AddDice(1);
+        Active(card);
+        battle.AddDamage(1);
         Active(card);
         card.count += 1;
         if(card.count >= 2){

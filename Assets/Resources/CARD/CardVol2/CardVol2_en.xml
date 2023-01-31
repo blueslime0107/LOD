@@ -43,9 +43,9 @@
         <story></story>
     </Card>
     <Card Code="271">
-        <name>리콜</name>
-        <text>다음 카드 나와주세요</text>
-        <ability>현재 카드뽑기를 넘기고 새 카드뽑기를 진행한다</ability>
+        <name>Recall</name>
+        <text>Next Card</text>
+        <ability>Stop the current cardpick and have a new one.</ability>
         <story></story>
     </Card>
     <Card Code="28">
@@ -87,7 +87,7 @@
     <Card Code="34">
         <name>Aegis-I</name>
         <text>the best attack, best defense</text>
-        <ability>[Get damaged][Defenseless] reduce 3 damage</ability>
+        <ability>[Get damaged] reduce 1 damage [Defenseless] reduce 3 damage</ability>
         <story></story>
     </Card>
     <Card Code="35">

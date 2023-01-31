@@ -54,5 +54,10 @@ public class Card41 : CardAbility
         }
     }
 
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        PlayerSelected(card, match.OpposeTeam(card.player.team).getCardPlayer() , match);
+    }
+
 
 }

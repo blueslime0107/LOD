@@ -44,6 +44,9 @@ public class UI : MonoBehaviour
     public List<CardPack> rightCard_card = new List<CardPack>();
     public CardExplain rightCardEx;
 
+    [SerializeField]TextMeshProUGUI leftCarddraw;
+    [SerializeField]TextMeshProUGUI rightCarddraw;
+
     void Awake(){
         rect_panorama_up = panorama_up.GetComponent<RectTransform>();
         rect_panorama_down = panorama_down.GetComponent<RectTransform>();
@@ -128,6 +131,10 @@ public class UI : MonoBehaviour
         }
     }
 
+    public void CardDrawUpdate(){
+        leftCarddraw.text = bm.left_team.carddraw.ToString();
+        rightCarddraw.text = bm.right_team.carddraw.ToString();
+    }
 
     public void CardMesage_Update(string ability,string story){
         cardAbility.text = ability;

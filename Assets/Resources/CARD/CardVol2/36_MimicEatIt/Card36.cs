@@ -36,7 +36,7 @@ public class Card36 : CardAbility
         }
         if(card.count == 1){
             card.active = true;
-            card.saved_card.player.team.carddraw += 2;
+            match.AddCardPoint(card.saved_player.team,2);
             match.CardLog("I'm Full!",card);
         }
         card.count -= 1;

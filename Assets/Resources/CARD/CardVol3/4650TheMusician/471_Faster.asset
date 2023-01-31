@@ -27,6 +27,7 @@ MonoBehaviour:
   pre_count: 0
   overCard: {fileID: 0}
   effect: []
-  linked_card: []
+  linked_card:
+  - {fileID: 0}
   diceLink: {fileID: 0}
   dice: {fileID: 0}

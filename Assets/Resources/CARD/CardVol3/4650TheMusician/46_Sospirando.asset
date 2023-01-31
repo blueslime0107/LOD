@@ -20,11 +20,10 @@ MonoBehaviour:
   message: "\uC544\uC8FC \uC2AC\uD504\uAC8C..."
   ability_message: "[\uACF5\uACA9\uBC1B\uC74C] \uC790\uC2E0\uC81C\uC678 \uBAA8\uB4E0
     \uC790\uC2E0\uD300\uB4E4\uC758 \uCCB4\uB825\uC744 \uD53C\uD574\uC758 \uBC18\uB9CC\uD07C(\uC62C\uB9BC)
-    \uD68C\uBCF5\r\n            [\uC0AC\uB9DD] \uC790\uC2E0\uD300\uB4E4\uC758 \uCCB4\uB825
-    - 4"
+    \uD68C\uBCF5\n[\uC0AC\uB9DD] \uC790\uC2E0\uD300\uB4E4\uC758 \uCCB4\uB825 - 4"
   story_message: 
   tained: 0
-  price: 0
+  price: 35
   illust: {fileID: 21300000, guid: 00c16db0f4771454d8066863f77c52a3, type: 3}
   usingCount: 0
   pre_count: 0

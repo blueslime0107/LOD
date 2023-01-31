@@ -25,6 +25,39 @@ public class Team{
     public BattleAI battleAI;
     public List<CardGetSituation> cardGetSituations = new List<CardGetSituation>();
     public int diceRollGague;
+
+    public int getDiceMaMin(bool max=true){
+        int newint = 0;
+
+        foreach(Player player in players){
+            if(player.dice < newint && max){continue;}
+            if(player.dice > newint && !max){continue;}
+            newint = player.dice;
+        }
+        return newint;
+        
+    }
+
+    public int getHealthAver(){
+        int newint = 0;
+
+        foreach(Player player in players){
+            newint += player.health;
+        }
+
+
+        return newint/players.Count;
+    }
+
+    public Player getCardPlayer(bool max=true){
+        Player newint = players[0];
+        foreach(Player player in players){
+            if(player.cards.Count < newint.cards.Count && max){continue;}
+            if(player.cards.Count > newint.cards.Count && !max){continue;}
+            newint = player;
+        }
+        return newint;
+    }
 }
 
 public class GameManager : MonoBehaviour

@@ -34,6 +34,8 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public bool noBreakCards;
     public bool noPrice;
 
+    [HideInInspector]public bool discovered;
+
     public int GetPriceSum(){
       int newint = 0;
       foreach(Character chars in characters){
@@ -62,6 +64,6 @@ public class Stage: ScriptableObject, IResetOnExitPlay
      {
         victoryed = false;
         noPrice = false;
-
+      discovered = false;
      } 
 }

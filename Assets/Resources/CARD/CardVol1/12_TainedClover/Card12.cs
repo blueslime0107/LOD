@@ -29,4 +29,17 @@ public class Card12 : CardAbility
     {
         card.active = false;
     }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        int newint = 0;
+        foreach(Player player in match.OpposeTeam(card.player.team).players){
+            if(player.dice >= 5){
+                newint ++;
+            }
+        }
+        if(newint >= 2){
+            CardActivate(card,match);
+        }
+    }
 }

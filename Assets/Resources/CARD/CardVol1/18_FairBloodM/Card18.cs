@@ -43,4 +43,11 @@ public class Card18 : CardAbility
         }
         card.count = (int)card.count/match.players.Count;
     }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        if(card.player.team.getHealthAver() <= 6){
+            CardActivate(card,match);
+        }
+    }
 }

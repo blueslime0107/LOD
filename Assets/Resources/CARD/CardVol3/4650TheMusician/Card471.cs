@@ -11,4 +11,11 @@ public class Card471 : CardAbility
         match.DestroyCard(card,card.player);
         card.player.ShowCardDeck(true,true);
     }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        if(card.player.health <= card.player.health/2-2){
+            CardActivate(card,match);
+        }
+    }
 }

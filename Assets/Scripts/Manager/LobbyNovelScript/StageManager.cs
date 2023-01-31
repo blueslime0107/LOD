@@ -15,9 +15,6 @@ public class Floor{
     public List<Stage> Stage2 = new List<Stage>();
     [Space (15f), Header ("SubStage")]
     public List<Stage> SubStage = new List<Stage>();
-    [HideInInspector]public bool addedStage1;
-    [HideInInspector]public bool addedSubStage;
-    [HideInInspector]public bool addedStage2;
 
 
 }
@@ -45,6 +42,9 @@ public class StageManager : MonoBehaviour
     public Floor FloorOfResource;
     public Floor FloorOfSocial;
 
+    [Space (15f), Header ("Debug")]
+    public bool nogiveStage;
+
     [HideInInspector]
 
     private void Awake() {
@@ -60,6 +60,7 @@ public class StageManager : MonoBehaviour
     }
 
     public void AddStageFun(List<AddStage> stages){
+        if(nogiveStage){return;}
         foreach(AddStage stage in stages){
             Floor floor_ = FloorOfBattle;
             switch(stage.floor){
@@ -68,12 +69,9 @@ public class StageManager : MonoBehaviour
                 case 3:floor_ = FloorOfSocial; break;
             }
             switch(stage.panel){
-                case 1: floor_.Stage1.Add(stage.stage); 
-                floor_.addedStage1 = true;break;     
-                case 2: floor_.Stage2.Add(stage.stage); 
-                floor_.addedStage2 = true;break;    
-                case 3: floor_.SubStage.Add(stage.stage); 
-                floor_.addedSubStage = true;break;    
+                case 1: floor_.Stage1.Add(stage.stage); break;     
+                case 2: floor_.Stage2.Add(stage.stage); break;    
+                case 3: floor_.SubStage.Add(stage.stage); break;    
             }
         }
     }

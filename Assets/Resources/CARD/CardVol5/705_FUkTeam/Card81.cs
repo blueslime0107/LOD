@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 public class Card81 : CardAbility
 {
     public override void OnClashWin(CardPack card, BattleCaculate battle, Player enemy)

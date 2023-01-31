@@ -24,7 +24,7 @@ MonoBehaviour:
     \uCD94\uAC00\uB41C\uB2E4"
   story_message: 
   tained: 0
-  price: 65
+  price: 50
   illust: {fileID: 21300000, guid: 49787946f64c4ff4c8c7fc79d2c68849, type: 3}
   usingCount: 0
   pre_count: 0

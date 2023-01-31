@@ -2473,6 +2473,7 @@ MonoBehaviour:
   stage_board: {fileID: 152703561}
   stage_slot: {fileID: 64241146475736218, guid: 65165ac5e7b9b164381ea5ea1085ccf8, type: 3}
   card_board: {fileID: 1503452052}
+  selectedbattleItem: {fileID: 0}
   stageItem: []
   quest_text: {fileID: 0}
   curMenu:
@@ -2481,13 +2482,15 @@ MonoBehaviour:
   - 
   - 
   - 
-  main_alert: {fileID: 1430857012}
-  sub_alert: {fileID: 952138038}
   playerBattleCard: {fileID: 1190685830}
   enemyBattleCard: {fileID: 130766547}
   stage: {fileID: 0}
   player: {fileID: 0}
   settingMenu: {fileID: 1679807915}
+  mainAlertObject: {fileID: 1430857012}
+  substageload: {fileID: 1681289189}
+  mainstageload1: {fileID: 3054094995670612306}
+  mainstageload2: {fileID: 1885618711}
   upFloor: {fileID: 1734342219}
   downFloor: {fileID: 1802910169}
 --- !u!1 &286929344
@@ -3917,6 +3920,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446538403}
   m_CullTransparentMesh: 1
+--- !u!1 &462294365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232135631193096280, guid: a5eea3f55f966fd4f935ee6d1f6ffc1e, type: 3}
+  m_PrefabInstance: {fileID: 8074371503419691013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &467716783
 GameObject:
   m_ObjectHideFlags: 0
@@ -9389,6 +9397,11 @@ MonoBehaviour:
   price_gague: {fileID: 1690576838}
   price_text: {fileID: 1522002931}
   overWritten: {fileID: 132765692}
+--- !u!1 &1190808236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3232135631193096280, guid: a5eea3f55f966fd4f935ee6d1f6ffc1e, type: 3}
+  m_PrefabInstance: {fileID: 2004112372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1191196638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15219,7 +15232,8 @@ MonoBehaviour:
   stages: []
   title: {fileID: 0}
   diceIcon: {fileID: 0}
-  alert: {fileID: 952138038}
+  alertObject: {fileID: 952138038}
+  newStageDetected: 0
 --- !u!114 &1683658170 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5393657527783174613, guid: 926cfaa59d2435c43b56822d814326d2, type: 3}
@@ -19543,21 +19557,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82e70c0dd68d1a44e891c08d967fe906, type: 2}
   - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
   - {fileID: 11400000, guid: df13fbe9b7edfc64e8da766c8d177144, type: 2}
-  - {fileID: 11400000, guid: a21f1569feb6d9e48966feff29f83c60, type: 2}
-  - {fileID: 11400000, guid: c49182a4022c7034db45a2aea1a2991e, type: 2}
-  - {fileID: 11400000, guid: a9ed88f516ff9b242920ca1e9996a06a, type: 2}
-  - {fileID: 11400000, guid: 8b70d90f80a75db4294fb906ce48bee7, type: 2}
+  - {fileID: 11400000, guid: d982cb95007583849a57cd6c5545cfeb, type: 2}
+  - {fileID: 11400000, guid: a52266158982072489e50735620bafb5, type: 2}
+  - {fileID: 11400000, guid: eb5228ace9796934e84a334f4825ab84, type: 2}
+  - {fileID: 11400000, guid: a5da873af6ce9af4da64cd826ea9f5a3, type: 2}
   - {fileID: 11400000, guid: 61cee207561b3d949bc811193e2006e9, type: 2}
+  - {fileID: 11400000, guid: aeb745c0e4eacfc4096d0f3cb8c240ca, type: 2}
+  - {fileID: 11400000, guid: 16b5d4da762553848af21023049de00f, type: 2}
+  - {fileID: 11400000, guid: 814b51028aa158940b857e38938b7be3, type: 2}
+  - {fileID: 11400000, guid: 8b70d90f80a75db4294fb906ce48bee7, type: 2}
+  - {fileID: 11400000, guid: 31e73c3383bb0da4b98c122916bb3b1d, type: 2}
+  - {fileID: 11400000, guid: 44e9c72c425e8e04689bfb513c235fb4, type: 2}
   - {fileID: 11400000, guid: dfa007ed3adc45549b0b07d2f2c1e889, type: 2}
   - {fileID: 11400000, guid: 5dc869507a2d6524b9e7fb6bba07a350, type: 2}
   - {fileID: 11400000, guid: 20b6f0b29e7675c4fad2b8cd444e8d63, type: 2}
   - {fileID: 11400000, guid: e884b35dd6fa9844194ee615d23a4b5f, type: 2}
-  - {fileID: 11400000, guid: 059c747a22e2d444381b2d8cf4437ba8, type: 2}
-  - {fileID: 11400000, guid: 03d2ec27e77f0134c818790e154049ab, type: 2}
-  - {fileID: 11400000, guid: b874dcb60c31b714eadaac5f8d06a5a4, type: 2}
   collected_card: []
-  achiveItms:
-  - {fileID: 11400000, guid: b9e38c5bcc47f1c4f991af2cbdcb757c, type: 2}
+  achiveItms: []
   FloorOfBattle:
     PlayerStage: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
     rank1: 1
@@ -19582,12 +19598,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 845aae95fd4d54f4d87394e75c8d57c9, type: 2}
     - {fileID: 11400000, guid: b1aaade6c00e7b24c93e5855529f6b58, type: 2}
     - {fileID: 11400000, guid: fbf8e0657780a8d449de22f8bc40800e, type: 2}
-    addedStage1: 0
-    addedSubStage: 0
-    addedStage2: 0
   FloorOfResource:
-    PlayerStage: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
-    rank1: 3
+    PlayerStage: {fileID: 11400000, guid: aa920897e3ea6c349833c9decb63351d, type: 2}
+    rank1: 2
     title1: "\uC644\uBCBD\uD55C \uACC4\uD68D"
     Stage1:
     - {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
@@ -19603,9 +19616,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: bddf9ceee52b73e48a43bf97fc8074e5, type: 2}
     - {fileID: 11400000, guid: 3e8b15bd15591ae4c9be098e4968495e, type: 2}
-    addedStage1: 0
-    addedSubStage: 0
-    addedStage2: 0
   FloorOfSocial:
     PlayerStage: {fileID: 0}
     rank1: 0
@@ -19615,9 +19625,7 @@ MonoBehaviour:
     title2: 
     Stage2: []
     SubStage: []
-    addedStage1: 0
-    addedSubStage: 0
-    addedStage2: 0
+  nogiveStage: 1
 --- !u!114 &1954104338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19643,6 +19651,7 @@ MonoBehaviour:
           items:
           - rid: 3092991264387760145
           - rid: 3092991548109619202
+          - rid: 8051282341007720450
         m_UpdateType: 0
         m_Changed:
           m_PersistentCalls:
@@ -19673,6 +19682,19 @@ MonoBehaviour:
           m_WaitForCompletion: 0
           m_LocalVariables: []
         m_PropertyPath: FloorOfBattle.title2
+    - rid: 8051282341007720450
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:f917c7079e91ec541a4cc6d2d0214c75
+          m_TableEntryReference:
+            m_KeyId: 12294401409679360
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: FloorOfResource.title1
 --- !u!1 &1956010149
 GameObject:
   m_ObjectHideFlags: 0
@@ -19862,6 +19884,10 @@ PrefabInstance:
       propertyPath: panel
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6516635189532207440, guid: a5eea3f55f966fd4f935ee6d1f6ffc1e, type: 3}
+      propertyPath: alertObject
+      value: 
+      objectReference: {fileID: 1190808236}
     - target: {fileID: 6516635189532207444, guid: a5eea3f55f966fd4f935ee6d1f6ffc1e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -20789,6 +20815,10 @@ PrefabInstance:
       propertyPath: lobby
       value: 
       objectReference: {fileID: 283564455}
+    - target: {fileID: 6516635189532207440, guid: a5eea3f55f966fd4f935ee6d1f6ffc1e, type: 3}
+      propertyPath: alertObject
+      value: 
+      objectReference: {fileID: 462294365}
     - target: {fileID: 6516635189532207444, guid: a5eea3f55f966fd4f935ee6d1f6ffc1e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

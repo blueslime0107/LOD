@@ -36,8 +36,10 @@ MonoBehaviour:
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: 42245c302d93c1741a90f8a61f19c022, type: 2}
   custom_stage: {fileID: 7815746713288796794, guid: 33108683459a3fc4bab84c16bb7e68b1, type: 3}
   custom_BGM: NightGrass
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  discovered: 0

@@ -35,6 +35,8 @@ public class CardAbility : ScriptableObject
     public GameObject diceLink;
     public Dice dice;
 
+    [HideInInspector]public bool cardgiven;
+
     //public GameObject owner;
     // [HideInInspector]public bool card_active;
     // public bool card_triggerd
@@ -53,6 +55,7 @@ public class CardAbility : ScriptableObject
     public virtual void CardActivate(CardPack card, BattleManager match){}
     public virtual void CardSelected(CardPack card, CardPack selected_card,BattleManager match){}
     public virtual void PlayerSelected(CardPack card, Player selected_player, BattleManager match){}
+    public virtual void AIgorithm(CardPack card, BattleManager match){}
 
     public virtual void OnBattleReady(CardPack card, Player player, BattleManager match){}
     public virtual void OnBattleStart(CardPack card, Player player, BattleManager match){}

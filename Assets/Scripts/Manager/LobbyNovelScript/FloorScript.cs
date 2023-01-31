@@ -60,6 +60,7 @@ public class FloorScript : MonoBehaviour
         transform.position = Vector3.up*fl*dir;
 
         lobby.floorNum = floorNum[curFloor];
+        lobby.ReloadPlayerCard();
         subPanelLoad.Start();
         mainPanelLoad1.Start();
         mainPanelLoad2.Start();

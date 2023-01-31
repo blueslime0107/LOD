@@ -310,7 +310,7 @@ public class BattleCaculate : MonoBehaviour
             bm.on_battle_card_effect.Remove(bm.on_battle_card_effect[i]);
         }
         
-        bm.RefreshPlayerDied();
+        //bm.RefreshPlayerDied();
         
         
         

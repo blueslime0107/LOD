@@ -32,4 +32,14 @@ public class Card2 : CardAbility
         PlayerSelected(card,card.player,match);
     }
 
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        foreach(Player player in card.player.team.players){
+            if(player.dice <= 3){
+                PlayerSelected(card,player,match);
+                break;
+            }
+        }
+    }
+
 }

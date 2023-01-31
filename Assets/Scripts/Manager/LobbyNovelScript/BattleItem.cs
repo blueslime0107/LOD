@@ -14,6 +14,7 @@ public class BattleItem : MonoBehaviour
     public DiceIcon diceIcon;
     public TextMeshProUGUI battle_title;
     public GameObject cleared;
+    public GameObject alert;
 
     // 랭크와 제목 로컬라이즈
     public void UpdateStat(){
@@ -23,6 +24,7 @@ public class BattleItem : MonoBehaviour
         diceIcon.SetRank(stage.rank);
         battle_title.text = stage.title;
         cleared.SetActive(stage.victoryed);
+        alert.SetActive(!stage.discovered);
 
     }
     private void ReadXML(string filename){
@@ -46,6 +48,7 @@ public class BattleItem : MonoBehaviour
 
     // 눌렀을때 양팀의 전투카드 불러오기
     public void Clicked(){
+        lobby.selectedbattleItem = this;
         lobby.stage = stage; 
         lobby.stageManager.play_stage = stage; // 적팀 스테이지
         lobby.stageManager.player_battleCard = lobby.player; // 플레이어 스테이지

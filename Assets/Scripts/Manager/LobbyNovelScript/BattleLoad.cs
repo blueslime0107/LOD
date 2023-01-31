@@ -16,8 +16,9 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
 
     public TextMeshProUGUI title;
     public DiceIcon diceIcon;
+    [SerializeField] GameObject alertObject;
 
-    [SerializeField] GameObject alert;
+    public bool newStageDetected;
 
     private void Awake() {
         sm = FindObjectOfType<StageManager>();
@@ -32,31 +33,38 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         }
         switch(panel){
             case 1: stages = floor.Stage1; 
-            alert.SetActive(floor.addedStage1); // 새 스테이지가 왔다면 알리기
-            lobby.main_alert.SetActive(true);
-            floor.addedStage1 = false;
             title.text = floor.title1;
             diceIcon.SetRank(floor.rank1);
             break;     
+
             case 2: stages = floor.Stage2;
-            alert.SetActive(floor.addedStage2);
-            lobby.main_alert.SetActive(true);
-            floor.addedStage2 = false;
             title.text = floor.title2;
             diceIcon.SetRank(floor.rank2); 
             break;    
+
             case 3: stages = floor.SubStage; 
-            alert.SetActive(floor.addedSubStage);
-            floor.addedSubStage = false;
             break;    
         }
+        RefreshDiscover();
         //floor.addedStage = false;
+    }
+
+    public void RefreshDiscover(){
+        newStageDetected = false;
+        alertObject.SetActive(newStageDetected);
+        foreach(Stage stage in stages){
+            if(stage.discovered){continue;}
+            newStageDetected = true;
+            alertObject.SetActive(newStageDetected);
+        }
+        if(panel == 3){return;}
+            lobby.RefreshDiscover();
+        
     }
 
     // 눌렀을때 전투가 로딩되있는 창을 띄운다
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
-        alert.SetActive(false);
         if(panel.Equals(3)){ // 서브스테이지 그룹이라면 바로 띄우기
             lobby.OpenSubMenu();
         }
@@ -85,5 +93,7 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
 
         }
     }
+
+
 
 }

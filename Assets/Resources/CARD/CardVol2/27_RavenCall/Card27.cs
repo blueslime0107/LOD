@@ -20,6 +20,6 @@ public class Card27 : CardAbility
 
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
-        card.player.team.carddraw += 1;
+        match.AddCardPoint(card.player.team);
     }
 }

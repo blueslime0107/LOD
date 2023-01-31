@@ -10,7 +10,7 @@ public class Card79 : CardAbility
         if(card.player.health - damage.value <= card.player.breakCount[0]){
             match.CardLog("My Card!",card,attacker);
             match.AddCardPoint(attacker.team);
-            card.player.team.carddraw -= 1;
+            match.AddCardPoint(card.player.team, -1);
         }
     }
 }

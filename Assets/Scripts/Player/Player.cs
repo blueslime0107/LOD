@@ -71,6 +71,11 @@ public class Player : MonoBehaviour
 
     public int speed;
 
+    private void OnDisable() {
+        battleManager.players.Remove(this);
+        team.players.Remove(this);   
+    }
+
     void Start(){
         // 자세를 기본자세로 하고 초기카드가 있으면 카드들을 주고 시작
         if(gameObject.tag.Equals("PlayerTeam2")){
@@ -231,7 +236,7 @@ public class Player : MonoBehaviour
     public void AddBreak(int value){
         breakCount[0] += value;
         if(health <= breakCount[0]){
-                team.carddraw += 1;
+                battleManager.AddCardPoint(team);
                 battleManager.sdm.Play("BreakCardGet");
                 hp_Indi.ActiveEff();
                 breakCount.RemoveAt(0);
@@ -250,7 +255,7 @@ public class Player : MonoBehaviour
         if(breakCount.Count <= 0 || battleManager.gameManager.sm.play_stage.noBreakCards){return;}
         for(int i = 0;i<breakCount.Count;i++){
             if(health <= breakCount[0]){
-                team.carddraw += 1;
+                battleManager.AddCardPoint(team);
                 battleManager.sdm.Play("BreakCardGet");
                 hp_Indi.ActiveEff();
                 breakCount.RemoveAt(0);

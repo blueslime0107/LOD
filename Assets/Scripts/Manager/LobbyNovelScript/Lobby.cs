@@ -35,14 +35,12 @@ public class Lobby : MonoBehaviour
     public GameObject stage_slot;
     [Tooltip("카드 보드")]
     public GameObject card_board;
+    [HideInInspector] public BattleItem selectedbattleItem;
     public List<BattleItem> stageItem = new List<BattleItem>();
     [Tooltip("도전과제 보드")]
     public TextMeshProUGUI quest_text;
 
     public List<string> curMenu = new List<string>();
-
-    public GameObject main_alert;
-    public GameObject sub_alert;
 
     public BattleCardManager playerBattleCard;
     public BattleCardManager enemyBattleCard;
@@ -50,6 +48,12 @@ public class Lobby : MonoBehaviour
     public Stage stage;
     public Stage player;
     public SettingMenu settingMenu;
+
+    [SerializeField]GameObject mainAlertObject;
+
+    [SerializeField]BattleLoad substageload;
+    [SerializeField]BattleLoad mainstageload1;
+    [SerializeField]BattleLoad mainstageload2;
    
     public MenuItem upFloor;
     public MenuItem downFloor;
@@ -61,6 +65,16 @@ public class Lobby : MonoBehaviour
     }
 
     public void Start(){
+        ReloadPlayerCard();
+        if(stageManager.collected_card.Count > 0){
+            youGetACard.cardAbility.AddRange(stageManager.collected_card);
+            youGetACard.GeTheCard();
+            stageManager.AddCardDic(stageManager.collected_card);
+            stageManager.collected_card.Clear();
+        }
+        sdm.Play("Lobby");
+    }
+    public void ReloadPlayerCard(){
         switch(floorNum){
             case 1:
                 player = stageManager.FloorOfBattle.PlayerStage; break;
@@ -69,13 +83,6 @@ public class Lobby : MonoBehaviour
             case 3:
                 player = stageManager.FloorOfSocial.PlayerStage; break;
         }
-        if(stageManager.collected_card.Count > 0){
-            youGetACard.cardAbility.AddRange(stageManager.collected_card);
-            youGetACard.GeTheCard();
-            stageManager.AddCardDic(stageManager.collected_card);
-            stageManager.collected_card.Clear();
-        }
-        sdm.Play("Lobby");
     }
 
     public void Update(){
@@ -105,8 +112,12 @@ public class Lobby : MonoBehaviour
                     enemyCard.ActiveOpenClose();
                     playerCard.ActiveOpenClose();
                     BattleButton.ActiveOpenClose();
-                    curMenu.Remove("battle"); break;
-
+                    curMenu.Remove("battle"); 
+                    selectedbattleItem.alert.SetActive(false);
+                    substageload.RefreshDiscover();
+                    mainstageload1.RefreshDiscover();
+                    mainstageload2.RefreshDiscover();
+                    break;
                 case "cardMenu":
                 sdm.Play("Close");
                 upFloor.MoveToOrigin();
@@ -133,7 +144,6 @@ public class Lobby : MonoBehaviour
     public void OpenSubMenu(){
         upFloor.MoveToMove();
         downFloor.MoveToMove();
-        if(sub_alert.activeSelf){sub_alert.SetActive(false);}
         if(curMenu.Equals("surMenu")){
             return;
         }
@@ -145,7 +155,6 @@ public class Lobby : MonoBehaviour
     }
 
     public void OpenMainMenu(){
-        if(main_alert.activeSelf){main_alert.SetActive(false);}
         if(curMenu.Equals("mainMenu")){
             return;
         }
@@ -193,7 +202,6 @@ public class Lobby : MonoBehaviour
         menuCard.cardSelecting = true;
         menuCard.RenderCard();
     }
-
 
     public void OpenBattleCard(){
         if(curMenu.Equals("battle")){
@@ -243,7 +251,8 @@ public class Lobby : MonoBehaviour
         }
     }
 
-    
-
+    public void RefreshDiscover(){
+        mainAlertObject.SetActive(mainstageload1.newStageDetected || mainstageload2.newStageDetected);
+    }
 
 }
