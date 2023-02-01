@@ -40,3 +40,4 @@ MonoBehaviour:
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  discovered: 0

@@ -31,8 +31,6 @@ public class Card47 : CardAbility
             Debug.Log(card.count);
             card.count = card.player.cards.Count;
         }
-
-        Debug.Log(card.count);
     }
 
     public override void CardActivate(CardPack card, BattleManager match)

@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,6 +44,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -100,3 +102,5 @@ MonoBehaviour:
   - {fileID: 3330809008915125875, guid: 6e8ed84b41c2b4a4cb4b708daf83243e, type: 3}
   - {fileID: -7235503196841111018, guid: 6e8ed84b41c2b4a4cb4b708daf83243e, type: 3}
   - {fileID: -8823103556850348654, guid: 6e8ed84b41c2b4a4cb4b708daf83243e, type: 3}
+  defalt: {fileID: 2100000, guid: fe06f996eee7ef34f81e92abddd2e4bb, type: 2}
+  disabled: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

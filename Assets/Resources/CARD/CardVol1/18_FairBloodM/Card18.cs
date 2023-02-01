@@ -15,7 +15,7 @@ public class Card18 : CardAbility
         }
         allHealth = (int)allHealth/match.players.Count;
         foreach(Player player in match.players){
-            player.health = allHealth;
+            player.SetHealth(allHealth);
             player.UpdateHp();
             match.CardLog("Blood",card,player);
         }

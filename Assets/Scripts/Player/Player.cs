@@ -144,10 +144,12 @@ public class Player : MonoBehaviour
 
 
     public void SetDice(int value){
+        if(dice <= 0){return;}
         dice_Indi.setDice(value);
     }
 
     public void AddDice(int value){
+        if(dice <= 0){return;}
         int diceValue = 0;
         diceValue = dice + value;
         if(diceValue < 0){
@@ -207,6 +209,7 @@ public class Player : MonoBehaviour
 
     public void AddHealth(int value,bool changemaxHp=false){
         if(changemaxHp){
+            Debug.Log("max_changed");
             max_health += value;
         }
         health += value;
@@ -251,6 +254,7 @@ public class Player : MonoBehaviour
     }
 
     public void UpdateHp(){
+        if(health > max_health){health = max_health;}
         hp_Indi.HpUpdate(this);
         if(breakCount.Count <= 0 || battleManager.gameManager.sm.play_stage.noBreakCards){return;}
         for(int i = 0;i<breakCount.Count;i++){
@@ -260,6 +264,9 @@ public class Player : MonoBehaviour
                 hp_Indi.ActiveEff();
                 breakCount.RemoveAt(0);
             }
+        }
+        if(health > max_health){
+            health = max_health;
         }
         hp_Indi.HpUpdate(this);
     }

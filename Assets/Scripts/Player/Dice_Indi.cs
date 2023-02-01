@@ -44,6 +44,7 @@ public class Dice_Indi : MonoBehaviour
     // }
 
     public void putDice(Dice dice){
+        Debug.Log("putdice");
         particle.Play();
         dice_list.Add(dice);
         player.dice = dice.dice_value;
@@ -57,14 +58,14 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void NextDice(){
-        if(dice_value != 0){
+        
+        if(dice_value > 0){
             return;
         }
-        if(dice_list.Count <= 0){
-            player.ChangeCondition(0);
-            return;
+        else{
+            if(dice_list.Count > 0)
+            dice_list.RemoveAt(0);
         }
-        dice_list.RemoveAt(0);
         if(dice_list.Count <= 0){
             player.ChangeCondition(0);
             return;
@@ -82,6 +83,7 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void put_subDice(Dice dice){
+        Debug.Log("sub_putdice");
         if(!sub_dice.activeSelf){
             sub_dice.SetActive(true);
         }
@@ -90,6 +92,7 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void setDice(int value){
+        
         if(player.died) {
             player.dice = 0;
             return;
@@ -102,6 +105,8 @@ public class Dice_Indi : MonoBehaviour
         {render.sprite = dice_img[value];}
         catch
         {render.sprite = dice_img[7];}
+
+        NextDice();
     }
 
     void OnMouseDown() {
