@@ -15,7 +15,7 @@
     <Card Code="63">
         <name>유리방패</name>
         <text>이거 재료를 잘못썻어</text>
-        <ability>[합 패배]피해 2 감소, [공격받음] 피해 1 증가받음</ability>
+        <ability>[합 패배]피해 2 감소, [공격받음] 파괴됨</ability>
         <story></story>
     </Card>
     <Card Code="64">

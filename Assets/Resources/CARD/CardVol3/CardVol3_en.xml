@@ -2,10 +2,9 @@
 <CardVol Filename="CardVol1">
     <Card Code="41">
         <name>Taunt</name>
-        <text>아무고토 못하죠?!</text>
-        <ability>[캐릭터 지정]지정한 캐릭터의 위력이 자신보다 높다면
-지정한 캐릭터는 1턴 동안 자신을 제외한 다른 캐릭터에게 공격할 수 없다.
-        </ability>
+        <text>Shift Shift Shift Shift</text>
+        <ability>[Character select]If the power of the selected character is higher than your own
+The selected character cannot attack other characters except me for 1 turn.</ability>
         <story></story>
     </Card>
     <Card Code="42">
@@ -41,14 +40,14 @@
     <Card Code="47">
         <name>Vivace</name>
         <text>아주 빠르게...</text>
-        <ability>[합 승리] 자신제외 자신팀들이 소지한 카드 수만큼&#10;최대 자신이 소지한 카드 수까지 피해 상승
-2턴마다 캐릭터에게 '빠르게([발동]위력 1 증가)를 줄 수 있다</ability>
+        <ability>[Clash Win] Not self Increases damage equal to the number of cards your team owns, up to the maximum number of cards you own.
+Every 2 turns, you can give your character 'Faast ([Active] Gain 2 Health, Destroyed)'</ability>
         <story></story>
     </Card>
     <Card Code="471">
         <name>Faast</name>
-        <text>빠른 소리</text>
-        <ability>[발동] 위력 2 상승, 이후 파괴됨</ability>
+        <text>Fast Sound</text>
+        <ability>[Active] Gain 2 Health, Destroyed</ability>
         <story></story>
     </Card>
     <Card Code="48">

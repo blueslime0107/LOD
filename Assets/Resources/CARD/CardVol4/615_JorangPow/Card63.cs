@@ -14,7 +14,6 @@ public class Card63 : CardAbility
     public override void OnDamage(CardPack card, Player attacker, Damage damage, BattleManager match)
     {
         match.CardLog("Broken",card,card.player);
-        damage.adDamage(1);
         match.DestroyCard(card,card.player);
     }
 }
