@@ -26,8 +26,14 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
 
     public void Start(){
         Floor floor = new Floor();
+        Debug.Log(lobby);
+        Debug.Log(lobby.floorNum);
         switch(lobby.floorNum){
-            case 1:floor = sm.FloorOfBattle; break;
+            case 1:
+            Debug.Log(sm);
+            Debug.Log(sm.FloorOfBattle);
+            floor = sm.FloorOfBattle; 
+            break;
             case 2:floor = sm.FloorOfResource; break;
             case 3:floor = sm.FloorOfSocial; break;
         }

@@ -64,6 +64,6 @@ public class Stage: ScriptableObject, IResetOnExitPlay
      {
         victoryed = false;
         noPrice = false;
-      discovered = false;
+        discovered = false;
      } 
 }

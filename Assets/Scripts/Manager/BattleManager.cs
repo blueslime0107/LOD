@@ -399,6 +399,7 @@ public class BattleManager : MonoBehaviour
             }
             gameManager.sm.play_stage.noPrice = true;
         }
+        gameManager.sm.saveManager.Save();
         if(gameManager.sm.play_stage.afterStory != null){
             gameManager.sceneMove.Move("Talk");
         }
