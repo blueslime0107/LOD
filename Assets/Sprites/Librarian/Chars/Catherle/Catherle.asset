@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Catherle
+  m_EditorClassIdentifier: 
+  name_: Catherle
+  poses:
+  - {fileID: 21300000, guid: 0faec6b013c5dcf4c993622ab151aa87, type: 3}
+  - {fileID: 21300000, guid: 03bfddda287f0d84cab46c2ccb84fb0f, type: 3}
+  - {fileID: 21300000, guid: 6494400f8fffb9343bc3e3701f5e3039, type: 3}
+  - {fileID: 21300000, guid: 38035d7004908d845a9511a4103655ec, type: 3}
+  - {fileID: 21300000, guid: 7fc0d5f0917c10e44bf290e334444cd6, type: 3}
+  farAtk: 0

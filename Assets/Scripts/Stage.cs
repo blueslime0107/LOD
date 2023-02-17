@@ -6,7 +6,7 @@ using UnityEngine;
 public class Stage: ScriptableObject, IResetOnExitPlay
 {  
    public int id;
-   public string[] xmlFile_path = new string[2];
+   public TextAsset[] xmlFile_path = new TextAsset[2];
 
     public string title;
     public string sub_text;
@@ -28,6 +28,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
 
 
     [Header("Special"), Space(15f)]
+    public StageEvent stageEvent;
     public GameObject custom_stage;
     public string custom_BGM;
     public int tutorialLine;

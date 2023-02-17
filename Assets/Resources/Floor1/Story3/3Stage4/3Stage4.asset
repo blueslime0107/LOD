@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: 3Stage4
+  m_EditorClassIdentifier: 
+  id: 10
+  xmlFile_path:
+  - {fileID: 4900000, guid: e21ba7f71ff43ee4583bb652f3b7dbca, type: 3}
+  - {fileID: 4900000, guid: b6643cb3f3eefec4fbabf576186d0210, type: 3}
+  title: "\uC57C\uC678\uC758 \uD65C\uC7A1\uC774"
+  sub_text: "\uC5B4\uB5BB\uAC8C\uB4E0 \uB9CF\uAC8C \uB41C\uB2E4"
+  rank: 4
+  values: "\uD53C\uD560 \uC218 \uC5C6\uB2E4!"
+  characters:
+  - {fileID: 11400000, guid: 02bec3ddd347db74aa81eae386878b5f, type: 2}
+  - {fileID: 11400000, guid: 7571cb8375b06c74abd454040458fb2a, type: 2}
+  - {fileID: 11400000, guid: 7571cb8375b06c74abd454040458fb2a, type: 2}
+  - {fileID: 11400000, guid: 7571cb8375b06c74abd454040458fb2a, type: 2}
+  - {fileID: 0}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  priceStage:
+  - floor: 1
+    panel: 2
+    stage: {fileID: 11400000, guid: b9f0d6ee4f049bd40acd8eac7751fcc9, type: 2}
+  victoryed: 0
+  avaliblePrice: 100
+  charlimit: 5
+  playerStageLock: {fileID: 0}
+  priceChars: []
+  priceCards:
+  - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
+  custom_stage: {fileID: 478196262192403701, guid: ec393abb3dd41024bbd68893b3d2b0e5, type: 3}
+  custom_BGM: DayGrass
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  discovered: 0

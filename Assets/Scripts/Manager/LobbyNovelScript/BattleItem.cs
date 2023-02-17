@@ -27,9 +27,8 @@ public class BattleItem : MonoBehaviour
         alert.SetActive(!stage.discovered);
 
     }
-    private void ReadXML(string filename){
+    private void ReadXML(TextAsset textAsset){
         XmlDocument xmlDocument = new XmlDocument();
-        TextAsset textAsset = (TextAsset) Resources.Load(filename.Split(".")[0]);  
         xmlDocument.LoadXml(textAsset.text);
 
 

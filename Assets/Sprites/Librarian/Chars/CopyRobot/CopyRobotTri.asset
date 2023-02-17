@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: CopyRobotTri
+  m_EditorClassIdentifier: 
+  name_: CopyRobot
+  poses:
+  - {fileID: 21300000, guid: 2f59df8030eb68b47b6b1f872550d1fb, type: 3}
+  - {fileID: 21300000, guid: 2a4a6c3b0b6e7e14b82a630e99f2189d, type: 3}
+  - {fileID: 21300000, guid: 78f7e3b6ed95f4846850a27b7d802ba3, type: 3}
+  - {fileID: 21300000, guid: 94e7c90f5a64d2148a207d2b760038d0, type: 3}
+  - {fileID: 21300000, guid: 2eb546809bfa4c249b12004e103fb051, type: 3}
+  farAtk: 0

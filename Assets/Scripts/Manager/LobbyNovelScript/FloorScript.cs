@@ -14,7 +14,6 @@ public class FloorScript : MonoBehaviour
 
     [SerializeField] GameObject[] floorBg; 
     List<GameObject> floorBgObj = new List<GameObject>();
-    [SerializeField] int[] floorNum;
     public int curFloor;
     [SerializeField] Lobby lobby;
     [SerializeField] int fl;
@@ -23,8 +22,8 @@ public class FloorScript : MonoBehaviour
     // 현재 층의 배경 로딩하기
     void Awake(){
         StageManager sm = FindObjectOfType<StageManager>();
-        curFloor = lobby.SnumToIndex(sm.floor);
-        lobby.floorNum = floorNum[curFloor];
+        curFloor = sm.floor-1;
+        lobby.floorNum = curFloor+1;
         foreach(GameObject bg in floorBg){
             GameObject bgobj = Instantiate(bg);
             bgobj.SetActive(false);
@@ -36,21 +35,21 @@ public class FloorScript : MonoBehaviour
     }
 
     public void FloorGoDown(){
-        curFloor -= 1;
-        if(curFloor < 0){curFloor = 0; return;}
+        curFloor += 1;
+        if(curFloor > 2){curFloor = 2; return;}
         StartCoroutine(FloorMove(1));
         
     }
 
     public void FloorGoUp(){
-        curFloor += 1;
-        if(curFloor >= floorNum.Length){curFloor -= 1; return;}
+        curFloor -= 1;
+        if(curFloor < 0){curFloor = 0; return;}
         StartCoroutine(FloorMove(-1));
         
     }
 
     public void RefreshStageCard(){
-        lobby.floorNum = floorNum[curFloor];
+        lobby.floorNum = curFloor+1;
         lobby.ReloadPlayerCard();
         subPanelLoad.Start();
         mainPanelLoad1.Start();

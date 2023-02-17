@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Rozeta
+  m_EditorClassIdentifier: 
+  name_: Rozeta
+  poses:
+  - {fileID: 21300000, guid: 1d6b8a9bc7da7ed44a278e247f4970f9, type: 3}
+  - {fileID: 21300000, guid: d96c619fbdb26ef4e9fdecafe8617322, type: 3}
+  - {fileID: 21300000, guid: 596c40aab3a8af64cbe6b055278b4bea, type: 3}
+  - {fileID: 21300000, guid: fd7599028ae302d4197320931ad41c5e, type: 3}
+  - {fileID: 21300000, guid: f3b74643010c42c4099c75fd6f9160f0, type: 3}
+  farAtk: 0

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   xmlFile_path:
-  - Floor2/Story2_en.xml
-  - Floor2/Story2_kr.xml
+  - {fileID: 4900000, guid: 827040385013e2b4da4691a3e183fe8e, type: 3}
+  - {fileID: 4900000, guid: 06ab985658667354581b94a65fc9f26a, type: 3}
   title: "\uC751\uC560 \uC2E0\uC785"
   sub_text: "\uC5ED\uC2DC \uD504\uB85C\uD1A0\uD0C0\uC785\uC774\uC57C"
   rank: 1
   values: "\uAD1C\uCC2E\uC740 \uB4EF?"
   characters:
-  - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
-  - {fileID: 11400000, guid: 275988e822d15494aac4c6cd48551660, type: 2}
-  - {fileID: 11400000, guid: fb0e83ed54f3b8948a0dbf7746d4025b, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d3cffb8d7bb92344196a54e8f307b98c, type: 2}
+  - {fileID: 11400000, guid: c57a93107b482ea4c9c4a86fa626b07e, type: 2}
+  - {fileID: 11400000, guid: fd0e86100aa846141acb96df351fdf1e, type: 2}
+  - {fileID: 11400000, guid: 7eed0231b25d982449f9d191717a7531, type: 2}
   - {fileID: 0}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}

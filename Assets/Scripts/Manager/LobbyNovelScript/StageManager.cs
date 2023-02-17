@@ -95,11 +95,11 @@ public class StageManager : MonoBehaviour
         {
             Destroy(gameObject);
         } 
-        if(noGotoNewbie){return;}
         
     }
 
     private void Start() {
+        if(noGotoNewbie){return;}
         saveManager.Load();
     }
 
@@ -196,10 +196,12 @@ public class StageManager : MonoBehaviour
         charlist.RemoveAll(x => x == null);
         Debug.Log(charlist.Count);
         charlist.AddRange(chars);
+        try{
         for(int i = 0; i < charlist.Count; i++){
             floor_.PlayerStage.characters[i] = charlist[i];
             
-        }
+        }}
+        catch{Debug.LogWarning("CharFlow!");}
 
     }
 

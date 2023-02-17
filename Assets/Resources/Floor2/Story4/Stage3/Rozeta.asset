@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
+  m_Name: Rozeta
+  m_EditorClassIdentifier: 
+  health: 20
+  breaks: 100000000c000000080000000400000000000000
+  char_sprites: {fileID: 11400000, guid: 087e32a8813d9d5499336a91f189a639, type: 2}
+  char_preCards:
+  - {fileID: 11400000, guid: b68f3ef142139194abae301f2ea87823, type: 2}
+  - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  atk_sound: 
+  battleAble: 1

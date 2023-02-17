@@ -397,6 +397,9 @@ public class BattleManager : MonoBehaviour
             if(gameManager.sm.play_stage.priceCards.Count > 0){
                 gameManager.sm.collected_card.AddRange(gameManager.sm.play_stage.priceCards);
             }
+            if(gameManager.sm.play_stage.stageEvent){
+                gameManager.sm.play_stage.stageEvent.WhenStageWin(gameManager.sm);
+            }
             gameManager.sm.play_stage.noPrice = true;
         }
         gameManager.sm.saveManager.Save();

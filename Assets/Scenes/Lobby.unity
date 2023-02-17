@@ -4112,10 +4112,9 @@ MonoBehaviour:
   mainPanelLoad1: {fileID: 3054094995670612306}
   mainPanelLoad2: {fileID: 1885618711}
   floorBg:
+  - {fileID: 3740758451269080225, guid: 32e523654d979914b94095f3f1384f71, type: 3}
   - {fileID: 7796891144645501264, guid: fdb45431c6abf894880393b5042b2669, type: 3}
   - {fileID: 3740758451269080225, guid: 32e523654d979914b94095f3f1384f71, type: 3}
-  - {fileID: 3740758451269080225, guid: 32e523654d979914b94095f3f1384f71, type: 3}
-  floorNum: 020000000100000003000000
   curFloor: 0
   lobby: {fileID: 283564455}
   fl: 11
@@ -20143,8 +20142,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: c80c287a27581b14084b9c6dc655231a, type: 2}
     - {fileID: 11400000, guid: 6603b3e5197401841b57ddf7fe523355, type: 2}
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
-    rank2: 2
-    title2: "\uC644\uBCBD\uD55C \uC0AC\uB78C"
+    rank2: 3
+    title2: "\uC9C0\uB784\uB09C \uD30C\uD2F0"
     Stage2:
     - {fileID: 11400000, guid: d57bece0963d49441bd85e1979d14a36, type: 2}
     - {fileID: 11400000, guid: b3e74dddffb9b3f4db31b5db943d0590, type: 2}
@@ -20177,7 +20176,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b1aaade6c00e7b24c93e5855529f6b58, type: 2}
     rank2: 5
     title2: 
-    Stage2: []
+    Stage2:
+    - {fileID: 11400000, guid: d82f48aa49dce4b4e9a0f30600f52319, type: 2}
+    - {fileID: 11400000, guid: a198b40b73059604f9496b69871e2434, type: 2}
+    - {fileID: 11400000, guid: 3229cde18f091af459e16fa9cfc9c75d, type: 2}
+    - {fileID: 11400000, guid: c1bd932bdc87ec7498dc9ae175566827, type: 2}
+    - {fileID: 11400000, guid: b8938fed15438274092eeb70bf1e9e2b, type: 2}
+    - {fileID: 11400000, guid: 78d05b838cc459d41bb57174735c9d47, type: 2}
     SubStage:
     - {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
     - {fileID: 11400000, guid: bddf9ceee52b73e48a43bf97fc8074e5, type: 2}
@@ -20199,7 +20204,7 @@ MonoBehaviour:
     SubStage: []
   nogiveStage: 0
   nogiveChar: 0
-  noGotoNewbie: 0
+  noGotoNewbie: 1
 --- !u!114 &1954104338
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Melvil
+  m_EditorClassIdentifier: 
+  name_: Melvil
+  poses:
+  - {fileID: 21300000, guid: 08787df5776148541bf3e57c2d8beac8, type: 3}
+  - {fileID: 21300000, guid: 1db683c1e1093e14fa1b661966e91655, type: 3}
+  - {fileID: 21300000, guid: 5be4227494ee81a45a3c95ab06a8ab30, type: 3}
+  - {fileID: 21300000, guid: 82c8ffcd34cfa204bae23d8a114e2e53, type: 3}
+  - {fileID: 21300000, guid: 0bc6e29bcf51cc940948d202531ff203, type: 3}
+  farAtk: 0

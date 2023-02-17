@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: 3Stage3
+  m_EditorClassIdentifier: 
+  id: 9
+  xmlFile_path:
+  - {fileID: 4900000, guid: e21ba7f71ff43ee4583bb652f3b7dbca, type: 3}
+  - {fileID: 4900000, guid: b6643cb3f3eefec4fbabf576186d0210, type: 3}
+  title: "\uBC8C\uB808 \uC7A1\uC544\uB77C!"
+  sub_text: "\uC815\uCCB4\uBD88\uBA85\uC758 \uBC8C\uBA54 \uCD9C\uD604!"
+  rank: 3
+  values: "\uC800\uB140\uC11D \uC77C\uC744 \uB0B4\uACE0 \uC788\uC5B4!"
+  characters:
+  - {fileID: 11400000, guid: d20e91737cd8d00439351df7512e4419, type: 2}
+  - {fileID: 11400000, guid: d20e91737cd8d00439351df7512e4419, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  priceStage:
+  - floor: 1
+    panel: 2
+    stage: {fileID: 11400000, guid: 983e0153e92131d4ab1c1005f7a0148c, type: 2}
+  victoryed: 0
+  avaliblePrice: 100
+  charlimit: 4
+  playerStageLock: {fileID: 11400000, guid: d591553d9c7fa1d4eafbbe92cba47163, type: 2}
+  priceChars: []
+  priceCards:
+  - {fileID: 11400000, guid: a21f1569feb6d9e48966feff29f83c60, type: 2}
+  custom_stage: {fileID: 474350401857276866, guid: 2b1cbfb73e23410498a859864d3df733, type: 3}
+  custom_BGM: RoboFloor1
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  discovered: 0

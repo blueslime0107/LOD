@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Siamaz
+  m_EditorClassIdentifier: 
+  name_: Siamaz
+  poses:
+  - {fileID: 21300000, guid: 3559f9f830b72b84bb5eb2a68fc08d5b, type: 3}
+  - {fileID: 21300000, guid: 2455b506796f3254dae30b9b2aadd6c2, type: 3}
+  - {fileID: 21300000, guid: 5ce3990ea8f10a54b8c201d413830faa, type: 3}
+  - {fileID: 21300000, guid: 91f61af7f7d1f734eb27bff77af8e9e8, type: 3}
+  - {fileID: 21300000, guid: 7a07809c511d9c74fa6fc1ddc5e75752, type: 3}
+  farAtk: 1
