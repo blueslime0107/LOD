@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Perfect
   m_EditorClassIdentifier: 
-  health: 30
-  breaks: 140000000f0000000a0000000500000000000000
+  health: 20
+  breaks: 0f0000000a00000000000000
   char_sprites: {fileID: 11400000, guid: e30a0fae8b4b42a43bb152ce4e047849, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
@@ -24,3 +24,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   atk_sound: 
+  battleAble: 1

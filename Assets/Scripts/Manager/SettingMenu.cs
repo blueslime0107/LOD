@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.IO;
 using TMPro;
+
+[System.Serializable]
+public class SettingData{
+    public int resolutionIndexVal;
+    public bool fullScreenVal;
+    public float sfxVal;
+    public float bgmVal;
+}
 
 public class SettingMenu : MonoBehaviour
 {
@@ -14,13 +23,38 @@ public class SettingMenu : MonoBehaviour
     public Slider bgmSlider;
     public Toggle debugToggle;
 
+    public SettingData settingData;
+
     Resolution[] resolutions;
+
+    public void Save(){
+        string jsonString = JsonUtility.ToJson(settingData);
+        string newFilePath = Application.dataPath + "/option.txt";
+        File.WriteAllText(newFilePath, jsonString);
+    }
+
+    public void Load(){
+        string newFilePath = Application.dataPath + "/option.txt";
+        string jsonString = "";
+        try{
+        jsonString = File.ReadAllText(newFilePath);
+        settingData = JsonUtility.FromJson<SettingData>(jsonString) ; 
+        }
+        catch{
+            Save();
+            return;
+        }
+
+        SetBGMVolume(settingData.bgmVal);
+        SetSFXVolume(settingData.sfxVal);
+        SetFullscreen(settingData.fullScreenVal);
+        SetResolution(settingData.resolutionIndexVal);
+
+    }
 
     void Awake(){
         properContainer = FindObjectOfType<ProperContainer>();
-    }
 
-    void Start(){
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();    
 
@@ -54,18 +88,24 @@ public class SettingMenu : MonoBehaviour
 
     public void GoBack(){
         gameObject.SetActive(false);
+        Save();
     }
 
     public void SetSFXVolume(float volume){
         audioMixer.SetFloat("SFX",volume);
+        settingData.sfxVal = volume;
         if(volume == sfxSlider.minValue){
             audioMixer.SetFloat("SFX",-80);
+            settingData.sfxVal = -80;
         }
     }
     public void SetBGMVolume(float volume){
         audioMixer.SetFloat("BGM",volume);
+        settingData.bgmVal = volume;
         if(volume == bgmSlider.minValue){
             audioMixer.SetFloat("BGM",-80);
+        settingData.bgmVal = -80;
+
         }
     }
     public void SetDebugMode(bool boolen){
@@ -74,11 +114,13 @@ public class SettingMenu : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreed){
         Screen.fullScreen = isFullscreed;
+        settingData.fullScreenVal = isFullscreed;
     }
 
     public void SetResolution(int resolutionIndex){
-        Resolution resolution = resolutions[resolutionIndex];
+        Resolution resolution = Screen.resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
+        settingData.resolutionIndexVal = resolutionIndex;
     }
 
 }

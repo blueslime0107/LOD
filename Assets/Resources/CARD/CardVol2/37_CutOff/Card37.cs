@@ -20,4 +20,13 @@ public class Card37 : CardAbility
         }
         
     }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        int newint = Random.Range(0,2);
+        if(card.player.dice < 4){return;}
+        for(int i=0;i<newint;i++){
+            CardActivate(card,match);
+        }
+    }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Allll
   m_EditorClassIdentifier: 
-  health: 10
-  breaks: 0500000000000000
+  health: 8
+  breaks: 0400000000000000
   char_sprites: {fileID: 11400000, guid: 3ca0f5e212c1d12468549f476752f09a, type: 2}
   char_preCards:
   - {fileID: 0}

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: 5Stage5
+  m_EditorClassIdentifier: 
+  id: 5
+  xmlFile_path:
+  - {fileID: 4900000, guid: f9a9302a7f4339c489e5ac88847ede1e, type: 3}
+  - {fileID: 4900000, guid: da160c8ba8e1438459490a6d3944a787, type: 3}
+  title: "\uCD1D\uB4E0\uC790\uB4E4"
+  sub_text: "\uADF8\uB9AC\uACE0 \uC21F\uAC00\uB77D..."
+  rank: 5
+  values: "\uB530\uB2F9\uB530\uB2F9!"
+  characters:
+  - {fileID: 11400000, guid: 68940f168916510438d2eab5c6cc711d, type: 2}
+  - {fileID: 11400000, guid: 5a10d999677cefa4287376dd894e6628, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  priceStage: []
+  victoryed: 0
+  avaliblePrice: 100
+  charlimit: 5
+  playerStageLock: {fileID: 0}
+  priceChars: []
+  priceCards: []
+  stageEvent: {fileID: 0}
+  custom_stage: {fileID: 0}
+  custom_BGM: 
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  discovered: 0

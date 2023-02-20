@@ -24,8 +24,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3cffb8d7bb92344196a54e8f307b98c, type: 2}
   - {fileID: 11400000, guid: c57a93107b482ea4c9c4a86fa626b07e, type: 2}
   - {fileID: 11400000, guid: fd0e86100aa846141acb96df351fdf1e, type: 2}
-  - {fileID: 11400000, guid: 7eed0231b25d982449f9d191717a7531, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3e4bd7b5a85c3604ba99e37d2238d85f, type: 2}
+  - {fileID: 11400000, guid: 9648da07ebad5374b9d346a552dcd2d1, type: 2}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage: []
@@ -35,8 +35,10 @@ MonoBehaviour:
   playerStageLock: {fileID: 0}
   priceChars: []
   priceCards: []
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

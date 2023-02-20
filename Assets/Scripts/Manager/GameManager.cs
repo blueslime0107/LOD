@@ -38,6 +38,15 @@ public class Team{
         
     }
 
+    public int getDiceAverage(){
+        int newint = 0;
+        foreach(Player player in players){
+            newint += player.dice;
+        }
+        return newint;
+        
+    }
+
     public int getHealthAver(){
         int newint = 0;
 

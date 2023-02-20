@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Stage id="0">
+        <title>에델바이스</title>
+        <sub_text>나 한명으로 충분해</sub_text>
+        <sub_text2>그래도 몇명정도 부를걸</sub_text2>
+    </Stage>
+    <Stage id="1">
+        <title>의뢰접수</title>
+        <sub_text>학교에 무슨 일이 있나?</sub_text>
+        <sub_text2>이정도는 쉽지</sub_text2>
+    </Stage>
+    <Stage id="2">
+        <title>이젠 둘이다!</title>
+        <sub_text>그렇다고 어렵진 않아!</sub_text>
+        <sub_text2>너 친구있었니?</sub_text2>
+    </Stage>
+    <Stage id="3">
+        <title>자 카드를 들어라!</title>
+        <sub_text>브레이크 수치도 알아보자고</sub_text>
+        <sub_text2>다시 1대1 이야</sub_text2>
+    </Stage>
+    <Stage id="4">
+        <title>진심으로 싸우자!</title>
+        <sub_text>이제부턴 실전이야</sub_text>
+        <sub_text2>행운을 빌어!</sub_text2>
+    </Stage>
+    <Stage id="5">
+        <title>총든자들</title>
+        <sub_text>그리고 숟가락...</sub_text>
+        <sub_text2>따당따당!</sub_text2>
+    </Stage>
+    <Stage id="6">
+        <title>더럽혀진 수집가</title>
+        <sub_text>카드를 모아서</sub_text>
+        <sub_text2>강해진다..</sub_text2>
+    </Stage>
+    <Stage id="7">
+        <title>방패 맛좀 봐!</title>
+        <sub_text>절대 방어</sub_text>
+        <sub_text2>피해는 있을 수 없다!</sub_text2>
+    </Stage>
+    <Stage id="8">
+        <title>초대받지 않은 불청객</title>
+        <sub_text>뭐야 저건?</sub_text>
+        <sub_text2>일단 검을 들고있으니 전투다!</sub_text2>
+    </Stage>
+    <Stage id="9">
+        <title>벌레 잡아라!</title>
+        <sub_text>정체불명의 벌레 출현!</sub_text>
+        <sub_text2>저녀석 일을 내고 있어!</sub_text2>
+    </Stage>
+    <Stage id="10">
+        <title>야외의 활잡이</title>
+        <sub_text>어떻게든 맞게 된다</sub_text>
+        <sub_text2>피할 수 없다!</sub_text2>
+    </Stage>
+    <Stage id="11">
+        <title>확률에 미친 마법사</title>
+        <sub_text>강화해줄까?</sub_text>
+        <sub_text2>강해질 수 있어!</sub_text2>
+    </Stage>
+    <Stage id="12">
+        <title>검을 내놔라!</title>
+        <sub_text>모두의 힘을 모아ㅏㅏ!</sub_text>
+        <sub_text2>해치우는 거다!</sub_text2>
+    </Stage>
+    <Stage id="85">
+        <title>로봇 탐험대</title>
+        <sub_text>모두의 힘을 모아ㅏㅏ!</sub_text>
+        <sub_text2>해치우는 거다!</sub_text2>
+    </Stage>
+</CardVol>

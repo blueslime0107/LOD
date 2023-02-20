@@ -35,4 +35,39 @@
         <sub_text>나의 천운은 어디로 간가지..?</sub_text>
         <sub_text2>기분탓일 거야...</sub_text2>
     </Stage>
+    <Stage id="7">
+        <title>카드 저장소의 문지기</title>
+        <sub_text>들어가게 해줘!</sub_text>
+        <sub_text2>그렇게는 못하지</sub_text2>
+    </Stage>
+    <Stage id="8">
+        <title>미믹들이다!</title>
+        <sub_text>내 카드 먹지마!</sub_text>
+        <sub_text2>이 녀석들은 종이 맛에 미쳐있어</sub_text2>
+    </Stage>
+    <Stage id="9">
+        <title>너도 카드 찾으러 왔니?</title>
+        <sub_text>좋은 연구 자료를 찾는중...</sub_text>
+        <sub_text2>대체 무슨 물약이야</sub_text2>
+    </Stage>
+    <Stage id="10">
+        <title>전해청소</title>
+        <sub_text>어서와</sub_text>
+        <sub_text2>이 로봇들 다시 보네</sub_text2>
+    </Stage>
+    <Stage id="11">
+        <title>카드 제작</title>
+        <sub_text>이 지박령들 봐봐</sub_text>
+        <sub_text2>정말 성가셔</sub_text2>
+    </Stage>
+    <Stage id="12">
+        <title>너넨 누구야</title>
+        <sub_text>방해된다</sub_text>
+        <sub_text2>해치운다</sub_text2>
+    </Stage>
+    <Stage id="125">
+        <title>애쉬</title>
+        <sub_text>숟가락 살인마</sub_text>
+        <sub_text2>정체불명</sub_text2>
+    </Stage>
 </CardVol>

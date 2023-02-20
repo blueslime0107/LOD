@@ -26,19 +26,19 @@ Gain 6 power</ability>
         <story></story>
     </Card>
     <Card Code="65">
-        <name>슈슈슉</name>
+        <name>Speed Step</name>
         <text>시 시시 씨!</text>
         <ability>[합 패배]자신위력 2 이하시 피해무시, 2턴 동안 발동안됨</ability>
         <story></story>
     </Card>
     <Card Code="66">
-        <name>공기</name>
+        <name>THE AIR</name>
         <text>쓰으으읍..! 하ㅏㅏ</text>
         <ability>[획득]체력 2 회복, 다음 1턴 위력 1 증가</ability>
         <story></story>
     </Card>
     <Card Code="67">
-        <name>의미심장한 검</name>
+        <name>Strange Sword</name>
         <text>이 낡은 검은 뭐지?</text>
         <ability>[합 승리] 3번 합 승리시 엑스칼리버로 진화한다</ability>
         <story></story>

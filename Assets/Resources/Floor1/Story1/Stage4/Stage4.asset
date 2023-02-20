@@ -32,6 +32,15 @@ MonoBehaviour:
   - floor: 2
     panel: 1
     stage: {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
+  - floor: 1
+    panel: 3
+    stage: {fileID: 11400000, guid: 93bac3cc7fb911a4aa7b9e9714ce9f8f, type: 2}
+  - floor: 1
+    panel: 3
+    stage: {fileID: 11400000, guid: 1064ce319b93bcf42a4e51679ce95d57, type: 2}
+  - floor: 1
+    panel: 1
+    stage: {fileID: 11400000, guid: 2bfd88301993d2944898020148418054, type: 2}
   victoryed: 0
   avaliblePrice: 100
   charlimit: 5
@@ -39,8 +48,11 @@ MonoBehaviour:
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: 8377e780e3b4e164caea4eafc37ee622, type: 2}
+  - {fileID: 11400000, guid: aeb745c0e4eacfc4096d0f3cb8c240ca, type: 2}
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

@@ -26,14 +26,14 @@
         <sub_text2>행운을 빌어!</sub_text2>
     </Stage>
     <Stage id="5">
-        <title>총든자들</title>
-        <sub_text>그리고 숟가락...</sub_text>
-        <sub_text2>따당따당!</sub_text2>
+        <title>주사위 썰어먹기</title>
+        <sub_text>맛있는 주사위</sub_text>
+        <sub_text2>계속 먹으면 질린당</sub_text2>
     </Stage>
     <Stage id="6">
-        <title>더럽혀진 수집가</title>
-        <sub_text>카드를 모아서</sub_text>
-        <sub_text2>강해진다..</sub_text2>
+        <title>진심의 튜토리얼</title>
+        <sub_text>진짜 실력을 보여주지</sub_text>
+        <sub_text2>금강산도 식후경</sub_text2>
     </Stage>
     <Stage id="7">
         <title>방패 맛좀 봐!</title>

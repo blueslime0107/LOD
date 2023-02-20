@@ -6,9 +6,9 @@
         <sub_text2>Win this game</sub_text2>
     </Stage>
     <Stage id="1">
-        <title>Welcome Newbie</title>
-        <sub_text>I'll give u power</sub_text>
-        <sub_text2>Yeah I'm alone</sub_text2>
+        <title>Red Card!</title>
+        <sub_text>Hell Card</sub_text>
+        <sub_text2>It's iLLigal</sub_text2>
     </Stage>
     <Stage id="2">
         <title>Now we are two!</title>

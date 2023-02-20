@@ -9,8 +9,8 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]bool debug;
     [SerializeField]Lobby lobby;
-    StageManager sm;
-    [SerializeField]int panel;
+    [SerializeField]StageManager sm;
+    [SerializeField]int panel; 
 
     public List<Stage> stages = new List<Stage>();
 
@@ -24,12 +24,15 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
         sm = FindObjectOfType<StageManager>();
     }
 
-    public void Start(){
+    private void Start() {
+        BattleLoading();
+    }
+
+    public void BattleLoading(){
         Floor floor = new Floor();
+        sm = FindObjectOfType<StageManager>();
         switch(lobby.floorNum){
-            case 1:
-            floor = sm.FloorOfBattle; 
-            break;
+            case 1:floor = sm.FloorOfBattle;break;
             case 2:floor = sm.FloorOfResource; break;
             case 3:floor = sm.FloorOfSocial; break;
         }

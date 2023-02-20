@@ -7,6 +7,7 @@ using TMPro;
 // 전투카드를 불러와서 플레이어와 상대를 불러오는 스크립트
 public class BattleCardManager : MonoBehaviour
 {
+    [SerializeField] CardExplain cardExplain;
     [SerializeField] bool playerCard;
     [SerializeField] Lobby lobby;
     public Stage stage;
@@ -19,10 +20,19 @@ public class BattleCardManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI price_text;
     [SerializeField] GameObject overWritten;
 
+    List<bool> disable_save = new List<bool>(); 
+
     void Start(){
         foreach(CharItem chars in characters){
             chars.lobby = lobby;
+            foreach(CardUI cardUI in chars.cards){
+                cardUI.cardExplain = cardExplain;
+            }
+            disable_save.Add(true);
         }
+            disable_save.Add(false);
+
+        
     }
 
     public void UpdateStat(){
@@ -50,16 +60,31 @@ public class BattleCardManager : MonoBehaviour
         }
 
         List<CharItem> newCharList = characters.FindAll(x => x.cur_char != null);
-        for(int i=0;i<newCharList.Count;i++){
-            newCharList[i].cur_char.battleAble = true;
-            if(i > lobby.stage.charlimit-1){
-                newCharList[i].cur_char.battleAble = false;
-            }
-            newCharList[i].changeFightAble(newCharList[i].cur_char.battleAble);
-        }
-        
 
         
+        for(int i=0;i<newCharList.Count;i++){
+            if(disable_save[5]){
+             newCharList[i].cur_char.battleAble = disable_save[i];   
+            }
+            else
+            {newCharList[i].cur_char.battleAble = true;
+            if(i > lobby.stage.charlimit-1){
+                newCharList[i].cur_char.battleAble = false;
+            }}
+            newCharList[i].changeFightAble(newCharList[i].cur_char.battleAble);
+        }
+         
+        disable_save[5] = false;
+
+        
+    }
+
+    public void SaveDisable(){
+        List<CharItem> newCharList = characters.FindAll(x => x.cur_char != null);
+        for(int i=0;i<newCharList.Count;i++){
+            disable_save[i] = newCharList[i].cur_char.battleAble;
+        }
+        disable_save[5] = true;
     }
 
     public void updatePriceGague(){

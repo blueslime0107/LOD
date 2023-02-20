@@ -97,9 +97,9 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             playerCardPanel.SetActive(true);
             for(int i=0;i<selectingChar.char_preCards.Length;i++){
                 if(selectingChar.char_preCards[i] != null){
-                    player_cards[i].gameObject.SetActive(true);
                     player_cards[i].card = selectingChar.char_preCards[i];
                     player_cards[i].CardUpdate();
+                    player_cards[i].gameObject.SetActive(true);
                 }
                 else{
                     player_cards[i].gameObject.SetActive(false);

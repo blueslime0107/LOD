@@ -7,7 +7,7 @@ public class Card36 : CardAbility
 {
     public override void StartMatch(CardPack card, BattleManager match)
     {
-        card.active = false;
+        card.active = true;
     }
 
     public override void CardActivate(CardPack card, BattleManager match)
@@ -25,20 +25,21 @@ public class Card36 : CardAbility
 
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
-        if(card.saved_card == null){return;}
-        if(card.active){return;}
-        
-        if(card.count % 2 == 1){
-            match.DestroyCard(card.saved_card,card.saved_card.player);
-            card.saved_card = null;
+        // Debug.Log("card.active");
+        // Debug.Log(card.active!);
+        // if(card.active){return;}
+        // Debug.Log("saved_card");
+        if(card.saved_card == null || !card.active){return;}
+        // Debug.Log("jsfkajsdlfj");
+        card.count--;
+        if(card.count <= 0){
             match.backColorEff.changeColor(255, 162, 0,255);
             match.CardLog("Eat!",card,card.saved_card.player);
+            match.DestroyCard(card.saved_card,card.saved_card.player);
+            card.saved_card = null;
+            card.count = 3;
+            card.sub_count++;
+            if(card.sub_count >= 3){card.active = false;}
         }
-        if(card.count == 1){
-            card.active = true;
-            match.AddCardPoint(card.saved_player.team,2);
-            match.CardLog("I'm Full!",card);
-        }
-        card.count -= 1;
     }
 }

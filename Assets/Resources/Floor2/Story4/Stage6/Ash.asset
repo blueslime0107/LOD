@@ -18,10 +18,10 @@ MonoBehaviour:
   char_preCards:
   - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
   - {fileID: 11400000, guid: 5b4b582976f22b4498ef9edbf9a7ac0a, type: 2}
-  - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
   - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
-  - {fileID: 11400000, guid: 5c27455602b27424ea45b6fa9d219e7b, type: 2}
-  - {fileID: 11400000, guid: 83c0a9897e524c346a0cc83c5c90b334, type: 2}
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: 13c10371e29b09d42ae52c726f52d445, type: 2}
+  - {fileID: 11400000, guid: c1e702011e0c03a45a34e87bcaac7581, type: 2}
   - {fileID: 11400000, guid: 09be8f6bb1b2f4246963beaf2afa4556, type: 2}
   atk_sound: 
   battleAble: 1

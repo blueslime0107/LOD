@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Stage id="1">
+        <title>Hello Newbie!</title>
+    </Stage>
+    <Stage id="2">
+        <title>Perfect Student</title>
+    </Stage>
+    <Stage id="3">
+        <title>Crazy Party</title>
+    </Stage>
+    <Stage id="4">
+        <title>Card Library</title>
+    </Stage>
+    <Stage id="5">
+        <title>Basement</title>
+    </Stage>
+    <Stage id="6">
+        <title>MinusDice</title>
+    </Stage>
+</CardVol>

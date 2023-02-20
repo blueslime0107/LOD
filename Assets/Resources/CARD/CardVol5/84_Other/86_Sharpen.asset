@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58909d5b6a5bd09429fef07754248476, type: 3}
+  m_Name: 86_Sharpen
+  m_EditorClassIdentifier: 
+  card_id: 86
+  xmlFile_path:
+  - CARD/CardVol5/CardVol5_en.xml
+  - CARD/CardVol5/CardVol5_kr.xml
+  name: "\uB0A0\uCE74\uB85C\uC6B4 \uB2E8\uAC80"
+  message: "\uC0C1\uCC98\uAC00 \uBCF4\uC774\uB294\uAD70!"
+  ability_message: "[\uD53C\uD574 \uC90C]\uC0C1\uB300\uC5D0\uAC8C \uCD9C\uD608([\uD53C\uD574\uBC1B\uC74C]
+    \uCE74\uC6B4\uD2B8\uB9CC\uD07C \uD53C\uD574\uC0C1\uC2B9) \uCE74\uC6B4\uD2B8\uB97C
+    \uC62C\uB9B0\uB2E4"
+  story_message: 
+  tained: 0
+  price: 40
+  illust: {fileID: 21300000, guid: 49ebfab72820f3143ae22027d2c1c6f9, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard: {fileID: 0}
+  effect: []
+  linked_card:
+  - {fileID: 11400000, guid: 76c98d84e6ca1e5429e4b01b6765e6dd, type: 2}
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}
+  cardgiven: 0

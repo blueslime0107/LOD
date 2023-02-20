@@ -96,7 +96,7 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         battleManager.sdm.Play("Paper2");
         battleManager.cardTouching = this;
         if(battleManager.card_select_trigger) {StartCoroutine("ImSelectedCard");}
-        target_pos = new Vector2(0.5f,0.1f);        
+        target_pos = new Vector2(0.5f,-0.5f);        
         target_spd = 100;
         StopCoroutine("lerpMove");
         StartCoroutine("lerpMove");  

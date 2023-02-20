@@ -15,6 +15,7 @@ public class Card9 : CardAbility
 
     public override void AIgorithm(CardPack card, BattleManager match)
     {
+        if(card.player.health <= 2){return;}
         for(int i=0;i<2;i++){
             if(match.OpposeTeam(card.player.team).getDiceMaMin() > card.player.dice){
                 CardActivate(card, match);

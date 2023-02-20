@@ -99,9 +99,9 @@
     <Card Code="36">
         <name>미믹아 먹어!</name>
         <text>마구 먹는거시다!</text>
-        <ability>[카드지정] 미믹이 먹을 카드를 지정한다&#10;[전투시작] 카운트가 홀수일때 지정한 카드를 파괴한다</ability>
+        <ability>[카드지정] 미믹이 먹을 카드를 지정한다&#10;[전투준비]카드를 정하고 3턴 뒤 그 카드를 파괴한다.(최대3번)</ability>
         <story></story>
-    </Card>
+    </Card> 
     <Card Code="37">
         <name>솎아내기</name>
         <text>먹기 좋게 잘라내면, 맛있어</text>

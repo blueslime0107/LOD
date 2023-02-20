@@ -17,13 +17,13 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uBA85\uD604\uD604\uC0C1"
-  message: 
+  message: "\uACE0\uCE58\uACE0 \uACE0\uCCD0\uB3C4 \uB2EC\uB77C\uC9C4\uAC74 \uC5C6\uC5C8\uC5B4"
   ability_message: "[\uC804\uD22C\uC2DC\uC791] \uCCB4\uB825 1~2 \uD68C\uBCF5, \uCD5C\uB300\uCCB4\uB825\uC744
-    \uB118\uC744\uACBD\uC6B0\n\uB118\uC740\uB9CC\uD07C \uCE74\uC6B4\uD2B8\uAC00 \uC0C1\uC2B9\uD55C\uB2E4,
+    \uB118\uC744\uACBD\uC6B0\n\uCE74\uC6B4\uD2B8\uAC00 \uC0C1\uC2B9\uD55C\uB2E4,
     \uCE74\uC6B4\uD2B8\uAC00 3 \uC774\uC0C1\uC77C\uC2DC \uC0AC\uB9DD\uD55C\uB2E4"
   story_message: 
   tained: 0
-  price: 20
+  price: 10
   illust: {fileID: 21300000, guid: 723d27edee52cf14eac0c3effba10a20, type: 3}
   usingCount: 1
   pre_count: 0
@@ -33,3 +33,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

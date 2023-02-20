@@ -1,14 +1,11 @@
 using UnityEngine;
 using System.IO;
-using System.Collections.Generic;
-using Newtonsoft.Json;
 
 public class SaveManager : MonoBehaviour
 {
 
     public string newFile;
 
-    public GameDataBase db;
     public StageManager stageManager;
     public ProperContainer pc;
 
@@ -33,10 +30,13 @@ public class SaveManager : MonoBehaviour
         string newFilePath = Application.dataPath + filePath;
         string jsonString = "";
         try{
+            Debug.Log("파일있음");
         jsonString = File.ReadAllText(newFilePath);
         stageManager.stageManagerDB = JsonUtility.FromJson<StageManagerDB>(jsonString) ; 
         }
         catch{
+            Debug.Log("파일없음");
+
             stageManager.LoadDataFromDB();
             Save();
             return;

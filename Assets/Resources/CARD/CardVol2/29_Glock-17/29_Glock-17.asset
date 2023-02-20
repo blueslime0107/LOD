@@ -17,12 +17,12 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: Glock-17
-  message: 
+  message: "\uC544\uC9C1 \uD55C\uBC1C \uB0A8\uC558\uB2E4..."
   ability_message: "[\uC804\uD22C\uC2DC\uC791] 1\uC704\uB825 \uC5EC\uBD84\uC8FC\uC0AC\uC704\uB97C
     \uC5BB\uB294\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 20
   illust: {fileID: 21300000, guid: 735d92f3e757c094da3514bc0ad3891a, type: 3}
   usingCount: 0
   pre_count: 0
@@ -32,3 +32,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 3114845061643615084, guid: a005f325032aa15468cb11b0133d13fd, type: 3}
+  cardgiven: 0

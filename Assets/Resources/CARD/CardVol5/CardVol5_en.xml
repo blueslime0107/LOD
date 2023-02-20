@@ -88,4 +88,16 @@ opponent will take</ability>
         <ability>[Battle Ready]Count up [Active] Gain power by count, count reset</ability>
         <story></story>
     </Card>
+    <Card Code="84">
+        <name>Mimic wants CARD!</name>
+        <text>Giv me a CARD!</text>
+        <ability>[Clash Win]Every 2 turns, If opponent has cards, destroy opponent's card&#10;else Gain 3 power</ability>
+        <story></story>
+    </Card>
+    <Card Code="85">
+        <name>Fair Death</name>
+        <text>While I die&#10;battle will not be unfair!</text>
+        <ability>[Death]Adjusts the HP of all surviving characters to the average value.</ability>
+        <story></story>
+    </Card>
 </CardVol>

@@ -20,4 +20,11 @@ public class Card45 : CardAbility
         card.active = false;
         match.CardLog("Barrier Broken",card);
     }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        if(match.OpposeTeam(card.player.team).getDiceAverage() > 3 && card.player.health > 3){
+            CardActivate(card,match);
+        }
+    }
 }

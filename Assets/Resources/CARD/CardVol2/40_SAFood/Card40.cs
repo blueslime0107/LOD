@@ -14,6 +14,7 @@ public class Card40 : CardAbility
 
     public override void WhenCardDestroy(CardPack card, CardAbility card_abili)
     {
+        Debug.Log("Destroy?");
         card.player.AddHealth(-5,true);
 
         card.player.UpdateHp();

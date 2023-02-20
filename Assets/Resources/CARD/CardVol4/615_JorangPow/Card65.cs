@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Card65 : CardAbility
 {
-    public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
+    public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
-        if(card.player.dice > 2){return;}
-        battle.bm.CardLog("Avoid",card);
-        battle.damage.setDamage(0);
-        card.active = false;
-
+        card.active = true;
     }
 
-    public override void StartMatch(CardPack card, BattleManager match)
+    public override void CardActivate(CardPack card, BattleManager match)
     {
         if(!card.active){return;}
-        card.count ++;
-        if(card.count >= 3){
-            card.active = true;
+        Dice copyDice = new Dice();
+        copyDice.dice_value = Random.Range(1,7);
+        card.player.dice_Indi.put_subDice(copyDice);
+        match.CardLog("AddDice",card);
+        card.active = false;
+    }
+
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        if(card.active){
+            CardActivate(card,match);
         }
     }
 }

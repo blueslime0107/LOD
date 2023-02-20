@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+ 
 public class St4Spec : StageEvent
 {
 
     public Character char_var;
+    public List<Character> char_list = new List<Character>();
 
 
     public override void WhenStageWin(StageManager sm)
@@ -22,5 +23,9 @@ public class St4Spec : StageEvent
                 trigger = true;
             }
         }
+        if(trigger){
+            sm.AddPlayerCardChar(char_list);
+        }
+
     }
 }

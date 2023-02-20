@@ -88,13 +88,7 @@ public class CardDraw : MonoBehaviour
                 StartCoroutine("MoveUp");
             }            
         }
-        if(battleManager.card_gived) {  // 이미 카드를 줬을때 사라지기
-            foreach(Player player in battleManager.cur_team.players){
-                for(int i = 0;i<player.cards.Count;i++){
-                    player.cards[i].ability.WhenCardDestroy(player.cards[i],having_card);
-                
-                }
-            }
+        if(battleManager.card_gived) {  // 이미 카드를 줬을때 사라지
             gameObject.SetActive(false);
             }
             

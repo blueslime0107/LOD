@@ -1614,7 +1614,6 @@ MonoBehaviour:
   sfxSlider: {fileID: 3446094231382856840}
   bgmSlider: {fileID: 3446094231204141362}
   debugToggle: {fileID: 7502063871890620825}
-  debugMode: 0
 --- !u!1 &3446094230488472904
 GameObject:
   m_ObjectHideFlags: 0

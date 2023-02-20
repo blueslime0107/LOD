@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: TheBody
   m_EditorClassIdentifier: 
-  name_: Body
+  name_: Prisoner
   poses:
   - {fileID: 21300000, guid: 1145be1405e6de540ab1561e8789c8f1, type: 3}
   - {fileID: 21300000, guid: 82ef7ff1de86da54bb723982befcdd70, type: 3}

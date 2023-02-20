@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using System.Xml;
 
 [System.Serializable]
 public class Floor{
@@ -61,6 +63,7 @@ public class StageManager : MonoBehaviour
 {
     public SaveManager saveManager;
     public StageManagerDB stageManagerDB;
+    public TextAsset[] textAssets;
 
     [Space(30f)]
 
@@ -96,9 +99,7 @@ public class StageManager : MonoBehaviour
             Destroy(gameObject);
         } 
         
-    }
-
-    private void Start() {
+    
         if(noGotoNewbie){return;}
         saveManager.Load();
     }
@@ -120,6 +121,8 @@ public class StageManager : MonoBehaviour
         try{
         FloorOfSocial.PlayerStage.characters = stageManagerDB.FloorOfSocial.player_Characters;
         }catch{}
+
+        LoadStageTitle();
 
     }
 
@@ -207,6 +210,33 @@ public class StageManager : MonoBehaviour
 
     public void AddCardDic(List<CardAbility> cards){
         player_cardDic.AddRange(cards);
+        saveManager.Save();
     }
+
+    public void LoadStageTitle(){
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){ReadXML(textAssets[0]);}
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(textAssets[1]);}
+    }
+    private void ReadXML(TextAsset filename){
+        XmlDocument xmlDocument = new XmlDocument();
+        xmlDocument.LoadXml(filename.text);
+
+
+        XmlNodeList thisCardXML = xmlDocument.GetElementsByTagName("Stage");
+        foreach(XmlNode node in thisCardXML){
+            XmlNodeList cardXML = node.ChildNodes;
+            switch(node.Attributes[0].Value){
+                
+                case "1": FloorOfBattle.rank1 = 1; FloorOfBattle.title1 = cardXML[0].InnerText; break;
+                case "2": FloorOfResource.rank1 = 2; FloorOfResource.title1 = cardXML[0].InnerText; break;
+                case "3": FloorOfBattle.rank2 = 3; FloorOfBattle.title2 = cardXML[0].InnerText; break;
+                case "4": FloorOfResource.rank2 = 4; FloorOfResource.title2 = cardXML[0].InnerText; break;
+                case "5": FloorOfSocial.rank1 = 5; FloorOfSocial.title1 = cardXML[0].InnerText; break;
+                case "6": FloorOfSocial.rank2 = 6; FloorOfSocial.title2 = cardXML[0].InnerText; break;
+            }
+        }
+
+    }
+
 
 }

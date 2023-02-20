@@ -22,7 +22,7 @@ MonoBehaviour:
     \uD6A8\uACFC\uBC1C\uB3D9\uC744 \uB9C9\uB294\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 40
   illust: {fileID: 21300000, guid: e95c4e9938ccb754a97c52b5ba808c37, type: 3}
   usingCount: 0
   pre_count: 0
@@ -32,3 +32,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8eb0e8022d9b548479fdbd738a605736, type: 2}
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

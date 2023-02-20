@@ -35,16 +35,20 @@ MonoBehaviour:
   - floor: 2
     panel: 2
     stage: {fileID: 11400000, guid: d82f48aa49dce4b4e9a0f30600f52319, type: 2}
+  - floor: 2
+    panel: 3
+    stage: {fileID: 11400000, guid: 5fac21ede40a86647b4f66f858ee2cfd, type: 2}
   victoryed: 0
   avaliblePrice: 100
   charlimit: 5
   playerStageLock: {fileID: 0}
-  priceChars:
-  - {fileID: 11400000, guid: c4288cf928bb7844c85069236287e2f2, type: 2}
+  priceChars: []
   priceCards:
   - {fileID: 11400000, guid: 5b4b582976f22b4498ef9edbf9a7ac0a, type: 2}
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 9121205277326352565, guid: 2e12a5dd67ab45840852808c55ba0b9c, type: 3}
   custom_BGM: RoboFloor2
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

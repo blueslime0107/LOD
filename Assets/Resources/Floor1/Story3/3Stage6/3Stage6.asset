@@ -28,7 +28,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14689d7f0fec81f49b09f3c1d2802252, type: 2}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
-  priceStage: []
+  priceStage:
+  - floor: 1
+    panel: 3
+    stage: {fileID: 11400000, guid: 208046cd2acf1014c89b401eedeaa01c, type: 2}
+  - floor: 3
+    panel: 1
+    stage: {fileID: 11400000, guid: b6bc2cb87bd77d94f8f46a56c4613c98, type: 2}
   victoryed: 0
   avaliblePrice: 100
   charlimit: 5
@@ -37,8 +43,10 @@ MonoBehaviour:
   priceCards:
   - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
   - {fileID: 11400000, guid: 42245c302d93c1741a90f8a61f19c022, type: 2}
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 7815746713288796794, guid: 33108683459a3fc4bab84c16bb7e68b1, type: 3}
   custom_BGM: NightGrass
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

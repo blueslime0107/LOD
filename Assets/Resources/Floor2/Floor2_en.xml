@@ -35,4 +35,39 @@
         <sub_text>Where is my luck..?</sub_text>
         <sub_text2>it could be...</sub_text2>
     </Stage>
+    <Stage id="7">
+        <title>The Gatekeeper of the Card Repository</title>
+        <sub_text>Let me in!</sub_text>
+        <sub_text2>Can't do that.</sub_text2>
+    </Stage>
+    <Stage id="8">
+        <title>They're Mimics!</title>
+        <sub_text>Don't eat my card!</sub_text>
+        <sub_text2>These guys are crazy about the taste of paper.</sub_text2>
+    </Stage>
+    <Stage id="9">
+        <title>Are You Also Here to Find Cards?</title>
+        <sub_text>Looking for good research material...</sub_text>
+        <sub_text2>What kind of potion is this?</sub_text2>
+    </Stage>
+    <Stage id="10">
+        <title>Transmission Cleaning</title>
+        <sub_text>Welcome.</sub_text>
+        <sub_text2>Seeing these robots again.</sub_text2>
+    </Stage>
+    <Stage id="11">
+        <title>Card Production</title>
+        <sub_text>Look at these zombies.</sub_text>
+        <sub_text2>They're really annoying.</sub_text2>
+    </Stage>
+    <Stage id="12">
+        <title>Who Are You?</title>
+        <sub_text>You're in my way.</sub_text>
+        <sub_text2>I'll take you down.</sub_text2>
+    </Stage>
+    <Stage id="125">
+        <title>Ash</title>
+        <sub_text>The Spoon Killer</sub_text>
+        <sub_text2>Unknown identity</sub_text2>
+    </Stage>
 </CardVol>

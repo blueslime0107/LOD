@@ -17,12 +17,12 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: Shotgun-1987.Ger
-  message: 
+  message: "\uB4B7\uC77C\uC740 \uBAA8\uB974\uACA0\uACE0 \uD55C\uBC29\uC880 \uBA39\uC774\uC790"
   ability_message: "[\uC804\uD22C\uC2DC\uC791]  2~6\uB9CC\uD07C \uC704\uB825\uC774
     \uC624\uB978\uB2E4, \uB2E4\uC74C 1\uD134\uC5D4 \uC704\uB825\uC774 2\uAC00 \uB41C\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 45
   illust: {fileID: 21300000, guid: e0900882645e597499aaedd11de8b105, type: 3}
   usingCount: 0
   pre_count: 0
@@ -31,3 +31,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

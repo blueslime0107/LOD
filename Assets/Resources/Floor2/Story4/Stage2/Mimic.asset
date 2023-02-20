@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Mimic
   m_EditorClassIdentifier: 
-  health: 20
-  breaks: 02000000
+  health: 5
+  breaks: 00000000
   char_sprites: {fileID: 11400000, guid: ce71b5f4c401f904980517c2f999d515, type: 2}
   char_preCards:
-  - {fileID: 11400000, guid: 4ac569eccb5aa8545b3997fcf27b8a26, type: 2}
+  - {fileID: 11400000, guid: 56710279d4d734547ad011a7c94fb556, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -45,7 +45,7 @@
     <Card Code="7">
         <name>도굴꾼</name>
         <text>미안하지만 니껄 쫌 써야겠다</text>
-        <ability>[자신팀][사망] 2~6 위력 여분 주사위를 얻는다&#10;[상대팀 사망] 카드 획득</ability>
+        <ability>[자신팀][사망] 3~6 위력 여분 주사위를 얻는다&#10;[상대팀 사망] 카드 획득</ability>
         <story></story>
     </Card>
     <Card Code="8">

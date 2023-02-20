@@ -16,10 +16,10 @@ MonoBehaviour:
   xmlFile_path:
   - {fileID: 4900000, guid: 827040385013e2b4da4691a3e183fe8e, type: 3}
   - {fileID: 4900000, guid: 06ab985658667354581b94a65fc9f26a, type: 3}
-  title: 
-  sub_text: 
-  rank: 0
-  values: 
+  title: "\uCE74\uB4DC \uC81C\uC791"
+  sub_text: "\uC774 \uC9C0\uBC15\uB839\uB4E4 \uBD10\uBD10"
+  rank: 4
+  values: "\uC815\uB9D0 \uC131\uAC00\uC154"
   characters:
   - {fileID: 11400000, guid: 73a1043daf088714db5d5dab01893cff, type: 2}
   - {fileID: 11400000, guid: 73a1043daf088714db5d5dab01893cff, type: 2}
@@ -43,6 +43,7 @@ MonoBehaviour:
   stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

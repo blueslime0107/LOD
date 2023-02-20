@@ -9,6 +9,11 @@ public class PauseMenu : MonoBehaviour
     public SettingMenu settingMenuUI;
     public SceneMove sceneManager;
     // Update is called once per frame
+
+    private void Start() {
+        settingMenuUI.Load();    
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){

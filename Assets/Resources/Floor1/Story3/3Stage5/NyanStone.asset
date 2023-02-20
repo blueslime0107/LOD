@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: NyanStone
   m_EditorClassIdentifier: 
-  health: 20
-  breaks: 120000000e0000000a0000000600000002000000
+  health: 5
+  breaks: 040000000200000000000000
   char_sprites: {fileID: 11400000, guid: a5a185ba739874e478a0ed43958fb282, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: ed63ca25f93e1254992a657ccdc67255, type: 2}

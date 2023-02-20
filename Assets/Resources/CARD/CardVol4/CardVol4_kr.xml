@@ -25,9 +25,9 @@
         <story></story>
     </Card>
     <Card Code="65">
-        <name>슈슈슉</name>
-        <text>시 시시 씨!</text>
-        <ability>[합 패배]자신위력 2 이하시 피해무시, 2턴 동안 발동안됨</ability>
+        <name>신속도약</name>
+        <text>쯔이앗!</text>
+        <ability>[발동] 1~6의 여분 주사위를 얻는다</ability>
         <story></story>
     </Card>
     <Card Code="66">

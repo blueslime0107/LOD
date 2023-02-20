@@ -16,10 +16,10 @@ MonoBehaviour:
   xmlFile_path:
   - {fileID: 4900000, guid: 827040385013e2b4da4691a3e183fe8e, type: 3}
   - {fileID: 4900000, guid: 06ab985658667354581b94a65fc9f26a, type: 3}
-  title: 
-  sub_text: 
-  rank: 0
-  values: 
+  title: "\uCE74\uB4DC \uC800\uC7A5\uC18C\uC758 \uBB38\uC9C0\uAE30"
+  sub_text: "\uB4E4\uC5B4\uAC00\uAC8C \uD574\uC918!"
+  rank: 3
+  values: "\uADF8\uB807\uAC8C\uB294 \uBABB\uD558\uC9C0"
   characters:
   - {fileID: 11400000, guid: d0de7b81558bc774aa8e6e98dcafbce3, type: 2}
   - {fileID: 0}
@@ -40,6 +40,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9648da07ebad5374b9d346a552dcd2d1, type: 2}
   priceCards:
   - {fileID: 11400000, guid: 8b70d90f80a75db4294fb906ce48bee7, type: 2}
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
   tutorialLine: 0

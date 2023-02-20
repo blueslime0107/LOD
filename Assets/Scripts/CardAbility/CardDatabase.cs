@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+ 
 public class CardDatabase : ScriptableObject, ISerializationCallbackReceiver{
     public CardAbility[] cards;
     public Dictionary<CardAbility, int> GetId = new Dictionary<CardAbility, int>();

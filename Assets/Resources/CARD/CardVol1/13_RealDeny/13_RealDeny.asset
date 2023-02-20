@@ -24,7 +24,7 @@ MonoBehaviour:
     [\uD569 \uC2B9\uB9AC]\uC2DC \uD53C\uD574\uB9CC\uD07C \uCCB4\uB825\uD68C\uBCF5"
   story_message: 
   tained: 0
-  price: 20
+  price: 10
   illust: {fileID: 21300000, guid: 3e681368a1d324f4b827a48a606befe5, type: 3}
   usingCount: 0
   pre_count: 0
@@ -33,3 +33,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

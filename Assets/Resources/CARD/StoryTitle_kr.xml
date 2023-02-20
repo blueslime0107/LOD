@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="CardVol1">
+    <Stage id="1">
+        <title>이곳은 처음이지?</title>
+    </Stage>
+    <Stage id="2">
+        <title>완벽한 모범생</title>
+    </Stage>
+    <Stage id="3">
+        <title>크레이지 파티</title>
+    </Stage>
+    <Stage id="4">
+        <title>카드 도서관</title>
+    </Stage>
+    <Stage id="5">
+        <title>지하</title>
+    </Stage>
+    <Stage id="6">
+        <title>미너스다이스</title>
+    </Stage>
+</CardVol>

@@ -21,27 +21,10 @@ public class Card7 : CardAbility
     public override void StartMatch(CardPack card, BattleManager match)
     {
         if(!card.active){return;}
-        card.count = (int)Random.Range(2f,6f);
+        Dice copyDice = new Dice();
+        copyDice.dice_value = Random.Range(3,7);
+        card.player.dice_Indi.put_subDice(copyDice);
+        match.CardLog("AddDice",card);
         
-    }
-
-    public override void CardActivate(CardPack card, BattleManager match)
-    {
-        if(!card.active || card.count.Equals(0)){return;}
-        int dice;
-        dice = card.player.dice;
-        card.player.SetDice(card.count);
-        card.count = dice;
-        match.CardLog("Active",card);
-        
-    }
-
-    public override void OnClashEnded(CardPack card, BattleCaculate battle)
-    {
-        if(!card.active || card.count.Equals(0)){return;}
-        int dice = card.player.dice;
-        card.player.SetDice(card.count);
-        card.count = dice;
-        battle.bm.CardLog("Dice",card);
     }
 }

@@ -17,16 +17,14 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uBBF8\uBBF9"
-  message: 
-  ability_message: "$$ \uC0C1\uB300\uAC00 \uCE74\uB4DC\uBF51\uAE30\uC5D0\uC11C \uCE74\uB4DC\uB97C
+  message: "\uCE74\uB4DC \uB9DB\uC788\uC5B4!"
+  ability_message: "\uC0C1\uB300\uAC00 \uCE74\uB4DC\uBF51\uAE30\uC5D0\uC11C \uCE74\uB4DC\uB97C
     \uBF51\uC744\uB54C\n\uCE74\uB4DC\uB97C \uC5BB\uC740 \uCE90\uB9AD\uD130\uB294
     \uD655\uB960\uC801\uC73C\uB85C \uC5BB\uC740 \uCE74\uB4DC\uAC00 \uD30C\uAD34\uB418\uACE0
-    \uCCB4\uB825\uC774 \uAE4E\uC778\uB2E4\n\uC5BB\uC740 \uCE74\uB4DC\uC758 \uAC00\uCE58\uAC00
-    \uB192\uC744\uC218\uB85D \uD655\uB960\uC774 \uCEE4\uC9C0\uACE0, \uCCB4\uB825\uC774
-    \uB9CE\uC774 \uAE4E\uC778\uB2E4"
+    \uCCB4\uB825\uC774 \uAE4E\uC778\uB2E4"
   story_message: 
   tained: 0
-  price: 0
+  price: 20
   illust: {fileID: 21300000, guid: 6e4a384c3eb955e46a2a03d63c1afe3f, type: 3}
   usingCount: 1
   pre_count: 2
@@ -35,3 +33,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

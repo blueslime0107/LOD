@@ -38,6 +38,7 @@ MonoBehaviour:
   stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 1
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

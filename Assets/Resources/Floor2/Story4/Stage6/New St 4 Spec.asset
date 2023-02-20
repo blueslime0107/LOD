@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a54c443cf8dd454bac9db548c9a430c, type: 3}
   m_Name: New St 4 Spec
   m_EditorClassIdentifier: 
-  char_var: {fileID: 0}
+  char_var: {fileID: 11400000, guid: 3e4bd7b5a85c3604ba99e37d2238d85f, type: 2}
+  char_list:
+  - {fileID: 11400000, guid: 9ce2cf236001db94a91388c2f0d255cb, type: 2}

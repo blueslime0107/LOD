@@ -17,12 +17,12 @@ MonoBehaviour:
   - CARD/CardVol2/CardVol2_en.xml
   - CARD/CardVol2/CardVol2_kr.xml
   name: "\uD398\uC77C\uB178\uD2B8-F"
-  message: 
+  message: "\uC774\uAC70 \uD55C\uBC29 \uBA39\uACE0\uAC00!"
   ability_message: "[\uD569 \uC2DC\uC791][\uACF5\uACA9] \uC0C1\uB300\uC704\uB825
     2 \uAC10\uC18C"
   story_message: 
   tained: 0
-  price: 0
+  price: 30
   illust: {fileID: 21300000, guid: 2cea78cd14339dd40b84b34b02b5fc58, type: 3}
   usingCount: 0
   pre_count: 0
@@ -31,3 +31,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

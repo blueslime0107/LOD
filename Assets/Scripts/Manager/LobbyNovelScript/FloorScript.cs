@@ -51,9 +51,10 @@ public class FloorScript : MonoBehaviour
     public void RefreshStageCard(){
         lobby.floorNum = curFloor+1;
         lobby.ReloadPlayerCard();
-        subPanelLoad.Start();
-        mainPanelLoad1.Start();
-        mainPanelLoad2.Start();
+        subPanelLoad.BattleLoading();
+        Debug.Log("mainpanel");
+        mainPanelLoad1.BattleLoading();
+        mainPanelLoad2.BattleLoading();
     }
 
     // 층 움직이는 모션과 그 층에 맞는 스테이지 로딩
@@ -67,6 +68,7 @@ public class FloorScript : MonoBehaviour
         transform.position = Vector3.up*fl*dir;
 
         RefreshStageCard();
+        Debug.Log("RefreshStageCard");
         curBg.SetActive(false);
         transform.position = Vector3.down*fl*dir;
 
@@ -80,6 +82,7 @@ public class FloorScript : MonoBehaviour
         transform.position = Vector3.zero;
         lobby.upFloor.ActiveOpenClose();
         lobby.downFloor.ActiveOpenClose();
+        Debug.Log("Floormove");
         yield return null;
     }
 

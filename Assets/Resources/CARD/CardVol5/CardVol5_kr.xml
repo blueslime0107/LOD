@@ -86,7 +86,32 @@
     <Card Code="83">
         <name>감자봉</name>
         <text>하아앗 힘을 모은다!</text>
-        <ability>[전투준비]카운트 상승 [발동] 카운트만큼 위력증가, 카운트 초기화</ability>
+        <ability>[전투준비]카운트 상승 [발동](일회용) 카운트만큼 위력증가</ability>
         <story></story>
     </Card>
+    <Card Code="84">
+        <name>미믹은 카드를 원한다!</name>
+        <text>카드 내놔!</text>
+        <ability>[합 승리]2턴마다 발동가능, 상대가 카드 소지시 상대의 카드 파괴, 없을시 위력+3</ability>
+        <story></story>
+    </Card>
+    <Card Code="85">
+        <name>공정한 죽음</name>
+        <text>내가 죽어도&#10;전투는 공정하게!</text>
+        <ability>[사망]자신제외 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
+        <story></story>
+    </Card>
+    <Card Code="86">
+        <name>날카로운 단검</name>
+        <text>상처가 보이는군!</text>
+        <ability>[피해 줌]상대에게 출혈([피해받음] 카운트만큼 피해상승) 카운트를 올린다</ability>
+        <story></story>
+    </Card>
+    <Card Code="87">
+        <name>출혈</name>
+        <text>피가!</text>
+        <ability>[피해받음] 카운트만큼 피해상승</ability>
+        <story></story>
+    </Card>
+
 </CardVol>

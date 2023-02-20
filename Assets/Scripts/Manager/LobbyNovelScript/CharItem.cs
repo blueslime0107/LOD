@@ -26,15 +26,18 @@ public class CharItem : MonoBehaviour
 
     [SerializeField]GameObject disableEdit;
     [SerializeField]GameObject healthEdit;
-    [SerializeField]GameObject cardEdit;
+    [SerializeField]Button cardEdit;
     [SerializeField]TMP_InputField healthedit_inputField;
 
     [SerializeField]Image ableToFight_img;
     [SerializeField]Sprite[] fightSprite = new Sprite[2];
     [SerializeField]GameObject disabledPanel;
 
+    [SerializeField] BattleCardManager battleCardManager;
+
     // 눌렀을때 카드덱 편집 창으로 가기
     public void OpenCardSelectMenu(){
+        battleCardManager.SaveDisable();
         lobby.menuCard.selectingStage = cur_stage;
         lobby.menuCard.selectingChar = cur_char;
         lobby.OpenCardSelectMenu();
@@ -44,8 +47,11 @@ public class CharItem : MonoBehaviour
     public void UpdateStat(Character chars){
         healthEdit.SetActive(lobby.pc.debugBoolen);
         if(cur_stage == lobby.stage){
-            cardEdit.SetActive(lobby.pc.debugBoolen);
+            cardEdit.interactable = lobby.pc.debugBoolen;
             disableEdit.SetActive(lobby.pc.debugBoolen);
+        }
+        else{
+            cardEdit.interactable = !cur_stage.noEditChar;
         }
         cur_char = chars;
         health_value = chars.health;
@@ -64,14 +70,16 @@ public class CharItem : MonoBehaviour
 
         for(int i=0;i<chars.char_preCards.Length;i++){ // 카드덱
             if(chars.char_preCards[i] != null){
-                cards[i].gameObject.SetActive(true);
                 cards[i].card = chars.char_preCards[i];
                 cards[i].CardUpdate();
+                cards[i].gameObject.SetActive(true);
             }
             else{
                 cards[i].gameObject.SetActive(false);
             }
         }
+
+
         fightAbleRender();
     }
 
