@@ -8,6 +8,7 @@ public class Card8 : CardAbility
     public override void OnDeath(CardPack card, Player dead_player, BattleManager match)
     {
         if(dead_player != card.player || card.count >= 2){return;}
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,0,-1f);
         card.player.AddHealth(1);
         card.active = true;
         match.CardLog("Revival",card);
@@ -35,6 +36,8 @@ public class Card8 : CardAbility
         if(!card.active){return;}
         card.count += 1;
         if(card.count >= 2)
-            card.active = false;
+           { card.active = false;
+            card.effect[0].SetActive(false);}
+
     }
 }

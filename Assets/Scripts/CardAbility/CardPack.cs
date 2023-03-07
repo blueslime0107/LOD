@@ -55,10 +55,10 @@ public class CardPack : MonoBehaviour
         foreach(GameObject effe in ability.effect){
             CardEffect card_effect = effe.GetComponent<CardEffect>();
             card_effect.battleManager = battleManager;
-            effe.SetActive(false);
             Vector3 copyVec = effe.transform.position;
             Vector3 copyScale = effe.transform.localScale;
             GameObject card = Instantiate(effe); 
+            card.SetActive(false);
             card.transform.SetParent(player.gameObject.transform);
             card.transform.localPosition = copyVec;
             card.transform.localScale = copyScale;

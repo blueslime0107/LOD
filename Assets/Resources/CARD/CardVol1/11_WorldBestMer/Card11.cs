@@ -12,8 +12,12 @@ public class Card11 : CardAbility
         card.count += damage.value;
         if(card.count >= 15){
             match.CardLog("GetCard",card);
+            EffectPlayerSet(card.effect[1],card.player,match.battleCaculate.battleDice.transform,0,-3);
         card.count = 0;
         match.AddCardPoint(card.player.team);
+        }
+        else{
+            EffectPlayerSet(card.effect[0],card.player,match.battleCaculate.battleDice.transform,0,-3);
         }
 
     }

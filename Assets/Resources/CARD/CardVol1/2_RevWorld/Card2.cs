@@ -20,6 +20,8 @@ public class Card2 : CardAbility
         player.SetDice(Mathf.Abs(player.dice-7));
         // card.effect[0].transform.localPosition = player.dice_Indi.transform.localPosition;
         // card.effect[0].SetActive(true);
+        Debug.Log(player.dice_Indi.transform.position);
+        Debug.Log(player.dice_Indi.transform.localPosition);
         EffectPlayerSet(card.effect[0],player,player.dice_Indi.transform,0,0);
 
         card.active = true;

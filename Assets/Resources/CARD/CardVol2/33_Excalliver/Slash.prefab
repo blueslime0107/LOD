@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4034448884497354866}
   - component: {fileID: 1694503693243908954}
   - component: {fileID: 6555177966651989813}
-  - component: {fileID: 8818911310401213917}
   m_Layer: 0
   m_Name: Slash
   m_TagString: Untagged
@@ -99,27 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
-  onplayer: 0
-  OnAttack: 0
-  onbattleEnd: 0
   moveFront: 0.5
-  aliveTime: 1
-  fadeOut: 0
-  fade_time: 0
+  aliveTime: 0.1
+  fade_time: 1.2
   imLineRenderer: 0
---- !u!114 &8818911310401213917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614962679487314681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10adc8bce3329fa428485a4ee1b18ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pre_set: {x: -1, y: 0, z: 0}
-  player_set: 0
-  farAtk: 0
-  fade_time: 1
+  stable: 0

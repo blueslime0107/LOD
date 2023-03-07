@@ -1,1 +1,1 @@
-{"resolutionIndexVal":16,"fullScreenVal":false,"sfxVal":0.0,"bgmVal":-80.0}
+{"resolutionIndexVal":16,"fullScreenVal":false,"sfxVal":0.0,"bgmVal":0.0}

@@ -19,8 +19,7 @@ public class Card1 : CardAbility
                     match.CardLog("PowerUp",card,players);
 
                     //card.effect[0].transform.localPosition = player.dice_Indi.transform.localPosition;
-                    card.effect[0].SetActive(true);
-                    EffectPlayerSet(card.effect[0],player,player.dice_Indi.transform,0,0);
+                    EffectPlayerSet(card.effect[0],player,player.dice_Indi.transform,0,-1f);
                 }
 
             }

@@ -62,6 +62,7 @@ public class Dice : MonoBehaviour
         StopAllCoroutines();
         rolled = true;
         transform.localEulerAngles = Vector3.zero;
+        transform.Translate(Vector3.back*-4);
         dice_value = (int)Random.Range(1f,7f);
         render.sprite = dice_img[dice_value-1];
         battleManager.sdm.Play("HitTable");
@@ -84,6 +85,7 @@ public class Dice : MonoBehaviour
         if(!battleManager.cur_team.players.Contains(player)){return;}
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);        
+        objPosition.Set(objPosition.x,objPosition.y,-4);
         transform.position = objPosition;
     }
 

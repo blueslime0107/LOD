@@ -10,7 +10,7 @@ public class Card3 : CardAbility
         if(damage.value >= 3){
             card.player.AddHealth(2);
             match.CardLog("Health",card);
-            EffectPlayerSet(card.effect[0],card.player,defender.transform,0,-2);
+            EffectPlayerSet(card.effect[0],defender,defender.transform,2f,0);
         }
     }
 }

@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 0}
   atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 4520184664288569651, guid: 6dda83c4de17b3440ae1212ce7858cb6, type: 3}

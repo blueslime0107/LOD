@@ -13,6 +13,7 @@ public class Card5 : CardAbility
             damage.adDamage(-reduce);
             Active(card);
             match.CardLog("Damage",card,attacker);
+            EffectPlayerSet(card.effect[0],attacker,attacker.transform,-0.2f,-1f);
             attacker.DamagedByInt(reduce,card.player,damage,card);
             
         }
@@ -20,6 +21,8 @@ public class Card5 : CardAbility
             damage.adDamage(-1);
             Active(card);
             match.CardLog("Defenceless",card,attacker);
+            EffectPlayerSet(card.effect[0],attacker,attacker.transform,-0.2f,-1f);
+
             attacker.DamagedByInt(1,card.player,damage,card);
             
         }

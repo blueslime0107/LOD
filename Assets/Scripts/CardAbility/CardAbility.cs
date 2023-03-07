@@ -83,7 +83,18 @@ public class CardAbility : ScriptableObject
     public virtual void AttackEffect(CardPack card,Player defender){}
 
 
-    public void EffectPlayerSet(GameObject effect, Player player, Transform tran, float x,float y){
+    public void EffectPlayerSet(GameObject effect, Player player, Transform tran, float x=0,float y=0,bool reverse=false){
+        if(reverse){
+            effect.SetActive(true);
+            if(player.gameObject.tag != "PlayerTeam1"){
+                effect.transform.eulerAngles = Vector3.up*180;
+            }
+            else{
+                effect.transform.eulerAngles = Vector3.zero;
+            }
+            effect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector(true) + Vector3.up*y*0.5f;
+            return;
+        }
         effect.SetActive(true);
         if(player.gameObject.tag == "PlayerTeam1"){
             effect.transform.eulerAngles = Vector3.up*180;
@@ -91,16 +102,28 @@ public class CardAbility : ScriptableObject
         else{
             effect.transform.eulerAngles = Vector3.zero;
         }
-        effect.transform.localPosition = tran.localPosition + Vector3.right*x*player.TeamVector() + Vector3.up*y;
-        //effect.transform.position = tran.position + Vector3.right*x*player.TeamVector() + Vector3.up*y;
-        //card.effect[0].transform.position = player.transform.position + Vector3.right*player.TeamVector();
+        effect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector() + Vector3.up*y*0.5f;
     }
-    // public virtual void Actived(){
-    //     card_active = true;
-    //     card_triggerd = true;
-    // }
 
-    // public virtual void DeActive(){
-    //     card_triggerd = false;
-    // }
+    public void VectorEffectPlayerSet(GameObject effect, Player player, Transform tran, float x=0,float y=0,bool reverse=false){
+        if(reverse){
+            effect.SetActive(true);
+            if(player.gameObject.tag != "PlayerTeam1"){
+                effect.transform.eulerAngles = Vector3.up*180;
+            }
+            else{
+                effect.transform.eulerAngles = Vector3.zero;
+            }
+            effect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector(true) + Vector3.up*y*0.5f;
+            return;
+        }
+        effect.SetActive(true);
+        if(player.gameObject.tag == "PlayerTeam1"){
+            effect.transform.eulerAngles = Vector3.up*180;
+        }
+        else{
+            effect.transform.eulerAngles = Vector3.zero;
+        }
+        effect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector() + Vector3.up*y*0.5f;
+    }
 }

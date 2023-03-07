@@ -4,8 +4,6 @@ using System.IO;
 public class SaveManager : MonoBehaviour
 {
 
-    public string newFile;
-
     public StageManager stageManager;
     public ProperContainer pc;
 
@@ -22,13 +20,17 @@ public class SaveManager : MonoBehaviour
     public void Save(){
         stageManager.SavetoDB();
         string jsonString = JsonUtility.ToJson(stageManager.stageManagerDB);
-        string newFilePath = Application.dataPath + filePath;
+        string newFilePath = Application.persistentDataPath + filePath;
         File.WriteAllText(newFilePath, jsonString);
     }
 
     public void Load(){
-        string newFilePath = Application.dataPath + filePath;
+        string newFilePath = Application.persistentDataPath + filePath;
         string jsonString = "";
+
+
+
+
         try{
             Debug.Log("파일있음");
         jsonString = File.ReadAllText(newFilePath);

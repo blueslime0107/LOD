@@ -99,12 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
-  onplayer: 0
-  OnAttack: 0
-  onbattleEnd: 0
   moveFront: 0
-  aliveTime: 0
-  fadeOut: 1
+  aliveTime: 1
   fade_time: 1
   imLineRenderer: 1
 --- !u!120 &4031415864316756939

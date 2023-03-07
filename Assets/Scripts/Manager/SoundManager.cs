@@ -2,11 +2,15 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
+
+
 public class SoundManager : MonoBehaviour
 {
     public string startSound;
     public Sound[] sounds;
     public AudioMixerGroup[] mixer;
+
+    
     
 
     void Awake()
@@ -39,3 +43,4 @@ public class SoundManager : MonoBehaviour
         }
     }
 }
+

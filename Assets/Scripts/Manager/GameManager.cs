@@ -128,7 +128,11 @@ public class GameManager : MonoBehaviour
             leftPlayers[i-battleable].UpdateHp();
             leftPlayers[i-battleable].pre_cards.AddRange(chars.char_preCards);
             leftPlayers[i-battleable].team = battleManager.left_team;
-            
+            if(chars.specialAtk){leftPlayers[i-battleable].specialAtk = Instantiate(chars.specialAtk).GetComponent<SpecialAtk>();
+            leftPlayers[i-battleable].specialAtk.gameObject.SetActive(false);
+            leftPlayers[i-battleable].specialAtk.transform.Rotate(Vector3.down * 180);
+            leftPlayers[i-battleable].specialAtk.sm = soundManager;
+            }
 
         }
         battleable = 0;
@@ -151,6 +155,11 @@ public class GameManager : MonoBehaviour
                 rightPlayers[i-battleable].UpdateHp();
                 rightPlayers[i-battleable].pre_cards.AddRange(chars.char_preCards);
                 rightPlayers[i-battleable].team = battleManager.right_team;
+
+                if(chars.specialAtk){rightPlayers[i-battleable].specialAtk = Instantiate(chars.specialAtk).GetComponent<SpecialAtk>();
+                rightPlayers[i-battleable].specialAtk.gameObject.SetActive(false);
+                rightPlayers[i-battleable].specialAtk.sm = soundManager;
+                }
                 
             
         }

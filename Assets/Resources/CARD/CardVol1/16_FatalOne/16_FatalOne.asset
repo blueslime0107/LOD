@@ -29,7 +29,8 @@ MonoBehaviour:
   pre_count: 0
   overCard: {fileID: 0}
   effect:
-  - {fileID: 7883862230350723607, guid: 6649cd0623963094abe53ff7e26368aa, type: 3}
+  - {fileID: 378086472142639703, guid: 534907c11d294b643a50c6c53ccaed9c, type: 3}
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

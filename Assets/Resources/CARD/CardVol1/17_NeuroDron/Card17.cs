@@ -11,7 +11,7 @@ public class Card17 : CardAbility
         if(damage.value <= 2){
             damage.value = 0;
             match.CardLog("Avoid",card);
-            match.backColorEff.changeColor(0, 200, 255,200);
+            EffectPlayerSet(card.effect[0],card.player,card.player.transform,0,0,true);
         }
     }
 }

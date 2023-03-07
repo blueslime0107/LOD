@@ -7,6 +7,7 @@ public class BattleManager : MonoBehaviour
     public SoundManager sdm;
     public GameManager gameManager;
     public BattleCaculate battleCaculate;
+    public NumberManager numberManager;
     //public BattleAI Right_battleAI;
     //public BattleAI Left_battleAI;
     public new CameraCtrl camera;
@@ -771,6 +772,9 @@ public class BattleManager : MonoBehaviour
         newint /= players.Count;
         return newint;
     }
+
+
+
     
     
     

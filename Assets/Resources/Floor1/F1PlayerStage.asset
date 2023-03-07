@@ -35,8 +35,10 @@ MonoBehaviour:
   playerStageLock: {fileID: 0}
   priceChars: []
   priceCards: []
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

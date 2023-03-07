@@ -291,6 +291,34 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: Whoosh
+    clip: {fileID: 8300000, guid: b6a82d198d2b9f14b9eb384272427d04, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Punch
+    clip: {fileID: 8300000, guid: 31909dedb4fd37c45b68b5d0ffbf4a89, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Beam1
+    clip: {fileID: 8300000, guid: 67db57827535c474f8b265e671c9fcd3, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Charge
+    clip: {fileID: 8300000, guid: 553a26b42f0459b468abedefefbf9bb5, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   mixer:
   - {fileID: -3328339283235370755, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}
   - {fileID: 8082049311940040082, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}

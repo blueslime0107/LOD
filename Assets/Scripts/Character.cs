@@ -11,4 +11,5 @@ public class Character: ScriptableObject
     public CardAbility[] char_preCards = new CardAbility[7];
     public string atk_sound = "";
     [HideInInspector]public bool battleAble = true;
+    public GameObject specialAtk;
 }

@@ -10,6 +10,7 @@ public class Card15 : CardAbility
         if(card.card_battleActive){return;}
         Active(card);
         match.CardLog("Damage",card,attacker);
+        EffectPlayerSet(card.effect[0],attacker,attacker.transform,-1.5f,0.3f);
         attacker.DamagedByInt((int)Mathf.Ceil(damage.value*0.5f),card.player,damage,card);
         match.backColorEff.changeColor(255,0,0,255);
         

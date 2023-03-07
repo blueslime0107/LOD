@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public List<int> breakCount = new List<int>();
     public int dice;
     public GameObject dice_obj;
-    Dice dice_com;
+    public Dice dice_com;
     public bool died;
     public GameObject player_floor;
     public List<CardAbility> pre_cards = new List<CardAbility>();
@@ -46,9 +46,11 @@ public class Player : MonoBehaviour
     float moveSpeed;
 
     [HideInInspector] public List<GameObject> card_effect = new List<GameObject>();
-    public List<AttEffect> attack_effect = new List<AttEffect>();
 
     Vector3 origin_pos;
+
+    public bool special_active;
+    public SpecialAtk specialAtk;
 
     void Awake()
     {   
@@ -181,6 +183,7 @@ public class Player : MonoBehaviour
             }
         }
 
+        battleManager.numberManager.IndicateDam(transform,damage.value);
         health -= damage.value;
         
 
@@ -213,6 +216,10 @@ public class Player : MonoBehaviour
             max_health += value;
         }
         health += value;
+        if(value < 0)
+        battleManager.numberManager.IndicateDam(transform, -value);
+        else
+        battleManager.numberManager.IndicateHeal(transform, value);
         if(health > max_health){
             health = max_health;
         }
@@ -225,6 +232,12 @@ public class Player : MonoBehaviour
     public void SetHealth(int value,bool changemaxHp=false){
         if(changemaxHp){
             max_health = value;
+        }
+        if(health - value > 0){
+            battleManager.numberManager.IndicateDam(transform, health-value);
+        }
+        if(health - value < 0){
+            battleManager.numberManager.IndicateHeal(transform, Mathf.Abs(health-value));
         }
         health = value;
         if(health > max_health){
@@ -391,27 +404,8 @@ public class Player : MonoBehaviour
         foreach(CardPack card in cards){
             card.ability.AttackEffect(card,defender);
         }
-        foreach(AttEffect effect in attack_effect){
-            if(effect.player_set){
-                effect.gameObject.transform.position = transform.position;
-            }
-            else{
-                effect.gameObject.transform.position = defender.gameObject.transform.position;
-            }
-            effect.gameObject.SetActive(true);
-            
-            
-
-        }
-
     }
-
-    public void Battle_End(){
-        foreach(AttEffect effect in attack_effect){
-            effect.gameObject.SetActive(false);
-        }
-    }
-
+    
     public string GetCharName(){
         return character.char_sprites.name_;
     }

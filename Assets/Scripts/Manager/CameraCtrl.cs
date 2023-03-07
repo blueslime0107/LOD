@@ -17,6 +17,7 @@ public class CameraCtrl : MonoBehaviour
 
     float maxCamsize = 5f;
     float minCamsize = 3f;
+    float cameraZ;
 
     public Camera camer;
 
@@ -24,6 +25,7 @@ public class CameraCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraZ = transform.position.z;
         camer = GetComponent<Camera>();
         StartCoroutine("CameraZoom");
     }
@@ -37,7 +39,7 @@ public class CameraCtrl : MonoBehaviour
             target1 = ch1.transform.position;
             target2 = ch2.transform.position;
             Vector3 tr = (target1 + target2) * 0.5f + Vector3.down*0.5f;
-            tr = battleManager.gameManager.SetVector3z(tr,-5f);
+            tr = battleManager.gameManager.SetVector3z(tr,cameraZ);
             if(Vector3.Distance(transform.position,tr) > 0.001f){
                 transform.position = Vector3.MoveTowards(transform.position,tr,moveSpeed*Time.deltaTime);
             }

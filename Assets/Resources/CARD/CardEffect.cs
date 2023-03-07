@@ -9,11 +9,10 @@ public class CardEffect : MonoBehaviour
     float time;
     public float moveFront=0;
     public float aliveTime;
-
-    public bool fadeOut;
     public float fade_time;
 
     public bool imLineRenderer;
+    public bool stable;
     SpriteRenderer render;
     LineRenderer lineRender;
     float originWidth;
@@ -29,12 +28,14 @@ public class CardEffect : MonoBehaviour
 
     private void OnEnable() {
         render.color = Color.white;
-        if(fadeOut){
-            StartCoroutine(FadeOut());
+        if(stable){return;}
+        if(imLineRenderer){
+            StartCoroutine(LineNormal());
         }
         else{
             StartCoroutine(Normal());
         }
+        StartCoroutine(Normal());
         time = 0f;
         // if(onbattleEnd){
         //     battleManager.on_battle_card_effect.Add(this);
@@ -50,37 +51,26 @@ public class CardEffect : MonoBehaviour
 
     IEnumerator Normal(){
         while(true){
-            if(aliveTime > 0f){
-            time += Time.deltaTime;
             if(time > aliveTime){
-                gameObject.SetActive(false);
+            render.color = new Color(1,1,1,1f-(time-aliveTime)/fade_time);
+            if(time > aliveTime + fade_time){StopAllCoroutines(); gameObject.SetActive(false);}
             }
-            transform.Translate(Vector3.right*moveFront*Time.deltaTime);
-            }
+            if(moveFront > 0){transform.Translate(Vector3.right*moveFront*Time.deltaTime);}
+            time += Time.deltaTime;
             yield return null;
         }
     }
 
-    IEnumerator FadeOut(){
-        if(imLineRenderer)
-            lineRender.startWidth = originWidth;
+    IEnumerator LineNormal(){
+        lineRender.startWidth = originWidth;
         while(true){
-            if(time < fade_time){
-                render.color = new Color(1,1,1,1f-time/fade_time);
-                if(imLineRenderer){
-                    lineRender.startWidth -= time/fade_time*0.01f;
-                }
-            }
-            else{
-                time = 0;
-                break;
-                
+            if(time > aliveTime){
+            lineRender.startWidth -= (time-aliveTime)/fade_time*0.01f;
+            if(time > aliveTime + fade_time){StopAllCoroutines(); gameObject.SetActive(false);}
             }
             time += Time.deltaTime;
             yield return null;
         }
-        gameObject.SetActive(false);
-        yield return null;
     }
 
 

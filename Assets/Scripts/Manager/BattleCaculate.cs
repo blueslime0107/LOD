@@ -23,6 +23,8 @@ public class BattleCaculate : MonoBehaviour
     [SerializeField][Range(0f,100f)] float playerMoveSpd;
     [Space (10f)]
 
+    public SpecialPlayer specialFade;
+    public SpecialAtk cur_special;
 
     public Damage damage = new Damage();
     public int damage_dice;
@@ -207,6 +209,8 @@ public class BattleCaculate : MonoBehaviour
             yield return null;
         }
         if(damage.value>0){ // 승리
+
+
             bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+myChar.character.name+"/Lose "+eneChar.character.name+"]","#ffffff");
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnClashLose(ene_ability[i],this, myChar);
@@ -224,9 +228,29 @@ public class BattleCaculate : MonoBehaviour
                 }
                 
             }
+
+            // SPECIAL ATK
+            if(myChar.special_active && myChar.specialAtk){
+                specialFade.specialAtk = myChar.specialAtk;
+                if(specialFade.specialAtk.largeAtk){
+                    foreach(Player player in eneChar.team.players){
+                    specialFade.specialAtk.characters.Add(player.character);
+
+                    }
+                }else{
+                    specialFade.specialAtk.characters.Add(eneChar.character);
+                }
+                specialFade.SpeicalFade();
+                while(specialFade.specialEnd){
+                    yield return null;
+                }
+                yield return new WaitForSeconds(1f);
+                myChar.special_active = false;
+                specialFade.SpecialEnd();
+            }
+            /////////
             StartCoroutine(Damage(myChar,eneChar));
             yield return null;
-            // Damage(myChar,eneChar);
         }
         if(damage.value<0){ // 패배
         bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+eneChar.character.name+"/Lose "+myChar.character.name+"]","#ffffff");
@@ -245,6 +269,29 @@ public class BattleCaculate : MonoBehaviour
                     yield return null;
                 }
             }
+
+            // SPECIAL ATK
+            if(eneChar.special_active && eneChar.specialAtk){
+                specialFade.specialAtk = eneChar.specialAtk;
+                if(specialFade.specialAtk.largeAtk){
+                    foreach(Player player in myChar.team.players){
+                    specialFade.specialAtk.characters.Add(player.character);
+
+                    }
+                }
+                else{
+                    specialFade.specialAtk.characters.Add(myChar.character);
+                }
+                specialFade.SpeicalFade();
+                while(specialFade.specialEnd){
+                    yield return null;
+                }
+                yield return new WaitForSeconds(1f);
+                eneChar.special_active = false;
+                specialFade.SpecialEnd();
+            }
+            /////////
+
             StartCoroutine(Damage(eneChar,myChar));   
             yield return null;       
             // Damage(eneChar,myChar);
@@ -254,6 +301,8 @@ public class BattleCaculate : MonoBehaviour
 
         
     }
+
+
 
     
     
@@ -296,8 +345,6 @@ public class BattleCaculate : MonoBehaviour
         bm.target2 = null;
         myChar.transform.position = bm.gameManager.SetVector3z(myChar.transform.position,0);
         eneChar.transform.position = bm.gameManager.SetVector3z(eneChar.transform.position,0);
-        myChar.Battle_End();
-        eneChar.Battle_End();
 
         battleDice.gameObject.SetActive(false);
         # endregion
@@ -358,33 +405,9 @@ public class BattleCaculate : MonoBehaviour
     }
 
     IEnumerator Damage(Player attacker, Player defender){
-
-        // for(int i = 0; i<attacker.cards.Count; i++){
-        //         attacker.cards[i].ability.OnDamaging(attacker.cards[i],defender,damage, bm);
-        //         if(attacker.cards[i].card_battleActive){
-        //                 attacker.UpdateActiveStat();
-        //             }
-        //             while(attacker.cards[i].card_battleActive){
-        //                 yield return null;
-        //             }
-        //     }
-        // for(int i = 0; i<defender.cards.Count; i++){
-        //         defender.cards[i].ability.OnDamage(defender.cards[i],attacker,damage,bm);
-        //         if(defender.cards[i].card_battleActive){
-        //                 defender.UpdateActiveStat();
-        //             }
-        //             while(defender.cards[i].card_battleActive){
-        //                 yield return null;
-        //             }
-        //     }
         if(damage.value>0){
             defender.ChangeCondition(4);
             attacker.ChangeCondition(3);
-            // foreach(CardAbility card in attacker.cards){
-            //     if(card.card_triggerd){                   ///////// 카드 공격 효과
-            //         card.AttackEffect(transform);
-            //     }
-            // }
             if(attacker.transform.position.x - defender.transform.position.x <0){defender.transform.Translate(Vector3.right*damage.value/2);}
             if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*damage.value/2);}
 
