@@ -86,6 +86,8 @@ public class BattleManager : MonoBehaviour
     public BackColorEff backColorEff;
     [SerializeField]AchiveManager achiveManager;
 
+    public float borderX = 10;
+
     public GameObject tutorial;
     public void Battle(){
         // left_team.gague = left_team.max_gague;

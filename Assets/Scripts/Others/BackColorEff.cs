@@ -10,7 +10,6 @@ public class BackColorEff : MonoBehaviour
     [SerializeField]Color32 originColor;
     Color32 targetColor;
 
-
     public void changeColor(byte r,byte g,byte b, byte a){
         targetColor = new Color32(r,g,b,a);
         timeLeft = 1.0f;

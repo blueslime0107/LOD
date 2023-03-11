@@ -83,9 +83,9 @@ public class CardAbility : ScriptableObject
     public virtual void AttackEffect(CardPack card,Player defender){}
 
 
-    public void EffectPlayerSet(GameObject effect, Player player, Transform tran, float x=0,float y=0,bool reverse=false){
+    public CardEffect EffectPlayerSet(CardEffect effect, Player player, Transform tran, float x=0,float y=0,bool reverse=false){
         if(reverse){
-            effect.SetActive(true);
+            effect.gameObject.SetActive(true);
             if(player.gameObject.tag != "PlayerTeam1"){
                 effect.transform.eulerAngles = Vector3.up*180;
             }
@@ -93,9 +93,9 @@ public class CardAbility : ScriptableObject
                 effect.transform.eulerAngles = Vector3.zero;
             }
             effect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector(true) + Vector3.up*y*0.5f;
-            return;
+            return effect;
         }
-        effect.SetActive(true);
+        effect.gameObject.SetActive(true);
         if(player.gameObject.tag == "PlayerTeam1"){
             effect.transform.eulerAngles = Vector3.up*180;
         }
@@ -103,6 +103,7 @@ public class CardAbility : ScriptableObject
             effect.transform.eulerAngles = Vector3.zero;
         }
         effect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector() + Vector3.up*y*0.5f;
+        return effect;
     }
 
     public void VectorEffectPlayerSet(GameObject effect, Player player, Transform tran, float x=0,float y=0,bool reverse=false){

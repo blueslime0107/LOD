@@ -7,7 +7,7 @@ using TMPro;
 public class Lobby : MonoBehaviour
 {
     public SoundManager sdm;
-    public int floorNum;
+    public Floor curFloor;
     public StageManager stageManager;
     public ProperContainer pc;
 
@@ -16,8 +16,7 @@ public class Lobby : MonoBehaviour
     [SerializeField] SceneMove sceneM;
     [SerializeField] GameObject darScreen;
     [SerializeField] MenuItem battle_table;
-    [SerializeField] MenuItem sub_table;
-    [SerializeField] MenuItem main_table;
+    [SerializeField] MenuItem tableIMG;
     [SerializeField] MenuItem card_table;
 
     public  MenuCard menuCard;
@@ -52,11 +51,10 @@ public class Lobby : MonoBehaviour
     [SerializeField]GameObject mainAlertObject;
 
     [SerializeField]BattleLoad substageload;
-    [SerializeField]BattleLoad mainstageload1;
-    [SerializeField]BattleLoad mainstageload2;
+    [SerializeField]BattleLoad mainstageload;
    
-    public MenuItem upFloor;
-    public MenuItem downFloor;
+    public MenuItem elevatorLeft;
+    public MenuItem elevatorRight;
 
     void Awake(){
         stageManager = FindObjectOfType<StageManager>();
@@ -75,14 +73,7 @@ public class Lobby : MonoBehaviour
         sdm.Play("Lobby");
     }
     public void ReloadPlayerCard(){
-        switch(floorNum){
-            case 1:
-                player = stageManager.FloorOfBattle.PlayerStage; break;
-            case 2:
-                player = stageManager.FloorOfResource.PlayerStage; break;
-            case 3:
-                player = stageManager.FloorOfSocial.PlayerStage; break;
-        }
+        player = curFloor.PlayerStage;
     }
 
     public void Update(){
@@ -90,23 +81,20 @@ public class Lobby : MonoBehaviour
             switch(curMenu[curMenu.Count-1]){
                 case "surMenu":
                 sdm.Play("Close");
-                upFloor.MoveToOrigin();
-                downFloor.MoveToOrigin();
-                    sub_table.ActiveOpenClose();
+                elevatorLeft.MoveToOrigin();
+                elevatorRight.MoveToOrigin();
+                    tableIMG.ActiveOpenClose();
                     battle_table.ActiveOpenClose();
                     darScreen.SetActive(false);        
                     curMenu.Remove("surMenu"); break;
                 case "mainMenu":
                 sdm.Play("Close");
-                upFloor.MoveToOrigin();
-                downFloor.MoveToOrigin();
-                    main_table.ActiveOpenClose();
-                    darScreen.SetActive(false);        
+                elevatorLeft.MoveToOrigin();
+                elevatorRight.MoveToOrigin();
+                    tableIMG.ActiveOpenClose();
+                    darScreen.SetActive(false);       
+                    battle_table.ActiveOpenClose(); 
                     curMenu.Remove("mainMenu"); break;
-                case "mainMenuStage":
-                sdm.Play("Close");
-                    battle_table.ActiveOpenClose();      
-                    curMenu.Remove("mainMenuStage"); break;
                 case "battle":
                 sdm.Play("Close");
                     enemyCard.ActiveOpenClose();
@@ -115,19 +103,22 @@ public class Lobby : MonoBehaviour
                     curMenu.Remove("battle"); 
                     selectedbattleItem.alert.SetActive(false);
                     substageload.RefreshDiscover();
-                    mainstageload1.RefreshDiscover();
-                    mainstageload2.RefreshDiscover();
+                    mainstageload.RefreshDiscover();
                     break;
                 case "cardMenu":
                 sdm.Play("Close");
-                upFloor.MoveToOrigin();
-                downFloor.MoveToOrigin();
+                elevatorLeft.MoveToOrigin();
+                elevatorRight.MoveToOrigin();
                     darScreen.SetActive(false);        
                     card_table.ActiveOpenClose();
                     curMenu.Remove("cardMenu"); break;
 
                 case "cardSelectMenu":
                     sdm.Play("Close");
+                    menuCard.playerCardPanel.SetActive(false);
+                    menuCard.florrPanel.SetActive(true);
+                    elevatorLeft.MoveToMove();
+                    elevatorRight.MoveToMove();
                     enemyCard.ActiveOpenClose();
                     playerCard.ActiveOpenClose();  
                     BattleButton.ActiveOpenClose();   
@@ -142,13 +133,10 @@ public class Lobby : MonoBehaviour
     }
 
     public void OpenSubMenu(){
-        upFloor.MoveToMove();
-        downFloor.MoveToMove();
-        if(curMenu.Equals("surMenu")){
-            return;
-        }
+        elevatorLeft.MoveToMove();
+        elevatorRight.MoveToMove();
         sdm.Play("Open");
-        sub_table.ActiveOpenClose();
+        tableIMG.ActiveOpenClose();
         battle_table.ActiveOpenClose();
         darScreen.SetActive(true);
         curMenu.Add("surMenu");
@@ -158,21 +146,13 @@ public class Lobby : MonoBehaviour
         if(curMenu.Equals("mainMenu")){
             return;
         }
-        upFloor.MoveToMove();
-        downFloor.MoveToMove();
+        elevatorLeft.MoveToMove();
+        elevatorRight.MoveToMove();
+        battle_table.ActiveOpenClose();
         sdm.Play("Open");
-        main_table.ActiveOpenClose();
+        tableIMG.ActiveOpenClose();
         darScreen.SetActive(true);
         curMenu.Add("mainMenu");
-    }
-
-    public void OpenMainStageMenu(){
-        if(curMenu.Equals("mainMenuStage")){
-            return;
-        }
-        sdm.Play("Open");
-        battle_table.ActiveOpenClose();
-        curMenu.Add("mainMenuStage");
     }
     
     public void OpenCardMenu(){
@@ -181,8 +161,8 @@ public class Lobby : MonoBehaviour
 
             return;
         }
-        upFloor.MoveToMove();
-        downFloor.MoveToMove();
+        elevatorLeft.MoveToMove();
+        elevatorRight.MoveToMove();
         sdm.Play("CardDrawOpen");
         card_table.ActiveOpenClose();
         darScreen.SetActive(true);
@@ -194,6 +174,8 @@ public class Lobby : MonoBehaviour
             return;
         }
         sdm.Play("CardDrawOpen");
+        elevatorLeft.MoveToOrigin();
+        elevatorRight.MoveToOrigin();
         enemyCard.ActiveOpenClose();
         playerCard.ActiveOpenClose();  
         BattleButton.ActiveOpenClose();   
@@ -243,7 +225,7 @@ public class Lobby : MonoBehaviour
     }
 
     public void RefreshDiscover(){
-        mainAlertObject.SetActive(mainstageload1.newStageDetected || mainstageload2.newStageDetected);
+        mainAlertObject.SetActive(mainstageload.newStageDetected);
     }
 
 }

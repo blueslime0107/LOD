@@ -18,7 +18,7 @@ public class SaveManager : MonoBehaviour
     }
 
     public void Save(){
-        stageManager.SavetoDB();
+        //stageManager.SavetoDB();
         string jsonString = JsonUtility.ToJson(stageManager.stageManagerDB);
         string newFilePath = Application.persistentDataPath + filePath;
         File.WriteAllText(newFilePath, jsonString);
@@ -39,12 +39,12 @@ public class SaveManager : MonoBehaviour
         catch{
             Debug.Log("파일없음");
 
-            stageManager.LoadDataFromDB();
+            //stageManager.LoadDataFromDB();
             Save();
             return;
         }
         
-        stageManager.LoadDataFromDB();
+        //stageManager.LoadDataFromDB();
         fs.RefreshStageCard();
     }
 

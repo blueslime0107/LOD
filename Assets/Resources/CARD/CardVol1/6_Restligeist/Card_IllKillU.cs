@@ -9,5 +9,6 @@ public class Card_IllKillU : CardAbility
         match.CardLog("Damage",card);
         card.count += 2;
         player.NewDamagedByInt(card.count,player);
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,0,-1.2f);
     }
 }

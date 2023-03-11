@@ -10,7 +10,7 @@ public class Card37 : CardAbility
     {
         if(card.player.dice > 1){
             card.player.AddDice(-1);
-            
+            EffectPlayerSet(card.effect[0],card.player,card.player.dice_Indi.transform);
             int rand = (int)Random.Range(0f,101f);
             if(rand <= card.count){
                 card.player.AddHealth(1);

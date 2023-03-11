@@ -107,12 +107,12 @@ MonoBehaviour:
   cannot_roll: 0
   rolled: 0
   dice_img:
-  - {fileID: -1080017200627940617, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -5489654673741192339, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 5721977497537484073, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -4369623747137673458, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 1100262140694979769, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -7921930585825272172, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
+  - {fileID: 11289246, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 1618816578, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -1167627936, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -1618843911, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -704700483, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 2096342137, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
   farAtt: 0
   diceLock: 
 --- !u!50 &3416837838974082286

@@ -10,6 +10,8 @@ public class Card35 : CardAbility
     {
         if(battle.myChar != card.player){return;}
         battle.eneChar.AddDice(-2);
+        EffectPlayerSet(card.effect[0],card.player,battle.eneChar.dice_Indi.transform,1,0);
+
         battle.bm.CardLog("PowerDown",card,battle.eneChar);
     }
 }

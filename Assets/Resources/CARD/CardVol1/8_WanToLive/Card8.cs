@@ -37,7 +37,7 @@ public class Card8 : CardAbility
         card.count += 1;
         if(card.count >= 2)
            { card.active = false;
-            card.effect[0].SetActive(false);}
+            card.effect[0].gameObject.SetActive(false);}
 
     }
 }

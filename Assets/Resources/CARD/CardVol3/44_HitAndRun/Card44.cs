@@ -10,6 +10,7 @@ public class Card44 : CardAbility
     {
         if(!battle.myChar.Equals(card.player)){return;}
         battle.damage.value = 0;
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,1,0);
         battle.bm.CardLog("NoDamage",card);
     }
 

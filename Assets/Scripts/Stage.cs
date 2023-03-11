@@ -11,7 +11,6 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public string title;
     public string sub_text;
     public int rank;
-    public string values;
     public Character[] characters = new Character[5];
     public StoryScript beforeStory;
     public StoryScript afterStory;

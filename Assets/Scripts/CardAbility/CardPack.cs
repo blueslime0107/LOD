@@ -22,7 +22,7 @@ public class CardPack : MonoBehaviour
 
     public List<CardAbility> card_reg = new List<CardAbility>();
     public List<CardPack> cardpack_reg = new List<CardPack>();
-    public List<GameObject> effect = new List<GameObject>();
+    public List<CardEffect> effect = new List<CardEffect>();
 
     public int card_id;
     public new string name;
@@ -53,25 +53,23 @@ public class CardPack : MonoBehaviour
         ability_message = ability.ability_message;
         // 이펙트를 현재 플레이어에 복사해둠
         foreach(GameObject effe in ability.effect){
-            CardEffect card_effect = effe.GetComponent<CardEffect>();
-            card_effect.battleManager = battleManager;
             Vector3 copyVec = effe.transform.position;
             Vector3 copyScale = effe.transform.localScale;
             GameObject card = Instantiate(effe); 
             card.SetActive(false);
+            CardEffect card_effect = card.GetComponent<CardEffect>();
+            card_effect.battleManager = battleManager;
             card.transform.SetParent(player.gameObject.transform);
             card.transform.localPosition = copyVec;
             card.transform.localScale = copyScale;
             // 오른쪽 팀이면 좌우반전
             if(player.gameObject.tag == "PlayerTeam2"){ 
                 card.transform.eulerAngles += Vector3.up*180f;  
-                //if(card_effect.onplayer){
                 Vector3 pre = card.transform.localPosition;
                 pre.x *= -1; 
                 card.transform.localPosition = pre;
-                //}
             }
-            effect.Add(card);
+            effect.Add(card_effect);
 
         }
         // 주사위끼리 선을 잇는게 있으면 카드 넣기

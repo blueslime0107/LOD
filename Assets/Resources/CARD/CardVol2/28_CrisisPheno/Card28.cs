@@ -15,7 +15,7 @@ public class Card28 : CardAbility
             
 
         }
-        card.effect[0].SetActive(true);
+        card.effect[0].gameObject.SetActive(true);
         if(card.count >= 4){
             player.AddHealth(-999);
             match.CardLog("Accident",card);

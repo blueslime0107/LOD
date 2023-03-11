@@ -38,7 +38,6 @@ public class BattleItem : MonoBehaviour
                 XmlNodeList cardXML = node.ChildNodes;
                 stage.title = cardXML[0].InnerText;
                 stage.sub_text = cardXML[1].InnerText;
-                stage.values = cardXML[2].InnerText;
                 break;
             }
         }
@@ -56,7 +55,6 @@ public class BattleItem : MonoBehaviour
             if(lobby.stageManager.player_battleCard.title.Equals("")){ // 제목이 없으면 원래의 플레이어 스테이지의 텍스트 가져오기
                 lobby.stageManager.player_battleCard.title = lobby.player.title;
                 lobby.stageManager.player_battleCard.sub_text = lobby.player.sub_text;
-                lobby.stageManager.player_battleCard.values = lobby.player.values;
             }
         }
         lobby.OpenBattleCard();

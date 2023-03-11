@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7435275211554942876, guid: 879231cff89508e46945b2ed8f625359, type: 3}
+  m_Sprite: {fileID: 11289246, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -91,11 +91,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1256692549704662188}
   rank_sprite:
-  - {fileID: -6107637972847802863, guid: 879231cff89508e46945b2ed8f625359, type: 3}
-  - {fileID: -2894509189613924136, guid: 879231cff89508e46945b2ed8f625359, type: 3}
-  - {fileID: 2400077389997988735, guid: 879231cff89508e46945b2ed8f625359, type: 3}
-  - {fileID: -7435275211554942876, guid: 879231cff89508e46945b2ed8f625359, type: 3}
-  - {fileID: -3624493972382909525, guid: 879231cff89508e46945b2ed8f625359, type: 3}
-  - {fileID: 507550691161019053, guid: 879231cff89508e46945b2ed8f625359, type: 3}
-  - {fileID: 5807347303825497272, guid: 879231cff89508e46945b2ed8f625359, type: 3}
+  - {fileID: 11289246, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 1618816578, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -1167627936, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -1618843911, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -704700483, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 2096342137, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -733030540, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 669200999, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -667895732, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -636247464, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -2101820565, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 1525846994, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
   rank: 0

@@ -11,9 +11,6 @@ public class BattleCardManager : MonoBehaviour
     [SerializeField] bool playerCard;
     [SerializeField] Lobby lobby;
     public Stage stage;
-    public TextMeshProUGUI title;
-    public TextMeshProUGUI sub_text;
-    public TextMeshProUGUI values;
     public List<CharItem> characters = new List<CharItem>();
 
     [SerializeField] Slider price_gague;
@@ -40,10 +37,6 @@ public class BattleCardManager : MonoBehaviour
         stage = (!playerCard) ? lobby.stage : lobby.stageManager.player_battleCard;
 
         stage.discovered = true;
-
-        title.text = stage.title;
-        sub_text.text = stage.sub_text;
-        values.text = stage.values;
 
         updatePriceGague();
 

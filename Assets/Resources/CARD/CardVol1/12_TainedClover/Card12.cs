@@ -22,6 +22,12 @@ public class Card12 : CardAbility
         }
         card.diceLink.gameObject.SetActive(true);
         card.active = true;
+        switch(card.count){
+            case 3: EffectPlayerSet(card.effect[0],card.player,match.transform); break;
+            case 2: EffectPlayerSet(card.effect[1],card.player,match.transform); break;
+            case 1: EffectPlayerSet(card.effect[2],card.player,match.transform); break;
+
+        }
         card.count -= 1;
     }
 

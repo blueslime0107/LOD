@@ -10,12 +10,9 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
     [SerializeField]bool debug;
     [SerializeField]Lobby lobby;
     [SerializeField]StageManager sm;
-    [SerializeField]int panel; 
+    [SerializeField]bool sub; 
 
     public List<Stage> stages = new List<Stage>();
-
-    public TextMeshProUGUI title;
-    public DiceIcon diceIcon;
     [SerializeField] GameObject alertObject;
 
     public bool newStageDetected;
@@ -29,27 +26,10 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
     }
 
     public void BattleLoading(){
-        Floor floor = new Floor();
+        Floor floor = lobby.curFloor;
         sm = FindObjectOfType<StageManager>();
-        switch(lobby.floorNum){
-            case 1:floor = sm.FloorOfBattle;break;
-            case 2:floor = sm.FloorOfResource; break;
-            case 3:floor = sm.FloorOfSocial; break;
-        }
-        switch(panel){
-            case 1: stages = floor.Stage1; 
-            title.text = floor.title1;
-            diceIcon.SetRank(floor.rank1);
-            break;     
 
-            case 2: stages = floor.Stage2;
-            title.text = floor.title2;
-            diceIcon.SetRank(floor.rank2); 
-            break;    
-
-            case 3: stages = floor.SubStage; 
-            break;    
-        }
+        stages = (sub) ? floor.SubStage : floor.Mainstage;
         RefreshDiscover();
         //floor.addedStage = false;
     }
@@ -62,7 +42,7 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
             newStageDetected = true;
             alertObject.SetActive(newStageDetected);
         }
-        if(panel == 3){return;}
+        if(sub){return;}
             lobby.RefreshDiscover();
         
     }
@@ -70,14 +50,13 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
     // 눌렀을때 전투가 로딩되있는 창을 띄운다
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
-        if(panel.Equals(3)){ // 서브스테이지 그룹이라면 바로 띄우기
+        if(sub){ // 서브스테이지 그룹이라면 바로 띄우기
             lobby.OpenSubMenu();
         }
         else{
-            lobby.OpenMainStageMenu();
+            lobby.OpenMainMenu();
         }
-        sm.floor = lobby.floorNum;
-        sm.panel = panel;
+        sm.floor = lobby.curFloor;
         RenderStage();
     }
 

@@ -177,14 +177,16 @@ public class GameManager : MonoBehaviour
             soundManager.Play(sm.play_stage.custom_BGM);
         }
         else{
-        switch(sm.floor){
-            case 1: backGrounds[1].SetActive(true); soundManager.Play("BattleFloor");
-            break;
-            case 2: backGrounds[0].SetActive(true); soundManager.Play("ResourceFloor");
-            break;
-            case 3: backGrounds[2].SetActive(true); 
-            break;
-        }
+            backGrounds[sm.Floors.IndexOf(sm.floor)].SetActive(true); soundManager.Play("BattleFloor");
+        // switch(sm.floor){
+
+        //     case 1: backGrounds[1].SetActive(true); soundManager.Play("BattleFloor");
+        //     break;
+        //     case 2: backGrounds[0].SetActive(true); soundManager.Play("ResourceFloor");
+        //     break;
+        //     case 3: backGrounds[2].SetActive(true); 
+        //     break;
+        // }
 
         }
 
@@ -199,9 +201,8 @@ public class GameManager : MonoBehaviour
     }
 
     public Vector3 SetVector3z(Vector3 pre_vec,float z){
-        Vector3 vec = pre_vec;
-        vec.z = z;
-        return vec;
+        pre_vec.Set(pre_vec.x,pre_vec.y,z);
+        return pre_vec;
 
     }
 

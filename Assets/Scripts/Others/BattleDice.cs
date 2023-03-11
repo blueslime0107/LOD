@@ -35,6 +35,7 @@ public class BattleDice : MonoBehaviour
     }
 
     IEnumerator Spining(){
+        render.sprite = dice_img[0];
         while(true){
             transform.Rotate(0,0,120*60*Time.deltaTime);
             yield return null;

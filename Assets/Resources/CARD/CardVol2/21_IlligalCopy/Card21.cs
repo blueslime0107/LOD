@@ -23,6 +23,7 @@ public class Card21 : CardAbility
             match.DestroyCard(card.saved_card,card.player);
             card.saved_card = null;
         }
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,-1);
         card.saved_card = match.GiveCard(selected_card.ability,card.player);
         card.saved_card.overCard = card.ability.overCard;
         card.active = true;

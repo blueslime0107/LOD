@@ -16,8 +16,8 @@ public class DebugButton : MonoBehaviour
 
     public void UnlockCharacter(){
         stageManager = FindObjectOfType<StageManager>();
-        stageManager.FloorOfBattle.PlayerStage.characters = floor1Player;
-        stageManager.FloorOfResource.PlayerStage.characters = floor2Player;
+        stageManager.Floors[0].PlayerStage.characters = floor1Player;
+        stageManager.Floors[2].PlayerStage.characters = floor2Player;
         stageManager.nogiveChar = true;
     }
 

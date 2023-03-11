@@ -320,6 +320,7 @@ public class BattleCaculate : MonoBehaviour
 
 
         foreach(Player player in bm.players){
+            player.StartCoroutine("GotoOrigin");
             if(player != myChar || player != eneChar){
                 player.dice_Indi.gameObject.SetActive(true);
                 player.hp_Indi.gameObject.SetActive(true);
@@ -329,8 +330,6 @@ public class BattleCaculate : MonoBehaviour
         }
         bm.ui.StartCoroutine("PanoraOff");
 
-        myChar.SetPointMove(myChar.originPoint, 15f);
-        eneChar.SetPointMove(eneChar.originPoint, 12f);
         gameManager.main_camera_ctrl.SetZeroMove(17f);
             
         # region battleVarReset
@@ -343,8 +342,17 @@ public class BattleCaculate : MonoBehaviour
         
         bm.target1 = null;
         bm.target2 = null;
-        myChar.transform.position = bm.gameManager.SetVector3z(myChar.transform.position,0);
-        eneChar.transform.position = bm.gameManager.SetVector3z(eneChar.transform.position,0);
+        // myChar.transform.position = bm.gameManager.SetVector3z(myChar.transform.position,0);
+        // eneChar.transform.position = bm.gameManager.SetVector3z(eneChar.transform.position,0);
+        foreach(Player player in bm.players){
+            if(player.dice > 0){
+                player.ChangeCondition(1);
+            }
+            else{
+                player.ChangeCondition(0);
+            }
+            player.transform.position = bm.gameManager.SetVector3z(player.transform.position,0);
+        }
 
         battleDice.gameObject.SetActive(false);
         # endregion
@@ -408,20 +416,18 @@ public class BattleCaculate : MonoBehaviour
         if(damage.value>0){
             defender.ChangeCondition(4);
             attacker.ChangeCondition(3);
-            if(attacker.transform.position.x - defender.transform.position.x <0){defender.transform.Translate(Vector3.right*damage.value/2);}
-            if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*damage.value/2);}
-
             defender.DamagedBy(damage,attacker,attacker.character.atk_sound);
+            // if(attacker.transform.position.x - defender.transform.position.x <0){defender.KnockBack(damage.value);}
+            // if(attacker.transform.position.x - defender.transform.position.x > 0){defender.KnockBack(-damage.value);}
+
             
         }
         if(damage.value.Equals(0)){
             defender.ChangeCondition(3);
             attacker.ChangeCondition(3);
 
-            if(attacker.transform.position.x - defender.transform.position.x <0){defender.transform.Translate(Vector3.right*0.4f);}
-            if(attacker.transform.position.x - defender.transform.position.x > 0){defender.transform.Translate(Vector3.left*0.4f);}
-            if(defender.transform.position.x - attacker.transform.position.x <0){attacker.transform.Translate(Vector3.right*0.4f);}
-            if(defender.transform.position.x - attacker.transform.position.x > 0){attacker.transform.Translate(Vector3.left*0.4f);}
+            // if(attacker.transform.position.x - defender.transform.position.x <0){defender.KnockBack(1);}
+            // if(attacker.transform.position.x - defender.transform.position.x > 0){defender.KnockBack(-1);}
             bm.sdm.Play("Pery");
         }
 

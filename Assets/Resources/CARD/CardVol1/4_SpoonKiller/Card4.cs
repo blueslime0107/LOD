@@ -7,7 +7,7 @@ public class Card4 : CardAbility
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
         EffectPlayerSet(card.effect[0],card.player,card.player.transform,0,-2);
-        card.effect[0].SetActive(true);
+        card.effect[0].gameObject.SetActive(true);
     }
 
 

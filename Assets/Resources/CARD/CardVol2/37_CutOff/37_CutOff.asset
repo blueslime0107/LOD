@@ -28,7 +28,8 @@ MonoBehaviour:
   usingCount: 1
   pre_count: 100
   overCard: {fileID: 0}
-  effect: []
+  effect:
+  - {fileID: 4835589429783939436, guid: e638995b6d8064a448a47c682a7821b4, type: 3}
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}

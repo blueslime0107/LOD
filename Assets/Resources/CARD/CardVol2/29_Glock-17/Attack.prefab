@@ -100,6 +100,8 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   moveFront: 0
   aliveTime: 1
-  fade_time: 0
+  fade_time: 1
+  movPoint: {x: 0, y: 0, z: 0}
+  movSpeed: 0
   imLineRenderer: 0
   stable: 0

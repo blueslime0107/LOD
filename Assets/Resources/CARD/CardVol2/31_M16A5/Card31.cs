@@ -28,7 +28,7 @@ public class Card31 : CardAbility
     {
         if(card.player.dice_Indi.dice_list[0].Equals(card.dice)){
             if(!card.player.farAtt)
-                card.effect[0].SetActive(true);
+                card.effect[0].gameObject.SetActive(true);
         }
         
     }

@@ -4951,7 +4951,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6823225385023782455
@@ -5032,12 +5032,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6538981637841017185, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
+  m_Sprite: {fileID: -712693582, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5061,7 +5061,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -5107,19 +5107,19 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   battleCaculate: {fileID: 0}
   dice_img:
-  - {fileID: 6538981637841017185, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -1080017200627940617, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -5489654673741192339, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 5721977497537484073, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -4369623747137673458, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 1100262140694979769, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -7921930585825272172, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 7618868732964734310, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 9164541512540886873, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 2637027324442559836, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -3261547322825952155, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: 2469554045090805892, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
-  - {fileID: -2015214774928076884, guid: 5b661044c80565543adbcdedbbe9b2bd, type: 3}
+  - {fileID: -712693582, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 11289246, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 1618816578, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -1167627936, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -1618843911, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -704700483, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 2096342137, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -733030540, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 669200999, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -667895732, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -636247464, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: -2101820565, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
+  - {fileID: 1525846994, guid: e949a4752c7c7ec4d95f3ac8c3f14d55, type: 3}
   isDiced: 0
   dice_value: 0
   onMouseDown: 0

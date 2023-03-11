@@ -12,7 +12,7 @@ public class DiceIcon : MonoBehaviour
     
     public void SetRank(int i){
         rank = i;
-        spriteRenderer.sprite = rank_sprite[i];
+        spriteRenderer.sprite = rank_sprite[i-1];
 
     }
 }

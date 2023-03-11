@@ -110,7 +110,12 @@ public class Player : MonoBehaviour
     
     }
 
+    bool goingOrigin = false;
+
     public IEnumerator GotoOrigin(){
+        goingOrigin = true;
+        StopCoroutine("KnockBackEnumerator");
+        StopCoroutine("GotoPoint");
         while(true)
         {if(transform.position == origin_pos){
             break;
@@ -124,9 +129,12 @@ public class Player : MonoBehaviour
         }
         yield return null;
         }
+        goingOrigin = false;
     }
     public IEnumerator GotoPoint(){
+        
         while(true){
+            if(goingOrigin){yield return null; break;}
             transform.position = Vector3.MoveTowards(transform.position,moveTarget,moveSpeed * Time.deltaTime);
             //transform.Translate(transform.position*Time.deltaTime);   // //////////002 목표로 이동하는것에는 속도에 델타타임을 곱해야 한다.//
             if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
@@ -161,7 +169,7 @@ public class Player : MonoBehaviour
     }
 
     public void DamagedBy(Damage damage, Player player,string atk_sound=""){
-        
+
         lastHit = player;
 
         if(atk_sound == ""){
@@ -183,9 +191,13 @@ public class Player : MonoBehaviour
             }
         }
 
+        ChangeCondition(4);
+        transform.position = battleManager.gameManager.SetVector3z(transform.position,-1); 
+        hp_Indi.gameObject.SetActive(true);
         battleManager.numberManager.IndicateDam(transform,damage.value);
         health -= damage.value;
         
+        KnockBack(damage.value*((player.transform.position.x > transform.position.x) ? -1:1));
 
         if(health > max_health){
             health = max_health;
@@ -310,7 +322,44 @@ public class Player : MonoBehaviour
         render.sprite = poses[num];
     }
 
+    public void KnockBack(float force){
+        Vector3 targetVec = transform.position + Vector3.right*force;
+        StartCoroutine(KnockBackEnumerator(targetVec));
+    }
 
+    public IEnumerator KnockBackEnumerator(Vector3 targetVec){
+        while (Vector3.Distance(transform.position,targetVec) > 0.01f)
+        {
+            if(goingOrigin){yield return null; break;}
+            transform.position = Vector3.MoveTowards(transform.position, targetVec, 50*Time.deltaTime);
+            
+            yield return null;
+        }
+        // int dir = direction;
+        // while(force > 0){
+        //     yield return null;
+        //     if(dir.Equals(1)){
+        //         if(transform.position.x > battleManager.borderX){
+        //             dir = - dir;
+        //             transform.position.Set(transform.position.x,battleManager.borderX,transform.position.z);
+        //             continue;
+        //         }
+        //         transform.Translate(Vector3.right*force);
+
+        //     }
+        //     if(dir.Equals(-1)){
+        //         if(transform.position.x < -battleManager.borderX){
+        //             dir = - dir;
+        //             transform.position.Set(transform.position.x,-battleManager.borderX,transform.position.z);
+        //             continue;
+        //         }
+        //         transform.Translate(Vector3.left*force);
+
+        //     }
+
+        //     force -= 50*Time.deltaTime;
+        // }
+    } 
         // if(gameObject.tag.Equals("PlayerTeam2")){
         //     battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;
         // }
@@ -363,21 +412,6 @@ public class Player : MonoBehaviour
                 break;
             }
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if(!battleManager.battleing){
-            if(collider.gameObject.name.Equals("WallLeft") || collider.gameObject.name.Equals("WallRight")){
-                StartCoroutine("GotoOrigin");
-            }
-        }
-        if(collider.gameObject.tag.Equals("LeftBorder")){
-            SetPointMove(transform.position+Vector3.right,15f);
-        }
-        if(collider.gameObject.tag.Equals("RightBorder")){
-            SetPointMove(transform.position+Vector3.left,15f);
-        }
-
     }
 
     public int TeamVector(bool reverse = false){

@@ -10,10 +10,12 @@ public class Card7 : CardAbility
         if(dead_player.team == match.OpposeTeam(card.player.team)){
             match.AddCardPoint(card.player.team);
             match.CardLog("GetCard",card,dead_player);
+            EffectPlayerSet(card.effect[0],dead_player,dead_player.transform,0,-0.5f);
         }
         else{
             card.active = true;
             match.CardLog("AddDice",card,dead_player);
+            EffectPlayerSet(card.effect[0],dead_player,dead_player.transform,0,-0.5f);
         }
         
     }

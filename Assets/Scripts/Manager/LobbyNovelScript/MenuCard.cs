@@ -11,7 +11,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]bool debug;
     StageManager sm;
-    [SerializeField]int panel;
+    [SerializeField]bool panel;
 
     [SerializeField]public Lobby lobby;
     [SerializeField]GameObject cardPrefap;
@@ -23,7 +23,9 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
     public bool cardSelecting;
     public Character selectingChar;
     public Stage selectingStage;
-    [SerializeField]GameObject playerCardPanel;
+
+    [SerializeField]public GameObject florrPanel;
+    [SerializeField]public GameObject playerCardPanel;
     [SerializeField]CardUI[] player_cards = new CardUI[7];
 
     public Slider priceGague;
@@ -43,12 +45,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData){        
         if(Input.GetMouseButtonDown(1)){return;}
-        if(panel.Equals(3)){
-            lobby.OpenCardMenu();
-        }
-        else{
-            lobby.OpenMainStageMenu();
-        }
+        lobby.OpenCardMenu();
         RenderCard();
     }
 
@@ -58,8 +55,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
         if(curLanguage.Equals(LocalizationSettings.SelectedLocale.name)){return;}
         curLanguage = LocalizationSettings.SelectedLocale.name;
         cards = sm.player_cardDic;
-        sm.floor = lobby.floorNum;
-        sm.panel = panel;
+        sm.floor = lobby.curFloor;
         if(cards.Count <= 0){return;}
         foreach(CardPanelCard item in objList){
             item.gameObject.SetActive(false);
@@ -91,10 +87,8 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             foreach(CardPanelCard item in objList){
             item.cardSelecting = true;
             }
-            priceGague.gameObject.SetActive(true);
-            price_text.gameObject.SetActive(true);
-            selfprice_text.gameObject.SetActive(true);
             playerCardPanel.SetActive(true);
+            florrPanel.SetActive(false);
             for(int i=0;i<selectingChar.char_preCards.Length;i++){
                 if(selectingChar.char_preCards[i] != null){
                     player_cards[i].card = selectingChar.char_preCards[i];
@@ -110,9 +104,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             foreach(CardPanelCard item in objList){
             item.cardSelecting = false;
             }
-            priceGague.gameObject.SetActive(false);
-            selfprice_text.gameObject.SetActive(false);
-            price_text.gameObject.SetActive(false);
+            florrPanel.SetActive(true);
             playerCardPanel.SetActive(false);
         }
     }

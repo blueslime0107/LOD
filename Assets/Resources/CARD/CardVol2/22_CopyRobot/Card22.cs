@@ -21,12 +21,15 @@ public class Card22 : CardAbility
         foreach(Player play in match.OpposeTeam(card.player.team).players){
             if(play.dice > bigNum){
                 bigNum = play.dice;
+                card.saved_player = play;
             }
         }
         card.player.SetDice(bigNum);
         if(bigNum >= 5){
             card.active = false;
         }
+        EffectPlayerSet(card.effect[0],card.player, card.player.dice_Indi.transform);
+        EffectPlayerSet(card.effect[1],card.saved_player, card.saved_player.dice_Indi.transform);
         match.CardLog("Copyed",card);
     }
 }
