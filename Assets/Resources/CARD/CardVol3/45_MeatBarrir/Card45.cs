@@ -10,6 +10,7 @@ public class Card45 : CardAbility
         if(card.active){return;}
         card.active = true;
         card.player.AddHealth(-2);
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,-0.5f,-0.8f);
         match.CardLog("Make Barrier",card);
     }
 
@@ -17,6 +18,7 @@ public class Card45 : CardAbility
     {
         if(!card.active){return;}
         damage.value = 0;
+        card.effect[0].gameObject.SetActive(false);
         card.active = false;
         match.CardLog("Barrier Broken",card);
     }

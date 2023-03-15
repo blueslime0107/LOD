@@ -24,7 +24,7 @@ public class AchiveManager : MonoBehaviour
 
     public void RenderAchieveText(){
         achieveText.text = "";
-        string newText = "";
+        //string newText = "";
         // foreach(AchieveMent achieve in stageManager.achiveItms){
         //     if(achieve.achieved && !reaminAchieved){continue;}
             

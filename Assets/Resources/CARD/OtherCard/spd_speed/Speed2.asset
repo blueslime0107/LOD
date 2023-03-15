@@ -23,7 +23,7 @@ MonoBehaviour:
   story_message: 
   tained: 1
   price: 0
-  illust: {fileID: 21300000, guid: 6e4da387422d26746b5dc689c2125163, type: 3}
+  illust: {fileID: 21300000, guid: 0f7913d7a77b8e343a366f9d580810fa, type: 3}
   usingCount: 1
   pre_count: 2
   overCard: {fileID: 0}
@@ -31,3 +31,4 @@ MonoBehaviour:
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

@@ -20,3 +20,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fb50ce7bfe1385448d0a30e181650da, type: 3}
   - {fileID: 21300000, guid: 03f72bb3c46306e418091591d9863a32, type: 3}
   farAtk: 0
+  atkEffect: {fileID: 8682707164717808036, guid: ff8045330f0408a49ba936f934353702, type: 3}
+  atkSound: 

@@ -12,7 +12,8 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public int card_num;
     public bool isLeft;
     public BattleManager battleManager;
-    RectTransform rect;
+    public RectTransform rect;
+    public bool highLighted;
     
     Material material;
     //MaterialPropertyBlock material_block;
@@ -27,11 +28,8 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField]TextMeshProUGUI countText;
 
 
-    Vector2 target_pos;
-    float target_spd;
 
     void Awake() {
-        rect = GetComponent<RectTransform>();
         material = Instantiate(card_light.GetComponent<Image>().material);
         card_light.GetComponent<Image>().material = material;
         block_img = block_obj.GetComponent<Image>();
@@ -78,28 +76,13 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     }
 
-     
-
-     IEnumerator lerpMove(){
-        while (true)
-        {rect.pivot = Vector2.Lerp(rect.pivot,target_pos,target_spd*Time.deltaTime);
-        if(Vector2.Distance(rect.pivot,target_pos) <= 0.1f){
-            rect.pivot=target_pos;
-            StopCoroutine("lerpMove");
-        }
-        yield return null;
-        }
-     }
-
      public void OnPointerEnter(PointerEventData eventData)
      {
         battleManager.sdm.Play("Paper2");
         battleManager.cardTouching = this;
-        if(battleManager.card_select_trigger) {StartCoroutine("ImSelectedCard");}
-        target_pos = new Vector2(0.5f,-0.5f);        
-        target_spd = 100;
-        StopCoroutine("lerpMove");
-        StartCoroutine("lerpMove");  
+
+        highLighted = true;
+
         CardExplain obj = (isLeft) ? battleManager.ui.leftCardEx : battleManager.ui.rightCardEx; 
         obj.updateCard(card.ability);    
         obj.gameObject.SetActive(true);
@@ -109,19 +92,16 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerExit(PointerEventData eventData)
      {
         battleManager.cardTouching = null;
-        StopCoroutine("ImSelectedCard");
-        StopCoroutine("lerpMove");
 
-        target_pos = new Vector2(0.5f,0.5f);  
-        target_spd = 100;
-        StartCoroutine("lerpMove");
-        //battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
+        highLighted = false;
+
         CardExplain obj = (isLeft) ? battleManager.ui.leftCardEx : battleManager.ui.rightCardEx;   
         obj.gameObject.SetActive(false);
      }
 
      public void OnPointerDown(PointerEventData eventData){
         if(!battleManager.cardActiveAble){return;}
+        battleManager.mouseTouchingCard = this;
         if(isLeft)
             battleManager.cardViewChar_left.cards[card_num].ability.CardActivate(battleManager.cardViewChar_left.cards[card_num], battleManager);
         else
@@ -137,30 +117,5 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
        // battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
      }
 
-     public IEnumerator CardActivated(){
-        rect.anchoredPosition += Vector2.up*45;
-        for(int i = 0;i<6;i++){
-            card_light.SetActive(!card_light.activeSelf);
-            yield return new WaitForSeconds(0.07f);
-        }
-        card_light.SetActive(true);
-        card.card_battleActive = false;
-        rect.anchoredPosition -= Vector2.up*45;
-     }
-
-    public IEnumerator ImSelectedCard(){
-        while(true)
-        {if(Input.GetMouseButtonUp(0)){
-            if(battleManager.card_select_trigger){
-            battleManager.SelectiedCard(card);
-            CardUpdate();
-            StopCoroutine("ImSelectedCard");
-            }
-            battleManager.card_select_trigger = false;
-            //battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
-        }
-        
-        yield return null;}
-    }
 
 }

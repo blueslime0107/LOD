@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Cards/속도카드", order = 165)]
 public class SpdCard : CardAbility
 {
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)

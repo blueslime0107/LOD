@@ -22,30 +22,23 @@ public class BattleLoad : MonoBehaviour, IPointerDownHandler
     }
 
     private void Start() {
-        BattleLoading();
-    }
-
-    public void BattleLoading(){
-        Floor floor = lobby.curFloor;
-        sm = FindObjectOfType<StageManager>();
-
-        stages = (sub) ? floor.SubStage : floor.Mainstage;
         RefreshDiscover();
-        //floor.addedStage = false;
     }
 
     public void RefreshDiscover(){
+        stages = (sub) ? lobby.curFloor.SubStage : lobby.curFloor.Mainstage;
         newStageDetected = false;
-        alertObject.SetActive(newStageDetected);
+
         foreach(Stage stage in stages){
-            if(stage.discovered){continue;}
+            if(!stage.discovered){
             newStageDetected = true;
-            alertObject.SetActive(newStageDetected);
+            break;
+            
+            }
         }
-        if(sub){return;}
-            lobby.RefreshDiscover();
+        alertObject.SetActive(newStageDetected);
         
-    }
+    }   
 
     // 눌렀을때 전투가 로딩되있는 창을 띄운다
     public void OnPointerDown(PointerEventData eventData){

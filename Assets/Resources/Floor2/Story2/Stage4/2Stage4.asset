@@ -19,7 +19,6 @@ MonoBehaviour:
   title: "\uD55C \uAD6C\uC11D\uC758 \uC5F0\uAD6C\uC18C"
   sub_text: "\uD559\uAD50\uC5D0 \uC774\uB7F0\uACF3\uC774 \uC788\uB2E4\uB2C8.."
   rank: 4
-  values: "\uADF8\uB098\uC800\uB098 \uC4F8\uB370\uC5C6\uC774 \uBCF5\uB3C4\uAC00 \uAE30\uB124"
   characters:
   - {fileID: 11400000, guid: 33d95d4ad4338f147b43913cec7d107b, type: 2}
   - {fileID: 11400000, guid: 33d95d4ad4338f147b43913cec7d107b, type: 2}
@@ -29,8 +28,8 @@ MonoBehaviour:
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 2
-    panel: 1
+  - floor: 3
+    sub: 0
     stage: {fileID: 11400000, guid: 187b3f8fa5d6cf54c9940e1d419fffef, type: 2}
   victoryed: 0
   avaliblePrice: 100
@@ -39,8 +38,10 @@ MonoBehaviour:
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: 6f3765178460a484e85f477eac035a9a, type: 2}
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 474350401857276866, guid: 2b1cbfb73e23410498a859864d3df733, type: 3}
   custom_BGM: RoboFloor1
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

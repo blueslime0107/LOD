@@ -16,10 +16,9 @@ MonoBehaviour:
   xmlFile_path:
   - {fileID: 4900000, guid: e21ba7f71ff43ee4583bb652f3b7dbca, type: 3}
   - {fileID: 4900000, guid: b6643cb3f3eefec4fbabf576186d0210, type: 3}
-  title: "\uD30C\uAD34\uC218\uCE58\uB97C \uC54C\uB824\uC8FC\uC9C0"
-  sub_text: "\uC774\uAC70 \uB05D\uB098\uBA74 \uBC11\uCE35\uC73C\uB85C \uB0B4\uB824\uAC00\uC0BC"
+  title: "\uC790 \uCE74\uB4DC\uB97C \uB4E4\uC5B4\uB77C!"
+  sub_text: "\uBE0C\uB808\uC774\uD06C \uC218\uCE58\uB3C4 \uC54C\uC544\uBCF4\uC790\uACE0"
   rank: 2
-  values: "\uAE30\uBCF8\uC801\uC784"
   characters:
   - {fileID: 11400000, guid: c7de5e058689caf45bcdac32eb3eb0f0, type: 2}
   - {fileID: 0}
@@ -30,7 +29,7 @@ MonoBehaviour:
   afterStory: {fileID: 0}
   priceStage:
   - floor: 1
-    panel: 1
+    sub: 0
     stage: {fileID: 11400000, guid: fb288f300df6f8e43bb1bfb7c58a6855, type: 2}
   victoryed: 0
   avaliblePrice: 100
@@ -39,8 +38,10 @@ MonoBehaviour:
   priceChars:
   - {fileID: 11400000, guid: fb0e83ed54f3b8948a0dbf7746d4025b, type: 2}
   priceCards: []
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 0
   tutorialLine: 2
   noBreakCards: 0
   noPrice: 0

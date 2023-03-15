@@ -19,7 +19,6 @@ MonoBehaviour:
   title: "\uC9C4\uC2EC\uC73C\uB85C \uC2F8\uC6B0\uC790!"
   sub_text: "\uC774\uC81C\uBD80\uD134 \uC2E4\uC804\uC774\uC57C"
   rank: 3
-  values: "\uD589\uC6B4\uC744 \uBE4C\uC5B4!"
   characters:
   - {fileID: 11400000, guid: f4007d7182a5a6945b5bf67689fc639b, type: 2}
   - {fileID: 11400000, guid: b1b05ddadbb63e34c98455f509041395, type: 2}
@@ -29,17 +28,17 @@ MonoBehaviour:
   beforeStory: {fileID: 11400000, guid: b2760a470e0a74e48b9cc1980bc7cc7f, type: 2}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 2
-    panel: 1
+  - floor: 3
+    sub: 0
     stage: {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
   - floor: 1
-    panel: 3
+    sub: 1
     stage: {fileID: 11400000, guid: 93bac3cc7fb911a4aa7b9e9714ce9f8f, type: 2}
   - floor: 1
-    panel: 3
+    sub: 1
     stage: {fileID: 11400000, guid: 1064ce319b93bcf42a4e51679ce95d57, type: 2}
   - floor: 1
-    panel: 1
+    sub: 0
     stage: {fileID: 11400000, guid: 2bfd88301993d2944898020148418054, type: 2}
   victoryed: 0
   avaliblePrice: 100

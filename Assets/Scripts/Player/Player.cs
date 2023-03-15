@@ -49,8 +49,13 @@ public class Player : MonoBehaviour
 
     Vector3 origin_pos;
 
+    public CardEffect atkEffect;
     public bool special_active;
     public SpecialAtk specialAtk;
+
+    public Animator deathMotion;
+
+    public bool THEEGO;
 
     void Awake()
     {   
@@ -96,19 +101,20 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(died){
-            fade -= Time.deltaTime/2;
-            if(fade <= 0f){
-                fade = 0f;
-                gameObject.SetActive(false);
-            }
-            material.SetFloat("_Fade",fade);
-            material.SetInt("_Noise",1);
-        }
+    // void Update()
+    // {
+    //     if(died){
+    //         fade -= Time.deltaTime/2;
+    //         if(fade <= 0f){
+    //             fade = 0f;
+    //             gameObject.SetActive(false);
+    //         }
+    //         material.SetFloat("_Fade",fade);
+    //         material.SetInt("_Noise",1);
+    //     }
     
-    }
+    // }
+
 
     bool goingOrigin = false;
 
@@ -116,6 +122,7 @@ public class Player : MonoBehaviour
         goingOrigin = true;
         StopCoroutine("KnockBackEnumerator");
         StopCoroutine("GotoPoint");
+        isMoving = false;
         while(true)
         {if(transform.position == origin_pos){
             break;
@@ -132,9 +139,12 @@ public class Player : MonoBehaviour
         goingOrigin = false;
     }
     public IEnumerator GotoPoint(){
-        
+        goingOrigin = false;
+        StopCoroutine("GotoOrigin");
+        isMoving = true;
         while(true){
             if(goingOrigin){yield return null; break;}
+            Debug.Log("moving");
             transform.position = Vector3.MoveTowards(transform.position,moveTarget,moveSpeed * Time.deltaTime);
             //transform.Translate(transform.position*Time.deltaTime);   // //////////002 목표로 이동하는것에는 속도에 델타타임을 곱해야 한다.//
             if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
@@ -143,6 +153,7 @@ public class Player : MonoBehaviour
             }
         yield return null;
         }
+        Debug.Log("end");
     }
     public void SetPointMove(Vector3 point, float spd){
         if(!gameObject.activeSelf){return;}
@@ -315,7 +326,22 @@ public class Player : MonoBehaviour
         }
         dice_com.cannot_roll = true;
         died = true;
+        
+        if(THEEGO){StartCoroutine(EGODeath());}
+        else{StartCoroutine(NormalDeath());}
         SetDice(0);
+    }
+
+    IEnumerator NormalDeath(){
+        deathMotion.SetBool("NormalDeath",true);
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator EGODeath(){
+        deathMotion.SetBool("EGODeath",true);
+        yield return new WaitForSeconds(4f);
+        gameObject.SetActive(false);
     }
 
     public void ChangeCondition(int num){
@@ -331,6 +357,9 @@ public class Player : MonoBehaviour
         while (Vector3.Distance(transform.position,targetVec) > 0.01f)
         {
             if(goingOrigin){yield return null; break;}
+            if(transform.position.x < -battleManager.borderX || transform.position.x > battleManager.borderX){
+                yield return null; break;
+            }
             transform.position = Vector3.MoveTowards(transform.position, targetVec, 50*Time.deltaTime);
             
             yield return null;
@@ -401,16 +430,6 @@ public class Player : MonoBehaviour
             battleManager.ui.rightCard_card = cards;
             battleManager.ui.CardFold("Right");
             battleManager.ui.showrightCard = true;
-        }
-    }
-
-    public void UpdateActiveStat(){
-        for(int i = 0;i<cards.Count;i++){
-            if(cards[i].card_battleActive){
-                List<Card_text> cardList = (gameObject.tag.Equals("PlayerTeam1")) ? battleManager.ui.leftCardIndi : battleManager.ui.rightCardIndi;
-                cardList[i].StartCoroutine("CardActivated");
-                break;
-            }
         }
     }
 

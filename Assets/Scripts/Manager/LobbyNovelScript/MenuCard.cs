@@ -45,6 +45,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData){        
         if(Input.GetMouseButtonDown(1)){return;}
+        if(cardSelecting){return;}
         lobby.OpenCardMenu();
         RenderCard();
     }

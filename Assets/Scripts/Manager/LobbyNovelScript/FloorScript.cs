@@ -18,15 +18,16 @@ public class FloorScript : MonoBehaviour
     [SerializeField] GameObject[] floorBg; 
     List<GameObject> floorBgObj = new List<GameObject>();
     public Floor curFloor;
-    [SerializeField] Lobby lobby;
+    public Lobby lobby;
 
     [SerializeField] int fl;
+    bool movingFloor = false;
     
 
     // 현재 층의 배경 로딩하기
     void Awake(){
         sm = FindObjectOfType<StageManager>();
-        curFloor = sm.Floors[0];
+        curFloor = sm.Floors[sm.preFloor];
         lobby.curFloor = curFloor;
         foreach(GameObject bg in floorBg){
             GameObject bgobj = Instantiate(bg);
@@ -34,24 +35,27 @@ public class FloorScript : MonoBehaviour
             bgobj.transform.SetParent(transform);
             floorBgObj.Add(bgobj);
         }
+        subPanelLoad.RefreshDiscover();
+        mainPanelLoad.RefreshDiscover();
         curBg = floorBgObj[sm.Floors.IndexOf(curFloor)];
         curBg.SetActive(true);
     }
 
     public void GoToFloor(int floorNum){
+        if(movingFloor){return;}
         if(floorNum == sm.Floors.IndexOf(curFloor)){return;}
+        movingFloor = true;
         int i = (floorNum > sm.Floors.IndexOf(curFloor) ? 1 :-1);
+        
         curFloor = sm.Floors[floorNum];
+        lobby.curFloor = curFloor;
+        sm.preFloor = floorNum;
         StartCoroutine(FloorMove(i));
         
     }
 
     public void RefreshStageCard(){
-        lobby.curFloor = curFloor;
         lobby.ReloadPlayerCard();
-        subPanelLoad.BattleLoading();
-        Debug.Log("mainpanel");
-        mainPanelLoad.BattleLoading();
     }
 
     // 층 움직이는 모션과 그 층에 맞는 스테이지 로딩
@@ -65,7 +69,9 @@ public class FloorScript : MonoBehaviour
         }
         transform.position = Vector3.up*fl*dir;
 
-        RefreshStageCard();
+        lobby.ReloadPlayerCard();
+        subPanelLoad.RefreshDiscover();
+        mainPanelLoad.RefreshDiscover();
         curBg.SetActive(false);
         transform.position = Vector3.down*fl*dir;
 
@@ -80,6 +86,7 @@ public class FloorScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         elevatorLeftDoor.MoveToOrigin();
         elevatorRightDoor.MoveToOrigin();
+        movingFloor = false;
         yield return null;
     }
 

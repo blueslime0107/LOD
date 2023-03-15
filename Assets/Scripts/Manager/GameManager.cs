@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
             leftPlayers[i-battleable].dice_Indi.lineRender = battleManager.lineRender;
             leftPlayers[i-battleable].gameObject.SetActive(true);
             Character chars = sm.player_battleCard.characters[i];
+            if(chars.char_sprites.atkEffect)
+            leftPlayers[i-battleable].atkEffect = SpawnEffect(chars.char_sprites.atkEffect,leftPlayers[i-battleable]);
             leftPlayers[i-battleable].character = chars;
             leftPlayers[i-battleable].health = chars.health;
             leftPlayers[i-battleable].max_health = chars.health;
@@ -143,9 +145,10 @@ public class GameManager : MonoBehaviour
                 rightPlayers[i-battleable].dice_Indi.battleManager = battleManager;
                 rightPlayers[i-battleable].dice_Indi.battleCaculate = battleManager.battleCaculate;
                 rightPlayers[i-battleable].dice_Indi.lineRender = battleManager.lineRender;
-
                 rightPlayers[i-battleable].gameObject.SetActive(true);
                 Character chars = sm.play_stage.characters[i];
+                if(chars.char_sprites.atkEffect)
+                rightPlayers[i-battleable].atkEffect = SpawnEffect(chars.char_sprites.atkEffect,rightPlayers[i-battleable]);
                 rightPlayers[i-battleable].character = chars;
                 rightPlayers[i-battleable].health = chars.health;
                 rightPlayers[i-battleable].max_health = chars.health;
@@ -174,20 +177,12 @@ public class GameManager : MonoBehaviour
         if(sm.play_stage.custom_stage){
             GameObject obj = Instantiate(sm.play_stage.custom_stage);
             obj.transform.SetParent(parent_back.transform,false);   
-            soundManager.Play(sm.play_stage.custom_BGM);
+            soundManager.PlayBGM(sm.play_stage.custom_BGM);
         }
         else{
-            backGrounds[sm.Floors.IndexOf(sm.floor)].SetActive(true); soundManager.Play("BattleFloor");
-        // switch(sm.floor){
-
-        //     case 1: backGrounds[1].SetActive(true); soundManager.Play("BattleFloor");
-        //     break;
-        //     case 2: backGrounds[0].SetActive(true); soundManager.Play("ResourceFloor");
-        //     break;
-        //     case 3: backGrounds[2].SetActive(true); 
-        //     break;
-        // }
-
+            GameObject obj = Instantiate(backGrounds[sm.preFloor]);
+            obj.transform.SetParent(parent_back.transform,false);   
+            soundManager.PlayBGM(sm.floor.battleBGM);
         }
 
 
@@ -204,6 +199,26 @@ public class GameManager : MonoBehaviour
         pre_vec.Set(pre_vec.x,pre_vec.y,z);
         return pre_vec;
 
+    }
+
+    public CardEffect SpawnEffect(GameObject effe,Player player){
+        Vector3 copyVec = effe.transform.position;
+        Vector3 copyScale = effe.transform.localScale;
+        GameObject card = Instantiate(effe); 
+        card.SetActive(false);
+        CardEffect card_effect = card.GetComponent<CardEffect>();
+        card_effect.battleManager = battleManager;
+        card.transform.SetParent(player.gameObject.transform);
+        card.transform.localPosition = copyVec;
+        card.transform.localScale = copyScale;
+        // 오른쪽 팀이면 좌우반전
+        if(player.gameObject.tag == "PlayerTeam2"){ 
+            card.transform.eulerAngles += Vector3.up*180f;  
+            Vector3 pre = card.transform.localPosition;
+            pre.x *= -1; 
+            card.transform.localPosition = pre;
+        }
+        return card_effect;
     }
 
     

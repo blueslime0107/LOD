@@ -13,13 +13,13 @@ public class St4Spec : StageEvent
     public override void WhenStageWin(StageManager sm)
     {
         bool trigger = false;
-        for(int i=0;i<sm.Floors[2].PlayerStage.characters.Length;i++){
+        for(int i=0;i<sm.PlayerStages[1].player_Characters.Length;i++){
             if(trigger){
-                sm.Floors[2].PlayerStage.characters[i-1] = sm.Floors[2].PlayerStage.characters[i];
-                sm.Floors[2].PlayerStage.characters[i] = null;
+                sm.PlayerStages[1].player_Characters[i-1] = sm.PlayerStages[1].player_Characters[i];
+                sm.PlayerStages[1].player_Characters[i] = null;
             }
-            if(sm.Floors[2].PlayerStage.characters[i] == char_var){
-                sm.Floors[2].PlayerStage.characters[i] = null;
+            if(sm.PlayerStages[1].player_Characters[i] == char_var){
+                sm.PlayerStages[1].player_Characters[i] = null;
                 trigger = true;
             }
         }

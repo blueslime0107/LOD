@@ -114,11 +114,13 @@ public class CardDraw : MonoBehaviour
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition); 
         if(battleManager.mouseTouchingPlayer){
-            battleManager.lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward);
+            battleManager.lineRender.SetEnd(battleManager.mouseTouchingPlayer.dice_Indi.transform.position,1);
+             battleManager.lineRender.SetStart(transform.position);
         } 
         else{
-        battleManager.lineRender.SetPosition(1, transform.position);
-        battleManager.lineRender.SetPosition(0, objPosition);
+        battleManager.lineRender.SetEnd(objPosition);
+        battleManager.lineRender.SetStart(transform.position);
+
 
         }
         // transform.position = objPosition;
@@ -139,11 +141,11 @@ public class CardDraw : MonoBehaviour
         battleManager.sdm.Play("Paper1");
         StartCoroutine("MoveSelect");
         ui.cardMessage.SetActive(false);
+        battleManager.lineRender.gameObject.SetActive(true);
     }
 
     private void OnMouseUp() { // 자신이 선택됬고 캐릭터를 정했을때 카드 줌
-        battleManager.lineRender.SetPosition(1, Vector3.zero);
-        battleManager.lineRender.SetPosition(0, Vector3.zero);
+        battleManager.lineRender.gameObject.SetActive(false);
         if(battleManager.mouseTouchingPlayer != null){
             if(battleManager.card_getting_team.Equals(battleManager.mouseTouchingPlayer.team) && battleManager.card_getting_team.carddraw > 0){
                 battleManager.GiveCard(having_card,battleManager.mouseTouchingPlayer);

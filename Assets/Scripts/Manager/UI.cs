@@ -33,8 +33,8 @@ public class UI : MonoBehaviour
     [HideInInspector]public bool showleftCard;
     [HideInInspector]public bool showrightCard;
 
-    [SerializeField] GameObject leftPanel;
-    [SerializeField] GameObject rightPanel;
+    [SerializeField] CardField leftPanel;
+    [SerializeField] CardField rightPanel;
 
     public List<Card_text> leftCardIndi = new List<Card_text>();
     public List<CardPack> leftCard_card = new List<CardPack>();
@@ -72,6 +72,7 @@ public class UI : MonoBehaviour
         List<Card_text> indi = (team.Equals("Left")) ? leftCardIndi : rightCardIndi;
         List<CardPack> card = (team.Equals("Left")) ? leftCard_card : rightCard_card;
 
+        CardField cardField = (team.Equals("Left")) ? leftPanel : rightPanel;
         // for(int i =0; i<indi.Count;i++){
         //     indi[i].gameObject.SetActive(false); 
         // }
@@ -80,7 +81,8 @@ public class UI : MonoBehaviour
         for(int i =0; i<card.Count;i++){
             if(i.Equals(indi.Count)){
                 Card_text obj = Instantiate(cardObject).GetComponent<Card_text>();
-                obj.transform.SetParent((team.Equals("Left")) ? leftPanel.transform : rightPanel.transform,false);   
+                obj.transform.SetParent(cardField.transform,false);   
+                cardField.origincards.Add(obj);
                 obj.battleManager = bm;  
                 obj.card_num = i;   
                 obj.isLeft = (team.Equals("Left")) ? true : false;
@@ -115,8 +117,8 @@ public class UI : MonoBehaviour
     }
 
     public void VisualCardPanel(bool active){
-        leftPanel.SetActive(active);
-        rightPanel.SetActive(active);
+        leftPanel.gameObject.SetActive(active);
+        rightPanel.gameObject.SetActive(active);
     }
 
     public void CardReload(string team=""){

@@ -19,7 +19,6 @@ MonoBehaviour:
   title: "\uB108\uB3C4 \uCE74\uB4DC \uCC3E\uC73C\uB7EC \uC654\uB2C8?"
   sub_text: "\uC88B\uC740 \uC5F0\uAD6C \uC790\uB8CC\uB97C \uCC3E\uB294\uC911..."
   rank: 4
-  values: "\uB300\uCCB4 \uBB34\uC2A8 \uBB3C\uC57D\uC774\uC57C"
   characters:
   - {fileID: 11400000, guid: 1fcffd8ecde80f94b8a983352f1a8c25, type: 2}
   - {fileID: 11400000, guid: e687e7323b19d4a489eda0fa6fba304c, type: 2}
@@ -29,11 +28,11 @@ MonoBehaviour:
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 2
-    panel: 2
+  - floor: 4
+    sub: 0
     stage: {fileID: 11400000, guid: c1bd932bdc87ec7498dc9ae175566827, type: 2}
-  - floor: 2
-    panel: 3
+  - floor: 4
+    sub: 0
     stage: {fileID: 11400000, guid: 89a209fb88234ca429e2d686de77b2bc, type: 2}
   victoryed: 0
   avaliblePrice: 100

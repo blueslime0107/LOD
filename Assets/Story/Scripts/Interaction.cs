@@ -21,7 +21,7 @@ public class Interaction : MonoBehaviour
 
     Color disAbleColor = new Color(125/255f,125/255f,125/255f);
     private void Start() {
-        dataBase.sound.Play("Dialog1");    
+        dataBase.sound.PlayBGM("Dialog1");    
     }
 
     public void showCommand(string name, float pos, int flip, float preY){

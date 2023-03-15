@@ -207,62 +207,6 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
-  - name: BattleFloor
-    clip: {fileID: 8300000, guid: 4e82aac26e5d68e48b1da206693d7920, type: 3}
-    volume: 0.256
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: ResourceFloor
-    clip: {fileID: 8300000, guid: 84313fa892212884e90abf20ef471d5c, type: 3}
-    volume: 0.705
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: Dialog1
-    clip: {fileID: 8300000, guid: b7755dad13c3f3d459181c8d5fdba890, type: 3}
-    volume: 0.705
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: RoboFloor1
-    clip: {fileID: 8300000, guid: 6d1666753b8a1b8418aca96d36695b9e, type: 3}
-    volume: 0.887
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: RoboFloor2
-    clip: {fileID: 8300000, guid: c8d0e996872d3ba419a1d14547a4a67d, type: 3}
-    volume: 0.902
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: Lobby
-    clip: {fileID: 8300000, guid: 709d867cc26c2c24d8f60a03ea973b41, type: 3}
-    volume: 0.482
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: DayGrass
-    clip: {fileID: 8300000, guid: c26f7b54bd60226419181de63d83d370, type: 3}
-    volume: 0.433
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: NightGrass
-    clip: {fileID: 8300000, guid: e8a7314fb3a5f184d90eb85330b0ea41, type: 3}
-    volume: 0.433
-    group: 1
-    loop: 1
-    source: {fileID: 0}
-    reverb: {fileID: 0}
   - name: Pumble
     clip: {fileID: 8300000, guid: 3cecca1d1258caa4bac7ba8c3820f653, type: 3}
     volume: 1
@@ -317,6 +261,91 @@ MonoBehaviour:
     volume: 1
     group: 0
     loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  musics:
+  - name: BattleFloor
+    clip: {fileID: 8300000, guid: 4e82aac26e5d68e48b1da206693d7920, type: 3}
+    volume: 0.256
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: ResourceFloor
+    clip: {fileID: 8300000, guid: fdc052397ce5a0b459772e9e210f8b89, type: 3}
+    volume: 0.705
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: RoboFloor1
+    clip: {fileID: 8300000, guid: 6d1666753b8a1b8418aca96d36695b9e, type: 3}
+    volume: 0.887
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: RoboFloor2
+    clip: {fileID: 8300000, guid: c8d0e996872d3ba419a1d14547a4a67d, type: 3}
+    volume: 0.902
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Dialog1
+    clip: {fileID: 8300000, guid: b7755dad13c3f3d459181c8d5fdba890, type: 3}
+    volume: 0.705
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: DayGrass
+    clip: {fileID: 8300000, guid: fb8868302ce003544bdb68cf23c54849, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: EveningGrass
+    clip: {fileID: 8300000, guid: eb2e7f1f54ea3a34797856dbf72b3921, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: NightGrass
+    clip: {fileID: 8300000, guid: e8a7314fb3a5f184d90eb85330b0ea41, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Library1
+    clip: {fileID: 8300000, guid: f4e5de05424d0414dbcbb5a744d0b7d4, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Library2
+    clip: {fileID: 8300000, guid: 65006cb1538e19848b643d108c6c887c, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Prison1
+    clip: {fileID: 8300000, guid: 31f3c8bf1c557fa4e9161c28bf678fcf, type: 3}
+    volume: 0.433
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Lobby
+    clip: {fileID: 8300000, guid: 709d867cc26c2c24d8f60a03ea973b41, type: 3}
+    volume: 0.482
+    group: 1
+    loop: 1
     source: {fileID: 0}
     reverb: {fileID: 0}
   mixer:

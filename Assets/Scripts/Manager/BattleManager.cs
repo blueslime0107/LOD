@@ -12,8 +12,8 @@ public class BattleManager : MonoBehaviour
     //public BattleAI Left_battleAI;
     public new CameraCtrl camera;
     public BackGround backGround;
-    public LineRenderer lineRender;
-    public LineRenderer cardlineRender;
+    public BezierCurve lineRender;
+    public BezierCurve cardlineRender;
     public UI ui;
     [HideInInspector]public List<Dice> dices = new List<Dice>();
     [HideInInspector]public List<Dice_Indi> dice_indis = new List<Dice_Indi>();
@@ -57,6 +57,7 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]public Player target1;
     [HideInInspector]public Player target2;
     public Player mouseTouchingPlayer;
+    public Card_text mouseTouchingCard;
 
     [HideInInspector]public bool battleing;
 
@@ -68,8 +69,6 @@ public class BattleManager : MonoBehaviour
 
     [Space(10f), Header("Turn")]
     public Team first_turn; // 전투시작시 처음 주사위,전투를 할지 결정
-    //[HideInInspector]public bool right_turn;
-    //[HideInInspector]public bool left_turn;
 
     float gague_time;
     public float left_gague_max;
@@ -116,7 +115,7 @@ public class BattleManager : MonoBehaviour
             }
             # region 전투끝/카드뽑기
             cardActiveAble = false;
-            StartCoroutine("selectingCard");
+            // StartCoroutine("selectingCard");
             sdm.Play("LowBack");
             PlayerGoToOrigin();
             
@@ -366,8 +365,7 @@ public class BattleManager : MonoBehaviour
                     if(target2 == null){
                         target1 = null;
                     }
-                    lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
-                    lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
+                    lineRender.gameObject.SetActive(false);
 
                 }
                 
@@ -593,44 +591,57 @@ public class BattleManager : MonoBehaviour
         if(!cardActiveAble){return;}
         card_selecting = card;
         card_select_trigger = true;
-        cardlineRender.SetPosition(0, camera.camer.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward);
-        cardlineRender.gameObject.SetActive(true);
+        StartCoroutine(selectingCard());
     }
 
     public void SelectingPlayer(CardPack card){
         if(!cardActiveAble){return;}
         card_selecting = card;
-        cardlineRender.SetPosition(0, camera.camer.ScreenToWorldPoint(Input.mousePosition)+Vector3.forward);
-        cardlineRender.gameObject.SetActive(true);
-        StartCoroutine("selectingplayer");
+        StartCoroutine(selectingplayer());
     }
 
     IEnumerator selectingplayer(){
-        while(!Input.GetMouseButtonUp(0)){yield return null;}
-        try
-        {card_selecting.ability.PlayerSelected(card_selecting,mouseTouchingPlayer,this);
+        cardlineRender.gameObject.SetActive(true);
+        while(!Input.GetMouseButtonUp(0)){
+            cardlineRender.SetStart(mouseTouchingCard.transform.position,1);
+            if(mouseTouchingPlayer){
+                cardlineRender.SetEnd(mouseTouchingPlayer.dice_Indi.transform.position,1);
+            }
+            else{
+                cardlineRender.SetEnd(camera.camer.ScreenToWorldPoint(Input.mousePosition),1);
+            }
+            yield return null;      
+        }
+        if(mouseTouchingPlayer == null){yield break;}
+        card_selecting.ability.PlayerSelected(card_selecting,mouseTouchingPlayer,this);
         card_selecting = null;
         cardlineRender.gameObject.SetActive(false);
-        }
-        catch{
-
-        }
         yield return null;
     }
 
     IEnumerator selectingCard(){
-        ui.VisualCardPanel(false);
-        ui.battleStartButton_posing.MoveToMove();
-        while(true){
-            if(Input.GetMouseButtonDown(0)){
-                ui.VisualCardPanel(true);
-            }
-            if(Input.GetMouseButtonUp(0)){
-                ui.VisualCardPanel(false);
+        cardlineRender.gameObject.SetActive(true);
+        while(!Input.GetMouseButtonUp(0)){
+            if(mouseTouchingCard)
+            cardlineRender.SetStart(mouseTouchingCard.transform.position,1);
+            if(cardTouching){
+                if(cardTouching != mouseTouchingCard)
+                cardlineRender.SetEnd(cardTouching.transform.position,1);
+                else
+                cardlineRender.SetEnd(camera.camer.ScreenToWorldPoint(Input.mousePosition),1);
+
 
             }
-            yield return null;
+            else{
+                cardlineRender.SetEnd(camera.camer.ScreenToWorldPoint(Input.mousePosition),1);
+            }
+            yield return null;      
         }
+        if(cardTouching == null){yield break;}
+        card_selecting.ability.CardSelected(card_selecting,cardTouching.card,this);
+        card_selecting = null;
+        cardlineRender.gameObject.SetActive(false);
+        yield return null;
     }
 
     public void SelectiedCard(CardPack card){

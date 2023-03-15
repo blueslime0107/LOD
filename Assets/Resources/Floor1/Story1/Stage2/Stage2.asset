@@ -19,7 +19,6 @@ MonoBehaviour:
   title: "\uC774\uC820 \uB458\uC774\uB2E4!"
   sub_text: "\uADF8\uB807\uB2E4\uACE0 \uC5B4\uB835\uC9C4 \uC54A\uC544!"
   rank: 1
-  values: "\uB108 \uCE5C\uAD6C\uC788\uC5C8\uB2C8?"
   characters:
   - {fileID: 11400000, guid: 78169978da6f6644dae807de1adb2f3c, type: 2}
   - {fileID: 11400000, guid: 6f5969f4abd234b4e87830e27712c28b, type: 2}
@@ -30,7 +29,7 @@ MonoBehaviour:
   afterStory: {fileID: 0}
   priceStage:
   - floor: 1
-    panel: 1
+    sub: 0
     stage: {fileID: 11400000, guid: 6603b3e5197401841b57ddf7fe523355, type: 2}
   victoryed: 0
   avaliblePrice: 100
@@ -38,8 +37,10 @@ MonoBehaviour:
   playerStageLock: {fileID: 0}
   priceChars: []
   priceCards: []
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 1
   noPrice: 0

@@ -20,7 +20,7 @@ public class Dice_Indi : MonoBehaviour
     public SpriteRenderer render;
     public SpriteRenderer sub_render;
     public Player player;
-    public LineRenderer lineRender;
+    public BezierCurve lineRender;
     public GameObject sub_dice;
     public List<Dice> dice_list= new List<Dice>();
     void Awake() {
@@ -159,19 +159,19 @@ public class Dice_Indi : MonoBehaviour
     void OnMouseDrag() { // 마우스 
         if(battleManager.cardActiveAble){       
             if(!battleManager.cur_team.players.Contains(player)) return; 
-            lineRender.SetPosition(1, saved_pos+Vector3.forward);
+            if(!lineRender.gameObject.activeSelf){lineRender.gameObject.SetActive(true);}
+            lineRender.SetStart(saved_pos,1);
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 9f);        
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);  
             objPosition += Vector3.forward;  
-            lineRender.SetPosition(0, objPosition+Vector3.forward);  
+            lineRender.SetEnd(objPosition,1);
         }
           
     }
 //render.color = new Color(0,0,0,206);
     void OnMouseUp() {
         onMouseDown = false;
-        lineRender.SetPosition(1, Vector3.zero+Vector3.forward);
-        lineRender.SetPosition(0, Vector3.zero+Vector3.forward); 
+        lineRender.gameObject.SetActive(false);
              
     }
     
@@ -210,7 +210,7 @@ public class Dice_Indi : MonoBehaviour
 
     void OnMouseOver() {
         if(battleManager.target1 != null && !battleManager.battleing){
-            lineRender.SetPosition(0, battleManager.mouseTouchingPlayer.dice_Indi.transform.position+Vector3.forward);
+            lineRender.SetEnd(battleManager.mouseTouchingPlayer.dice_Indi.transform.position,1);
         }
     }
 

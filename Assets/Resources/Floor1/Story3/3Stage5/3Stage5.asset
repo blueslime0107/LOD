@@ -19,7 +19,6 @@ MonoBehaviour:
   title: "\uD655\uB960\uC5D0 \uBBF8\uCE5C \uB9C8\uBC95\uC0AC"
   sub_text: "\uAC15\uD654\uD574\uC904\uAE4C?"
   rank: 5
-  values: "\uAC15\uD574\uC9C8 \uC218 \uC788\uC5B4!"
   characters:
   - {fileID: 11400000, guid: 76738337f4d28c74da00e11d4ebfbde6, type: 2}
   - {fileID: 11400000, guid: 3d0b8bc07a75a5542943448d15777118, type: 2}
@@ -29,8 +28,8 @@ MonoBehaviour:
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 1
-    panel: 2
+  - floor: 2
+    sub: 0
     stage: {fileID: 11400000, guid: 0ca2924821b545e4283082d4c5b509a3, type: 2}
   victoryed: 0
   avaliblePrice: 100
@@ -39,8 +38,10 @@ MonoBehaviour:
   priceChars: []
   priceCards:
   - {fileID: 11400000, guid: b92b930350288d0469d9f326582d8937, type: 2}
+  stageEvent: {fileID: 0}
   custom_stage: {fileID: 478196262192403701, guid: ec393abb3dd41024bbd68893b3d2b0e5, type: 3}
-  custom_BGM: DayGrass
+  custom_BGM: EveningGrass
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0

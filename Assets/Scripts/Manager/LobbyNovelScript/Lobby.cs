@@ -56,6 +56,8 @@ public class Lobby : MonoBehaviour
     public MenuItem elevatorLeft;
     public MenuItem elevatorRight;
 
+    [SerializeField] ElevatorButton[] elevatorButtons;
+
     void Awake(){
         stageManager = FindObjectOfType<StageManager>();
         pc = FindObjectOfType<ProperContainer>();
@@ -70,10 +72,12 @@ public class Lobby : MonoBehaviour
             stageManager.AddCardDic(stageManager.collected_card);
             stageManager.collected_card.Clear();
         }
-        sdm.Play("Lobby");
+        sdm.PlayBGM("Lobby");
     }
     public void ReloadPlayerCard(){
-        player = curFloor.PlayerStage;
+        substageload.RefreshDiscover();
+        mainstageload.RefreshDiscover();
+        player = stageManager.PlayerStages[curFloor.playerSlot].PlayerStage;
     }
 
     public void Update(){
@@ -104,6 +108,7 @@ public class Lobby : MonoBehaviour
                     selectedbattleItem.alert.SetActive(false);
                     substageload.RefreshDiscover();
                     mainstageload.RefreshDiscover();
+                    elevatorButtons[stageManager.Floors.IndexOf(curFloor)].RefreshDiscover();
                     break;
                 case "cardMenu":
                 sdm.Play("Close");
@@ -118,9 +123,7 @@ public class Lobby : MonoBehaviour
                     menuCard.playerCardPanel.SetActive(false);
                     menuCard.florrPanel.SetActive(true);
                     elevatorLeft.MoveToMove();
-                    elevatorRight.MoveToMove();
-                    enemyCard.ActiveOpenClose();
-                    playerCard.ActiveOpenClose();  
+                    elevatorRight.MoveToMove(); 
                     BattleButton.ActiveOpenClose();   
                     card_table.ActiveOpenClose();
                     menuCard.cardSelecting = false;
@@ -176,8 +179,6 @@ public class Lobby : MonoBehaviour
         sdm.Play("CardDrawOpen");
         elevatorLeft.MoveToOrigin();
         elevatorRight.MoveToOrigin();
-        enemyCard.ActiveOpenClose();
-        playerCard.ActiveOpenClose();  
         BattleButton.ActiveOpenClose();   
         card_table.ActiveOpenClose();
         curMenu.Add("cardSelectMenu");
@@ -222,10 +223,6 @@ public class Lobby : MonoBehaviour
         else{
             sceneM.Move("Battle");
         }
-    }
-
-    public void RefreshDiscover(){
-        mainAlertObject.SetActive(mainstageload.newStageDetected);
     }
 
 }

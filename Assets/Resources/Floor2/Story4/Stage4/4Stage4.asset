@@ -19,7 +19,6 @@ MonoBehaviour:
   title: "\uC804\uD574\uCCAD\uC18C"
   sub_text: "\uC5B4\uC11C\uC640"
   rank: 4
-  values: "\uC774 \uB85C\uBD07\uB4E4 \uB2E4\uC2DC \uBCF4\uB124"
   characters:
   - {fileID: 11400000, guid: 64a64c68e8ad74d4faad19d76a675231, type: 2}
   - {fileID: 11400000, guid: ee04fce40c97ec7458499a7265b4ccfb, type: 2}
@@ -29,8 +28,8 @@ MonoBehaviour:
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   priceStage:
-  - floor: 2
-    panel: 2
+  - floor: 4
+    sub: 0
     stage: {fileID: 11400000, guid: b8938fed15438274092eeb70bf1e9e2b, type: 2}
   victoryed: 0
   avaliblePrice: 100
@@ -41,8 +40,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb90cf131995f164f8d30f6e1a7e5c19, type: 2}
   - {fileID: 11400000, guid: bd085e7e62f6f854284d7fee4044c6c9, type: 2}
   stageEvent: {fileID: 0}
-  custom_stage: {fileID: 0}
-  custom_BGM: 
+  custom_stage: {fileID: 8307976606493945225, guid: 52d10bf02407df549aa71d905f910fd2, type: 3}
+  custom_BGM: Library2
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0

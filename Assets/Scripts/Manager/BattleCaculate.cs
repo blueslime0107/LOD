@@ -86,7 +86,7 @@ public class BattleCaculate : MonoBehaviour
         while(coroutine_lock){yield return null;}
         coroutine_lock = true;
         StartCoroutine("MainAttack");
-        while(coroutine_lock){ yield return null;}
+        while(coroutine_lock){yield return null;}
         yield return new WaitForSeconds(afterBeforeTime); // 합이 끝나고 난 뒤의 딜레이
 
         StartCoroutine(MatchFin());
@@ -175,7 +175,7 @@ public class BattleCaculate : MonoBehaviour
                 gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
                 
                 while(eneChar.isMoving){
-                    yield return null;
+                     yield return null;
                 }
                 yield return new WaitForSeconds(battleFinTime);
                 }
@@ -195,9 +195,6 @@ public class BattleCaculate : MonoBehaviour
         //damage_dice = damage;
 
         if(damage.value == 0){ // 무승부
-            // while(card_activated){
-            //     yield return null;
-            // }
             bm.CardLogText("Draw","[Draw]","#969696");
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashDraw(my_ability[i],this,eneChar);
@@ -218,15 +215,6 @@ public class BattleCaculate : MonoBehaviour
             for(int i = 0; i<my_ability.Count;i++){
                 my_ability[i].ability.OnClashWin(my_ability[i],this, eneChar);
                 BasicDice();
-                if(my_ability.Count <= i){continue;}
-                if(my_ability[i].card_battleActive){
-                    myChar.UpdateActiveStat();
-                }
-                while(my_ability[i].card_battleActive){
-                    yield return null;
-                    
-                }
-                
             }
 
             // SPECIAL ATK
@@ -261,13 +249,6 @@ public class BattleCaculate : MonoBehaviour
             for(int i = 0; i<ene_ability.Count;i++){
                 ene_ability[i].ability.OnClashWin(ene_ability[i],this, myChar);
                 BasicDice();
-                if(ene_ability.Count <= i){continue;}
-                if(ene_ability[i].card_battleActive){
-                    eneChar.UpdateActiveStat();
-                }
-                while(ene_ability[i].card_battleActive){
-                    yield return null;
-                }
             }
 
             // SPECIAL ATK
@@ -309,11 +290,12 @@ public class BattleCaculate : MonoBehaviour
     IEnumerator MatchFin(){    
         if(myChar.health <= 0){
             myChar.YouAreDead();
-            yield return new WaitForSeconds(playerDeathTime);
+            while(myChar.gameObject.activeSelf){ Debug.Log("line");yield return null;}
         }
         if(eneChar.health <= 0){
             eneChar.YouAreDead();
-            yield return new WaitForSeconds(playerDeathTime);
+            while(eneChar.gameObject.activeSelf) {yield return null;}
+
         }
 
 
@@ -416,7 +398,7 @@ public class BattleCaculate : MonoBehaviour
         if(damage.value>0){
             defender.ChangeCondition(4);
             attacker.ChangeCondition(3);
-            defender.DamagedBy(damage,attacker,attacker.character.atk_sound);
+            defender.DamagedBy(damage,attacker,attacker.character.char_sprites.atkSound);
             // if(attacker.transform.position.x - defender.transform.position.x <0){defender.KnockBack(damage.value);}
             // if(attacker.transform.position.x - defender.transform.position.x > 0){defender.KnockBack(-damage.value);}
 
@@ -431,7 +413,7 @@ public class BattleCaculate : MonoBehaviour
             bm.sdm.Play("Pery");
         }
 
-        
+        if(attacker.atkEffect){AtkEffectAble(attacker,defender.transform,0,0);}
         attacker.AttackEffect(defender);
         coroutine_lock = false;
         yield return null;
@@ -446,5 +428,18 @@ public class BattleCaculate : MonoBehaviour
         damage.value += value;
         battleDice.DamageUpdate();
     }
+
+    public void AtkEffectAble(Player player, Transform tran, float x=0,float y=0){
+        player.atkEffect.gameObject.SetActive(true);
+        Debug.Log(player.gameObject.tag);
+        if(player.gameObject.tag == "PlayerTeam1"){
+            player.atkEffect.transform.eulerAngles = Vector3.zero;
+        }
+        else{
+            player.atkEffect.transform.eulerAngles = Vector3.up*180;
+        }
+        player.atkEffect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector() + Vector3.up*y*0.5f;
+    }
+
 
 }
