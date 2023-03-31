@@ -16,7 +16,7 @@ MonoBehaviour:
   breaks: 0400000000000000
   char_sprites: {fileID: 11400000, guid: 3ca0f5e212c1d12468549f476752f09a, type: 2}
   char_preCards:
-  - {fileID: 11400000, guid: ec4e66f8205d61a45a562d03d16370bb, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

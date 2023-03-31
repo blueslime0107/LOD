@@ -6,36 +6,39 @@ using UnityEngine;
 public class Stage: ScriptableObject, IResetOnExitPlay
 {  
    public int id;
-   public TextAsset[] xmlFile_path = new TextAsset[2];
+   public StageAddress stageAddress;
 
-    public string title;
-    public string sub_text;
+    [HideInInspector]public string title;
+
+    [Space(10),Header("----------Stage----------")]
     public int rank;
     public Character[] characters = new Character[5];
+
+    [Space(10),Header("----------Price----------")]
+    public List<Stage> priceStage;
+    public StagePlayerSave priceChars;
+    public List<CardAbility> priceCards;
+
+    [Space(10),Header("----------Story----------")]
     public StoryScript beforeStory;
     public StoryScript afterStory;
-    public List<AddStage> priceStage;
-    public bool victoryed = false;
-    public int avaliblePrice = 100;
+
+    
+    [HideInInspector]public bool victoryed = false;
+    [Space(10),Header("----------Limit----------")]
     public int charlimit = 5;
 
 
-    [Header("Advanced"), Space(15f)]
+    [Space(15f),Header("----------Special----------")]
     public Stage playerStageLock;
-    public List<Character> priceChars;
-    public List<CardAbility> priceCards;
-
-
-    [Header("Special"), Space(15f)]
-    public StageEvent stageEvent;
     public GameObject custom_stage;
     public string custom_BGM;
    public bool noEditChar;
 
-
     public int tutorialLine;
     public bool noBreakCards;
     public bool noPrice;
+    public bool noCardEquipBreak;
 
     [HideInInspector]public bool discovered;
 
@@ -60,6 +63,15 @@ public class Stage: ScriptableObject, IResetOnExitPlay
          }
       
       return newint;
+    }
+
+    public void AddCharacter(Character character){
+      for(int i =0;i<characters.Length;i++){
+         if(characters[i] == null){
+            characters[i] = character;
+            return;
+         }
+      }
     }
 
 

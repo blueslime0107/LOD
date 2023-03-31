@@ -133,7 +133,7 @@ public class CardDraw : MonoBehaviour
 
     void OnMouseEnter() {
         battleManager.sdm.Play("Paper2");
-        ui.CardMesage_Update(having_card.ability_message,having_card.story_message);
+        ui.CardMesage_Update(having_card.ability_message);
         mouseOn = true;
     }
 

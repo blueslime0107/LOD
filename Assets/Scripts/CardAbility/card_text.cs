@@ -5,6 +5,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class CardStyle{
+    public Sprite overIMG;
+    public Color32 textColor;
+}
+
 public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     public CardPrefap cardPrefap;
@@ -19,11 +25,10 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     //MaterialPropertyBlock material_block;
     //Image card_image;
     public CardPack card;
-    Sprite card_originOverImg;
 
     [SerializeField]GameObject card_light;
-    [SerializeField]GameObject block_obj;
-    Image block_img;
+    public Image block_img;
+    public TextMeshProUGUI cardTExt;
     [SerializeField]GameObject countObj;
     [SerializeField]TextMeshProUGUI countText;
 
@@ -32,26 +37,21 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     void Awake() {
         material = Instantiate(card_light.GetComponent<Image>().material);
         card_light.GetComponent<Image>().material = material;
-        block_img = block_obj.GetComponent<Image>();
     }
 
     public void CardUpdate(){
         countObj.SetActive(card.ability.usingCount);
         countText.text = card.count.ToString();
         //block_img.((card.ability.name.Equals("NULL")) ? true: false);
-        if(card.overCard != card_originOverImg){
-            Debug.Log("card.overCard");
-            if(card.overCard == null){
-                block_obj.SetActive(false); 
-                block_img.sprite = null;
-                card_originOverImg = null;
+        if(card.cardStyle != null){
+            block_img.gameObject.SetActive(true);
+            block_img.sprite = card.cardStyle.overIMG;
+            cardTExt.color = card.cardStyle.textColor;
             }
-            else{
-                block_obj.SetActive(true); 
-                block_img.sprite = card.overCard;
-                card_originOverImg = block_img.sprite;
-
-            }
+        else{
+            block_img.gameObject.SetActive(false);
+            block_img.sprite = null;
+            cardTExt.color = Color.black;
             }
         if(isLeft){
             try

@@ -47,7 +47,6 @@ public class SaveManager : MonoBehaviour
         }
         
         stageManager.LoadDataFromDB();
-        Debug.Log(stageManager.preFloor);
         fs.curFloor = stageManager.Floors[stageManager.preFloor];
         fs.RefreshStageCard();
     }

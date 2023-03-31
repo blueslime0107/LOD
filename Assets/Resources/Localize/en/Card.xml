@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="Card">
+    <Card Code="0">
+        <name>None`</name>
+        <text>Empty</text>
+        <ability>Has a infinite Energy</ability>
+    </Card>
+    <Card Code="1">
+        <name>Perfect Student</name>
+        <text>Should be perfect</text>
+        <ability>[Battle Ready] Gain Power+1 for each character with Power equal to yours.</ability>
+    </Card>
+    <Card Code="2">
+        <name>Parallel Worlds</name>
+        <text>Isn't this the world behind the scenes?</text>
+        <ability>[Character Select] Once per battle, change your character's Power to a fraction of Power-7.
+[Battle Start] If you did not select a character the effect is triggered on yourself.</ability>
+    </Card>
+    <Card Code="3">
+        <name>EYE CCTV</name> 
+        <text>How fun it is &#10;to watch from afar.</text>
+        <ability>[Whoever Damage] when 3 or more Damage occured, Health+2 for a time</ability>
+    </Card>
+    <Card Code="4">
+        <name>Spoon Killer</name>
+        <text>One ... and one</text>
+        <ability>[Clash Start] If your power is lower than your opponent's power.
+destroy your opponent's dice and set your power to 1</ability>.
+    </Card>
+    <Card Code="5">
+        <name>Counter-slasher</name>
+        <text>As if a dagger had a will</text>
+        <ability>[Damage] damage -1 or damage/2 against defenseless, deal damage to target opponent as much as the reduced damage</ability>
+    </Card>
+    <Card Code="6">
+        <name>Restligeist</name>
+        <text>Did you kill me?</text>
+        <ability>[Death] Give Grudge ([Battle Ready] count +2, take damage for that amount) 
+to the last character to attack you before you die.</ability>
+    </Card>
+    <Card Code="165">
+        <name>Grudge</name>
+        <text>I'll kill you...</text>
+        <ability>[Battle Ready] count +2, take damage for that amount</ability>
+    </Card>
+    <Card Code="7">
+        <name>Grave Robber</name>
+        <text>I'm sorry, but I'm going to have to use you</text>
+        <ability>[our team's Death] Gain 3-6 extra dice of power; [opponent's Death] gain a card</ability>
+    </Card>
+    <Card Code="8">
+        <name>Desire to live</name>
+        <text>To the last of your strength</text>
+        <ability>[Death] Survive with 1 Health, Power+4  and no damage for 1 turn</ability>
+    </Card>
+    <Card Code="9">
+        <name>Human Trafficking</name>
+        <text>Here... take this</text>
+        <ability>[Active]Reduces Health by 0-1, Power+1</ability>
+    </Card>
+    <Card Code="10">
+        <name>Solver Merchant</name>
+        <text>Here's a cure!&#10; Behind you? Never mind!</text>
+        <ability>[Get Card] Health+7
+[Battle Ready] Take 4 damage every 4 turns </ability>.
+    </Card>
+    <Card Code="11">
+        <name>Out-of-this-world Alchemy</name>
+        <text>For your pain...</text>
+        <ability>[Whoever Damage] Increases count, temporarily becomes 0 when count reaches 15 or more and gains a card</ability>
+    </Card>
+    <Card Code="12">
+        <name>Wilted Four Leaf Clover</name>
+        <text>The luck of this place is long dead</text>
+        <ability>[Active] Up to 3 times, when your power is 2 or less
+destroy the dice of opponent's characters with power 5 or higher.
+On the 3rd activation, the effect is applied to all characters.</ability>
+    </Card>
+    <Card Code="13">
+        <name>Reality Denial</name>
+        <text>No, that can't be right, I'll give you a second chance...</text>
+        <ability>[Clash Start] If your power is lower than your opponent's, reroll the dice;
+if you subsequently [Clash Win], recover Health equal to the damage dealt</ability>
+    </Card>
+    <Card Code="14">
+        <name>Mutual Assured Destruction</name>
+        <text>Let's see if you die or I die</text>
+        <ability>[Damage] Deal 1 damage to all opposing characters</ability>
+    </Card>
+    <Card Code="15">
+        <name>Bloodshot Memory</name>
+        <text>I wish I didn't have to relive those memories</text>
+        <ability>[Damage] Deals half the damage dealt to an opponent (up).</ability>
+    </Card>
+    <Card Code="16">
+        <name>Lethal Strike</name>
+        <text>The moment you let your guard down, you can't ignore what follows</text>
+        <ability>[Hit] Damage 2 or less Temporary Damage x2</ability>
+    </Card>
+    <Card Code="17">
+        <name>Nerve Control Drone</name>
+        <text>/Detect Violent Behavior/Trigger Evasive Maneuver</text>
+        <ability>[Damage] 2 or less temporarily reduced to 0</ability>
+    </Card>
+    <Card Code="18">
+        <name>Fair Blood Donor</name>
+        <text>This is really fair, isn't it?</text>  
+        <ability>[Active once] Adjusts the health of all surviving characters to average (raises) their health</ability>.
+    </Card>
+    <Card Code="19">
+        <name>Sportsmanship</name>
+        <text>Peevish! You can't do this! That's not sportsmanship!</text>
+        <ability>{Target all our teams}[Damage]Give a defenseless opponent a red card
+that prevents them from dealing damage for the next 1 turn</ability>.
+    </Card>
+    <Card Code="195">
+        <name>Red Card</name>
+        <text>Peevish! You can't do this! Be polite!</text>
+        <ability>[Hit] deals 0 damage, destroyed after 1 turn</ability>
+    </Card>
+    <Card Code="20">
+        <name>Organize bookshelves</name>
+        <text>Don't let these books get cluttered</text>
+        <ability>{additional card}[Death] You may pass all cards in your hand to another character</ability>.
+    </Card>
+    <Card Code="201">
+        <name>Pile of Books</name>
+        <text>Don't let these books get in the way</text>
+        <ability>[Get Card]Retrieves the cards of a character who has died</ability>.
+    </Card>
+    <Card Code="21">
+        <name>Illigal Copy</name>
+        <text>Provenance? Who needs that</text>
+        <ability>[Card Select] Choose one of your opponent's cards to gain an effect</ability>
+    </Card>
+    <Card Code="22">
+        <name>Action Copy Robot</name>
+        <text>It's just mimicking, not getting stronger</text>
+        <ability>[Battle Ready] Equals the power of your opponent's most powerful character.
+If it reaches 5 or more power, the effect will not activate next turn</ability>.
+    </Card>
+    <Card Code="23">
+        <name>File_Crashed</name>
+        <text>%!@%*!^*#@$%!</text>
+        <ability>[Battle Ready] Gain a random card effect</ability>
+    </Card>
+    <Card Code="24">
+        <name>Insurance</name>
+        <text>Sign up and you'll never regret it!</text>
+        <ability>[Our team Get Card] Health+4, and this card's effect is added to your team's next card draw</ability>.
+    </Card>
+    <Card Code="25">
+        <name>Mimic</name>
+        <text>Yummy card!</text>
+        <ability>When an opponent draws a card from the draw pile
+the character who gains the card has a chance to have the card destroyed and Health-4</ability>.
+    </Card>
+    <Card Code="26">
+        <name>Failed Meal</name>
+        <text>Failed... it's over</text>
+        <ability>[Card Select] Prevents the specified card from activating its effect</ability>
+    </Card>
+    <Card Code="27">
+        <name>Ravencall</name>
+        <text>Your card is here</text>
+        <ability>{Additional Card} You may draw previously discarded cards during your discard pile</ability>.
+    </Card>
+    <Card Code="271">
+        <name>Recall</name>
+        <text>Please play the next card</text>
+        <ability>Discards the current card and starts a new one</ability>
+    </Card>
+    <Card Code="28">
+        <name>Mythical Phenomenon</name>
+        <text>Fix it, fix it, fix it, nothing changed</text>
+        <ability>[Battle Ready] Health + 1 to 2, 
+If you exceed your maximum health, you lose half your maximum health</ability>.
+    </Card>
+    <Card Code="29">
+        <name>Glock-17</name>
+        <text>One more step...</text>
+        <ability>[Battle Ready] Gain Power 1 extra Dice</ability>
+    </Card>
+    <Card Code="30">
+        <name>Shotgun-1987.Ger</name>
+        <text>I don't know what's next, but let's give him a shot</text>
+        <ability>[Battle Ready] Increases power by 2-6, becomes power 2 next turn</ability>
+    </Card>
+    <Card Code="31">
+        <name>Assault Rifle-M16A5</name>
+        <text>Wouldn't it be a good idea to leave some ammo behind?</text>
+        <ability>[Clash Start] If your power is greater than your opponent's power, reduce your power to the opponent's power.
+and gain an extra die of power equal to the reduction</ability>.
+    </Card>
+    <Card Code="32">
+        <name>Baseball Bat</name>
+        <text>The gift is a full swing!</text>
+        <ability>[Clash Start] If your Power is equal to your opponent's Power, Power +3</ability>
+    </Card>
+    <Card Code="33">
+        <name>Excalibur X</name>
+        <text>I don't know who the Chosen One is, but this thing is scary strong</text>
+        <ability>[Clash Win] Power +2</ability>
+    </Card>
+    <Card Code="34">
+        <name>Aegis-I</name>
+        <text>Best Offense is Best Defense</text>
+        <ability>[Damage] damage -1 </ability>
+    </Card>
+    <Card Code="35">
+        <name>Pale Note-F</name>
+        <text>Eat this one up!</text>
+        <ability>[Clash Start][Attack] opponent power -2</ability>
+    </Card>
+    <Card Code="36">
+        <name>Mimic Eat!</name>
+        <text>Eat your fill!</text>
+        <ability>[Card Select] up to 3 times, the specified card is destroyed after 3 turns</ability>
+    </Card> 
+    <Card Code="37">
+        <name>Slicing Up</name>
+        <text>Cut it up, it's delicious</text>
+        <ability>[Active] power -1 , health+1  with chance.
+Decreases with each activation</ability>.
+    </Card>
+    <Card Code="38">
+        <name>Ray-Debug</name>
+        <text>Oh, you bug!</text>
+        <ability>[Get Card]One of your cards becomes a Bug Card (Effect Seal)&#10;[Card Select]The card becomes a Bug Card, temporarily recovers 5 Health, and is destroyed if it is not. 
+If you don't have a [Clash Win] Bug Card, you can give it to your opponent</ability>.
+    </Card>
+    <Card Code="39">
+        <name>D6</name>
+        <text>If you don't like it, change it!</text>
+        <ability>[Active]Replaces the cards in the card drawer with new ones</ability>
+    </Card>
+    <Card Code="40">
+        <name>SA Emergency Food</name>
+        <text>This snack is so delicious...generous portions and quality ingredients</text>
+        <ability>[Get Card] Max Health +5</ability>
+    </Card>
+    <Card Code="41">
+        <name>Taunt</name>
+        <text>You can't do that, can you?!</text>
+        <ability>[Character Select]If the specified character's power is higher than yours.
+the character cannot attack any other character except you for 1 turn.
+        </ability>
+    </Card>
+    <Card Code="42">
+        <name>Bookscavenger</name>
+        <text>Every book here once had a master</text>
+        <ability>[Death of any character] Take the first card from the dead character's hand.</ability>
+    </Card>
+    <Card Code="43">
+        <name>Security CCTV</name>
+        <text>Cards? What are you doing to the battle? I can't stand this</text>
+        <ability>Capture card regardless of team health-2 </ability>
+    </Card>
+    <Card Code="44">
+        <name>Deflect</name>
+        <text>Why don't you put that weapon away</text>
+        <ability>[Clash Lose][Attack] damage to 0</ability>
+    </Card>
+    <Card Code="45">
+        <name>Meat Shield</name>
+        <text>If you can live... eat this!</text>
+        <ability>[Active]-2 Health
+[Damage] inflicts 0 Damage once while activated</ability>
+    </Card>
+    <Card Code="46">
+        <name>Source Pirando</name>
+        <text>So sadly...</text>
+        <ability>[Damage] Restores Health to all teammates except you for half the damage dealt (raised)
+[Death] Health -4 to all teammates</ability>
+    </Card>
+    <Card Code="47">
+        <name>Vivace</name>
+        <text>So fast...</text>
+        <ability>[Clash Win] Increases damage by the number of cards your team has, excluding you, up to the number of cards you have.
+Every 2 turns, you can give a character 'Fast ([Active] Power+1 , destroyed)</ability>.
+    </Card>
+    <Card Code="471">
+        <name>Quickly</name>
+        <text>A quick sound</text>
+        <ability>[Active] power+1 , destroyed</ability>
+    </Card>
+    <Card Code="48">
+        <name>Furioso</name>
+        <text>Furiously...</text>
+        <ability>[Battle Ready] Gains a count every 2 turns, recovers the opponent's Health equal to the count (max 2), decreases Power. 
+[Defenseless][Damage] Resets count</ability>
+    </Card>
+    <Card Code="49">
+        <name>Peroche</name>
+        <text>Rough...</text>
+        <ability>[Battle Ready] Gain Power+1  for all your teams and increase your own Power by the amount of characters killed.
+[Clash Lose] Power-3  for all your teams for the next 1 turn, and this effect is active even if you lose</ability>.
+    </Card>
+    <Card Code="50">
+        <name>Lamentoso</name>
+        <text>Sadly...</text>
+        <ability>[Get Card] Gain 'Flute' for each character killed, [Any Death] Gain 'Flute'
+Flute ([Active] Change effects {[Hit] dealt 1 increased damage,
+[Damage] Decreases damage by 1} [End of Battle] effect is fixed)</ability>
+    </Card>
+    <Card Code="501">
+        <name>Flutter Tongue</name>
+        <text>Sadly...</text>
+        <ability>[Hit] Damage +1 [End of Battle] effect is fixed</ability>
+    </Card>
+    <Card Code="502"> <name>Vibrato</name>.
+        <name>Vibrato</name>
+        <text>Sadly...</text>
+        <ability>[Damage] Damage -1 [End of Battle] effect fixed</ability>
+    </Card>
+    <Card Code="61">
+        <name>jo rang gaho</name>
+        <text>Take it!!! Zhao Lang Ga Ho!!!</text>
+        <ability>[Clash Start]When your power is 2, power+6</ability>
+    </Card>
+    <Card Code="62">
+        <name>Wood Stick</name>
+        <text>Wow, this is hard</text>
+        <ability>[Clash Win]Power+1 , destroyed after 2 activations</ability>
+    </Card>
+    <Card Code="63">
+        <name>Glass Shield</name>
+        <text>This is the wrong material</text>
+        <ability>[Clash Lose] damage-2, [Damage] destroyed</ability>
+    </Card>
+    <Card Code="64">
+        <name>Newbie's Luck</name>
+        <text>Newbie's luck again</text>
+        <ability>[Battle Ready] Power +1 for all 3 or less members of your team every 2 turns</ability>
+    </Card>
+    <Card Code="65">
+        <name>Speed Pill</name>
+        <text>Tziat!</text>
+        <ability>[Active] Gain an extra die with a power of 1-6</ability>
+    </Card>
+    <Card Code="66">
+        <name>Air</name>
+        <text>Take a deep Breeeeeeeeth</text>
+        <ability>[Get Card]Health+3</ability>
+    </Card>
+    <Card Code="67">
+        <name>Mysterious Sword</name>
+        <text>What is this old sword?</text>
+        <ability>[Clash Win] Evolves into Excalibur on 3 Clash Wins</ability>
+    </Card>
+    <Card Code="68">
+        <name>Speedgate</name>
+        <text>Slow down your speed</text>
+        <ability>[Damage] Once per battle, if you take 4 or more damage
+deal 0 damage and unable for next battle once</ability>
+    </Card>
+    <Card Code="71">
+        <name>Warrior Sword</name>
+        <text>Take it!!!!!!</text>
+        <ability>[Clash Win] Power+2 , Destroyed when opponent dies </ability>
+    </Card>
+    <Card Code="72">
+        <name>Microphone Test</name>
+        <text>Sleep's song blah blah blah~</text>
+        <ability>[Active]Triggers one of the following effects.
+15% Dice Destruction to all except self; 15% Dice Destruction to self
+35% to all Power-2 ; 35% excluding Self Power-2 </ability>
+    </Card>
+    <Card Code="73">
+        <name>Uh...</name>
+        <text>You guessed it!</text>
+        <ability>[Clash Lose]A random other character takes clash damage.</ability>
+    </Card>
+    <Card Code="74">
+        <name>Draw</name>
+        <text>What to draw~</text>
+        <ability>[Battle Ready]Draw a scroll card of your choice</ability>
+    </Card>
+    <Card Code="75">
+        <name>I wonder if I could boost my stamina</name>?
+        <text>What will happen</text>
+        <ability>[Clash Start]Activates one of the following effects.
+15% to opponent's Max Health +5; 15% to opponent's Max Health -5 
+35% opponent Health -5; 35% opponent Health +5 </ability>
+    </Card>
+    <Card Code="76">
+        <name>Enhance your weapons!</name>
+        <text>What will happen</text>
+        <ability>[Clash Start]Activates one of the following effects.
+15% Destroy Self Dice; 15%  Self Power x2
+35% to your Power-3; 35% to your Power +3</ability>
+    </Card>
+    <Card Code="77">
+        <name>Can cards be enhanced?"</name>
+        <text>What will happen</text>
+        <ability>[Clash Start]Activates one of the following effects.
+15% Destroy one of your opponent's cards; 15% opponent's team get's a card.
+35% opponent's Break value -3 35% opponent's Break value +3 35%</ability>
+    </Card>
+    <Card Code="78">
+        <name>Fruit of the Potato Tree</name>
+        <text>Pick carefully</text>
+        <ability>Creates a potato cannon that deals total damage to all opponents every 3 turns.
+potato cannonballs that deal total damage to all opponents every 3 turns.</ability>
+    </Card>
+    <Card Code="79">
+        <name>Ganggang</name>
+        <text>This cat is intimidating</text>
+        <ability>[Damage] When an opponent's attack gains card removal
+your opponent gets to keep it.</ability>
+    </Card>
+    <Card Code="80">
+        <name>Excalibur of the Suns</name>
+        <text>Are you ready?</text>
+        <ability>[Clash Win] count increases, Power increases by the count.
+[Clash Lose] Decreases the count when taking damage over the count</ability>.
+    </Card>
+    <Card Code="81">
+        <name>Potato Biei Biei Im!!!!</name>
+        <text>Pooh-pooh</text>
+        <ability>[Clash Win] Deal 2x total damage to all opponents</ability>
+    </Card>
+    <Card Code="82">
+        <name>Wal Uwal Wararal</name>
+        <text>Sleepy Warat</text>
+        <ability>[Activate Once] Power of all characters except self - Self Power/2</ability>
+    </Card>
+    <Card Code="83">
+        <name>Potato Stick</name>
+        <text>Gather your strength!</text>
+        <ability>[Battle Ready] count up [Activate Once] Increases power by count</ability>
+    </Card>
+    <Card Code="84">
+        <name>Mimic wants a card!</name>
+        <text>Give me the card!</text>
+        <ability>[Clash Win]Activates every 2 turns, destroys opponent's card if they have a card, Power+3  if they don't</ability>
+    </Card>
+    <Card Code="85">
+        <name>Fair Death</name>
+        <text>Even if I die, the battle is fair!</text>
+        <ability>[Death]Adjusts the health of all characters except yourself to the average (raised)</ability>
+    </Card>
+    <Card Code="86">
+        <name>Sharp Dagger</name>
+        <text>I can see the wounds!</text>
+        <ability>[Hit]Causes an opponent to bleed (increases Damage by [Damage] count)</ability>
+    </Card>
+    <Card Code="87">
+        <name>Bleed</name>
+        <text>Bloody!</text>
+        <ability>[Damage] Increases damage by count</ability>
+    </Card>
+    <Card Code="368">
+        <name>Incapacitated</name>
+        <text>...</text>
+        <ability>[Battle Ready] Power becomes 0</ability>
+    </Card>
+    <Card Code="369">
+        <name>Speed</name>
+        <text>Time to be fast!</text>
+        <ability>[Battle Ready] Gain 1-6 extra Power dice equal to your count</ability>
+    </Card>
+    <Card Code="999">
+        <name>???</name>
+        <text>....</text>
+        <ability>Eroded</ability>
+    </Card>
+ 
+    
+</CardVol>

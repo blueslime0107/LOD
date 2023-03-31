@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Ash
   m_EditorClassIdentifier: 
-  health: 10
-  breaks: 00000000
+  health: 50
+  breaks: 280000001e000000140000000a00000000000000
   char_sprites: {fileID: 11400000, guid: 5bf8d1ced838ac942b28ff80b11678bc, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
@@ -22,6 +22,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
   - {fileID: 11400000, guid: 13c10371e29b09d42ae52c726f52d445, type: 2}
   - {fileID: 11400000, guid: c1e702011e0c03a45a34e87bcaac7581, type: 2}
-  - {fileID: 11400000, guid: 09be8f6bb1b2f4246963beaf2afa4556, type: 2}
-  atk_sound: 
+  - {fileID: 11400000, guid: 884e38cf4ee48fc48a05cde0a6992c36, type: 2}
+  - {fileID: 11400000, guid: 884e38cf4ee48fc48a05cde0a6992c36, type: 2}
+  - {fileID: 11400000, guid: ec4e66f8205d61a45a562d03d16370bb, type: 2}
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

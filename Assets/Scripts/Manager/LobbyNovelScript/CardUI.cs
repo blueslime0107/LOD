@@ -28,25 +28,9 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, 
     public void OnPointerDown(PointerEventData eventData){
         if(Input.GetMouseButtonDown(1)){return;}
         if(!cardSelecting){return;}
-        bool triggered = false;
         menuCard.lobby.sdm.Play("Paper1");
-        for(int i=0;i<menuCard.selectingChar.char_preCards.Length;i++){
-            if(triggered){
-                menuCard.selectingChar.char_preCards[i-1] = menuCard.selectingChar.char_preCards[i]; 
-            }
-            try
-            {if(menuCard.selectingChar.char_preCards[i].Equals(card)){
-                triggered = true;
-                menuCard.selectingChar.char_preCards[i] = null;
-            }}
-            catch{
-                triggered = true;
-                menuCard.selectingChar.char_preCards[i] = null;
-            }
-            
-            
-            
-        }
+        menuCard.selectingChar.char_preCards.Remove(card);
+        menuCard.NOTavalibleCard.Remove(card);
         menuCard.RenderSelectCard();
     }
 

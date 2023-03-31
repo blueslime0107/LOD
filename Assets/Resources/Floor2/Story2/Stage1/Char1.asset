@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Char1
   m_EditorClassIdentifier: 
-  health: 10
-  breaks: 0500000000000000
+  health: 20
+  breaks: 0c0000000500000000000000
   char_sprites: {fileID: 11400000, guid: 39c730357a353504e9e1720899604b23, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
+  - {fileID: 11400000, guid: 884e38cf4ee48fc48a05cde0a6992c36, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
+  battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

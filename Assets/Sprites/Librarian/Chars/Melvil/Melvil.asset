@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Melvil
   m_EditorClassIdentifier: 
-  name_: Melvil
+  id: 29
+  name_: "\uBA5C\uBE4C"
   poses:
   - {fileID: 21300000, guid: 08787df5776148541bf3e57c2d8beac8, type: 3}
   - {fileID: 21300000, guid: 1db683c1e1093e14fa1b661966e91655, type: 3}

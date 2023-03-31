@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: LadyBug
   m_EditorClassIdentifier: 
-  name_: LadyBug
+  id: 25
+  name_: "\uBC84\uADF8"
   poses:
   - {fileID: 21300000, guid: 57c2c33434108404f814498fbfb5c46f, type: 3}
   - {fileID: 21300000, guid: 543134a6700850d4583e2a698ba7576f, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d32962c4418b984b9297fd50fb69176, type: 3}
   - {fileID: 21300000, guid: b7cfa5a7c50c02d48b34e0a546201bc3, type: 3}
   farAtk: 0
+  atkEffect: {fileID: 0}
+  atkSound: 

@@ -18,8 +18,11 @@ public class BattleItem : MonoBehaviour
 
     // 랭크와 제목 로컬라이즈
     public void UpdateStat(){
-        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){ReadXML(stage.xmlFile_path[0]);}
-        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(stage.xmlFile_path[1]);}
+        string path = "Localize";
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){path += "/en";}
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){path += "/ko";}
+
+        ReadXML(path + "/Floor");
 
         diceIcon.SetRank(stage.rank);
         battle_title.text = stage.title;
@@ -27,8 +30,9 @@ public class BattleItem : MonoBehaviour
         alert.SetActive(!stage.discovered);
 
     }
-    private void ReadXML(TextAsset textAsset){
+    private void ReadXML(string filename){
         XmlDocument xmlDocument = new XmlDocument();
+        TextAsset textAsset = (TextAsset) Resources.Load(filename);  
         xmlDocument.LoadXml(textAsset.text);
 
 
@@ -37,7 +41,6 @@ public class BattleItem : MonoBehaviour
             if(node.Attributes[0].Value.Equals(stage.id.ToString())){
                 XmlNodeList cardXML = node.ChildNodes;
                 stage.title = cardXML[0].InnerText;
-                stage.sub_text = cardXML[1].InnerText;
                 break;
             }
         }
@@ -54,7 +57,6 @@ public class BattleItem : MonoBehaviour
             lobby.stageManager.player_battleCard = stage.playerStageLock;
             if(lobby.stageManager.player_battleCard.title.Equals("")){ // 제목이 없으면 원래의 플레이어 스테이지의 텍스트 가져오기
                 lobby.stageManager.player_battleCard.title = lobby.player.title;
-                lobby.stageManager.player_battleCard.sub_text = lobby.player.sub_text;
             }
         }
         lobby.OpenBattleCard();

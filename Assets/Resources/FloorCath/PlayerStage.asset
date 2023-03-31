@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: PlayerStage
+  m_EditorClassIdentifier: 
+  id: 10000
+  stageAddress:
+    floor: 0
+    sub: 0
+  title: "\uC751\uC560 \uC2E0\uC785"
+  rank: 0
+  characters:
+  - {fileID: 11400000, guid: 737d21340388e8c42b6d84e6d501434c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  priceStage: []
+  priceChars:
+    player_Characters_id: 0
+    player_cards: []
+  priceCards: []
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  victoryed: 0
+  charlimit: 5
+  playerStageLock: {fileID: 0}
+  stageEvent: {fileID: 0}
+  custom_stage: {fileID: 0}
+  custom_BGM: 
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  noCardEquipBreak: 1
+  discovered: 0

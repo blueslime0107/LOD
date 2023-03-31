@@ -12,16 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: MabbubSA
   m_EditorClassIdentifier: 
-  health: 15
+  health: 10
   breaks: 0b0000000600000005000000
   char_sprites: {fileID: 11400000, guid: c5fcb444ae45cc042bdc3eee33da7551, type: 2}
   char_preCards:
+  - {fileID: 11400000, guid: b92b930350288d0469d9f326582d8937, type: 2}
   - {fileID: 11400000, guid: 4945520d618b4af4e85d5b44e769bf42, type: 2}
-  - {fileID: 11400000, guid: 25d173fa0e5bd2f40a4874e6fa28e7de, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 4520184664288569651, guid: 6dda83c4de17b3440ae1212ce7858cb6, type: 3}
+  priceBonus: 40

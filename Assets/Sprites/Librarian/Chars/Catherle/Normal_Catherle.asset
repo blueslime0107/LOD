@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: Normal_Catherle
+  m_EditorClassIdentifier: 
+  id: 10
+  name_: 
+  poses:
+  - {fileID: 21300000, guid: c3a59a6916f145a4a91fc7d7a0231dba, type: 3}
+  - {fileID: 21300000, guid: 9f04da7dad093a04b998cdda9984930f, type: 3}
+  - {fileID: 21300000, guid: 23b06aa9a20bbb84c82dfde77ab920ae, type: 3}
+  - {fileID: 21300000, guid: 6efdd833a49dce34abc1aa1a7cde10cb, type: 3}
+  - {fileID: 21300000, guid: 52676ccef13418140897c53a0183bf57, type: 3}
+  farAtk: 0
+  atkEffect: {fileID: 0}
+  atkSound: 

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: JJunSa
   m_EditorClassIdentifier: 
-  name_: JJunSa
+  id: 23
+  name_: "\uCA50\uC0AC"
   poses:
   - {fileID: 21300000, guid: 151467dd83ce39149a140fe57edf5090, type: 3}
   - {fileID: 21300000, guid: 3283979971e81a54b8035fa29e92750e, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d8760d4896c670c4a82e5c6ec3bc7440, type: 3}
   - {fileID: 21300000, guid: 856b176e7b7e3574ca211b5b157c57c5, type: 3}
   farAtk: 0
+  atkEffect: {fileID: 0}
+  atkSound: Slash2

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: Library6
+  m_EditorClassIdentifier: 
+  id: 24
+  stageAddress:
+    floor: 4
+    sub: 0
+  title: "\uB108\uB128 \uB204\uAD6C\uC57C"
+  rank: 6
+  characters:
+  - {fileID: 11400000, guid: ca6a018cedf32fc4c9a3ebe1f5fc1f85, type: 2}
+  - {fileID: 11400000, guid: b49820f0eb3311c4093e1f8d473dec16, type: 2}
+  - {fileID: 11400000, guid: 425d1480672f9b04393000df8ccc46f5, type: 2}
+  - {fileID: 11400000, guid: e687e7323b19d4a489eda0fa6fba304c, type: 2}
+  - {fileID: 11400000, guid: e687e7323b19d4a489eda0fa6fba304c, type: 2}
+  priceStage:
+  - {fileID: 11400000, guid: c58a5d8586f705f4f84056abfced780c, type: 2}
+  - {fileID: 11400000, guid: b6bc2cb87bd77d94f8f46a56c4613c98, type: 2}
+  priceChars:
+    player_Characters_id: 0
+    player_cards: []
+  priceCards:
+  - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  victoryed: 0
+  charlimit: 5
+  playerStageLock: {fileID: 11400000, guid: bff6ee41fb3c7264390206c319ee9936, type: 2}
+  custom_stage: {fileID: 8307976606493945225, guid: 52d10bf02407df549aa71d905f910fd2, type: 3}
+  custom_BGM: Library2
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  noCardEquipBreak: 0
+  discovered: 0

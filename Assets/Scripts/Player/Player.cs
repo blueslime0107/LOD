@@ -93,10 +93,10 @@ public class Player : MonoBehaviour
         render.sprite = poses[0];
         if(pre_cards.Count > 0){
             foreach(CardAbility card in pre_cards.FindAll(x => x != null)){
-                battleManager.GiveCard(card,this,true);
+                battleManager.GiveCard(card,this,true,true);
             }
         }
-        textMeshPro.text = character.char_sprites.name;
+        textMeshPro.text = character.char_sprites.name_;
         UpdateHp();
     }
 
@@ -144,7 +144,6 @@ public class Player : MonoBehaviour
         isMoving = true;
         while(true){
             if(goingOrigin){yield return null; break;}
-            Debug.Log("moving");
             transform.position = Vector3.MoveTowards(transform.position,moveTarget,moveSpeed * Time.deltaTime);
             //transform.Translate(transform.position*Time.deltaTime);   // //////////002 목표로 이동하는것에는 속도에 델타타임을 곱해야 한다.//
             if(Vector3.Distance(transform.position,moveTarget) < 0.001f){
@@ -153,7 +152,6 @@ public class Player : MonoBehaviour
             }
         yield return null;
         }
-        Debug.Log("end");
     }
     public void SetPointMove(Vector3 point, float spd){
         if(!gameObject.activeSelf){return;}
@@ -171,12 +169,10 @@ public class Player : MonoBehaviour
 
     public void AddDice(int value){
         if(dice <= 0){return;}
-        int diceValue = 0;
-        diceValue = dice + value;
-        if(diceValue < 0){
-            diceValue = 0;
+        if(dice + value < 0){
+            dice_Indi.setDice(0); return;
         }
-        dice_Indi.setDice(diceValue);
+        dice_Indi.setDice(dice + value);
     }
 
     public void DamagedBy(Damage damage, Player player,string atk_sound=""){

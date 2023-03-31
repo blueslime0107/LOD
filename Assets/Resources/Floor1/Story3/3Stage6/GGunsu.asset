@@ -12,16 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: GGunsu
   m_EditorClassIdentifier: 
-  health: 15
+  health: 10
   breaks: 0c000000080000000400000000000000
   char_sprites: {fileID: 11400000, guid: de7b18e8175b6ab4c89972d67327a7a6, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
   - {fileID: 11400000, guid: 274338a7d950cc047bc4850bfefd6649, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 40

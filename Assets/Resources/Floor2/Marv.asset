@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 0}
   battleAble: 1
   specialAtk: {fileID: 0}
+  priceBonus: 45

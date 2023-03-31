@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Mimic
   m_EditorClassIdentifier: 
-  name_: Mimic
+  id: 30
+  name_: "\uBBF8\uBBF9"
   poses:
   - {fileID: 21300000, guid: 56b5e6ff3e15ffa4bab529005a90248d, type: 3}
   - {fileID: 21300000, guid: bb259e25eca15f84cbf5af7cdfcc51a9, type: 3}

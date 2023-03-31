@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: Library4
+  m_EditorClassIdentifier: 
+  id: 22
+  stageAddress:
+    floor: 4
+    sub: 0
+  title: "\uC794\uD574\uCCAD\uC18C"
+  rank: 4
+  characters:
+  - {fileID: 11400000, guid: 64a64c68e8ad74d4faad19d76a675231, type: 2}
+  - {fileID: 11400000, guid: ee04fce40c97ec7458499a7265b4ccfb, type: 2}
+  - {fileID: 11400000, guid: a2f0ebdd3b6d88345815b018935e86d8, type: 2}
+  - {fileID: 11400000, guid: 53cbef7ab40956c4399fce9d6a3ad76b, type: 2}
+  - {fileID: 0}
+  priceStage:
+  - {fileID: 11400000, guid: b8938fed15438274092eeb70bf1e9e2b, type: 2}
+  priceChars:
+    PlayerStage_id: 0
+    player_Characters_id: 0
+  priceCards:
+  - {fileID: 11400000, guid: bb90cf131995f164f8d30f6e1a7e5c19, type: 2}
+  - {fileID: 11400000, guid: bd085e7e62f6f854284d7fee4044c6c9, type: 2}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  victoryed: 0
+  avaliblePrice: 100
+  charlimit: 4
+  playerStageLock: {fileID: 0}
+  stageEvent: {fileID: 0}
+  custom_stage: {fileID: 8307976606493945225, guid: 52d10bf02407df549aa71d905f910fd2, type: 3}
+  custom_BGM: Library2
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  discovered: 0

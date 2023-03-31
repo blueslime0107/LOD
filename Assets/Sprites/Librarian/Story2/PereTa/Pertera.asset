@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Pertera
   m_EditorClassIdentifier: 
-  name_: Pertera
+  id: 34
+  name_: "\uD504\uD14C\uB77C"
   poses:
   - {fileID: 21300000, guid: 68533dedd41d5ef4cb4d47a1016a21a0, type: 3}
   - {fileID: 21300000, guid: e24e928d28b2c34408a090e16d5ec5c8, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 815e717e079543a4ebf78ba39f5a184c, type: 3}
   - {fileID: 21300000, guid: e464cfedf7af450498ad7d7cd94c1d06, type: 3}
   farAtk: 0
+  atkEffect: {fileID: 0}
+  atkSound: Penetrate

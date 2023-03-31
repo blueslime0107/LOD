@@ -24,6 +24,9 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
     public Character selectingChar;
     public Stage selectingStage;
 
+    public int avaliblePrice;
+    public List<CardAbility> NOTavalibleCard; 
+
     [SerializeField]public GameObject florrPanel;
     [SerializeField]public GameObject playerCardPanel;
     [SerializeField]CardUI[] player_cards = new CardUI[7];
@@ -72,38 +75,56 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
             objList[i].gameObject.SetActive(true);
             objList[i].cardAbility = cards[i];
             objList[i].cardPrefap.cardUpdate(objList[i].cardAbility);
+            objList[i].cardPriceText.text = objList[i].cardAbility.price.ToString();
 
         }
     }
 
     //
     public void RenderSelectCard(){
-        
         if(cardSelecting){
-            priceGague.maxValue = selectingStage.avaliblePrice;
+            priceGague.maxValue = avaliblePrice;
             int getPrice = selectingStage.GetPriceSum();
             priceGague.value = getPrice;
             price_text.text = getPrice.ToString() + "/" + priceGague.maxValue.ToString();
             selfprice_text.text = selectingStage.GetSelfPriceSum(selectingChar).ToString();
             foreach(CardPanelCard item in objList){
             item.cardSelecting = true;
+            item.priceLoss.gameObject.SetActive(selectingStage.GetPriceSum()+item.cardAbility.price > avaliblePrice);
+            item.equiped.gameObject.SetActive(NOTavalibleCard.Contains(item.cardAbility));
             }
+
+
+            foreach(Character character in selectingStage.characters){
+                if(character == null){break;}
+                foreach(CardAbility card in character.char_preCards){
+                    if(card == null){break;}
+                    CardPanelCard newCard =  objList.Find(x => x.cardAbility == card);
+                    newCard.equiped_char = character;
+                    newCard.equiped_charIMG.sprite = character.char_sprites.poses[0];
+
+                }
+            }
+
+
+
             playerCardPanel.SetActive(true);
             florrPanel.SetActive(false);
-            for(int i=0;i<selectingChar.char_preCards.Length;i++){
-                if(selectingChar.char_preCards[i] != null){
-                    player_cards[i].card = selectingChar.char_preCards[i];
+            foreach(CardUI cardUI in player_cards){
+                cardUI.gameObject.SetActive(false);
+            }
+            for(int i=0;i<selectingChar.char_preCards.Count;i++){
+                player_cards[i].card = selectingChar.char_preCards[i];
                     player_cards[i].CardUpdate();
                     player_cards[i].gameObject.SetActive(true);
-                }
-                else{
-                    player_cards[i].gameObject.SetActive(false);
-                }
             }
+            
         }
         else{
             foreach(CardPanelCard item in objList){
             item.cardSelecting = false;
+            item.equiped.gameObject.SetActive(false);
+            item.priceLoss.gameObject.SetActive(false);
             }
             florrPanel.SetActive(true);
             playerCardPanel.SetActive(false);
@@ -114,6 +135,7 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
         for(int i=0;i<cards.Count;i++){
             objList[i].cardPrefap.loaded = false;
             objList[i].cardPrefap.cardUpdate(objList[i].cardAbility);
+            objList[i].cardPriceText.text = objList[i].cardAbility.price.ToString();
         }
     }
 }

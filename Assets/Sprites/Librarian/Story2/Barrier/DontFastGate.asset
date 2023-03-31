@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: DontFastGate
   m_EditorClassIdentifier: 
-  name_: Speed Gate
+  id: 16
+  name_: "\uACFC\uC18D\uBC29\uC9C0"
   poses:
   - {fileID: 21300000, guid: 0cf370426eb24cc43824b4b611f24070, type: 3}
   - {fileID: 21300000, guid: 4a676482c00e33a4587ba52d881b7802, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d645993c18d79fb48a47be2ae4ba4188, type: 3}
   - {fileID: 21300000, guid: c194c0b19ea094b42adc13f5a374529a, type: 3}
   farAtk: 1
+  atkEffect: {fileID: 0}
+  atkSound: 

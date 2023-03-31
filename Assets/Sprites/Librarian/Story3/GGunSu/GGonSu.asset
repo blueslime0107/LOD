@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: GGonSu
   m_EditorClassIdentifier: 
-  name_: GGonSu
+  id: 20
+  name_: "\uAFCD\uC218"
   poses:
   - {fileID: 21300000, guid: 934a5b5afa04fc941bcfb7ffc4dc2f79, type: 3}
   - {fileID: 21300000, guid: a727825cfdd3edc40b5ce824d4678960, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2c0147052b1bf347aa1b0772c06cfb6, type: 3}
   - {fileID: 21300000, guid: d157909d5427ce142aad24eb461726ae, type: 3}
   farAtk: 1
+  atkEffect: {fileID: 0}
+  atkSound: Arrow1

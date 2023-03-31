@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Barrier
   m_EditorClassIdentifier: 
-  health: 15
+  health: 10
   breaks: 00000000
   char_sprites: {fileID: 11400000, guid: bcc4c35204691824a9c99978df9c91d8, type: 2}
   char_preCards:
@@ -23,4 +23,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  atk_sound: 
+  battleAble: 1
+  specialAtk: {fileID: 0}

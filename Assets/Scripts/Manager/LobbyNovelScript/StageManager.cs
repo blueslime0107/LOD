@@ -4,63 +4,9 @@ using UnityEngine;
 using UnityEngine.Localization.Settings;
 using System.Xml;
 
-[System.Serializable]
-public class Floor{
-    public string name;
-    public int playerSlot;
-    [Space (15f)]
-    public List<Stage> Mainstage = new List<Stage>();
-    [Space (15f)]
-    public List<Stage> SubStage = new List<Stage>();
-
-    public string battleBGM;
-
-    public List<Stage> allStages(){
-        List<Stage> stages = new List<Stage>();
-        stages.AddRange(Mainstage);
-        stages.AddRange(SubStage);
-        return stages;
-    }
-
-}
-
-[System.Serializable]
-public class AddStage{
-    public int floor;
-    public bool sub;
-    public Stage stage;
-}
-
-[System.Serializable]
-public class StageProperSave{
-    public Stage stage;
-    public bool victoryed;
-    public bool noPrice;
-    public bool discovered;
-}
-
-[System.Serializable]
-public class StagePlayerSave{
-    public Stage PlayerStage;
-    public Character[] player_Characters;
-}
-
-[System.Serializable]
-public class StageManagerDB{
-
-    public List<StageProperSave> stageProperSaves;
-    public List<StagePlayerSave> stagePlayerSaves;
-
-    public List<CardAbility> player_cardDic;
-
-    public List<AchieveMent> achiveItms = new List<AchieveMent>();
-
-    public List<Floor> Floors = new List<Floor>();
-
-} 
-
 public class StageManager : MonoBehaviour
 {
+    public DataBase db;
     public SaveManager saveManager;
     public StageManagerDB stageManagerDB;
     public TextAsset[] textAssets;
@@ -86,8 +32,11 @@ public class StageManager : MonoBehaviour
     public bool nogiveChar;
     public bool noGotoNewbie;
 
+    public List<StageEvent> stageEvents = new List<StageEvent>();
+
     private void Awake() {
         var obj = FindObjectsOfType<StageManager>();
+        DataBase db = FindObjectOfType<DataBase>();
         if (obj.Length == 1)
         {
             DontDestroyOnLoad(gameObject);
@@ -103,87 +52,103 @@ public class StageManager : MonoBehaviour
     }
 
     public void LoadDataFromDB(){
-        player_cardDic = stageManagerDB.player_cardDic;
-        Floors = stageManagerDB.Floors;
+        db = FindObjectOfType<DataBase>();
+        player_cardDic.Clear();
+        foreach(int card in stageManagerDB.player_cardDic){
+            player_cardDic.Add(db.LoadFromINTCard(card));
+        }
+
+        PlayerStages.Clear();
+        foreach(StagePlayerSave stagePlayer in stageManagerDB.stagePlayerSaves){
+            StagePlayerSave stagePlayerSave = new StagePlayerSave();
+            stagePlayerSave.player_Characters_id = stagePlayer.player_Characters_id; 
+            stagePlayerSave.player_cards = db.unlockable_chars[stagePlayer.player_Characters_id].char_preCards;
+            PlayerStages.Add(stagePlayerSave);
+        }
+
+
+
         
-        foreach(StageProperSave sps in stageManagerDB.stageProperSaves){
-            sps.stage.discovered = sps.discovered;
-            sps.stage.victoryed = sps.victoryed;
-            sps.stage.noPrice = sps.noPrice;
+        foreach(Floor floor in Floors){
+            floor.Mainstage.Clear();
+            floor.SubStage.Clear();
+        }
+        foreach(StageProperSave sps in stageManagerDB.stageID){
+            Stage stageProper = db.LoadFromINTStage(sps.stage);
+            stageProper.discovered = sps.discovered;
+            stageProper.noPrice = sps.noPrice;
+            stageProper.victoryed = sps.victoryed;
+            if(stageProper.stageAddress.sub){Floors[stageProper.stageAddress.floor-1].SubStage.Add(stageProper);}
+            else{Floors[stageProper.stageAddress.floor-1].Mainstage.Add(stageProper);}
         }
 
-        PlayerStages = stageManagerDB.stagePlayerSaves;
-
-        foreach(StagePlayerSave stagePlayerSave in PlayerStages){
-            stagePlayerSave.PlayerStage.characters = stagePlayerSave.player_Characters;
+        foreach(StageEvent stageEvent in stageEvents){
+            stageEvent.WhenStageWin(this);
         }
 
-        LoadStageTitle();
-
+        db.UpdatePlayerCard(PlayerStages);
     }
-
     public void SavetoDB(){
 
-        stageManagerDB.player_cardDic = player_cardDic;
-        stageManagerDB.Floors = Floors;
-        stageManagerDB.stagePlayerSaves = PlayerStages;
-        stageManagerDB.stageProperSaves = new List<StageProperSave>();
-
-        foreach(Floor floor in stageManagerDB.Floors){
-            foreach(Stage stage in floor.allStages()){
-            StageProperSave sps = new StageProperSave();
-            sps.stage = stage;
-            sps.discovered = stage.discovered;
-            sps.noPrice = stage.noPrice;
-            sps.victoryed = stage.victoryed;
-            stageManagerDB.stageProperSaves.Add(sps);
+        stageManagerDB.player_cardDic.Clear();
+        foreach(CardAbility card in player_cardDic){
+            stageManagerDB.player_cardDic.Add(card.card_id);
         }
+
+        stageManagerDB.stagePlayerSaves.Clear();
+        foreach(StagePlayerSave stagePlayer in PlayerStages){
+            StagePlayerSave stagePlayerSave = new StagePlayerSave();
+            stagePlayerSave.player_Characters_id = stagePlayer.player_Characters_id;
+            stagePlayerSave.player_cards = db.unlockable_chars[stagePlayer.player_Characters_id].char_preCards;
+            stageManagerDB.stagePlayerSaves.Add(stagePlayerSave);
+        }
+
+        stageManagerDB.stageID.Clear();
+        foreach(Floor fl in Floors){
+            foreach(Stage stage in fl.Mainstage){
+                StageProperSave stageProper = new StageProperSave();
+                stageProper.stage = stage.id;
+                stageProper.discovered = stage.discovered;
+                stageProper.noPrice = stage.noPrice;
+                stageProper.victoryed = stage.victoryed;
+                stageManagerDB.stageID.Add(stageProper);
+            }
+            foreach(Stage stage in fl.SubStage){
+                StageProperSave stageProper = new StageProperSave();
+                stageProper.stage = stage.id;
+                stageProper.discovered = stage.discovered;
+                stageProper.noPrice = stage.noPrice;
+                stageProper.victoryed = stage.victoryed;
+                stageManagerDB.stageID.Add(stageProper);
+            }
         }
 
         }
     
 
-    public void AddStageFun(List<AddStage> stages){
+    public void AddStageFun(List<Stage> stages){
+
         if(nogiveStage){return;}
-        foreach(AddStage stage in stages){
-            if(stage.sub){Floors[stage.floor-1].SubStage.Add(stage.stage); return;}
-            else{Floors[stage.floor-1].Mainstage.Add(stage.stage);}
+        foreach(Stage stage in stages){
+            if(stage.stageAddress.sub){Floors[stage.stageAddress.floor-1].SubStage.Add(stage);}
+            else{Floors[stage.stageAddress.floor-1].Mainstage.Add(stage);}
         }
+
+        db.UpdatePlayerCard(PlayerStages);
     }
 
-    public void AddPlayerCardChar(List<Character> chars){
-        if(nogiveChar){return;}
-        List<Character> charlist = new List<Character>(PlayerStages[floor.playerSlot].player_Characters);
-        charlist.RemoveAll(x => x == null);
-        charlist.AddRange(chars);
-        try{
-        for(int i = 0; i < charlist.Count; i++){
-            PlayerStages[floor.playerSlot].player_Characters[i] = charlist[i];
-            
-        }}
-        catch{Debug.LogWarning("CharFlow!");}
+    public void AddPlayerCardChar(StagePlayerSave stagePlayer){
 
+        if(nogiveChar){return;}
+        StagePlayerSave st= new StagePlayerSave();
+        st.player_Characters_id = stagePlayer.player_Characters_id;
+        PlayerStages.Add(st);
+        db.UpdatePlayerCard(PlayerStages);
     }
 
     public void AddCardDic(List<CardAbility> cards){
         player_cardDic.AddRange(cards);
         saveManager.Save();
-    }
-
-    public void LoadStageTitle(){
-        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[0])){ReadXML(textAssets[0]);}
-        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.Locales[1])){ReadXML(textAssets[1]);}
-    }
-    private void ReadXML(TextAsset filename){
-        XmlDocument xmlDocument = new XmlDocument();
-        xmlDocument.LoadXml(filename.text);
-
-
-        XmlNodeList thisCardXML = xmlDocument.GetElementsByTagName("Stage");
-        foreach(XmlNode node in thisCardXML){
-            XmlNodeList cardXML = node.ChildNodes;
-        }
-
     }
 
 

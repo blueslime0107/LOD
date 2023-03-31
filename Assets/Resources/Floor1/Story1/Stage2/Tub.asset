@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   breaks: 
-  char_sprites: {fileID: 11400000, guid: 83a4d27aee78b9d43a381f75b097b9be, type: 2}
+  char_sprites: {fileID: 11400000, guid: a851667a2710fb943beb6b75477a040c, type: 2}
   char_preCards:
   - {fileID: 0}
   - {fileID: 0}
@@ -23,3 +23,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

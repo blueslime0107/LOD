@@ -15,12 +15,7 @@ MonoBehaviour:
   health: 10
   breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: 683fd2541f7fae945b03f272f055fa3a, type: 2}
-  char_preCards:
-  - {fileID: 11400000, guid: 0ad540cf4148c9545ba0eb5d35fef923, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
+  char_preCards: []
+  battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 40

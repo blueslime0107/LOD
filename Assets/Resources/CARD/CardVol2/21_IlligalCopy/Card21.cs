@@ -25,7 +25,7 @@ public class Card21 : CardAbility
         }
         EffectPlayerSet(card.effect[0],card.player,card.player.transform,-1);
         card.saved_card = match.GiveCard(selected_card.ability,card.player);
-        card.saved_card.overCard = card.ability.overCard;
+        card.saved_card.cardStyle = card.ability.overCard;
         card.active = true;
         match.CardLog("Copyed",card,selected_card.player);
     }

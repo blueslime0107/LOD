@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: 2v2Battle
+  m_EditorClassIdentifier: 
+  id: 222
+  stageAddress:
+    floor: 1
+    sub: 0
+  title: 
+  rank: 1
+  characters:
+  - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
+  - {fileID: 11400000, guid: 275988e822d15494aac4c6cd48551660, type: 2}
+  - {fileID: 11400000, guid: fb0e83ed54f3b8948a0dbf7746d4025b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  priceStage: []
+  priceChars:
+    PlayerStage_id: 0
+    player_Characters_id: 0
+  priceCards: []
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  victoryed: 0
+  avaliblePrice: 100
+  charlimit: 5
+  playerStageLock: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
+  stageEvent: {fileID: 0}
+  custom_stage: {fileID: 0}
+  custom_BGM: 
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  discovered: 0

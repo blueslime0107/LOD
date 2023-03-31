@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: Tuto2
+  m_EditorClassIdentifier: 
+  id: 2
+  stageAddress:
+    floor: 1
+    sub: 0
+  title: "\uC774\uBC88\uC5D4 \uB458\uC774\uB2E4!"
+  rank: 1
+  characters:
+  - {fileID: 11400000, guid: 78169978da6f6644dae807de1adb2f3c, type: 2}
+  - {fileID: 11400000, guid: 6f5969f4abd234b4e87830e27712c28b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  priceStage:
+  - {fileID: 11400000, guid: 6603b3e5197401841b57ddf7fe523355, type: 2}
+  priceChars:
+    PlayerStage_id: 0
+    player_Characters_id: 0
+  priceCards: []
+  beforeStory: {fileID: 11400000, guid: 3ff060ac13a304348b31e21f062cf8e6, type: 2}
+  afterStory: {fileID: 0}
+  victoryed: 0
+  avaliblePrice: 100
+  charlimit: 2
+  playerStageLock: {fileID: 0}
+  stageEvent: {fileID: 0}
+  custom_stage: {fileID: 0}
+  custom_BGM: 
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 1
+  noPrice: 0
+  discovered: 0

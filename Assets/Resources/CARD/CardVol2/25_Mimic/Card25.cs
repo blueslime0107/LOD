@@ -11,8 +11,8 @@ public class Card25 : CardAbility
         int randint = 0;
         randint = (int)Random.Range(1f,11f);
         if(randint < card.count){
-            player.AddHealth(-Mathf.CeilToInt(card.count / 2));
-            getCard.player.cards.Remove(getCard);
+            player.AddHealth(-4);
+            match.DestroyCard(getCard,player);
             card.count = -1;
             match.backColorEff.changeColor(255, 162, 0,255);
             match.CardLog("Mimic!",card,player);

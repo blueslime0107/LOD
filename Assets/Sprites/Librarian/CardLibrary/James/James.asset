@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: James
   m_EditorClassIdentifier: 
-  name_: James
+  id: 22
+  name_: "\uC81C\uC784\uC2A4"
   poses:
   - {fileID: 21300000, guid: 731fe5abd62c1b8499210a7c2d1b0d99, type: 3}
   - {fileID: 21300000, guid: 2532dcc5834aa9747aa28f4933a59189, type: 3}
@@ -21,4 +22,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9efb5006c968879439f432f8e5b00726, type: 3}
   farAtk: 0
   atkEffect: {fileID: 6613571639549059086, guid: 311834b01dd564d4a840aebb223a23c3, type: 3}
-  atkSound: 
+  atkSound: Hit

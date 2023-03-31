@@ -5,9 +5,8 @@ using UnityEngine;
 public class BattleDice : MonoBehaviour
 {
     public BattleManager battleManager;
-    public Sprite[] dice_img;
 
-    public SpriteRenderer render;
+    public DiceIcon diceOBJ;
     public Player player;
     public LineRenderer lineRender;
 
@@ -15,10 +14,6 @@ public class BattleDice : MonoBehaviour
     public ParticleSystem right_break;
 
     public bool spinging;
-
-    void Awake() {
-        render = GetComponent<SpriteRenderer>();
-    }
 
     private void OnEnable() {
         left_break.Stop();
@@ -35,7 +30,7 @@ public class BattleDice : MonoBehaviour
     }
 
     IEnumerator Spining(){
-        render.sprite = dice_img[0];
+        diceOBJ.updateDice(0);
         while(true){
             transform.Rotate(0,0,120*60*Time.deltaTime);
             yield return null;
@@ -49,7 +44,7 @@ public class BattleDice : MonoBehaviour
     }
 
     public void DamageReset(){
-        render.sprite = dice_img[0];
+        diceOBJ.updateDice(0);
     }
 
     public void DamageUpdate(){
@@ -59,6 +54,6 @@ public class BattleDice : MonoBehaviour
             transform.localEulerAngles = Vector3.zero;
             spinging = false;
         }
-        render.sprite = dice_img[Mathf.Abs(battleManager.battleCaculate.damage.value)];
+        diceOBJ.updateDice(Mathf.Abs(battleManager.battleCaculate.damage.value));
     }
 }

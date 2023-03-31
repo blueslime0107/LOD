@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: killer
   m_EditorClassIdentifier: 
-  name_: Rectang
+  id: 24
+  name_: "\uC9C0\uB098\uBBF8"
   poses:
   - {fileID: 21300000, guid: bf35108f829aade47920391072b10f35, type: 3}
   - {fileID: 21300000, guid: 4f52dd665954f024d94d4eef67adbaad, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3db79c9ceb245924aa445bf9f20f9560, type: 3}
   - {fileID: 21300000, guid: 85c5009e97f5833468ebef1d67598c65, type: 3}
   farAtk: 0
+  atkEffect: {fileID: 0}
+  atkSound: 

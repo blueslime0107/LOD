@@ -19,16 +19,12 @@ public class Card36 : CardAbility
     {
         if(card.saved_card){return;}
         card.saved_card = selected_card;
-        selected_card.overCard = card.ability.overCard;
+        selected_card.cardStyle = card.ability.overCard;
         match.CardLog("ToEat!",card,selected_card.player);
     }
 
-    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
+    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
     {
-        // Debug.Log("card.active");
-        // Debug.Log(card.active!);
-        // if(card.active){return;}
-        // Debug.Log("saved_card");
         if(card.saved_card == null || !card.active){return;}
         // Debug.Log("jsfkajsdlfj");
         card.count--;

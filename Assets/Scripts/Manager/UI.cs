@@ -138,9 +138,8 @@ public class UI : MonoBehaviour
         rightCarddraw.text = bm.right_team.carddraw.ToString();
     }
 
-    public void CardMesage_Update(string ability,string story){
+    public void CardMesage_Update(string ability){
         cardAbility.text = ability;
-        cardStroy.text = story;
     }
 
     IEnumerator PanoraOn(){

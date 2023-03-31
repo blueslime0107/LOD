@@ -127,7 +127,6 @@ public class BattleCaculate : MonoBehaviour
         }
 
         battleDice.gameObject.SetActive(true);
-        battleDice.SetPlayerPosition(myChar,eneChar);
 
         bm.CardLogText("Start","[Clash Start "+myChar.character.name +"->"+eneChar.character.name+"]","#00ff08");
         for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
@@ -380,9 +379,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.DamageUpdate();
 
         bm.blackScreen.SetActive(false);
-        myChar.SetDice(0);
         myChar.ChangeCondition(0);
-        eneChar.SetDice(0);
         eneChar.ChangeCondition(0);
 
         bm.CheckNextTeam();
@@ -413,7 +410,7 @@ public class BattleCaculate : MonoBehaviour
             bm.sdm.Play("Pery");
         }
 
-        if(attacker.atkEffect){AtkEffectAble(attacker,defender.transform,0,0);}
+        if(attacker.atkEffect){AtkEffectAble(attacker,defender.transform);}
         attacker.AttackEffect(defender);
         coroutine_lock = false;
         yield return null;
@@ -429,7 +426,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.DamageUpdate();
     }
 
-    public void AtkEffectAble(Player player, Transform tran, float x=0,float y=0){
+    public void AtkEffectAble(Player player, Transform tran){
         player.atkEffect.gameObject.SetActive(true);
         Debug.Log(player.gameObject.tag);
         if(player.gameObject.tag == "PlayerTeam1"){
@@ -438,7 +435,7 @@ public class BattleCaculate : MonoBehaviour
         else{
             player.atkEffect.transform.eulerAngles = Vector3.up*180;
         }
-        player.atkEffect.transform.position = tran.position + Vector3.right*x*0.5f*player.TeamVector() + Vector3.up*y*0.5f;
+        player.atkEffect.transform.position = tran.position + Vector3.right*player.atkEffect.preTrans.x*0.5f*player.TeamVector() + Vector3.up*player.atkEffect.preTrans.y*0.5f;
     }
 
 

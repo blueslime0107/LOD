@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: NyNyanStone
   m_EditorClassIdentifier: 
-  name_: NyNyanStone
+  id: 33
+  name_: "\uB0E5\uC2A4\uD1A4"
   poses:
   - {fileID: 21300000, guid: bc26b1f51e923f9429d6b160f61bf06e, type: 3}
   - {fileID: 21300000, guid: bd44e22a9792c204385c7680a44cdf05, type: 3}
@@ -20,3 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 49a2a9644d03a2945a9e667dc5945bec, type: 3}
   - {fileID: 21300000, guid: bc26b1f51e923f9429d6b160f61bf06e, type: 3}
   farAtk: 0
+  atkEffect: {fileID: 0}
+  atkSound: 

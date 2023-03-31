@@ -8,7 +8,8 @@ public class Card62 : CardAbility
     {
         Active(card);
         battle.AddDamage(1);
-        Active(card);
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,1.75f,-1,true);
+
         card.count += 1;
         if(card.count >= 2){
             card.active = true;

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Beth
   m_EditorClassIdentifier: 
-  name_: Beth
+  id: 5
+  name_: "\uBCA0\uC2A4"
   poses:
   - {fileID: 21300000, guid: 1da3c49211917ff43badd3ca0becc747, type: 3}
   - {fileID: 21300000, guid: af4ff8d175e36d94ea73c3a85870b4e8, type: 3}

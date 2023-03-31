@@ -102,27 +102,6 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
-  - name: Fire1
-    clip: {fileID: 8300000, guid: 4f391c0eefaf9f346aa18c66fdbcae6b, type: 3}
-    volume: 1
-    group: 0
-    loop: 0
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: Slash1
-    clip: {fileID: 8300000, guid: 0deba219000175a418f201c88fc53b93, type: 3}
-    volume: 1
-    group: 0
-    loop: 0
-    source: {fileID: 0}
-    reverb: {fileID: 0}
-  - name: Pery
-    clip: {fileID: 8300000, guid: 265b5d17fa697904fa9edd36f80a9781, type: 3}
-    volume: 1
-    group: 0
-    loop: 0
-    source: {fileID: 0}
-    reverb: {fileID: 0}
   - name: BreakCardGet
     clip: {fileID: 8300000, guid: 9f96db4130c0cf74bab73ad7afa425af, type: 3}
     volume: 1
@@ -242,8 +221,36 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
-  - name: Punch
-    clip: {fileID: 8300000, guid: 31909dedb4fd37c45b68b5d0ffbf4a89, type: 3}
+  - name: ----ATKSound----------------
+    clip: {fileID: 8300000, guid: 27a81f3653abab94da361842bcf1a6f6, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Slash1
+    clip: {fileID: 8300000, guid: 0deba219000175a418f201c88fc53b93, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Slash2
+    clip: {fileID: 8300000, guid: 992984403d9712346af16984f1c6f0af, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Fire1
+    clip: {fileID: 8300000, guid: 4f391c0eefaf9f346aa18c66fdbcae6b, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: SwingHit
+    clip: {fileID: 8300000, guid: 27a81f3653abab94da361842bcf1a6f6, type: 3}
     volume: 1
     group: 0
     loop: 0
@@ -263,6 +270,55 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: Punch
+    clip: {fileID: 8300000, guid: 31909dedb4fd37c45b68b5d0ffbf4a89, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Pery
+    clip: {fileID: 8300000, guid: 265b5d17fa697904fa9edd36f80a9781, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Penetrate
+    clip: {fileID: 8300000, guid: 0f792edc0da322746895e6970f2204e0, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: fa94635519ff87a4ea60fadb0e3e8c58, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: BreakWood
+    clip: {fileID: 8300000, guid: 9bc0343006e233a4daab9d94dc1eddad, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Beam2
+    clip: {fileID: 8300000, guid: f35c19cb74fb5454dabf73e9b1ea0078, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Arrow1
+    clip: {fileID: 8300000, guid: c00fea03ba931ea438e0d1a16f4cca43, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   musics:
   - name: BattleFloor
     clip: {fileID: 8300000, guid: 4e82aac26e5d68e48b1da206693d7920, type: 3}
@@ -273,7 +329,7 @@ MonoBehaviour:
     reverb: {fileID: 0}
   - name: ResourceFloor
     clip: {fileID: 8300000, guid: fdc052397ce5a0b459772e9e210f8b89, type: 3}
-    volume: 0.705
+    volume: 0.336
     group: 1
     loop: 1
     source: {fileID: 0}

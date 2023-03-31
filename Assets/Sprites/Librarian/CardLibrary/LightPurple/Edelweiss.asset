@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Edelweiss
   m_EditorClassIdentifier: 
-  name_: Edelweiss
+  id: 18
+  name_: "\uC5D0\uB378\uBC14\uC774\uC2A4"
   poses:
   - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
   - {fileID: 21300000, guid: c8be71f06da47bd49b588714f07df90e, type: 3}
@@ -21,4 +22,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
   farAtk: 0
   atkEffect: {fileID: 3719889124338482963, guid: 7033ebd969929f74e852787b9075ebdb, type: 3}
-  atkSound: 
+  atkSound: Penetrate

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Marv
   m_EditorClassIdentifier: 
-  name_: Marv
+  id: 28
+  name_: "\uB9C8\uB974"
   poses:
   - {fileID: 21300000, guid: 6b0f1c0111ed9374e8b19caf6618a23c, type: 3}
   - {fileID: 21300000, guid: 3cb13bc98f64c26419934a3d110b13c1, type: 3}

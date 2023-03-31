@@ -14,13 +14,6 @@ public class DebugButton : MonoBehaviour
     public Character[] floor1Player;
     public Character[] floor2Player;
 
-    public void UnlockCharacter(){
-        stageManager = FindObjectOfType<StageManager>();
-        stageManager.PlayerStages[0].player_Characters = floor1Player;
-        stageManager.PlayerStages[1].player_Characters = floor2Player;
-        stageManager.nogiveChar = true;
-    }
-
     public void WintheGame(){
         foreach(Player player in bm.right_team.players){
             player.AddHealth(-999);

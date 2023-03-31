@@ -13,28 +13,27 @@ MonoBehaviour:
   m_Name: PlayerStage
   m_EditorClassIdentifier: 
   id: 125
-  xmlFile_path:
-  - {fileID: 4900000, guid: 827040385013e2b4da4691a3e183fe8e, type: 3}
-  - {fileID: 4900000, guid: 06ab985658667354581b94a65fc9f26a, type: 3}
+  stageAddress:
+    floor: 0
+    sub: 0
   title: "\uC751\uC560 \uC2E0\uC785"
-  sub_text: "\uC5ED\uC2DC \uD504\uB85C\uD1A0\uD0C0\uC785\uC774\uC57C"
   rank: 6
-  values: "\uAD1C\uCC2E\uC740 \uB4EF?"
   characters:
   - {fileID: 11400000, guid: 9749f16a52e5a8b41823aa13be8a60cd, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  priceStage: []
+  priceChars:
+    player_Characters_id: 0
+    player_cards: []
+  priceCards: []
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
-  priceStage: []
   victoryed: 0
-  avaliblePrice: 1000
   charlimit: 5
   playerStageLock: {fileID: 0}
-  priceChars: []
-  priceCards: []
   stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
@@ -42,4 +41,5 @@ MonoBehaviour:
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 1
   discovered: 0

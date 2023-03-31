@@ -21,7 +21,7 @@ public class Card81 : CardAbility
             if(player == card.saved_player){
                 player.NewDamagedByInt(match.battleCaculate.damage.value,card.player);
             }
-            player.NewDamagedByInt(match.battleCaculate.damage.value*2,card.player);
+            else{player.NewDamagedByInt(match.battleCaculate.damage.value*2,card.player);}
             card.diceLink.positionCount += 2;
             card.diceLink.SetPosition(card.diceLink.positionCount-2,player.dice_Indi.gameObject.transform.position);
             card.diceLink.SetPosition(card.diceLink.positionCount-1,card.player.dice_Indi.gameObject.transform.position);

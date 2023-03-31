@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: TheBody
   m_EditorClassIdentifier: 
-  name_: Prisoner
+  id: 41
+  name_: "\uC2DC\uC2E0"
   poses:
   - {fileID: 21300000, guid: 1145be1405e6de540ab1561e8789c8f1, type: 3}
   - {fileID: 21300000, guid: 82ef7ff1de86da54bb723982befcdd70, type: 3}
@@ -20,5 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: caf26cf035bf07044b73ccd6858e58ad, type: 3}
   - {fileID: 21300000, guid: 215c7c0f8842813408bf670b4cc62c13, type: 3}
   farAtk: 0
-  atkEffect: {fileID: 8682707164717808036, guid: ff8045330f0408a49ba936f934353702, type: 3}
+  atkEffect: {fileID: 5664629341967208217, guid: 2059bb40ac720b2479fb9c9a861324fc, type: 3}
   atkSound: 

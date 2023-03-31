@@ -16,6 +16,7 @@ public class Card65 : CardAbility
         copyDice.dice_value = Random.Range(1,7);
         card.player.dice_Indi.put_subDice(copyDice);
         match.CardLog("AddDice",card);
+        EffectPlayerSet(card.effect[0],card.player,card.player.transform,0,-1,true);
         card.active = false;
     }
 

@@ -68,15 +68,16 @@ public class CharItem : MonoBehaviour
 
         selfCostText.text = cur_stage.GetSelfPriceSum(cur_char).ToString();
 
-        for(int i=0;i<chars.char_preCards.Length;i++){ // 카드덱
-            if(chars.char_preCards[i] != null){
+        int i =0;
+        foreach(CardUI cardUI in cards){
+            cardUI.gameObject.SetActive(false);
+            if(chars.char_preCards.Count > i){
+                if(chars.char_preCards[i] == null){break;}
                 cards[i].card = chars.char_preCards[i];
                 cards[i].CardUpdate();
                 cards[i].gameObject.SetActive(true);
             }
-            else{
-                cards[i].gameObject.SetActive(false);
-            }
+            i++;
         }
 
 

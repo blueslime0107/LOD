@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Tub
   m_EditorClassIdentifier: 
-  name_: Tub
+  id: 45
+  name_: "\uD2AD"
   poses:
   - {fileID: 21300000, guid: 80886087fe4a10145b61cb32ecdf9cf1, type: 3}
   - {fileID: 21300000, guid: f9659e0c0f0303e408f3a8dd34ed220b, type: 3}
@@ -20,5 +21,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f75f4d461adffa43b9882a7a807bcee, type: 3}
   - {fileID: 21300000, guid: 3a68241764840d8459bff830e5d55307, type: 3}
   farAtk: 0
-  atkEffect: {fileID: 8682707164717808036, guid: ff8045330f0408a49ba936f934353702, type: 3}
-  atkSound: 
+  atkEffect: {fileID: 5664629341967208217, guid: 2059bb40ac720b2479fb9c9a861324fc, type: 3}
+  atkSound: BreakWood

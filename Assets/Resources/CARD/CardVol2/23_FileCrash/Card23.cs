@@ -16,7 +16,7 @@ public class Card23 : CardAbility
         List<CardAbility> random_caard = match.cards;
         random_caard.RemoveAll(x => x.card_id.Equals(23));
         card.saved_card = match.GiveCard(random_caard[(int)Random.Range(0f,(float)random_caard.Count)],card.player);
-        card.saved_card.overCard = card.ability.overCard;
+        card.saved_card.cardStyle = card.ability.overCard;
     }
 
 }

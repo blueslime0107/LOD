@@ -6,15 +6,10 @@ using System.Xml;
 public class CardAbility : ScriptableObject
 {
     public int card_id;
-    public string[] xmlFile_path = new string[2];
 
-    public new string name;
-    [TextArea]
-    public string message;
-    [TextArea]
-    public string ability_message;
-    [TextArea]
-    public string story_message;
+    [HideInInspector]public new string name;
+    [HideInInspector]public string message;
+    [HideInInspector]public string ability_message;
 
     public bool tained;
 
@@ -29,7 +24,7 @@ public class CardAbility : ScriptableObject
     [Space(4f),Header("AI abiliby")]
 
     [Space(15f),Header ("Ability Sprite")]
-    public Sprite overCard;
+    public CardStyle overCard;
     public GameObject[] effect;
     public List<CardAbility> linked_card;
     public GameObject diceLink;

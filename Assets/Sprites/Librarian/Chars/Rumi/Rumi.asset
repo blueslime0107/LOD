@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Rumi
   m_EditorClassIdentifier: 
-  name_: Rumi
+  id: 39
+  name_: "\uB8E8\uBBF8"
   poses:
   - {fileID: 21300000, guid: 5c8204ba9649f35408e2e0d61f713e11, type: 3}
   - {fileID: 21300000, guid: c7eaccc7bd5656e4e83c10273c13fa6d, type: 3}

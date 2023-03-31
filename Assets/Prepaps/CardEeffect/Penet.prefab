@@ -105,3 +105,4 @@ MonoBehaviour:
   movSpeed: 0
   imLineRenderer: 0
   stable: 0
+  preTrans: {x: 0, y: -0.5}

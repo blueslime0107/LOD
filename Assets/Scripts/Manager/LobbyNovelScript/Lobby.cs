@@ -6,6 +6,7 @@ using TMPro;
 
 public class Lobby : MonoBehaviour
 {
+    public DataBase dataBase;
     public SoundManager sdm;
     public Floor curFloor;
     public StageManager stageManager;
@@ -61,6 +62,7 @@ public class Lobby : MonoBehaviour
     void Awake(){
         stageManager = FindObjectOfType<StageManager>();
         pc = FindObjectOfType<ProperContainer>();
+        dataBase.Localize();
         curMenu.Add("lobby");
     }
 
@@ -77,7 +79,7 @@ public class Lobby : MonoBehaviour
     public void ReloadPlayerCard(){
         substageload.RefreshDiscover();
         mainstageload.RefreshDiscover();
-        player = stageManager.PlayerStages[curFloor.playerSlot].PlayerStage;
+        player = dataBase.playerStages;
     }
 
     public void Update(){
@@ -127,6 +129,7 @@ public class Lobby : MonoBehaviour
                     BattleButton.ActiveOpenClose();   
                     card_table.ActiveOpenClose();
                     menuCard.cardSelecting = false;
+                    menuCard.RenderSelectCard();
                     playerBattleCard.UpdateStat();
                     enemyBattleCard.UpdateStat();
                     curMenu.Remove("cardSelectMenu"); break;

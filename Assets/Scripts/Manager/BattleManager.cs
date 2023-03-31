@@ -117,6 +117,7 @@ public class BattleManager : MonoBehaviour
             cardActiveAble = false;
             // StartCoroutine("selectingCard");
             sdm.Play("LowBack");
+            ui.battleStartButton_posing.MoveToMove();
             PlayerGoToOrigin();
             
             left_cardLook_lock = false;
@@ -392,14 +393,11 @@ public class BattleManager : MonoBehaviour
             if(gameManager.sm.play_stage.priceStage.Count > 0){
             gameManager.sm.AddStageFun(gameManager.sm.play_stage.priceStage);
             }
-            if(gameManager.sm.play_stage.priceChars.Count > 0){
+            if(gameManager.sm.play_stage.priceChars.player_Characters_id > 0){
                 gameManager.sm.AddPlayerCardChar(gameManager.sm.play_stage.priceChars);
             }
             if(gameManager.sm.play_stage.priceCards.Count > 0){
                 gameManager.sm.collected_card.AddRange(gameManager.sm.play_stage.priceCards);
-            }
-            if(gameManager.sm.play_stage.stageEvent){
-                gameManager.sm.play_stage.stageEvent.WhenStageWin(gameManager.sm);
             }
             gameManager.sm.play_stage.noPrice = true;
         }
@@ -652,7 +650,7 @@ public class BattleManager : MonoBehaviour
         cardlineRender.gameObject.SetActive(false);
     }
 
-    public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false){
+    public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false,bool onlyimme = false){
         if(having_card.tained && !ableTain){return null;}
         //GameObject game_card = new GameObject();
         CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
@@ -664,10 +662,12 @@ public class BattleManager : MonoBehaviour
         player.cards.Add(card);
         player.cardGet.SetActive(false);
         player.cardGet.SetActive(true);
+        if(!onlyimme){
         foreach(Player playe in players){
             for(int i =0; i<playe.cards.Count;i++){
                 playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player,card);
             }
+        }
         }
         card.ability.WhenCardGetImmedi(card,this);
         sdm.Play("GetCard");

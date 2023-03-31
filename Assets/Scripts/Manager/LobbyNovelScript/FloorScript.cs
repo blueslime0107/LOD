@@ -41,6 +41,15 @@ public class FloorScript : MonoBehaviour
         curBg.SetActive(true);
     }
 
+    private void Start() {
+        curFloor = sm.Floors[sm.preFloor];
+        lobby.curFloor = curFloor;
+
+        lobby.ReloadPlayerCard();
+        subPanelLoad.RefreshDiscover();
+        mainPanelLoad.RefreshDiscover();
+    }
+
     public void GoToFloor(int floorNum){
         if(movingFloor){return;}
         if(floorNum == sm.Floors.IndexOf(curFloor)){return;}
@@ -55,6 +64,7 @@ public class FloorScript : MonoBehaviour
     }
 
     public void RefreshStageCard(){
+        lobby.curFloor = curFloor;
         lobby.ReloadPlayerCard();
     }
 

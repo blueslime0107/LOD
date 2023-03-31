@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Robot
   m_EditorClassIdentifier: 
   health: 10
-  breaks: 0500000000000000
+  breaks: 00000000
   char_sprites: {fileID: 11400000, guid: 76ad5adce282ce34ca102a0019378a7d, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: 7b124d01946e0884eb6940471d8d49c2, type: 2}
@@ -23,5 +23,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}

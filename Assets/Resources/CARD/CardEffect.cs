@@ -17,7 +17,11 @@ public class CardEffect : MonoBehaviour
     public bool stable;
     SpriteRenderer render;
     LineRenderer lineRender;
+
+    [Space(20f)]
     float originWidth;
+    public Vector2 preTrans;
+
 
     void Awake(){
         

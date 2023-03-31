@@ -15,6 +15,8 @@ public class Card64 : CardAbility
         foreach(Player play in player.team.players ){
             if(play.dice <= 3){
                 match.CardLog("PowerUp",card,play);
+            EffectPlayerSet(card.effect[0],card.player,card.player.transform,1.2f,1);
+
                 play.AddDice(1);
             }
         }

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CardVol Filename="Card">
+    <Card Code="0">
+        <name>무</name>
+        <text>비어있음</text>
+        <ability>무한한 힘을 가지고 있다</ability>
+    </Card>
+    <Card Code="1">
+        <name>완벽한 모범생</name>
+        <text>완벽해야 되요</text>
+        <ability>[전투 준비] 자신의 위력과 같은 캐릭터가 있을때 마다 위력 + 1 이 계속오른다</ability>
+    </Card>
+    <Card Code="2">
+        <name>평행세계</name>
+        <text>이 뒷편의 세계.. &#10;궁금하지 않나요?</text>
+        <ability>[캐릭터 지정] 전투당 한번, 캐릭터의 위력을 위력-7 의 절댓값으로 바꾼다
+[전투 시작] 캐릭터 지정을 안했다면 자신을 대상으로 효과가 발동된다</ability>
+    </Card>
+    <Card Code="3">
+        <name>눈알 CCTV</name> 
+        <text>멀리서 관전하는게 &#10;얼마나 재밌는데</text>
+        <ability>[피해 발생] 피해3 이상일시 체력 +2</ability>
+    </Card>
+    <Card Code="4">
+        <name>숟가락 살인마</name>
+        <text>한 대.. 그리고 한 대</text>
+        <ability>[합 시작] 자신 위력이 상대 위력보다 낮다면
+상대 주사위를 파괴하고 자신 위력이 1이 된다</ability>
+    </Card>
+    <Card Code="5">
+        <name>본능의 단검</name>
+        <text>단검이 의지를 가진듯</text>
+        <ability>[피격] 피해 -1, 무방비시 피해/2 , 줄어든 피해만큼 상대에게 피해를 준다</ability>
+    </Card>
+    <Card Code="6">
+        <name>지박령</name>
+        <text>너가 감히 나를?</text>
+        <ability>[사망] 사망 직전 마지막으로 공격한 캐릭터에게
+원한([전투 준비]카운트 +2, 카운트 만큼 피해 받음)을 준다</ability>
+    </Card>
+    <Card Code="165">
+        <name>원한</name>
+        <text>죽일거야...</text>
+        <ability>[전투 준비]카운트 +2, 카운트 만큼 피해 받음</ability>
+    </Card>
+    <Card Code="7">
+        <name>도굴꾼</name>
+        <text>미안하지만 니껄 쫌 써야겠다</text>
+        <ability>[자신팀 사망] 위력 3~6 여분 주사위를 얻는다&#10;[상대팀 사망] 카드 획득</ability>
+    </Card>
+    <Card Code="8">
+        <name>살고자 하는 열망</name>
+        <text>마지막 남은 힘까지</text>
+        <ability>[사망] 체력 1로 살아남고 1턴 동안 위력 +4, 피해를 받지 않음</ability>
+    </Card>
+    <Card Code="9">
+        <name>인신매매</name>
+        <text>자 여기.. 이걸 받으세요</text>
+        <ability>[발동]체력을 0~1 깎고, 위력+1</ability>
+    </Card>
+    <Card Code="10">
+        <name>해결사 상인</name>
+        <text>자 여기 치료제에요!&#10;뒤에요? 신경쓰지마세요!</text>
+        <ability>[획득]체력 +7
+[전투 준비] 4턴마다 피해4 를 받는다 </ability>
+    </Card>
+    <Card Code="11">
+        <name>이세상 최고의 연금술</name>
+        <text>너희들의 고통을 담아..</text>
+        <ability>[피해 발생] 피해만큼 카운트 상승, 카운트15 이상일시 0이 되고 카드획득</ability>
+    </Card>
+    <Card Code="12">
+        <name>시들어진 네잎클로버</name>
+        <text>이곳의 운은 이미 죽은지 오래에요</text>
+        <ability>[발동] 최대 3번 자신위력2 이하일때 위력5 이상의 상대팀 캐릭터들의 주사위를 파괴한다.&#10;3번째 발동때 모든캐릭터를 대상으로 효과가 적용된다.</ability>
+    </Card>
+    <Card Code="13">
+        <name>현실부정</name>
+        <text>아니 그럴리 없어 한번만 다시 기회를..</text>
+        <ability>[합 시작] 자신위력이 상대위력보다 낮으면 주사위를 다시 굴린다&#10;이후 [합 승리]시 피해만큼 체력 회복</ability>
+    </Card>
+    <Card Code="14">
+        <name>상호확증파괴</name>
+        <text>니가 죽나 내가 죽나 함 보자고</text>
+        <ability>[피격] 모든 상대팀 캐릭터에게 피해1 을 준다</ability>
+    </Card>
+    <Card Code="15">
+        <name>핏빛기억</name>
+        <text>그때의 기억은 다시 떠올리고 싶지 않았는데</text>
+        <ability>[피격] 상대에게 받은 피해의 절반(올림)의 피해를 준다</ability>
+    </Card>
+    <Card Code="16">
+        <name>치명적인 일격</name>
+        <text>방심하는 순간 그 뒤는 무시할 수 없어</text>
+        <ability>[적중] 피해 2 이하일시 피해x2</ability>
+    </Card>
+    <Card Code="17">
+        <name>신경지배드론</name>
+        <text>/폭력행위 발견 /회피기동 발동</text>
+        <ability>[피격] 피해 2 이하일시 0으로 낮춘다</ability>
+    </Card>
+    <Card Code="18">
+        <name>공정한 헌혈기</name>
+        <text>이거 진짜 공평한거 맞는거지?</text>
+        <ability>[일회성 발동] 생존한 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
+    </Card>
+    <Card Code="19">
+        <name>스포츠맨십</name>
+        <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
+        <ability>{팀 전체 대상}[피격]무방비시 상대에게&#10;다음 1턴 동안 피해를 못주는 레드카드를 준다</ability>
+    </Card>
+    <Card Code="195">
+        <name>레드카드</name>
+        <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
+        <ability>[적중]피해가 0이 된다, 1턴뒤 파괴됨</ability>
+    </Card>
+    <Card Code="20">
+        <name>책장정리</name>
+        <text>이 책들 어지렆히면 안되죠</text>
+        <ability>{추가카드}[사망] 소지한 모든 카드들을 다른 캐릭터에게 넘길 수 있다</ability>
+    </Card>
+    <Card Code="201">
+        <name>책더미</name>
+        <text>이 책들 어지렆히면 안되죠</text>
+        <ability>[획득]사망한 캐릭터의 카드들을 가져온다</ability>
+    </Card>
+    <Card Code="21">
+        <name>프로불펌러</name>
+        <text>출처? 그딴게 왜 필요해</text>
+        <ability>[카드 지정] 상대의 카드중 하나를 골라 효과를 얻는다</ability>
+    </Card>
+    <Card Code="22">
+        <name>행동복사로봇</name>
+        <text>그저 흉내내는거죠 강해진게 아닙니다</text>
+        <ability>[전투 준비] 상대팀 캐릭터들중 가장 위력이 큰 캐릭터의 위력과 같아진다
+5이상의 위력과 같아졌을때 다음턴엔 효과가 발동하지 않는다</ability>
+    </Card>
+    <Card Code="23">
+        <name>File_Crashed</name>
+        <text>%!@%*!^*#@$%!</text>
+        <ability>[전투 준비] 랜덤한 카드효과를 얻는다</ability>
+    </Card>
+    <Card Code="24">
+        <name>보험</name>
+        <text>가입하시면 절대 후회되지 않을겁니다!</text>
+        <ability>[획득] 체력 +4, 이후 자신팀의 카드뽑기부터 이 카드의 효과가 추가된다</ability>
+    </Card>
+    <Card Code="25">
+        <name>미믹</name>
+        <text>카드 맛있어!</text>
+        <ability>상대가 카드뽑기에서 카드를 뽑을때&#10;카드를 얻은 캐릭터는 확률적으로 얻은 카드가 파괴되고 체력 -4</ability>
+    </Card>
+    <Card Code="26">
+        <name>의식실패</name>
+        <text>실패했어.. 이젠 끝이야</text>
+        <ability>[카드 지정] 지정한 카드의 효과발동을 막는다</ability>
+    </Card>
+    <Card Code="27">
+        <name>레이븐콜</name>
+        <text>맡기신 카드 나왔습니다</text>
+        <ability>{추가카드} 카드뽑기중에 전에 버려진 카드들을 뽑을 수 있다</ability>
+    </Card>
+    <Card Code="271">
+        <name>리콜</name>
+        <text>다음 카드 나와주세요</text>
+        <ability>현재 카드뽑기를 넘기고 새 카드뽑기를 진행한다</ability>
+    </Card>
+    <Card Code="28">
+        <name>명현현상</name>
+        <text>고치고 고쳐도 달라진건 없었어</text>
+        <ability>[전투 준비] 체력 + 1~2, 
+최대체력을 넘을경우 최대체력의 절반만큼 체력 깎임</ability>
+    </Card>
+    <Card Code="29">
+        <name>Glock-17</name>
+        <text>아직 한발 남았다...</text>
+        <ability>[전투 준비] 위력1 여분주사위를 얻는다</ability>
+    </Card>
+    <Card Code="30">
+        <name>Shotgun-1987.Ger</name>
+        <text>뒷일은 모르겠고 한방좀 먹이자</text>
+        <ability>[전투 준비]  위력2~6 상승, 다음 1턴엔 위력 2가 된다</ability>
+    </Card>
+    <Card Code="31">
+        <name>Assult Rifle-M16A5</name>
+        <text>탄을 남기는거 좋은 생각이지 않을까?</text>
+        <ability>[합 시작] 자신위력이 상대위력보다 크면 자신위력을 상대위력까지 낮추고
+낮춘만큼 위력의 여분주사위를 얻는다</ability>
+    </Card>
+    <Card Code="32">
+        <name>야구빠따</name>
+        <text>선물은 풀스윙이다!</text>
+        <ability>[합 시작] 자신위력이 상대위력과 같으면 위력 +3</ability>
+    </Card>
+    <Card Code="33">
+        <name>엑스칼리버-X</name>
+        <text>선택받는 자는 모르겠고&#10;이거 겁나 쎈데?</text>
+        <ability>[합 승리] 위력 +2</ability>
+    </Card>
+    <Card Code="34">
+        <name>아이기스-I</name>
+        <text>최고의 공격은&#10;최고의 방어</text>
+        <ability>[피격] 피해 -1</ability>
+    </Card>
+    <Card Code="35">
+        <name>페일노트-F</name>
+        <text>이거 한방 먹고가!</text>
+        <ability>[합 시작][공격] 상대위력 -2</ability>
+    </Card>
+    <Card Code="36">
+        <name>미믹아 먹어!</name>
+        <text>마구 먹는거시다!</text>
+        <ability>[카드 지정] 최대 3번, 지정카드는 3턴 뒤 파괴된다</ability>
+    </Card> 
+    <Card Code="37">
+        <name>솎아내기</name>
+        <text>먹기 좋게 잘라내면, 맛있어</text>
+        <ability>[발동] 위력 -1, 확률적으로 체력 +1
+발동마다 확률이 낮아진다</ability>
+    </Card>
+    <Card Code="38">
+        <name>레이-디버그</name>
+        <text>아오 이놈의 벌레!</text>
+        <ability>[획득]카드중 하나가 버그카드(효과봉인)가 된다.&#10;[카드 지정]카드가 버그카드일시 체력5회복 버그풀림, 아닐시 파괴된다. 
+[합 승리]버그카드가 없다면 상대에게 넘길 수 있다</ability>
+    </Card>
+    <Card Code="39">
+        <name>D6</name>
+        <text>마음에 안들면 바꾸자!</text>
+        <ability>[발동]카드뽑기의 카드들을 새로 바꾼다</ability>
+    </Card>
+    <Card Code="40">
+        <name>SA비상식량</name>
+        <text>이 간식이 참 맛있단말이야&#10;양도 넉넉하고.. 고급재료를 썼어</text>
+        <ability>[획득] 최대체력 +5</ability>
+    </Card>
+    <Card Code="41">
+        <name>도발</name>
+        <text>아무고토 못하죠?!</text>
+        <ability>[캐릭터 지정]지정한 캐릭터의 위력이 자신보다 높다면
+지정한 캐릭터는 1턴 동안 자신을 제외한 다른 캐릭터에게 공격할 수 없다.
+        </ability>
+    </Card>
+    <Card Code="42">
+        <name>북스캐빈저</name>
+        <text>여기 책들은 모두 하나씩&#10;주인이 있었죠</text>
+        <ability>[아무 캐릭터 사망] 사망한 캐릭터의 카드중&#10;제일 처음에 얻은 카드를 가져간다</ability>
+    </Card>
+    <Card Code="43">
+        <name>경비용CCTV</name>
+        <text>카드? 전투에 무슨 짓거리죠?&#10;이런전투 가만있을순 없어요</text>
+        <ability>팀 상관없이 카드획득시 체력 - 2</ability>
+    </Card>
+    <Card Code="44">
+        <name>치고빠지기</name>
+        <text>그 무기 치우시지?</text>
+        <ability>[합 패배][공격] 피해를 0으로 한다</ability>
+    </Card>
+    <Card Code="45">
+        <name>고기방패</name>
+        <text>살 수 있다면야.. 이거나 먹어!</text>
+        <ability>[발동]체력 -2&#10;[피격] 발동 중일때 한번 피해를 0으로 한다</ability>
+    </Card>
+    <Card Code="46">
+        <name>소스피란도</name>
+        <text>아주 슬프게...</text>
+        <ability>[피격] 자신제외 모든 자신팀들의 체력을 피해의 반만큼(올림) 회복&#10;[사망] 자신팀들의 체력 -4</ability>
+    </Card>
+    <Card Code="47">
+        <name>비바체</name>
+        <text>아주 빠르게...</text>
+        <ability>[합 승리] 자신제외 자신팀들이 소지한 카드 수만큼&#10;최대 자신이 소지한 카드 수까지 피해 상승
+2턴마다 캐릭터에게 '빠르게([발동]위력 +1, 파괴됨)를 줄 수 있다</ability>
+    </Card>
+    <Card Code="471">
+        <name>빠르게</name>
+        <text>빠른 소리</text>
+        <ability>[발동] 위력 +1, 파괴됨</ability>
+    </Card>
+    <Card Code="48">
+        <name>퓨리오소</name>
+        <text>난폭하게..</text>
+        <ability>[전투 준비] 2턴마다 카운트 상승, 카운트만큼 상대팀의 체력회복(최대 2), 위력감소 
+[무방비][피격]카운트 초기화</ability>
+    </Card>
+    <Card Code="49">
+        <name>페로체</name>
+        <text>거칠게...</text>
+        <ability>[전투 준비] 모든 자신팀들의 위력 +1, 사망한 캐릭터만큼 자신위력 상승
+[합 패배] 다음 1턴 모든 자신팀들의 위력 -3,패배해도 이 효과가 발동안함</ability>
+    </Card>
+    <Card Code="50">
+        <name>라멘토소</name>
+        <text>슬픈듯이...</text>
+        <ability>[획득] 사망한 캐릭터만큼 '플룻'획득, [아무 사망] '플룻'획득
+플룻([발동] 효과를 바꾼다 {[적중] 피해 1 증가,
+[피격] 피해 1 감소} [전투끝] 효과가 고정됨)</ability>
+    </Card>
+    <Card Code="501">
+        <name>플러터 텅잉</name>
+        <text>슬픈듯이...</text>
+        <ability>[적중] 피해 +1 [전투끝] 효과가 고정됨</ability>
+    </Card>
+    <Card Code="502">
+        <name>비브라토</name>
+        <text>슬픈듯이...</text>
+        <ability>[피격] 피해 -1 [전투끝] 효과가 고정됨</ability>
+    </Card>
+    <Card Code="61">
+        <name>조랭 가호</name>
+        <text>받아라!! 조 랭 가 호!!!</text>
+        <ability>[합 시작]자신위력이 2일때, 위력+6</ability>
+    </Card>
+    <Card Code="62">
+        <name>나무막대기</name>
+        <text>이야 이거 단단한데?</text>
+        <ability>[합 승리]위력 +1, 2번 발동후 파괴됨</ability>
+    </Card>
+    <Card Code="63">
+        <name>유리방패</name>
+        <text>이거 재료를 잘못썻어</text>
+        <ability>[합 패배]피해 -2, [피격] 파괴됨</ability>
+    </Card>
+    <Card Code="64">
+        <name>초심자의 행운</name>
+        <text>역시 뉴비야&#10;초심자의 행운이 있구만</text>
+        <ability>[전투 준비]2턴마다 자신팀 전체 3이하 위력 +1</ability>
+    </Card>
+    <Card Code="65">
+        <name>신속도약</name>
+        <text>쯔이앗!</text>
+        <ability>[발동] 위력 1~6의 여분 주사위를 얻는다</ability>
+    </Card>
+    <Card Code="66">
+        <name>공기</name>
+        <text>쓰으으읍..! 하ㅏㅏ</text>
+        <ability>[획득]체력 +3</ability>
+    </Card>
+    <Card Code="67">
+        <name>의미심장한 검</name>
+        <text>이 낡은 검은 뭐지?</text>
+        <ability>[합 승리] 3번 합 승리시 엑스칼리버로 진화한다</ability>
+    </Card>
+    <Card Code="68">
+        <name>과속방지 출입구</name>
+        <text>속도를 낮추세요</text>
+        <ability>[피격]전투당 한번, 피해가 4이상일시 피해를 0으로 하고 1턴 동안 발동불가</ability>
+    </Card>
+    <Card Code="71">
+        <name>전사의 검</name>
+        <text>받아라!!!!!!</text>
+        <ability>[합 승리] 위력 +2, 상대 사망시 파괴됨 </ability>
+    </Card>
+    <Card Code="72">
+        <name>마이크테스트</name>
+        <text>수면의 노래ㅐㅐㅐ~</text>
+        <ability>[발동]다음 효과중 하나가 발동된다.
+자신제외 전체 주사위 파괴 15% 자신주사위 파괴15%
+자신제외 전체 위력 -2 35% 자신위력 -2 35%</ability>
+    </Card>
+    <Card Code="73">
+        <name>어..?</name>
+        <text>뭐 쨌든 맞췄다!</text>
+        <ability>[합 패배]랜덤한 다른 캐릭터가 합 피해를 받는다.</ability>
+    </Card>
+    <Card Code="74">
+        <name>쓰으읍</name>
+        <text>무엇을 쓸까나~</text>
+        <ability>[전투 준비]자신이 원하는 스크롤 카드를 뽑는다</ability>
+    </Card>
+    <Card Code="75">
+        <name>체력 강화를 해볼까?</name>
+        <text>어떻게 될려나</text>
+        <ability>[합 시작]다음 효과중 하나가 발동된다.
+상대 최대체력 -5 15% 상대 최대체력 +5 15%
+상대 체력 -5 35% 상대 체력 +5 증가 35%</ability>
+    </Card>
+    <Card Code="76">
+        <name>무기 강화도 해보자!</name>
+        <text>어떻게 될려나</text>
+        <ability>[합 시작]다음 효과중 하나가 발동된다.
+자신 주사위 파괴 15% 자신 위력x2 15%
+자신 위력 -3 35% 자신 위력 +3 35%</ability>
+    </Card>
+    <Card Code="77">
+        <name>카드도 강화할 수 있나?</name>
+        <text>어떻게 될려나</text>
+        <ability>[합 시작]다음 효과중 하나가 발동된다.
+상대의 카드하나 파괴 15% 상대의 카드뽑기 추가 15%
+상대의 Break수치 -3 35% 상대의 Break수치 +3 35%</ability>
+    </Card>
+    <Card Code="78">
+        <name>감자나무의 열매</name>
+        <text>조심히 따세요</text>
+        <ability>3턴 마다 합 피해를 상대팀 전체에게 줄 수 있는
+            감자포를 '마뻡사'에게 준다.</ability>
+    </Card>
+    <Card Code="79">
+        <name>걍걍</name>
+        <text>이 고양이 참 위협적이군</text>
+        <ability>[피격] 상대의 공격으로 얻게된 카드뽑기는
+            상대가 가져가게 된다.</ability>
+    </Card>
+    <Card Code="80">
+        <name>쩐사의 엑스칼리버</name>
+        <text>각오는 됬는가?</text>
+        <ability>[합 승리] 카운트가 상승한다, 카운트만큼 위력 증가
+[합 패배]카운트 이상의 피해를 받을시 카운트 감소</ability>
+    </Card>
+    <Card Code="81">
+        <name>감자비이이이이임!!!!</name>
+        <text>푸와ㅏㅏㅏㅏㅏ</text>
+        <ability>[합 승리] 상대 전체에게 합 피해의 2배를 준다</ability>
+    </Card>
+    <Card Code="82">
+        <name>왈 우왈 와라랄</name>
+        <text>잠이 와랏</text>
+        <ability>[일회성 발동] 자신제외 모든캐릭터들의 위력 - 자신위력/2</ability>
+    </Card>
+    <Card Code="83">
+        <name>감자봉</name>
+        <text>하아앗 힘을 모은다!</text>
+        <ability>[전투준비]카운트 상승 [일회성 발동] 카운트만큼 위력증가</ability>
+    </Card>
+    <Card Code="84">
+        <name>미믹은 카드를 원한다!</name>
+        <text>카드 내놔!</text>
+        <ability>[합 승리]2턴마다 발동가능, 상대가 카드 소지시 상대의 카드 파괴, 없을시 위력+3</ability>
+    </Card>
+    <Card Code="85">
+        <name>공정한 죽음</name>
+        <text>내가 죽어도&#10;전투는 공정하게!</text>
+        <ability>[사망]자신제외 모든 캐릭터의 체력을 평균치로 조정한다(올림)</ability>
+    </Card>
+    <Card Code="86">
+        <name>날카로운 단검</name>
+        <text>상처가 보이는군!</text>
+        <ability>[피해 줌]상대에게 출혈([피격] 카운트만큼 피해상승) 카운트를 올린다</ability>
+    </Card>
+    <Card Code="87">
+        <name>출혈</name>
+        <text>피가!</text>
+        <ability>[피격] 카운트만큼 피해상승</ability>
+    </Card>
+    <Card Code="368">
+        <name>행동불가</name>
+        <text>...</text>
+        <ability>[전투준비]위력이 0이 된다</ability>
+    </Card>
+    <Card Code="369">
+        <name>속도</name>
+        <text>빨라질 시간이야!</text>
+        <ability>[전투 준비] 카운트만큼 위력1~6 여분 주사위를 얻는다</ability>
+    </Card>
+    <Card Code="999">
+        <name>???</name>
+        <text>....</text>
+        <ability>침식됨</ability>
+    </Card>
+ 
+    
+</CardVol>

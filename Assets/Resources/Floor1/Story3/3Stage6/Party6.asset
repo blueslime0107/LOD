@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: Party6
+  m_EditorClassIdentifier: 
+  id: 12
+  stageAddress:
+    floor: 2
+    sub: 0
+  title: "\uAC80\uC744 \uB0B4\uB194\uB77C!"
+  rank: 6
+  characters:
+  - {fileID: 11400000, guid: 7ee11c9548c288d4e935d999ee02c4ea, type: 2}
+  - {fileID: 11400000, guid: 5efd9c5954090924d98a7baef4a94e94, type: 2}
+  - {fileID: 11400000, guid: 10f6d811f38aef64aa64955f8d4320b4, type: 2}
+  - {fileID: 11400000, guid: 5e372c03c3202c843be060bc62bf5393, type: 2}
+  - {fileID: 11400000, guid: 14689d7f0fec81f49b09f3c1d2802252, type: 2}
+  priceStage:
+  - {fileID: 11400000, guid: 819643b5a8616114babf9941a08d7ab5, type: 2}
+  - {fileID: 11400000, guid: 5fac21ede40a86647b4f66f858ee2cfd, type: 2}
+  priceChars:
+    PlayerStage_id: 0
+    player_Characters_id: 0
+  priceCards:
+  - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
+  - {fileID: 11400000, guid: 42245c302d93c1741a90f8a61f19c022, type: 2}
+  beforeStory: {fileID: 0}
+  afterStory: {fileID: 0}
+  victoryed: 0
+  charlimit: 5
+  playerStageLock: {fileID: 0}
+  stageEvent: {fileID: 0}
+  custom_stage: {fileID: 7815746713288796794, guid: 33108683459a3fc4bab84c16bb7e68b1, type: 3}
+  custom_BGM: NightGrass
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  discovered: 0

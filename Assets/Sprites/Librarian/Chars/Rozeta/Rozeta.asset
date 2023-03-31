@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Rozeta
   m_EditorClassIdentifier: 
-  name_: Rozeta
+  id: 38
+  name_: "\uB85C\uC81C\uD0C0"
   poses:
   - {fileID: 21300000, guid: 1d6b8a9bc7da7ed44a278e247f4970f9, type: 3}
   - {fileID: 21300000, guid: d96c619fbdb26ef4e9fdecafe8617322, type: 3}

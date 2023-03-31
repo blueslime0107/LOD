@@ -24,7 +24,6 @@ public class Card38 : CardAbility
 
         linked_card[0].illust = selected_card.ability.illust;
         linked_card[0].card_id = selected_card.ability.card_id;
-        linked_card[0].xmlFile_path = selected_card.ability.xmlFile_path;
         selected_card.ability.WhenCardDestroy(selected_card,selected_card.ability);
         selected_card.ability = linked_card[0]; // 능력 삭제 (봉인)
         match.CardLog("ERROR",card,selected_card.player);
@@ -45,6 +44,7 @@ public class Card38 : CardAbility
             match.CardLog("Debug Success!",card);
 
             card.player.AddHealth(5);
+            card.player.AddDice(3);
             card.saved_card.ability = card.saved_ability;
             card.saved_card = null;
         }
@@ -59,7 +59,7 @@ public class Card38 : CardAbility
     {
         pre_count++;
         if(pre_count > 1){
-            CardSelected(card, card.saved_card, match);
+            CardSelected(card, card.player.cards[Random.Range(0,card.player.cards.Count)], match);
             pre_count = 0;
         }
     }

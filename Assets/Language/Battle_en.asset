@@ -102,8 +102,8 @@ MonoBehaviour:
     m_Localized: 'The Rebellion system, gets triggered prior to any other power change
       systems.
 
-      Thus, you can get a chance to turn the table, even if the
-      situation is unfavorable.
+      Thus, you can get a chance to turn the table, even if the situation
+      is unfavorable.
 
 '
     m_Metadata:
@@ -139,6 +139,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3075027701760
     m_Localized: BREAK level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475190580281344
+    m_Localized: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475364388044800
+    m_Localized: Card Log
     m_Metadata:
       m_Items: []
   references:

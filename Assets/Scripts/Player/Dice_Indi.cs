@@ -5,90 +5,71 @@ using UnityEngine;
 public class Dice_Indi : MonoBehaviour
 {
     public int dice_num;
+    public DiceOBJ diceOBJ;
+    public List<DiceOBJ> sub_diceOBJ;
 
     [SerializeField] ParticleSystem particle;
     public BattleManager battleManager;
     public BattleCaculate battleCaculate;
-    public Sprite[] dice_img;
     public bool isDiced = false;
-    public int dice_value;
     Vector3 saved_pos;
 
     public bool onMouseDown;
     public bool onMouseEnter;
 
-    public SpriteRenderer render;
-    public SpriteRenderer sub_render;
     public Player player;
     public BezierCurve lineRender;
     public GameObject sub_dice;
     public List<Dice> dice_list= new List<Dice>();
-    void Awake() {
-        render = GetComponent<SpriteRenderer>();
-        sub_render = sub_dice.GetComponent<SpriteRenderer>();
-    }
 
     void OnEnable(){
         particle.Stop();
     }
 
-    // void Update(){
-    //     if(Input.GetMouseButtonUp(0)){
-    //         if(targetSelected && battleManager.target1 > 0 && player.player_id != battleManager.target1){
-    //         battleManager.target2 = player.player_id;
-    //         battleManager.BattleTargetReady();
-    //         //battleCaculate.BattleMatch(dice_num,target); 
-    //         }
-    //     }
-        
-    // }
+    public void updateDice(){
+        diceOBJ.updateDice(dice_list.Count > 0 ? dice_list[0].dice_value : 0 );
+
+        int i =1;
+        foreach(DiceOBJ diceOBJ in sub_diceOBJ){
+            if(dice_list.Count > i){diceOBJ.updateDice(dice_list[i].dice_value);}
+            diceOBJ.gameObject.SetActive(dice_list.Count > i);
+            i++;
+        }
+        player.dice = dice_list.Count > 0 ? dice_list[0].dice_value : 0;
+    }
 
     public void putDice(Dice dice){
-        Debug.Log("putdice");
         particle.Play();
         dice_list.Add(dice);
-        player.dice = dice.dice_value;
         player.ChangeCondition(1);
-        dice_value = dice.dice_value;
-        isDiced = true;       
-        render.sprite = dice_img[dice.dice_value];
+        updateDice();
+        isDiced = true;     
         battleManager.sdm.Play("Paper1");
         
         
     }
 
     public void NextDice(){
-        
-        if(dice_value > 0){
-            return;
-        }
-        else{
-            if(dice_list.Count > 0)
+
+        if(dice_list.Count > 0){
             dice_list.RemoveAt(0);
-        }
-        if(dice_list.Count <= 0){
+            if(dice_list.Count <= 0){
             player.ChangeCondition(0);
+            updateDice();
             return;
+            }
         }
 
-        player.dice = dice_list[0].dice_value;
+        updateDice();
         player.ChangeCondition(1);
-        dice_value = dice_list[0].dice_value;
         isDiced = true;       
-        render.sprite = dice_img[dice_list[0].dice_value];
-
-        if(dice_list.Count < 2){
-            sub_dice.SetActive(false);
-        }
+        
     }
 
     public void put_subDice(Dice dice){
         Debug.Log("sub_putdice");
-        if(!sub_dice.activeSelf){
-            sub_dice.SetActive(true);
-        }
-        dice_list.Add(dice);    
-        sub_render.sprite = dice_img[dice.dice_value];
+        dice_list.Add(dice);   
+        updateDice();
     }
 
     public void setDice(int value){
@@ -97,16 +78,10 @@ public class Dice_Indi : MonoBehaviour
             player.dice = 0;
             return;
         }
+        dice_list[0].dice_value = value;
         
         particle.Play();
-        player.dice = value;
-        dice_value = value;
-        try
-        {render.sprite = dice_img[value];}
-        catch
-        {render.sprite = dice_img[7];}
-
-        NextDice();
+        updateDice();
     }
 
     void OnMouseDown() {

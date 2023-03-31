@@ -17,6 +17,9 @@ public class BattleCardManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI price_text;
     [SerializeField] GameObject overWritten;
 
+    public int avaliblePrice;
+    public List<CardAbility> NOTavalibleCard; 
+
     List<bool> disable_save = new List<bool>(); 
 
     void Start(){
@@ -66,6 +69,9 @@ public class BattleCardManager : MonoBehaviour
             }}
             newCharList[i].changeFightAble(newCharList[i].cur_char.battleAble);
         }
+
+            price_gague.gameObject.SetActive(!stage.noCardEquipBreak);
+            price_text.gameObject.SetActive(!stage.noCardEquipBreak);
          
         disable_save[5] = false;
 
@@ -81,11 +87,23 @@ public class BattleCardManager : MonoBehaviour
     }
 
     public void updatePriceGague(){
-        price_gague.maxValue = stage.avaliblePrice;
+        avaliblePrice = 0;
+        NOTavalibleCard.Clear();
+        foreach(Character character in stage.characters){
+            if(character == null){break;}
+            avaliblePrice += character.priceBonus;
+            foreach(CardAbility card in character.char_preCards){
+                if(card == null){break;}
+                NOTavalibleCard.Add(card);
+            }
+        }
+        lobby.menuCard.avaliblePrice = avaliblePrice;
+        lobby.menuCard.NOTavalibleCard = NOTavalibleCard;
+        price_gague.maxValue = avaliblePrice;
         int getPrice = stage.GetPriceSum();
         price_gague.value = getPrice;
         price_text.text = price_gague.value.ToString() +"/"+price_gague.maxValue.ToString();
-        overWritten.SetActive(getPrice > stage.avaliblePrice);
+        overWritten.SetActive(getPrice > avaliblePrice);
     }
 
     public void FightStart(){
@@ -101,7 +119,7 @@ public class BattleCardManager : MonoBehaviour
         if(playerLessFight > lobby.stage.charlimit || playerLessFight == 0){
             return;
         }
-        if(stage.GetPriceSum() > stage.avaliblePrice){
+        if(stage.GetPriceSum() > avaliblePrice && !stage.noCardEquipBreak){
             return;
         }
         lobby.GetStory();

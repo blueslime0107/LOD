@@ -29,7 +29,7 @@ public class CardPack : MonoBehaviour
     public string message;
     public string ability_message;
     public bool tained;
-    public Sprite overCard;
+    public CardStyle cardStyle;
 
     public Sprite illust;
 

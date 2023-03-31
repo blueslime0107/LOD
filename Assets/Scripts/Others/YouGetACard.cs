@@ -15,7 +15,6 @@ public class YouGetACard : MonoBehaviour
     [SerializeField] TextMeshProUGUI card_name;
     [SerializeField] TextMeshProUGUI card_comment;
     [SerializeField] TextMeshProUGUI ability_message;
-    [SerializeField] TextMeshProUGUI story_message;
 
     bool textwriting = true;
 
@@ -33,7 +32,6 @@ public class YouGetACard : MonoBehaviour
                 card_name.text = card.ability.name;
                 card_comment.text = card.ability.message ;
                 ability_message.text = card.ability.ability_message ;
-                story_message.text = card.ability.story_message; 
                 
                 yield return null;
             }
@@ -55,7 +53,6 @@ public class YouGetACard : MonoBehaviour
         card_name.text = "";
         card_comment.text = "";
         ability_message.text ="";
-        story_message.text = "";
         textwriting = true;
         Debug.Log(cardAbility[0].name);
         card.loaded = false;
@@ -75,7 +72,6 @@ public class YouGetACard : MonoBehaviour
     public void WriteAbility(){
         if(!textwriting){return;}
         StartCoroutine(TypeWrite(card.ability.ability_message,3,0.02f));
-        StartCoroutine(TypeWrite(card.ability.story_message,4,0.02f));
     }
 
     IEnumerator TypeWrite(string text,int index,float delay=0.05f){
@@ -91,8 +87,6 @@ public class YouGetACard : MonoBehaviour
                     ability_message.text = newString.Substring(0,i); 
                     if(ability_message.text.Equals(newString)){textwriting = false;}
                     break;
-                case 4:
-                    story_message.text = newString.Substring(0,i); break;
             }
             
             }
