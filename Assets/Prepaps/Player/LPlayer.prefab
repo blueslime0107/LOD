@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4336479989809913655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.17, y: -0.83, z: 0}
+  m_LocalPosition: {x: -2.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,7 +149,7 @@ MonoBehaviour:
   hp_Indi: {fileID: 8486782600382113654}
   textMeshPro: {fileID: 5263931014490655650}
   movePoint: {fileID: 4336479990701317965}
-  attPoint: {fileID: 4336479989809913640}
+  other_movePoint: {fileID: 4336479989809913640}
   originPoint: {x: 0, y: 0, z: 0}
   cardGet: {fileID: 4336479990571935145}
   condition: 0
@@ -163,7 +163,6 @@ MonoBehaviour:
   died: 0
   player_floor: {fileID: 6606459500770036351}
   pre_cards: []
-  cards: []
   poses:
   - {fileID: 21300000, guid: 4c20fc75999512f4b8547ec45866dd6d, type: 3}
   - {fileID: 21300000, guid: f9398779f4d062f42830efe2742d7924, type: 3}
@@ -178,6 +177,7 @@ MonoBehaviour:
   special_active: 0
   specialAtk: {fileID: 0}
   deathMotion: {fileID: 4375473253056746831}
+  THEEGO: 0
   speed: 0
 --- !u!95 &4375473253056746831
 Animator:
@@ -223,8 +223,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4336479990701317964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.33, y: -0.08, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4336479990067078977}

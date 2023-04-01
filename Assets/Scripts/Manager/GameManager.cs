@@ -221,5 +221,30 @@ public class GameManager : MonoBehaviour
         return card_effect;
     }
 
+    public CardPack PreSetting(CardPack card, Player play){
+        
+        CardPack c = card;
+
+        c.count = c.ability.pre_count;
+        c.tained = c.ability.tained;
+        c.player = play; // 이 카드를 가진 캐릭터의 변수를 가져올 수 있음.
+        c.card_id = c.ability.card_id; // 카드 ID 다른 카드에서 특정 카드에 대한 이벤트를 위해 필요함
+        c.illust = c.ability.illust;
+        c.name_ = c.ability.name;
+        c.message = c.ability.message;
+        c.ability_message = c.ability.ability_message;
+        // 이펙트를 현재 플레이어에 복사해둠
+        foreach(GameObject effe in c.ability.effect){
+            c.effect.Add(SpawnEffect(effe,c.player));
+
+        }
+        if(c.ability.diceLink != null){
+            GameObject car = Instantiate(c.ability.diceLink);
+            car.transform.SetParent(c.player.gameObject.transform, false);
+            c.diceLink = car.GetComponent<LineRenderer>();
+        }
+        return c;
+    }
+
     
 }

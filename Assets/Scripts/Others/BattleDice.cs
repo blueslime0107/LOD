@@ -18,16 +18,12 @@ public class BattleDice : MonoBehaviour
     private void OnEnable() {
         left_break.Stop();
         right_break.Stop();
-        transform.position = new Vector3(battleManager.camera.transform.position.x,battleManager.camera.transform.position.y+1.5f,-2);
         spinging = true;
         StartCoroutine("Spining");
         StartCoroutine("SpiningSound");
         
     }
 
-    public void SetPlayerPosition(Player player1, Player player2){
-        transform.position = (player1.dice_Indi.transform.position + player2.dice_Indi.transform.position) * 0.5f + Vector3.up*0.5f+Vector3.forward*2;
-    }
 
     IEnumerator Spining(){
         diceOBJ.updateDice(0);

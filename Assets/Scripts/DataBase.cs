@@ -51,9 +51,9 @@ public class StageManagerDB{
 
     public List<int> player_cardDic;
 
-    public List<AchieveMent> achiveItms = new List<AchieveMent>();
-
     public List<StageProperSave> stageID = new List<StageProperSave>();
+
+    public int curFloor;
 
 } 
 

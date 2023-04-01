@@ -9,13 +9,18 @@ public class Card14 : CardAbility
     {
         if(card.card_battleActive){return;}
         if(damage.value <= 0){return;}
-        Active(card);
+        card.dice = match.MakeNewDice(1);
         foreach(Player player in attacker.team.players){
-            match.CardLog("Damage",card,player);
-            player.DamagedByInt(1, card.player,damage,card);
-            EffectPlayerSet(card.effect[attacker.team.players.IndexOf(player)],card.player,card.player.transform).movPoint = player.transform.position;
+            match.battleCaculate.MakeNewEventBattle(card.player,player,card.dice,0);
             
         }
         
     }
+
+    // public override void AttackEffect(CardPack card, Player defender)
+    // {
+    //     if(card.player.dice_Indi.dice_list[0] == card.dice){
+    //         EffectPlayerSet(card.effect[0],card.player,card.player.transform,-0.2f,-1f);
+    //     }
+    // }
 }

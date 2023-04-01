@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EventBattle{
+    public Player my_player;
+    public DiceProperty my_dice;
+    public Player ene_player;
+    public int ene_dice;
+}
+
 public class BattleCaculate : MonoBehaviour
 {
     public GameManager gameManager;
@@ -9,8 +17,11 @@ public class BattleCaculate : MonoBehaviour
     public List<Player> players = new List<Player>();
     public BattleDice battleDice;
 
+    public BackColorEff blackScreen;
+
     public List<CardPack> my_ability = new List<CardPack>();
     public List<CardPack> ene_ability = new List<CardPack>();
+    public List<EventBattle> eventBattles = new List<EventBattle>();
 
     [Space(15f), Header ("WaitTime")]
     [SerializeField][Range(0f,1f)] float diceRollTime;
@@ -32,6 +43,8 @@ public class BattleCaculate : MonoBehaviour
     public Player myChar;
     public Player eneChar;
 
+    public bool enemyKnockBacked;
+
     public int ones_power = 1;
 
 
@@ -44,24 +57,26 @@ public class BattleCaculate : MonoBehaviour
         coroutine_lock = true;
     }
 
-    public void BattleMatch(Player selfnum, Player enenum){
+    public void BattleMatch(Player my_target, Player ene_target){
+        Debug.Log("BattleMatch");
         bm.sdm.Play("Fire1");
+        blackScreen.BattleStart();
         foreach(Player player in players){
-            if(player != selfnum && player != enenum){
+            if(player != my_target && player != ene_target){
                 player.dice_Indi.gameObject.SetActive(false);
                 player.hp_Indi.gameObject.SetActive(false);
             }
         }
         bm.ui.StartCoroutine("PanoraOn");
 
-        selfnum.ShowCardDeck(false,true); 
-        enenum.ShowCardDeck(false,true); 
+        my_target.ShowCardDeck(false,true); 
+        ene_target.ShowCardDeck(false,true); 
         
         bm.left_cardLook_lock = true;
         bm.right_cardLook_lock = true;
 
-        myChar = selfnum;
-        eneChar =  enenum;
+        myChar = my_target;
+        eneChar =  ene_target;
 
         my_ability = myChar.cards;
         ene_ability = eneChar.cards;
@@ -78,8 +93,8 @@ public class BattleCaculate : MonoBehaviour
 
     IEnumerator BattleMatchcor(){
         coroutine_lock = true;
-        myChar.ChangeCondition(2);    
-        eneChar.ChangeCondition(2);   
+        myChar.ChangeCondition(2);  
+        eneChar.ChangeCondition((eneChar.dice_Indi.dice_list.Count<=0) ? 4 : 2);   
 
         BasicDice();
         StartCoroutine("BasicAttack");
@@ -117,7 +132,12 @@ public class BattleCaculate : MonoBehaviour
         
 
         if(!farAtking)
-        {myChar.SetPointMove(eneChar.movePoint.position, playerMoveSpd);
+        {
+            myChar.SetPointMove(eneChar.movePoint.position, playerMoveSpd);
+            
+
+
+
         gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,playerMoveSpd);
         
         while(myChar.isMoving){
@@ -281,11 +301,7 @@ public class BattleCaculate : MonoBehaviour
 
         
     }
-
-
-
-    
-    
+ 
     IEnumerator MatchFin(){    
         if(myChar.health <= 0){
             myChar.YouAreDead();
@@ -300,15 +316,6 @@ public class BattleCaculate : MonoBehaviour
 
 
 
-        foreach(Player player in bm.players){
-            player.StartCoroutine("GotoOrigin");
-            if(player != myChar || player != eneChar){
-                player.dice_Indi.gameObject.SetActive(true);
-                player.hp_Indi.gameObject.SetActive(true);
-                player.dice_Indi.onMouseDown = false;
-                player.dice_Indi.onMouseEnter = false;
-            }
-        }
         bm.ui.StartCoroutine("PanoraOff");
 
         gameManager.main_camera_ctrl.SetZeroMove(17f);
@@ -350,18 +357,6 @@ public class BattleCaculate : MonoBehaviour
         
         
         
-        # region BattleEnded
-        for(int i =0;i<myChar.cards.Count;i++){
-            myChar.cards[i].card_battleActive = false;
-            myChar.cards[i].ability.OnClashEnded(myChar.cards[i],this);
-            
-        }
-        for(int i =0;i<eneChar.cards.Count;i++){
-            eneChar.cards[i].card_battleActive = false;
-            eneChar.cards[i].ability.OnClashEnded(eneChar.cards[i],this);
-            
-        }
-        #endregion
 
 
         
@@ -375,19 +370,62 @@ public class BattleCaculate : MonoBehaviour
             bm.cardViewChar_right.ShowCardDeck(true,true);
             bm.left_cardLook_lock = true;
         }
+        # region BattleEnded
+        for(int i =0;i<myChar.cards.Count;i++){
+            myChar.cards[i].card_battleActive = false;
+            myChar.cards[i].ability.OnClashEnded(myChar.cards[i],this);
+            
+        }
+        for(int i =0;i<eneChar.cards.Count;i++){
+            eneChar.cards[i].card_battleActive = false;
+            eneChar.cards[i].ability.OnClashEnded(eneChar.cards[i],this);
+            
+        }
+        #endregion
+
+        myChar.dice_Indi.NextDice();
+        eneChar.dice_Indi.NextDice();
+        # region EventBattle
+        
+        if(eventBattles.Count > 0){
+            for(int i=0;i<eventBattles.Count;i++){
+                if(eventBattles[i].my_player.died || eventBattles[i].ene_player.died){
+                    eventBattles.Remove(eventBattles[i]);
+                }
+            }
+        }
+        if(eventBattles.Count > 0){
+            EventBattle eventBattle = eventBattles[0];
+            eventBattles.RemoveAt(0);
+            eventBattle.my_player.dice_Indi.put_subDice(eventBattle.my_dice,true);
+            if(eventBattle.ene_dice > -1){
+                bm.MakeNewDiceAndPutPlayer(eventBattle.ene_player,eventBattle.ene_dice,true);
+            }
+            BattleMatch(eventBattle.my_player,eventBattle.ene_player);
+            yield break; // 전투 끄기
+        }
+        #endregion
+
+        foreach(Player player in bm.players){
+            player.StartCoroutine("GotoOrigin");
+            if(player != myChar || player != eneChar){
+                player.dice_Indi.gameObject.SetActive(true);
+                player.hp_Indi.gameObject.SetActive(true);
+                player.dice_Indi.onMouseDown = false;
+                player.dice_Indi.onMouseEnter = false;
+            }
+        }
 
         battleDice.DamageUpdate();
 
-        bm.blackScreen.SetActive(false);
         myChar.ChangeCondition(0);
         eneChar.ChangeCondition(0);
 
         bm.CheckNextTeam();
 
-        myChar.dice_Indi.NextDice();
-        eneChar.dice_Indi.NextDice();
 
         bm.battleing = false;
+        blackScreen.BattleFin();
         yield return null;
     }
 
@@ -396,20 +434,12 @@ public class BattleCaculate : MonoBehaviour
             defender.ChangeCondition(4);
             attacker.ChangeCondition(3);
             defender.DamagedBy(damage,attacker,attacker.character.char_sprites.atkSound);
-            // if(attacker.transform.position.x - defender.transform.position.x <0){defender.KnockBack(damage.value);}
-            // if(attacker.transform.position.x - defender.transform.position.x > 0){defender.KnockBack(-damage.value);}
-
-            
         }
         if(damage.value.Equals(0)){
             defender.ChangeCondition(3);
             attacker.ChangeCondition(3);
-
-            // if(attacker.transform.position.x - defender.transform.position.x <0){defender.KnockBack(1);}
-            // if(attacker.transform.position.x - defender.transform.position.x > 0){defender.KnockBack(-1);}
             bm.sdm.Play("Pery");
         }
-
         if(attacker.atkEffect){AtkEffectAble(attacker,defender.transform);}
         attacker.AttackEffect(defender);
         coroutine_lock = false;
@@ -426,7 +456,7 @@ public class BattleCaculate : MonoBehaviour
         battleDice.DamageUpdate();
     }
 
-    public void AtkEffectAble(Player player, Transform tran){
+    public void AtkEffectAble(Player player,Transform tran){
         player.atkEffect.gameObject.SetActive(true);
         Debug.Log(player.gameObject.tag);
         if(player.gameObject.tag == "PlayerTeam1"){
@@ -435,8 +465,18 @@ public class BattleCaculate : MonoBehaviour
         else{
             player.atkEffect.transform.eulerAngles = Vector3.up*180;
         }
-        player.atkEffect.transform.position = tran.position + Vector3.right*player.atkEffect.preTrans.x*0.5f*player.TeamVector() + Vector3.up*player.atkEffect.preTrans.y*0.5f;
+        if(player.character.char_sprites.farAtk){
+            player.atkEffect.transform.position = tran.position;
+        }
     }
 
+    public void MakeNewEventBattle(Player atk,Player def,DiceProperty atk_next,int def_next=-1){
+        EventBattle eventBattle = new EventBattle();
+        eventBattle.my_player = atk;
+        eventBattle.ene_player = def;
+        eventBattle.my_dice = atk_next;
+        eventBattle.ene_dice = def_next;
+        eventBattles.Add(eventBattle);
+    }
 
 }

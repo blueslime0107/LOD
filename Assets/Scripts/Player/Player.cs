@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     float fade = 0.7f;
     
     public Transform movePoint;
-    public Transform attPoint;
+    public Transform other_movePoint;
     public Vector3 originPoint;
     public GameObject cardGet;
     [HideInInspector]public int condition = 0;
@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
         battleManager.numberManager.IndicateDam(transform,damage.value);
         health -= damage.value;
         
-        KnockBack(damage.value*((player.transform.position.x > transform.position.x) ? -1:1));
+        KnockBack((damage.value+0.3f)*((player.transform.position.x > transform.position.x) ? -1:1));
 
         if(health > max_health){
             health = max_health;
@@ -327,8 +327,8 @@ public class Player : MonoBehaviour
         else{StartCoroutine(NormalDeath());}
         SetDice(0);
     }
-
     IEnumerator NormalDeath(){
+
         deathMotion.SetBool("NormalDeath",true);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
@@ -345,59 +345,28 @@ public class Player : MonoBehaviour
     }
 
     public void KnockBack(float force){
+        Debug.Log("KnockBack");
+        if(!battleManager.battleing){return;}
         Vector3 targetVec = transform.position + Vector3.right*force;
-        StartCoroutine(KnockBackEnumerator(targetVec));
+        StartCoroutine(KnockBackEnumerator(targetVec, force));
     }
 
-    public IEnumerator KnockBackEnumerator(Vector3 targetVec){
+    public IEnumerator KnockBackEnumerator(Vector3 targetVec,float force){
         while (Vector3.Distance(transform.position,targetVec) > 0.01f)
         {
             if(goingOrigin){yield return null; break;}
-            if(transform.position.x < -battleManager.borderX || transform.position.x > battleManager.borderX){
-                yield return null; break;
+            if(transform.position.x < -battleManager.borderX){
+                targetVec += Vector3.right*force;
             }
-            transform.position = Vector3.MoveTowards(transform.position, targetVec, 50*Time.deltaTime);
+            if(transform.position.x > battleManager.borderX){
+                targetVec += Vector3.left*force;
+            }
+            transform.position = Vector3.Lerp(transform.position, targetVec, 20*Time.deltaTime);
+            // MoveTowards(transform.position, targetVec, 50*Time.deltaTime);
             
             yield return null;
         }
-        // int dir = direction;
-        // while(force > 0){
-        //     yield return null;
-        //     if(dir.Equals(1)){
-        //         if(transform.position.x > battleManager.borderX){
-        //             dir = - dir;
-        //             transform.position.Set(transform.position.x,battleManager.borderX,transform.position.z);
-        //             continue;
-        //         }
-        //         transform.Translate(Vector3.right*force);
-
-        //     }
-        //     if(dir.Equals(-1)){
-        //         if(transform.position.x < -battleManager.borderX){
-        //             dir = - dir;
-        //             transform.position.Set(transform.position.x,-battleManager.borderX,transform.position.z);
-        //             continue;
-        //         }
-        //         transform.Translate(Vector3.left*force);
-
-        //     }
-
-        //     force -= 50*Time.deltaTime;
-        // }
-    } 
-        // if(gameObject.tag.Equals("PlayerTeam2")){
-        //     battleManager.right_cardLook_lock = !battleManager.right_cardLook_lock;
-        // }
-        // ShowCardDeck(true);
-        // if(gameObject.tag.Equals("PlayerTeam1")){
-        //     if(!battleManager.left_cardLook_lock)
-        //     player_floor_render.SetInt("_Active",0);
-        // }
-        // if(gameObject.tag.Equals("PlayerTeam2")){
-        //     if(!battleManager.right_cardLook_lock)
-        //     player_floor_render.SetInt("_Active",0);
-        // }
-    
+    }
 
     public void ShowCardDeck(bool update,bool nah=false){
 
@@ -458,5 +427,6 @@ public class Player : MonoBehaviour
     public string GetCharName(){
         return character.char_sprites.name_;
     }
+
 
 }

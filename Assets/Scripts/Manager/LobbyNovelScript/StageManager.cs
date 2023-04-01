@@ -54,6 +54,9 @@ public class StageManager : MonoBehaviour
     public void LoadDataFromDB(){
         db = FindObjectOfType<DataBase>();
         player_cardDic.Clear();
+
+        preFloor = stageManagerDB.curFloor;
+
         foreach(int card in stageManagerDB.player_cardDic){
             player_cardDic.Add(db.LoadFromINTCard(card));
         }
@@ -89,6 +92,8 @@ public class StageManager : MonoBehaviour
         db.UpdatePlayerCard(PlayerStages);
     }
     public void SavetoDB(){
+
+        stageManagerDB.curFloor = preFloor;
 
         stageManagerDB.player_cardDic.Clear();
         foreach(CardAbility card in player_cardDic){

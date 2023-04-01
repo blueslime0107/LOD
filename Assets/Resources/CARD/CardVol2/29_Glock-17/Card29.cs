@@ -7,10 +7,7 @@ public class Card29 : CardAbility
 {
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
-        Dice copyDice = dice;
-        copyDice.dice_value = 1;
-        card.player.dice_Indi.put_subDice(copyDice);
-        card.dice = copyDice;
+        card.dice = match.MakeNewDice(1,true);
         match.CardLog("AddDice",card);
     }
     

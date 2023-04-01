@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class DiceProperty{
+    public int value;
+    public bool farAtt;
+
+}
+
 public class Dice : MonoBehaviour
 {
     public Player player;

@@ -17,14 +17,11 @@ MonoBehaviour:
   char_sprites: {fileID: 11400000, guid: 5bf8d1ced838ac942b28ff80b11678bc, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
-  - {fileID: 11400000, guid: 5b4b582976f22b4498ef9edbf9a7ac0a, type: 2}
-  - {fileID: 11400000, guid: c040b6ea8b8a31746812247c7922aa01, type: 2}
   - {fileID: 11400000, guid: 6a244327c2b370544a7de08b870160fb, type: 2}
-  - {fileID: 11400000, guid: 13c10371e29b09d42ae52c726f52d445, type: 2}
-  - {fileID: 11400000, guid: c1e702011e0c03a45a34e87bcaac7581, type: 2}
   - {fileID: 11400000, guid: 884e38cf4ee48fc48a05cde0a6992c36, type: 2}
   - {fileID: 11400000, guid: 884e38cf4ee48fc48a05cde0a6992c36, type: 2}
   - {fileID: 11400000, guid: ec4e66f8205d61a45a562d03d16370bb, type: 2}
+  - {fileID: 11400000, guid: aac0f422e8aefb94faa0943e02d0577f, type: 2}
   battleAble: 1
   specialAtk: {fileID: 0}
   priceBonus: 0

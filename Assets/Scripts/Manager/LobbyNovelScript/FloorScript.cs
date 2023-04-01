@@ -25,7 +25,7 @@ public class FloorScript : MonoBehaviour
     
 
     // 현재 층의 배경 로딩하기
-    void Awake(){
+    void Start(){
         sm = FindObjectOfType<StageManager>();
         curFloor = sm.Floors[sm.preFloor];
         lobby.curFloor = curFloor;
@@ -39,15 +39,6 @@ public class FloorScript : MonoBehaviour
         mainPanelLoad.RefreshDiscover();
         curBg = floorBgObj[sm.Floors.IndexOf(curFloor)];
         curBg.SetActive(true);
-    }
-
-    private void Start() {
-        curFloor = sm.Floors[sm.preFloor];
-        lobby.curFloor = curFloor;
-
-        lobby.ReloadPlayerCard();
-        subPanelLoad.RefreshDiscover();
-        mainPanelLoad.RefreshDiscover();
     }
 
     public void GoToFloor(int floorNum){

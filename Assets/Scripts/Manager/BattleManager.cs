@@ -32,7 +32,6 @@ public class BattleManager : MonoBehaviour
     //public List<CardEffect> card_effect = new List<CardEffect>();
 
     public Cards cardViewer;
-    public GameObject blackScreen;
 
     [HideInInspector]public bool cardActiveAble = false;
     public bool battle_start; // 버튼을 눌러 전투 시작인지
@@ -85,7 +84,7 @@ public class BattleManager : MonoBehaviour
     public BackColorEff backColorEff;
     [SerializeField]AchiveManager achiveManager;
 
-    public float borderX = 10;
+    public float borderX = 11;
 
     public GameObject tutorial;
     public void Battle(){
@@ -437,7 +436,6 @@ public class BattleManager : MonoBehaviour
         if(target1 != target2){
 
             battleing = true;
-            blackScreen.SetActive(true);
 
             battleCaculate.BattleMatch(target1,target2);
         }
@@ -456,31 +454,6 @@ public class BattleManager : MonoBehaviour
         card_gived = true;
         card_getting_team.diceRollGague -= 1;
     }
-
-    // IEnumerator TeamTimerGague(){
-    //     while(true){
-    //         if(!battleing){
-    //             if(left_turn){
-    //             left_gague -= left_gague_spd * Time.deltaTime;
-    //             if(left_gague<=0){
-    //                 TurnTeam("Right");
-    //             }
-    //             }
-    //             if(right_turn){
-    //             right_gague -= right_gague_spd * Time.deltaTime;
-    //             if(right_gague<=0){
-    //                 TurnTeam("Left");
-    //             }
-    //             }
-    //         }
-
-
-    //         ui.left_gague.value = left_gague/left_gague_max;
-    //         ui.right_gague.value = right_gague/right_gague_max;
-    //         yield return null;
-    //     }
-        
-    // }
 
     void FirstTeam(){
         // if((int)Random.Range(0f,2f) == 0){
@@ -650,18 +623,24 @@ public class BattleManager : MonoBehaviour
         cardlineRender.gameObject.SetActive(false);
     }
 
+///////////////////////////////
     public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false,bool onlyimme = false){
         if(having_card.tained && !ableTain){return null;}
         //GameObject game_card = new GameObject();
-        CardPack card = gameObject.AddComponent<CardPack>() as CardPack;
+        CardPack card = new CardPack();
         //CardPack card = new CardPack();
         card.ability = having_card;
         card.price = having_card.price;
         card.battleManager = this;
-        card.PreSetting(player);
+        card = gameManager.PreSetting(card,player);
         player.cards.Add(card);
         player.cardGet.SetActive(false);
         player.cardGet.SetActive(true);
+
+        
+
+
+
         if(!onlyimme){
         foreach(Player playe in players){
             for(int i =0; i<playe.cards.Count;i++){
@@ -677,14 +656,10 @@ public class BattleManager : MonoBehaviour
     public CardPack GiveCardPack(CardPack card, Player player,bool ableTain = false){
         if(card.ability.tained && !ableTain){return card;}
         DestroyCard(card, player);
-        card.PreSetting(player);
+        card = gameManager.PreSetting(card,player);
         player.cards.Add(card);
         card.ability.WhenCardGetImmedi(card,this);
         return card;
-        // CardPack pre_card = card;
-        // pre_card.PreSetting(player);
-        // player.cards.Add(pre_card);
-        // pre_card.ability.WhenCardGet(pre_card, this,player);
     }
 
     public void DestroyCard(CardPack card, Player player){
@@ -692,6 +667,9 @@ public class BattleManager : MonoBehaviour
         player.cards.Remove(card);
     }
 
+    
+
+//////////////////////////////
     public Team OpposeTeam(Team team){
         if(team.Equals(left_team)){
             return right_team;
@@ -786,9 +764,19 @@ public class BattleManager : MonoBehaviour
         return newint;
     }
 
+    public void MakeNewDiceAndPutPlayer(Player player,int value, bool atFirst=false,bool far=false){
+        DiceProperty copyDice = new DiceProperty();
+        copyDice.value = value;
+        copyDice.farAtt = far;
+        player.dice_Indi.put_subDice(copyDice,atFirst);
+    }
 
-
-    
+    public DiceProperty MakeNewDice(int value,bool far=false){
+        DiceProperty copyDice = new DiceProperty();
+        copyDice.value = value;
+        copyDice.farAtt = far;
+        return copyDice;
+    }
     
     
     // public void RefreshPlayerDied(){

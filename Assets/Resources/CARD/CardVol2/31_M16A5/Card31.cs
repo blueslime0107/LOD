@@ -9,10 +9,8 @@ public class Card31 : CardAbility
     {
         if(card.player.dice <= enemy.dice || card.active){return;}
         if(enemy.dice <= 0){return;}
-        Dice newDice = dice; 
-        newDice.dice_value = card.player.dice - enemy.dice;
         card.player.SetDice(enemy.dice);
-        card.player.dice_Indi.put_subDice(newDice);
+        battle.bm.MakeNewDiceAndPutPlayer(card.player,card.player.dice - enemy.dice);
         card.active = true;
         battle.bm.CardLog("LeftDice",card);
 

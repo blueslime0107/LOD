@@ -23,9 +23,7 @@ public class Card7 : CardAbility
     public override void StartMatch(CardPack card, BattleManager match)
     {
         if(!card.active){return;}
-        Dice copyDice = new Dice();
-        copyDice.dice_value = Random.Range(3,7);
-        card.player.dice_Indi.put_subDice(copyDice);
+        match.MakeNewDiceAndPutPlayer(card.player,Random.Range(3,7));
         match.CardLog("AddDice",card);
         
     }

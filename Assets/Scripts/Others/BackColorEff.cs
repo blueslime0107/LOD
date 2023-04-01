@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BackColorEff : MonoBehaviour
 {
-
+    [SerializeField]BattleManager battleManager;
     [SerializeField]SpriteRenderer spriteRenderer;
     float timeLeft;
     [SerializeField]Color32 originColor;
+    [SerializeField]Color32 fadeColor;
     Color32 targetColor;
 
     public void changeColor(byte r,byte g,byte b, byte a){
@@ -34,7 +35,32 @@ public class BackColorEff : MonoBehaviour
     }
 
     private void OnDisable() {
-            spriteRenderer.color = originColor;
+        spriteRenderer.color = originColor;
+    }
+
+    public void BattleStart(){
+        gameObject.SetActive(true);
+        StopAllCoroutines();
+        spriteRenderer.color = originColor;
+    }
+    
+
+    public void BattleFin(){
+        if(battleManager.battleing){return;}
+        StartCoroutine(Fadein());
+    }
+
+    IEnumerator Fadein(){
+        float newtimeLeft = 1.0f;
+        while(newtimeLeft > 0){
+            
+            spriteRenderer.color = Color32.Lerp(spriteRenderer.color,fadeColor,Time.deltaTime / newtimeLeft);
+            newtimeLeft -= Time.deltaTime;
+            yield return null;
+            
+        }
+        gameObject.SetActive(false);
+        yield return null;
     }
 
 }

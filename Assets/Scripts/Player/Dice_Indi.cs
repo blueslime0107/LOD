@@ -20,27 +20,27 @@ public class Dice_Indi : MonoBehaviour
     public Player player;
     public BezierCurve lineRender;
     public GameObject sub_dice;
-    public List<Dice> dice_list= new List<Dice>();
+    public List<DiceProperty> dice_list= new List<DiceProperty>();
 
     void OnEnable(){
         particle.Stop();
     }
 
     public void updateDice(){
-        diceOBJ.updateDice(dice_list.Count > 0 ? dice_list[0].dice_value : 0 );
+        diceOBJ.updateDice(dice_list.Count > 0 ? dice_list[0].value : 0 );
 
         int i =1;
         foreach(DiceOBJ diceOBJ in sub_diceOBJ){
-            if(dice_list.Count > i){diceOBJ.updateDice(dice_list[i].dice_value);}
+            if(dice_list.Count > i){diceOBJ.updateDice(dice_list[i].value);}
             diceOBJ.gameObject.SetActive(dice_list.Count > i);
             i++;
         }
-        player.dice = dice_list.Count > 0 ? dice_list[0].dice_value : 0;
+        player.dice = dice_list.Count > 0 ? dice_list[0].value : 0;
     }
 
     public void putDice(Dice dice){
         particle.Play();
-        dice_list.Add(dice);
+        dice_list.Add(battleManager.MakeNewDice(dice.dice_value,dice.farAtt));
         player.ChangeCondition(1);
         updateDice();
         isDiced = true;     
@@ -50,7 +50,6 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void NextDice(){
-
         if(dice_list.Count > 0){
             dice_list.RemoveAt(0);
             if(dice_list.Count <= 0){
@@ -66,9 +65,11 @@ public class Dice_Indi : MonoBehaviour
         
     }
 
-    public void put_subDice(Dice dice){
+    public void put_subDice(DiceProperty dice,bool atfirst = false){
         Debug.Log("sub_putdice");
-        dice_list.Add(dice);   
+        Debug.Log(dice);
+        if(atfirst){dice_list.Insert(0,dice);}
+        else{dice_list.Add(dice);}   
         updateDice();
     }
 
@@ -78,7 +79,7 @@ public class Dice_Indi : MonoBehaviour
             player.dice = 0;
             return;
         }
-        dice_list[0].dice_value = value;
+        dice_list[0].value = value;
         
         particle.Play();
         updateDice();
