@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: PowerJo
+  m_EditorClassIdentifier: 
+  id: 47
+  name_: 
+  poses:
+  - {fileID: 21300000, guid: 7a01499e8ec44ac4c8241cf10d325dc5, type: 3}
+  - {fileID: 21300000, guid: 611b71b6caf32bf4caca90c46dfadd3e, type: 3}
+  - {fileID: 21300000, guid: 1f0516a3cb9e45a4583c950f4753929e, type: 3}
+  - {fileID: 21300000, guid: b0d4fb52b655d6b4b8a84ae8275a143b, type: 3}
+  - {fileID: 21300000, guid: e5b54e909a4182746a20becc7c7b6b53, type: 3}
+  farAtk: 0
+  atkEffect: {fileID: 6613571639549059086, guid: 311834b01dd564d4a840aebb223a23c3, type: 3}
+  atkSound: 

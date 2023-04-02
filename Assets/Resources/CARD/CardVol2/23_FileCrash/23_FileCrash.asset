@@ -13,21 +13,22 @@ MonoBehaviour:
   m_Name: 23_FileCrash
   m_EditorClassIdentifier: 
   card_id: 23
-  xmlFile_path:
-  - CARD/CardVol2/CardVol2_en.xml
-  - CARD/CardVol2/CardVol2_kr.xml
   name: File_Crashed
   message: '%!@%*!^*#@$%!'
-  ability_message: "[\uC804\uD22C\uC2DC\uC791] \uB79C\uB364\uD55C \uCE74\uB4DC\uD6A8\uACFC\uB97C
+  ability_message: "[\uC804\uD22C \uC900\uBE44] \uB79C\uB364\uD55C \uCE74\uB4DC\uD6A8\uACFC\uB97C
     \uC5BB\uB294\uB2E4"
-  story_message: 
   tained: 0
   price: 404
   illust: {fileID: 21300000, guid: faeae7fc20520474eb4dba657c9232b0, type: 3}
   usingCount: 0
   pre_count: 0
-  overCard: {fileID: 21300000, guid: a31e5de6483f067408e31851708c4e68, type: 3}
+  overCard:
+    overIMG: {fileID: 21300000, guid: df9d9fe7bd257be4998ee0545f99715d, type: 3}
+    textColor:
+      serializedVersion: 2
+      rgba: 4278190335
   effect: []
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

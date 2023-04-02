@@ -345,6 +345,7 @@ public class Player : MonoBehaviour
     }
 
     public void KnockBack(float force){
+
         Debug.Log("KnockBack");
         if(!battleManager.battleing){return;}
         Vector3 targetVec = transform.position + Vector3.right*force;
@@ -356,7 +357,7 @@ public class Player : MonoBehaviour
         {
             if(goingOrigin){yield return null; break;}
             if(transform.position.x < -battleManager.borderX){
-                targetVec += Vector3.right*force;
+                targetVec += Vector3.left*force;
             }
             if(transform.position.x > battleManager.borderX){
                 targetVec += Vector3.left*force;

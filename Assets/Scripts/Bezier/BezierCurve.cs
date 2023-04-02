@@ -12,9 +12,6 @@ public class BezierCurve : MonoBehaviour
 
     private int numPoints = 50;
 
-    private void OnEnable() {
-        Debug.Log("fsldhafksjdf");
-    }
 
     private void Start()
     {

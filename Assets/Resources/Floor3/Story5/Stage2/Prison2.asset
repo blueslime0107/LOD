@@ -16,31 +16,31 @@ MonoBehaviour:
   stageAddress:
     floor: 5
     sub: 0
-  title: "\uC774\uC820 \uB458\uC774\uB2E4!"
+  title: "\uC8FD\uC740\uAC74\uAC00?"
   rank: 3
   characters:
+  - {fileID: 11400000, guid: d5b85b29370a4724bafc8551d2de1245, type: 2}
   - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
   - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
   - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
-  - {fileID: 0}
   - {fileID: 0}
   priceStage:
   - {fileID: 11400000, guid: 47fe5881c1ea59a4a8deb5e77f3ae084, type: 2}
   priceChars:
-    PlayerStage_id: 0
     player_Characters_id: 0
+    player_cards: 
   priceCards:
   - {fileID: 11400000, guid: 3ca4077ba9f799e489ec785ec9227955, type: 2}
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
   victoryed: 0
-  charlimit: 3
+  charlimit: 4
   playerStageLock: {fileID: 0}
-  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0

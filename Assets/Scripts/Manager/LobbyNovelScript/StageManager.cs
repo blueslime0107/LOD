@@ -65,13 +65,10 @@ public class StageManager : MonoBehaviour
         foreach(StagePlayerSave stagePlayer in stageManagerDB.stagePlayerSaves){
             StagePlayerSave stagePlayerSave = new StagePlayerSave();
             stagePlayerSave.player_Characters_id = stagePlayer.player_Characters_id; 
-            stagePlayerSave.player_cards = db.unlockable_chars[stagePlayer.player_Characters_id].char_preCards;
+            stagePlayerSave.player_cards = stagePlayer.player_cards;
             PlayerStages.Add(stagePlayerSave);
         }
 
-
-
-        
         foreach(Floor floor in Floors){
             floor.Mainstage.Clear();
             floor.SubStage.Clear();
@@ -84,11 +81,9 @@ public class StageManager : MonoBehaviour
             if(stageProper.stageAddress.sub){Floors[stageProper.stageAddress.floor-1].SubStage.Add(stageProper);}
             else{Floors[stageProper.stageAddress.floor-1].Mainstage.Add(stageProper);}
         }
-
         foreach(StageEvent stageEvent in stageEvents){
             stageEvent.WhenStageWin(this);
         }
-
         db.UpdatePlayerCard(PlayerStages);
     }
     public void SavetoDB(){
@@ -104,7 +99,9 @@ public class StageManager : MonoBehaviour
         foreach(StagePlayerSave stagePlayer in PlayerStages){
             StagePlayerSave stagePlayerSave = new StagePlayerSave();
             stagePlayerSave.player_Characters_id = stagePlayer.player_Characters_id;
-            stagePlayerSave.player_cards = db.unlockable_chars[stagePlayer.player_Characters_id].char_preCards;
+            foreach(CardAbility card in  db.unlockable_chars[stagePlayer.player_Characters_id].char_preCards){
+                stagePlayerSave.player_cards.Add(card.card_id);
+            }
             stageManagerDB.stagePlayerSaves.Add(stagePlayerSave);
         }
 

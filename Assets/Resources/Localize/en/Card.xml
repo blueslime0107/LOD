@@ -460,6 +460,11 @@ your opponent gets to keep it.</ability>
         <text>Time to be fast!</text>
         <ability>[Battle Ready] Gain 1-6 extra Power dice equal to your count</ability>
     </Card>
+    <Card Code="998">
+        <name>Chaos</name>
+        <text>I gonna Kill You</text>
+        <ability>[Attack] Reuse remaining extra dice, and clash continuely </ability>
+    </Card>
     <Card Code="999">
         <name>???</name>
         <text>....</text>

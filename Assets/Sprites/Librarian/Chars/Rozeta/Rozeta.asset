@@ -15,11 +15,11 @@ MonoBehaviour:
   id: 38
   name_: "\uB85C\uC81C\uD0C0"
   poses:
-  - {fileID: 21300000, guid: 1d6b8a9bc7da7ed44a278e247f4970f9, type: 3}
-  - {fileID: 21300000, guid: d96c619fbdb26ef4e9fdecafe8617322, type: 3}
-  - {fileID: 21300000, guid: 596c40aab3a8af64cbe6b055278b4bea, type: 3}
-  - {fileID: 21300000, guid: fd7599028ae302d4197320931ad41c5e, type: 3}
-  - {fileID: 21300000, guid: f3b74643010c42c4099c75fd6f9160f0, type: 3}
+  - {fileID: 21300000, guid: 3a470dc7f21bbd94a98adb54345d38cb, type: 3}
+  - {fileID: 21300000, guid: 3c55c083226042147a2f1bce76d0490d, type: 3}
+  - {fileID: 21300000, guid: 92e5bc850c8015f43a4cfe3b67078b38, type: 3}
+  - {fileID: 21300000, guid: e45af49fd2d507e48ba0ec6cc86ff8ef, type: 3}
+  - {fileID: 21300000, guid: 9ca4d6ac4c37b4e4bb2e5c8cbd65d333, type: 3}
   farAtk: 0
-  atkEffect: {fileID: 7447471848911706729, guid: c51593642f82cc048b89d58d1571ecb2, type: 3}
-  atkSound: 
+  atkEffect: {fileID: 281342739834664552, guid: 1d57d53199505f348b71b86df95e4aca, type: 3}
+  atkSound: Slash2

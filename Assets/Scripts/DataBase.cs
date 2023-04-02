@@ -41,7 +41,7 @@ public class StageProperSave{
 [System.Serializable]
 public class StagePlayerSave{
     public int player_Characters_id;
-    [HideInInspector] public List<CardAbility> player_cards = new List<CardAbility>();
+    public List<int> player_cards = new List<int>();
 }
 
 [System.Serializable]
@@ -84,13 +84,18 @@ public class DataBase : MonoBehaviour
     }
 
     public void UpdatePlayerCard(List<StagePlayerSave> playerList){
-
         playerStages.characters = new Character[5];
         foreach(StagePlayerSave stagePlayer in playerList){
+            Debug.Log(stagePlayer.player_cards.Count);
             if(stagePlayer == null){break;}
             playerStages.AddCharacter(unlockable_chars[stagePlayer.player_Characters_id]);
-            if(stagePlayer.player_cards == null){continue;}
-            unlockable_chars[stagePlayer.player_Characters_id].char_preCards = stagePlayer.player_cards;
+            unlockable_chars[stagePlayer.player_Characters_id].char_preCards.Clear();
+
+
+            foreach(int id in stagePlayer.player_cards){
+            unlockable_chars[stagePlayer.player_Characters_id].char_preCards.Add(cards.Find(x => x.card_id == id));
+
+            }
         }
     }
 

@@ -452,6 +452,12 @@
         <text>빨라질 시간이야!</text>
         <ability>[전투 준비] 카운트만큼 위력1~6 여분 주사위를 얻는다</ability>
     </Card>
+    <Card Code="998">
+        <name>광란</name>
+        <text>죽여주지</text>
+        <ability>[공격] 남아있는 여분 주사위를 새로 재사용 해서
+연속으로 합을 한다</ability>
+    </Card>
     <Card Code="999">
         <name>???</name>
         <text>....</text>

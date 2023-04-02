@@ -438,6 +438,14 @@ public class BattleCaculate : MonoBehaviour
         if(damage.value.Equals(0)){
             defender.ChangeCondition(3);
             attacker.ChangeCondition(3);
+            if(attacker.team == bm.left_team){
+            defender.KnockBack(0.5f);
+            attacker.KnockBack(-0.5f);
+            }
+            else{
+                defender.KnockBack(-0.5f);
+                attacker.KnockBack(0.5f);
+            }
             bm.sdm.Play("Pery");
         }
         if(attacker.atkEffect){AtkEffectAble(attacker,defender.transform);}

@@ -10430,6 +10430,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 11400000, guid: 09be8f6bb1b2f4246963beaf2afa4556, type: 2}
   - {fileID: 11400000, guid: 884e38cf4ee48fc48a05cde0a6992c36, type: 2}
+  - {fileID: 11400000, guid: aac0f422e8aefb94faa0943e02d0577f, type: 2}
   charpacks:
   - {fileID: 11400000, guid: 683fd2541f7fae945b03f272f055fa3a, type: 2}
   - {fileID: 11400000, guid: 3ca0f5e212c1d12468549f476752f09a, type: 2}
@@ -10476,6 +10477,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: efd41d43bfd3fdb4596ae6835d34f002, type: 2}
   - {fileID: 11400000, guid: 2b1db6d654038574fbdc01feee6332c0, type: 2}
   - {fileID: 11400000, guid: 83a4d27aee78b9d43a381f75b097b9be, type: 2}
+  - {fileID: 11400000, guid: 6b7c8c17f9134754d8ed1ba3e782e584, type: 2}
+  - {fileID: 11400000, guid: 43254ea05e21617409fc26e72bcae43c, type: 2}
+  - {fileID: 11400000, guid: a6a433982c13bf341946df8472dae81d, type: 2}
+  - {fileID: 11400000, guid: a851667a2710fb943beb6b75477a040c, type: 2}
+  - {fileID: 11400000, guid: f3f8d2ba6f0fe844bbcc046668d2f64f, type: 2}
+  - {fileID: 11400000, guid: 818cda3309f91444ca578ba7f57be6de, type: 2}
   playerStages: {fileID: 11400000, guid: 6e829bc703afdb04d963caad1cf3d8e6, type: 2}
   unlockable_chars:
   - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
@@ -10486,6 +10493,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e372c03c3202c843be060bc62bf5393, type: 2}
   - {fileID: 11400000, guid: 3e4bd7b5a85c3604ba99e37d2238d85f, type: 2}
   - {fileID: 11400000, guid: a1d33ab1eade7aa4180aaa4d1d6892ff, type: 2}
+  - {fileID: 11400000, guid: 75f522aa8c2c7704b9d9f08044302917, type: 2}
   IAmError: {fileID: 11400000, guid: c621d23c27757c0429de305c3f2e34f2, type: 2}
   IAmCard: {fileID: 11400000, guid: 6a1768f4d2f401746bedb121b888c00b, type: 2}
 --- !u!4 &1007440361
@@ -16740,7 +16748,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587634168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20494,14 +20502,14 @@ MonoBehaviour:
   stageManagerDB:
     stagePlayerSaves:
     - player_Characters_id: 0
-      player_cards: []
+      player_cards: 
     player_cardDic: 3d0000003e0000003f00000040000000410000004200000043000000
-    achiveItms: []
     stageID:
     - stage: 1
       victoryed: 0
       noPrice: 0
       discovered: 0
+    curFloor: 0
   textAssets:
   - {fileID: 4900000, guid: f0a1832e46315e34db93e2575849814c, type: 3}
   - {fileID: 4900000, guid: 820bf64e0bdb16942a1f562b62c1ff59, type: 3}
@@ -20566,9 +20574,9 @@ MonoBehaviour:
   achiveItms: []
   PlayerStages:
   - player_Characters_id: 0
-    player_cards: []
+    player_cards: 
   - player_Characters_id: 0
-    player_cards: []
+    player_cards: 
   Floors:
   - name: Tutorial
     playerSlot: 0

@@ -13,26 +13,32 @@ MonoBehaviour:
   m_Name: S3PlayerC
   m_EditorClassIdentifier: 
   id: 0
-  xmlFile_path:
-  - Floor1/Story1/Story1_en.xml
-  - Floor1/Story1/Story1_kr.xml
-  title: 
-  sub_text: 
+  stageAddress:
+    floor: 0
+    sub: 0
+  title: "\uC751\uC560 \uC2E0\uC785"
   rank: 1
-  values: 
   characters:
   - {fileID: 11400000, guid: 3d580de9f0662db4a9f95fd7db4a3ed7, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  priceStage: []
+  priceChars:
+    player_Characters_id: 0
+    player_cards: 
+  priceCards: []
   beforeStory: {fileID: 0}
   afterStory: {fileID: 0}
-  priceStage: []
-  priceCard: {fileID: 0}
   victoryed: 0
+  charlimit: 5
   playerStageLock: {fileID: 0}
-  priceChars: []
+  custom_stage: {fileID: 0}
+  custom_BGM: 
+  noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 1
+  discovered: 0

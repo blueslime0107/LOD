@@ -17,11 +17,12 @@ MonoBehaviour:
   char_sprites: {fileID: 11400000, guid: ec145c8713564804c8e1bebceb88b957, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: 3ada969459644d04f85c5ddce4d30064, type: 2}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
+  - {fileID: 11400000, guid: aac0f422e8aefb94faa0943e02d0577f, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

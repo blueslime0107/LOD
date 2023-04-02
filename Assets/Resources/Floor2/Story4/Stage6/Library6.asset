@@ -29,7 +29,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6bc2cb87bd77d94f8f46a56c4613c98, type: 2}
   priceChars:
     player_Characters_id: 0
-    player_cards: []
+    player_cards: 
   priceCards:
   - {fileID: 11400000, guid: ed1ac1f73ae7ed845b45b39af83781bb, type: 2}
   beforeStory: {fileID: 0}
@@ -38,7 +38,7 @@ MonoBehaviour:
   charlimit: 5
   playerStageLock: {fileID: 11400000, guid: bff6ee41fb3c7264390206c319ee9936, type: 2}
   custom_stage: {fileID: 8307976606493945225, guid: 52d10bf02407df549aa71d905f910fd2, type: 3}
-  custom_BGM: Library2
+  custom_BGM: AshTheme1
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0

@@ -15,11 +15,11 @@ MonoBehaviour:
   id: 1
   name_: "\uC544\uCF54\uB2C8\uC544"
   poses:
-  - {fileID: 21300000, guid: 1ccd3bca89298d349984d40f392c4885, type: 3}
-  - {fileID: 21300000, guid: 037dd8c5534c89f47a1b60dcfb53c7de, type: 3}
-  - {fileID: 21300000, guid: 8aa54bf51ef83434bbdce7579bd11dbb, type: 3}
-  - {fileID: 21300000, guid: 8f4d75ee4e1e8324fa0869aec32c95bf, type: 3}
-  - {fileID: 21300000, guid: b6375fe69cf62cb4a826a9656571e9ee, type: 3}
+  - {fileID: 21300000, guid: bcf6c56613a99b14fa235b8ec642c353, type: 3}
+  - {fileID: 21300000, guid: a11a76d549c907b4bace9a9cb2a23666, type: 3}
+  - {fileID: 21300000, guid: 4829920951260dc468e3ede111594c04, type: 3}
+  - {fileID: 21300000, guid: 68a2df973374e104a8b435afbb1d625d, type: 3}
+  - {fileID: 21300000, guid: d8ec50f7124581b47a724f88a66fa494, type: 3}
   farAtk: 0
-  atkEffect: {fileID: 5664629341967208217, guid: e6c7ccff463879443b0a8462afcab26c, type: 3}
-  atkSound: Slash2
+  atkEffect: {fileID: 4817796072615858017, guid: 927d646e81fae1744a802888244abe9e, type: 3}
+  atkSound: Hit

@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Aconia
   m_EditorClassIdentifier: 
-  health: 10
-  breaks: 0500000000000000
+  health: 20
+  breaks: 0a0000000500000000000000
   char_sprites: {fileID: 11400000, guid: 683fd2541f7fae945b03f272f055fa3a, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: 0ad540cf4148c9545ba0eb5d35fef923, type: 2}
+  - {fileID: 11400000, guid: ba699dc941a63a54481c9156a54a9463, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
+  battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

@@ -9,6 +9,10 @@ public class St4Spec : StageEvent
     {
         if(sm.db.LoadFromINTStage(23).victoryed){
             sm.PlayerStages.RemoveAll(x => x.player_Characters_id == 2);
+            StagePlayerSave st= new StagePlayerSave();
+            st.player_Characters_id = 8;
+            sm.PlayerStages.Add(st);
+            sm.db.UpdatePlayerCard(sm.PlayerStages);
         }
     }
 }

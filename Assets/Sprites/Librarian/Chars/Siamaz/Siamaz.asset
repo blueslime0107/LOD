@@ -15,11 +15,11 @@ MonoBehaviour:
   id: 40
   name_: "\uC2DC\uC544\uB9C8\uC988"
   poses:
-  - {fileID: 21300000, guid: 3559f9f830b72b84bb5eb2a68fc08d5b, type: 3}
-  - {fileID: 21300000, guid: 2455b506796f3254dae30b9b2aadd6c2, type: 3}
-  - {fileID: 21300000, guid: 5ce3990ea8f10a54b8c201d413830faa, type: 3}
-  - {fileID: 21300000, guid: 91f61af7f7d1f734eb27bff77af8e9e8, type: 3}
-  - {fileID: 21300000, guid: 7a07809c511d9c74fa6fc1ddc5e75752, type: 3}
+  - {fileID: 21300000, guid: fb03ba68984c4cf4d80f25bd35a00c71, type: 3}
+  - {fileID: 21300000, guid: a04427c10bd06454d8a1b81673ca0b00, type: 3}
+  - {fileID: 21300000, guid: 299227a1585b68b498d04b650ca14eca, type: 3}
+  - {fileID: 21300000, guid: ebe94bf3556a7124ab4e4bf335818353, type: 3}
+  - {fileID: 21300000, guid: 4a9f8cc9aa8ffdf49aa49701d251bda5, type: 3}
   farAtk: 1
   atkEffect: {fileID: 2180453882414169267, guid: ef6fcb3ffdc563d4487245517f974074, type: 3}
   atkSound: 

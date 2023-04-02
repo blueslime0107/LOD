@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
   m_Name: Normal_Catherle
   m_EditorClassIdentifier: 
-  id: 10
+  id: 49
   name_: 
   poses:
-  - {fileID: 21300000, guid: c3a59a6916f145a4a91fc7d7a0231dba, type: 3}
-  - {fileID: 21300000, guid: 9f04da7dad093a04b998cdda9984930f, type: 3}
-  - {fileID: 21300000, guid: 23b06aa9a20bbb84c82dfde77ab920ae, type: 3}
-  - {fileID: 21300000, guid: 6efdd833a49dce34abc1aa1a7cde10cb, type: 3}
-  - {fileID: 21300000, guid: 52676ccef13418140897c53a0183bf57, type: 3}
+  - {fileID: 21300000, guid: 050aab325480f41438a716a9cac702f8, type: 3}
+  - {fileID: 21300000, guid: 143f5898b2409e843b9fd31153ec6248, type: 3}
+  - {fileID: 21300000, guid: 8dd34b0c5b5bc984daae20e00cd51c6e, type: 3}
+  - {fileID: 21300000, guid: 199b2672fe225cd499010a8293b4a8b2, type: 3}
+  - {fileID: 21300000, guid: fad815271aceaaf48a2023499f08ce97, type: 3}
   farAtk: 0
-  atkEffect: {fileID: 0}
+  atkEffect: {fileID: 6613571639549059086, guid: 311834b01dd564d4a840aebb223a23c3, type: 3}
   atkSound: 

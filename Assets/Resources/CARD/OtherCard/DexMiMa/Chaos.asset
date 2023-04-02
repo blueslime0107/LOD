@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Chaos
   m_EditorClassIdentifier: 
   card_id: 998
-  name: 
-  message: 
-  ability_message: 
+  name: "\uAD11\uB780"
+  message: "\uC8FD\uC5EC\uC8FC\uC9C0"
+  ability_message: "[\uACF5\uACA9] \uB0A8\uC544\uC788\uB294 \uC5EC\uBD84 \uC8FC\uC0AC\uC704\uB97C
+    \uC0C8\uB85C \uC7AC\uC0AC\uC6A9 \uD574\uC11C\r\n\uC5F0\uC18D\uC73C\uB85C \uD569\uC744
+    \uD55C\uB2E4\r\n        "
   tained: 1
   price: 0
   illust: {fileID: 21300000, guid: b97af1aba953cc34ba95c5f9a205cb90, type: 3}

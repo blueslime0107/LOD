@@ -404,6 +404,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: AshTheme1
+    clip: {fileID: 8300000, guid: dd3fb295bd937c5449bb1e5672fdb428, type: 3}
+    volume: 0.482
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   mixer:
   - {fileID: -3328339283235370755, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}
   - {fileID: 8082049311940040082, guid: ce7bedd92ff837649abe079ea726bec0, type: 2}

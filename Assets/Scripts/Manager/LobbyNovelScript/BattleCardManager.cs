@@ -122,6 +122,7 @@ public class BattleCardManager : MonoBehaviour
         if(stage.GetPriceSum() > avaliblePrice && !stage.noCardEquipBreak){
             return;
         }
+        lobby.stageManager.saveManager.Save();
         lobby.GetStory();
     }
 }

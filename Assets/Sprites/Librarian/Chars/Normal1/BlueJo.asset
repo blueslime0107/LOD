@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a62c8413b9b20e4ca608bfe1fb4dfdd, type: 3}
+  m_Name: BlueJo
+  m_EditorClassIdentifier: 
+  id: 48
+  name_: 
+  poses:
+  - {fileID: 21300000, guid: 34fab785d9d0c9646bdd575bac171e0e, type: 3}
+  - {fileID: 21300000, guid: 7618883e62ede5f40895394273a3d55f, type: 3}
+  - {fileID: 21300000, guid: ba46d13127f08614c929e003721368fa, type: 3}
+  - {fileID: 21300000, guid: 10446f4c7728e704ebf4ca4d00cef2de, type: 3}
+  - {fileID: 21300000, guid: e34b5952e49594e41b1bcbb55c08e3fe, type: 3}
+  farAtk: 0
+  atkEffect: {fileID: 5664629341967208217, guid: 2059bb40ac720b2479fb9c9a861324fc, type: 3}
+  atkSound: 

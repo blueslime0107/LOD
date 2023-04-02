@@ -8,6 +8,7 @@ public class Card73 : CardAbility
     public override void OnClashLose(CardPack card, BattleCaculate battle, Player enemy)
     {
         if(card.card_battleActive){return;}
+        if(card.player.dice <= 0){return;}
         card.saved_player = battle.bm.players[Random.Range(0,battle.bm.players.Count)];
         Active(card);
         battle.bm.CardLog("What?",card,card.saved_player);

@@ -40,6 +40,7 @@ public class Dice_Indi : MonoBehaviour
 
     public void putDice(Dice dice){
         particle.Play();
+        dice_list.Clear();
         dice_list.Add(battleManager.MakeNewDice(dice.dice_value,dice.farAtt));
         player.ChangeCondition(1);
         updateDice();
@@ -66,8 +67,6 @@ public class Dice_Indi : MonoBehaviour
     }
 
     public void put_subDice(DiceProperty dice,bool atfirst = false){
-        Debug.Log("sub_putdice");
-        Debug.Log(dice);
         if(atfirst){dice_list.Insert(0,dice);}
         else{dice_list.Add(dice);}   
         updateDice();
