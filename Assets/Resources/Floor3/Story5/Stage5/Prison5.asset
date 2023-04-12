@@ -16,30 +16,31 @@ MonoBehaviour:
   stageAddress:
     floor: 5
     sub: 0
-  title: "\uC560\uC26C"
+  title: "\uCD94\uCD9C"
   rank: 5
   characters:
   - {fileID: 11400000, guid: 68940f168916510438d2eab5c6cc711d, type: 2}
-  - {fileID: 11400000, guid: 5a10d999677cefa4287376dd894e6628, type: 2}
+  - {fileID: 11400000, guid: a624c2c25f68dab4fa861591680bae37, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  priceStage: []
+  priceStage:
+  - {fileID: 11400000, guid: cb89859c915c32a4189d9c0bea31e499, type: 2}
   priceChars:
-    PlayerStage_id: 0
     player_Characters_id: 0
-  priceCards: []
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
-  avaliblePrice: 100
+    player_cards: 
+  priceCards:
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
-  stageEvent: {fileID: 0}
-  custom_stage: {fileID: 0}
-  custom_BGM: 
+  custom_stage: {fileID: 2039300465973421108, guid: 621abd695189c5f4abe05663ba2e9cd9, type: 3}
+  custom_BGM: Prison2
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

@@ -18,6 +18,7 @@ public class SaveManager : MonoBehaviour
     }
 
     public void Save(){
+        Debug.Log("Save");
         stageManager.SavetoDB();
         string jsonString = JsonUtility.ToJson(stageManager.stageManagerDB);
         string newFilePath = Application.persistentDataPath + filePath;

@@ -10,7 +10,7 @@ public class Card66 : CardAbility
         match.CardLog("Health",card);
         EffectPlayerSet(card.effect[0],card.player,card.player.transform,0,0);
         card.player.AddHealth(3);
-        card.active = true;
+        card.active = false;
     }
 
 }

@@ -224,6 +224,7 @@ public class BattleManager : MonoBehaviour
             # region 주사위 굴리기
             foreach(Player player in players){
                 for(int i =0; i<player.cards.Count;i++){
+                    if(player.cards[i].blocked){continue;}
                     player.cards[i].ability.StartMatch(player.cards[i],this);
                 }
             }
@@ -256,6 +257,7 @@ public class BattleManager : MonoBehaviour
                     CardLogText("BattleReady","[Battle Ready]","#ffa1fc");
                     for(int i = 0; i < players.Count; i++){
                         for(int j = 0; j < players[i].cards.Count; j++){
+                            if(players[i].cards[j].blocked){continue;}
                             players[i].cards[j].ability.OnBattleReady(players[i].cards[j],players[i],this);
                         }
                     }   
@@ -266,6 +268,7 @@ public class BattleManager : MonoBehaviour
                     if(right_team.battleAI.active && first_turn == right_team){
                         foreach(Player player in right_team.players){
                             foreach(CardPack card in player.cards){
+                                if(card.blocked){continue;}
                                 card.ability.AIgorithm(card,this);
                             }
                         }
@@ -278,6 +281,7 @@ public class BattleManager : MonoBehaviour
                     if(right_team.battleAI.active && first_turn == left_team){
                         foreach(Player player in right_team.players){
                             foreach(CardPack card in player.cards){
+                                if(card.blocked){continue;}
                                 card.ability.AIgorithm(card,this);
                             }
                         }
@@ -289,6 +293,7 @@ public class BattleManager : MonoBehaviour
                     CardLogText("BattleStart","[Battle Start]","#ff00f7");
                     for(int i = 0; i < players.Count; i++){
                             for(int j = 0; j < players[i].cards.Count; j++){
+                                if(players[i].cards[j].blocked){continue;}
                                 players[i].cards[j].ability.OnBattleStart(players[i].cards[j],players[i],this);
                             }
                         }
@@ -374,6 +379,7 @@ public class BattleManager : MonoBehaviour
             CardLogText("BattleEnd","[Battle End]","#70006d");
             foreach(Player player in players){
                     for(int i = 0;i<player.cards.Count;i++){
+                        if(player.cards[i].blocked){continue;}
                         player.cards[i].ability.OnBattleEnd(player.cards[i],player,this);
                     }
                 }
@@ -401,7 +407,8 @@ public class BattleManager : MonoBehaviour
             gameManager.sm.play_stage.noPrice = true;
         }
         gameManager.sm.saveManager.Save();
-        if(gameManager.sm.play_stage.afterStory != null){
+        if(gameManager.sm.play_stage.after_story != null && gameManager.sm.play_stage.victoryed){
+            gameManager.sm.playStory = gameManager.sm.play_stage.after_story;
             gameManager.sceneMove.Move("Talk");
         }
         else{
@@ -430,6 +437,7 @@ public class BattleManager : MonoBehaviour
         }
         foreach(Player player in players){
             foreach(CardPack card in player.cards){
+                if(card.blocked){continue;}
                 card.ability.OnClashTargetSelected(card,target2,this);
             }
         }
@@ -584,6 +592,7 @@ public class BattleManager : MonoBehaviour
             yield return null;      
         }
         if(mouseTouchingPlayer == null){yield break;}
+        if(card_selecting.blocked){yield break;}
         card_selecting.ability.PlayerSelected(card_selecting,mouseTouchingPlayer,this);
         card_selecting = null;
         cardlineRender.gameObject.SetActive(false);
@@ -609,22 +618,15 @@ public class BattleManager : MonoBehaviour
             yield return null;      
         }
         if(cardTouching == null){yield break;}
+        if(card_selecting.blocked){yield break;}
         card_selecting.ability.CardSelected(card_selecting,cardTouching.card,this);
         card_selecting = null;
         cardlineRender.gameObject.SetActive(false);
         yield return null;
     }
 
-    public void SelectiedCard(CardPack card){
-        if(card.ability.tained){return;}
-        card_selecting.ability.CardSelected(card_selecting,card,this);
-        card_selecting = null;
-        card_select_trigger = false;
-        cardlineRender.gameObject.SetActive(false);
-    }
-
 ///////////////////////////////
-    public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false,bool onlyimme = false){
+    public CardPack GiveCard(CardAbility having_card, Player player,bool ableTain = false,bool cardgetEventPASS = false){
         if(having_card.tained && !ableTain){return null;}
         //GameObject game_card = new GameObject();
         CardPack card = new CardPack();
@@ -641,9 +643,10 @@ public class BattleManager : MonoBehaviour
 
 
 
-        if(!onlyimme){
+        if(!cardgetEventPASS){
         foreach(Player playe in players){
             for(int i =0; i<playe.cards.Count;i++){
+                if(playe.cards[i].blocked){continue;}
                 playe.cards[i].ability.WhenCardGet(playe.cards[i],this,player,card);
             }
         }
@@ -662,8 +665,22 @@ public class BattleManager : MonoBehaviour
         return card;
     }
 
+    public void BlockCard(CardPack card){
+        card.ability.WhenCardDestroy(card,this);
+        foreach(CardEffect cardEffect in card.effect){
+            cardEffect.gameObject.SetActive(false);
+        }
+        card.blocked = true;
+    }
+    public void UnBlockCard(CardPack card){
+        card.blocked = false;
+        foreach(CardEffect cardEffect in card.effect){
+            cardEffect.gameObject.SetActive(true);
+        }
+    }
+
     public void DestroyCard(CardPack card, Player player){
-        card.ability.WhenCardDisabled(card,this);
+        card.ability.WhenCardDestroy(card,this);
         player.cards.Remove(card);
     }
 

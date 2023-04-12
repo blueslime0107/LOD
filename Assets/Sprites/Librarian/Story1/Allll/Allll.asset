@@ -23,3 +23,9 @@ MonoBehaviour:
   farAtk: 0
   atkEffect: {fileID: 3719889124338482963, guid: 7033ebd969929f74e852787b9075ebdb, type: 3}
   atkSound: Penetrate
+  feeling:
+  - {fileID: 21300000, guid: df8f1f75dcc6cf34f9a460f7373e7cc9, type: 3}
+  - {fileID: 21300000, guid: 3d09dbd259b57354ab5f426eb84c6842, type: 3}
+  - {fileID: 21300000, guid: e980d6d62cb34d4419b6e260676dacbc, type: 3}
+  - {fileID: 21300000, guid: 1aa8c5508ec99834d9da0322d95774d4, type: 3}
+  - {fileID: 21300000, guid: 20c34aa4b279d13408f1e52872a014f4, type: 3}

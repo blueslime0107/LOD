@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     public Animator deathMotion;
 
     public bool THEEGO;
+    public bool godMode;
 
     void Awake()
     {   
@@ -185,15 +186,20 @@ public class Player : MonoBehaviour
         else{
             battleManager.sdm.Play(atk_sound);
         }
+
+        if(godMode){return;}
         
         for(int i = 0;i<cards.Count;i++){
+            if(cards[i].blocked){continue;}
                 cards[i].ability.OnDamage(cards[i],lastHit,damage,battleManager);
             }
         for(int i = 0;i<lastHit.cards.Count;i++){
+            if(lastHit.cards[i].blocked){continue;}
                 lastHit.cards[i].ability.OnDamaging(lastHit.cards[i],this,damage,battleManager);
             }
         foreach(Player play in battleManager.players){
             for(int i = 0;i<play.cards.Count;i++){
+                if(play.cards[i].blocked){continue;}
                 play.cards[i].ability.WhoEverDamage(play.cards[i],damage,battleManager,lastHit,this);
             }
         }
@@ -203,8 +209,11 @@ public class Player : MonoBehaviour
         hp_Indi.gameObject.SetActive(true);
         battleManager.numberManager.IndicateDam(transform,damage.value);
         health -= damage.value;
+
+        int knockBackPower = damage.value;
+        if(knockBackPower > 7){knockBackPower = 7;}
         
-        KnockBack((damage.value+0.3f)*((player.transform.position.x > transform.position.x) ? -1:1));
+        KnockBack((knockBackPower+0.3f)*((player.transform.position.x > transform.position.x) ? -1:1));
 
         if(health > max_health){
             health = max_health;
@@ -308,11 +317,13 @@ public class Player : MonoBehaviour
         UpdateHp();
         battleManager.sdm.Play("CharDie");
         for(int i =0;i<cards.Count;i++){
+            if(cards[i].blocked){continue;}
                     cards[i].ability.OnDeath(cards[i],this,battleManager);
                 }
         foreach(Player player in battleManager.players){
             if(player.Equals(this)){continue;}
             for(int i =0;i<player.cards.Count;i++){
+            if(player.cards[i].blocked){continue;}
                     player.cards[i].ability.OnDeath(player.cards[i],this,battleManager);
                 }
         }
@@ -421,6 +432,7 @@ public class Player : MonoBehaviour
 
     public void AttackEffect(Player defender){
         foreach(CardPack card in cards){
+            if(card.blocked){continue;}
             card.ability.AttackEffect(card,defender);
         }
     }

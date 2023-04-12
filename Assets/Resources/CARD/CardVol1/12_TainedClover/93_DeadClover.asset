@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215674d4fd4d21a44ab75c008cc78f34, type: 3}
+  m_Name: 93_DeadClover
+  m_EditorClassIdentifier: 
+  card_id: 93
+  name: "\uC2DC\uB4E4\uC5B4\uC9C4 \uB124\uC78E\uD074\uB85C\uBC84"
+  message: "\uC774\uACF3\uC758 \uC6B4\uC740 \uC774\uBBF8 \uC8FD\uC740\uC9C0 \uC624\uB798\uC5D0\uC694"
+  ability_message: "[\uBC1C\uB3D9 \uCD5C\uB3003\uBC88] \uC790\uC2E0\uC704\uB825\uC774
+    2 \uC774\uD558\uC77C\uB54C 5\uC704\uB825 \uC774\uC0C1\uC758 \uC0C1\uB300\uD300
+    \uCE90\uB9AD\uD130\uB4E4\uC758 \uC8FC\uC0AC\uC704\uB97C \uD30C\uAD34\uD55C\uB2E4.\n3\uBC88\uC9F8
+    \uBC1C\uB3D9\uB54C \uBAA8\uB4E0\uCE90\uB9AD\uD130\uB97C \uB300\uC0C1\uC73C\uB85C
+    \uD6A8\uACFC\uAC00 \uC801\uC6A9\uB41C\uB2E4."
+  tained: 1
+  price: 50
+  illust: {fileID: 21300000, guid: f41e6e6f31b06e54ebd434e943d217b6, type: 3}
+  usingCount: 1
+  pre_count: 3
+  overCard:
+    overIMG: {fileID: 0}
+    textColor:
+      serializedVersion: 2
+      rgba: 0
+  effect:
+  - {fileID: 218055825664373642, guid: 9913b394bff8f8849a5b5fb7d581c91f, type: 3}
+  - {fileID: 6026665178470296514, guid: 0a8ec4e4e6170244c85f0e6dd8c556ce, type: 3}
+  - {fileID: 4162731445298916657, guid: 9151944298ccfdc479e6d55c357b9d44, type: 3}
+  linked_card: []
+  diceLink: {fileID: 4540444742068189109, guid: 9dbb14fb061fb9349a829a526b59f593, type: 3}
+  dice: {fileID: 0}
+  cardgiven: 0

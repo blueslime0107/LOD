@@ -102,10 +102,12 @@ public class Card_text : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
      public void OnPointerDown(PointerEventData eventData){
         if(!battleManager.cardActiveAble){return;}
         battleManager.mouseTouchingCard = this;
-        if(isLeft)
-            battleManager.cardViewChar_left.cards[card_num].ability.CardActivate(battleManager.cardViewChar_left.cards[card_num], battleManager);
-        else
-            battleManager.cardViewChar_right.cards[card_num].ability.CardActivate(battleManager.cardViewChar_right.cards[card_num], battleManager);
+        if(isLeft){
+            if(battleManager.cardViewChar_left.cards[card_num].blocked){return;}
+            battleManager.cardViewChar_left.cards[card_num].ability.CardActivate(battleManager.cardViewChar_left.cards[card_num], battleManager);}
+        else{
+            if(battleManager.cardViewChar_right.cards[card_num].blocked){return;}
+            battleManager.cardViewChar_right.cards[card_num].ability.CardActivate(battleManager.cardViewChar_right.cards[card_num], battleManager);}
         //battleManager.ui.CardUIUpdate((isLeft) ? "Left":"Right");
      }
 

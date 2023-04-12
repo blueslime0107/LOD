@@ -7,14 +7,8 @@ public class Card29 : CardAbility
 {
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
-        card.dice = match.MakeNewDice(1,true);
+        match.MakeNewDiceAndPutPlayer(card.player,1);
         match.CardLog("AddDice",card);
-    }
-    
-
-    public override void StartMatch(CardPack card, BattleManager match)
-    {
-        card.active = false;
     }
 
     public override void AttackEffect(CardPack card,Player defender)

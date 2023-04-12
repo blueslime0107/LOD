@@ -20,11 +20,10 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public List<CardAbility> priceCards;
 
     [Space(10),Header("----------Story----------")]
-    public StoryScript beforeStory;
-    public StoryScript afterStory;
+    public StoryScript before_story;
+    public StoryScript after_story;
 
     
-    [HideInInspector]public bool victoryed = false;
     [Space(10),Header("----------Limit----------")]
     public int charlimit = 5;
 
@@ -41,6 +40,7 @@ public class Stage: ScriptableObject, IResetOnExitPlay
     public bool noCardEquipBreak;
 
     [HideInInspector]public bool discovered;
+    public bool victoryed = false;
 
     public int GetPriceSum(){
       int newint = 0;

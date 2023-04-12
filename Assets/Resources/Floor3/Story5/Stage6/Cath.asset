@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
+  m_Name: Cath
+  m_EditorClassIdentifier: 
+  health: 100
+  breaks: 
+  char_sprites: {fileID: 11400000, guid: 0ea2d22982159f34f94a4b8c1e2bf465, type: 2}
+  char_preCards:
+  - {fileID: 11400000, guid: 58899801ece402c4a8a5229c3e0ceafa, type: 2}
+  - {fileID: 11400000, guid: e2d1c7f1d14038c4da0dc298d50a1b65, type: 2}
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  - {fileID: 11400000, guid: 3ada969459644d04f85c5ddce4d30064, type: 2}
+  - {fileID: 11400000, guid: a96fbfd0c5d10f6468dd1ccdaf9ec5d4, type: 2}
+  - {fileID: 11400000, guid: d3d03cb4dbd3aeb4ab6e9e55239f1dc4, type: 2}
+  - {fileID: 11400000, guid: 339e0bb9abf7abc4b9d7ce1bd999d5fb, type: 2}
+  battleAble: 1
+  specialAtk: {fileID: 4520184664288569651, guid: 26005f32840f09f43a616831c38d45a6, type: 3}
+  priceBonus: 0

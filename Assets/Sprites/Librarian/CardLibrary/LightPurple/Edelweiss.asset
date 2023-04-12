@@ -15,11 +15,17 @@ MonoBehaviour:
   id: 18
   name_: "\uC5D0\uB378\uBC14\uC774\uC2A4"
   poses:
-  - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
-  - {fileID: 21300000, guid: c8be71f06da47bd49b588714f07df90e, type: 3}
-  - {fileID: 21300000, guid: 25ac78f6ca9ca344c91c0f356f4d61d4, type: 3}
-  - {fileID: 21300000, guid: 841812bfd68fcd644a3b397a5397b70c, type: 3}
-  - {fileID: 21300000, guid: 152513bba34c5094a956c96f5e8fa8b0, type: 3}
+  - {fileID: 21300000, guid: 85ca68590ca585e4faa375a2b2b807f4, type: 3}
+  - {fileID: 21300000, guid: aad02c8e81d873b46a59f7f688a53adf, type: 3}
+  - {fileID: 21300000, guid: e9eec49a8dc403549923f2a6d0733769, type: 3}
+  - {fileID: 21300000, guid: f49f1cfa68a42c047b1436966f357e2b, type: 3}
+  - {fileID: 21300000, guid: 119f5b1f05fb05d47adb41eb45483b0f, type: 3}
   farAtk: 0
   atkEffect: {fileID: 3719889124338482963, guid: 7033ebd969929f74e852787b9075ebdb, type: 3}
   atkSound: Penetrate
+  feeling:
+  - {fileID: 21300000, guid: fe45418701c04cc4cb20dc58278af013, type: 3}
+  - {fileID: 21300000, guid: b4e3c0f0a3b2882429b356b369736dc2, type: 3}
+  - {fileID: 21300000, guid: 694d68ccf71ce484395b8afe2d33e1a0, type: 3}
+  - {fileID: 21300000, guid: f828afe0742599f468658fca36e90d7c, type: 3}
+  - {fileID: 21300000, guid: 119f5b1f05fb05d47adb41eb45483b0f, type: 3}

@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Catherile
   m_EditorClassIdentifier: 
-  health: 53
-  breaks: 2f000000210000001d0000000b0000000300000000000000
+  health: 15
+  breaks: 00000000
   char_sprites: {fileID: 11400000, guid: 0440756f62c655e42bea242816ea61a1, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
-  - {fileID: 11400000, guid: 917e82c58848d4d46bce43bd1b7483df, type: 2}
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
+  - {fileID: 11400000, guid: c541ec95208d0d64eb1a03cb8a00e1df, type: 2}
   - {fileID: 11400000, guid: 09be8f6bb1b2f4246963beaf2afa4556, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

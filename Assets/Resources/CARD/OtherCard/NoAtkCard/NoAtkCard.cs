@@ -7,6 +7,13 @@ public class NoAtkCard : CardAbility
 {
     public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
-        card.player.SetDice(0);
+        card.player.dice_Indi.dice_list.Clear();
+        card.player.dice_Indi.updateDice();
+        if(card.count > 0){
+            card.sub_count++;
+            if(card.sub_count >= card.count){
+                match.DestroyCard(card,card.player);
+            }
+        }
     }
 }

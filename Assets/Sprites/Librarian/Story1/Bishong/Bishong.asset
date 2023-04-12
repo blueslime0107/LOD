@@ -23,3 +23,9 @@ MonoBehaviour:
   farAtk: 0
   atkEffect: {fileID: 5664629341967208217, guid: 2059bb40ac720b2479fb9c9a861324fc, type: 3}
   atkSound: BreakWood
+  feeling:
+  - {fileID: 21300000, guid: 0fb07152e0bf167499839d8141089a8d, type: 3}
+  - {fileID: 21300000, guid: 8111136edf40b8e4da6b44b4ea768075, type: 3}
+  - {fileID: 21300000, guid: bf09e8dd5f573a94e90bf40b4f786f47, type: 3}
+  - {fileID: 21300000, guid: 626638fc70ee0a54c9dc1449e2fbb107, type: 3}
+  - {fileID: 21300000, guid: 42e22895bc4d81d409b5bde7063eeff3, type: 3}

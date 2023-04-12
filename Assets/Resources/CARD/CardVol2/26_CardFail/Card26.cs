@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Card26 : CardAbility
 {
+    public override void WhenCardGetImmedi(CardPack card, BattleManager match)
+    {
+        card.active = true;
+    }
+    public override void OnBattleStart(CardPack card, Player player, BattleManager match)
+    {
+        card.active = true;
+    }
 
     public override void CardActivate(CardPack card, BattleManager match)
     {
@@ -12,32 +20,28 @@ public class Card26 : CardAbility
 
     public override void CardSelected(CardPack card, CardPack selected_card,BattleManager match)
     {
+        if(!card.active){return;}
         if(selected_card.tained){return;}
-        try{
-            card.saved_card.ability = card.saved_ability; // 봉인했던 카드 능력을 복구 시킴
+        if(card.blocked){return;}
+        if(selected_card == card){return;}
+
+        if(card.saved_card != null){
+            match.UnBlockCard(card.saved_card);
             card.saved_card.cardStyle = null;
         }
-        catch{
-        }
-            
-        
-        if(selected_card.ability.Equals(this)){ // 만약 선택한 카드가 의식실패 일때
-            return; // 지나가기
-        }
-
-        card.saved_ability = selected_card.ability; // 봉인할 카드의 능력 저장한 후
-        card.saved_card = selected_card; // 봉인 카드 저장
+        match.BlockCard(selected_card);
+        card.saved_card = selected_card;
         selected_card.cardStyle = card.ability.overCard;
-        //match.ui.CardReload();
-
-        linked_card[0].illust = selected_card.ability.illust;
-        linked_card[0].card_id = selected_card.ability.card_id;
-        selected_card.ability.WhenCardDestroy(selected_card,selected_card.ability);
-        selected_card.ability = linked_card[0]; // 능력 삭제 (봉인)
         match.CardLog("Lock",card,selected_card.player);
-        
-        
-        
+        card.active = false;
+    }
 
+    public override void AIgorithm(CardPack card, BattleManager match)
+    {
+        List<CardPack> cardList = match.OpposeTeam(card.player.team).getAllCard();
+        cardList.RemoveAll(x => x.blocked || x.tained);
+        if(cardList.Count <= 0){return;}
+        CardPack cardPack = cardList[Random.Range(0,cardList.Count)];
+        CardSelected(card, cardPack,match);
     }
 }

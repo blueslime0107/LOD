@@ -13,20 +13,21 @@ MonoBehaviour:
   m_Name: NoAtkCard
   m_EditorClassIdentifier: 
   card_id: 368
-  xmlFile_path:
-  - CARD/OtherCard/CardOther_en.xml
-  - CARD/OtherCard/CardOther_kr.xml
-  name: 
-  message: 
-  ability_message: 
-  story_message: 
-  tained: 0
+  name: "\uD589\uB3D9\uBD88\uAC00"
+  message: ...
+  ability_message: "[\uC804\uD22C\uC900\uBE44]\uC704\uB825\uC774 0\uC774 \uB41C\uB2E4"
+  tained: 1
   price: 0
   illust: {fileID: 21300000, guid: 1f6129dfe50a9874890c1a0b494a9ed9, type: 3}
   usingCount: 0
-  pre_count: 0
-  overCard: {fileID: 0}
+  pre_count: -1
+  overCard:
+    overIMG: {fileID: 0}
+    textColor:
+      serializedVersion: 2
+      rgba: 0
   effect: []
   linked_card: []
   diceLink: {fileID: 0}
   dice: {fileID: 0}
+  cardgiven: 0

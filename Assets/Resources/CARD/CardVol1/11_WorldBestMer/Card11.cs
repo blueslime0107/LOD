@@ -7,14 +7,14 @@ public class Card11 : CardAbility
 {
     public override void WhoEverDamage(CardPack card, Damage damage, BattleManager match,Player attacker,Player defender)
     {
-        if(card.count >= 15){card.count = 15; return;}
         match.CardLog("Count",card);
-        card.count += damage.value;
-        if(card.count >= 15){
+        card.count++;
+        if(card.count >= 6 + card.sub_count){
             match.CardLog("GetCard",card);
             EffectPlayerSet(card.effect[1],card.player,match.battleCaculate.battleDice.transform,0,-3);
         card.count = 0;
         match.AddCardPoint(card.player.team);
+        card.sub_count += 1;
         }
         else{
             EffectPlayerSet(card.effect[0],card.player,match.battleCaculate.battleDice.transform,0,-3);

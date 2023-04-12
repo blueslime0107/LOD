@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Standing : MonoBehaviour
 {
-    public string name_;
+    public CharPack charpack;
     public SpriteRenderer spriteRenderer;
+
+    public void changeFeeling(int feel){
+        spriteRenderer.sprite = charpack.feeling[feel];
+    }
 }

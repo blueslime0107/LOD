@@ -61,6 +61,7 @@ public class Lobby : MonoBehaviour
 
     void Awake(){
         stageManager = FindObjectOfType<StageManager>();
+        stageManager.db = dataBase;
         pc = FindObjectOfType<ProperContainer>();
         dataBase.Localize();
         curMenu.Add("lobby");
@@ -132,8 +133,8 @@ public class Lobby : MonoBehaviour
                     menuCard.RenderSelectCard();
                     playerBattleCard.UpdateStat();
                     enemyBattleCard.UpdateStat();
+                    stageManager.saveManager.Save();
                     curMenu.Remove("cardSelectMenu"); break;
-                    
             }
         }
     }
@@ -221,9 +222,13 @@ public class Lobby : MonoBehaviour
             sceneM.Move("Battle");
             return;
         }
-        if(stageManager.play_stage.beforeStory != null && !stageManager.play_stage.victoryed)
-        {sceneM.Move("Talk");}
-        else{
+        if(stageManager.play_stage.before_story != null && !stageManager.play_stage.victoryed)
+        {
+            stageManager.playStory = stageManager.play_stage.before_story;
+            sceneM.Move("Talk");
+        }
+        else
+        {
             sceneM.Move("Battle");
         }
     }

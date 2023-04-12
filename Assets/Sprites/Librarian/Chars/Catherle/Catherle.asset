@@ -22,4 +22,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 52676ccef13418140897c53a0183bf57, type: 3}
   farAtk: 0
   atkEffect: {fileID: 7789355931682617858, guid: 2b02fc83c0a8d714e9011a6deb14ee65, type: 3}
-  atkSound: 
+  atkSound: CatherStab
+  feeling:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

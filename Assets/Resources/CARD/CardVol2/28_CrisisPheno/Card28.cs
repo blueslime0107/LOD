@@ -13,11 +13,9 @@ public class Card28 : CardAbility
     {
         player.AddHealth((int)Random.Range(1,3));
         match.CardLog("Health",card);
-        if(player.max_health.Equals(player.health)){
+        if(player.max_health <= player.health){
             match.CardLog("Accident",card);
             player.AddHealth(-card.player.max_health/2);
-            
-
         }
     }
 }

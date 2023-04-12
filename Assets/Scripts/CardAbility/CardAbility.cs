@@ -44,8 +44,7 @@ public class CardAbility : ScriptableObject
 
     public virtual void WhenCardGet(CardPack card, BattleManager match, Player cardGetPlayer, CardPack getCard){}
     public virtual void WhenCardGetImmedi(CardPack card, BattleManager match){}
-    public virtual void WhenCardDestroy(CardPack card, CardAbility card_abili){}
-    public virtual void WhenCardDisabled(CardPack card, BattleManager match){}
+    public virtual void WhenCardDestroy(CardPack card, BattleManager match){}
 
     public virtual void CardActivate(CardPack card, BattleManager match){}
     public virtual void CardSelected(CardPack card, CardPack selected_card,BattleManager match){}

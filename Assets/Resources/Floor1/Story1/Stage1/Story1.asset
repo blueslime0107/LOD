@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a299d3a91b57b2f489eec8be86878547, type: 3}
+  m_Name: Story1
+  m_EditorClassIdentifier: 
+  story:
+  - {fileID: 4900000, guid: 8e2dc027ad044f342bff51d7ec405f4d, type: 3}
+  - {fileID: 4900000, guid: c859621374ae9f64eb2e04706a1b7f20, type: 3}
+  backGrounds: {fileID: 5368631651873811224, guid: 510d18dcfa2797d4982ba79a6ed6b3d2, type: 3}
+  pictures:
+  - {fileID: 21300000, guid: 3ed7b730b67a608458ad678aeb5e80cc, type: 3}
+  - {fileID: 21300000, guid: 6137e532d0257514286f7fc1367616df, type: 3}
+  - {fileID: 21300000, guid: c785fac0428b83c45aef35e2b392748e, type: 3}
+  nextStory: {fileID: 11400000, guid: af30fc600ae42d040b69ea3277ffa6fc, type: 2}

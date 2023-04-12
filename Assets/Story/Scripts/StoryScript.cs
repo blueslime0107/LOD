@@ -5,6 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "StageTool/Story", order = 4)]
 public class StoryScript : ScriptableObject
 {
-    public TextAsset[] texts;
-    public List<CharObj> charStd;
+    public TextAsset[] story;
+
+    public GameObject backGrounds;
+    public Sprite[] pictures;
+
+    [Space(10f)]
+
+    public StoryScript nextStory;
+
 }

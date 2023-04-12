@@ -67,7 +67,7 @@ to the last character to attack you before you die.</ability>
     <Card Code="11">
         <name>Out-of-this-world Alchemy</name>
         <text>For your pain...</text>
-        <ability>[Whoever Damage] Increases count, temporarily becomes 0 when count reaches 15 or more and gains a card</ability>
+        <ability>[Whoever Damage] Increases count, when count reaches 6, gains a card and require count +1</ability>
     </Card>
     <Card Code="12">
         <name>Wilted Four Leaf Clover</name>
@@ -450,6 +450,41 @@ your opponent gets to keep it.</ability>
         <text>Bloody!</text>
         <ability>[Damage] Increases damage by count</ability>
     </Card>
+    <Card Code="88">
+        <name>Boost</name>
+        <text>Get a speeed!</text>
+        <ability>[Battle Ready] When power is 3 or more times higher than the power you earned in the previous battle
+Gain extra dice</ability>
+    </Card>
+    <Card Code="89">
+        <name>Snake Eye</name>
+        <text>What a string of bad luck...</text>
+        <ability>[Battle Ready]All your dice become Power 1</ability>
+    </Card>
+    <Card Code="90">
+        <name>Harvest</name>
+        <text>Let the work begin</text>
+        <ability>[Battle Ready]Give the character with the most cards from your opponent's hand
+Harvest Thing([Battle Ready]One random card is prevented)</ability>
+    </Card>
+    <Card Code="91">
+        <name>Harvest Thing</name>
+        <text>Am I being sacrificed now?</text>
+        <ability>[Battle Ready]One random card is prevented.
+If all cards are prevented except this one...</ability>
+    </Card>
+    <Card Code="92">
+        <name>Catherle</name>
+        <text>Become our lucky day!</text>
+        <ability>[Battle Ready]All dice become a 7.
+[Clash Lose] On 6 total defeats, destroy this card and gain a card that cannot be acted upon for the next turn</ability>.
+    </Card>
+    <Card Code="93">
+        <name>Purple Clover</name>
+        <text>This grass wants luck!</text>
+        <ability>[Active] If you have 2 or more opposing characters with Power 2 or less and Power 5 or more.
+Destroy the dice of your opponent's characters with power 5 or higher, gaining power 6 every third activation</ability>.
+    </Card>
     <Card Code="368">
         <name>Incapacitated</name>
         <text>...</text>
@@ -459,6 +494,11 @@ your opponent gets to keep it.</ability>
         <name>Speed</name>
         <text>Time to be fast!</text>
         <ability>[Battle Ready] Gain 1-6 extra Power dice equal to your count</ability>
+    </Card>
+    <Card Code="997">
+        <name>Ignore</name>
+        <text>Go away</text>
+        <ability>Ignore all damage except that which occurs during the Clash.</ability>
     </Card>
     <Card Code="998">
         <name>Chaos</name>

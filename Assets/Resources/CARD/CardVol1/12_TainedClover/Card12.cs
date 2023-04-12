@@ -28,6 +28,7 @@ public class Card12 : CardAbility
             case 1: EffectPlayerSet(card.effect[2],card.player,match.transform); break;
 
         }
+        if(card.count.Equals(1) && card.ability.tained){card.count = 4; card.player.SetDice(6);}
         card.count -= 1;
     }
 

@@ -18,6 +18,8 @@ public class Card36 : CardAbility
     public override void CardSelected(CardPack card, CardPack selected_card, BattleManager match)
     {
         if(card.saved_card != null){return;}
+        if(selected_card.tained){return;}
+        if(selected_card.blocked){return;}
         card.saved_card = selected_card;
         selected_card.cardStyle = card.ability.overCard;
         match.CardLog("ToEat!",card,selected_card.player);

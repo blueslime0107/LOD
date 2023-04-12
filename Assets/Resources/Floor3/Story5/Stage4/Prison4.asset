@@ -19,28 +19,28 @@ MonoBehaviour:
   title: "\uC560\uC26C"
   rank: 4
   characters:
-  - {fileID: 11400000, guid: 5a10d999677cefa4287376dd894e6628, type: 2}
-  - {fileID: 11400000, guid: 7c1f1a410e06bb845a3da4f5ec87c274, type: 2}
-  - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
+  - {fileID: 11400000, guid: 94d001107a34bd94ca246c9423ca7e9b, type: 2}
   - {fileID: 11400000, guid: 4422e876117e9a741aac7cd46257f096, type: 2}
+  - {fileID: 11400000, guid: 4422e876117e9a741aac7cd46257f096, type: 2}
+  - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
   - {fileID: 0}
   priceStage:
   - {fileID: 11400000, guid: bed658e1db0a439458da5be87cf70238, type: 2}
   priceChars:
-    PlayerStage_id: 0
     player_Characters_id: 0
+    player_cards: 
   priceCards:
-  - {fileID: 11400000, guid: b68f3ef142139194abae301f2ea87823, type: 2}
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
+  - {fileID: 11400000, guid: 3dcd80491ec0be14daedd06b71aaca57, type: 2}
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
-  stageEvent: {fileID: 0}
-  custom_stage: {fileID: 0}
-  custom_BGM: 
+  custom_stage: {fileID: 2039300465973421108, guid: 621abd695189c5f4abe05663ba2e9cd9, type: 3}
+  custom_BGM: Prison2
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

@@ -150,9 +150,11 @@ public class BattleCaculate : MonoBehaviour
 
         bm.CardLogText("Start","[Clash Start "+myChar.character.name +"->"+eneChar.character.name+"]","#00ff08");
         for(int i = 0; i<my_ability.Count;i++){ // 합 시작시 카드 효과
+            if(my_ability[i].blocked){continue;}
                     my_ability[i].ability.OnClashStart(my_ability[i],this,eneChar);
                 }
         for(int i = 0; i<ene_ability.Count;i++){
+            if(ene_ability[i].blocked){continue;}
                     ene_ability[i].ability.OnClashStart(ene_ability[i],this,myChar);
                 }
         yield return new WaitForSeconds(diceRollTime); // 캐릭터들이 제자리에 온후 약간의 딜레이
@@ -216,9 +218,11 @@ public class BattleCaculate : MonoBehaviour
         if(damage.value == 0){ // 무승부
             bm.CardLogText("Draw","[Draw]","#969696");
             for(int i = 0; i<my_ability.Count;i++){
+                if(my_ability[i].blocked){continue;}
                 my_ability[i].ability.OnClashDraw(my_ability[i],this,eneChar);
             }
             for(int i = 0; i<ene_ability.Count;i++){
+                if(ene_ability[i].blocked){continue;}
                 ene_ability[i].ability.OnClashDraw(ene_ability[i],this,myChar);
             }
             StartCoroutine(Damage(myChar,eneChar));
@@ -229,9 +233,11 @@ public class BattleCaculate : MonoBehaviour
 
             bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+myChar.character.name+"/Lose "+eneChar.character.name+"]","#ffffff");
             for(int i = 0; i<ene_ability.Count;i++){
+                if(ene_ability[i].blocked){continue;}
                 ene_ability[i].ability.OnClashLose(ene_ability[i],this, myChar);
             }
             for(int i = 0; i<my_ability.Count;i++){
+                if(my_ability[i].blocked){continue;}
                 my_ability[i].ability.OnClashWin(my_ability[i],this, eneChar);
                 BasicDice();
             }
@@ -251,7 +257,7 @@ public class BattleCaculate : MonoBehaviour
                 while(specialFade.specialEnd){
                     yield return null;
                 }
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 myChar.special_active = false;
                 specialFade.SpecialEnd();
             }
@@ -263,9 +269,11 @@ public class BattleCaculate : MonoBehaviour
         bm.CardLogText((myChar.team.Equals(bm.left_team)) ? "Win":"Lose","[Win "+eneChar.character.name+"/Lose "+myChar.character.name+"]","#ffffff");
             damage.value = -damage.value;
             for(int i = 0; i<my_ability.Count;i++){
+                if(my_ability[i].blocked){continue;}
                 my_ability[i].ability.OnClashLose(my_ability[i],this, eneChar);
             }
             for(int i = 0; i<ene_ability.Count;i++){
+                if(ene_ability[i].blocked){continue;}
                 ene_ability[i].ability.OnClashWin(ene_ability[i],this, myChar);
                 BasicDice();
             }
@@ -286,7 +294,7 @@ public class BattleCaculate : MonoBehaviour
                 while(specialFade.specialEnd){
                     yield return null;
                 }
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 eneChar.special_active = false;
                 specialFade.SpecialEnd();
             }
@@ -305,10 +313,47 @@ public class BattleCaculate : MonoBehaviour
     IEnumerator MatchFin(){    
         if(myChar.health <= 0){
             myChar.YouAreDead();
+            if(eneChar.special_active && eneChar.specialAtk){
+                specialFade.specialAtk = eneChar.specialAtk;
+                if(specialFade.specialAtk.largeAtk){
+                    foreach(Player player in myChar.team.players){
+                    specialFade.specialAtk.characters.Add(player.character);
+
+                    }
+                }
+                else{
+                    specialFade.specialAtk.characters.Add(myChar.character);
+                }
+                specialFade.SpeicalFade();
+                while(specialFade.specialEnd){
+                    yield return null;
+                }
+                yield return new WaitForSeconds(0.5f);
+                eneChar.special_active = false;
+                specialFade.SpecialEnd();
+            }
             while(myChar.gameObject.activeSelf){ Debug.Log("line");yield return null;}
         }
         if(eneChar.health <= 0){
             eneChar.YouAreDead();
+            if(myChar.special_active && myChar.specialAtk){
+                specialFade.specialAtk = myChar.specialAtk;
+                if(specialFade.specialAtk.largeAtk){
+                    foreach(Player player in eneChar.team.players){
+                    specialFade.specialAtk.characters.Add(player.character);
+
+                    }
+                }else{
+                    specialFade.specialAtk.characters.Add(eneChar.character);
+                }
+                specialFade.SpeicalFade();
+                while(specialFade.specialEnd){
+                    yield return null;
+                }
+                yield return new WaitForSeconds(0.5f);
+                myChar.special_active = false;
+                specialFade.SpecialEnd();
+            }
             while(eneChar.gameObject.activeSelf) {yield return null;}
 
         }
@@ -372,11 +417,14 @@ public class BattleCaculate : MonoBehaviour
         }
         # region BattleEnded
         for(int i =0;i<myChar.cards.Count;i++){
+            if(myChar.cards[i].blocked){continue;}
             myChar.cards[i].card_battleActive = false;
+            
             myChar.cards[i].ability.OnClashEnded(myChar.cards[i],this);
             
         }
         for(int i =0;i<eneChar.cards.Count;i++){
+            if(eneChar.cards[i].blocked){continue;}
             eneChar.cards[i].card_battleActive = false;
             eneChar.cards[i].ability.OnClashEnded(eneChar.cards[i],this);
             

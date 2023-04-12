@@ -9,4 +9,7 @@ public class CharPack : ScriptableObject
     public bool farAtk = false;
     public GameObject atkEffect;
     public string atkSound;
+
+    [Space(15f)]
+    public Sprite[] feeling = new Sprite[5];
 }

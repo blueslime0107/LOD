@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Normal_Catherle
   m_EditorClassIdentifier: 
   id: 49
-  name_: 
+  name_: "\uCE90\uC11C\uB9B0"
   poses:
   - {fileID: 21300000, guid: 050aab325480f41438a716a9cac702f8, type: 3}
   - {fileID: 21300000, guid: 143f5898b2409e843b9fd31153ec6248, type: 3}
@@ -22,4 +22,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fad815271aceaaf48a2023499f08ce97, type: 3}
   farAtk: 0
   atkEffect: {fileID: 6613571639549059086, guid: 311834b01dd564d4a840aebb223a23c3, type: 3}
-  atkSound: 
+  atkSound: Hit
+  feeling:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

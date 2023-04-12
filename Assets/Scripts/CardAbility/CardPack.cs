@@ -11,7 +11,7 @@ public class CardPack
     public bool card_battleActive;
     public LineRenderer diceLink;
 
-
+    public bool blocked;
 
     public Player saved_player; // 캐릭터 저장
     public List<Player> saved_player_list = new List<Player>(); // 캐릭터 저장 리스트

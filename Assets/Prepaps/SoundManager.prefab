@@ -319,6 +319,20 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: CatherStab
+    clip: {fileID: 8300000, guid: 06dc9a8c175372d4b9b591f46f06574f, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: CatherPower
+    clip: {fileID: 8300000, guid: 2b9df8c909adf9a4a924efd6fffc9177, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   musics:
   - name: BattleFloor
     clip: {fileID: 8300000, guid: 4e82aac26e5d68e48b1da206693d7920, type: 3}
@@ -404,8 +418,22 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: Prison2
+    clip: {fileID: 8300000, guid: 52c96f16f425a874b9d67d40948d960c, type: 3}
+    volume: 0.482
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   - name: AshTheme1
     clip: {fileID: 8300000, guid: dd3fb295bd937c5449bb1e5672fdb428, type: 3}
+    volume: 0.482
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Catherle
+    clip: {fileID: 8300000, guid: b55d77bc73c08404091c9b37be5a662b, type: 3}
     volume: 0.482
     group: 1
     loop: 1

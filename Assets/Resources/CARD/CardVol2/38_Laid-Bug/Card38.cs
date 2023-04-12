@@ -8,25 +8,17 @@ public class Card38 : CardAbility
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)
     {
         CardPack selected_card = card.player.cards[Random.Range(0,card.player.cards.Count)];
-        if(selected_card == card){
-            card.active = true;
-            return;
-        }
+        if(!card.active){return;}
         if(selected_card.tained){return;}
-
-        if(selected_card.ability.Equals(this)){ // 만약 선택한 카드가 의식실패 일때
-            return; // 지나가기
+        if(card.blocked){return;}
+        if(selected_card == card){return;}
+        if(card.saved_card != null){
+            match.UnBlockCard(card.saved_card);
         }
-
-        card.saved_ability = selected_card.ability; // 봉인할 카드의 능력 저장한 후
-        card.saved_card = selected_card; // 봉인 카드 저장
-        //match.ui.CardReload();
-
-        linked_card[0].illust = selected_card.ability.illust;
-        linked_card[0].card_id = selected_card.ability.card_id;
-        selected_card.ability.WhenCardDestroy(selected_card,selected_card.ability);
-        selected_card.ability = linked_card[0]; // 능력 삭제 (봉인)
-        match.CardLog("ERROR",card,selected_card.player);
+        match.BlockCard(selected_card);
+        card.saved_card = selected_card;
+        selected_card.cardStyle = card.ability.overCard;
+        match.CardLog("Lock",card,selected_card.player);
         
     }
 
@@ -45,7 +37,7 @@ public class Card38 : CardAbility
 
             card.player.AddHealth(5);
             card.player.AddDice(3);
-            card.saved_card.ability = card.saved_ability;
+            match.UnBlockCard(selected_card);
             card.saved_card = null;
         }
         else{

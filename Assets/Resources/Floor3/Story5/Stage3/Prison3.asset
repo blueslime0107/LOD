@@ -19,11 +19,11 @@ MonoBehaviour:
   title: "\uC2DC\uCCB4\uCC98\uB9AC"
   rank: 4
   characters:
-  - {fileID: 11400000, guid: 94d001107a34bd94ca246c9423ca7e9b, type: 2}
+  - {fileID: 11400000, guid: d5b85b29370a4724bafc8551d2de1245, type: 2}
   - {fileID: 11400000, guid: 77bf8da3cf9dfc948a57954979f64b04, type: 2}
   - {fileID: 11400000, guid: 77bf8da3cf9dfc948a57954979f64b04, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
+  - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
   priceStage:
   - {fileID: 11400000, guid: 00a25528e44a08441b00f197e8acfdcd, type: 2}
   priceChars:
@@ -31,10 +31,9 @@ MonoBehaviour:
     player_cards: 
   priceCards:
   - {fileID: 11400000, guid: 5cab51ff28633de48aaa3b1d2e870a12, type: 2}
-  - {fileID: 11400000, guid: df13fbe9b7edfc64e8da766c8d177144, type: 2}
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
+  - {fileID: 11400000, guid: b68f3ef142139194abae301f2ea87823, type: 2}
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
   custom_stage: {fileID: 0}
@@ -45,3 +44,4 @@ MonoBehaviour:
   noPrice: 0
   noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

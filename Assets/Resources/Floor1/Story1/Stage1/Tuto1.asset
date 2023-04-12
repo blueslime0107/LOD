@@ -27,20 +27,19 @@ MonoBehaviour:
   priceStage:
   - {fileID: 11400000, guid: c80c287a27581b14084b9c6dc655231a, type: 2}
   priceChars:
-    PlayerStage_id: 1
     player_Characters_id: 1
+    player_cards: 
   priceCards: []
-  beforeStory: {fileID: 11400000, guid: 8d8c5d8b5c446fe4b95781733e169d67, type: 2}
-  afterStory: {fileID: 0}
-  victoryed: 0
-  avaliblePrice: 100
+  before_story: {fileID: 11400000, guid: 8d8c5d8b5c446fe4b95781733e169d67, type: 2}
+  after_story: {fileID: 0}
   charlimit: 1
   playerStageLock: {fileID: 11400000, guid: e1b7def28508a6747b752bf369648a5a, type: 2}
-  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
   noEditChar: 0
   tutorialLine: 1
   noBreakCards: 1
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

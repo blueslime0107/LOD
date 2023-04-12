@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f63b5a761765e4eae27ff64df51715, type: 3}
+  m_Name: 88_Boost
+  m_EditorClassIdentifier: 
+  card_id: 88
+  name: 
+  message: 
+  ability_message: 
+  tained: 0
+  price: 50
+  illust: {fileID: 21300000, guid: edd329f81a1cf5149b43b506bddf038a, type: 3}
+  usingCount: 1
+  pre_count: 0
+  overCard:
+    overIMG: {fileID: 0}
+    textColor:
+      serializedVersion: 2
+      rgba: 0
+  effect: []
+  linked_card: []
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}
+  cardgiven: 0

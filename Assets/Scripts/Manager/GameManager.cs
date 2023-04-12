@@ -67,6 +67,15 @@ public class Team{
         }
         return newint;
     }
+
+    public List<CardPack> getAllCard(){
+        List<CardPack> newCardPAck = new List<CardPack>();
+        foreach(Player player in players){
+        newCardPAck.AddRange(player.cards);
+
+        }
+        return newCardPAck;
+    }
 }
 
 public class GameManager : MonoBehaviour
@@ -75,6 +84,7 @@ public class GameManager : MonoBehaviour
     public BattleManager battleManager;
     public SceneMove sceneMove;
     public CameraCtrl main_camera_ctrl;
+    public DataBase dataBase;
 
     public StageManager sm;
     [SerializeField]public GameObject parent_back;
@@ -93,6 +103,7 @@ public class GameManager : MonoBehaviour
     void Reseting(){
 
         sm = FindObjectOfType<StageManager>();
+        sm.db = dataBase;
 
         if(sm == null){
             GameObject smObj = new GameObject();

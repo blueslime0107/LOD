@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 public class Card86 : CardAbility
 {
     public override void OnDamaging(CardPack card, Player defender, Damage damage, BattleManager match)

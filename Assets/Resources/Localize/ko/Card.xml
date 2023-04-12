@@ -67,7 +67,7 @@
     <Card Code="11">
         <name>이세상 최고의 연금술</name>
         <text>너희들의 고통을 담아..</text>
-        <ability>[피해 발생] 피해만큼 카운트 상승, 카운트15 이상일시 0이 되고 카드획득</ability>
+        <ability>[피해 발생] 카운트 상승, 카운트6 이상일시 카드를 획득하고 필요한 카운트가 1 증가한다</ability>
     </Card>
     <Card Code="12">
         <name>시들어진 네잎클로버</name>
@@ -442,6 +442,40 @@
         <text>피가!</text>
         <ability>[피격] 카운트만큼 피해상승</ability>
     </Card>
+    <Card Code="88">
+        <name>가속</name>
+        <text>속도를 올리는거다!</text>
+        <ability>[전투준비] 주사위가 이전 전투에서 획득한 주사위보다 3번 이상 높으면
+여분 주사위 획득</ability>
+    </Card>
+    <Card Code="89">
+        <name>뱀의 눈</name>
+        <text>불운의 연속이야...</text>
+        <ability>[전투준비]자신의 모든 주사위가 위력1 이 된다</ability>
+    </Card>
+    <Card Code="90">
+        <name>수확</name>
+        <text>일을 시작해볼까?</text>
+        <ability>[전투준비]상대 캐릭터들중 가장 카드가 많은 캐릭터에게
+수확([전투준비]랜덤한 카드 하나가 봉인된다)을 준다</ability>
+    </Card>
+    <Card Code="91">
+        <name>수확물</name>
+        <text>나 이제 바쳐지는거야?</text>
+        <ability>[전투준비]랜덤한 카드 하나가 봉인된다
+만약 이 카드를 제외한 모든 카드가 봉인되면...</ability>
+    </Card>
+    <Card Code="92">
+        <name>캐서린</name>
+        <text>모두 우리의 행운이 되어라!</text>
+        <ability>[전투준비]모든 주사위가 7이 된다
+[합 패배] 6번 합 패배시 카드가 파괴되고 다음 1턴 행동불가 카드를 얻는다</ability>
+    </Card>
+    <Card Code="93">
+        <name>보라색 클로버</name>
+        <text>이 풀은 행운을 원해요!</text>
+        <ability>[발동] 자신위력2 이하일때 위력5 이상의 상대팀 캐릭터들의 주사위를 파괴한다.&#10;3번째 발동마다 위력6 이 된다</ability>
+    </Card>
     <Card Code="368">
         <name>행동불가</name>
         <text>...</text>
@@ -451,6 +485,11 @@
         <name>속도</name>
         <text>빨라질 시간이야!</text>
         <ability>[전투 준비] 카운트만큼 위력1~6 여분 주사위를 얻는다</ability>
+    </Card>
+    <Card Code="997">
+        <name>무시</name>
+        <text>잔챙이는 꺼져</text>
+        <ability>합을 하는 중에 발생하는 피해를 제외한 모든 피해를 무시한다</ability>
     </Card>
     <Card Code="998">
         <name>광란</name>

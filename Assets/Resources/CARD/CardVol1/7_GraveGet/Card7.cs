@@ -20,7 +20,7 @@ public class Card7 : CardAbility
         
     }
 
-    public override void StartMatch(CardPack card, BattleManager match)
+    public override void OnBattleReady(CardPack card, Player player, BattleManager match)
     {
         if(!card.active){return;}
         match.MakeNewDiceAndPutPlayer(card.player,Random.Range(3,7));

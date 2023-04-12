@@ -19,7 +19,7 @@ MonoBehaviour:
   title: "\uC8FD\uC740\uAC74\uAC00?"
   rank: 3
   characters:
-  - {fileID: 11400000, guid: d5b85b29370a4724bafc8551d2de1245, type: 2}
+  - {fileID: 11400000, guid: d8e507612539b804dbb368c877a2ca84, type: 2}
   - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
   - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
   - {fileID: 11400000, guid: d1837bfc94fa01247aa5e35e6f7d26e4, type: 2}
@@ -31,16 +31,16 @@ MonoBehaviour:
     player_cards: 
   priceCards:
   - {fileID: 11400000, guid: 3ca4077ba9f799e489ec785ec9227955, type: 2}
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
-  charlimit: 4
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
+  charlimit: 5
   playerStageLock: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
-  noPrice: 0
+  noPrice: 1
   noCardEquipBreak: 0
-  discovered: 0
+  discovered: 1
+  victoryed: 1
