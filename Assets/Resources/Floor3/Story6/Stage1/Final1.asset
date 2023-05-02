@@ -10,33 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
-  m_Name: Prison6
+  m_Name: Final1
   m_EditorClassIdentifier: 
-  id: 30
+  id: 31
   stageAddress:
-    floor: 5
+    floor: 6
     sub: 0
-  title: "\uCE90\uC11C\uB9B0"
-  rank: 6
+  title: "\uBC1C\uB2E8"
+  rank: 1
   characters:
-  - {fileID: 11400000, guid: bc638fd7931faf34aa4228d92489bbf5, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9a6343588f0824f4d9195341ebf81358, type: 2}
+  - {fileID: 11400000, guid: 59183fd9c8605a44d812a0464f3295e9, type: 2}
+  - {fileID: 11400000, guid: 59183fd9c8605a44d812a0464f3295e9, type: 2}
+  - {fileID: 11400000, guid: 59183fd9c8605a44d812a0464f3295e9, type: 2}
+  - {fileID: 11400000, guid: 59183fd9c8605a44d812a0464f3295e9, type: 2}
   priceStage:
-  - {fileID: 11400000, guid: e62d40219de0ff743a4aff14776b5afc, type: 2}
+  - {fileID: 11400000, guid: d755526aad3e30143b71e29ebcaf5c12, type: 2}
   priceChars:
     player_Characters_id: 0
     player_cards: 
-  priceCards:
-  - {fileID: 11400000, guid: 917e82c58848d4d46bce43bd1b7483df, type: 2}
+  priceCards: []
   before_story: {fileID: 0}
   after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
-  custom_stage: {fileID: 5528322145978878441, guid: 403db024a026e5e4cb1bcb2126ed9ea7, type: 3}
-  custom_BGM: Catherle
+  custom_stage: {fileID: 0}
+  custom_BGM: 
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0

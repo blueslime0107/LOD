@@ -186,11 +186,10 @@ public class BattleCaculate : MonoBehaviour
             while(myChar.isMoving){
                 yield return null;
             }
-            yield return new WaitForSeconds(battleFinTime);
         }
         # endregion
         # region 상대가 합을 이기고 원거리 공격을 가진게 아니면 자신에게 다아가기
-        if(damage.value<0 && eneChar.dice_Indi.dice_list.Count > 0){
+        else if(damage.value<0 && eneChar.dice_Indi.dice_list.Count > 0){
             if(!eneChar.farAtt && !eneChar.dice_Indi.dice_list[0].farAtt){
                 eneChar.SetPointMove(myChar.movePoint.position, 22f);
                 gameManager.main_camera_ctrl.SetTargetMove(myChar,eneChar,22f);
@@ -198,12 +197,14 @@ public class BattleCaculate : MonoBehaviour
                 while(eneChar.isMoving){
                      yield return null;
                 }
-                yield return new WaitForSeconds(battleFinTime);
                 }
         }
         # endregion
         }
-        else{yield return new WaitForSeconds(battleFinTime);}
+
+        
+        yield return new WaitForSeconds(battleFinTime);
+
         
         
 

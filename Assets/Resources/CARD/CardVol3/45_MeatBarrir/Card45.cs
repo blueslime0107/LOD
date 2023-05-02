@@ -24,7 +24,7 @@ public class Card45 : CardAbility
         if(card.active){return;}
         damage.value = 0;
         card.effect[0].gameObject.SetActive(false);
-        card.active = false;
+        card.active = true;
         match.CardLog("Barrier Broken",card);
     }
 

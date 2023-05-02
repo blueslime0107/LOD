@@ -445,8 +445,7 @@
     <Card Code="88">
         <name>가속</name>
         <text>속도를 올리는거다!</text>
-        <ability>[전투준비] 주사위가 이전 전투에서 획득한 주사위보다 3번 이상 높으면
-여분 주사위 획득</ability>
+        <ability>[전투준비] 여분 주사위 획득, 카드뽑기에 등장하지 않는다</ability>
     </Card>
     <Card Code="89">
         <name>뱀의 눈</name>

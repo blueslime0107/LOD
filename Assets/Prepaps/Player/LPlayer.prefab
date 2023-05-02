@@ -178,6 +178,7 @@ MonoBehaviour:
   specialAtk: {fileID: 0}
   deathMotion: {fileID: 4375473253056746831}
   THEEGO: 0
+  godMode: 0
   speed: 0
 --- !u!95 &4375473253056746831
 Animator:
@@ -10839,6 +10840,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4336479990067078977}
     m_Modifications:
+    - target: {fileID: 2019623499948046221, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7106313822704682828}
+    - target: {fileID: 2019623499948046221, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: diceIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236239167133187651, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7106313822704682828}
+    - target: {fileID: 2236239167133187651, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: diceIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796168520904310279, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6823225385023782440, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: player
       value: 
@@ -10910,6 +10931,14 @@ PrefabInstance:
     - target: {fileID: 6823225385023782455, guid: c743257e1ee39824b95661f217a1d206, type: 3}
       propertyPath: m_TagString
       value: Team1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001005199548396289, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7106313822704682828}
+    - target: {fileID: 9001005199548396289, guid: c743257e1ee39824b95661f217a1d206, type: 3}
+      propertyPath: diceIndex
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c743257e1ee39824b95661f217a1d206, type: 3}

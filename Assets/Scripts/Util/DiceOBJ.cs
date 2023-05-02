@@ -10,6 +10,9 @@ public class DiceOBJ : MonoBehaviour
 
     public TextMeshPro diceNumber;
 
+    public Dice_Indi player;
+    public int diceIndex;
+
     public void updateDice(int value){
         if(value < diceIMG.Length-1){
             spriteRenderer.sprite = diceIMG[value];
@@ -20,6 +23,16 @@ public class DiceOBJ : MonoBehaviour
             spriteRenderer.sprite = diceIMG[diceIMG.Length-1];
             diceNumber.text = value.ToString();
         }
+    }
+
+    private void OnMouseDown() {
+        if(diceIndex <= 0){return;}
+        Debug.Log("selected");
+        DiceProperty newDice = new DiceProperty();
+        newDice = player.dice_list[0];
+        player.dice_list[0] = player.dice_list[diceIndex];
+        player.dice_list[diceIndex] = newDice;
+        player.updateDice();
     }
 
 
