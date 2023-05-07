@@ -88,8 +88,12 @@ public class StageManager : MonoBehaviour
             checkStage.Add(stageProper);
         }
         foreach(Stage stage in checkStage){
+            Debug.Log(stage);
             foreach(Stage priceStage in stage.priceStage){
                 if(stage.victoryed && !checkStage.Contains(priceStage)){
+                    Debug.Log(priceStage);
+                    Debug.Log(priceStage.stageAddress);
+                    Debug.Log(priceStage.stageAddress.sub);
                     if(priceStage.stageAddress.sub){Floors[priceStage.stageAddress.floor-1].SubStage.Add(priceStage);}
                     else{Floors[priceStage.stageAddress.floor-1].Mainstage.Add(priceStage);}
                 }
@@ -138,8 +142,6 @@ public class StageManager : MonoBehaviour
             // 데이터베이스에 저장
             stageManagerDB.stagePlayerSaves.Add(stagePlayerSave);
         }
-        Debug.Log(PlayerStages.Count);
-
         stageManagerDB.stageID.Clear();
         foreach(Floor fl in Floors){
             foreach(Stage stage in fl.Mainstage){
@@ -180,7 +182,6 @@ public class StageManager : MonoBehaviour
         StagePlayerSave st= new StagePlayerSave();
         st.player_Characters_id = stagePlayer.player_Characters_id;
         PlayerStages.Add(st);
-        Debug.Log(PlayerStages.Count);
         db.UpdatePlayerCard(PlayerStages);
     }
 

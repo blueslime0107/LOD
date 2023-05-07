@@ -21,14 +21,11 @@ public class Card47 : CardAbility
         
         if(!cardGetPlayer.team.Equals(card.player.team)){return;}
         card.count = 0;
-        Debug.Log(card.count);
         foreach(Player player in card.player.team.players ){
             if(player.Equals(card.player)){continue;}
             card.count += player.cards.Count;
         }
-        Debug.Log(card.count);
         if(card.count >= card.player.cards.Count){
-            Debug.Log(card.count);
             card.count = card.player.cards.Count;
         }
     }

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
   m_Name: LibrarySub1
   m_EditorClassIdentifier: 
-  id: 2001
+  id: 4001
   stageAddress:
     floor: 4
     sub: 1
-  title: 
+  title: "\uBCF4\uD5D8 \uAC00\uC785"
   rank: 4
   characters:
   - {fileID: 11400000, guid: 2b9888016a3dd154eb181217211c0a41, type: 2}
@@ -26,21 +26,20 @@ MonoBehaviour:
   - {fileID: 0}
   priceStage: []
   priceChars:
-    PlayerStage_id: 0
     player_Characters_id: 0
+    player_cards: 
   priceCards:
   - {fileID: 11400000, guid: eb5228ace9796934e84a334f4825ab84, type: 2}
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
-  avaliblePrice: 100
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
-  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

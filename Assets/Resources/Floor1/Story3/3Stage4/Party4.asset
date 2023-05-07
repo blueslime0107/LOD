@@ -26,22 +26,22 @@ MonoBehaviour:
   - {fileID: 0}
   priceStage:
   - {fileID: 11400000, guid: b9f0d6ee4f049bd40acd8eac7751fcc9, type: 2}
+  - {fileID: 11400000, guid: 1064ce319b93bcf42a4e51679ce95d57, type: 2}
   priceChars:
-    PlayerStage_id: 0
     player_Characters_id: 0
+    player_cards: 
   priceCards:
   - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
-  avaliblePrice: 100
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
-  stageEvent: {fileID: 0}
   custom_stage: {fileID: 478196262192403701, guid: ec393abb3dd41024bbd68893b3d2b0e5, type: 3}
   custom_BGM: EveningGrass
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

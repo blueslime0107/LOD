@@ -104,11 +104,9 @@ public class BattleManager : MonoBehaviour
 
         while(true){ // 계속반복
             if(left_team.players.FindAll(x => x.died).Count.Equals(left_team.players.Count)){
-                Debug.Log("You Lose!");
                 break;
             }
             if(right_team.players.FindAll(x => x.died).Count.Equals(right_team.players.Count)){
-                Debug.Log("You Win!");
                 gameManager.sm.play_stage.victoryed = true;
                 break;
             }
@@ -158,7 +156,6 @@ public class BattleManager : MonoBehaviour
 
                 }
                 else{
-                    Debug.Log("normal");
                     for(int i=0;i<card_give_count;i++){
                     cur_game_cards.Add(game_cards[0]);
                     game_cards.RemoveAt(0);
@@ -551,6 +548,9 @@ public class BattleManager : MonoBehaviour
     public void BattleStart(){
         if(!cardActiveAble){return;}
         sdm.Play("Snap");
+        foreach(Player player in players){
+            player.ChangeCondition(1);
+        }
         battle_start = true;
         ui.battleStartButton.StopAllCoroutines();
         ui.battleStartButton.updateYeamColor(first_turn.text);
@@ -658,7 +658,8 @@ public class BattleManager : MonoBehaviour
 
     public CardPack GiveCardPack(CardPack card, Player player,bool ableTain = false){
         if(card.ability.tained && !ableTain){return card;}
-        DestroyCard(card, player);
+        Debug.Log("GiveCardPAck");
+        DestroyCard(card, card.player);
         card = gameManager.PreSetting(card,player);
         player.cards.Add(card);
         card.ability.WhenCardGetImmedi(card,this);

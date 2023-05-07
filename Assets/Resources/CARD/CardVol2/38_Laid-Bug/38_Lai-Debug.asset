@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: 38_Lai-Debug
   m_EditorClassIdentifier: 
   card_id: 38
-  xmlFile_path:
-  - CARD/CardVol2/CardVol2_en.xml
-  - CARD/CardVol2/CardVol2_kr.xml
   name: "\uB808\uC774-\uB514\uBC84\uADF8"
   message: "\uC544\uC624 \uC774\uB188\uC758 \uBC8C\uB808!"
-  ability_message: "[\uD68D\uB4DD]\uCE74\uB4DC\uC911 \uD558\uB098\uAC00 \uBC84\uADF8\uCE74\uB4DC(\uD6A8\uACFC\uBD09\uC778)\uAC00
-    \uB41C\uB2E4.\n[\uCE74\uB4DC\uC9C0\uC815]\uCE74\uB4DC\uAC00 \uBC84\uADF8\uCE74\uB4DC\uC77C\uC2DC
-    \uCCB4\uB8255\uD68C\uBCF5 \uBC84\uADF8\uD480\uB9BC, \uC544\uB2D0\uC2DC \uD30C\uAD34\uB41C\uB2E4.
-    \r\n[\uD569 \uC2B9\uB9AC]\uBC84\uADF8\uCE74\uB4DC\uAC00 \uC5C6\uB2E4\uBA74 \uC0C1\uB300\uC5D0\uAC8C
-    \uB118\uAE38 \uC218 \uC788\uB2E4"
-  story_message: 
+  ability_message: "[\uC804\uD22C\uC900\uBE44] 1~5\uD134\uB4A4 \uBC1C\uB3D9, \uCD5C\uB300\uCCB4\uB825\uC758
+    \uC808\uBC18\uB9CC\uD07C(\uCD5C\uB300 20) \uD53C\uD574\uBC1B\uACE0, \uB79C\uB364\uD55C
+    \uCE74\uB4DC\uD6A8\uACFC\uB85C \uBC14\uB010\uB2E4\r\n[\uD569 \uC2DC\uC791] \uC704\uB825
+    1 \uAC10\uC18C [\uD569 \uC2B9\uB9AC] \uC801\uC5D0\uAC8C \uC774 \uCE74\uB4DC\uB97C
+    \uB118\uAE34\uB2E4"
   tained: 0
-  price: 51
+  price: 30
   illust: {fileID: 21300000, guid: 59b74021517327046a6936757a2f98e7, type: 3}
   usingCount: 0
   pre_count: 0
-  overCard: {fileID: 21300000, guid: c772ec6b5d891f247a03a6d95eaef3de, type: 3}
+  overCard:
+    overIMG: {fileID: 0}
+    textColor:
+      serializedVersion: 2
+      rgba: 0
   effect: []
   linked_card:
   - {fileID: 11400000, guid: 8eb0e8022d9b548479fdbd738a605736, type: 2}

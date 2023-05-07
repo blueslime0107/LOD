@@ -21,11 +21,9 @@ public class YouGetACard : MonoBehaviour
 
     IEnumerator cardWriting() {
         if(Input.GetMouseButtonDown(0)){yield return null;}
-        Debug.Log("path");
         while(true){
         if(Input.GetMouseButtonDown(0)){
             if(textwriting){
-                Debug.Log("textwrigint_skip");
                 textwriting = false; 
                 animator.Play("CardGet",0,1.0f);
                 StopCoroutine("TypeWrite");
@@ -54,11 +52,9 @@ public class YouGetACard : MonoBehaviour
         card_comment.text = "";
         ability_message.text ="";
         textwriting = true;
-        Debug.Log(cardAbility[0].name);
         card.loaded = false;
         card.cardUpdate(cardAbility[0]);
         card_img.sprite = cardAbility[0].illust;
-        Debug.Log(card.ability.name);
         StartCoroutine("cardWriting");
         animator.Play("CardGet",0,0f);
         cardAbility.RemoveAt(0);

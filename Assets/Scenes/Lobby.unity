@@ -20447,7 +20447,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 910b805115a4aae41ae4d36904b1511e, type: 2}
     SubStage:
     - {fileID: 11400000, guid: 1064ce319b93bcf42a4e51679ce95d57, type: 2}
-    battleBGM: 
+    battleBGM: Minus1
   preFloor: 0
   nogiveStage: 0
   nogiveChar: 0
@@ -22067,6 +22067,10 @@ PrefabInstance:
     - target: {fileID: 3910349306023883509, guid: fef0997bb9a10f64594bfefd1e9a6de8, type: 3}
       propertyPath: m_Name
       value: DataBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910349306023883509, guid: fef0997bb9a10f64594bfefd1e9a6de8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3910349306023883515, guid: fef0997bb9a10f64594bfefd1e9a6de8, type: 3}
       propertyPath: m_RootOrder

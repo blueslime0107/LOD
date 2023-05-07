@@ -123,6 +123,7 @@ public class Player : MonoBehaviour
         goingOrigin = true;
         StopCoroutine("KnockBackEnumerator");
         StopCoroutine("GotoPoint");
+        if(isMoving){yield return null;}
         isMoving = false;
         while(true)
         {if(transform.position == origin_pos){
@@ -240,7 +241,6 @@ public class Player : MonoBehaviour
 
     public void AddHealth(int value,bool changemaxHp=false){
         if(changemaxHp){
-            Debug.Log("max_changed");
             max_health += value;
         }
         health += value;
@@ -357,16 +357,16 @@ public class Player : MonoBehaviour
 
     public void KnockBack(float force){
 
-        Debug.Log("KnockBack");
         if(!battleManager.battleing){return;}
         Vector3 targetVec = transform.position + Vector3.right*force;
         StartCoroutine(KnockBackEnumerator(targetVec, force));
     }
 
     public IEnumerator KnockBackEnumerator(Vector3 targetVec,float force){
+        goingOrigin = false;
         while (Vector3.Distance(transform.position,targetVec) > 0.01f)
         {
-            if(goingOrigin){yield return null; break;}
+            if(goingOrigin){yield return null; Debug.Log("goingOrigin"); break;}
             if(transform.position.x < -battleManager.borderX){
                 targetVec += Vector3.left*force;
             }
@@ -374,7 +374,6 @@ public class Player : MonoBehaviour
                 targetVec += Vector3.left*force;
             }
             transform.position = Vector3.Lerp(transform.position, targetVec, 20*Time.deltaTime);
-            // MoveTowards(transform.position, targetVec, 50*Time.deltaTime);
             
             yield return null;
         }

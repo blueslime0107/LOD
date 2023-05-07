@@ -58,7 +58,6 @@ public class NovelPlayerMain : MonoBehaviour
     }
 
     public void picture(int id){
-        Debug.Log(id);
         if(id < 0){
             if(id.Equals(-2)){
             foreach(SpriteRenderer sprite in pictureRenderer){

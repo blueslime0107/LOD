@@ -13,7 +13,6 @@ public class Card40 : CardAbility
 
     public override void WhenCardDestroy(CardPack card, BattleManager match)
     {
-        Debug.Log("Destroy?");
         card.player.AddHealth(-5,true);
         card.player.UpdateHp();
     }

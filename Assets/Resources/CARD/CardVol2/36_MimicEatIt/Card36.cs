@@ -28,7 +28,6 @@ public class Card36 : CardAbility
     public override void OnBattleStart(CardPack card, Player player, BattleManager match)
     {
         if(card.saved_card == null || !card.active){return;}
-        // Debug.Log("jsfkajsdlfj");
         card.count--;
         if(card.count <= 0){
             match.backColorEff.changeColor(255, 162, 0,255);

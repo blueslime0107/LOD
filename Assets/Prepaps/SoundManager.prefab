@@ -333,6 +333,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
     reverb: {fileID: 0}
+  - name: Bat
+    clip: {fileID: 8300000, guid: 65aeadbc500efa44aa42213a582a3d7c, type: 3}
+    volume: 1
+    group: 0
+    loop: 0
+    source: {fileID: 0}
+    reverb: {fileID: 0}
   musics:
   - name: BattleFloor
     clip: {fileID: 8300000, guid: 4e82aac26e5d68e48b1da206693d7920, type: 3}
@@ -435,6 +442,20 @@ MonoBehaviour:
   - name: Catherle
     clip: {fileID: 8300000, guid: b55d77bc73c08404091c9b37be5a662b, type: 3}
     volume: 0.482
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Minus1
+    clip: {fileID: 8300000, guid: 0070ba41aaf006c4b964257b673f88c5, type: 3}
+    volume: 0.482
+    group: 1
+    loop: 1
+    source: {fileID: 0}
+    reverb: {fileID: 0}
+  - name: Minus2
+    clip: {fileID: 8300000, guid: 7c4315dce6f2b6e40b6019937efc5a8a, type: 3}
+    volume: 0.714
     group: 1
     loop: 1
     source: {fileID: 0}

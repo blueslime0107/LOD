@@ -6,9 +6,9 @@ using UnityEngine;
 public class Card32 : CardAbility
 {
 
-    public override void OnClashStart(CardPack card, BattleCaculate battle, Player enemy)
+    public override void OnClashDraw(CardPack card, BattleCaculate battle, Player enemy)
     {
-        if(card.player.dice != enemy.dice){return;}
+        if(battle.myChar != card.player){return;}
         battle.bm.CardLog("Draw",card);
         card.player.AddDice(3);
         

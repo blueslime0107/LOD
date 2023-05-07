@@ -62,7 +62,7 @@ to the last character to attack you before you die.</ability>
         <name>Solver Merchant</name>
         <text>Here's a cure!&#10; Behind you? Never mind!</text>
         <ability>[Get Card] Health+7
-[Battle Ready] Take 4 damage every 4 turns </ability>.
+[Battle Ready] Take 4 damage and Power+3 every 4 turns </ability>.
     </Card>
     <Card Code="11">
         <name>Out-of-this-world Alchemy</name>
@@ -85,7 +85,8 @@ if you subsequently [Clash Win], recover Health equal to the damage dealt</abili
     <Card Code="14">
         <name>Mutual Assured Destruction</name>
         <text>Let's see if you die or I die</text>
-        <ability>[Damage] Deal 1 damage to all opposing characters</ability>
+        <ability>[Team Hit] Increases the count, increasing the count by the damage when this player is hit.
+[Clash Win] For a count of 3 or more, deal (count/3) damage to all opponents.</ability>
     </Card>
     <Card Code="15">
         <name>Bloodshot Memory</name>
@@ -110,13 +111,13 @@ if you subsequently [Clash Win], recover Health equal to the damage dealt</abili
     <Card Code="19">
         <name>Sportsmanship</name>
         <text>Peevish! You can't do this! That's not sportsmanship!</text>
-        <ability>{Target all our teams}[Damage]Give a defenseless opponent a red card
-that prevents them from dealing damage for the next 1 turn</ability>.
+        <ability>[Gain] Your entire team gains Weak Dagger ([Clash Start] gain 1 of power if unarmored).
+This card is then destroyed.</ability>.
     </Card>
     <Card Code="195">
-        <name>Red Card</name>
+        <name>Weak Dagger</name>
         <text>Peevish! You can't do this! Be polite!</text>
-        <ability>[Hit] deals 0 damage, destroyed after 1 turn</ability>
+        <ability>[Clash Start] gain 1 of power if unarmored</ability>
     </Card>
     <Card Code="20">
         <name>Organize bookshelves</name>
@@ -226,8 +227,8 @@ Decreases with each activation</ability>.
     <Card Code="38">
         <name>Ray-Debug</name>
         <text>Oh, you bug!</text>
-        <ability>[Get Card]One of your cards becomes a Bug Card (Effect Seal)&#10;[Card Select]The card becomes a Bug Card, temporarily recovers 5 Health, and is destroyed if it is not. 
-If you don't have a [Clash Win] Bug Card, you can give it to your opponent</ability>.
+        <ability>[Battle Ready] Activate after 1-5 turns, deal half your Max Health (up to 20) and turn into a random card effect.
+[Clash Start] Decrease Power by 1 [Clash Win] Give this card to an oppose.</ability>.
     </Card>
     <Card Code="39">
         <name>D6</name>
@@ -484,6 +485,39 @@ If all cards are prevented except this one...</ability>
         <text>This grass wants luck!</text>
         <ability>[Active] If you have 2 or more opposing characters with Power 2 or less and Power 5 or more.
 Destroy the dice of your opponent's characters with power 5 or higher, gaining power 6 every third activation</ability>.
+    </Card>
+    <Card Code="94">
+        <name>Blast</name>
+        <text>Bullets in your body...</text>
+        <ability>[Clash Ready] Randomly decreases power by 0 to maximum count</ability>
+    </Card>
+    <Card Code="95">
+        <name>Accurate Aim</name>
+        <text>Bullet</text>
+        <ability>[Damage] Give opponent a Blast ([Clash Ready] Randomly decreases power by 0 to maximum count)
+Raises the count</ability>
+    </Card>
+    <Card Code="96">
+        <name>The Departed</name>
+        <text>Let them go</text>
+        <ability>[Hit] Damage +1</ability>
+    </Card>
+    <Card Code="97">
+        <name>Look your BACK!</name>
+        <text>Showing your enemy the back of your head is a big mistake</text>
+        <ability>[Attack] Your opponent takes +4 damage when defenseless</ability>
+    </Card>
+    <Card Code="98">
+        <name>Slicing Spoon</name>
+        <text>Spoons are obviously used for eating</text>
+        <ability>[Clash Start]If your ability is higher than your opponent's.
+lower the dice to your opponent's power, and recover health equal to the lowered value</ability>.
+    </Card>
+    <Card Code="99">
+        <name>Boundaries of the Big Home Run</name>
+        <text>With big gambles come big gains!!!!!!!</text>
+        <ability>[Activate]-10 Health
+[Clash Win] 50% chance to gain +12 Power</ability>
     </Card>
     <Card Code="368">
         <name>Incapacitated</name>

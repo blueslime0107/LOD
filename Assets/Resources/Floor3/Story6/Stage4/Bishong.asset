@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd085e7e62f6f854284d7fee4044c6c9, type: 2}
   - {fileID: 11400000, guid: e884b35dd6fa9844194ee615d23a4b5f, type: 2}
   - {fileID: 11400000, guid: 5dc869507a2d6524b9e7fb6bba07a350, type: 2}
+  - {fileID: 11400000, guid: 0fb62f927fa2e944a82a652b1b21212e, type: 2}
   battleAble: 1
   specialAtk: {fileID: 0}
   priceBonus: 0

@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 0}
   priceStage:
   - {fileID: 11400000, guid: e62d40219de0ff743a4aff14776b5afc, type: 2}
+  - {fileID: 11400000, guid: 20b7f9360c926ef49aef924237db1a15, type: 2}
   priceChars:
     player_Characters_id: 0
     player_cards: 

@@ -14,7 +14,6 @@ public class FadeBack : MonoBehaviour
     }
 
     public void FadeIn(){ // 장면 들어갈때
-    Debug.Log(animator.GetBool("FadeOut"));
     animator.SetBool("FadeOut",false);
         gameObject.SetActive(false);
         
@@ -23,11 +22,9 @@ public class FadeBack : MonoBehaviour
     }
 
     public void FadeOut(){ // 장면 나갈때
-    Debug.Log(animator.GetBool("FadeOut"));
         gameObject.SetActive(false);
         gameObject.SetActive(true);
         animator.SetBool("FadeOut",true);
-        Debug.Log(animator.GetBool("FadeOut"));
         fether.Play();
     }
 

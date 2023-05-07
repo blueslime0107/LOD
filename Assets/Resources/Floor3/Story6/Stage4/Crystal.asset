@@ -18,6 +18,7 @@ MonoBehaviour:
   char_preCards:
   - {fileID: 11400000, guid: 8b70d90f80a75db4294fb906ce48bee7, type: 2}
   - {fileID: 11400000, guid: fa4812d23182eb34b9584d3212b3abee, type: 2}
+  - {fileID: 11400000, guid: 0fb62f927fa2e944a82a652b1b21212e, type: 2}
   battleAble: 1
   specialAtk: {fileID: 0}
   priceBonus: 0

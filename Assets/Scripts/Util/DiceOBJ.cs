@@ -27,7 +27,6 @@ public class DiceOBJ : MonoBehaviour
 
     private void OnMouseDown() {
         if(diceIndex <= 0){return;}
-        Debug.Log("selected");
         DiceProperty newDice = new DiceProperty();
         newDice = player.dice_list[0];
         player.dice_list[0] = player.dice_list[diceIndex];

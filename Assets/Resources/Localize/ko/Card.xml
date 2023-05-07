@@ -62,7 +62,7 @@
         <name>해결사 상인</name>
         <text>자 여기 치료제에요!&#10;뒤에요? 신경쓰지마세요!</text>
         <ability>[획득]체력 +7
-[전투 준비] 4턴마다 피해4 를 받는다 </ability>
+[전투 준비] 4턴마다 피해4 를 받고, 위력 +3 </ability>
     </Card>
     <Card Code="11">
         <name>이세상 최고의 연금술</name>
@@ -82,7 +82,8 @@
     <Card Code="14">
         <name>상호확증파괴</name>
         <text>니가 죽나 내가 죽나 함 보자고</text>
-        <ability>[피격] 모든 상대팀 캐릭터에게 피해1 을 준다</ability>
+        <ability>[자신팀 피격] 카운트 상승, 자신이 피격됬을때 피해만큼 카운트 상승
+[합 승리] 카운트 3 이상일시 상대팀 전체에게 (카운트/3) 피해를 준다</ability>
     </Card>
     <Card Code="15">
         <name>핏빛기억</name>
@@ -106,13 +107,14 @@
     </Card>
     <Card Code="19">
         <name>스포츠맨십</name>
-        <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
-        <ability>{팀 전체 대상}[피격]무방비시 상대에게&#10;다음 1턴 동안 피해를 못주는 레드카드를 준다</ability>
+        <text>단검이라도 쥐어주자고</text>
+        <ability>[획득]자신팀 전체가 약한 단검([합 시작]무방비시 위력1 주사위 획득)을 얻는다
+이후 이 카드는 파괴된다</ability>
     </Card>
     <Card Code="195">
-        <name>레드카드</name>
-        <text>삐빅! 이거 안됩니다! &#10;매너하시죠!</text>
-        <ability>[적중]피해가 0이 된다, 1턴뒤 파괴됨</ability>
+        <name>약한 단검</name>
+        <text>최소한의 저항은 해줘야죠!</text>
+        <ability>[합 시작]무방비시 위력1 주사위 획득</ability>
     </Card>
     <Card Code="20">
         <name>책장정리</name>
@@ -221,8 +223,8 @@
     <Card Code="38">
         <name>레이-디버그</name>
         <text>아오 이놈의 벌레!</text>
-        <ability>[획득]카드중 하나가 버그카드(효과봉인)가 된다.&#10;[카드 지정]카드가 버그카드일시 체력5회복 버그풀림, 아닐시 파괴된다. 
-[합 승리]버그카드가 없다면 상대에게 넘길 수 있다</ability>
+        <ability>[전투준비] 1~5턴뒤 발동, 최대체력의 절반만큼(최대 20) 피해받고, 랜덤한 카드효과로 바뀐다
+[합 시작] 위력 1 감소 [합 승리] 적에게 이 카드를 넘긴다</ability>
     </Card>
     <Card Code="39">
         <name>D6</name>
@@ -474,6 +476,39 @@
         <name>보라색 클로버</name>
         <text>이 풀은 행운을 원해요!</text>
         <ability>[발동] 자신위력2 이하일때 위력5 이상의 상대팀 캐릭터들의 주사위를 파괴한다.&#10;3번째 발동마다 위력6 이 된다</ability>
+    </Card>
+    <Card Code="94">
+        <name>파열탄</name>
+        <text>몸속에 총알이...</text>
+        <ability>[전투준비] 랜덤으로 0 ~ 최대 카운트 만큼 위력감소</ability>
+    </Card>
+    <Card Code="95">
+        <name>정조준</name>
+        <text>총알을 박아주지</text>
+        <ability>[피해 줌]상대에게 몸속의 총알([전투준비] 랜덤으로 0 ~ 최대 카운트 만큼 위력감소) 
+카운트를 올린다</ability>
+    </Card>
+    <Card Code="96">
+        <name>떠나간 이들</name>
+        <text>이제 그만 보내주자</text>
+        <ability>[피격] 피해+1</ability>
+    </Card>
+    <Card Code="97">
+        <name>빈틈을 보이면 안되지</name>
+        <text>적에게 뒤통수를 보이다니&#10;그건 큰 실수라고</text>
+        <ability>[피해 줌] 상대가 무방비시 피해+4</ability>
+    </Card>
+    <Card Code="98">
+        <name>숟가락 썰어먹기</name>
+        <text>숟가락은 분명 식사를 위해 사용됬지</text>
+        <ability>[합 시작]자신위력이 상대위력보다 높다면
+상대위력까지 주사위를 낮추고, 낮춘만큼 체력회복</ability>
+    </Card>
+    <Card Code="99">
+        <name>이인생 빅 홈런의 경계</name>
+        <text>큰 도박엔 큰 이득이!!!!!!!</text>
+        <ability>[발동]체력-10
+이후 [합 승리]50% 확률로 위력+12</ability>
     </Card>
     <Card Code="368">
         <name>행동불가</name>

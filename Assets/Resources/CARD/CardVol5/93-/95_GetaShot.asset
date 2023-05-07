@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab20b63beb98304abb9df896399b6d5, type: 3}
+  m_Name: 95_GetaShot
+  m_EditorClassIdentifier: 
+  card_id: 95
+  name: 
+  message: 
+  ability_message: 
+  tained: 0
+  price: 0
+  illust: {fileID: 21300000, guid: fc81595cd61515e46a59547a43bf17ba, type: 3}
+  usingCount: 0
+  pre_count: 0
+  overCard:
+    overIMG: {fileID: 0}
+    textColor:
+      serializedVersion: 2
+      rgba: 0
+  effect: []
+  linked_card:
+  - {fileID: 11400000, guid: e62ea99a99a6e134d92e3c76dba74269, type: 2}
+  diceLink: {fileID: 0}
+  dice: {fileID: 0}
+  cardgiven: 0

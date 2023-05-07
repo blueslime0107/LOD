@@ -42,7 +42,7 @@ public class Dice_Indi : MonoBehaviour
         particle.Play();
         dice_list.Clear();
         dice_list.Add(battleManager.MakeNewDice(dice.dice_value,dice.farAtt));
-        player.ChangeCondition(1);
+        //player.ChangeCondition(1);
         updateDice();
         isDiced = true;     
         battleManager.sdm.Play("Paper1");
@@ -78,9 +78,12 @@ public class Dice_Indi : MonoBehaviour
             player.dice = 0;
             return;
         }
-        dice_list[0].value = value;
-        
+        dice_list[0].value = value;  
         particle.Play();
+        if(dice_list[0].value <= 0){
+            NextDice();
+            return;
+        }
         updateDice();
     }
 

@@ -100,6 +100,8 @@ public class MenuCard : MonoBehaviour, IPointerDownHandler
                 foreach(CardAbility card in character.char_preCards){
                     if(card == null){break;}
                     CardPanelCard newCard =  objList.Find(x => x.cardAbility == card);
+                    foreach(CardPanelCard cardddd in objList){Debug.Log(cardddd.cardAbility);}
+                    if(newCard == null){break;}
                     newCard.equiped_char = character;
                     newCard.equiped_charIMG.sprite = character.char_sprites.poses[0];
 

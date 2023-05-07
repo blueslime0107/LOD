@@ -20,11 +20,8 @@ public class CardExplain : MonoBehaviour
         XmlDocument xmlDocument = new XmlDocument();
         xmlDocument.Load(Application.dataPath + "\\Resources\\" + filename);
 
-        Debug.Log(xmlDocument);
-
         XmlNodeList thisCardXML = xmlDocument.GetElementsByTagName("Card");
         foreach(XmlNode node in thisCardXML){
-            Debug.Log(node.Attributes[0].Value);
             if(node.Attributes[0].Value.Equals(id.ToString())){
                 XmlNodeList cardXML = node.ChildNodes;
                 cardAbText.text = cardXML[2].InnerText;

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
   m_Name: TutoSub1
   m_EditorClassIdentifier: 
-  id: 5
+  id: 1001
   stageAddress:
     floor: 1
     sub: 1
-  title: "\uC8FC\uC0AC\uC704 \uC370\uC5B4\uBA39\uAE30"
+  title: "\uAC19\uC774 \uC774\uAC70 \uBA39\uC9C0 \uC54A\uC744\uB798?"
   rank: 4
   characters:
   - {fileID: 11400000, guid: b6317fc348fa92f42ac0d9be62b9bb24, type: 2}
@@ -27,20 +27,20 @@ MonoBehaviour:
   priceStage:
   - {fileID: 11400000, guid: 910b805115a4aae41ae4d36904b1511e, type: 2}
   priceChars:
-    PlayerStage_id: 0
     player_Characters_id: 0
+    player_cards: 
   priceCards:
   - {fileID: 11400000, guid: bb4bf4620e9e30f40a7ee50ca7017b4b, type: 2}
-  beforeStory: {fileID: 0}
-  afterStory: {fileID: 0}
-  victoryed: 0
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
   charlimit: 4
   playerStageLock: {fileID: 0}
-  stageEvent: {fileID: 0}
   custom_stage: {fileID: 0}
   custom_BGM: 
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
   noPrice: 0
+  noCardEquipBreak: 0
   discovered: 0
+  victoryed: 0

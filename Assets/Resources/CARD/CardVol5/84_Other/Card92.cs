@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+ 
 public class Card92 : CardAbility
 {
     public override void WhenCardGetImmedi(CardPack card, BattleManager match)

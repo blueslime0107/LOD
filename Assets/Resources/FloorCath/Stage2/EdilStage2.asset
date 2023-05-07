@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: EdilStage2
+  m_EditorClassIdentifier: 
+  id: 10002
+  stageAddress:
+    floor: 6
+    sub: 1
+  title: Record-2
+  rank: 1
+  characters:
+  - {fileID: 11400000, guid: 8790b3d31e6fdc443a88e101a549fa71, type: 2}
+  - {fileID: 11400000, guid: 01d474ec12ff9cf43b277c345cb886f4, type: 2}
+  - {fileID: 11400000, guid: 01d474ec12ff9cf43b277c345cb886f4, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  priceStage: []
+  priceChars:
+    player_Characters_id: 0
+    player_cards: 
+  priceCards:
+  - {fileID: 11400000, guid: a5da873af6ce9af4da64cd826ea9f5a3, type: 2}
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
+  charlimit: 5
+  playerStageLock: {fileID: 11400000, guid: 89c0e57ec4705c940be89e4038e337ec, type: 2}
+  custom_stage: {fileID: 7031720308284986131, guid: 9df9c940c69ac7047a29696e7674d6b8, type: 3}
+  custom_BGM: 
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  noCardEquipBreak: 0
+  discovered: 0
+  victoryed: 0

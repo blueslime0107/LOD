@@ -20,6 +20,7 @@ public class Card10 : CardAbility
             Damage newDam = new Damage();
             newDam.setDamage(4);
             card.player.DamagedBy(newDam,player);
+            card.player.AddDice(3);
             card.count = 4;
             match.CardLog("Cost",card);
         }

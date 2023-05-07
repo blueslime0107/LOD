@@ -5,19 +5,12 @@ using UnityEngine;
 
 public class Card195 : CardAbility
 {
-    public override void OnDamaging(CardPack card, Player defender, Damage damage, BattleManager match)
+    public override void OnClashStart(CardPack card, BattleCaculate battle, Player enemy)
     {
-        Debug.Log(card.player.dice);
-        damage.value = 0;
-        match.CardLog("NoDamage",card);
-    }
-
-    public override void OnBattleEnd(CardPack card, Player player, BattleManager match)
-    {
-        if(!card.active){
-            card.active = true;
-            return;}
-        match.DestroyCard(card,card.player);
+        if(card.player.dice <= 0){
+            battle.bm.CardLog("Dice1",card);
+            battle.bm.MakeNewDiceAndPutPlayer(card.player,1,true);
+        }
     }
 
 }

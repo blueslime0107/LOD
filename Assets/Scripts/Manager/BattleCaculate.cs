@@ -58,7 +58,6 @@ public class BattleCaculate : MonoBehaviour
     }
 
     public void BattleMatch(Player my_target, Player ene_target){
-        Debug.Log("BattleMatch");
         bm.sdm.Play("Fire1");
         blackScreen.BattleStart();
         foreach(Player player in players){
@@ -226,9 +225,21 @@ public class BattleCaculate : MonoBehaviour
                 if(ene_ability[i].blocked){continue;}
                 ene_ability[i].ability.OnClashDraw(ene_ability[i],this,myChar);
             }
+            SetDamage(myChar.dice - eneChar.dice);
+            if(damage.value != 0){
+                
+            }
+            else{
             StartCoroutine(Damage(myChar,eneChar));
             yield return null;
+
+            }
         }
+
+
+
+
+
         if(damage.value>0){ // 승리
 
 
@@ -333,7 +344,6 @@ public class BattleCaculate : MonoBehaviour
                 eneChar.special_active = false;
                 specialFade.SpecialEnd();
             }
-            while(myChar.gameObject.activeSelf){ Debug.Log("line");yield return null;}
         }
         if(eneChar.health <= 0){
             eneChar.YouAreDead();
@@ -515,7 +525,6 @@ public class BattleCaculate : MonoBehaviour
 
     public void AtkEffectAble(Player player,Transform tran){
         player.atkEffect.gameObject.SetActive(true);
-        Debug.Log(player.gameObject.tag);
         if(player.gameObject.tag == "PlayerTeam1"){
             player.atkEffect.transform.eulerAngles = Vector3.zero;
         }

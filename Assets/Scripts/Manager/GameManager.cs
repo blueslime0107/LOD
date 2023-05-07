@@ -179,8 +179,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        battleManager.cards = sm.player_cardDic;
-
+        battleManager.cards = new List<CardAbility>(sm.player_cardDic);
         battleManager.cards.RemoveAll(x => x.tained);
 
         if(sm.play_stage.tutorialLine > 0){

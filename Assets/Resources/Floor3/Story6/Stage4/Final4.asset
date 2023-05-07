@@ -24,7 +24,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d2c21d019f9ca0a42b7ba208a76f0260, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  priceStage: []
+  priceStage:
+  - {fileID: 11400000, guid: 2f76c741f87642a41a48d92b3dfd656f, type: 2}
   priceChars:
     player_Characters_id: 0
     player_cards: 
@@ -33,7 +34,7 @@ MonoBehaviour:
   after_story: {fileID: 0}
   charlimit: 5
   playerStageLock: {fileID: 0}
-  custom_stage: {fileID: 1305605016280389730, guid: 443b972e7cf530e4488bd303186a9600, type: 3}
+  custom_stage: {fileID: 0}
   custom_BGM: 
   noEditChar: 0
   tutorialLine: 0

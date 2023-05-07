@@ -112,7 +112,6 @@ public class UI : MonoBehaviour
             indi[i].gameObject.SetActive(true); 
         }}
         catch{
-            Debug.Log("CardFoldErrpr");
         }
     }
 

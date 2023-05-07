@@ -27,24 +27,4 @@ public class CardPrefap : MonoBehaviour
         loaded = true;
     }
 
-    // private void ReadXML(string filename){
-    //     XmlDocument xmlDocument = new XmlDocument();
-    //     TextAsset textAsset = (TextAsset) Resources.Load(filename);  
-    //     Debug.Log(filename);
-    //     Debug.Log(textAsset);
-    //     xmlDocument.LoadXml(textAsset.text);
-
-    //     XmlNodeList thisCardXML = xmlDocument.GetElementsByTagName("Card");
-    //     foreach(XmlNode node in thisCardXML){
-    //         if(node.Attributes[0].Value.Equals(ability.card_id.ToString())){
-    //             XmlNodeList cardXML = node.ChildNodes;
-    //             ability.name = cardXML[0].InnerText;
-    //             ability.message = cardXML[1].InnerText;
-    //             ability.ability_message = cardXML[2].InnerText;
-    //             break;
-    //         }
-    //     }
-
-    // }
-
 }

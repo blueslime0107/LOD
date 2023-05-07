@@ -14,6 +14,8 @@ public class SpecialAtk : MonoBehaviour
     }
 
     public void SetCondi(int condi){
+        Debug.Log(condi);
+        Debug.Log(characters[0]);
         foreach(SpriteRenderer sprite in enemy_sprites){
             sprite.gameObject.SetActive(false);
         }

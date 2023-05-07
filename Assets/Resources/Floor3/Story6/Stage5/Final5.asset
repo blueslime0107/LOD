@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a3f464a76a09b4fba63c6e8bd9cf1f, type: 3}
+  m_Name: Final5
+  m_EditorClassIdentifier: 
+  id: 35
+  stageAddress:
+    floor: 6
+    sub: 0
+  title: "\uACB0\uB9D0"
+  rank: 1
+  characters:
+  - {fileID: 11400000, guid: 8c40f1250191c934b9e5492ecf66f320, type: 2}
+  - {fileID: 11400000, guid: 32d8ff12c35f70b49afcf4f48c8459c3, type: 2}
+  - {fileID: 11400000, guid: 32d8ff12c35f70b49afcf4f48c8459c3, type: 2}
+  - {fileID: 11400000, guid: 59183fd9c8605a44d812a0464f3295e9, type: 2}
+  - {fileID: 11400000, guid: 59183fd9c8605a44d812a0464f3295e9, type: 2}
+  priceStage:
+  - {fileID: 11400000, guid: d5669fc4876c0ab4ca3315739c7a0247, type: 2}
+  priceChars:
+    player_Characters_id: 0
+    player_cards: 
+  priceCards: []
+  before_story: {fileID: 0}
+  after_story: {fileID: 0}
+  charlimit: 5
+  playerStageLock: {fileID: 0}
+  custom_stage: {fileID: 1305605016280389730, guid: 443b972e7cf530e4488bd303186a9600, type: 3}
+  custom_BGM: Minus2
+  noEditChar: 0
+  tutorialLine: 0
+  noBreakCards: 0
+  noPrice: 0
+  noCardEquipBreak: 0
+  discovered: 0
+  victoryed: 0

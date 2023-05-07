@@ -28,7 +28,6 @@ public class BackColorEff : MonoBehaviour
             
         }
 
-        Debug.Log("didnt");
         spriteRenderer.color = originColor;
         gameObject.SetActive(false);
         yield return null;

@@ -8,7 +8,6 @@ public class SpecialPlayer : MonoBehaviour
     public bool specialEnd;
 
     public void SpeicalFade(){
-        Debug.Log("SpecialFade");
         specialEnd = true;
         gameObject.SetActive(true);
         StartCoroutine(WaitForSpeical());
@@ -32,7 +31,6 @@ public class SpecialPlayer : MonoBehaviour
 
 
     public void SpecialEnd(){
-        Debug.Log("SpecialEnd");
         specialEnd = false;
         specialAtk.gameObject.SetActive(false);
         gameObject.SetActive(false);
