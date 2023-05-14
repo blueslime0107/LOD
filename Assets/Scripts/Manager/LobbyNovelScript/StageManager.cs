@@ -6,6 +6,7 @@ using System.Xml;
 
 public class StageManager : MonoBehaviour
 {
+    public bool minusdice;
     public DataBase db;
     public SaveManager saveManager;
     public StageManagerDB stageManagerDB;

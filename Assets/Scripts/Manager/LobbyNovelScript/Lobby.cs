@@ -51,8 +51,8 @@ public class Lobby : MonoBehaviour
 
     [SerializeField]GameObject mainAlertObject;
 
-    [SerializeField]BattleLoad substageload;
-    [SerializeField]BattleLoad mainstageload;
+    public BattleLoad substageload;
+    public BattleLoad mainstageload;
    
     public MenuItem elevatorLeft;
     public MenuItem elevatorRight;
@@ -108,10 +108,15 @@ public class Lobby : MonoBehaviour
                     playerCard.ActiveOpenClose();
                     BattleButton.ActiveOpenClose();
                     curMenu.Remove("battle"); 
-                    selectedbattleItem.alert.SetActive(false);
+                    if(selectedbattleItem.alert){selectedbattleItem.alert.SetActive(false);}
                     substageload.RefreshDiscover();
                     mainstageload.RefreshDiscover();
                     elevatorButtons[stageManager.Floors.IndexOf(curFloor)].RefreshDiscover();
+                    Debug.Log(curMenu.Count);
+                    if(curMenu.Count <= 1){
+                        elevatorLeft.MoveToOrigin();
+                        elevatorRight.MoveToOrigin();
+                    }
                     break;
                 case "cardMenu":
                 sdm.Play("Close");
@@ -200,6 +205,8 @@ public class Lobby : MonoBehaviour
         enemyCard.ActiveOpenClose();
         playerCard.ActiveOpenClose();
         BattleButton.ActiveOpenClose();
+        elevatorLeft.MoveToMove();
+        elevatorRight.MoveToMove();
         curMenu.Add("battle");
     }
 

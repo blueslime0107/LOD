@@ -40,7 +40,7 @@ MonoBehaviour:
   noEditChar: 0
   tutorialLine: 0
   noBreakCards: 0
-  noPrice: 1
+  noPrice: 0
   noCardEquipBreak: 0
   discovered: 1
-  victoryed: 1
+  victoryed: 0

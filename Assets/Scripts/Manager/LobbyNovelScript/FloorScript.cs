@@ -23,7 +23,7 @@ public class FloorScript : MonoBehaviour
     [SerializeField] int fl;
     bool movingFloor = false;
     
-
+    [SerializeField]MinusReveration minusReveration;
     // 현재 층의 배경 로딩하기
     void Start(){
         sm = FindObjectOfType<StageManager>();
@@ -88,6 +88,48 @@ public class FloorScript : MonoBehaviour
         elevatorLeftDoor.MoveToOrigin();
         elevatorRightDoor.MoveToOrigin();
         movingFloor = false;
+        yield return null;
+    }
+
+    public void GoToMinusDice(){
+        sm.minusdice = true;
+        if(movingFloor){return;}
+        movingFloor = true;
+        curFloor = sm.Floors[0];
+        lobby.curFloor = curFloor;
+        sm.preFloor = 0;
+        StartCoroutine(MinusDiceEnter(1));
+        
+    }
+
+    IEnumerator MinusDiceEnter(int dir){
+        yield return new WaitForSeconds(0.2f);
+        while(Vector3.Distance(transform.position, Vector3.up*fl*dir) > 1){
+            transform.position = Vector3.Lerp(transform.position,Vector3.up*fl*dir,Time.deltaTime*15f);
+            yield return null;
+        }
+        transform.position = Vector3.up*fl*dir;
+
+        lobby.ReloadPlayerCard();
+        subPanelLoad.RefreshDiscover();
+        mainPanelLoad.RefreshDiscover();
+        curBg.SetActive(false);
+        transform.position = Vector3.down*fl*dir;
+        minusReveration.minusDiceEnter.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        minusReveration.Start();
+        curBg = floorBgObj[sm.Floors.IndexOf(curFloor)];
+        curBg.SetActive(true);
+        while(Vector3.Distance(transform.position, Vector3.zero) > 1){
+            transform.position = Vector3.Lerp(transform.position,Vector3.zero,Time.deltaTime*15f);
+            yield return null;
+        }
+        transform.position = Vector3.zero;
+        yield return new WaitForSeconds(0.5f);
+        elevatorLeftDoor.MoveToOrigin();
+        elevatorRightDoor.MoveToOrigin();
+        movingFloor = false;
+        
         yield return null;
     }
 
