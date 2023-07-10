@@ -112,7 +112,6 @@ public class Lobby : MonoBehaviour
                     substageload.RefreshDiscover();
                     mainstageload.RefreshDiscover();
                     elevatorButtons[stageManager.Floors.IndexOf(curFloor)].RefreshDiscover();
-                    Debug.Log(curMenu.Count);
                     if(curMenu.Count <= 1){
                         elevatorLeft.MoveToOrigin();
                         elevatorRight.MoveToOrigin();

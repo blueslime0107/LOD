@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ToyBox
   m_EditorClassIdentifier: 
   health: 3
-  breaks: 0200000000000000
+  breaks: 00000000
   char_sprites: {fileID: 11400000, guid: efd41d43bfd3fdb4596ae6835d34f002, type: 2}
   char_preCards:
   - {fileID: 0}
@@ -23,5 +23,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

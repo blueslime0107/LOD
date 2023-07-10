@@ -160,6 +160,7 @@ public class BattleCaculate : MonoBehaviour
 
         
         # region 데미지 결정됨
+        BasicDice();
         SetDamage(myChar.dice - eneChar.dice);
         if(damage.value>0){    // 데미지 결정
             ParticleSystem particle = (myChar.gameObject.tag.Equals("PlayerTeam1")) ? battleDice.right_break : battleDice.left_break;

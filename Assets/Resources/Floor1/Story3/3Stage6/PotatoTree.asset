@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: PotatoTree
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
   breaks: 00000000
   char_sprites: {fileID: 11400000, guid: 4c6d18f311502284f96b839679750712, type: 2}
   char_preCards:
@@ -23,5 +23,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

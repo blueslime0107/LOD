@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GGunsu
   m_EditorClassIdentifier: 
   health: 10
-  breaks: 0c000000080000000400000000000000
+  breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: de7b18e8175b6ab4c89972d67327a7a6, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: ad0dc8cf50a27554bbc38fc5283c3c44, type: 2}

@@ -419,7 +419,7 @@ your opponent gets to keep it.</ability>
     <Card Code="81">
         <name>Potato Biei Biei Im!!!!</name>
         <text>Pooh-pooh</text>
-        <ability>[Clash Win] Deal 2x total damage to all opponents</ability>
+        <ability>[Clash Win] Deal clash damage to all opponents</ability>
     </Card>
     <Card Code="82">
         <name>Wal Uwal Wararal</name>

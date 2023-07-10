@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9433ef40da3cbab42a738fe504fdfa54, type: 3}
   m_Name: Ddog
   m_EditorClassIdentifier: 
-  health: 10
-  breaks: 0500000000000000
+  health: 8
+  breaks: 00000000
   char_sprites: {fileID: 11400000, guid: d83f71cec45e0b547b6db91295b8e0c0, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: 4d79e70b0b014694f9db868889c3485e, type: 2}
@@ -23,5 +23,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

@@ -10,6 +10,8 @@ public class MinusReveration : MonoBehaviour
 
     public GameObject minusDiceEnter;
 
+    public GameObject minusEnterButton;
+
     StageManager sm;
 
     public void Start(){

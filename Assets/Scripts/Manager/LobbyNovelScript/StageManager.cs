@@ -89,7 +89,6 @@ public class StageManager : MonoBehaviour
             checkStage.Add(stageProper);
         }
         foreach(Stage stage in checkStage){
-            Debug.Log(stage);
             foreach(Stage priceStage in stage.priceStage){
                 if(stage.victoryed && !checkStage.Contains(priceStage)){
                     Debug.Log(priceStage);

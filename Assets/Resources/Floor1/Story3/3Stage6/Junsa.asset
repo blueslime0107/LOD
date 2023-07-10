@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Junsa
   m_EditorClassIdentifier: 
   health: 15
-  breaks: 0a00000008000000
+  breaks: 0c000000070000000300000000000000
   char_sprites: {fileID: 11400000, guid: 2753f13a8c21bf14bb3a269b9fc75a2e, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: 042dab2cc95fbe24194b3e799e3a0819, type: 2}
@@ -23,5 +23,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  atk_sound: 
   battleAble: 1
+  specialAtk: {fileID: 0}
+  priceBonus: 0

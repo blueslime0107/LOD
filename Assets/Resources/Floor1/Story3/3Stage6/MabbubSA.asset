@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MabbubSA
   m_EditorClassIdentifier: 
   health: 10
-  breaks: 0b0000000600000005000000
+  breaks: 0500000000000000
   char_sprites: {fileID: 11400000, guid: c5fcb444ae45cc042bdc3eee33da7551, type: 2}
   char_preCards:
   - {fileID: 11400000, guid: b92b930350288d0469d9f326582d8937, type: 2}
